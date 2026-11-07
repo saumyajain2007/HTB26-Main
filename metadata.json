@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W5F3SNZXPQ1B7D37GXV7CG",
+  "strategy": "manual-commit",
+  "branch": "ranking-pathogens",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "core/ranking/README.md",
+    "core/ranking/antibiotic/__main__.py",
+    "core/ranking/antibiotic/rank.py",
+    "core/ranking/tests/test_antibiotic_ranking.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 62,
+    "cache_creation_tokens": 40032,
+    "cache_read_tokens": 7753543,
+    "output_tokens": 25085,
+    "api_call_count": 28
+  },
+  "redaction": {
+    "replacements": 4,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 4,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
