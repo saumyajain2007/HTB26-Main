@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6W3SV94XPSFK5T8XTEPYGNQ",
   "strategy": "manual-commit",
   "branch": "ranking-activity-certs-limits",
-  "checkpoints_count": 2,
+  "checkpoints_count": 3,
   "files_touched": [
     "app/api/README.md",
     "app/api/htb_api/fixtures/resistance/antibiotic_candidates.json",
@@ -47,6 +47,13 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
@@ -57,7 +64,7 @@
     "api_call_count": 2
   },
   "redaction": {
-    "replacements": 6,
+    "replacements": 28,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
@@ -65,7 +72,7 @@
       "credential_value": 0,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 6,
+      "key_context": 28,
       "provider_token": 0,
       "shell_stdin": 0
     }
