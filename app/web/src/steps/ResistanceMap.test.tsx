@@ -38,7 +38,7 @@ describe("the resistance map", () => {
 
     expect(
       screen.getByText(
-        "2 resistance mechanisms in this isolate rule out 4 of the 6 drug classes below.",
+        "2 resistance mechanisms in this isolate rule out 5 of the 7 drug classes below.",
       ),
     ).toBeInTheDocument();
   });
@@ -123,7 +123,7 @@ describe("the resistance map", () => {
     }
     expect(screen.getByText(text.confidence.low)).toBeInTheDocument();
     expect(screen.getByText(resistanceProfile().confidence.basis)).toBeInTheDocument();
-    expect(screen.getByText(text.built("CARD 4.0.2"))).toBeInTheDocument();
+    expect(screen.getByText(text.built("CARD 4.0.2 and curated supplement 1"))).toBeInTheDocument();
   });
 
   it("says the numbers are made up, and names the input it could not resolve", () => {
@@ -149,10 +149,10 @@ describe("the resistance map", () => {
     render(<ResistanceMap profile={resistanceProfile()} candidates={undefined} />);
 
     expect(
-      screen.getByText("2 resistance mechanisms in this isolate rule out 4 drug classes."),
+      screen.getByText("2 resistance mechanisms in this isolate rule out 5 drug classes."),
     ).toBeInTheDocument();
     expect(screen.getByText(text.withoutCandidates)).toBeInTheDocument();
-    expect(within(matrix()).getAllByRole("rowheader")).toHaveLength(4);
+    expect(within(matrix()).getAllByRole("rowheader")).toHaveLength(5);
     expect(within(matrix()).queryByText(text.drugsHead)).not.toBeInTheDocument();
     expect(screen.queryByText(FIXTURE_NOTE)).not.toBeInTheDocument();
     expect(screen.queryByText("Linezolid")).not.toBeInTheDocument();
@@ -183,7 +183,7 @@ describe("the resistance map", () => {
 
     expect(await screen.findByText(text.withoutCandidates)).toBeInTheDocument();
     await waitFor(() => {
-      expect(within(matrix()).getAllByRole("rowheader")).toHaveLength(4);
+      expect(within(matrix()).getAllByRole("rowheader")).toHaveLength(5);
     });
     expect(screen.queryByText("Linezolid")).not.toBeInTheDocument();
   });

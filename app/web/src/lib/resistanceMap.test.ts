@@ -93,14 +93,16 @@ describe("mapClassRows", () => {
       "ruled_out",
       "ruled_out",
       "ruled_out",
+      "ruled_out",
       "no_known_link",
       "no_known_link",
     ]);
-    // The first two rows are gyrA's (the first column), the next two mecA's, so the marks sit in
+    // The first two rows are gyrA's (the first column), the next three mecA's, so the marks sit in
     // blocks rather than scattering.
-    expect(rows.slice(0, 4).map((each) => each.name)).toEqual([
+    expect(rows.slice(0, 5).map((each) => each.name)).toEqual([
       "fluoroquinolone antibiotic",
       "nybomycin-like antibiotic",
+      "carbapenem",
       "cephalosporin",
       "penicillin beta-lactam",
     ]);
@@ -109,7 +111,7 @@ describe("mapClassRows", () => {
   it("draws the classes ruled out without the ranked drugs", () => {
     const rows = mapClassRows(resistanceProfile(), undefined);
 
-    expect(rows).toHaveLength(4);
+    expect(rows).toHaveLength(5);
     expect(rows.every((each) => each.status === "ruled_out")).toBe(true);
     expect(rows.every((each) => each.drugs.length === 0)).toBe(true);
   });
@@ -154,9 +156,14 @@ describe("mapClassRows", () => {
 
     const rows = mapClassRows(profile, undefined);
 
-    expect(rows.map((each) => each.name)).toEqual(["cephalosporin", "penicillin beta-lactam"]);
+    expect(rows.map((each) => each.name)).toEqual([
+      "carbapenem",
+      "cephalosporin",
+      "penicillin beta-lactam",
+    ]);
     // One column, marked on every row.
     expect(rows.map((each) => each.cells.map((cell) => cell.geneAroIds))).toEqual([
+      [[MEC_A]],
       [[MEC_A]],
       [[MEC_A]],
     ]);
@@ -225,7 +232,7 @@ describe("determinants", () => {
       modelType: "protein homolog model",
       mechanisms: ["antibiotic target replacement"],
       affectedTarget: "beta-lactam sensitive penicillin-binding protein",
-      classCount: 2,
+      classCount: 3,
     });
     expect(mecA?.evidence[0]?.id).toBe("P1");
     expect(mecA?.evidence[0]?.statement).toContain("CARD links mecA");
@@ -262,6 +269,10 @@ describe("statusesInUse", () => {
 describe("releaseLabel", () => {
   it("puts a CARD release in words", () => {
     expect(releaseLabel("card-4.0.2")).toBe("CARD 4.0.2");
+  });
+
+  it("puts the curated supplement in words", () => {
+    expect(releaseLabel("curated_supplement-1")).toBe("curated supplement 1");
   });
 
   it("falls back to the shared formatter, and then to the release itself", () => {
