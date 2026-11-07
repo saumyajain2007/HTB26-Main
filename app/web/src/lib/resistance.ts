@@ -1,4 +1,4 @@
-import { queryOptions, useQuery } from "@tanstack/react-query";
+import { queryOptions, useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { api } from "../api/client";
 import { unwrap } from "../api/errors";
 import type { components } from "../api/schema";
@@ -22,6 +22,7 @@ export type AntibioticCandidateResult = components["schemas"]["AntibioticCandida
 export type AntibioticCandidate = components["schemas"]["AntibioticCandidate"];
 export type Certificate = components["schemas"]["Certificate"];
 export type EvasionStatus = components["schemas"]["EvasionStatus"];
+export type ProfileRequest = components["schemas"]["ProfileRequest"];
 
 export const resistanceKeys = {
   pathogens: ["resistance", "pathogens"] as const,
@@ -115,5 +116,29 @@ export function useCertificates() {
     queryFn: ({ signal }) =>
       unwrap(api.GET("/api/resistance/certificates", { signal })).then((list) => list.certificates),
     staleTime: Infinity,
+  });
+}
+
+/**
+ * Build a profile from what someone typed, or from a species preset (#15's resolver, behind
+ * `POST /api/resistance/profiles`).
+ *
+ * Resolving a determinant name needs CARD's vocabulary, which only the server holds, so this is
+ * the only way typed names become a profile: the browser cannot tell a known name from an
+ * unknown one and must not guess. The profile that comes back is cached under its own ID, so the
+ * screen it opens does not fetch it again, and the names that matched nothing arrive in
+ * `unresolved_inputs` with CARD's reason rather than being dropped.
+ *
+ * The API answers 503 when the process has no CARD release; `ApiError.status` carries that, so
+ * the caller can say "not available here" instead of "that name is unknown".
+ */
+export function useBuildProfile() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (request: ProfileRequest) =>
+      unwrap(api.POST("/api/resistance/profiles", { body: request })),
+    onSuccess: (profile) => {
+      queryClient.setQueryData(resistanceKeys.profile(profile.profile_id), profile);
+    },
   });
 }

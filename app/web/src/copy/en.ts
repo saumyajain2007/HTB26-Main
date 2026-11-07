@@ -132,8 +132,19 @@ export const copy = {
       genesRead: (count: number) =>
         count === 0 ? "No names read" : `${String(count)} ${count === 1 ? "name" : "names"} read`,
       genesRepeated: (names: readonly string[]) => `Repeated, so read once: ${listOf(names)}.`,
-      genesBlocked:
-        "Nothing is sent yet: building a profile from typed names needs the resistance profiling endpoint, which isn’t built (issue #15). CARD’s vocabulary lives on the server, so only the server can say which of these names it knows.",
+      /** Only the server holds CARD’s vocabulary, so it alone can say which names it knows. */
+      genesHelp:
+        "The server looks each name up in CARD. Anything it doesn’t recognise is listed back, " +
+        "not dropped.",
+      genesSubmit: "Build the profile",
+      genesBuilding: "Looking the names up in CARD…",
+      /** The API has no CARD release: nothing was looked up, so say that and not “unknown name”. */
+      genesUnavailable:
+        "This copy of the API has no CARD release, so it can’t look names up. Pick a pathogen " +
+        "above instead.",
+      /** The parser read the input but refused it, with the server’s own reason. */
+      genesRefused: (reason: string) => `That input couldn’t be profiled: ${reason}`,
+      genesFailed: "The profile couldn’t be built. Please try again.",
       profileTitle: "The profile on screen",
       profileResolved: (resolved: number, requested: number) =>
         `${String(resolved)} of ${String(requested)} ${requested === 1 ? "name" : "names"} asked for matched a term in CARD.`,

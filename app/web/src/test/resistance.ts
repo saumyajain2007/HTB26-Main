@@ -102,6 +102,10 @@ export const resistanceHandlers = [
     response(200).json({ items: [resistanceProfile()] }),
   ),
 
+  // Profiling typed names. The real route resolves each against CARD; here it answers with the
+  // fixture profile, whose `unresolved_inputs` already carries a name CARD does not know.
+  http.post("/api/resistance/profiles", ({ response }) => response(201).json(resistanceProfile())),
+
   http.get("/api/resistance/profiles/{profile_id}", ({ params, response }) => {
     if (params.profile_id !== PROFILE_ID) {
       return response(404).json({ detail: `No resistance profile ${params.profile_id}.` });
