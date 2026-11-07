@@ -1,0 +1,3 @@
+https://claude.ai/share/56f1c2c4-0867-4258-be97-f79f361876f1
+
+Review this, and create a tasks.md file, and provide clear ideas on what needs to be implemented and how tasks could be delegated
