@@ -75,7 +75,7 @@ PdbId = Annotated[
 DataRelease = Annotated[
     str,
     Field(
-        pattern=r"^[a-z]+-[0-9][0-9.]*$",
+        pattern=r"^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
         description="A pinned source release, written source-version, e.g. opentargets-26.09.",
         examples=["opentargets-26.09"],
     ),
@@ -1281,7 +1281,7 @@ FeatureName = TypeAliasType("FeatureName", Literal["activity", "target_hit", "do
 RankingFeature = TypeAliasType(
     "RankingFeature", Literal["evasion", "activity", "target_hit", "docking", "safety"]
 )
-ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card"])
+ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card", "curated"])
 CandidateEvidenceKind = TypeAliasType(
     "CandidateEvidenceKind",
     Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval"],
