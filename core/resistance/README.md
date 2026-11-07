@@ -117,3 +117,7 @@ Everything in a gene row is CARD's own record: mechanisms and defeated classes f
 affected target from the ontology (the sensitive form the resistant one derives from). The target is `null` for
 enzymes, efflux pumps and most regulators, where CARD names none. Defeated classes are class-level and include CARD's
 own odd entries (CARD lists CTX-M-15 under azole and imidazole antibiotics), so treat them as "ruled out", not "ruled in".
+
+Known gap: CARD's website lists carbapenem and monobactam as drug classes of mecA and mecC, but the downloaded release
+does not, so a profile built from the download under-reports carbapenem resistance for MRSA. See
+[docs/card-spot-check.md](../../docs/card-spot-check.md).

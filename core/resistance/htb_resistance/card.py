@@ -466,6 +466,9 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--card-release", type=Path, help="CARD release dir (default: the newest built)")
     c.add_argument("--chembl-db", type=Path, help="extracted ChEMBL sqlite database")
     c.add_argument("--out-dir", type=Path, help="default: data/antibiotics")
+    sc = sub.add_parser("spotcheck", help="compare genes with CARD's web pages (needs the network)")
+    sc.add_argument("genes", nargs="*", help="ARO ids or exact model names (default: the ten genes of issue #18)")
+    sc.add_argument("--card-release", type=Path, help="CARD release dir (default: the newest built)")
     cv = sub.add_parser("verify-catalogue", help="check a catalogue release against its manifest")
     cv.add_argument("release_dir", type=Path)
     args = p.parse_args(argv)
@@ -477,6 +480,16 @@ def main(argv: list[str] | None = None) -> int:
             catalogue.build_catalogue(args.chembl_db or catalogue.CHEMBL_DB, card_release,
                                       args.out_dir or catalogue.DEFAULT_OUT)
             return 0
+        if args.cmd == "spotcheck":
+            from . import spotcheck
+
+            card_release = args.card_release or sorted((DEFAULT_DIR / "releases").glob("*/"))[-1]
+            rows = spotcheck.spot_check(card_release, args.genes or spotcheck.TEN_GENES)
+            print(spotcheck.format_rows(rows))
+            problems = spotcheck.unexpected(rows)
+            for line in problems:
+                print("unexpected:", line, file=sys.stderr)
+            return 1 if problems else 0
         if args.cmd == "verify-catalogue":
             from . import catalogue
 
