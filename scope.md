@@ -225,7 +225,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 **Built already** (in `core/verify/`, 12 tests passing):
 
 - `htb_verify/smoke.py`: descriptors, all violated rules with margins, PAINS and Brenk alerts, SA score. Alerts are warnings by default (a beta-lactam must not be rejected), `strict_alerts` makes them failures.
-- `htb_verify/rules.py`: two rule sets, `oral_druglike` (Lipinski and Veber) and `antibiotic_relaxed` (placeholder limits).
+- `htb_verify/rules.py`: two rule sets, `oral_druglike` (Lipinski and Veber) and `antibiotic_relaxed` (limits calibrated on approved antibiotics, see [docs/antibiotic-limits.md](docs/antibiotic-limits.md)).
 - `lean/`: a Lake project with the rule definitions and four general theorems, built with Lean 4.35.
 - `htb_verify/certify.py`: writes a per-molecule Lean file, runs it, names the failing rule, caches by InChIKey, and reports `ran=False` (never "certified") if Lean is unavailable.
 - Tests check that Python and Lean thresholds match, and that Python and Lean agree on pass or fail.
@@ -233,7 +233,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 
 | Task | What it entails | Size |
 | --- | --- | --- |
-| Calibrate antibiotic limits | The `antibiotic_relaxed` numbers are placeholders. Compute the descriptor distribution of approved antibiotics (WS1 catalogue), set limits from it, cite the method, and update Python and Lean together (a test enforces they match). | M |
+| Calibrate antibiotic limits | Done: see [docs/antibiotic-limits.md](docs/antibiotic-limits.md). Compute the descriptor distribution of approved antibiotics (WS1 catalogue), set limits from it, cite the method, and update Python and Lean together (a test enforces they match). | M |
 | Antibiotic-specific rules | Add rules that matter here: a Gram-negative accumulation hint (the published "eNTRy" ideas, only the parts computable from 2D structure), and resistance-substrate motifs as SMARTS patterns for enzymes present in the profile. Each rule needs a citation. | M |
 | Toxicity beyond alerts | PAINS and Brenk catch reactive groups only. Add a human-cell toxicity predictor or curated alerts, and state its accuracy. | M |
 | Wire into ranking | Run the smoke test on every candidate in WS4 and on generated molecules in WS7, store the result with the candidate, and use it as a gate or a visible penalty. | S |
@@ -242,7 +242,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Structural proofs (optional) | Prove valency or substructure facts over a molecule graph, as the Rocq `Valency.v` did. Only if time remains. | L |
 
 **Done when:** every candidate shows a smoke-test result, survivors carry a Lean certificate, and the writeup claims exactly this and nothing more.
-**Risks:** over-claiming, placeholder thresholds mistaken for published ones, and PAINS-style alerts that are meaningless for antibiotics. Keep the labels explicit.
+**Risks:** over-claiming, calibrated thresholds mistaken for published ones or for a safety claim, and PAINS-style alerts that are meaningless for antibiotics. Keep the labels explicit.
 
 ### WS9. App, API and visuals
 

@@ -66,4 +66,4 @@ Rules the tests enforce: a candidate is `defeated` exactly when its drug class i
 
 `margin` is `value - limit`. Positive means the limit was exceeded, matching `Violation.margin`. A rule passes when `margin <= 0`. The limits must equal `htb_verify.rules`, and a test fails if they drift.
 
-A certificate confirms that the encoded property rules hold. It does not show a molecule is safe, selective or active. The `antibiotic_relaxed` limits are placeholders until #26 calibrates them, which is why vancomycin fails them in the fixture.
+A certificate confirms that the encoded property rules hold. It does not show a molecule is safe, selective or active. The `antibiotic_relaxed` limits are calibrated on the approved antibiotics (95th percentile, floored at the oral limits; see [antibiotic-limits.md](antibiotic-limits.md)), so a failure flags an outlier, such as vancomycin in the fixture, not an unsafe drug.

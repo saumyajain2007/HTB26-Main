@@ -1,0 +1,50 @@
+{
+  "method": "95th percentile, nearest rank, rounded up to a step, floored at oral_druglike",
+  "catalogue": "chembl-37_card-4.0.2",
+  "approved_drugs": 126,
+  "held_out_drugs": 76,
+  "rules": [
+    {
+      "rule": "mw",
+      "percentile_value": 834.5453,
+      "rounded": 850,
+      "oral_floor": 500.0,
+      "limit": 850
+    },
+    {
+      "rule": "logp",
+      "percentile_value": 3.6209,
+      "rounded": 4.0,
+      "oral_floor": 5.0,
+      "limit": 5.0
+    },
+    {
+      "rule": "hbd",
+      "percentile_value": 13.0,
+      "rounded": 13,
+      "oral_floor": 5,
+      "limit": 13
+    },
+    {
+      "rule": "hba",
+      "percentile_value": 17.0,
+      "rounded": 17,
+      "oral_floor": 10,
+      "limit": 17
+    },
+    {
+      "rule": "rot_bonds",
+      "percentile_value": 13.0,
+      "rounded": 13,
+      "oral_floor": 10,
+      "limit": 13
+    },
+    {
+      "rule": "psa",
+      "percentile_value": 336.43,
+      "rounded": 340,
+      "oral_floor": 140.0,
+      "limit": 340
+    }
+  ]
+}
