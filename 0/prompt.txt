@@ -1,0 +1,2 @@
+1. Is setting up a tiger data instance worth it?
+2. Do it
