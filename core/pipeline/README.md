@@ -1,6 +1,6 @@
 # Evidence pipeline
 
-Turns a Disease into the data the rest of Half Life works from: its Targets, the
+Turns a Disease into the data the rest of the project works from: its Targets, the
 approved drugs and their Targets, the protein network mapping, and the cited evidence
 packets the Model jury reads. Each module runs on its own with
 `uv run python -m pipeline.<module>`.

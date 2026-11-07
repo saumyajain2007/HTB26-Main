@@ -28,6 +28,24 @@ npm run dev        # http://localhost:5173, with /api proxied to FastAPI on 127.
 `HTB_API_ORIGIN` points the dev and preview proxies at an API other than
 `http://127.0.0.1:8000`.
 
+### The two flows
+
+The app is being turned from drug repurposing for human diseases to antibiotic resistance
+(issue #32). Both flows are in the tree:
+
+- The **antibiotic resistance flow** is always mounted, at `/resistance` and
+  `/resistance/:profileId/:step`, and `/` leads to it.
+- The **COVID-19 disease flow** (`/`, `/explore`, `/e/:experimentId/:step`, `/evaluation`) is
+  gated off: it answers only when `VITE_DISEASE_FLOW=1` at build time. It is backed entirely by
+  COVID fixtures and is kept, not deleted, so the offline demo and its tests keep working until
+  the new flow is finished. Set the flag in the environment to walk it:
+  `VITE_DISEASE_FLOW=1 npm run dev`.
+
+`src/app/flags.ts` reads the flag once and `src/app/routes.tsx` is the only place that branches
+on it. The Vitest suite turns it on through `test.env` in `vite.config.ts`, and the Playwright
+suite through the preview server's `env` in `playwright.config.ts`, because both suites drive the
+old flow on purpose.
+
 `npm run e2e` needs `uv` (it runs `uv run uvicorn htb_api.app:app` in `../api` with
 `HTB_FIXTURE_DELAY_MS=300`) and Playwright's Chromium (`npx playwright install chromium`).
 Locally it reuses servers already running on ports 8000 and 4173; `E2E_API_PORT` and
@@ -41,8 +59,14 @@ Locally it reuses servers already running on ports 8000 and 4173; `E2E_API_PORT`
   Disease (evidence, objections, model names) comes from the API instead.
 - `src/app/Shell.tsx`: header (product, Disease, step navigation, Back and Next), step title and
   intro, then the figure. `PageFrame.tsx` renders the footer link to the evaluation once on every screen.
-- `src/app/routes.tsx`: `/` is step 1 before any Experiment; `/e/:experimentId/:step` uses the
-  step slugs from the copy deck; anything else is not found.
+- `src/app/routes.tsx`: `createRoutes(diseaseFlow)` builds every address. The resistance flow's
+  `/resistance` is step 1 before any profile and `/resistance/:profileId/:step` uses the resistance
+  step slugs from the copy deck; the disease flow's `/explore` and `/e/:experimentId/:step` are
+  mounted only behind the flag. Anything else is not found.
+- `src/lib/resistance.ts`: the TanStack Query hooks for the resistance routes (pathogen presets,
+  a profile, a profile's candidates, the certificates), typed from the generated contract.
+  `src/test/resistance.ts` holds the matching fixtures and MSW handlers, read from the API's own
+  fixture files, and is wired into `src/test/server.ts`.
 - `src/api/client.ts`: the `openapi-fetch` client, typed by the generated `schema.d.ts`. Don't
   edit `schema.d.ts` by hand; run `npm run gen:api` after the API contract changes.
   `src/api/queries.ts` holds the TanStack Query hooks: debounced disease search, creating an

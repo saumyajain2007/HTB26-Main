@@ -2,13 +2,12 @@
 The official repository for Hack The Burgh 2026
 
 # Idea
-- Drug Discovery: Coming up with candidate molecules/protein structures (3D structures) which target a specific disease.
-- Complete in-silico testing (complete computer simulation before wet drug trials), i.e. our model simulates possible permutations or candidates against multiple tests and comes up with a confidence score or the best candidates which can actually tackle or actually counter the disease effectively or are actually worth looking into in real world without doing tons of trials and failing with potential candidates which either end up working or not working.
-- Testing our candidates on past diseases which have successful drugs identified to show that our model is able to come up with successful candidates completely in silico (computer simulations and no human or organism testing)
+Bacteria are evolving resistance faster than new antibiotics are approved. Given a resistant bacterium, we profile *why* it is resistant (resistance genes and mutations, via CARD), then rank approved drugs, combinations and (stretch) newly generated molecules that are predicted to evade those mechanisms. Each candidate is smoke-tested against property and toxicity rules (with Lean 4 certificates) and comes with the evidence behind it. Everything is in silico: no wet-lab, human or organism testing.
+
+We check the ranking retrospectively: hide a drug known to work against a resistance profile and see where the method ranks it against simple baselines.
 
 # Tasks
-- Which disease to target (it defines our narrative of scale, impact - during presentation, and the need for viable successful candidates end of the day)
-- What simulations/guardrails to inject for our in silico testing so that the candidates we end up generating is actually useful
+The plan is in [scope.md](scope.md) (what we are building and why) and [tasks.md](tasks.md) (who does what, by phase). Both record the decisions made so far, including the target disease and the in-silico guardrails.
 
 # Pipeline
 

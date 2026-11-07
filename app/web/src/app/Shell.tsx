@@ -1,35 +1,58 @@
 import { useCallback, useEffect, useRef, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router";
-import { copy, stepCopy, type StepSlug } from "../copy/en";
+import {
+  copy,
+  resistanceStepCopy,
+  stepCopy,
+  type ResistanceStepSlug,
+  type StepSlug,
+} from "../copy/en";
 import { PageBody, PageFrame } from "./PageFrame";
 import styles from "./Shell.module.css";
-import { neighbourStep, stepPath } from "./steps";
+import { neighbourResistanceStep, neighbourStep, resistanceStepPath, stepPath } from "./steps";
 import { useStepKeys } from "./useStepKeys";
 
-interface ShellProps {
-  step: StepSlug;
-  /** Absent on the landing page, before a Disease has been chosen. */
-  experimentId?: string | undefined;
-  /** The Experiment's Disease, shown once in the header. */
-  disease?: string | undefined;
-  /** The step's figure. */
+/** One step in the navigation: `path` is undefined while the step has no page to go to. */
+interface StepLink {
+  slug: string;
+  title: string;
+  path: string | undefined;
+  current: boolean;
+}
+
+interface StepShellProps {
+  /** The current step's slug. Only the sideways scroll reads it; the links carry the rest. */
+  step: string;
+  title: string;
+  intro: string;
+  links: readonly StepLink[];
+  previousPath: string | undefined;
+  nextPath: string | undefined;
+  /** What the flow is about (a Disease, a pathogen), shown once in the header. */
+  subject?: string | undefined;
   children: ReactNode;
 }
 
 /**
- * The app shell: product, Disease and step navigation in the header; then the step title, its
+ * The app shell: product, subject and step navigation in the header; then the step title, its
  * intro and the figure; then Back and Next at the bottom right, where a reader finishes the step.
  * The step's name is said once, as the page title; the navigation marks the current step by
  * state (underline and aria-current) and the buttons never repeat a step name.
+ *
+ * It knows nothing about which flow it is drawing: `Shell` and `ResistanceShell` below work out
+ * the steps and their addresses, so both flows get one piece of chrome and one set of keys.
  */
-export function Shell({ step, experimentId, disease, children }: ShellProps) {
+function StepShell({
+  step,
+  title,
+  intro,
+  links,
+  previousPath,
+  nextPath,
+  subject,
+  children,
+}: StepShellProps) {
   const navigate = useNavigate();
-  const { title, intro } = stepCopy(step);
-
-  const previousStep = neighbourStep(step, -1);
-  const nextStep = neighbourStep(step, 1);
-  const previousPath = previousStep && stepPath(experimentId, previousStep);
-  const nextPath = nextStep && stepPath(experimentId, nextStep);
 
   const goPrevious = useCallback(() => {
     if (previousPath !== undefined) void navigate(previousPath);
@@ -54,35 +77,32 @@ export function Shell({ step, experimentId, disease, children }: ShellProps) {
     <PageFrame
       header={
         <>
-          {disease !== undefined && (
-            <span className={styles.disease} title={disease}>
-              <span className={styles.diseaseMark} aria-hidden="true" />
-              <span className={styles.diseaseName}>{disease}</span>
+          {subject !== undefined && (
+            <span className={styles.subject} title={subject}>
+              <span className={styles.subjectMark} aria-hidden="true" />
+              <span className={styles.subjectName}>{subject}</span>
             </span>
           )}
           <nav className={styles.nav} aria-label={copy.stepsLabel}>
             <ol className={styles.navList}>
-              {copy.steps.map((item) => {
-                const path = stepPath(experimentId, item.slug);
-                return (
-                  <li key={item.slug} className={styles.navItem}>
-                    {path === undefined ? (
-                      <span className={styles.navLink} aria-disabled="true">
-                        {item.title}
-                      </span>
-                    ) : (
-                      <Link
-                        to={path}
-                        className={styles.navLink}
-                        ref={item.slug === step ? currentLink : undefined}
-                        aria-current={item.slug === step ? "step" : undefined}
-                      >
-                        {item.title}
-                      </Link>
-                    )}
-                  </li>
-                );
-              })}
+              {links.map((item) => (
+                <li key={item.slug} className={styles.navItem}>
+                  {item.path === undefined ? (
+                    <span className={styles.navLink} aria-disabled="true">
+                      {item.title}
+                    </span>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={styles.navLink}
+                      ref={item.current ? currentLink : undefined}
+                      aria-current={item.current ? "step" : undefined}
+                    >
+                      {item.title}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ol>
           </nav>
         </>
@@ -112,5 +132,75 @@ export function Shell({ step, experimentId, disease, children }: ShellProps) {
         {children}
       </PageBody>
     </PageFrame>
+  );
+}
+
+interface ShellProps {
+  step: StepSlug;
+  /** Absent on the landing page, before a Disease has been chosen. */
+  experimentId?: string | undefined;
+  /** The Experiment's Disease, shown once in the header. */
+  disease?: string | undefined;
+  /** The step's figure. */
+  children: ReactNode;
+}
+
+/** The shell of the gated disease flow (`src/app/flags.ts`): the eight Experiment steps. */
+export function Shell({ step, experimentId, disease, children }: ShellProps) {
+  const { title, intro } = stepCopy(step);
+  const previous = neighbourStep(step, -1);
+  const next = neighbourStep(step, 1);
+  return (
+    <StepShell
+      step={step}
+      title={title}
+      intro={intro}
+      links={copy.steps.map((item) => ({
+        slug: item.slug,
+        title: item.title,
+        path: stepPath(experimentId, item.slug),
+        current: item.slug === step,
+      }))}
+      previousPath={previous && stepPath(experimentId, previous)}
+      nextPath={next && stepPath(experimentId, next)}
+      subject={disease}
+    >
+      {children}
+    </StepShell>
+  );
+}
+
+interface ResistanceShellProps {
+  step: ResistanceStepSlug;
+  /** Absent on `/resistance`, before a resistance profile has been built. */
+  profileId?: string | undefined;
+  /** The profile's pathogen, shown once in the header. */
+  pathogen?: string | undefined;
+  /** The step's figure. */
+  children: ReactNode;
+}
+
+/** The shell of the antibiotic resistance flow: the pathogen input, then the resistance map. */
+export function ResistanceShell({ step, profileId, pathogen, children }: ResistanceShellProps) {
+  const { title, intro } = resistanceStepCopy(step);
+  const previous = neighbourResistanceStep(step, -1);
+  const next = neighbourResistanceStep(step, 1);
+  return (
+    <StepShell
+      step={step}
+      title={title}
+      intro={intro}
+      links={copy.resistanceSteps.map((item) => ({
+        slug: item.slug,
+        title: item.title,
+        path: resistanceStepPath(profileId, item.slug),
+        current: item.slug === step,
+      }))}
+      previousPath={previous && resistanceStepPath(profileId, previous)}
+      nextPath={next && resistanceStepPath(profileId, next)}
+      subject={pathogen}
+    >
+      {children}
+    </StepShell>
   );
 }

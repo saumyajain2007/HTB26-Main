@@ -1,7 +1,6 @@
 import { HttpResponse } from "msw";
 import { setupServer } from "msw/node";
-import { createOpenApiHttp } from "openapi-msw";
-import type { components, paths } from "../api/schema";
+import type { components } from "../api/schema";
 import type { Experiment } from "../api/types";
 import {
   conformers,
@@ -14,9 +13,11 @@ import {
   structures,
   summaryOf,
 } from "./fixtures";
+import { http } from "./http";
+import { resistanceHandlers } from "./resistance";
 
 /** MSW handlers typed by the generated contract: a wrong path or body fails `tsc`. */
-export const http = createOpenApiHttp<paths>({ baseUrl: window.location.origin });
+export { http };
 
 /**
  * The fake API's state. Each Experiment ID maps to the responses its GETs return in turn; the
@@ -67,6 +68,9 @@ export function serveExperiment(...responses: Experiment[]): void {
 }
 
 export const handlers = [
+  // The antibiotic resistance flow's five routes, from `./resistance`.
+  ...resistanceHandlers,
+
   http.get("/api/diseases/common", ({ response }) =>
     response(200).json({ items: [{ id: covidExperiment().disease.id, name: "COVID-19" }] }),
   ),
