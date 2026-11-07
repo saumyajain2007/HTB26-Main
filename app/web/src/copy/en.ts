@@ -91,6 +91,42 @@ export const copy = {
     },
   ],
 
+  /**
+   * The antibiotic resistance flow's steps, in order. `slug` is the URL segment in
+   * `/resistance/:profileId/:step`. Intros never name the pathogen: the header shows it once.
+   */
+  resistanceSteps: [
+    {
+      slug: "pathogen",
+      title: "Choose a pathogen",
+      intro: "Start with the bacterium you are treating, or the resistance genes it carries.",
+    },
+    {
+      slug: "map",
+      title: "Resistance map",
+      intro: "Which resistance mechanisms the genes bring, and which drug classes they defeat.",
+    },
+  ],
+
+  /** The antibiotic resistance flow: reading a profile, and the steps not yet built. */
+  resistance: {
+    loading: "Loading the resistance profile",
+    unavailable: "The resistance profile couldn’t be loaded. The server isn’t answering.",
+    notFound: {
+      title: "Resistance profile not found",
+      body: "There’s no resistance profile at this address.",
+      home: "Choose a pathogen",
+    },
+    /**
+     * Placeholders for the two steps still being built, each named by its issue. Delete the line
+     * with the placeholder: a half-built step should say nothing rather than imply a result.
+     */
+    notBuilt: {
+      pathogen: "The pathogen input isn’t built yet.",
+      map: "The resistance map isn’t built yet.",
+    },
+  },
+
   /** The introduction at `/`: the approach, its four steps, and the way into the app. */
   intro: {
     title: "Repurposing existing drugs for diseases",
@@ -498,6 +534,27 @@ export const copy = {
 
 export type StepCopy = (typeof copy.steps)[number];
 export type StepSlug = StepCopy["slug"];
+
+export type ResistanceStepCopy = (typeof copy.resistanceSteps)[number];
+export type ResistanceStepSlug = ResistanceStepCopy["slug"];
+
+export const resistanceStepSlugs: readonly ResistanceStepSlug[] = copy.resistanceSteps.map(
+  (step) => step.slug,
+);
+
+export function isResistanceStepSlug(value: string | undefined): value is ResistanceStepSlug {
+  return value !== undefined && (resistanceStepSlugs as readonly string[]).includes(value);
+}
+
+export function resistanceStepIndex(slug: ResistanceStepSlug): number {
+  return resistanceStepSlugs.indexOf(slug);
+}
+
+export function resistanceStepCopy(slug: ResistanceStepSlug): ResistanceStepCopy {
+  const step = copy.resistanceSteps.find((candidate) => candidate.slug === slug);
+  if (step === undefined) throw new Error(`No copy for resistance step "${slug}"`);
+  return step;
+}
 
 export const stepSlugs: readonly StepSlug[] = copy.steps.map((step) => step.slug);
 
