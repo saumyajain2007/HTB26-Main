@@ -90,14 +90,14 @@ Short, blocks everything. Do together, then split.
 
 ### Lane A: data and resistance (WS1, WS2)
 
-- [ ] Ingest CARD with release version recorded: ARO ontology, gene-to-class and gene-to-mechanism links, point-mutation models. `L`
+- [x] Ingest CARD with release version recorded: ARO ontology, gene-to-class and gene-to-mechanism links, point-mutation models. `L`
 - [x] Antibiotic catalogue from ChEMBL (ATC J01 and antibacterial indications): class, mechanism, target, SMILES; map names to CARD's drug-class vocabulary. `M`
-- [ ] Version manifest and checksums, `/data/` layout gitignored, one command rebuilds the tables (reuse the pattern in `core/pipeline/manifest.py`). `M`
+- [x] Version manifest and checksums, `/data/` layout gitignored, one command rebuilds the tables (reuse the pattern in `core/pipeline/manifest.py`). `M`
 - [ ] Curated combinations table, every row cited (for example beta-lactam plus inhibitor). `M`
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`
-- [ ] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
+- [x] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
 - [ ] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M`
-- [ ] Spot check ten genes against CARD's web pages. `S`
+- [x] Spot check ten genes against CARD's web pages. Recorded in [docs/card-spot-check.md](docs/card-spot-check.md). `S`
 
 **Done when:** profiling each pathogen's typical resistant isolate yields class lists a microbiologist would recognise.
 
@@ -117,7 +117,7 @@ Short, blocks everything. Do together, then split.
 ### Lane C: app and integrations (WS9, WS6)
 
 - [ ] Prove the sponsor integrations against the live services: Gemini and Vultr jurors, Tiger Data Postgres, Vultr VM via `deploy/vultr/setup.sh`. Update the README line that says they are untested. `M`
-- [ ] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M`
+- [x] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M` Routes and models in [app/api/README.md](app/api/README.md#resistance-routes); `ResistanceSource` is the seam the real profiling and ranking plug into.
 - [ ] Input screen: pick a pathogen or paste resistance genes. `M`
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
 - [ ] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`

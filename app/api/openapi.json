@@ -1,6 +1,338 @@
 {
   "components": {
     "schemas": {
+      "AffectedTarget": {
+        "additionalProperties": false,
+        "description": "The sensitive form of the protein a determinant alters or replaces.",
+        "properties": {
+          "name": {
+            "description": "Target name as CARD gives it.",
+            "title": "Name",
+            "type": "string"
+          },
+          "pdb_ids": {
+            "description": "Structures for this target, empty until the structure set names them.",
+            "items": {
+              "description": "RCSB PDB entry ID.",
+              "examples": [
+                "6WTO"
+              ],
+              "pattern": "^[0-9][A-Z0-9]{3}$",
+              "type": "string"
+            },
+            "title": "Pdb Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "pdb_ids"
+        ],
+        "title": "AffectedTarget",
+        "type": "object"
+      },
+      "AffectedTargetSummary": {
+        "additionalProperties": false,
+        "properties": {
+          "gene_aro_ids": {
+            "description": "Determinants in this profile that affect the target.",
+            "items": {
+              "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+              "examples": [
+                "ARO:3000617"
+              ],
+              "pattern": "^ARO:[0-9]{7}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Gene Aro Ids",
+            "type": "array"
+          },
+          "name": {
+            "description": "Target name as CARD gives it.",
+            "title": "Name",
+            "type": "string"
+          },
+          "pdb_ids": {
+            "description": "Structures for the target, empty when none are set.",
+            "items": {
+              "description": "RCSB PDB entry ID.",
+              "examples": [
+                "6WTO"
+              ],
+              "pattern": "^[0-9][A-Z0-9]{3}$",
+              "type": "string"
+            },
+            "title": "Pdb Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "name",
+          "gene_aro_ids",
+          "pdb_ids"
+        ],
+        "title": "AffectedTargetSummary",
+        "type": "object"
+      },
+      "AntibioticCandidate": {
+        "additionalProperties": false,
+        "description": "One molecule in a ranking, with its evasion call, features and verification.",
+        "properties": {
+          "candidate_id": {
+            "description": "ID of a ranked molecule: a ChEMBL parent molecule ID for an approved drug, or the generator's own ID for a generated one.",
+            "examples": [
+              "CHEMBL126",
+              "GEN-0001"
+            ],
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$",
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "certificate": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Certificate"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The proof, or null when the status is not_run."
+          },
+          "certificate_status": {
+            "$ref": "#/components/schemas/CertificateStatus",
+            "description": "not_run: Lean was not asked. unavailable: it was, and could not run."
+          },
+          "drug_class": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AroTerm"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "CARD drug class, or null when the molecule has none (any generated one). `aro_id` is null when the class is known by name but unmapped."
+          },
+          "evasion": {
+            "$ref": "#/components/schemas/Evasion"
+          },
+          "evidence": {
+            "description": "Every cited statement for this candidate, by ID.",
+            "items": {
+              "$ref": "#/components/schemas/CandidateEvidence"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "explanation": {
+            "$ref": "#/components/schemas/CandidateExplanation"
+          },
+          "features": {
+            "$ref": "#/components/schemas/CandidateFeatures"
+          },
+          "generated": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/GeneratedProvenance"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Provenance of a generated molecule; null for an approved drug."
+          },
+          "inchikey": {
+            "description": "Standard InChIKey of a molecule.",
+            "examples": [
+              "TYZROVQLWOKYKF-ZDUSSCGKSA-N"
+            ],
+            "pattern": "^[A-Z]{14}-[A-Z]{10}-[A-Z]$",
+            "title": "Inchikey",
+            "type": "string"
+          },
+          "mechanism_of_action": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How the drug acts, or null when it is not recorded.",
+            "title": "Mechanism Of Action"
+          },
+          "name": {
+            "description": "Display name of the molecule.",
+            "title": "Name",
+            "type": "string"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "minimum": 1.0,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Place among the approved candidates, 1 best. Null for a generated molecule.",
+            "title": "Rank"
+          },
+          "smiles": {
+            "description": "The structure, as SMILES.",
+            "minLength": 1,
+            "title": "Smiles",
+            "type": "string"
+          },
+          "smoke_test": {
+            "$ref": "#/components/schemas/SmokeTest"
+          },
+          "source": {
+            "$ref": "#/components/schemas/CandidateSource",
+            "description": "approved: a licensed drug. generated: a proposal, never ranked."
+          },
+          "target": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CandidateTargetRef"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What it acts on, or null when that is not recorded."
+          }
+        },
+        "required": [
+          "candidate_id",
+          "name",
+          "source",
+          "smiles",
+          "inchikey",
+          "drug_class",
+          "mechanism_of_action",
+          "target",
+          "rank",
+          "evasion",
+          "features",
+          "explanation",
+          "smoke_test",
+          "certificate_status",
+          "certificate",
+          "generated",
+          "evidence"
+        ],
+        "title": "AntibioticCandidate",
+        "type": "object"
+      },
+      "AntibioticCandidateResult": {
+        "additionalProperties": false,
+        "description": "A ranking of antibiotics against one ResistanceProfile (docs/contracts.md).\n\nThe strongest claims allowed are \"predicted to evade known mechanisms\" and\n\"passes the encoded rules\". A computational hit is not a working antibiotic.",
+        "properties": {
+          "candidates": {
+            "description": "Approved drugs in rank order, then any generated proposals.",
+            "items": {
+              "$ref": "#/components/schemas/AntibioticCandidate"
+            },
+            "title": "Candidates",
+            "type": "array"
+          },
+          "contract_version": {
+            "const": "1",
+            "description": "Version of the candidate contract.",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "fixture_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Set when this is fixture data: says the numbers are made up.",
+            "title": "Fixture Note"
+          },
+          "pathogen": {
+            "$ref": "#/components/schemas/Pathogen"
+          },
+          "profile_id": {
+            "description": "The profile that was ranked against.",
+            "examples": [
+              "00000000-0000-0000-0000-0000000000a1"
+            ],
+            "format": "uuid",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "ranking": {
+            "$ref": "#/components/schemas/RankingMethodInfo"
+          },
+          "releases": {
+            "description": "The pinned releases the ranking was built from.",
+            "items": {
+              "description": "A pinned source release, written source-version, e.g. opentargets-26.09.",
+              "examples": [
+                "opentargets-26.09"
+              ],
+              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Releases",
+            "type": "array"
+          },
+          "result_id": {
+            "description": "ID of this ranking run.",
+            "format": "uuid",
+            "title": "Result Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_version",
+          "result_id",
+          "profile_id",
+          "pathogen",
+          "releases",
+          "ranking",
+          "candidates"
+        ],
+        "title": "AntibioticCandidateResult",
+        "type": "object"
+      },
+      "AroTerm": {
+        "additionalProperties": false,
+        "description": "A CARD term. Join on `aro_id`; `name` is display text only.",
+        "properties": {
+          "aro_id": {
+            "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Aro Id",
+            "type": "string"
+          },
+          "name": {
+            "description": "The term's name in CARD's vocabulary.",
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "aro_id",
+          "name"
+        ],
+        "title": "AroTerm",
+        "type": "object"
+      },
       "BuildStage": {
         "enum": [
           "targets",
@@ -185,6 +517,209 @@
         "title": "Candidate",
         "type": "object"
       },
+      "CandidateEvidence": {
+        "additionalProperties": false,
+        "description": "One cited statement behind a candidate's row, local to this result.",
+        "properties": {
+          "id": {
+            "description": "Evidence item ID, unique within one Experiment, e.g. E12.",
+            "examples": [
+              "E12"
+            ],
+            "pattern": "^E[0-9]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/CandidateEvidenceKind"
+          },
+          "release": {
+            "description": "The pinned release, or the rule set for a local check.",
+            "minLength": 1,
+            "title": "Release",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/CandidateEvidenceSource"
+          },
+          "source_id": {
+            "description": "The record's ID in that source.",
+            "minLength": 1,
+            "title": "Source Id",
+            "type": "string"
+          },
+          "statement": {
+            "description": "What the source says, in one sentence.",
+            "minLength": 1,
+            "title": "Statement",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "source",
+          "release",
+          "source_id",
+          "statement"
+        ],
+        "title": "CandidateEvidence",
+        "type": "object"
+      },
+      "CandidateEvidenceKind": {
+        "enum": [
+          "activity",
+          "target_hit",
+          "docking",
+          "safety",
+          "smoke_test",
+          "approval"
+        ],
+        "type": "string"
+      },
+      "CandidateEvidenceSource": {
+        "enum": [
+          "chembl",
+          "card",
+          "pdb",
+          "htb_verify",
+          "htb_docking"
+        ],
+        "type": "string"
+      },
+      "CandidateExplanation": {
+        "additionalProperties": false,
+        "description": "Why the candidate sits where it does, and what is not known.",
+        "properties": {
+          "caveats": {
+            "description": "How to read the row.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Caveats",
+            "type": "array"
+          },
+          "mechanisms_evaded": {
+            "description": "Mechanisms in the profile this candidate is not linked to.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Mechanisms Evaded",
+            "type": "array"
+          },
+          "missing": {
+            "description": "Data that would change the placement, but is absent.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Missing",
+            "type": "array"
+          },
+          "summary": {
+            "description": "One or two sentences on the placement.",
+            "minLength": 1,
+            "title": "Summary",
+            "type": "string"
+          }
+        },
+        "required": [
+          "summary",
+          "mechanisms_evaded",
+          "missing",
+          "caveats"
+        ],
+        "title": "CandidateExplanation",
+        "type": "object"
+      },
+      "CandidateFeature": {
+        "additionalProperties": false,
+        "description": "One feature, kept on its own and never blended into a score.\n\nMissing data is `available: false`, never zero.",
+        "properties": {
+          "available": {
+            "description": "False when there is no data for this feature.",
+            "title": "Available",
+            "type": "boolean"
+          },
+          "evidence_ids": {
+            "description": "This candidate's evidence behind the value. Empty when unavailable.",
+            "items": {
+              "description": "Evidence item ID, unique within one Experiment, e.g. E12.",
+              "examples": [
+                "E12"
+              ],
+              "pattern": "^E[0-9]+$",
+              "type": "string"
+            },
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Unit of `value`, or null when it has none.",
+            "title": "Unit"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The measurement, or a coded word for a non-numeric one. Null when unavailable.",
+            "title": "Value"
+          }
+        },
+        "required": [
+          "available",
+          "value",
+          "unit",
+          "evidence_ids"
+        ],
+        "title": "CandidateFeature",
+        "type": "object"
+      },
+      "CandidateFeatures": {
+        "additionalProperties": false,
+        "description": "The four features, each separate (docs/contracts.md).",
+        "properties": {
+          "activity": {
+            "$ref": "#/components/schemas/CandidateFeature",
+            "description": "Measured activity against the pathogen."
+          },
+          "docking": {
+            "$ref": "#/components/schemas/CandidateFeature",
+            "description": "Docking score, a supporting signal only, never the headline."
+          },
+          "safety": {
+            "$ref": "#/components/schemas/CandidateFeature",
+            "description": "Safety flags and structural alerts recorded."
+          },
+          "target_hit": {
+            "$ref": "#/components/schemas/CandidateFeature",
+            "description": "Evidence the drug hits an unaffected target."
+          }
+        },
+        "required": [
+          "activity",
+          "target_hit",
+          "docking",
+          "safety"
+        ],
+        "title": "CandidateFeatures",
+        "type": "object"
+      },
       "CandidateNetwork": {
         "additionalProperties": false,
         "description": "Network-proximity result for one Candidate. Null on the Candidate when not scorable.",
@@ -295,6 +830,13 @@
         "title": "CandidateRwr",
         "type": "object"
       },
+      "CandidateSource": {
+        "enum": [
+          "approved",
+          "generated"
+        ],
+        "type": "string"
+      },
       "CandidateStatus": {
         "enum": [
           "scored",
@@ -341,6 +883,165 @@
         "title": "CandidateTarget",
         "type": "object"
       },
+      "CandidateTargetRef": {
+        "additionalProperties": false,
+        "description": "What a candidate acts on, linked to the profile's determinants where it is one.",
+        "properties": {
+          "gene_aro_ids": {
+            "description": "Determinants in the profile that affect this target, empty when none do.",
+            "items": {
+              "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+              "examples": [
+                "ARO:3000617"
+              ],
+              "pattern": "^ARO:[0-9]{7}$",
+              "type": "string"
+            },
+            "title": "Gene Aro Ids",
+            "type": "array"
+          },
+          "name": {
+            "description": "Target name, display text only.",
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "gene_aro_ids"
+        ],
+        "title": "CandidateTargetRef",
+        "type": "object"
+      },
+      "Certificate": {
+        "additionalProperties": false,
+        "description": "A Lean 4 proof that the encoded property rules hold for one molecule.\n\nIt says nothing about safety, selectivity or activity. `certified` is never\ntrue unless Lean actually `ran`.",
+        "properties": {
+          "certified": {
+            "description": "True only when Lean ran and every rule passed.",
+            "title": "Certified",
+            "type": "boolean"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why it did not run, or which theorem failed. Null when there is nothing to say.",
+            "title": "Detail"
+          },
+          "failed_rules": {
+            "description": "Rules that failed, without the Lean rule_ prefix. Empty when Lean did not run.",
+            "items": {
+              "$ref": "#/components/schemas/PropertyRule"
+            },
+            "title": "Failed Rules",
+            "type": "array"
+          },
+          "inchikey": {
+            "description": "Standard InChIKey of a molecule.",
+            "examples": [
+              "TYZROVQLWOKYKF-ZDUSSCGKSA-N"
+            ],
+            "pattern": "^[A-Z]{14}-[A-Z]{10}-[A-Z]$",
+            "title": "Inchikey",
+            "type": "string"
+          },
+          "lean_version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Lean version used, or null when it did not run.",
+            "title": "Lean Version"
+          },
+          "ran": {
+            "description": "False when Lean was missing, timed out, or the input was unusable.",
+            "title": "Ran",
+            "type": "boolean"
+          },
+          "rule_set": {
+            "$ref": "#/components/schemas/RuleSet",
+            "description": "Which limits were proved against."
+          },
+          "rules": {
+            "description": "One row per property rule, in a fixed order.",
+            "items": {
+              "$ref": "#/components/schemas/RuleOutcome"
+            },
+            "title": "Rules",
+            "type": "array"
+          },
+          "seconds": {
+            "anyOf": [
+              {
+                "minimum": 0.0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "How long the proof took, or null when it did not run.",
+            "title": "Seconds"
+          }
+        },
+        "required": [
+          "inchikey",
+          "rule_set",
+          "ran",
+          "certified",
+          "rules",
+          "failed_rules",
+          "lean_version",
+          "seconds",
+          "detail"
+        ],
+        "title": "Certificate",
+        "type": "object"
+      },
+      "CertificateList": {
+        "additionalProperties": false,
+        "properties": {
+          "certificates": {
+            "description": "Every certificate this API holds.",
+            "items": {
+              "$ref": "#/components/schemas/Certificate"
+            },
+            "title": "Certificates",
+            "type": "array"
+          },
+          "contract_version": {
+            "const": "1",
+            "description": "Version of the certificate contract.",
+            "title": "Contract Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "contract_version",
+          "certificates"
+        ],
+        "title": "CertificateList",
+        "type": "object"
+      },
+      "CertificateStatus": {
+        "enum": [
+          "not_run",
+          "certified",
+          "failed",
+          "unavailable"
+        ],
+        "type": "string"
+      },
       "CommonDiseases": {
         "additionalProperties": false,
         "description": "Well-known Diseases to offer before anything is searched for.",
@@ -380,6 +1081,14 @@
         ],
         "title": "ConfidenceInterval",
         "type": "object"
+      },
+      "ConfidenceLevel": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ],
+        "type": "string"
       },
       "Conformer": {
         "additionalProperties": false,
@@ -562,6 +1271,62 @@
           "deprioritise"
         ],
         "type": "string"
+      },
+      "DefeatedClass": {
+        "additionalProperties": false,
+        "description": "A drug class the isolate is expected to resist.",
+        "properties": {
+          "aro_id": {
+            "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Aro Id",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "description": "Evidence items behind the link.",
+            "items": {
+              "description": "Evidence item ID, unique within one ResistanceProfile, e.g. P2.",
+              "examples": [
+                "P2"
+              ],
+              "pattern": "^P[0-9]+$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "gene_aro_ids": {
+            "description": "Determinants in this profile linked to the class.",
+            "items": {
+              "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+              "examples": [
+                "ARO:3000617"
+              ],
+              "pattern": "^ARO:[0-9]{7}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Gene Aro Ids",
+            "type": "array"
+          },
+          "name": {
+            "description": "Drug-class name in CARD's vocabulary.",
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "aro_id",
+          "name",
+          "gene_aro_ids",
+          "evidence_ids"
+        ],
+        "title": "DefeatedClass",
+        "type": "object"
       },
       "Direction": {
         "enum": [
@@ -1379,6 +2144,89 @@
         ],
         "type": "string"
       },
+      "Evasion": {
+        "additionalProperties": false,
+        "description": "Whether the profile's determinants are known to defeat this candidate.\n\n`unaffected` means no link in CARD, which is not a measured result.\n`unknown` means CARD cannot say, which is not the same as `unaffected`.",
+        "properties": {
+          "defeated_by": {
+            "description": "Determinants that defeat it. Empty unless the status says otherwise.",
+            "items": {
+              "$ref": "#/components/schemas/EvasionHit"
+            },
+            "title": "Defeated By",
+            "type": "array"
+          },
+          "profile_evidence_ids": {
+            "description": "Evidence in the ResistanceProfile behind this call.",
+            "items": {
+              "description": "Evidence item ID, unique within one ResistanceProfile, e.g. P2.",
+              "examples": [
+                "P2"
+              ],
+              "pattern": "^P[0-9]+$",
+              "type": "string"
+            },
+            "title": "Profile Evidence Ids",
+            "type": "array"
+          },
+          "rationale": {
+            "description": "Why that status, in one sentence.",
+            "minLength": 1,
+            "title": "Rationale",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EvasionStatus"
+          }
+        },
+        "required": [
+          "status",
+          "defeated_by",
+          "profile_evidence_ids",
+          "rationale"
+        ],
+        "title": "Evasion",
+        "type": "object"
+      },
+      "EvasionHit": {
+        "additionalProperties": false,
+        "description": "A determinant that defeats a candidate, and the mechanism it uses.",
+        "properties": {
+          "gene_aro_id": {
+            "description": "The determinant in the profile.",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Gene Aro Id",
+            "type": "string"
+          },
+          "mechanism_aro_id": {
+            "description": "One of that determinant's mechanisms.",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Mechanism Aro Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "gene_aro_id",
+          "mechanism_aro_id"
+        ],
+        "title": "EvasionHit",
+        "type": "object"
+      },
+      "EvasionStatus": {
+        "enum": [
+          "unaffected",
+          "partly_affected",
+          "defeated",
+          "unknown"
+        ],
+        "type": "string"
+      },
       "EvidenceItem": {
         "additionalProperties": false,
         "description": "One sourced fact. The same item keeps one ID across all Candidates of an Experiment.",
@@ -1773,6 +2621,72 @@
           "archived_at"
         ],
         "title": "ExperimentSummary",
+        "type": "object"
+      },
+      "GeneratedProvenance": {
+        "additionalProperties": false,
+        "description": "Where a generated molecule came from. Hypotheses only, never ranked with approved drugs.",
+        "properties": {
+          "model": {
+            "description": "The generator that proposed the molecule.",
+            "minLength": 1,
+            "title": "Model",
+            "type": "string"
+          },
+          "model_version": {
+            "description": "Pinned version of that generator.",
+            "title": "Model Version",
+            "type": "string"
+          },
+          "parent_candidate_id": {
+            "anyOf": [
+              {
+                "description": "ID of a ranked molecule: a ChEMBL parent molecule ID for an approved drug, or the generator's own ID for a generated one.",
+                "examples": [
+                  "CHEMBL126",
+                  "GEN-0001"
+                ],
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The approved drug it was derived from, or null.",
+            "title": "Parent Candidate Id"
+          },
+          "pocket_pdb_id": {
+            "anyOf": [
+              {
+                "description": "RCSB PDB entry ID.",
+                "examples": [
+                  "6WTO"
+                ],
+                "pattern": "^[0-9][A-Z0-9]{3}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The pocket it was generated into, or null when none was used.",
+            "title": "Pocket Pdb Id"
+          },
+          "seed": {
+            "description": "Random seed, so the proposal can be reproduced.",
+            "title": "Seed",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "model",
+          "model_version",
+          "seed",
+          "pocket_pdb_id",
+          "parent_candidate_id"
+        ],
+        "title": "GeneratedProvenance",
         "type": "object"
       },
       "Health": {
@@ -2250,6 +3164,47 @@
         "title": "Ligand",
         "type": "object"
       },
+      "MechanismSummary": {
+        "additionalProperties": false,
+        "description": "A mechanism present in the isolate, with the determinants behind it.",
+        "properties": {
+          "aro_id": {
+            "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Aro Id",
+            "type": "string"
+          },
+          "gene_aro_ids": {
+            "description": "Determinants in this profile that carry the mechanism.",
+            "items": {
+              "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+              "examples": [
+                "ARO:3000617"
+              ],
+              "pattern": "^ARO:[0-9]{7}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Gene Aro Ids",
+            "type": "array"
+          },
+          "name": {
+            "description": "Mechanism name in CARD's vocabulary.",
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "aro_id",
+          "name",
+          "gene_aro_ids"
+        ],
+        "title": "MechanismSummary",
+        "type": "object"
+      },
       "NetworkEdge": {
         "additionalProperties": false,
         "properties": {
@@ -2363,6 +3318,107 @@
         ],
         "type": "string"
       },
+      "Pathogen": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "description": "Species name, e.g. Staphylococcus aureus.",
+            "title": "Name",
+            "type": "string"
+          },
+          "ncbi_taxid": {
+            "description": "NCBI taxonomy ID of the species, e.g. 1280.",
+            "exclusiveMinimum": 0.0,
+            "title": "Ncbi Taxid",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "ncbi_taxid"
+        ],
+        "title": "Pathogen",
+        "type": "object"
+      },
+      "PathogenPreset": {
+        "additionalProperties": false,
+        "description": "A pathogen the app can profile without typing gene names.",
+        "properties": {
+          "id": {
+            "description": "Preset ID used in requests, e.g. s_aureus_mrsa.",
+            "examples": [
+              "s_aureus_mrsa"
+            ],
+            "pattern": "^[a-z0-9_]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "label": {
+            "description": "What to show in the picker, e.g. MRSA (S. aureus).",
+            "title": "Label",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What the preset stands for, or null. Says so when it is fixture data.",
+            "title": "Note"
+          },
+          "pathogen": {
+            "$ref": "#/components/schemas/Pathogen"
+          },
+          "profile_id": {
+            "anyOf": [
+              {
+                "description": "ID of a ResistanceProfile.",
+                "examples": [
+                  "00000000-0000-0000-0000-0000000000a1"
+                ],
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The profile already built for this preset, or null when none is.",
+            "title": "Profile Id"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "pathogen",
+          "profile_id",
+          "note"
+        ],
+        "title": "PathogenPreset",
+        "type": "object"
+      },
+      "PathogenPresets": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "description": "Every preset this API can profile.",
+            "items": {
+              "$ref": "#/components/schemas/PathogenPreset"
+            },
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "PathogenPresets",
+        "type": "object"
+      },
       "PoseScore": {
         "additionalProperties": false,
         "properties": {
@@ -2385,12 +3441,340 @@
         "title": "PoseScore",
         "type": "object"
       },
+      "ProfileConfidence": {
+        "additionalProperties": false,
+        "properties": {
+          "basis": {
+            "description": "Why that level, in plain words.",
+            "minLength": 1,
+            "title": "Basis",
+            "type": "string"
+          },
+          "level": {
+            "$ref": "#/components/schemas/ConfidenceLevel",
+            "description": "How much weight the profile carries."
+          }
+        },
+        "required": [
+          "level",
+          "basis"
+        ],
+        "title": "ProfileConfidence",
+        "type": "object"
+      },
+      "ProfileEvidence": {
+        "additionalProperties": false,
+        "description": "One cited statement behind a row of the profile.",
+        "properties": {
+          "aro_id": {
+            "description": "The term the statement is about.",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Aro Id",
+            "type": "string"
+          },
+          "id": {
+            "description": "Evidence item ID, unique within one ResistanceProfile, e.g. P2.",
+            "examples": [
+              "P2"
+            ],
+            "pattern": "^P[0-9]+$",
+            "title": "Id",
+            "type": "string"
+          },
+          "release": {
+            "description": "The pinned release it was read from.",
+            "examples": [
+              "opentargets-26.09"
+            ],
+            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "title": "Release",
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/components/schemas/ResistanceEvidenceSource",
+            "description": "Where the statement comes from."
+          },
+          "statement": {
+            "description": "What the source says, in one sentence.",
+            "minLength": 1,
+            "title": "Statement",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "release",
+          "aro_id",
+          "statement"
+        ],
+        "title": "ProfileEvidence",
+        "type": "object"
+      },
+      "ProfileGene": {
+        "additionalProperties": false,
+        "description": "One resolved resistance determinant.",
+        "properties": {
+          "affected_target": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AffectedTarget"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "The sensitive target this determinant alters or replaces, or null where CARD names none (enzymes, pumps and most regulators)."
+          },
+          "aro_id": {
+            "description": "CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+            "examples": [
+              "ARO:3000617"
+            ],
+            "pattern": "^ARO:[0-9]{7}$",
+            "title": "Aro Id",
+            "type": "string"
+          },
+          "defeated_classes": {
+            "description": "Drug classes CARD links to it. Class-level: read as ruled out, not ruled in.",
+            "items": {
+              "$ref": "#/components/schemas/AroTerm"
+            },
+            "title": "Defeated Classes",
+            "type": "array"
+          },
+          "evidence_ids": {
+            "description": "Evidence items in this profile that support the row.",
+            "items": {
+              "description": "Evidence item ID, unique within one ResistanceProfile, e.g. P2.",
+              "examples": [
+                "P2"
+              ],
+              "pattern": "^P[0-9]+$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Evidence Ids",
+            "type": "array"
+          },
+          "mechanisms": {
+            "description": "Resistance mechanisms CARD links to this determinant.",
+            "items": {
+              "$ref": "#/components/schemas/AroTerm"
+            },
+            "minItems": 1,
+            "title": "Mechanisms",
+            "type": "array"
+          },
+          "model_type": {
+            "description": "CARD detection model behind it, e.g. protein homolog model.",
+            "title": "Model Type",
+            "type": "string"
+          },
+          "name": {
+            "description": "Determinant name as CARD gives it.",
+            "title": "Name",
+            "type": "string"
+          },
+          "variants": {
+            "description": "Point mutations found, for a variant model. Empty for a homolog model.",
+            "items": {
+              "$ref": "#/components/schemas/ProfileGeneVariant"
+            },
+            "title": "Variants",
+            "type": "array"
+          }
+        },
+        "required": [
+          "aro_id",
+          "name",
+          "model_type",
+          "mechanisms",
+          "defeated_classes",
+          "variants",
+          "affected_target",
+          "evidence_ids"
+        ],
+        "title": "ProfileGene",
+        "type": "object"
+      },
+      "ProfileGeneVariant": {
+        "additionalProperties": false,
+        "properties": {
+          "mutation": {
+            "description": "A point mutation as CARD writes it: wild-type residue, position, variant.",
+            "examples": [
+              "S84L"
+            ],
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Mutation",
+            "type": "string"
+          },
+          "param_type": {
+            "description": "How CARD classifies the variant, e.g. single resistance variant.",
+            "title": "Param Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "mutation",
+          "param_type"
+        ],
+        "title": "ProfileGeneVariant",
+        "type": "object"
+      },
+      "ProfileInput": {
+        "additionalProperties": false,
+        "description": "What was asked for, kept exactly as received.",
+        "properties": {
+          "kind": {
+            "$ref": "#/components/schemas/ProfileInputKind",
+            "description": "How the determinants were given."
+          },
+          "requested": {
+            "description": "The determinant strings as typed, unchanged and in order.",
+            "items": {
+              "description": "A resistance determinant as typed: a gene name, a gene name with a mutation, or an ARO ID.",
+              "examples": [
+                "mecA",
+                "gyrA S84L",
+                "ARO:3000617"
+              ],
+              "maxLength": 120,
+              "minLength": 1,
+              "type": "string"
+            },
+            "title": "Requested",
+            "type": "array"
+          },
+          "species": {
+            "$ref": "#/components/schemas/Pathogen"
+          }
+        },
+        "required": [
+          "kind",
+          "species",
+          "requested"
+        ],
+        "title": "ProfileInput",
+        "type": "object"
+      },
+      "ProfileInputKind": {
+        "enum": [
+          "species_preset",
+          "gene_list",
+          "amrfinderplus"
+        ],
+        "type": "string"
+      },
+      "ProfileList": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "description": "Every profile this API holds.",
+            "items": {
+              "$ref": "#/components/schemas/ResistanceProfile"
+            },
+            "title": "Items",
+            "type": "array"
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "title": "ProfileList",
+        "type": "object"
+      },
+      "PropertyRule": {
+        "enum": [
+          "mw",
+          "logp",
+          "hbd",
+          "hba",
+          "rot_bonds",
+          "psa"
+        ],
+        "type": "string"
+      },
+      "RankingFeature": {
+        "enum": [
+          "evasion",
+          "activity",
+          "target_hit",
+          "docking",
+          "safety"
+        ],
+        "type": "string"
+      },
       "RankingMethod": {
         "enum": [
           "network",
           "evidence_only"
         ],
         "type": "string"
+      },
+      "RankingMethodInfo": {
+        "additionalProperties": false,
+        "description": "How the ranks were made, recorded so a result can be reproduced.",
+        "properties": {
+          "method": {
+            "description": "The ranking method, e.g. ordered_rule_v0.",
+            "minLength": 1,
+            "title": "Method",
+            "type": "string"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Anything else needed to read the ranking, or null.",
+            "title": "Note"
+          },
+          "order": {
+            "description": "Features in the order the rule applies them, evasion first.",
+            "items": {
+              "$ref": "#/components/schemas/RankingFeature"
+            },
+            "minItems": 1,
+            "title": "Order",
+            "type": "array"
+          },
+          "weights": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "propertyNames": {
+                  "$ref": "#/components/schemas/RankingFeature"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Per-feature weights, or null for an ordered rule that blends nothing.",
+            "title": "Weights"
+          }
+        },
+        "required": [
+          "method",
+          "order",
+          "weights",
+          "note"
+        ],
+        "title": "RankingMethodInfo",
+        "type": "object"
       },
       "RankingSettings": {
         "additionalProperties": false,
@@ -2492,6 +3876,169 @@
         "title": "RankingSettings",
         "type": "object"
       },
+      "ResistanceEvidenceSource": {
+        "const": "card",
+        "type": "string"
+      },
+      "ResistanceProfile": {
+        "additionalProperties": false,
+        "description": "What an isolate is expected to resist, and why (docs/contracts.md).\n\nGene presence in CARD is not proof of expression, and `defeated_classes` is\nclass-level, so it rules drugs out rather than in.",
+        "properties": {
+          "affected_targets": {
+            "description": "Targets across the determinants. Derivable from `genes`.",
+            "items": {
+              "$ref": "#/components/schemas/AffectedTargetSummary"
+            },
+            "title": "Affected Targets",
+            "type": "array"
+          },
+          "caveats": {
+            "description": "How to read the profile. There is always at least one.",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Caveats",
+            "type": "array"
+          },
+          "confidence": {
+            "$ref": "#/components/schemas/ProfileConfidence"
+          },
+          "contract_version": {
+            "const": "1",
+            "description": "Version of the profile contract.",
+            "title": "Contract Version",
+            "type": "string"
+          },
+          "defeated_classes": {
+            "description": "Drug classes across the determinants. Derivable from `genes`.",
+            "items": {
+              "$ref": "#/components/schemas/DefeatedClass"
+            },
+            "title": "Defeated Classes",
+            "type": "array"
+          },
+          "evidence": {
+            "description": "Every cited statement, by ID.",
+            "items": {
+              "$ref": "#/components/schemas/ProfileEvidence"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "genes": {
+            "description": "One row per resolved determinant.",
+            "items": {
+              "$ref": "#/components/schemas/ProfileGene"
+            },
+            "title": "Genes",
+            "type": "array"
+          },
+          "input": {
+            "$ref": "#/components/schemas/ProfileInput"
+          },
+          "mechanisms": {
+            "description": "Mechanisms across the determinants. Derivable from `genes`.",
+            "items": {
+              "$ref": "#/components/schemas/MechanismSummary"
+            },
+            "title": "Mechanisms",
+            "type": "array"
+          },
+          "profile_id": {
+            "description": "ID of a ResistanceProfile.",
+            "examples": [
+              "00000000-0000-0000-0000-0000000000a1"
+            ],
+            "format": "uuid",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "releases": {
+            "description": "The pinned releases the profile was built from.",
+            "items": {
+              "description": "A pinned source release, written source-version, e.g. opentargets-26.09.",
+              "examples": [
+                "opentargets-26.09"
+              ],
+              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "title": "Releases",
+            "type": "array"
+          },
+          "unresolved_inputs": {
+            "description": "Requested names that matched nothing, each with a reason.",
+            "items": {
+              "$ref": "#/components/schemas/UnresolvedInput"
+            },
+            "title": "Unresolved Inputs",
+            "type": "array"
+          }
+        },
+        "required": [
+          "contract_version",
+          "profile_id",
+          "input",
+          "unresolved_inputs",
+          "releases",
+          "genes",
+          "mechanisms",
+          "defeated_classes",
+          "affected_targets",
+          "evidence",
+          "confidence",
+          "caveats"
+        ],
+        "title": "ResistanceProfile",
+        "type": "object"
+      },
+      "RuleOutcome": {
+        "additionalProperties": false,
+        "description": "One property rule, with how far the value sits from its limit.",
+        "properties": {
+          "limit": {
+            "description": "The rule's limit in this rule set.",
+            "title": "Limit",
+            "type": "number"
+          },
+          "margin": {
+            "description": "`value - limit`. Positive means the limit was exceeded.",
+            "title": "Margin",
+            "type": "number"
+          },
+          "passed": {
+            "description": "True when `margin` is at or below zero.",
+            "title": "Passed",
+            "type": "boolean"
+          },
+          "rule": {
+            "$ref": "#/components/schemas/PropertyRule"
+          },
+          "value": {
+            "description": "The molecule's value for the rule.",
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "rule",
+          "passed",
+          "value",
+          "limit",
+          "margin"
+        ],
+        "title": "RuleOutcome",
+        "type": "object"
+      },
+      "RuleSet": {
+        "enum": [
+          "oral_druglike",
+          "antibiotic_relaxed"
+        ],
+        "type": "string"
+      },
       "SafetyReview": {
         "additionalProperties": false,
         "properties": {
@@ -2550,6 +4097,168 @@
           "zscore"
         ],
         "type": "string"
+      },
+      "SmokeDescriptors": {
+        "additionalProperties": false,
+        "description": "RDKit descriptors the smoke test measured.",
+        "properties": {
+          "hba": {
+            "description": "Hydrogen-bond acceptors.",
+            "minimum": 0.0,
+            "title": "Hba",
+            "type": "integer"
+          },
+          "hbd": {
+            "description": "Hydrogen-bond donors.",
+            "minimum": 0.0,
+            "title": "Hbd",
+            "type": "integer"
+          },
+          "heavy_atoms": {
+            "description": "Heavy-atom count.",
+            "minimum": 0.0,
+            "title": "Heavy Atoms",
+            "type": "integer"
+          },
+          "logp": {
+            "description": "Crippen logP.",
+            "title": "Logp",
+            "type": "number"
+          },
+          "mw": {
+            "description": "Molecular weight, in daltons.",
+            "title": "Mw",
+            "type": "number"
+          },
+          "psa": {
+            "description": "Topological polar surface area, in square angstroms.",
+            "minimum": 0.0,
+            "title": "Psa",
+            "type": "number"
+          },
+          "rot_bonds": {
+            "description": "Rotatable bonds.",
+            "minimum": 0.0,
+            "title": "Rot Bonds",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "mw",
+          "logp",
+          "hbd",
+          "hba",
+          "rot_bonds",
+          "psa",
+          "heavy_atoms"
+        ],
+        "title": "SmokeDescriptors",
+        "type": "object"
+      },
+      "SmokeTest": {
+        "additionalProperties": false,
+        "description": "Output of `htb_verify.smoke` for one molecule: the Python check Lean then proves.",
+        "properties": {
+          "alerts": {
+            "description": "PAINS and Brenk alerts matched. Recorded whether or not they count.",
+            "items": {
+              "type": "string"
+            },
+            "title": "Alerts",
+            "type": "array"
+          },
+          "descriptors": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SmokeDescriptors"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "What was measured, or null when the molecule could not be read."
+          },
+          "passed": {
+            "description": "True exactly when `violations` is empty.",
+            "title": "Passed",
+            "type": "boolean"
+          },
+          "rule_set": {
+            "$ref": "#/components/schemas/RuleSet"
+          },
+          "sa_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Synthetic accessibility, 1 (easy) to 10 (hard), or null when not computed.",
+            "title": "Sa Score"
+          },
+          "strict_alerts": {
+            "description": "Whether a structural alert counted as a violation in this run.",
+            "title": "Strict Alerts",
+            "type": "boolean"
+          },
+          "valid": {
+            "description": "False when RDKit could not read the SMILES.",
+            "title": "Valid",
+            "type": "boolean"
+          },
+          "violations": {
+            "description": "Every rule broken, with its margin.",
+            "items": {
+              "$ref": "#/components/schemas/SmokeViolation"
+            },
+            "title": "Violations",
+            "type": "array"
+          }
+        },
+        "required": [
+          "rule_set",
+          "valid",
+          "passed",
+          "strict_alerts",
+          "descriptors",
+          "violations",
+          "alerts",
+          "sa_score"
+        ],
+        "title": "SmokeTest",
+        "type": "object"
+      },
+      "SmokeViolation": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "title": "Limit",
+            "type": "number"
+          },
+          "margin": {
+            "description": "`value - limit`, so positive.",
+            "title": "Margin",
+            "type": "number"
+          },
+          "rule": {
+            "$ref": "#/components/schemas/ViolationRule",
+            "description": "The rule broken: a property rule, a structural alert or synthetic access."
+          },
+          "value": {
+            "title": "Value",
+            "type": "number"
+          }
+        },
+        "required": [
+          "rule",
+          "value",
+          "limit",
+          "margin"
+        ],
+        "title": "SmokeViolation",
+        "type": "object"
       },
       "Structure": {
         "additionalProperties": false,
@@ -2792,6 +4501,36 @@
         "title": "UnprocessableResponse",
         "type": "object"
       },
+      "UnresolvedInput": {
+        "additionalProperties": false,
+        "description": "An input that matched nothing. Reported, never silently dropped.",
+        "properties": {
+          "reason": {
+            "description": "Why it resolved to nothing, in plain words.",
+            "minLength": 1,
+            "title": "Reason",
+            "type": "string"
+          },
+          "text": {
+            "description": "The requested string that could not be resolved.",
+            "examples": [
+              "mecA",
+              "gyrA S84L",
+              "ARO:3000617"
+            ],
+            "maxLength": 120,
+            "minLength": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        },
+        "required": [
+          "text",
+          "reason"
+        ],
+        "title": "UnresolvedInput",
+        "type": "object"
+      },
       "UnscorableReason": {
         "enum": [
           "no_retained_disease_targets",
@@ -2837,6 +4576,19 @@
         ],
         "title": "ValidationIssue",
         "type": "object"
+      },
+      "ViolationRule": {
+        "enum": [
+          "mw",
+          "logp",
+          "hbd",
+          "hba",
+          "rot_bonds",
+          "psa",
+          "alert",
+          "sa"
+        ],
+        "type": "string"
       },
       "Warning": {
         "additionalProperties": false,
@@ -3704,6 +5456,179 @@
         "summary": "Get a small molecule's 3D conformer for drawing",
         "tags": [
           "molecules"
+        ]
+      }
+    },
+    "/api/resistance/certificates": {
+      "get": {
+        "description": "A certificate confirms the encoded property rules hold. It does not show a\nmolecule is safe, selective or active.",
+        "operationId": "list_certificates",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CertificateList"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List the Lean certificates this API holds",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/pathogens": {
+      "get": {
+        "description": "A preset with `profile_id: null` has no profile built yet.",
+        "operationId": "list_pathogens",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PathogenPresets"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List the pathogens a profile can be built for",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/profiles": {
+      "get": {
+        "operationId": "list_profiles",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileList"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List the resistance profiles this API holds",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/profiles/{profile_id}": {
+      "get": {
+        "description": "`defeated_classes` is class-level: read it as ruling drugs out, not in. A gene\nin CARD can confer resistance; it does not show the gene is expressed.",
+        "operationId": "get_resistance_profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profile_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Profile Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResistanceProfile"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not found."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableResponse"
+                }
+              }
+            },
+            "description": "The request cannot be carried out."
+          }
+        },
+        "summary": "Get a resistance profile: determinants, mechanisms and defeated drug classes",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/profiles/{profile_id}/candidates": {
+      "get": {
+        "description": "Approved drugs in rank order, then any generated proposals, which are never\nranked with them. `unaffected` means no known link in CARD, not a measured result.",
+        "operationId": "get_antibiotic_candidates",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profile_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Profile Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AntibioticCandidateResult"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not found."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableResponse"
+                }
+              }
+            },
+            "description": "The request cannot be carried out."
+          }
+        },
+        "summary": "Get the antibiotics ranked against a profile, with evasion and verification",
+        "tags": [
+          "resistance"
         ]
       }
     },
