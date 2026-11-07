@@ -1,28 +1,65 @@
-import type { RouteObject } from "react-router";
+import { Navigate, type RouteObject } from "react-router";
+import { diseaseFlowEnabled } from "./flags";
 import { EvaluationPage } from "./routes/EvaluationPage";
 import { ExperimentLayout } from "./routes/ExperimentLayout";
 import { ExplorePage } from "./routes/ExplorePage";
 import { IntroPage } from "./routes/IntroPage";
 import { NotFoundPage } from "./routes/NotFoundPage";
+import { PathogenPage } from "./routes/PathogenPage";
+import { ResistanceLayout } from "./routes/ResistanceLayout";
+import { ResistanceStep } from "./routes/ResistanceStep";
 import { RouteErrorPage } from "./routes/RouteErrorPage";
 import { StepFigure } from "./routes/StepFigure";
-import { EXPLORE_PATH } from "./steps";
+import { EXPLORE_PATH, RESISTANCE_PATH } from "./steps";
 
-export const routes: RouteObject[] = [
+/**
+ * The COVID-19 disease flow of plan.md: the disease search, an Experiment's eight steps and the
+ * ranking evaluation. Mounted only while `diseaseFlowEnabled` (issue #32), so by default these
+ * addresses are not found and the app has one flow, the antibiotic one.
+ */
+const diseaseFlowRoutes: RouteObject[] = [
+  { path: EXPLORE_PATH, element: <ExplorePage /> },
   {
-    errorElement: <RouteErrorPage />,
-    children: [
-      // The introduction: the problem and the approach, then the way into the steps.
-      { index: true, element: <IntroPage /> },
-      { path: EXPLORE_PATH, element: <ExplorePage /> },
-      {
-        // The layout loads the Experiment and holds the persistent network; the step adds panels.
-        path: "e/:experimentId",
-        element: <ExperimentLayout />,
-        children: [{ path: ":step", element: <StepFigure /> }],
-      },
-      { path: "evaluation", element: <EvaluationPage /> },
-      { path: "*", element: <NotFoundPage /> },
-    ],
+    // The layout loads the Experiment and holds the persistent network; the step adds panels.
+    path: "e/:experimentId",
+    element: <ExperimentLayout />,
+    children: [{ path: ":step", element: <StepFigure /> }],
+  },
+  { path: "evaluation", element: <EvaluationPage /> },
+];
+
+/**
+ * The antibiotic resistance flow. Always mounted, including while the disease flow is on, so the
+ * two can be worked on and tested side by side; only the address of `/` depends on the flag.
+ */
+const resistanceFlowRoutes: RouteObject[] = [
+  { path: RESISTANCE_PATH, element: <PathogenPage /> },
+  {
+    // The layout loads the profile and its candidates; the step adds panels.
+    path: `${RESISTANCE_PATH}/:profileId`,
+    element: <ResistanceLayout />,
+    children: [{ path: ":step", element: <ResistanceStep /> }],
   },
 ];
+
+/** Every address the app answers, with the disease flow's own mounted only when `diseaseFlow`. */
+export function createRoutes(diseaseFlow: boolean): RouteObject[] {
+  return [
+    {
+      errorElement: <RouteErrorPage />,
+      children: [
+        {
+          index: true,
+          // With the disease flow on, `/` is its introduction: the problem, the approach, and
+          // the way into the steps. Without it, `/` is the resistance flow's own first step.
+          element: diseaseFlow ? <IntroPage /> : <Navigate to={RESISTANCE_PATH} replace />,
+        },
+        ...(diseaseFlow ? diseaseFlowRoutes : []),
+        ...resistanceFlowRoutes,
+        { path: "*", element: <NotFoundPage /> },
+      ],
+    },
+  ];
+}
+
+export const routes: RouteObject[] = createRoutes(diseaseFlowEnabled);

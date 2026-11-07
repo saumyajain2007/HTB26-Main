@@ -35,3 +35,6 @@ __pycache__/
 
 # Lean build output.
 /core/verify/lean/.lake/
+
+# Claude Code agent worktrees, created per task; never part of the project.
+.claude/worktrees/
