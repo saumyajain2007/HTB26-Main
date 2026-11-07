@@ -120,7 +120,7 @@ Short, blocks everything. Do together, then split.
 - [x] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M` Routes and models in [app/api/README.md](app/api/README.md#resistance-routes); `ResistanceSource` is the seam the real profiling and ranking plug into.
 - [ ] Input screen: pick a pathogen or paste resistance genes. `M`
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
-- [ ] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
+- [x] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
 - [ ] Hide the COVID disease flow behind a flag rather than deleting it, so existing tests and the offline demo keep working until the new flow is complete. `M`
 - [ ] Rebuild evidence packets for resistance (mechanisms present, supporting and contradicting findings, safety, missing evidence); keep the existing validators and refusal handling. `M`
 
