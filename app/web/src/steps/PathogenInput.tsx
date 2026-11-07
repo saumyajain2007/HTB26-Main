@@ -2,7 +2,13 @@ import { useId, useMemo, useState } from "react";
 import { Panel } from "../app/Figure";
 import { copy } from "../copy/en";
 import { parseGeneList } from "../lib/pathogenInput";
-import { hasProfile, usePathogenPresets, type ResistanceProfile } from "../lib/resistance";
+import { ApiError } from "../api/errors";
+import {
+  hasProfile,
+  useBuildProfile,
+  usePathogenPresets,
+  type ResistanceProfile,
+} from "../lib/resistance";
 import styles from "./PathogenInput.module.css";
 
 export interface PathogenInputProps {
@@ -25,11 +31,10 @@ export interface PathogenInputProps {
  * A pathogen the API has no profile for is offered all the same, kept out of use and carrying
  * the API's own note, so a reader sees it exists and why it cannot be opened.
  *
- * TODO(#15): the typed list is split and tidied here, and goes nowhere. Resolving a name against
- * CARD needs the resistance profiling endpoint of issue #15, so this component cannot tell a
- * known name from an unknown one and must not pretend to. Once that endpoint lands, this needs
- * only a mutation that posts `parsed.entries` and hands the new profile's ID to `onProfile`,
- * which is the same way a preset opens.
+ * The typed list is split and tidied here, but never judged: resolving a name against CARD needs
+ * the server's vocabulary, so the names that matched nothing come back from
+ * `POST /api/resistance/profiles` with CARD's own reason. A profile built from typed names opens
+ * the same way a preset does, through `onProfile`.
  */
 export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
   const presets = usePathogenPresets();
@@ -38,12 +43,37 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
   const presetsTitleId = useId();
   const genesFieldId = useId();
   const genesHintId = useId();
-  const genesBlockedId = useId();
+  const genesHelpId = useId();
+  const genesStatusId = useId();
   const profileTitleId = useId();
   const noteId = useId();
 
   const pathogen = copy.resistance.pathogen;
   const items = presets.data ?? [];
+  const build = useBuildProfile();
+
+  // A 503 means the server has no CARD release, so nothing was looked up: say that, rather than
+  // letting a reader think a name of theirs was rejected.
+  const failure = build.error;
+  const buildMessage =
+    failure === null
+      ? null
+      : failure instanceof ApiError && failure.status === 503
+        ? pathogen.genesUnavailable
+        : failure instanceof ApiError && failure.status === 422 && failure.detail !== null
+          ? pathogen.genesRefused(failure.detail)
+          : pathogen.genesFailed;
+
+  function submit() {
+    build.mutate(
+      { kind: "gene_list", genes: parsed.entries.join(", ") },
+      {
+        onSuccess: (profile) => {
+          onProfile(profile.profile_id);
+        },
+      },
+    );
+  }
 
   return (
     <Panel area="main">
@@ -112,7 +142,7 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
             value={typed}
             rows={5}
             spellCheck={false}
-            aria-describedby={`${genesHintId} ${genesBlockedId}`}
+            aria-describedby={`${genesHintId} ${genesHelpId}`}
             onChange={(event) => {
               setTyped(event.target.value);
             }}
@@ -132,8 +162,21 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
               )}
             </div>
           )}
-          <p id={genesBlockedId} className={styles.blocked}>
-            {pathogen.genesBlocked}
+          <p id={genesHelpId} className={styles.hint}>
+            {pathogen.genesHelp}
+          </p>
+          <button
+            type="button"
+            className={styles.submit}
+            disabled={parsed.entries.length === 0 || build.isPending}
+            onClick={submit}
+          >
+            {pathogen.genesSubmit}
+          </button>
+          {/* One live region for both the wait and the failure, so a screen reader hears each
+              once and in the order they happen. */}
+          <p id={genesStatusId} className={styles.blocked} role="status">
+            {build.isPending ? pathogen.genesBuilding : (buildMessage ?? "")}
           </p>
         </section>
       </div>
