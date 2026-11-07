@@ -90,12 +90,12 @@ Short, blocks everything. Do together, then split.
 
 ### Lane A: data and resistance (WS1, WS2)
 
-- [ ] Ingest CARD with release version recorded: ARO ontology, gene-to-class and gene-to-mechanism links, point-mutation models. `L`
+- [x] Ingest CARD with release version recorded: ARO ontology, gene-to-class and gene-to-mechanism links, point-mutation models. `L`
 - [x] Antibiotic catalogue from ChEMBL (ATC J01 and antibacterial indications): class, mechanism, target, SMILES; map names to CARD's drug-class vocabulary. `M`
-- [ ] Version manifest and checksums, `/data/` layout gitignored, one command rebuilds the tables (reuse the pattern in `core/pipeline/manifest.py`). `M`
+- [x] Version manifest and checksums, `/data/` layout gitignored, one command rebuilds the tables (reuse the pattern in `core/pipeline/manifest.py`). `M`
 - [ ] Curated combinations table, every row cited (for example beta-lactam plus inhibitor). `M`
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`
-- [ ] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
+- [x] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
 - [ ] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M`
 - [ ] Spot check ten genes against CARD's web pages. `S`
 

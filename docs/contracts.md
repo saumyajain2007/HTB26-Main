@@ -19,11 +19,13 @@ Conventions: every object carries `contract_version: "1"` at its top level. Opti
 | `input` | `kind` (`species_preset`, `gene_list`, `amrfinderplus`), `species`, and the `requested` strings as typed |
 | `unresolved_inputs` | Names that matched nothing, with a `reason`. Reported, never silently dropped |
 | `releases` | CARD release used |
-| `genes[]` | One row per resolved determinant: `aro_id`, `name`, `model_type`, `mechanisms[]`, `defeated_classes[]`, `variants[]` (point mutations), `affected_target` (`name`, `pdb_ids`), `evidence_ids` |
+| `genes[]` | One row per resolved determinant: `aro_id`, `name`, `model_type`, `mechanisms[]`, `defeated_classes[]`, `variants[]` (point mutations), `affected_target` (`name`, `pdb_ids`; `null` when CARD names no sensitive target), `evidence_ids` |
 | `mechanisms[]`, `defeated_classes[]`, `affected_targets[]` | Roll-ups with the `gene_aro_ids` behind each. Must be derivable from `genes[]` |
 | `evidence[]` | `P#` items: `source`, `release`, `aro_id`, `statement` |
 | `confidence` | `level` (`low`, `medium`, `high`) and the `basis` for it |
 | `caveats[]` | Always at least one. A gene in CARD is not proof it is expressed |
+
+A real profile is built by `htb_resistance.build_profile` ([profile.py](../core/resistance/htb_resistance/profile.py)), and the fixture is its output. `defeated_classes` are class-level, taken from CARD's Drug Class links, so a drug in a defeated class may still work; the evasion rule (#23) also uses CARD's drug-level links. `affected_target` is the sensitive target the resistant form derives from in the ontology, named in CARD's words; `pdb_ids` stays empty because CARD carries no target structures (the target list, #20, supplies them).
 
 Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, never names. The ids in the fixtures were type-checked; see [ontology-check.md](ontology-check.md).
 
