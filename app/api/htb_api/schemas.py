@@ -1186,3 +1186,632 @@ class Evaluation(Model):
     fixture_note: str | None = Field(
         description="Set when the results are fixture data: says the numbers are made up."
     )
+
+
+# ---------------------------------------------------------------------------
+# Antibiotic resistance: the three frozen contracts of docs/contracts.md
+# (version 1). These models mirror those JSON shapes field for field, so the
+# reference fixtures in tests/fixtures/ parse as-is. The cross-field rules live
+# in tests/test_resistance_contracts.py; a contract change goes there, then
+# here, then through `python -m htb_api.export_openapi` and `npm run gen:api`.
+# ---------------------------------------------------------------------------
+
+CONTRACT_VERSION = "1"
+"""Version of the resistance contracts this API speaks (docs/contracts.md)."""
+
+AroId = Annotated[
+    str,
+    Field(
+        pattern=r"^ARO:[0-9]{7}$",
+        description="CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).",
+        examples=["ARO:3000617"],
+    ),
+]
+ProfileId = Annotated[
+    UUID, Field(description="ID of a ResistanceProfile.", examples=[UUID(int=0xA1)])
+]
+InchiKey = Annotated[
+    str,
+    Field(
+        pattern=r"^[A-Z]{14}-[A-Z]{10}-[A-Z]$",
+        description="Standard InChIKey of a molecule.",
+        examples=["TYZROVQLWOKYKF-ZDUSSCGKSA-N"],
+    ),
+]
+AntibioticId = Annotated[
+    str,
+    Field(
+        pattern=r"^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$",
+        description=(
+            "ID of a ranked molecule: a ChEMBL parent molecule ID for an approved drug, "
+            "or the generator's own ID for a generated one."
+        ),
+        examples=["CHEMBL126", "GEN-0001"],
+    ),
+]
+ProfileEvidenceId = Annotated[
+    str,
+    Field(
+        pattern=r"^P[0-9]+$",
+        description="Evidence item ID, unique within one ResistanceProfile, e.g. P2.",
+        examples=["P2"],
+    ),
+]
+MutationLabel = Annotated[
+    str,
+    Field(
+        min_length=1,
+        max_length=64,
+        description="A point mutation as CARD writes it: wild-type residue, position, variant.",
+        examples=["S84L"],
+    ),
+]
+GeneQuery = Annotated[
+    str,
+    Field(
+        min_length=1,
+        max_length=120,
+        description=(
+            "A resistance determinant as typed: a gene name, a gene name with a mutation, "
+            "or an ARO ID."
+        ),
+        examples=["mecA", "gyrA S84L", "ARO:3000617"],
+    ),
+]
+
+ProfileInputKind = TypeAliasType(
+    "ProfileInputKind", Literal["species_preset", "gene_list", "amrfinderplus"]
+)
+ConfidenceLevel = TypeAliasType("ConfidenceLevel", Literal["low", "medium", "high"])
+EvasionStatus = TypeAliasType(
+    "EvasionStatus", Literal["unaffected", "partly_affected", "defeated", "unknown"]
+)
+CandidateSource = TypeAliasType("CandidateSource", Literal["approved", "generated"])
+CertificateStatus = TypeAliasType(
+    "CertificateStatus", Literal["not_run", "certified", "failed", "unavailable"]
+)
+RuleSet = TypeAliasType("RuleSet", Literal["oral_druglike", "antibiotic_relaxed"])
+PropertyRule = TypeAliasType(
+    "PropertyRule", Literal["mw", "logp", "hbd", "hba", "rot_bonds", "psa"]
+)
+ViolationRule = TypeAliasType(
+    "ViolationRule", Literal["mw", "logp", "hbd", "hba", "rot_bonds", "psa", "alert", "sa"]
+)
+FeatureName = TypeAliasType("FeatureName", Literal["activity", "target_hit", "docking", "safety"])
+RankingFeature = TypeAliasType(
+    "RankingFeature", Literal["evasion", "activity", "target_hit", "docking", "safety"]
+)
+ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card"])
+CandidateEvidenceKind = TypeAliasType(
+    "CandidateEvidenceKind",
+    Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval"],
+)
+CandidateEvidenceSource = TypeAliasType(
+    "CandidateEvidenceSource", Literal["chembl", "card", "pdb", "htb_verify", "htb_docking"]
+)
+
+PROPERTY_RULES: tuple[PropertyRule, ...] = ("mw", "logp", "hbd", "hba", "rot_bonds", "psa")
+"""The property rules a Certificate carries, in the order it lists them."""
+
+
+class Pathogen(Model):
+    name: str = Field(description="Species name, e.g. Staphylococcus aureus.")
+    ncbi_taxid: int = Field(gt=0, description="NCBI taxonomy ID of the species, e.g. 1280.")
+
+
+class AroTerm(Model):
+    """A CARD term. Join on `aro_id`; `name` is display text only."""
+
+    aro_id: AroId
+    name: str = Field(description="The term's name in CARD's vocabulary.")
+
+
+# ResistanceProfile ---------------------------------------------------------
+
+
+class ProfileInput(Model):
+    """What was asked for, kept exactly as received."""
+
+    kind: ProfileInputKind = Field(description="How the determinants were given.")
+    species: Pathogen
+    requested: list[GeneQuery] = Field(
+        description="The determinant strings as typed, unchanged and in order."
+    )
+
+
+class UnresolvedInput(Model):
+    """An input that matched nothing. Reported, never silently dropped."""
+
+    text: GeneQuery = Field(description="The requested string that could not be resolved.")
+    reason: str = Field(min_length=1, description="Why it resolved to nothing, in plain words.")
+
+
+class AffectedTarget(Model):
+    """The sensitive form of the protein a determinant alters or replaces."""
+
+    name: str = Field(description="Target name as CARD gives it.")
+    pdb_ids: list[PdbId] = Field(
+        description="Structures for this target, empty until the structure set names them."
+    )
+
+
+class ProfileGeneVariant(Model):
+    mutation: MutationLabel
+    param_type: str = Field(
+        description="How CARD classifies the variant, e.g. single resistance variant."
+    )
+
+
+class ProfileGene(Model):
+    """One resolved resistance determinant."""
+
+    aro_id: AroId
+    name: str = Field(description="Determinant name as CARD gives it.")
+    model_type: str = Field(
+        description="CARD detection model behind it, e.g. protein homolog model."
+    )
+    mechanisms: list[AroTerm] = Field(
+        min_length=1, description="Resistance mechanisms CARD links to this determinant."
+    )
+    defeated_classes: list[AroTerm] = Field(
+        description="Drug classes CARD links to it. Class-level: read as ruled out, not ruled in."
+    )
+    variants: list[ProfileGeneVariant] = Field(
+        description="Point mutations found, for a variant model. Empty for a homolog model."
+    )
+    affected_target: AffectedTarget | None = Field(
+        description=(
+            "The sensitive target this determinant alters or replaces, or null where CARD "
+            "names none (enzymes, pumps and most regulators)."
+        )
+    )
+    evidence_ids: list[ProfileEvidenceId] = Field(
+        min_length=1, description="Evidence items in this profile that support the row."
+    )
+
+
+class MechanismSummary(Model):
+    """A mechanism present in the isolate, with the determinants behind it."""
+
+    aro_id: AroId
+    name: str = Field(description="Mechanism name in CARD's vocabulary.")
+    gene_aro_ids: list[AroId] = Field(
+        min_length=1, description="Determinants in this profile that carry the mechanism."
+    )
+
+
+class DefeatedClass(Model):
+    """A drug class the isolate is expected to resist."""
+
+    aro_id: AroId
+    name: str = Field(description="Drug-class name in CARD's vocabulary.")
+    gene_aro_ids: list[AroId] = Field(
+        min_length=1, description="Determinants in this profile linked to the class."
+    )
+    evidence_ids: list[ProfileEvidenceId] = Field(
+        min_length=1, description="Evidence items behind the link."
+    )
+
+
+class AffectedTargetSummary(Model):
+    name: str = Field(description="Target name as CARD gives it.")
+    gene_aro_ids: list[AroId] = Field(
+        min_length=1, description="Determinants in this profile that affect the target."
+    )
+    pdb_ids: list[PdbId] = Field(description="Structures for the target, empty when none are set.")
+
+
+class ProfileEvidence(Model):
+    """One cited statement behind a row of the profile."""
+
+    id: ProfileEvidenceId
+    source: ResistanceEvidenceSource = Field(description="Where the statement comes from.")
+    release: DataRelease = Field(description="The pinned release it was read from.")
+    aro_id: AroId = Field(description="The term the statement is about.")
+    statement: str = Field(min_length=1, description="What the source says, in one sentence.")
+
+
+class ProfileConfidence(Model):
+    level: ConfidenceLevel = Field(description="How much weight the profile carries.")
+    basis: str = Field(min_length=1, description="Why that level, in plain words.")
+
+
+class ResistanceProfile(Model):
+    """What an isolate is expected to resist, and why (docs/contracts.md).
+
+    Gene presence in CARD is not proof of expression, and `defeated_classes` is
+    class-level, so it rules drugs out rather than in.
+    """
+
+    contract_version: Literal["1"] = Field(description="Version of the profile contract.")
+    profile_id: ProfileId
+    input: ProfileInput
+    unresolved_inputs: list[UnresolvedInput] = Field(
+        description="Requested names that matched nothing, each with a reason."
+    )
+    releases: list[DataRelease] = Field(
+        min_length=1, description="The pinned releases the profile was built from."
+    )
+    genes: list[ProfileGene] = Field(description="One row per resolved determinant.")
+    mechanisms: list[MechanismSummary] = Field(
+        description="Mechanisms across the determinants. Derivable from `genes`."
+    )
+    defeated_classes: list[DefeatedClass] = Field(
+        description="Drug classes across the determinants. Derivable from `genes`."
+    )
+    affected_targets: list[AffectedTargetSummary] = Field(
+        description="Targets across the determinants. Derivable from `genes`."
+    )
+    evidence: list[ProfileEvidence] = Field(description="Every cited statement, by ID.")
+    confidence: ProfileConfidence
+    caveats: list[str] = Field(
+        min_length=1, description="How to read the profile. There is always at least one."
+    )
+
+
+class PathogenPreset(Model):
+    """A pathogen the app can profile without typing gene names."""
+
+    id: str = Field(
+        pattern=r"^[a-z0-9_]+$",
+        description="Preset ID used in requests, e.g. s_aureus_mrsa.",
+        examples=["s_aureus_mrsa"],
+    )
+    label: str = Field(description="What to show in the picker, e.g. MRSA (S. aureus).")
+    pathogen: Pathogen
+    profile_id: ProfileId | None = Field(
+        description="The profile already built for this preset, or null when none is."
+    )
+    note: str | None = Field(
+        description="What the preset stands for, or null. Says so when it is fixture data."
+    )
+
+
+class PathogenPresets(Model):
+    items: list[PathogenPreset] = Field(description="Every preset this API can profile.")
+
+
+class ProfileList(Model):
+    items: list[ResistanceProfile] = Field(description="Every profile this API holds.")
+
+
+# Certificate ---------------------------------------------------------------
+
+
+class RuleOutcome(Model):
+    """One property rule, with how far the value sits from its limit."""
+
+    rule: PropertyRule
+    passed: bool = Field(description="True when `margin` is at or below zero.")
+    value: float = Field(description="The molecule's value for the rule.")
+    limit: float = Field(description="The rule's limit in this rule set.")
+    margin: float = Field(description="`value - limit`. Positive means the limit was exceeded.")
+
+
+class Certificate(Model):
+    """A Lean 4 proof that the encoded property rules hold for one molecule.
+
+    It says nothing about safety, selectivity or activity. `certified` is never
+    true unless Lean actually `ran`.
+    """
+
+    inchikey: InchiKey
+    rule_set: RuleSet = Field(description="Which limits were proved against.")
+    ran: bool = Field(
+        description="False when Lean was missing, timed out, or the input was unusable."
+    )
+    certified: bool = Field(description="True only when Lean ran and every rule passed.")
+    rules: list[RuleOutcome] = Field(description="One row per property rule, in a fixed order.")
+    failed_rules: list[PropertyRule] = Field(
+        description="Rules that failed, without the Lean rule_ prefix. Empty when Lean did not run."
+    )
+    lean_version: str | None = Field(description="Lean version used, or null when it did not run.")
+    seconds: float | None = Field(
+        ge=0, description="How long the proof took, or null when it did not run."
+    )
+    detail: str | None = Field(
+        description=(
+            "Why it did not run, or which theorem failed. Null when there is nothing to say."
+        )
+    )
+
+    @model_validator(mode="after")
+    def _check_outcome(self) -> Certificate:
+        if [r.rule for r in self.rules] != list(PROPERTY_RULES):
+            raise ValueError(f"rules must be {list(PROPERTY_RULES)}, in that order")
+        if not self.ran:
+            if self.certified:
+                raise ValueError("certified cannot be true when Lean did not run")
+            if self.failed_rules:
+                raise ValueError("failed_rules must be empty when Lean did not run")
+            if not self.detail:
+                raise ValueError("detail must say why Lean did not run")
+            return self
+        failed = [r.rule for r in self.rules if not r.passed]
+        if self.failed_rules != failed:
+            raise ValueError(f"failed_rules must be {failed}")
+        if self.certified != (not failed):
+            raise ValueError("certified must be true exactly when no rule failed")
+        return self
+
+
+class CertificateList(Model):
+    contract_version: Literal["1"] = Field(description="Version of the certificate contract.")
+    certificates: list[Certificate] = Field(description="Every certificate this API holds.")
+
+
+# AntibioticCandidate ------------------------------------------------------
+
+
+class SmokeDescriptors(Model):
+    """RDKit descriptors the smoke test measured."""
+
+    mw: float = Field(description="Molecular weight, in daltons.")
+    logp: float = Field(description="Crippen logP.")
+    hbd: int = Field(ge=0, description="Hydrogen-bond donors.")
+    hba: int = Field(ge=0, description="Hydrogen-bond acceptors.")
+    rot_bonds: int = Field(ge=0, description="Rotatable bonds.")
+    psa: float = Field(ge=0, description="Topological polar surface area, in square angstroms.")
+    heavy_atoms: int = Field(ge=0, description="Heavy-atom count.")
+
+
+class SmokeViolation(Model):
+    rule: ViolationRule = Field(
+        description="The rule broken: a property rule, a structural alert or synthetic access."
+    )
+    value: float
+    limit: float
+    margin: float = Field(description="`value - limit`, so positive.")
+
+
+class SmokeTest(Model):
+    """Output of `htb_verify.smoke` for one molecule: the Python check Lean then proves."""
+
+    rule_set: RuleSet
+    valid: bool = Field(description="False when RDKit could not read the SMILES.")
+    passed: bool = Field(description="True exactly when `violations` is empty.")
+    strict_alerts: bool = Field(
+        description="Whether a structural alert counted as a violation in this run."
+    )
+    descriptors: SmokeDescriptors | None = Field(
+        description="What was measured, or null when the molecule could not be read."
+    )
+    violations: list[SmokeViolation] = Field(description="Every rule broken, with its margin.")
+    alerts: list[str] = Field(
+        description="PAINS and Brenk alerts matched. Recorded whether or not they count."
+    )
+    sa_score: float | None = Field(
+        description="Synthetic accessibility, 1 (easy) to 10 (hard), or null when not computed."
+    )
+
+
+class EvasionHit(Model):
+    """A determinant that defeats a candidate, and the mechanism it uses."""
+
+    gene_aro_id: AroId = Field(description="The determinant in the profile.")
+    mechanism_aro_id: AroId = Field(description="One of that determinant's mechanisms.")
+
+
+class Evasion(Model):
+    """Whether the profile's determinants are known to defeat this candidate.
+
+    `unaffected` means no link in CARD, which is not a measured result.
+    `unknown` means CARD cannot say, which is not the same as `unaffected`.
+    """
+
+    status: EvasionStatus
+    defeated_by: list[EvasionHit] = Field(
+        description="Determinants that defeat it. Empty unless the status says otherwise."
+    )
+    profile_evidence_ids: list[ProfileEvidenceId] = Field(
+        description="Evidence in the ResistanceProfile behind this call."
+    )
+    rationale: str = Field(min_length=1, description="Why that status, in one sentence.")
+
+    @model_validator(mode="after")
+    def _check_hits(self) -> Evasion:
+        if self.status in ("unaffected", "unknown") and self.defeated_by:
+            raise ValueError(f"a {self.status} candidate cannot name a determinant")
+        if self.status in ("defeated", "partly_affected") and not self.defeated_by:
+            raise ValueError(f"a {self.status} candidate must name the determinant")
+        return self
+
+
+class CandidateEvidence(Model):
+    """One cited statement behind a candidate's row, local to this result."""
+
+    id: EvidenceId
+    kind: CandidateEvidenceKind
+    source: CandidateEvidenceSource
+    release: str = Field(
+        min_length=1, description="The pinned release, or the rule set for a local check."
+    )
+    source_id: str = Field(min_length=1, description="The record's ID in that source.")
+    statement: str = Field(min_length=1, description="What the source says, in one sentence.")
+
+
+class CandidateFeature(Model):
+    """One feature, kept on its own and never blended into a score.
+
+    Missing data is `available: false`, never zero.
+    """
+
+    available: bool = Field(description="False when there is no data for this feature.")
+    value: float | str | None = Field(
+        description="The measurement, or a coded word for a non-numeric one. Null when unavailable."
+    )
+    unit: str | None = Field(description="Unit of `value`, or null when it has none.")
+    evidence_ids: list[EvidenceId] = Field(
+        description="This candidate's evidence behind the value. Empty when unavailable."
+    )
+
+    @model_validator(mode="after")
+    def _check_availability(self) -> CandidateFeature:
+        if not self.available and (self.value is not None or self.evidence_ids):
+            raise ValueError("an unavailable feature carries no value and no evidence")
+        return self
+
+
+class CandidateFeatures(Model):
+    """The four features, each separate (docs/contracts.md)."""
+
+    activity: CandidateFeature = Field(description="Measured activity against the pathogen.")
+    target_hit: CandidateFeature = Field(description="Evidence the drug hits an unaffected target.")
+    docking: CandidateFeature = Field(
+        description="Docking score, a supporting signal only, never the headline."
+    )
+    safety: CandidateFeature = Field(description="Safety flags and structural alerts recorded.")
+
+
+class CandidateExplanation(Model):
+    """Why the candidate sits where it does, and what is not known."""
+
+    summary: str = Field(min_length=1, description="One or two sentences on the placement.")
+    mechanisms_evaded: list[str] = Field(
+        description="Mechanisms in the profile this candidate is not linked to."
+    )
+    missing: list[str] = Field(description="Data that would change the placement, but is absent.")
+    caveats: list[str] = Field(description="How to read the row.")
+
+
+class GeneratedProvenance(Model):
+    """Where a generated molecule came from. Hypotheses only, never ranked with approved drugs."""
+
+    model: str = Field(min_length=1, description="The generator that proposed the molecule.")
+    model_version: str = Field(description="Pinned version of that generator.")
+    seed: int = Field(description="Random seed, so the proposal can be reproduced.")
+    pocket_pdb_id: PdbId | None = Field(
+        description="The pocket it was generated into, or null when none was used."
+    )
+    parent_candidate_id: AntibioticId | None = Field(
+        description="The approved drug it was derived from, or null."
+    )
+
+
+class CandidateTargetRef(Model):
+    """What a candidate acts on, linked to the profile's determinants where it is one."""
+
+    name: str = Field(description="Target name, display text only.")
+    gene_aro_ids: list[AroId] = Field(
+        description="Determinants in the profile that affect this target, empty when none do."
+    )
+
+
+class AntibioticCandidate(Model):
+    """One molecule in a ranking, with its evasion call, features and verification."""
+
+    candidate_id: AntibioticId
+    name: str = Field(description="Display name of the molecule.")
+    source: CandidateSource = Field(
+        description="approved: a licensed drug. generated: a proposal, never ranked."
+    )
+    smiles: str = Field(min_length=1, description="The structure, as SMILES.")
+    inchikey: InchiKey
+    drug_class: AroTerm | None = Field(
+        description=(
+            "CARD drug class, or null when the molecule has none (any generated one). "
+            "`aro_id` is null when the class is known by name but unmapped."
+        )
+    )
+    mechanism_of_action: str | None = Field(
+        description="How the drug acts, or null when it is not recorded."
+    )
+    target: CandidateTargetRef | None = Field(
+        description="What it acts on, or null when that is not recorded."
+    )
+    rank: int | None = Field(
+        ge=1,
+        description="Place among the approved candidates, 1 best. Null for a generated molecule.",
+    )
+    evasion: Evasion
+    features: CandidateFeatures
+    explanation: CandidateExplanation
+    smoke_test: SmokeTest
+    certificate_status: CertificateStatus = Field(
+        description="not_run: Lean was not asked. unavailable: it was, and could not run."
+    )
+    certificate: Certificate | None = Field(
+        description="The proof, or null when the status is not_run."
+    )
+    generated: GeneratedProvenance | None = Field(
+        description="Provenance of a generated molecule; null for an approved drug."
+    )
+    evidence: list[CandidateEvidence] = Field(
+        description="Every cited statement for this candidate, by ID."
+    )
+
+    @model_validator(mode="after")
+    def _check_source_and_certificate(self) -> AntibioticCandidate:
+        if (self.source == "generated") != (self.generated is not None):
+            raise ValueError("a generated molecule carries provenance, an approved drug none")
+        if self.source == "generated" and self.rank is not None:
+            raise ValueError("a generated molecule is never ranked with approved drugs")
+        if (self.certificate_status == "not_run") != (self.certificate is None):
+            raise ValueError("a certificate is present for every status but not_run")
+        if self.certificate is None:
+            return self
+        if self.certificate.inchikey != self.inchikey:
+            raise ValueError("the certificate must be for this molecule")
+        if self.certificate.rule_set != self.smoke_test.rule_set:
+            raise ValueError("the certificate and the smoke test must use one rule set")
+        expected = {
+            "certified": self.certificate.ran and self.certificate.certified,
+            "failed": self.certificate.ran and not self.certificate.certified,
+            "unavailable": not self.certificate.ran,
+        }[self.certificate_status]
+        if not expected:
+            raise ValueError(f"the certificate does not match the status {self.certificate_status}")
+        return self
+
+
+class RankingMethodInfo(Model):
+    """How the ranks were made, recorded so a result can be reproduced."""
+
+    method: str = Field(min_length=1, description="The ranking method, e.g. ordered_rule_v0.")
+    order: list[RankingFeature] = Field(
+        min_length=1, description="Features in the order the rule applies them, evasion first."
+    )
+    weights: dict[RankingFeature, float] | None = Field(
+        description="Per-feature weights, or null for an ordered rule that blends nothing."
+    )
+    note: str | None = Field(description="Anything else needed to read the ranking, or null.")
+
+
+class AntibioticCandidateResult(Model):
+    """A ranking of antibiotics against one ResistanceProfile (docs/contracts.md).
+
+    The strongest claims allowed are "predicted to evade known mechanisms" and
+    "passes the encoded rules". A computational hit is not a working antibiotic.
+    """
+
+    contract_version: Literal["1"] = Field(description="Version of the candidate contract.")
+    result_id: UUID = Field(description="ID of this ranking run.")
+    profile_id: ProfileId = Field(description="The profile that was ranked against.")
+    pathogen: Pathogen
+    releases: list[DataRelease] = Field(
+        min_length=1, description="The pinned releases the ranking was built from."
+    )
+    ranking: RankingMethodInfo
+    candidates: list[AntibioticCandidate] = Field(
+        description="Approved drugs in rank order, then any generated proposals."
+    )
+    fixture_note: str | None = Field(
+        default=None,
+        description="Set when this is fixture data: says the numbers are made up.",
+    )
+
+    @model_validator(mode="after")
+    def _check_ranks(self) -> AntibioticCandidateResult:
+        ranks = sorted(c.rank for c in self.candidates if c.rank is not None)
+        if ranks != list(range(1, len(ranks) + 1)):
+            raise ValueError("ranks must run 1..n over the approved candidates")
+        order = {"unaffected": 0, "partly_affected": 1, "defeated": 2, "unknown": 3}
+        ranked = sorted(
+            (c for c in self.candidates if c.rank is not None), key=lambda c: c.rank or 0
+        )
+        levels = [order[c.evasion.status] for c in ranked]
+        if levels != sorted(levels):
+            raise ValueError(
+                "evasion comes first: no defeated candidate outranks an unaffected one"
+            )
+        return self

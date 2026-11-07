@@ -264,6 +264,106 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/resistance/certificates": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List the Lean certificates this API holds
+     * @description A certificate confirms the encoded property rules hold. It does not show a
+     *     molecule is safe, selective or active.
+     */
+    get: operations["list_certificates"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/resistance/pathogens": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List the pathogens a profile can be built for
+     * @description A preset with `profile_id: null` has no profile built yet.
+     */
+    get: operations["list_pathogens"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/resistance/profiles": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** List the resistance profiles this API holds */
+    get: operations["list_profiles"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/resistance/profiles/{profile_id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get a resistance profile: determinants, mechanisms and defeated drug classes
+     * @description `defeated_classes` is class-level: read it as ruling drugs out, not in. A gene
+     *     in CARD can confer resistance; it does not show the gene is expressed.
+     */
+    get: operations["get_resistance_profile"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/resistance/profiles/{profile_id}/candidates": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Get the antibiotics ranked against a profile, with evasion and verification
+     * @description Approved drugs in rank order, then any generated proposals, which are never
+     *     ranked with them. `unaffected` means no known link in CARD, not a measured result.
+     */
+    get: operations["get_antibiotic_candidates"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/structures": {
     parameters: {
       query?: never;
@@ -285,6 +385,162 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
   schemas: {
+    /**
+     * AffectedTarget
+     * @description The sensitive form of the protein a determinant alters or replaces.
+     */
+    AffectedTarget: {
+      /**
+       * Name
+       * @description Target name as CARD gives it.
+       */
+      name: string;
+      /**
+       * Pdb Ids
+       * @description Structures for this target, empty until the structure set names them.
+       */
+      pdb_ids: string[];
+    };
+    /** AffectedTargetSummary */
+    AffectedTargetSummary: {
+      /**
+       * Gene Aro Ids
+       * @description Determinants in this profile that affect the target.
+       */
+      gene_aro_ids: string[];
+      /**
+       * Name
+       * @description Target name as CARD gives it.
+       */
+      name: string;
+      /**
+       * Pdb Ids
+       * @description Structures for the target, empty when none are set.
+       */
+      pdb_ids: string[];
+    };
+    /**
+     * AntibioticCandidate
+     * @description One molecule in a ranking, with its evasion call, features and verification.
+     */
+    AntibioticCandidate: {
+      /**
+       * Candidate Id
+       * @description ID of a ranked molecule: a ChEMBL parent molecule ID for an approved drug, or the generator's own ID for a generated one.
+       * @example CHEMBL126
+       * @example GEN-0001
+       */
+      candidate_id: string;
+      /** @description The proof, or null when the status is not_run. */
+      certificate: components["schemas"]["Certificate"] | null;
+      /** @description not_run: Lean was not asked. unavailable: it was, and could not run. */
+      certificate_status: components["schemas"]["CertificateStatus"];
+      /** @description CARD drug class, or null when the molecule has none (any generated one). `aro_id` is null when the class is known by name but unmapped. */
+      drug_class: components["schemas"]["AroTerm"] | null;
+      evasion: components["schemas"]["Evasion"];
+      /**
+       * Evidence
+       * @description Every cited statement for this candidate, by ID.
+       */
+      evidence: components["schemas"]["CandidateEvidence"][];
+      explanation: components["schemas"]["CandidateExplanation"];
+      features: components["schemas"]["CandidateFeatures"];
+      /** @description Provenance of a generated molecule; null for an approved drug. */
+      generated: components["schemas"]["GeneratedProvenance"] | null;
+      /**
+       * Inchikey
+       * @description Standard InChIKey of a molecule.
+       * @example TYZROVQLWOKYKF-ZDUSSCGKSA-N
+       */
+      inchikey: string;
+      /**
+       * Mechanism Of Action
+       * @description How the drug acts, or null when it is not recorded.
+       */
+      mechanism_of_action: string | null;
+      /**
+       * Name
+       * @description Display name of the molecule.
+       */
+      name: string;
+      /**
+       * Rank
+       * @description Place among the approved candidates, 1 best. Null for a generated molecule.
+       */
+      rank: number | null;
+      /**
+       * Smiles
+       * @description The structure, as SMILES.
+       */
+      smiles: string;
+      smoke_test: components["schemas"]["SmokeTest"];
+      /** @description approved: a licensed drug. generated: a proposal, never ranked. */
+      source: components["schemas"]["CandidateSource"];
+      /** @description What it acts on, or null when that is not recorded. */
+      target: components["schemas"]["CandidateTargetRef"] | null;
+    };
+    /**
+     * AntibioticCandidateResult
+     * @description A ranking of antibiotics against one ResistanceProfile (docs/contracts.md).
+     *
+     *     The strongest claims allowed are "predicted to evade known mechanisms" and
+     *     "passes the encoded rules". A computational hit is not a working antibiotic.
+     */
+    AntibioticCandidateResult: {
+      /**
+       * Candidates
+       * @description Approved drugs in rank order, then any generated proposals.
+       */
+      candidates: components["schemas"]["AntibioticCandidate"][];
+      /**
+       * Contract Version
+       * @description Version of the candidate contract.
+       * @constant
+       */
+      contract_version: "1";
+      /**
+       * Fixture Note
+       * @description Set when this is fixture data: says the numbers are made up.
+       */
+      fixture_note?: string | null;
+      pathogen: components["schemas"]["Pathogen"];
+      /**
+       * Profile Id
+       * Format: uuid
+       * @description The profile that was ranked against.
+       * @example 00000000-0000-0000-0000-0000000000a1
+       */
+      profile_id: string;
+      ranking: components["schemas"]["RankingMethodInfo"];
+      /**
+       * Releases
+       * @description The pinned releases the ranking was built from.
+       */
+      releases: string[];
+      /**
+       * Result Id
+       * Format: uuid
+       * @description ID of this ranking run.
+       */
+      result_id: string;
+    };
+    /**
+     * AroTerm
+     * @description A CARD term. Join on `aro_id`; `name` is display text only.
+     */
+    AroTerm: {
+      /**
+       * Aro Id
+       * @description CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).
+       * @example ARO:3000617
+       */
+      aro_id: string;
+      /**
+       * Name
+       * @description The term's name in CARD's vocabulary.
+       */
+      name: string;
+    };
     /** @enum {string} */
     BuildStage: "targets" | "ranking" | "evidence" | "saving";
     /**
@@ -373,6 +629,108 @@ export interface components {
       warnings: components["schemas"]["Warning"][];
     };
     /**
+     * CandidateEvidence
+     * @description One cited statement behind a candidate's row, local to this result.
+     */
+    CandidateEvidence: {
+      /**
+       * Id
+       * @description Evidence item ID, unique within one Experiment, e.g. E12.
+       * @example E12
+       */
+      id: string;
+      kind: components["schemas"]["CandidateEvidenceKind"];
+      /**
+       * Release
+       * @description The pinned release, or the rule set for a local check.
+       */
+      release: string;
+      source: components["schemas"]["CandidateEvidenceSource"];
+      /**
+       * Source Id
+       * @description The record's ID in that source.
+       */
+      source_id: string;
+      /**
+       * Statement
+       * @description What the source says, in one sentence.
+       */
+      statement: string;
+    };
+    /** @enum {string} */
+    CandidateEvidenceKind:
+      "activity" | "target_hit" | "docking" | "safety" | "smoke_test" | "approval";
+    /** @enum {string} */
+    CandidateEvidenceSource: "chembl" | "card" | "pdb" | "htb_verify" | "htb_docking";
+    /**
+     * CandidateExplanation
+     * @description Why the candidate sits where it does, and what is not known.
+     */
+    CandidateExplanation: {
+      /**
+       * Caveats
+       * @description How to read the row.
+       */
+      caveats: string[];
+      /**
+       * Mechanisms Evaded
+       * @description Mechanisms in the profile this candidate is not linked to.
+       */
+      mechanisms_evaded: string[];
+      /**
+       * Missing
+       * @description Data that would change the placement, but is absent.
+       */
+      missing: string[];
+      /**
+       * Summary
+       * @description One or two sentences on the placement.
+       */
+      summary: string;
+    };
+    /**
+     * CandidateFeature
+     * @description One feature, kept on its own and never blended into a score.
+     *
+     *     Missing data is `available: false`, never zero.
+     */
+    CandidateFeature: {
+      /**
+       * Available
+       * @description False when there is no data for this feature.
+       */
+      available: boolean;
+      /**
+       * Evidence Ids
+       * @description This candidate's evidence behind the value. Empty when unavailable.
+       */
+      evidence_ids: string[];
+      /**
+       * Unit
+       * @description Unit of `value`, or null when it has none.
+       */
+      unit: string | null;
+      /**
+       * Value
+       * @description The measurement, or a coded word for a non-numeric one. Null when unavailable.
+       */
+      value: number | string | null;
+    };
+    /**
+     * CandidateFeatures
+     * @description The four features, each separate (docs/contracts.md).
+     */
+    CandidateFeatures: {
+      /** @description Measured activity against the pathogen. */
+      activity: components["schemas"]["CandidateFeature"];
+      /** @description Docking score, a supporting signal only, never the headline. */
+      docking: components["schemas"]["CandidateFeature"];
+      /** @description Safety flags and structural alerts recorded. */
+      safety: components["schemas"]["CandidateFeature"];
+      /** @description Evidence the drug hits an unaffected target. */
+      target_hit: components["schemas"]["CandidateFeature"];
+    };
+    /**
      * CandidateNetwork
      * @description Network-proximity result for one Candidate. Null on the Candidate when not scorable.
      */
@@ -425,6 +783,8 @@ export interface components {
       rank: number;
     };
     /** @enum {string} */
+    CandidateSource: "approved" | "generated";
+    /** @enum {string} */
     CandidateStatus: "scored" | "distance_only" | "not_scorable";
     /** CandidateTarget */
     CandidateTarget: {
@@ -445,6 +805,90 @@ export interface components {
        */
       name: string;
     };
+    /**
+     * CandidateTargetRef
+     * @description What a candidate acts on, linked to the profile's determinants where it is one.
+     */
+    CandidateTargetRef: {
+      /**
+       * Gene Aro Ids
+       * @description Determinants in the profile that affect this target, empty when none do.
+       */
+      gene_aro_ids: string[];
+      /**
+       * Name
+       * @description Target name, display text only.
+       */
+      name: string;
+    };
+    /**
+     * Certificate
+     * @description A Lean 4 proof that the encoded property rules hold for one molecule.
+     *
+     *     It says nothing about safety, selectivity or activity. `certified` is never
+     *     true unless Lean actually `ran`.
+     */
+    Certificate: {
+      /**
+       * Certified
+       * @description True only when Lean ran and every rule passed.
+       */
+      certified: boolean;
+      /**
+       * Detail
+       * @description Why it did not run, or which theorem failed. Null when there is nothing to say.
+       */
+      detail: string | null;
+      /**
+       * Failed Rules
+       * @description Rules that failed, without the Lean rule_ prefix. Empty when Lean did not run.
+       */
+      failed_rules: components["schemas"]["PropertyRule"][];
+      /**
+       * Inchikey
+       * @description Standard InChIKey of a molecule.
+       * @example TYZROVQLWOKYKF-ZDUSSCGKSA-N
+       */
+      inchikey: string;
+      /**
+       * Lean Version
+       * @description Lean version used, or null when it did not run.
+       */
+      lean_version: string | null;
+      /**
+       * Ran
+       * @description False when Lean was missing, timed out, or the input was unusable.
+       */
+      ran: boolean;
+      /** @description Which limits were proved against. */
+      rule_set: components["schemas"]["RuleSet"];
+      /**
+       * Rules
+       * @description One row per property rule, in a fixed order.
+       */
+      rules: components["schemas"]["RuleOutcome"][];
+      /**
+       * Seconds
+       * @description How long the proof took, or null when it did not run.
+       */
+      seconds: number | null;
+    };
+    /** CertificateList */
+    CertificateList: {
+      /**
+       * Certificates
+       * @description Every certificate this API holds.
+       */
+      certificates: components["schemas"]["Certificate"][];
+      /**
+       * Contract Version
+       * @description Version of the certificate contract.
+       * @constant
+       */
+      contract_version: "1";
+    };
+    /** @enum {string} */
+    CertificateStatus: "not_run" | "certified" | "failed" | "unavailable";
     /**
      * CommonDiseases
      * @description Well-known Diseases to offer before anything is searched for.
@@ -469,6 +913,8 @@ export interface components {
        */
       low: number;
     };
+    /** @enum {string} */
+    ConfidenceLevel: "low" | "medium" | "high";
     /**
      * Conformer
      * @description One computed 3D shape of a small molecule, for display only.
@@ -568,6 +1014,33 @@ export interface components {
     ControlStatus: "not_measured" | "passed" | "failed";
     /** @enum {string} */
     Decision: "investigate" | "watch" | "deprioritise";
+    /**
+     * DefeatedClass
+     * @description A drug class the isolate is expected to resist.
+     */
+    DefeatedClass: {
+      /**
+       * Aro Id
+       * @description CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).
+       * @example ARO:3000617
+       */
+      aro_id: string;
+      /**
+       * Evidence Ids
+       * @description Evidence items behind the link.
+       */
+      evidence_ids: string[];
+      /**
+       * Gene Aro Ids
+       * @description Determinants in this profile linked to the class.
+       */
+      gene_aro_ids: string[];
+      /**
+       * Name
+       * @description Drug-class name in CARD's vocabulary.
+       */
+      name: string;
+    };
     /** @enum {string} */
     Direction: "supported" | "contradicted" | "unknown";
     /** DiseaseRef */
@@ -969,6 +1442,51 @@ export interface components {
     /** @enum {string} */
     EvaluationScope: "full_eligible" | "common_scorable";
     /**
+     * Evasion
+     * @description Whether the profile's determinants are known to defeat this candidate.
+     *
+     *     `unaffected` means no link in CARD, which is not a measured result.
+     *     `unknown` means CARD cannot say, which is not the same as `unaffected`.
+     */
+    Evasion: {
+      /**
+       * Defeated By
+       * @description Determinants that defeat it. Empty unless the status says otherwise.
+       */
+      defeated_by: components["schemas"]["EvasionHit"][];
+      /**
+       * Profile Evidence Ids
+       * @description Evidence in the ResistanceProfile behind this call.
+       */
+      profile_evidence_ids: string[];
+      /**
+       * Rationale
+       * @description Why that status, in one sentence.
+       */
+      rationale: string;
+      status: components["schemas"]["EvasionStatus"];
+    };
+    /**
+     * EvasionHit
+     * @description A determinant that defeats a candidate, and the mechanism it uses.
+     */
+    EvasionHit: {
+      /**
+       * Gene Aro Id
+       * @description The determinant in the profile.
+       * @example ARO:3000617
+       */
+      gene_aro_id: string;
+      /**
+       * Mechanism Aro Id
+       * @description One of that determinant's mechanisms.
+       * @example ARO:3000617
+       */
+      mechanism_aro_id: string;
+    };
+    /** @enum {string} */
+    EvasionStatus: "unaffected" | "partly_affected" | "defeated" | "unknown";
+    /**
      * EvidenceItem
      * @description One sourced fact. The same item keeps one ID across all Candidates of an Experiment.
      */
@@ -1157,6 +1675,37 @@ export interface components {
       /** @description State of the jury; null if never asked. */
       jury_status: components["schemas"]["JuryStatus"] | null;
       status: components["schemas"]["ExperimentStatus"];
+    };
+    /**
+     * GeneratedProvenance
+     * @description Where a generated molecule came from. Hypotheses only, never ranked with approved drugs.
+     */
+    GeneratedProvenance: {
+      /**
+       * Model
+       * @description The generator that proposed the molecule.
+       */
+      model: string;
+      /**
+       * Model Version
+       * @description Pinned version of that generator.
+       */
+      model_version: string;
+      /**
+       * Parent Candidate Id
+       * @description The approved drug it was derived from, or null.
+       */
+      parent_candidate_id: string | null;
+      /**
+       * Pocket Pdb Id
+       * @description The pocket it was generated into, or null when none was used.
+       */
+      pocket_pdb_id: string | null;
+      /**
+       * Seed
+       * @description Random seed, so the proposal can be reproduced.
+       */
+      seed: number;
     };
     /** Health */
     Health: {
@@ -1405,6 +1954,28 @@ export interface components {
        */
       name: string;
     };
+    /**
+     * MechanismSummary
+     * @description A mechanism present in the isolate, with the determinants behind it.
+     */
+    MechanismSummary: {
+      /**
+       * Aro Id
+       * @description CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).
+       * @example ARO:3000617
+       */
+      aro_id: string;
+      /**
+       * Gene Aro Ids
+       * @description Determinants in this profile that carry the mechanism.
+       */
+      gene_aro_ids: string[];
+      /**
+       * Name
+       * @description Mechanism name in CARD's vocabulary.
+       */
+      name: string;
+    };
     /** NetworkEdge */
     NetworkEdge: {
       /**
@@ -1462,6 +2033,55 @@ export interface components {
     NetworkRole: "disease" | "drug" | "both" | "link";
     /** @enum {string} */
     NetworkWarning: "zero_null_variance" | "insufficient_degree_matched_pool";
+    /** Pathogen */
+    Pathogen: {
+      /**
+       * Name
+       * @description Species name, e.g. Staphylococcus aureus.
+       */
+      name: string;
+      /**
+       * Ncbi Taxid
+       * @description NCBI taxonomy ID of the species, e.g. 1280.
+       */
+      ncbi_taxid: number;
+    };
+    /**
+     * PathogenPreset
+     * @description A pathogen the app can profile without typing gene names.
+     */
+    PathogenPreset: {
+      /**
+       * Id
+       * @description Preset ID used in requests, e.g. s_aureus_mrsa.
+       * @example s_aureus_mrsa
+       */
+      id: string;
+      /**
+       * Label
+       * @description What to show in the picker, e.g. MRSA (S. aureus).
+       */
+      label: string;
+      /**
+       * Note
+       * @description What the preset stands for, or null. Says so when it is fixture data.
+       */
+      note: string | null;
+      pathogen: components["schemas"]["Pathogen"];
+      /**
+       * Profile Id
+       * @description The profile already built for this preset, or null when none is.
+       */
+      profile_id: string | null;
+    };
+    /** PathogenPresets */
+    PathogenPresets: {
+      /**
+       * Items
+       * @description Every preset this API can profile.
+       */
+      items: components["schemas"]["PathogenPreset"][];
+    };
     /** PoseScore */
     PoseScore: {
       /**
@@ -1475,8 +2095,163 @@ export interface components {
        */
       score: number;
     };
+    /** ProfileConfidence */
+    ProfileConfidence: {
+      /**
+       * Basis
+       * @description Why that level, in plain words.
+       */
+      basis: string;
+      /** @description How much weight the profile carries. */
+      level: components["schemas"]["ConfidenceLevel"];
+    };
+    /**
+     * ProfileEvidence
+     * @description One cited statement behind a row of the profile.
+     */
+    ProfileEvidence: {
+      /**
+       * Aro Id
+       * @description The term the statement is about.
+       * @example ARO:3000617
+       */
+      aro_id: string;
+      /**
+       * Id
+       * @description Evidence item ID, unique within one ResistanceProfile, e.g. P2.
+       * @example P2
+       */
+      id: string;
+      /**
+       * Release
+       * @description The pinned release it was read from.
+       * @example opentargets-26.09
+       */
+      release: string;
+      /** @description Where the statement comes from. */
+      source: components["schemas"]["ResistanceEvidenceSource"];
+      /**
+       * Statement
+       * @description What the source says, in one sentence.
+       */
+      statement: string;
+    };
+    /**
+     * ProfileGene
+     * @description One resolved resistance determinant.
+     */
+    ProfileGene: {
+      /** @description The sensitive target this determinant alters or replaces, or null where CARD names none (enzymes, pumps and most regulators). */
+      affected_target: components["schemas"]["AffectedTarget"] | null;
+      /**
+       * Aro Id
+       * @description CARD Antibiotic Resistance Ontology term ID, e.g. ARO:3000617 (mecA).
+       * @example ARO:3000617
+       */
+      aro_id: string;
+      /**
+       * Defeated Classes
+       * @description Drug classes CARD links to it. Class-level: read as ruled out, not ruled in.
+       */
+      defeated_classes: components["schemas"]["AroTerm"][];
+      /**
+       * Evidence Ids
+       * @description Evidence items in this profile that support the row.
+       */
+      evidence_ids: string[];
+      /**
+       * Mechanisms
+       * @description Resistance mechanisms CARD links to this determinant.
+       */
+      mechanisms: components["schemas"]["AroTerm"][];
+      /**
+       * Model Type
+       * @description CARD detection model behind it, e.g. protein homolog model.
+       */
+      model_type: string;
+      /**
+       * Name
+       * @description Determinant name as CARD gives it.
+       */
+      name: string;
+      /**
+       * Variants
+       * @description Point mutations found, for a variant model. Empty for a homolog model.
+       */
+      variants: components["schemas"]["ProfileGeneVariant"][];
+    };
+    /** ProfileGeneVariant */
+    ProfileGeneVariant: {
+      /**
+       * Mutation
+       * @description A point mutation as CARD writes it: wild-type residue, position, variant.
+       * @example S84L
+       */
+      mutation: string;
+      /**
+       * Param Type
+       * @description How CARD classifies the variant, e.g. single resistance variant.
+       */
+      param_type: string;
+    };
+    /**
+     * ProfileInput
+     * @description What was asked for, kept exactly as received.
+     */
+    ProfileInput: {
+      /** @description How the determinants were given. */
+      kind: components["schemas"]["ProfileInputKind"];
+      /**
+       * Requested
+       * @description The determinant strings as typed, unchanged and in order.
+       */
+      requested: string[];
+      species: components["schemas"]["Pathogen"];
+    };
+    /** @enum {string} */
+    ProfileInputKind: "species_preset" | "gene_list" | "amrfinderplus";
+    /** ProfileList */
+    ProfileList: {
+      /**
+       * Items
+       * @description Every profile this API holds.
+       */
+      items: components["schemas"]["ResistanceProfile"][];
+    };
+    /** @enum {string} */
+    PropertyRule: "mw" | "logp" | "hbd" | "hba" | "rot_bonds" | "psa";
+    /** @enum {string} */
+    RankingFeature: "evasion" | "activity" | "target_hit" | "docking" | "safety";
     /** @enum {string} */
     RankingMethod: "network" | "evidence_only";
+    /**
+     * RankingMethodInfo
+     * @description How the ranks were made, recorded so a result can be reproduced.
+     */
+    RankingMethodInfo: {
+      /**
+       * Method
+       * @description The ranking method, e.g. ordered_rule_v0.
+       */
+      method: string;
+      /**
+       * Note
+       * @description Anything else needed to read the ranking, or null.
+       */
+      note: string | null;
+      /**
+       * Order
+       * @description Features in the order the rule applies them, evasion first.
+       */
+      order: components["schemas"]["RankingFeature"][];
+      /**
+       * Weights
+       * @description Per-feature weights, or null for an ordered rule that blends nothing.
+       */
+      weights: {
+        [key: string]: number;
+      } | null;
+    };
     /**
      * RankingSettings
      * @description Settings for the ranking (stream B `RankingSettings`). The network-only settings are
@@ -1521,6 +2296,101 @@ export interface components {
        */
       top_targets: number;
     };
+    /** @constant */
+    ResistanceEvidenceSource: "card";
+    /**
+     * ResistanceProfile
+     * @description What an isolate is expected to resist, and why (docs/contracts.md).
+     *
+     *     Gene presence in CARD is not proof of expression, and `defeated_classes` is
+     *     class-level, so it rules drugs out rather than in.
+     */
+    ResistanceProfile: {
+      /**
+       * Affected Targets
+       * @description Targets across the determinants. Derivable from `genes`.
+       */
+      affected_targets: components["schemas"]["AffectedTargetSummary"][];
+      /**
+       * Caveats
+       * @description How to read the profile. There is always at least one.
+       */
+      caveats: string[];
+      confidence: components["schemas"]["ProfileConfidence"];
+      /**
+       * Contract Version
+       * @description Version of the profile contract.
+       * @constant
+       */
+      contract_version: "1";
+      /**
+       * Defeated Classes
+       * @description Drug classes across the determinants. Derivable from `genes`.
+       */
+      defeated_classes: components["schemas"]["DefeatedClass"][];
+      /**
+       * Evidence
+       * @description Every cited statement, by ID.
+       */
+      evidence: components["schemas"]["ProfileEvidence"][];
+      /**
+       * Genes
+       * @description One row per resolved determinant.
+       */
+      genes: components["schemas"]["ProfileGene"][];
+      input: components["schemas"]["ProfileInput"];
+      /**
+       * Mechanisms
+       * @description Mechanisms across the determinants. Derivable from `genes`.
+       */
+      mechanisms: components["schemas"]["MechanismSummary"][];
+      /**
+       * Profile Id
+       * Format: uuid
+       * @description ID of a ResistanceProfile.
+       * @example 00000000-0000-0000-0000-0000000000a1
+       */
+      profile_id: string;
+      /**
+       * Releases
+       * @description The pinned releases the profile was built from.
+       */
+      releases: string[];
+      /**
+       * Unresolved Inputs
+       * @description Requested names that matched nothing, each with a reason.
+       */
+      unresolved_inputs: components["schemas"]["UnresolvedInput"][];
+    };
+    /**
+     * RuleOutcome
+     * @description One property rule, with how far the value sits from its limit.
+     */
+    RuleOutcome: {
+      /**
+       * Limit
+       * @description The rule's limit in this rule set.
+       */
+      limit: number;
+      /**
+       * Margin
+       * @description `value - limit`. Positive means the limit was exceeded.
+       */
+      margin: number;
+      /**
+       * Passed
+       * @description True when `margin` is at or below zero.
+       */
+      passed: boolean;
+      rule: components["schemas"]["PropertyRule"];
+      /**
+       * Value
+       * @description The molecule's value for the rule.
+       */
+      value: number;
+    };
+    /** @enum {string} */
+    RuleSet: "oral_druglike" | "antibiotic_relaxed";
     /** SafetyReview */
     SafetyReview: {
       /**
@@ -1544,6 +2414,100 @@ export interface components {
       | "evidence_ranking_network_unavailable";
     /** @enum {string} */
     ShortlistMethod: "physical_rwr" | "zscore";
+    /**
+     * SmokeDescriptors
+     * @description RDKit descriptors the smoke test measured.
+     */
+    SmokeDescriptors: {
+      /**
+       * Hba
+       * @description Hydrogen-bond acceptors.
+       */
+      hba: number;
+      /**
+       * Hbd
+       * @description Hydrogen-bond donors.
+       */
+      hbd: number;
+      /**
+       * Heavy Atoms
+       * @description Heavy-atom count.
+       */
+      heavy_atoms: number;
+      /**
+       * Logp
+       * @description Crippen logP.
+       */
+      logp: number;
+      /**
+       * Mw
+       * @description Molecular weight, in daltons.
+       */
+      mw: number;
+      /**
+       * Psa
+       * @description Topological polar surface area, in square angstroms.
+       */
+      psa: number;
+      /**
+       * Rot Bonds
+       * @description Rotatable bonds.
+       */
+      rot_bonds: number;
+    };
+    /**
+     * SmokeTest
+     * @description Output of `htb_verify.smoke` for one molecule: the Python check Lean then proves.
+     */
+    SmokeTest: {
+      /**
+       * Alerts
+       * @description PAINS and Brenk alerts matched. Recorded whether or not they count.
+       */
+      alerts: string[];
+      /** @description What was measured, or null when the molecule could not be read. */
+      descriptors: components["schemas"]["SmokeDescriptors"] | null;
+      /**
+       * Passed
+       * @description True exactly when `violations` is empty.
+       */
+      passed: boolean;
+      rule_set: components["schemas"]["RuleSet"];
+      /**
+       * Sa Score
+       * @description Synthetic accessibility, 1 (easy) to 10 (hard), or null when not computed.
+       */
+      sa_score: number | null;
+      /**
+       * Strict Alerts
+       * @description Whether a structural alert counted as a violation in this run.
+       */
+      strict_alerts: boolean;
+      /**
+       * Valid
+       * @description False when RDKit could not read the SMILES.
+       */
+      valid: boolean;
+      /**
+       * Violations
+       * @description Every rule broken, with its margin.
+       */
+      violations: components["schemas"]["SmokeViolation"][];
+    };
+    /** SmokeViolation */
+    SmokeViolation: {
+      /** Limit */
+      limit: number;
+      /**
+       * Margin
+       * @description `value - limit`, so positive.
+       */
+      margin: number;
+      /** @description The rule broken: a property rule, a structural alert or synthetic access. */
+      rule: components["schemas"]["ViolationRule"];
+      /** Value */
+      value: number;
+    };
     /**
      * Structure
      * @description A prepared human protein structure that Candidates can be docked into.
@@ -1670,6 +2634,25 @@ export interface components {
        */
       detail: string | components["schemas"]["ValidationIssue"][];
     };
+    /**
+     * UnresolvedInput
+     * @description An input that matched nothing. Reported, never silently dropped.
+     */
+    UnresolvedInput: {
+      /**
+       * Reason
+       * @description Why it resolved to nothing, in plain words.
+       */
+      reason: string;
+      /**
+       * Text
+       * @description The requested string that could not be resolved.
+       * @example mecA
+       * @example gyrA S84L
+       * @example ARO:3000617
+       */
+      text: string;
+    };
     /** @enum {string} */
     UnscorableReason:
       "no_retained_disease_targets" | "no_retained_drug_targets" | "network_unavailable";
@@ -1696,6 +2679,8 @@ export interface components {
     } & {
       [key: string]: unknown;
     };
+    /** @enum {string} */
+    ViolationRule: "mw" | "logp" | "hbd" | "hba" | "rot_bonds" | "psa" | "alert" | "sa";
     /**
      * Warning
      * @description A documented safety warning. Missing warnings never mean a drug is safe.
@@ -2329,6 +3314,146 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  list_certificates: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CertificateList"];
+        };
+      };
+    };
+  };
+  list_pathogens: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PathogenPresets"];
+        };
+      };
+    };
+  };
+  list_profiles: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ProfileList"];
+        };
+      };
+    };
+  };
+  get_resistance_profile: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        profile_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ResistanceProfile"];
+        };
+      };
+      /** @description Not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description The request cannot be carried out. */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UnprocessableResponse"];
+        };
+      };
+    };
+  };
+  get_antibiotic_candidates: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        profile_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AntibioticCandidateResult"];
+        };
+      };
+      /** @description Not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description The request cannot be carried out. */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UnprocessableResponse"];
         };
       };
     };
