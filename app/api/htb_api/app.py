@@ -29,7 +29,7 @@ from .services.live import LiveSource
 from .services.live_jury import StreamAJury
 from .services.molecules import FixtureMolecules, MoleculeSource, PubChemMolecules
 from .services.ranking import EvidenceRanking, NetworkRanking, RankingBackend
-from .services.resistance import FixtureResistance, ResistanceSource
+from .services.resistance import CardResistance, ResistanceSource
 from .services.source import ExperimentSource, FixtureSource
 from .settings import Settings, SnowflakeSettings
 
@@ -85,7 +85,7 @@ def build_components(
         docking=docking,
         evaluation=evaluation or FixtureEvaluation(fixtures),
         molecules=molecules or open_molecules(settings),
-        resistance=resistance or FixtureResistance(fixtures),
+        resistance=resistance or CardResistance(fixtures, settings.data_dir),
         runner=runner,
         jobs=jobs,
     )
