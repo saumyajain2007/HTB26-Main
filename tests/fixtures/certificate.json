@@ -11,8 +11,8 @@
           "rule": "mw",
           "passed": true,
           "value": 337.14,
-          "limit": 1200.0,
-          "margin": -862.86
+          "limit": 850.0,
+          "margin": -512.86
         },
         {
           "rule": "logp",
@@ -25,34 +25,34 @@
           "rule": "hbd",
           "passed": true,
           "value": 1,
-          "limit": 12,
-          "margin": -11
+          "limit": 13,
+          "margin": -12
         },
         {
           "rule": "hba",
           "passed": true,
           "value": 5,
-          "limit": 20,
-          "margin": -15
+          "limit": 17,
+          "margin": -12
         },
         {
           "rule": "rot_bonds",
           "passed": true,
           "value": 4,
-          "limit": 15,
-          "margin": -11
+          "limit": 13,
+          "margin": -9
         },
         {
           "rule": "psa",
           "passed": true,
           "value": 71.11,
-          "limit": 250.0,
-          "margin": -178.89
+          "limit": 340.0,
+          "margin": -268.89
         }
       ],
       "failed_rules": [],
       "lean_version": "4.35.0",
-      "seconds": 1.31,
+      "seconds": 1.264,
       "detail": null
     },
     {
@@ -65,8 +65,8 @@
           "rule": "mw",
           "passed": false,
           "value": 1447.43,
-          "limit": 1200.0,
-          "margin": 247.43
+          "limit": 850.0,
+          "margin": 597.43
         },
         {
           "rule": "logp",
@@ -79,29 +79,29 @@
           "rule": "hbd",
           "passed": false,
           "value": 19,
-          "limit": 12,
-          "margin": 7
+          "limit": 13,
+          "margin": 6
         },
         {
           "rule": "hba",
           "passed": false,
           "value": 25,
-          "limit": 20,
-          "margin": 5
+          "limit": 17,
+          "margin": 8
         },
         {
           "rule": "rot_bonds",
           "passed": true,
           "value": 13,
-          "limit": 15,
-          "margin": -2
+          "limit": 13,
+          "margin": 0
         },
         {
           "rule": "psa",
           "passed": false,
           "value": 530.49,
-          "limit": 250.0,
-          "margin": 280.49
+          "limit": 340.0,
+          "margin": 190.49
         }
       ],
       "failed_rules": [
@@ -111,8 +111,8 @@
         "psa"
       ],
       "lean_version": "4.35.0",
-      "seconds": 0.16,
-      "detail": null
+      "seconds": 0.167,
+      "detail": "/var/folders/ln/g63ff6n943bcsbn__05x5ctc0000gn/T/tmps5r8g_5t/Mol.lean:6:64: error: Tactic `decide` proved that the proposition"
     },
     {
       "inchikey": "UWYHMGVUTGAWSP-JKIFEVAISA-N",
@@ -124,8 +124,8 @@
           "rule": "mw",
           "passed": true,
           "value": 401.1,
-          "limit": 1200.0,
-          "margin": -798.9
+          "limit": 850.0,
+          "margin": -448.9
         },
         {
           "rule": "logp",
@@ -138,34 +138,34 @@
           "rule": "hbd",
           "passed": true,
           "value": 2,
-          "limit": 12,
-          "margin": -10
+          "limit": 13,
+          "margin": -11
         },
         {
           "rule": "hba",
           "passed": true,
           "value": 6,
-          "limit": 20,
-          "margin": -14
+          "limit": 17,
+          "margin": -11
         },
         {
           "rule": "rot_bonds",
           "passed": true,
           "value": 4,
-          "limit": 15,
-          "margin": -11
+          "limit": 13,
+          "margin": -9
         },
         {
           "rule": "psa",
           "passed": true,
           "value": 112.74,
-          "limit": 250.0,
-          "margin": -137.26
+          "limit": 340.0,
+          "margin": -227.26
         }
       ],
       "failed_rules": [],
       "lean_version": "4.35.0",
-      "seconds": 0.16,
+      "seconds": 0.168,
       "detail": null
     },
     {
@@ -178,8 +178,8 @@
           "rule": "mw",
           "passed": true,
           "value": 353.11,
-          "limit": 1200.0,
-          "margin": -846.89
+          "limit": 850.0,
+          "margin": -496.89
         },
         {
           "rule": "logp",
@@ -192,29 +192,29 @@
           "rule": "hbd",
           "passed": true,
           "value": 1,
-          "limit": 12,
-          "margin": -11
+          "limit": 13,
+          "margin": -12
         },
         {
           "rule": "hba",
           "passed": true,
           "value": 5,
-          "limit": 20,
-          "margin": -15
+          "limit": 17,
+          "margin": -12
         },
         {
           "rule": "rot_bonds",
           "passed": true,
           "value": 4,
-          "limit": 15,
-          "margin": -11
+          "limit": 13,
+          "margin": -9
         },
         {
           "rule": "psa",
           "passed": true,
           "value": 71.11,
-          "limit": 250.0,
-          "margin": -178.89
+          "limit": 340.0,
+          "margin": -268.89
         }
       ],
       "failed_rules": [],
