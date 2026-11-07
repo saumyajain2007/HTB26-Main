@@ -1,0 +1,1 @@
+instead of closing, just delete the issue if possible, and commit the changes to main
