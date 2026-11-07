@@ -1,0 +1,1 @@
+Add declaration for the code for treehacks, and not for half life. Add the code into the repo, and remove them from the scope.md
