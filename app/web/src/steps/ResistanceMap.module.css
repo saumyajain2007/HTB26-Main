@@ -1,0 +1,367 @@
+/*
+ * The resistance map: a matrix of drug classes against the mechanisms the isolate carries, then
+ * its key, the determinants behind it and how to read it. Every colour is a token, and every
+ * mark carries a shape as well as a colour, so the figure reads in greyscale too.
+ */
+
+.sheet {
+  composes: scroll-fade from global;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-32);
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* The figure's one finding, over the matrix. */
+.summary {
+  flex: none;
+  max-width: var(--measure);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+/* Sideways only, and only inside the figure: the page itself never scrolls across. */
+.scroll {
+  flex: none;
+  overflow-x: auto;
+}
+
+.grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.grid th,
+.grid td {
+  padding: var(--space-12) var(--space-16) var(--space-12) 0;
+  vertical-align: top;
+}
+
+/* The band over the mechanism columns, saying whose doing they are. */
+.group {
+  padding-bottom: var(--space-4);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-1);
+}
+
+.grid thead tr:last-child th {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  vertical-align: bottom;
+}
+
+.classHead {
+  min-width: 11rem;
+}
+
+.mechanismHead {
+  min-width: 9rem;
+  max-width: 13rem;
+}
+
+.drugsHead {
+  min-width: 9rem;
+}
+
+/* Plain words first, CARD's term under them in a quieter line. */
+.plain {
+  display: block;
+}
+
+.term {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-regular);
+  color: var(--color-grey-2);
+}
+
+.grid tbody tr {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+/* A class nothing in the isolate touches sits on paper; a class ruled out sits on a wash, so the
+   wall and the way out of it separate before a word is read. */
+.grid tbody tr[data-status="ruled_out"] {
+  background: var(--color-wash);
+}
+
+.class {
+  padding-left: var(--space-12);
+  border-left: 3px solid var(--color-rule);
+  font-weight: var(--weight-regular);
+}
+
+tr[data-status="ruled_out"] .class {
+  border-left-color: var(--color-disease);
+}
+
+tr[data-status="partly_affected"] .class {
+  border-left-color: var(--color-contested);
+}
+
+tr[data-status="no_known_link"] .class {
+  border-left-color: var(--color-route);
+}
+
+tr[data-status="unknown"] .class {
+  border-left-color: var(--color-grey-2);
+}
+
+.name {
+  display: block;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.standing {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  margin-top: var(--space-4);
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.cell {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+/* A marked cell: the mark, then the determinants behind it in CARD's short form. */
+.hit {
+  display: flex;
+  gap: var(--space-8);
+  align-items: baseline;
+  color: var(--color-ink);
+}
+
+.hit .mark {
+  position: relative;
+  top: 2px;
+}
+
+.blank {
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  background: var(--color-placeholder);
+}
+
+.none {
+  font-style: italic;
+  color: var(--color-grey-2);
+}
+
+/*
+ * The marks. Shape carries the meaning as much as colour does: a solid square is ruled out, a
+ * half-filled square is partly affected, an open ring is no known link, a dotted square is
+ * nothing said.
+ */
+.mark {
+  flex: none;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+}
+
+.mark[data-status="ruled_out"] {
+  background: var(--color-disease);
+}
+
+.mark[data-status="partly_affected"] {
+  background: linear-gradient(135deg, var(--color-contested) 0 50%, var(--color-paper) 50% 100%);
+}
+
+.mark[data-status="no_known_link"] {
+  border: 2px solid var(--color-route);
+  border-radius: 50%;
+}
+
+.mark[data-status="unknown"] {
+  border: 1px dotted var(--color-grey-2);
+}
+
+/* The drugs CARD puts in a class, or the molecules it cannot place. */
+.drugs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.drug {
+  display: flex;
+  gap: var(--space-8);
+  align-items: baseline;
+  font-size: var(--text-body-sm);
+  color: var(--color-ink);
+}
+
+.drug .mark {
+  position: relative;
+  top: 2px;
+}
+
+.proposed {
+  font-size: var(--text-label-sm);
+  color: var(--color-grey-2);
+}
+
+/* The key, read after the figure, as in a printed plate. */
+.key {
+  flex: none;
+  padding-top: var(--space-4);
+}
+
+.keyTitle,
+.sectionTitle {
+  margin-bottom: var(--space-12);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.01em;
+}
+
+.keyList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--space-16) var(--space-32);
+}
+
+.keyTerm {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+}
+
+.keyHelp {
+  margin-top: var(--space-4);
+  font-size: var(--text-label);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+/* What the isolate carries, beside how to read the map. */
+.band {
+  display: grid;
+  flex: none;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: var(--space-32) var(--space-56);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-rule);
+}
+
+.genes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.gene {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 56ch;
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.geneLabel {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.geneName {
+  color: var(--color-ink);
+}
+
+.geneSource {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-grey-2);
+}
+
+.statement {
+  display: flex;
+  gap: var(--space-8);
+  align-items: baseline;
+}
+
+.cite {
+  flex: none;
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  max-width: 56ch;
+  font-size: var(--text-label);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+.level {
+  margin-right: var(--space-8);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.notes .drugs {
+  gap: var(--space-4);
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .band {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-32);
+  }
+}
+
+@media (max-width: 720px) {
+  .sheet {
+    gap: var(--space-24);
+  }
+
+  .summary {
+    font-size: var(--text-body);
+  }
+
+  .grid th,
+  .grid td {
+    padding-right: var(--space-12);
+  }
+
+  .classHead,
+  .mechanismHead,
+  .drugsHead {
+    min-width: 8.5rem;
+  }
+
+  .mechanismHead {
+    max-width: 11rem;
+  }
+}
