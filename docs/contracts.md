@@ -7,6 +7,8 @@ CARD tables ─► ResistanceProfile ─► AntibioticCandidate result ─► ap
  (Lane A)        (Lane A)             (Lane B, uses Certificate)   (Lane C)
 ```
 
+The API speaks these contracts as Pydantic models in [app/api/htb_api/schemas.py](../app/api/htb_api/schemas.py) (`ResistanceProfile`, `AntibioticCandidateResult`, `Certificate`), serves them from the routes listed in [app/api/README.md](../app/api/README.md#resistance-routes), and generates `openapi.json` and the web app's TypeScript types from them. The fixtures here are copied into `app/api/htb_api/fixtures/resistance/`; `app/api/tests/test_resistance.py` fails if the copies drift, so change both in one PR.
+
 Conventions: every object carries `contract_version: "1"` at its top level. Optional values are `null` or `[]`, never missing. Releases are `source-version` strings such as `card-4.0.2`. Fixture scores, MICs and ranks are fictional. Descriptors, rule outcomes and Lean results in the fixtures are real output of `core/verify`.
 
 ## ResistanceProfile
@@ -19,11 +21,13 @@ Conventions: every object carries `contract_version: "1"` at its top level. Opti
 | `input` | `kind` (`species_preset`, `gene_list`, `amrfinderplus`), `species`, and the `requested` strings as typed |
 | `unresolved_inputs` | Names that matched nothing, with a `reason`. Reported, never silently dropped |
 | `releases` | CARD release used |
-| `genes[]` | One row per resolved determinant: `aro_id`, `name`, `model_type`, `mechanisms[]`, `defeated_classes[]`, `variants[]` (point mutations), `affected_target` (`name`, `pdb_ids`), `evidence_ids` |
+| `genes[]` | One row per resolved determinant: `aro_id`, `name`, `model_type`, `mechanisms[]`, `defeated_classes[]`, `variants[]` (point mutations), `affected_target` (`name`, `pdb_ids`; `null` when CARD names no sensitive target), `evidence_ids` |
 | `mechanisms[]`, `defeated_classes[]`, `affected_targets[]` | Roll-ups with the `gene_aro_ids` behind each. Must be derivable from `genes[]` |
-| `evidence[]` | `P#` items: `source`, `release`, `aro_id`, `statement` |
+| `evidence[]` | `P#` items: `source` (`card`, or `curated` for a class added from the curated supplement with its citations), `release`, `aro_id`, `statement` |
 | `confidence` | `level` (`low`, `medium`, `high`) and the `basis` for it |
 | `caveats[]` | Always at least one. A gene in CARD is not proof it is expressed |
+
+A real profile is built by `htb_resistance.build_profile` ([profile.py](../core/resistance/htb_resistance/profile.py)), and the fixture is its output. `defeated_classes` are class-level, taken from CARD's Drug Class links, so a drug in a defeated class may still work; the evasion rule (#23) also uses CARD's drug-level links. `affected_target` is the sensitive target the resistant form derives from in the ontology, named in CARD's words; `pdb_ids` stays empty because CARD carries no target structures (the target list, #20, supplies them).
 
 Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, never names. The ids in the fixtures were type-checked; see [ontology-check.md](ontology-check.md).
 
@@ -45,7 +49,7 @@ Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, n
 | `certificate` | A Certificate, or `null` when `not_run` |
 | `evidence[]` | `E#` items local to the result |
 
-Rules the tests enforce: a candidate is `defeated` exactly when its drug class is in the profile's `defeated_classes`; ranks run 1..n over approved candidates only; no defeated candidate outranks an unaffected one; `unknown` means CARD cannot say, which is not the same as `unaffected`. `partly_affected` is reserved for the evasion rule (#23) to define and has no fixture yet.
+Rules the tests enforce: a candidate is `defeated` exactly when its drug class is in the profile's `defeated_classes`; ranks run 1..n over approved candidates only; no defeated candidate outranks an unaffected one; `unknown` means CARD cannot say, which is not the same as `unaffected`. The evasion rule ([evasion.py](../core/ranking/antibiotic/evasion.py)) sets the status from CARD alone: `defeated` when CARD lists the drug itself against a gene in the profile, `partly_affected` when CARD links only the drug's class to a gene (CARD's drug lists are sparse, so a class mate that is not named is probably affected, not known to be), `unaffected` when no gene links to the class. Order, best first: `unaffected`, `unknown`, `partly_affected`, `defeated`. `partly_affected` has no fixture yet; the fixture's oxacillin is `defeated`, which the real CARD data would call `partly_affected` for mecA.
 
 ## Certificate
 

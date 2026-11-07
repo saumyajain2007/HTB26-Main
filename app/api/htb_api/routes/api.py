@@ -9,9 +9,11 @@ from fastapi import APIRouter, Path, Query, status
 from fastapi.responses import FileResponse
 
 from .. import __version__
-from ..deps import ComponentsDep, ServiceDep
+from ..deps import ComponentsDep, ResistanceDep, ServiceDep
 from ..errors import NotFound, Unavailable, responses
 from ..schemas import (
+    AntibioticCandidateResult,
+    CertificateList,
     CommonDiseases,
     Conformer,
     DiseaseSearchResponse,
@@ -23,6 +25,9 @@ from ..schemas import (
     ExperimentList,
     Health,
     JuryRun,
+    PathogenPresets,
+    ProfileList,
+    ResistanceProfile,
     StructureList,
 )
 from ..services.docking import FILE_MEDIA_TYPES
@@ -263,3 +268,74 @@ def get_conformer(
 @router.get("/evaluation", tags=["evaluation"], summary="Get the frozen evaluation metrics")
 def get_evaluation(components: ComponentsDep) -> Evaluation:
     return components.evaluation.evaluation()
+
+
+# Resistance ----------------------------------------------------------------
+#
+# The antibiotic flow of docs/contracts.md: pick a pathogen, read its
+# ResistanceProfile, then read the antibiotics ranked against it. Fixture-backed
+# until the profiling and ranking pipelines land (#16, #23).
+
+
+@router.get(
+    "/resistance/pathogens",
+    tags=["resistance"],
+    summary="List the pathogens a profile can be built for",
+)
+def list_pathogens(resistance: ResistanceDep) -> PathogenPresets:
+    """A preset with `profile_id: null` has no profile built yet."""
+    return PathogenPresets(items=resistance.presets())
+
+
+@router.get(
+    "/resistance/profiles",
+    tags=["resistance"],
+    summary="List the resistance profiles this API holds",
+)
+def list_profiles(resistance: ResistanceDep) -> ProfileList:
+    return ProfileList(items=resistance.profiles())
+
+
+@router.get(
+    "/resistance/profiles/{profile_id}",
+    tags=["resistance"],
+    summary="Get a resistance profile: determinants, mechanisms and defeated drug classes",
+    responses=responses(404, 422),
+)
+def get_resistance_profile(profile_id: UUID, resistance: ResistanceDep) -> ResistanceProfile:
+    """`defeated_classes` is class-level: read it as ruling drugs out, not in. A gene
+    in CARD can confer resistance; it does not show the gene is expressed."""
+    profile = resistance.profile(profile_id)
+    if profile is None:
+        raise NotFound(f"No resistance profile {profile_id}.")
+    return profile
+
+
+@router.get(
+    "/resistance/profiles/{profile_id}/candidates",
+    tags=["resistance"],
+    summary="Get the antibiotics ranked against a profile, with evasion and verification",
+    responses=responses(404, 422),
+)
+def get_antibiotic_candidates(
+    profile_id: UUID, resistance: ResistanceDep
+) -> AntibioticCandidateResult:
+    """Approved drugs in rank order, then any generated proposals, which are never
+    ranked with them. `unaffected` means no known link in CARD, not a measured result."""
+    result = resistance.candidates(profile_id)
+    if result is None:
+        if resistance.profile(profile_id) is None:
+            raise NotFound(f"No resistance profile {profile_id}.")
+        raise NotFound(f"No antibiotics have been ranked against profile {profile_id} yet.")
+    return result
+
+
+@router.get(
+    "/resistance/certificates",
+    tags=["resistance"],
+    summary="List the Lean certificates this API holds",
+)
+def list_certificates(resistance: ResistanceDep) -> CertificateList:
+    """A certificate confirms the encoded property rules hold. It does not show a
+    molecule is safe, selective or active."""
+    return resistance.certificates()

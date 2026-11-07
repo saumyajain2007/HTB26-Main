@@ -1,0 +1,226 @@
+{
+  "contract_version": "1",
+  "certificates": [
+    {
+      "inchikey": "TYZROVQLWOKYKF-ZDUSSCGKSA-N",
+      "rule_set": "antibiotic_relaxed",
+      "ran": true,
+      "certified": true,
+      "rules": [
+        {
+          "rule": "mw",
+          "passed": true,
+          "value": 337.14,
+          "limit": 1200.0,
+          "margin": -862.86
+        },
+        {
+          "rule": "logp",
+          "passed": true,
+          "value": 1.12,
+          "limit": 5.0,
+          "margin": -3.88
+        },
+        {
+          "rule": "hbd",
+          "passed": true,
+          "value": 1,
+          "limit": 12,
+          "margin": -11
+        },
+        {
+          "rule": "hba",
+          "passed": true,
+          "value": 5,
+          "limit": 20,
+          "margin": -15
+        },
+        {
+          "rule": "rot_bonds",
+          "passed": true,
+          "value": 4,
+          "limit": 15,
+          "margin": -11
+        },
+        {
+          "rule": "psa",
+          "passed": true,
+          "value": 71.11,
+          "limit": 250.0,
+          "margin": -178.89
+        }
+      ],
+      "failed_rules": [],
+      "lean_version": "4.35.0",
+      "seconds": 1.31,
+      "detail": null
+    },
+    {
+      "inchikey": "MYPYJXKWCTUITO-UHFFFAOYSA-N",
+      "rule_set": "antibiotic_relaxed",
+      "ran": true,
+      "certified": false,
+      "rules": [
+        {
+          "rule": "mw",
+          "passed": false,
+          "value": 1447.43,
+          "limit": 1200.0,
+          "margin": 247.43
+        },
+        {
+          "rule": "logp",
+          "passed": true,
+          "value": 0.11,
+          "limit": 5.0,
+          "margin": -4.89
+        },
+        {
+          "rule": "hbd",
+          "passed": false,
+          "value": 19,
+          "limit": 12,
+          "margin": 7
+        },
+        {
+          "rule": "hba",
+          "passed": false,
+          "value": 25,
+          "limit": 20,
+          "margin": 5
+        },
+        {
+          "rule": "rot_bonds",
+          "passed": true,
+          "value": 13,
+          "limit": 15,
+          "margin": -2
+        },
+        {
+          "rule": "psa",
+          "passed": false,
+          "value": 530.49,
+          "limit": 250.0,
+          "margin": 280.49
+        }
+      ],
+      "failed_rules": [
+        "mw",
+        "hbd",
+        "hba",
+        "psa"
+      ],
+      "lean_version": "4.35.0",
+      "seconds": 0.16,
+      "detail": null
+    },
+    {
+      "inchikey": "UWYHMGVUTGAWSP-JKIFEVAISA-N",
+      "rule_set": "antibiotic_relaxed",
+      "ran": true,
+      "certified": true,
+      "rules": [
+        {
+          "rule": "mw",
+          "passed": true,
+          "value": 401.1,
+          "limit": 1200.0,
+          "margin": -798.9
+        },
+        {
+          "rule": "logp",
+          "passed": true,
+          "value": 1.9,
+          "limit": 5.0,
+          "margin": -3.1
+        },
+        {
+          "rule": "hbd",
+          "passed": true,
+          "value": 2,
+          "limit": 12,
+          "margin": -10
+        },
+        {
+          "rule": "hba",
+          "passed": true,
+          "value": 6,
+          "limit": 20,
+          "margin": -14
+        },
+        {
+          "rule": "rot_bonds",
+          "passed": true,
+          "value": 4,
+          "limit": 15,
+          "margin": -11
+        },
+        {
+          "rule": "psa",
+          "passed": true,
+          "value": 112.74,
+          "limit": 250.0,
+          "margin": -137.26
+        }
+      ],
+      "failed_rules": [],
+      "lean_version": "4.35.0",
+      "seconds": 0.16,
+      "detail": null
+    },
+    {
+      "inchikey": "BJAMGMKJQLOUBR-ZDUSSCGKSA-N",
+      "rule_set": "antibiotic_relaxed",
+      "ran": false,
+      "certified": false,
+      "rules": [
+        {
+          "rule": "mw",
+          "passed": true,
+          "value": 353.11,
+          "limit": 1200.0,
+          "margin": -846.89
+        },
+        {
+          "rule": "logp",
+          "passed": true,
+          "value": 1.64,
+          "limit": 5.0,
+          "margin": -3.36
+        },
+        {
+          "rule": "hbd",
+          "passed": true,
+          "value": 1,
+          "limit": 12,
+          "margin": -11
+        },
+        {
+          "rule": "hba",
+          "passed": true,
+          "value": 5,
+          "limit": 20,
+          "margin": -15
+        },
+        {
+          "rule": "rot_bonds",
+          "passed": true,
+          "value": 4,
+          "limit": 15,
+          "margin": -11
+        },
+        {
+          "rule": "psa",
+          "passed": true,
+          "value": 71.11,
+          "limit": 250.0,
+          "margin": -178.89
+        }
+      ],
+      "failed_rules": [],
+      "lean_version": null,
+      "seconds": null,
+      "detail": "Lean is not installed or the HtbVerify library did not build"
+    }
+  ]
+}
