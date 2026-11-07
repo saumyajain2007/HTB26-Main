@@ -23,8 +23,22 @@ from ..schemas import (
     CertificateList,
     Pathogen,
     PathogenPreset,
+    ProfileRequest,
     ResistanceProfile,
 )
+
+
+class ProfilingUnavailable(Exception):
+    """Profiling needs a built CARD release, and this process has none.
+
+    Raised rather than answered with invented data: only CARD can say whether a
+    determinant name is one it knows.
+    """
+
+
+class ProfilingRefused(Exception):
+    """The request was read but cannot be profiled, e.g. an unknown species preset."""
+
 
 FIXTURE_NOTE = (
     "Fixture data. The scores, MICs and ranks are made up; the descriptors, rule "
@@ -61,6 +75,8 @@ class ResistanceSource(Protocol):
     def candidates(self, profile_id: UUID) -> AntibioticCandidateResult | None: ...
 
     def certificates(self) -> CertificateList: ...
+
+    def build(self, request: ProfileRequest) -> ResistanceProfile: ...
 
 
 class FixtureResistance:
@@ -113,3 +129,66 @@ class FixtureResistance:
     def certificates(self) -> CertificateList:
         path = self._dir / "certificate.json"
         return CertificateList.model_validate_json(path.read_bytes())
+
+    def build(self, request: ProfileRequest) -> ResistanceProfile:
+        """Always unavailable: a fixture cannot resolve a name against CARD."""
+        raise ProfilingUnavailable(
+            "This API serves fixture profiles only and cannot resolve determinant names. "
+            "Build a CARD release to profile typed names."
+        )
+
+
+class CardResistance(FixtureResistance):
+    """Profiles real input against a built CARD release, and serves the fixtures otherwise.
+
+    The release is loaded on the first request and kept, so starting the API needs no
+    data: a process without a release answers `build` with `ProfilingUnavailable` and
+    still serves the fixture profile and ranking. Reading, not writing, so the loaded
+    reference is shared safely between requests.
+    """
+
+    def __init__(self, fixtures_dir: Path, data_dir: Path) -> None:
+        super().__init__(fixtures_dir)
+        self._data_dir = data_dir
+        self._reference: object | None = None
+
+    def _load(self) -> object:
+        if self._reference is not None:
+            return self._reference
+        try:
+            from htb_resistance import Reference
+            from htb_resistance.reference import latest_release
+
+            self._reference = Reference.from_release(latest_release(self._data_dir))
+        except Exception as exc:  # no release, or one that no longer matches its manifest
+            raise ProfilingUnavailable(
+                f"No usable CARD release under {self._data_dir}: {exc}"
+            ) from exc
+        return self._reference
+
+    def build(self, request: ProfileRequest) -> ResistanceProfile:
+        from htb_resistance import (
+            InputError,
+            Species,
+            build_profile,
+            parse_gene_text,
+            parse_preset,
+        )
+        from htb_resistance.cli import DEFAULT_PRESETS
+
+        reference = self._load()
+        species = Species(request.species) if request.species else None
+        try:
+            if request.kind == "species_preset":
+                assert request.species is not None  # the schema refuses a preset without one
+                parsed = parse_preset(request.species, DEFAULT_PRESETS)
+            else:
+                assert request.genes is not None  # the schema refuses a gene list without them
+                parsed = parse_gene_text(request.genes, species=species)
+            profile = build_profile(parsed, reference)  # type: ignore[arg-type]
+        except InputError as exc:
+            raise ProfilingRefused(str(exc)) from exc
+        except (ValueError, OSError) as exc:
+            raise ProfilingRefused(f"This input could not be profiled: {exc}") from exc
+        # Validated on the way out, so a contract break shows here and not in the browser.
+        return ResistanceProfile.model_validate(profile.to_dict())

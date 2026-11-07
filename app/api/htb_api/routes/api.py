@@ -10,7 +10,7 @@ from fastapi.responses import FileResponse
 
 from .. import __version__
 from ..deps import ComponentsDep, ResistanceDep, ServiceDep
-from ..errors import NotFound, Unavailable, responses
+from ..errors import NotFound, Unavailable, Unprocessable, responses
 from ..schemas import (
     AntibioticCandidateResult,
     CertificateList,
@@ -27,11 +27,13 @@ from ..schemas import (
     JuryRun,
     PathogenPresets,
     ProfileList,
+    ProfileRequest,
     ResistanceProfile,
     StructureList,
 )
 from ..services.docking import FILE_MEDIA_TYPES
 from ..services.molecules import MoleculesUnavailable
+from ..services.resistance import ProfilingRefused, ProfilingUnavailable
 
 router = APIRouter(prefix="/api")
 
@@ -285,6 +287,28 @@ def get_evaluation(components: ComponentsDep) -> Evaluation:
 def list_pathogens(resistance: ResistanceDep) -> PathogenPresets:
     """A preset with `profile_id: null` has no profile built yet."""
     return PathogenPresets(items=resistance.presets())
+
+
+@router.post(
+    "/resistance/profiles",
+    tags=["resistance"],
+    summary="Profile determinants: a species preset, or names as typed",
+    status_code=status.HTTP_201_CREATED,
+    responses=responses(422, 503),
+)
+def build_resistance_profile(body: ProfileRequest, resistance: ResistanceDep) -> ResistanceProfile:
+    """Resolves each name against CARD and returns the `ResistanceProfile`.
+
+    Names that match nothing come back in `unresolved_inputs` with a reason; they are
+    never dropped silently. 503 when this process has no CARD release, because only
+    CARD can say whether a name is one it knows.
+    """
+    try:
+        return resistance.build(body)
+    except ProfilingUnavailable as exc:
+        raise Unavailable(str(exc)) from exc
+    except ProfilingRefused as exc:
+        raise Unprocessable(str(exc)) from exc
 
 
 @router.get(
