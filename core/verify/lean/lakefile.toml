@@ -1,0 +1,5 @@
+name = "HtbVerify"
+defaultTargets = ["HtbVerify"]
+
+[[lean_lib]]
+name = "HtbVerify"

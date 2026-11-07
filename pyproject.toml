@@ -1,6 +1,6 @@
 # The uv workspace: one .venv and one uv.lock for every Python package here.
 [tool.uv.workspace]
-members = ["core", "core/ranking", "app/api", "app/worker"]
+members = ["core", "core/ranking", "core/verify", "app/api", "app/worker"]
 
 [dependency-groups]
 dev = ["pytest>=8"]
