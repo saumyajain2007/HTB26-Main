@@ -26,7 +26,7 @@ describe("the resistance flow", () => {
 
     expectOnStep(PATHOGEN.title);
     expect(screen.getAllByText(PATHOGEN.intro)).toHaveLength(1);
-    expect(screen.getByText(copy.resistance.notBuilt.pathogen)).toBeInTheDocument();
+    expect(screen.getByLabelText(copy.resistance.pathogen.genesLabel)).toBeInTheDocument();
 
     const nav = screen.getByRole("navigation", { name: copy.stepsLabel });
     expect(within(nav).getAllByRole("link")).toHaveLength(1);
@@ -50,11 +50,11 @@ describe("the resistance flow", () => {
   it("does not repeat the pathogen in the header on the step that chooses it", async () => {
     renderApp(`${RESISTANCE_PATH}/${PROFILE_ID}/pathogen`);
 
-    await waitFor(() => {
-      expect(screen.getByText(copy.resistance.notBuilt.pathogen)).toBeInTheDocument();
-    });
+    // The step that chooses the pathogen names it itself, so the header leaves it out.
+    expect(await screen.findByText(SPECIES)).toBeInTheDocument();
     expectOnStep(PATHOGEN.title);
-    expect(screen.queryByText(SPECIES)).not.toBeInTheDocument();
+    expect(screen.getAllByText(SPECIES)).toHaveLength(1);
+    expect(within(screen.getByRole("banner")).queryByText(SPECIES)).not.toBeInTheDocument();
   });
 
   it("moves between the steps with Back and Next once a profile is open", async () => {

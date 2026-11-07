@@ -118,11 +118,32 @@ export const copy = {
       home: "Choose a pathogen",
     },
     /**
-     * Placeholders for the two steps still being built, each named by its issue. Delete the line
-     * with the placeholder: a half-built step should say nothing rather than imply a result.
+     * Step 1: the pathogens on offer, the determinants an isolate carries, and what the profile
+     * already on screen was built from. A pathogen with no profile keeps its own note from the
+     * API, so the reason it cannot be opened is the API’s own words, not ours.
+     */
+    pathogen: {
+      presetsTitle: "Pathogens",
+      presetsLoading: "Loading the pathogens",
+      presetsUnavailable: "The pathogens couldn’t be loaded. The server isn’t answering.",
+      genesLabel: "Resistance gene names",
+      genesHint:
+        "One per line, or separated by commas. A name can carry a point mutation, like gyrA S84L, or be a CARD term such as ARO:3000617.",
+      genesRead: (count: number) =>
+        count === 0 ? "No names read" : `${String(count)} ${count === 1 ? "name" : "names"} read`,
+      genesRepeated: (names: readonly string[]) => `Repeated, so read once: ${listOf(names)}.`,
+      genesBlocked:
+        "Nothing is sent yet: building a profile from typed names needs the resistance profiling endpoint, which isn’t built (issue #15). CARD’s vocabulary lives on the server, so only the server can say which of these names it knows.",
+      profileTitle: "The profile on screen",
+      profileResolved: (resolved: number, requested: number) =>
+        `${String(resolved)} of ${String(requested)} ${requested === 1 ? "name" : "names"} asked for matched a term in CARD.`,
+      profileUnresolved: "Not recognised",
+    },
+    /**
+     * A placeholder for the step still being built, named by its issue. Delete the line with the
+     * placeholder: a half-built step should say nothing rather than imply a result.
      */
     notBuilt: {
-      pathogen: "The pathogen input isn’t built yet.",
       map: "The resistance map isn’t built yet.",
     },
   },
