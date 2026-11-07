@@ -458,3 +458,28 @@ def test_real_lean_certifies_survivors_and_agrees_with_python():
     assert log == []
     states = {c["name"]: c["certificate_status"] for c in result["candidates"]}
     assert states["LINEZOLID"] == "certified" and states["VANCOMYCIN"] == "not_run"
+
+
+# ---------- optional MIC gate ----------
+
+
+def test_mic_gate_is_off_by_default_and_never_touches_unmeasured_drugs():
+    activity = {"CHEMBL262777": Activity(128.0, "mg/L (median MIC)", "test record")}
+    result, log = run(activity=activity)
+    assert "VANCOMYCIN" in by_name(result) and log == []
+    assert result["ranking"]["method"] == "ordered_rule_v0"
+    gated, log = run(activity=activity, max_median_mic=16)
+    assert "VANCOMYCIN" not in by_name(gated)
+    assert len(gated["candidates"]) == len(POOL) - 1   # drugs with no measured MIC stay
+    assert log == [{"chembl_id": "CHEMBL262777", "name": "VANCOMYCIN",
+                    "reason": "median MIC 128 mg/L is above the 16 mg/L gate, so it is left out of the ranking"}]
+
+
+def test_mic_gate_keeps_ranks_dense_and_says_so_in_the_result():
+    activity = {"CHEMBL262777": Activity(128.0, "mg/L", "t"), "CHEMBL126": Activity(2.0, "mg/L", "t")}
+    result, _ = run(activity=activity, max_median_mic=16)
+    assert [c["rank"] for c in result["candidates"]] == list(range(1, len(POOL)))
+    assert result["ranking"]["method"] == "ordered_rule_v0+mic_gate_16"
+    assert "not a clinical breakpoint" in result["ranking"]["note"]
+    assert by_name(result)["LINEZOLID"]["features"]["activity"]["available"]   # at or below the limit stays
+    assert run(activity=activity, max_median_mic=2)[0]["candidates"][0]["name"] == "LINEZOLID"
