@@ -1,0 +1,9 @@
+Name	Protein identifier	Contig id	Start	Stop	Strand	Gene symbol	Sequence name	Scope	Element type	Element subtype	Class	Subclass	Method	Target length	Reference sequence length	% Coverage of reference sequence	% Identity to reference sequence	Alignment length	Accession of closest sequence	Name of closest sequence	HMM id	HMM description
+FIXTURE_SAMPLE						TESTBLA-1	fixture element	core	AMR	AMR	BETA-LACTAM		EXACTX			100	100					
+FIXTURE_SAMPLE						TESTGYR_S83L	fixture element	core	AMR	AMR	QUINOLONE		POINTX			100	100					
+FIXTURE_SAMPLE						TESTEFF-1	fixture element	core	AMR	AMR	EFFLUX		PARTIAL_CONTIG_END			60	95					
+FIXTURE_SAMPLE						TESTMEC-1	fixture element	core	AMR	AMR	BETA-LACTAM		HMM			98	99					
+FIXTURE_SAMPLE						TESTSTRESS-1	fixture element	plus	STRESS	STRESS	METAL		BLASTX			90	92					
+FIXTURE_SAMPLE						TESTPLUS-1	fixture element	plus	AMR	AMR	BETA-LACTAM		BLASTX			90	92					
+FIXTURE_SAMPLE						UNKNOWNGENE-7	fixture element	core	AMR	AMR	BETA-LACTAM		BLASTX			95	91					
+FIXTURE_SAMPLE							fixture element	core	AMR	AMR	BETA-LACTAM		BLASTX			95	91					

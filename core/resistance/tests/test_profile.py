@@ -1,369 +1,709 @@
-"""ResistanceProfile mapping tests (issue #16).
+"""WS2 profiling tests: the three input types, unresolved entries reported not dropped,
+and every profile this code produces checked against the frozen contract.
 
-The synthetic tests build a tiny CARD, so they need no downloads. The last tests run on a real
-CARD release (``uv run python -m htb_resistance build``) and are skipped without one.
+``check_contract`` applies the same rules tests/test_resistance_contracts.py applies to
+the fixture, so a profile built here has to satisfy what ranking and the app rely on,
+not merely look plausible.
+
+The reference is a SYNTHETIC CARD: TEST-prefixed names and ARO:9000xxx accessions, built
+through ``card.build()`` so these tests read exactly the release format the real ingest
+writes. No network and no downloads. The determinants descend from ARO:3000000 and the
+categories are real category rows, because typecheck.Ontology types terms that way.
+
+The last tests run against a real release if one was built (``uv run python -m
+htb_resistance build``) and are skipped otherwise, as the CARD ingest tests are.
 """
 
-import html
+import io
 import json
 import re
-import unicodedata
-import urllib.request
+import subprocess
+import sys
+import tarfile
 from pathlib import Path
 
 import pytest
 
-from htb_resistance import TABLES
-from htb_resistance.card import CardError, DEFAULT_DIR, write_table
-from htb_resistance.profile import SUPPLEMENT_PATH, CardProfiler, Determinant, build_profile
+from htb_resistance.card import DEFAULT_DIR, build
+from htb_resistance.cli import DEFAULT_PRESETS, main, species_arg
+from htb_resistance.inputs import (AMRFINDERPLUS, GENE_LIST, SPECIES_PRESET, InputError, Species,
+                                   parse_amrfinder, parse_gene_text, parse_preset)
+from htb_resistance.profile import CONTRACT_VERSION, build_profile
+from htb_resistance.reference import Reference, latest_release
 
-ROOT = Path(__file__).resolve().parents[3]
-ARO = r"ARO:[0-9]{7}"
+PKG = Path(__file__).resolve().parents[1]
+FIX = Path(__file__).parent / "fixtures"
 
-NAMES = {
-    "ARO:0001001": "antibiotic target alteration", "ARO:0001002": "antibiotic target replacement",
-    "ARO:0001004": "antibiotic inactivation",
-    "ARO:3000008": "penicillin beta-lactam", "ARO:0000032": "cephalosporin",
-    "ARO:0000001": "fluoroquinolone antibiotic",
-    "ARO:3003040": "beta-lactam resistant penicillin-binding proteins",
-    "ARO:3000749": "beta-lactam sensitive penicillin-binding protein",
-    "ARO:3000273": "antibiotic resistant DNA topoisomerase subunit gyrA",
-    "ARO:3003254": "antibiotic sensitive DNA topoisomerase subunit gyrA",
-    "ARO:3000733": "fluoroquinolone sensitive gyrA",
-    "ARO:3000900": "CTX-M beta-lactamase",
-    "ARO:3000001": "pbpX", "ARO:3000002": "gyrA mutant", "ARO:3000003": "bla-enzyme", "ARO:3000004": "orphan",
+# ----------------------------------------------------------------- the synthetic CARD
+
+DETERMINANT_ROOT = "ARO:3000000"
+
+GENES = {
+    "ARO:9000001": "TESTBLA-1",
+    "ARO:9000002": "TESTMEC-1",
+    "ARO:9000003": "TESTGYR",
+    "ARO:9000004": "TESTEFF-1",
+    "ARO:9000005": "TESTDUP-A",
+    "ARO:9000006": "TESTDUP-B",
+    "ARO:9000007": "TESTOLD",
+}
+CATEGORY_TERMS = {
+    "ARO:9000201": ("cephalosporin", "Drug Class"),
+    "ARO:9000202": ("penam", "Drug Class"),
+    "ARO:9000203": ("carbapenem", "Drug Class"),
+    "ARO:9000204": ("fluoroquinolone antibiotic", "Drug Class"),
+    "ARO:9000205": ("tetracycline antibiotic", "Drug Class"),
+    "ARO:9000301": ("antibiotic inactivation", "Resistance Mechanism"),
+    "ARO:9000302": ("antibiotic target replacement", "Resistance Mechanism"),
+    "ARO:9000303": ("antibiotic target alteration", "Resistance Mechanism"),
+    "ARO:9000304": ("antibiotic efflux", "Resistance Mechanism"),
+    "ARO:9000401": ("TESTBLA family", "AMR Gene Family"),
+    "ARO:9000402": ("TESTPBP family", "AMR Gene Family"),
+    "ARO:9000403": ("TESTGYR family", "AMR Gene Family"),
+    "ARO:9000404": ("TESTEFF family", "AMR Gene Family"),
+    "ARO:9000405": ("TESTDUP family", "AMR Gene Family"),
+}
+# The two TESTDUP determinants share one ARO name, so the bare name is ambiguous.
+TERM_NAME = dict(GENES, **{"ARO:9000005": "TESTDUP", "ARO:9000006": "TESTDUP"})
+TERM_NAME.update({acc: name for acc, (name, _) in CATEGORY_TERMS.items()})
+TERM_NAME[DETERMINANT_ROOT] = "determinant of antibiotic resistance"
+OBSOLETE = {"ARO:9000007"}
+SYNONYMS = {
+    "ARO:9000001": [('"TESTBLA beta-lactamase 1"', "EXACT"),   # must resolve
+                    ('"TESTRELATED-1"', "RELATED")],           # must not resolve
 }
 
 
-def make_card(root: Path) -> Path:
-    rel = root / "releases" / "9.9.9"
-    rows = {
-        "aro_terms": [(a, "", n, "", "", "false") for a, n in NAMES.items()],
-        "aro_relations": [
-            ("ARO:3000001", "is_a", "ARO:3003040"), ("ARO:3003040", "derives_from", "ARO:3000749"),
-            ("ARO:3000749", "targeted_by_antibiotic", "ARO:3000008"),
-            ("ARO:3000002", "is_a", "ARO:3000273"), ("ARO:3000273", "derives_from", "ARO:3003254"),
-            # the generic sensitive gyrA is not targeted itself, only its child is
-            ("ARO:3000733", "is_a", "ARO:3003254"), ("ARO:3000733", "targeted_by_antibiotic", "ARO:0000001"),
-        ],
-        "models": [
-            ("1", "ARO:3000001", "pbpX", "protein homolog model", "pbpX"),
-            ("2", "ARO:3000002", "gyrA mutant", "protein variant model", "gyrA"),
-            ("3", "ARO:3000003", "bla-enzyme", "protein homolog model", "bla"),
-            ("4", "ARO:3000004", "orphan", "protein homolog model", "orphan"),
-        ],
-        "model_categories": [
-            ("1", "ARO:3000001", "ARO:0001002", "Resistance Mechanism"), ("1", "ARO:3000001", "ARO:3000008", "Drug Class"),
-            ("1", "ARO:3000001", "ARO:0000032", "Drug Class"),
-            ("2", "ARO:3000002", "ARO:0001001", "Resistance Mechanism"), ("2", "ARO:3000002", "ARO:0000001", "Drug Class"),
-            ("3", "ARO:3000003", "ARO:0001004", "Resistance Mechanism"), ("3", "ARO:3000003", "ARO:0000032", "Drug Class"),
-            ("3", "ARO:3000003", "ARO:3000900", "AMR Gene Family"),
-        ],
-        "model_variants": [
-            ("2", "ARO:3000002", "single resistance variant", "S84L", ""),
-            ("2", "ARO:3000002", "single resistance variant", "S84W", ""),
-        ],
-    }
-    for name, data in rows.items():
-        write_table(rel / "tables" / f"{name}.tsv", TABLES[name], data)
-    (rel / "manifest.json").write_text(json.dumps({"card_data_version": "9.9.9"}))
-    return rel
+def _obo() -> str:
+    out = ["format-version: 1.2", "date: 11:08:2026 08:59",
+           "ontology: test_antibiotic_resistance", "",
+           "[Term]", f"id: {DETERMINANT_ROOT}", f"name: {TERM_NAME[DETERMINANT_ROOT]}", ""]
+    for acc in list(GENES) + list(CATEGORY_TERMS):
+        out += ["[Term]", f"id: {acc}", f"name: {TERM_NAME[acc]}"]
+        if acc in GENES:
+            # typecheck types a determinant by is_a ancestry, so the fixture must have it.
+            out.append(f"is_a: {DETERMINANT_ROOT} ! {TERM_NAME[DETERMINANT_ROOT]}")
+        for text, scope in SYNONYMS.get(acc, []):
+            out.append(f"synonym: {text} {scope} []")
+        if acc in OBSOLETE:
+            out.append("is_obsolete: true")
+        out.append("")
+    return "\n".join(out) + "\n"
 
 
-@pytest.fixture()
-def card(tmp_path):
-    return CardProfiler(make_card(tmp_path), supplement=None)
+ARO_TSV = ("Accession\tName\tDescription\tID\tCARD Short Name\n"
+           + "".join(f"{acc}\t{TERM_NAME[acc]}\tTest term.\t\t{short}\n"
+                     for acc, short in GENES.items()))
+
+CATEGORIES_TSV = ("ARO Category\tARO Accession\tARO Name\n"
+                  + "".join(f"{cls}\t{acc}\t{name}\n"
+                            for acc, (name, cls) in CATEGORY_TERMS.items()))
 
 
-def profile(card, *dets, **kw):
-    return build_profile(card, list(dets), kind=kw.pop("kind", "gene_list"), **kw)
+def _category(acc: str) -> dict:
+    name, cls = CATEGORY_TERMS[acc]
+    return {"category_aro_accession": acc.split(":")[1], "category_aro_name": name,
+            "category_aro_class_name": cls}
 
 
-# ----------------------------------------------------------------------------- contract checks
+def _model(model_id, name, gene, *category_accs, model_type="protein homolog model", params=None):
+    return (model_id, {
+        "model_id": model_id, "model_name": name, "model_type": model_type,
+        "ARO_accession": gene.split(":")[1], "CARD_short_name": GENES[gene],
+        "ARO_category": {str(i): _category(a) for i, a in enumerate(category_accs)},
+        "model_param": params or {},
+    })
 
-def check_contract(p):
-    """The ResistanceProfile rules of tests/test_resistance_contracts.py, for any profile."""
-    assert set(p) == {"contract_version", "profile_id", "input", "unresolved_inputs", "releases", "genes",
-                      "mechanisms", "defeated_classes", "affected_targets", "evidence", "confidence", "caveats"}
-    assert p["contract_version"] == "1" and p["caveats"] and p["confidence"]["basis"]
-    assert re.fullmatch(r"[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}", p["profile_id"])
-    evidence = {e["id"] for e in p["evidence"]}
-    assert len(evidence) == len(p["evidence"])
+
+CARD = dict([
+    ("_version", "9.9.9"),
+    ("_timestamp", "2026-01-01T00:00:00+00:00"),
+    # one determinant, two models: the drug classes must be unioned across both
+    _model("1", "TESTBLA-1 model A", "ARO:9000001",
+           "ARO:9000201", "ARO:9000202", "ARO:9000301", "ARO:9000401"),
+    _model("2", "TESTBLA-1 model B", "ARO:9000001",
+           "ARO:9000203", "ARO:9000301", "ARO:9000401"),
+    _model("3", "TESTMEC-1 model", "ARO:9000002",
+           "ARO:9000201", "ARO:9000202", "ARO:9000302", "ARO:9000402"),
+    _model("4", "TESTGYR point model", "ARO:9000003",
+           "ARO:9000204", "ARO:9000303", "ARO:9000403",
+           model_type="protein variant model",
+           params={"snp": {"param_type": "single resistance variant",
+                           "param_value": {"1": "S83L", "2": "G79C"},
+                           "Curated-R": {"1": "S83L", "2": "G79C"}}}),
+    _model("5", "TESTEFF-1 model", "ARO:9000004",
+           "ARO:9000205", "ARO:9000304", "ARO:9000404"),
+    _model("6", "TESTDUP model A", "ARO:9000005",
+           "ARO:9000203", "ARO:9000301", "ARO:9000405"),
+    _model("7", "TESTDUP model B", "ARO:9000006",
+           "ARO:9000201", "ARO:9000301", "ARO:9000405"),
+    # obsolete: it has a model, but must not be offered as a determinant
+    _model("8", "TESTOLD model", "ARO:9000007", "ARO:9000201", "ARO:9000301"),
+])
+
+
+def _tar(path: Path, members: dict) -> None:
+    with tarfile.open(path, "w:bz2") as tar:
+        for name, data in members.items():
+            info = tarfile.TarInfo(name)
+            info.size = len(data)
+            tar.addfile(info, io.BytesIO(data))
+
+
+@pytest.fixture(scope="session")
+def release(tmp_path_factory) -> Path:
+    root = tmp_path_factory.mktemp("card")
+    data, ont = root / "card-data.tar.bz2", root / "card-ontology.tar.bz2"
+    _tar(data, {"card.json": json.dumps(CARD).encode(),
+                "aro_categories.tsv": CATEGORIES_TSV.encode()})
+    _tar(ont, {"aro.obo": _obo().encode(), "aro.tsv": ARO_TSV.encode()})
+    return build(root / "data", data_archive=data, ontology_archive=ont, log=lambda *_: None)
+
+
+@pytest.fixture(scope="session")
+def ref(release) -> Reference:
+    return Reference.from_release(release)
+
+
+# ----------------------------------------------------------------- the frozen contract
+
+ARO = r"ARO:[0-9]{7}"
+UUID = r"[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}"
+RELEASE = r"[a-z][a-z0-9_]*-[0-9]+(?:\.[0-9]+)*"
+PROFILE_EVIDENCE = r"P[0-9]+"
+INPUT_KINDS = {"species_preset", "gene_list", "amrfinderplus"}
+CONFIDENCE = {"low", "medium", "high"}
+
+TOP_LEVEL = ["contract_version", "profile_id", "input", "unresolved_inputs", "releases", "genes",
+             "mechanisms", "defeated_classes", "affected_targets", "evidence", "confidence",
+             "caveats"]
+
+
+def check_contract(profile):
+    """The rules tests/test_resistance_contracts.py enforces, applied to our own output."""
+    p = profile.contract
+    assert set(p) == set(TOP_LEVEL), sorted(set(p) ^ set(TOP_LEVEL))
+    assert p["contract_version"] == CONTRACT_VERSION
+    assert re.fullmatch(UUID, p["profile_id"]), p["profile_id"]
+    assert p["input"]["kind"] in INPUT_KINDS
+    assert set(p["input"]) == {"kind", "species", "requested"}
+    assert p["confidence"]["level"] in CONFIDENCE
+    assert p["confidence"]["basis"]
+    assert p["caveats"], "a profile always carries caveats"
+    for release in p["releases"]:
+        assert re.fullmatch(RELEASE, release), release
+
+    # evidence: unique P# ids, valid ARO ids, releases we declared
+    evidence_ids = {e["id"] for e in p["evidence"]}
+    assert len(evidence_ids) == len(p["evidence"])
     for e in p["evidence"]:
-        assert re.fullmatch(r"P[0-9]+", e["id"]) and re.fullmatch(ARO, e["aro_id"]) and e["release"] in p["releases"]
-    genes = {g["aro_id"] for g in p["genes"]}
-    assert len(genes) == len(p["genes"])
+        assert re.fullmatch(PROFILE_EVIDENCE, e["id"]), e["id"]
+        assert re.fullmatch(ARO, e["aro_id"]), e["aro_id"]
+        assert e["release"] in p["releases"]
+        assert e["statement"] and e["source"] == "card"
+
+    # genes: unique, mechanism-bearing, evidence-citing, ARO-typed
+    gene_ids = {g["aro_id"] for g in p["genes"]}
+    assert len(gene_ids) == len(p["genes"])
+    for g in p["genes"]:
+        assert re.fullmatch(ARO, g["aro_id"]), g["aro_id"]
+        assert g["mechanisms"], f"{g['name']} resolves to no mechanism"
+        assert g["evidence_ids"] and set(g["evidence_ids"]) <= evidence_ids
+        assert g["model_type"]
+        for term in g["mechanisms"] + g["defeated_classes"]:
+            assert re.fullmatch(ARO, term["aro_id"]), term
+            assert set(term) == {"aro_id", "name"}
+        for variant in g["variants"]:
+            assert set(variant) == {"mutation", "param_type"}
+        if g["affected_target"] is not None:
+            assert set(g["affected_target"]) == {"name", "pdb_ids"}
+
+    # roll-ups reference only genes and evidence we hold
+    for group in ("mechanisms", "defeated_classes", "affected_targets"):
+        for item in p[group]:
+            assert set(item["gene_aro_ids"]) <= gene_ids
+            assert set(item.get("evidence_ids", [])) <= evidence_ids
+
+    # roll-ups must be exactly derivable from the gene rows
     classes, mechanisms = {}, {}
     for g in p["genes"]:
-        assert g["mechanisms"] and g["evidence_ids"] and set(g["evidence_ids"]) <= evidence
         for c in g["defeated_classes"]:
             classes.setdefault(c["aro_id"], set()).add(g["aro_id"])
         for m in g["mechanisms"]:
             mechanisms.setdefault(m["aro_id"], set()).add(g["aro_id"])
     assert {c["aro_id"]: set(c["gene_aro_ids"]) for c in p["defeated_classes"]} == classes
     assert {m["aro_id"]: set(m["gene_aro_ids"]) for m in p["mechanisms"]} == mechanisms
-    for group in ("mechanisms", "defeated_classes", "affected_targets"):
-        for item in p[group]:
-            assert set(item["gene_aro_ids"]) <= genes and set(item.get("evidence_ids", [])) <= evidence
+
+    # nothing dropped: every unresolved entry was something the caller asked for
     for item in p["unresolved_inputs"]:
-        assert item["text"] in p["input"]["requested"] and item["reason"]
+        assert set(item) == {"text", "reason"}
+        assert item["text"] in p["input"]["requested"]
+        assert item["reason"]
+    return p
 
 
-# ----------------------------------------------------------------------------- synthetic CARD
-
-def test_a_homolog_gene_gets_its_mechanisms_classes_and_target(card):
-    p = profile(card, Determinant("ARO:3000001", "pbpX"))
-    check_contract(p)
-    gene = p["genes"][0]
-    assert [m["name"] for m in gene["mechanisms"]] == ["antibiotic target replacement"]
-    assert [c["aro_id"] for c in gene["defeated_classes"]] == ["ARO:0000032", "ARO:3000008"]
-    assert gene["variants"] == []
-    assert gene["affected_target"] == {"name": "beta-lactam sensitive penicillin-binding protein", "pdb_ids": []}
-    assert p["releases"] == ["card-9.9.9"]
-    assert p["evidence"][0]["statement"] == (
-        "CARD links pbpX to the cephalosporin and penicillin beta-lactam drug classes and to antibiotic target replacement.")
+def test_a_gene_list_profile_satisfies_the_contract(ref):
+    check_contract(build_profile(parse_gene_text("TESTBLA-1, TESTGYR S83L, NOPE"), ref))
 
 
-def test_the_target_is_found_through_a_more_specific_targeted_child(card):
-    p = profile(card, Determinant("ARO:3000002", "gyrA S84L", ("S84L",)))
-    assert p["genes"][0]["affected_target"]["name"] == "antibiotic sensitive DNA topoisomerase subunit gyrA"
-    assert p["genes"][0]["variants"] == [{"mutation": "S84L", "param_type": "single resistance variant"}]
-    assert "CARD lists S84L among the resistance variants" in p["evidence"][0]["statement"]
+def test_a_preset_profile_satisfies_the_contract(ref):
+    check_contract(build_profile(parse_preset("test species", FIX / "presets_fixture.json"), ref))
 
 
-def test_an_enzyme_has_no_affected_target(card):
-    p = profile(card, Determinant("ARO:3000003", "bla"))
-    check_contract(p)
-    assert p["genes"][0]["affected_target"] is None and p["affected_targets"] == []
+def test_an_amrfinder_profile_satisfies_the_contract(ref):
+    check_contract(build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref))
 
 
-def test_rollups_combine_genes_and_stay_derivable(card):
-    p = profile(card, Determinant("ARO:3000001", "pbpX"), Determinant("ARO:3000003", "bla"),
-                Determinant("ARO:3000002", "gyrA S84L", ("S84L",)))
-    check_contract(p)
-    cephalosporin = next(c for c in p["defeated_classes"] if c["name"] == "cephalosporin")
-    assert cephalosporin["gene_aro_ids"] == ["ARO:3000001", "ARO:3000003"]
-    assert cephalosporin["evidence_ids"] == ["P1", "P2"]
-    assert [t["name"] for t in p["affected_targets"]] == sorted(t["name"] for t in p["affected_targets"])
+def test_the_profile_id_is_stable_for_the_same_input(ref):
+    first = build_profile(parse_gene_text("TESTBLA-1"), ref).contract["profile_id"]
+    second = build_profile(parse_gene_text("TESTBLA-1"), ref).contract["profile_id"]
+    third = build_profile(parse_gene_text("TESTMEC-1"), ref).contract["profile_id"]
+    assert first == second and first != third
 
 
-@pytest.mark.parametrize("det, reason", [
-    (Determinant("ARO:3000002", "gyrA"), "none was named"),
-    (Determinant("ARO:3000002", "gyrA S1A", ("S1A",)), "S1A is not among the mutations CARD lists"),
-    (Determinant("ARO:3000001", "pbpX S1A", ("S1A",)), "not a variant model"),
-    (Determinant("ARO:3000900", "CTX-M"), "ontology term, not a resistance determinant model"),
-    (Determinant("ARO:3000004", "orphan"), "no resistance mechanism"),
-    (Determinant("ARO:3999999", "ghost"), "is not in CARD 9.9.9"),
-])
-def test_what_cannot_become_a_gene_is_reported_not_dropped(card, reason, det):
-    p = profile(card, det, Determinant("ARO:3000003", "bla"))
-    check_contract(p)
-    assert [g["aro_id"] for g in p["genes"]] == ["ARO:3000003"]
-    assert len(p["unresolved_inputs"]) == 1
-    assert p["unresolved_inputs"][0]["text"] == det.text and reason in p["unresolved_inputs"][0]["reason"]
-    assert any("could not be resolved" in c for c in p["caveats"])
+def test_the_release_is_recorded_in_the_contracts_source_version_form(ref):
+    assert ref.release == "card-9.9.9"
+    assert build_profile(parse_gene_text("TESTBLA-1"), ref).contract["releases"] == ["card-9.9.9"]
 
 
-def test_the_callers_unresolved_names_are_kept(card):
-    p = profile(card, Determinant("ARO:3000003", "bla"), requested=["bla", "blaZZ"],
-                unresolved=[{"text": "blaZZ", "reason": "no CARD term or synonym matches this name"}])
-    check_contract(p)
-    assert p["unresolved_inputs"][0]["text"] == "blaZZ"
+# ----------------------------------------------------------------- the reference
+
+def test_drug_classes_are_unioned_over_a_determinants_models(ref):
+    entry = ref.entries["ARO:9000001"]
+    assert {t.name for t in entry.drug_classes} == {"cephalosporin", "penam", "carbapenem"}
+    assert [t.aro_id for t in entry.mechanisms] == ["ARO:9000301"]
 
 
-def test_the_same_model_named_twice_is_one_gene_with_both_mutations(card):
-    p = profile(card, Determinant("ARO:3000002", "gyrA S84L", ("S84L",)), Determinant("ARO:3000002", "gyrA S84W", ("S84W",)))
-    check_contract(p)
-    assert len(p["genes"]) == 1
-    assert [v["mutation"] for v in p["genes"][0]["variants"]] == ["S84L", "S84W"]
+def test_model_type_and_card_variants_are_carried(ref):
+    entry = ref.entries["ARO:9000003"]
+    assert entry.model_type == "protein variant model"
+    assert {v.mutation for v in entry.variants} == {"S83L", "G79C"}
+    assert all(v.param_type == "single resistance variant" for v in entry.variants)
 
 
-def test_confidence_follows_where_the_genes_came_from(card):
-    det = Determinant("ARO:3000003", "bla")
-    assert profile(card, det, kind="gene_list")["confidence"]["level"] == "low"
-    assert profile(card, det, kind="species_preset")["confidence"]["level"] == "low"
-    assert profile(card, det, kind="amrfinderplus")["confidence"]["level"] == "medium"
-    with pytest.raises(ValueError):
-        profile(card, det, kind="guess")
+def test_a_category_term_is_not_a_determinant(ref):
+    assert "ARO:9000201" not in ref.entries          # cephalosporin, a drug class
+    assert ref.resolve("cephalosporin").status == "unknown"
 
 
-def test_a_profile_with_no_usable_gene_is_empty_and_says_so(card):
-    p = profile(card, Determinant("ARO:3999999", "ghost"))
-    assert p["genes"] == [] and p["defeated_classes"] == [] and p["confidence"]["level"] == "low"
-    assert "No determinant could be resolved" in p["confidence"]["basis"]
+def test_an_obsolete_determinant_is_excluded_and_recorded(ref):
+    assert "ARO:9000007" not in ref.entries
+    assert ref.resolve("TESTOLD").status == "unknown"
+    assert any("obsolete" in problem for problem in ref.problems)
 
 
-# ----------------------------------------------------------------------------- curated supplement
-
-CITATION = {"pmid": "123", "citation": "Author A. A study. Journal. 2020;1:1."}
-
-
-def write_supplement(path, **overrides):
-    add = {"id": "x", "models": ["ARO:3000003"], "drug_class": {"aro_id": "ARO:0000001", "name": "fluoroquinolone antibiotic"},
-           "reason": "Because the study says so.", "citations": [CITATION], **overrides}
-    path.write_text(json.dumps({"schema": 1, "release": "curated_supplement-1", "additions": [add]}))
-    return path
+def test_exact_synonym_resolves_but_related_synonym_does_not(ref):
+    hit = ref.resolve("TESTBLA beta-lactamase 1")
+    assert (hit.status, hit.how, hit.entry.aro) == ("resolved", "exact", "ARO:9000001")
+    assert ref.resolve("TESTRELATED-1").status == "unknown"
 
 
-def test_a_curated_class_is_added_and_marked_as_curated(tmp_path):
-    card = CardProfiler(make_card(tmp_path), supplement=write_supplement(tmp_path / "s.json"))
-    p = profile(card, Determinant("ARO:3000003", "bla"), Determinant("ARO:3000001", "pbpX"))
-    check_contract(p)
-    assert p["releases"] == ["card-9.9.9", "curated_supplement-1"]
-    bla = p["genes"][0]
-    assert [c["name"] for c in bla["defeated_classes"]] == ["fluoroquinolone antibiotic", "cephalosporin"]
-    assert bla["evidence_ids"] == ["P1", "P3"]
-    curated = p["evidence"][2]
-    assert (curated["source"], curated["release"], curated["aro_id"]) == ("curated", "curated_supplement-1", "ARO:3000003")
-    assert "not in CARD 9.9.9" in curated["statement"] and "PMID 123" in curated["statement"]
-    assert any("curated supplement" in c for c in p["caveats"])
-    # each class cites the evidence behind it: the curated class only the curated item
-    by_class = {c["name"]: c["evidence_ids"] for c in p["defeated_classes"]}
-    assert by_class["fluoroquinolone antibiotic"] == ["P3"]
-    assert by_class["cephalosporin"] == ["P1", "P2"]  # CARD's own, for both genes
-    # a gene the supplement does not name is untouched
-    assert p["genes"][1]["evidence_ids"] == ["P2"]
+def test_a_directory_without_a_manifest_is_refused(tmp_path):
+    with pytest.raises(ValueError, match="not a CARD release"):
+        Reference.from_release(tmp_path)
 
 
-def test_a_class_card_already_has_is_not_added_twice(tmp_path):
-    supplement = write_supplement(tmp_path / "s.json", drug_class={"aro_id": "ARO:0000032", "name": "cephalosporin"})
-    card = CardProfiler(make_card(tmp_path), supplement=supplement)
-    p = profile(card, Determinant("ARO:3000003", "bla"))
-    assert len(p["evidence"]) == 1 and p["releases"] == ["card-9.9.9"]
-    assert not any("curated" in c for c in p["caveats"])
+def test_a_tampered_table_is_refused(release, tmp_path):
+    import shutil
+    copy = tmp_path / "release"
+    shutil.copytree(release, copy)
+    (copy / "tables" / "models.tsv").write_text("tampered\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="does not match its manifest"):
+        Reference.from_release(copy)
 
 
-@pytest.mark.parametrize("override, message", [
-    ({"citations": []}, "needs at least one citation"),
-    ({"citations": [{"pmid": "abc", "citation": "x"}]}, "needs at least one citation"),
-    ({"reason": ""}, "no reason given"),
-    ({"models": ["ARO:3999999"]}, "not a CARD detection model"),
-    ({"drug_class": {"aro_id": "ARO:0000001", "name": "wrong name"}}, "is not the Drug Class"),
-    ({"drug_class": {"aro_id": "ARO:3000900", "name": "CTX-M beta-lactamase"}}, "is not the Drug Class"),
-])
-def test_a_stale_or_uncited_supplement_stops_the_build(tmp_path, override, message):
-    with pytest.raises(CardError, match=message):
-        CardProfiler(make_card(tmp_path), supplement=write_supplement(tmp_path / "s.json", **override))
+def test_the_newest_release_is_chosen_by_version_number(tmp_path):
+    for version in ("9.9.9", "10.0.1"):
+        (tmp_path / "releases" / version).mkdir(parents=True)
+        (tmp_path / "releases" / version / "manifest.json").write_text("{}")
+    assert latest_release(tmp_path).name == "10.0.1"
 
 
-# ----------------------------------------------------------------------------- real CARD
+def test_no_release_at_all_is_an_error(tmp_path):
+    with pytest.raises(ValueError, match="no CARD release"):
+        latest_release(tmp_path)
 
 
-def real_card():
-    found = sorted((DEFAULT_DIR / "releases").glob("*/manifest.json")) if (DEFAULT_DIR / "releases").is_dir() else []
-    if not found:
-        pytest.skip("no CARD release built (uv run python -m htb_resistance build)")
-    return CardProfiler(found[-1].parent)
+# ----------------------------------------------------------------- (a) gene names and ARO IDs
 
-
-GYRA = "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones"
-
-# One typical resistant isolate per pathogen, as CARD model names (and mutations). The expected
-# classes are what a microbiologist would list for that isolate; CARD may add more.
-ISOLATES = {
-    "Staphylococcus aureus (MRSA)": (
-        [("mecA", ()), ("PC1 beta-lactamase (blaZ)", ()), (GYRA, ("S84L",)),
-         ("Staphylococcus aureus parC conferring resistance to fluoroquinolones", ("S80F",)), ("ErmC", ())],
-        {"penicillin beta-lactam", "cephalosporin", "carbapenem", "fluoroquinolone antibiotic",
-         "macrolide antibiotic", "lincosamide antibiotic", "streptogramin antibiotic"},
-        {"beta-lactam sensitive penicillin-binding protein", "antibiotic sensitive DNA topoisomerase subunit gyrA"},
-    ),
-    "Klebsiella pneumoniae (ESBL and carbapenemase)": (
-        [("CTX-M-15", ()), ("TEM-1", ()), ("SHV-1", ()), ("KPC-2", ()), ("OXA-48", ()), ("AAC(6')-Ib-cr1", ())],
-        {"penicillin beta-lactam", "cephalosporin", "monobactam", "carbapenem", "aminoglycoside antibiotic",
-         "fluoroquinolone antibiotic"},
-        set(),
-    ),
-    "Acinetobacter baumannii (carbapenem-resistant)": (
-        [("OXA-23", ()), ("OXA-66", ()), ("ADC-30", ()), ("armA", ()), ("adeB", ()),
-         ("Acinetobacter baumannii gyrA conferring resistance to fluoroquinolones", ("S81L",)),
-         ("Acinetobacter baumannii parC conferring resistance to fluoroquinolones", ("S84L",))],
-        {"penicillin beta-lactam", "cephalosporin", "carbapenem", "aminoglycoside antibiotic",
-         "fluoroquinolone antibiotic", "tetracycline antibiotic"},
-        {"antibiotic sensitive DNA topoisomerase subunit gyrA"},
-    ),
-}
-
-
-def by_name(card):
-    names = {}
-    for model in card.models.values():
-        names.setdefault(model["name"], model["aro_accession"])
-    return names
-
-
-@pytest.mark.parametrize("pathogen", ISOLATES)
-def test_a_typical_isolate_gives_a_recognisable_class_list(pathogen):
-    card = real_card()
-    names = by_name(card)
-    genes, expected_classes, expected_targets = ISOLATES[pathogen]
-    dets = [Determinant(names[n], n + (f" {m[0]}" if m else ""), m) for n, m in genes]
-    p = profile(card, *dets)
-    check_contract(p)
+def test_names_and_aro_ids_both_resolve(ref):
+    p = build_profile(parse_gene_text("TESTBLA-1, ARO:9000002\nTESTEFF-1"), ref).contract
+    assert [g["aro_id"] for g in p["genes"]] == ["ARO:9000001", "ARO:9000002", "ARO:9000004"]
+    assert p["input"]["kind"] == GENE_LIST
     assert p["unresolved_inputs"] == []
-    got = {c["name"] for c in p["defeated_classes"]}
-    assert expected_classes <= got, expected_classes - got
-    assert expected_targets <= {t["name"] for t in p["affected_targets"]}
-    for e in p["evidence"]:
-        assert e["statement"].startswith("CARD links " if e["source"] == "card" else "Curated supplement")
 
 
-def test_the_contract_fixture_is_real_output():
-    """tests/fixtures/resistance_profile.json is what this code produces for its input."""
-    card = real_card()
-    fixture = json.loads((ROOT / "tests" / "fixtures" / "resistance_profile.json").read_text())
-    if f"card-{card.version}" not in fixture["releases"]:
-        pytest.skip("the built CARD release differs from the one the fixture was generated from")
-    names = by_name(card)
-    p = build_profile(
-        card, [Determinant(names["mecA"], "mecA"), Determinant(names[GYRA], "gyrA S84L", ("S84L",))],
-        kind="gene_list", species=fixture["input"]["species"], requested=fixture["input"]["requested"],
-        unresolved=fixture["unresolved_inputs"], profile_id=fixture["profile_id"])
-    assert p == fixture
+def test_a_gene_with_a_mutation_in_one_item(ref):
+    p = build_profile(parse_gene_text("TESTGYR S83L"), ref).contract
+    gene = p["genes"][0]
+    assert p["input"]["requested"] == ["TESTGYR S83L"]
+    assert gene["variants"] == [{"mutation": "S83L", "param_type": "single resistance variant"}]
+    assert gene["affected_target"] == {"name": "TESTGYR", "pdb_ids": []}
+    assert p["affected_targets"] == [{"name": "TESTGYR", "gene_aro_ids": ["ARO:9000003"],
+                                      "pdb_ids": []}]
 
 
-def test_the_curated_supplement_fills_a_real_gap_in_this_card_release():
-    card = real_card()
-    if card.version != "4.0.2":
-        pytest.skip("the supplement was written against CARD 4.0.2; check whether a newer release makes it redundant")
-    for add in card.supplement["additions"]:
-        for model in add["models"]:
-            assert add in card.supplemented(model), f"CARD already has {add['drug_class']['name']} for {model}"
+def test_a_mutation_card_does_not_list_is_recorded_and_flagged(ref):
+    p = build_profile(parse_gene_text("TESTGYR Q999Z"), ref).contract
+    assert p["genes"][0]["variants"] == [{"mutation": "Q999Z", "param_type": None}]
+    assert any("not among CARD's known resistance variants" in c for c in p["caveats"])
 
 
-def test_mrsa_profiles_include_carbapenem_with_curated_evidence():
-    card = real_card()
-    names = by_name(card)
-    p = profile(card, Determinant(names["mecA"], "mecA"), Determinant(names["mecC"], "mecC"))
-    check_contract(p)
-    carbapenem = next(c for c in p["defeated_classes"] if c["name"] == "carbapenem")
-    assert carbapenem["gene_aro_ids"] == [names["mecA"], names["mecC"]]
-    sources = {e["id"]: e["source"] for e in p["evidence"]}
-    assert {sources[i] for i in carbapenem["evidence_ids"]} == {"curated"}
-    # mecB and mecD are deliberately left as CARD's download has them
-    for gene in ("mecB", "mecD"):
-        q = profile(card, Determinant(names[gene], gene))
-        assert "carbapenem" not in {c["name"] for c in q["defeated_classes"]}
+def test_two_bare_names_in_one_item_are_two_determinants(ref):
+    p = build_profile(parse_gene_text("TESTBLA-1 TESTMEC-1"), ref).contract
+    assert len(p["genes"]) == 2
 
 
-def fold(text):
-    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+def test_an_unknown_name_is_reported_not_dropped(ref):
+    profile = build_profile(parse_gene_text("TESTBLA-1 NOTAGENE"), ref)
+    p = profile.contract
+    assert profile.status == "partial"
+    assert [u["text"] for u in p["unresolved_inputs"]] == ["NOTAGENE"]
+    assert "no CARD term or synonym matches" in p["unresolved_inputs"][0]["reason"]
+    assert any("excluded" in c for c in p["caveats"])
 
 
-@pytest.mark.network
-def test_every_citation_in_the_supplement_is_what_it_says_it_is():
-    """Each PubMed id has the cited title, year and first author, and its abstract contains the quoted words."""
-    data = json.loads(SUPPLEMENT_PATH.read_text())
-    cited = {(c["pmid"], c["citation"], c["supports"]) for add in data["additions"] for c in add["citations"]}
-    assert cited
-    for pmid, citation, supports in cited:
-        base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-        with urllib.request.urlopen(base + f"esummary.fcgi?db=pubmed&retmode=json&id={pmid}", timeout=30) as r:
-            summary = json.load(r)["result"][pmid]
-        assert fold(summary["title"]).rstrip(".") in fold(citation), pmid
-        assert summary["pubdate"][:4] in citation and fold(summary["authors"][0]["name"].split()[0]) in fold(citation)
-        with urllib.request.urlopen(base + f"efetch.fcgi?db=pubmed&retmode=xml&id={pmid}", timeout=30) as r:
-            xml = r.read().decode()
-        abstract = html.unescape(re.sub(r"<[^>]+>", "", " ".join(re.findall(r"<AbstractText[^>]*>(.*?)</AbstractText>", xml, flags=re.S))))
-        quoted = re.search(r'"(.+?)"', supports).group(1)
-        assert fold(quoted) in fold(abstract), f"PMID {pmid}: quoted words not in the abstract"
+def test_nothing_resolvable_raises_and_names_every_unknown(ref):
+    with pytest.raises(InputError) as exc:
+        build_profile(parse_gene_text("NOPE1 NOPE2"), ref)
+    assert "NOPE1" in str(exc.value) and "NOPE2" in str(exc.value)
+
+
+def test_case_and_a_bla_prefix_are_normalised_and_flagged(ref):
+    profile = build_profile(parse_gene_text("blaTESTBLA-1, testeff-1"), ref)
+    assert {c.match for c in profile.calls} == {"bla_prefix_stripped", "case_insensitive"}
+    assert any("case folding" in c for c in profile.contract["caveats"])
+
+
+def test_an_ambiguous_name_lists_its_candidates(ref):
+    p = build_profile(parse_gene_text("TESTDUP, TESTMEC-1"), ref).contract
+    reason = p["unresolved_inputs"][0]["reason"]
+    assert "matches 2 CARD determinants" in reason
+    assert "TESTDUP-A (ARO:9000005)" in reason and "TESTDUP-B (ARO:9000006)" in reason
+
+
+def test_a_malformed_aro_id_says_so(ref):
+    p = build_profile(parse_gene_text("ARO:12, TESTMEC-1"), ref).contract
+    assert p["unresolved_inputs"][0]["text"] == "ARO:12"
+    assert "not a valid ARO ID" in p["unresolved_inputs"][0]["reason"]
+
+
+def test_a_well_formed_aro_id_missing_from_the_release_says_so(ref):
+    p = build_profile(parse_gene_text("ARO:9999999, TESTMEC-1"), ref).contract
+    assert "not a CARD determinant" in p["unresolved_inputs"][0]["reason"]
+    assert "card-9.9.9" in p["unresolved_inputs"][0]["reason"]
+
+
+def test_a_repeated_entry_is_reported_not_counted_twice(ref):
+    p = build_profile(parse_gene_text("TESTBLA-1, testbla-1"), ref).contract
+    assert len(p["genes"]) == 1
+    assert "duplicate" in p["unresolved_inputs"][0]["reason"]
+
+
+def test_two_names_for_one_determinant_are_reported_once(ref):
+    p = build_profile(parse_gene_text("TESTBLA-1, blaTESTBLA-1"), ref).contract
+    assert len(p["genes"]) == 1
+    assert "same CARD determinant" in p["unresolved_inputs"][0]["reason"]
+
+
+def test_comments_and_blank_input(ref):
+    assert [t.raw for t in parse_gene_text("TESTBLA-1 # note\n# TESTMEC-1\n").tokens] == ["TESTBLA-1"]
+    with pytest.raises(InputError, match="no entries to profile"):
+        build_profile(parse_gene_text("   \n# nothing\n"), ref)
+
+
+def test_strict_mode_fails_on_any_unresolved_entry(ref):
+    with pytest.raises(InputError, match="strict mode"):
+        build_profile(parse_gene_text("TESTBLA-1, NOPE"), ref, strict=True)
+
+
+def test_every_requested_string_is_accounted_for(ref):
+    """The contract rule WS4 relies on: nothing supplied disappears."""
+    parsed = parse_gene_text("TESTBLA-1, testbla-1, NOTAGENE, ARO:9000002, TESTGYR S83L")
+    p = build_profile(parsed, ref).contract
+    accounted = ([c.requested_as for c in build_profile(parsed, ref).calls]
+                 + [u["text"] for u in p["unresolved_inputs"]])
+    assert sorted(accounted) == sorted(p["input"]["requested"])
+
+
+def test_species_is_recorded_with_its_taxid(ref):
+    parsed = parse_gene_text("TESTBLA-1", species=species_arg("Staphylococcus aureus"))
+    p = build_profile(parsed, ref).contract
+    assert p["input"]["species"] == {"name": "Staphylococcus aureus", "ncbi_taxid": 1280}
+
+
+def test_an_unknown_species_name_is_kept_without_a_taxid(ref):
+    parsed = parse_gene_text("TESTBLA-1", species=Species("Made up organism"))
+    p = build_profile(parsed, ref).contract
+    assert p["input"]["species"] == {"name": "Made up organism", "ncbi_taxid": None}
+
+
+def test_a_gene_list_without_a_species_is_null_not_missing(ref):
+    p = build_profile(parse_gene_text("TESTBLA-1"), ref).contract
+    assert p["input"]["species"] is None
+
+
+# ----------------------------------------------------------------- (b) species presets
+
+def test_a_preset_profile_is_low_confidence_and_names_its_unknowns(ref):
+    profile = build_profile(parse_preset("test species", FIX / "presets_fixture.json"), ref)
+    p = profile.contract
+    assert p["input"]["kind"] == SPECIES_PRESET
+    assert p["confidence"]["level"] == "low"
+    assert "draft_unverified" in p["confidence"]["basis"]
+    reasons = {u["text"]: u["reason"] for u in p["unresolved_inputs"]}
+    assert set(reasons) == {"NOTINCARD-9", "TESTBLA-1"}
+    assert "no CARD term or synonym matches" in reasons["NOTINCARD-9"]
+    assert "listed twice" in reasons["TESTBLA-1"]
+    assert any("draft_unverified" in c for c in p["caveats"])
+
+
+def test_a_preset_carries_its_species_and_taxid(ref):
+    p = build_profile(parse_preset("test species", FIX / "presets_fixture.json"), ref).contract
+    assert p["input"]["species"] == {"name": "Test species", "ncbi_taxid": 9999999}
+
+
+def test_a_preset_entry_may_carry_a_mutation(ref):
+    p = build_profile(parse_preset("test species", FIX / "presets_fixture.json"), ref).contract
+    gene = next(g for g in p["genes"] if g["aro_id"] == "ARO:9000003")
+    assert gene["variants"] == [{"mutation": "S83L", "param_type": "single resistance variant"}]
+
+
+def test_a_preset_alias_resolves():
+    assert parse_preset("T. species", FIX / "presets_fixture.json").kind == SPECIES_PRESET
+
+
+def test_an_unknown_species_lists_what_is_available():
+    with pytest.raises(InputError) as exc:
+        parse_preset("Mystery bug", FIX / "presets_fixture.json")
+    assert "Test species" in str(exc.value)
+
+
+def test_an_empty_preset_is_an_error():
+    with pytest.raises(InputError, match="lists no genes"):
+        parse_preset("Test empty", FIX / "presets_fixture.json")
+
+
+def test_a_missing_preset_file_is_an_error(tmp_path):
+    with pytest.raises(InputError, match="does not exist"):
+        parse_preset("Test species", tmp_path / "nope.json")
+
+
+@pytest.mark.parametrize("species,taxid", [("Acinetobacter baumannii", 470),
+                                           ("Klebsiella pneumoniae", 573),
+                                           ("Staphylococcus aureus", 1280)])
+def test_every_shipped_preset_loads_with_a_type_checked_taxid(species, taxid):
+    parsed = parse_preset(species, DEFAULT_PRESETS)
+    assert parsed.tokens
+    assert parsed.preset_status == "draft_unverified"
+    assert parsed.species == Species(species, taxid)
+
+
+def test_shipped_presets_report_unknowns_against_a_reference_that_lacks_them(ref):
+    with pytest.raises(InputError) as exc:
+        build_profile(parse_preset("Staphylococcus aureus", DEFAULT_PRESETS), ref)
+    assert "mecA" in str(exc.value)
+
+
+# ----------------------------------------------------------------- (c) AMRFinderPlus
+
+def test_amrfinder_confidence_follows_the_methods(ref):
+    p = build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref).contract
+    assert p["input"]["kind"] == AMRFINDERPLUS
+    assert p["confidence"]["level"] == "medium"      # the fixture has HMM and partial hits
+    assert any("truncated" in c for c in p["caveats"])
+
+
+def test_amrfinder_all_exact_calls_are_high_confidence(ref, tmp_path):
+    path = tmp_path / "exact.tsv"
+    path.write_text("Gene symbol\tElement type\tMethod\tScope\n"
+                    "TESTBLA-1\tAMR\tEXACTX\tcore\n"
+                    "TESTMEC-1\tAMR\tALLELEX\tcore\n", encoding="utf-8")
+    p = build_profile(parse_amrfinder(path), ref).contract
+    assert p["confidence"]["level"] == "high"
+
+
+def test_a_point_mutation_is_split_and_the_target_recorded(ref):
+    p = build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref).contract
+    gene = next(g for g in p["genes"] if g["aro_id"] == "ARO:9000003")
+    assert gene["variants"] == [{"mutation": "S83L", "param_type": "single resistance variant"}]
+    # TESTMEC-1 is target replacement, so it has a target too; TESTBLA-1 and TESTEFF-1 do not.
+    assert p["affected_targets"] == [
+        {"name": "TESTGYR", "gene_aro_ids": ["ARO:9000003"], "pdb_ids": []},
+        {"name": "TESTMEC-1", "gene_aro_ids": ["ARO:9000002"], "pdb_ids": []},
+    ]
+
+
+def test_unknown_amrfinder_genes_are_reported(ref):
+    p = build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref).contract
+    reasons = {u["text"]: u["reason"] for u in p["unresolved_inputs"]}
+    assert "no CARD term or synonym matches" in reasons["UNKNOWNGENE-7"]
+    assert "not AMR" in reasons["TESTSTRESS-1"]
+    assert "not core" in reasons["TESTPLUS-1"]
+
+
+def test_every_amrfinder_symbol_reaches_requested(ref):
+    """A skipped row must still be visible, so its symbol has to be in `requested`."""
+    p = build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref).contract
+    assert {"TESTSTRESS-1", "TESTPLUS-1", "UNKNOWNGENE-7"} <= set(p["input"]["requested"])
+
+
+def test_a_row_with_no_gene_symbol_is_counted_in_the_caveats(ref):
+    """It is not a name, so it cannot go in unresolved_inputs: every text there must be
+    something the caller asked for."""
+    p = build_profile(parse_amrfinder(FIX / "amrfinder_fixture.tsv"), ref).contract
+    assert all(u["text"] for u in p["unresolved_inputs"])
+    assert any("carried no gene symbol" in c for c in p["caveats"])
+
+
+def test_include_plus_keeps_plus_scope_amr_rows():
+    parsed = parse_amrfinder(FIX / "amrfinder_fixture.tsv", include_plus=True)
+    assert "TESTPLUS-1" in [t.raw for t in parsed.tokens]
+    assert "TESTSTRESS-1" not in [t.raw for t in parsed.tokens]  # plus, but not AMR
+
+
+def test_identity_and_coverage_are_carried_through():
+    token = next(t for t in parse_amrfinder(FIX / "amrfinder_fixture.tsv").tokens
+                 if t.raw == "TESTEFF-1")
+    assert (token.coverage, token.identity) == (60.0, 95.0)
+
+
+def test_the_older_element_symbol_header_is_accepted(ref, tmp_path):
+    path = tmp_path / "old.tsv"
+    path.write_text("Element symbol\tElement type\tMethod\tScope\n"
+                    "TESTBLA-1\tAMR\tEXACT\tcore\n", encoding="utf-8")
+    p = build_profile(parse_amrfinder(path), ref).contract
+    assert [g["aro_id"] for g in p["genes"]] == ["ARO:9000001"]
+
+
+def test_a_file_that_is_not_amrfinder_output_is_an_error(tmp_path):
+    path = tmp_path / "bad.tsv"
+    path.write_text("a\tb\n1\t2\n", encoding="utf-8")
+    with pytest.raises(InputError, match="does not look like AMRFinderPlus"):
+        parse_amrfinder(path)
+
+
+def test_a_missing_amrfinder_file_is_an_error(tmp_path):
+    with pytest.raises(InputError, match="does not exist"):
+        parse_amrfinder(tmp_path / "nope.tsv")
+
+
+# ----------------------------------------------------------------- the command line
+
+def _run(capsys, argv):
+    code = main(argv)
+    return code, capsys.readouterr()
+
+
+def test_exit_codes_are_resolved_partial_error(capsys, release):
+    base = ["--release-dir", str(release)]
+    assert _run(capsys, base + ["genes", "TESTBLA-1"])[0] == 0
+    assert _run(capsys, base + ["genes", "TESTBLA-1, NOPE"])[0] == 1
+    assert _run(capsys, base + ["genes", "NOPE"])[0] == 2
+
+
+def test_an_error_names_the_unknown_entry_on_stderr(capsys, release):
+    code, out = _run(capsys, ["--release-dir", str(release), "genes", "NOPE"])
+    assert code == 2 and "NOPE" in out.err
+
+
+def test_json_output_is_the_contract(capsys, release):
+    code, out = _run(capsys, ["--release-dir", str(release), "--json", "genes", "TESTBLA-1"])
+    data = json.loads(out.out)
+    assert code == 0
+    assert set(data) == set(TOP_LEVEL)
+    assert data["releases"] == ["card-9.9.9"]
+    assert data["genes"][0]["aro_id"] == "ARO:9000001"
+
+
+def test_all_three_input_types_run_from_the_command_line(capsys, release, tmp_path):
+    base = ["--release-dir", str(release)]
+    hits = tmp_path / "hits.txt"
+    hits.write_text("TESTBLA-1\n# comment\nTESTMEC-1\n", encoding="utf-8")
+    assert _run(capsys, base + ["genes", "--file", str(hits)])[0] == 0
+    assert _run(capsys, base + ["preset", "test species",
+                                "--presets", str(FIX / "presets_fixture.json")])[0] == 1
+    assert _run(capsys, base + ["amrfinder", str(FIX / "amrfinder_fixture.tsv")])[0] == 1
+
+
+def test_the_summary_shows_provenance_the_contract_does_not_carry(capsys, release):
+    _, out = _run(capsys, ["--release-dir", str(release), "genes", "blaTESTBLA-1"])
+    assert "bla_prefix_stripped" in out.out
+    assert "requested as 'blaTESTBLA-1'" in out.out
+
+
+def test_a_missing_release_is_an_error_not_a_traceback(capsys, tmp_path):
+    code, out = _run(capsys, ["--release-dir", str(tmp_path), "genes", "TESTBLA-1"])
+    assert code == 2 and "not a CARD release" in out.err
+
+
+def test_the_module_entry_point_still_belongs_to_the_card_ingest(release):
+    """WS2 must not take over ``python -m htb_resistance``: verify is still WS1's."""
+    done = subprocess.run([sys.executable, "-m", "htb_resistance", "verify", str(release)],
+                          cwd=PKG, capture_output=True, text=True, check=False)
+    assert (done.returncode, done.stdout.strip()) == (0, "ok"), done.stderr
+
+
+def test_the_profile_cli_runs_as_a_module(release):
+    done = subprocess.run([sys.executable, "-m", "htb_resistance.cli",
+                           "--release-dir", str(release), "genes", "TESTBLA-1"],
+                          cwd=PKG, capture_output=True, text=True, check=False)
+    assert done.returncode == 0, done.stderr
+    assert "card-9.9.9" in done.stdout
+
+
+# ----------------------------------------------------------------- real release (skipped if absent)
+
+def _real_release():
+    root = DEFAULT_DIR / "releases"
+    found = sorted(root.glob("*/manifest.json")) if root.exists() else []
+    return found[-1].parent if found else None
+
+
+real = pytest.mark.skipif(
+    _real_release() is None,
+    reason="build a release first: uv run python -m htb_resistance build")
+
+
+@real
+def test_real_card_resolves_known_genes_to_the_expected_classes():
+    ref = Reference.from_release(_real_release())
+    profile = build_profile(parse_gene_text("mecA, CTX-M-15, blaKPC-2"), ref)
+    p = check_contract(profile)
+    assert p["unresolved_inputs"] == []
+    names = {}
+    for call, gene in zip(profile.calls, p["genes"]):
+        names[call.requested_as] = gene
+    classes = {t["name"] for t in names["mecA"]["defeated_classes"]}
+    assert {"cephalosporin", "penicillin beta-lactam"} <= classes
+    assert "antibiotic target replacement" in {t["name"] for t in names["mecA"]["mechanisms"]}
+    assert "cephalosporin" in {t["name"] for t in names["CTX-M-15"]["defeated_classes"]}
+    assert "carbapenem" in {t["name"] for t in names["blaKPC-2"]["defeated_classes"]}
+
+
+@real
+def test_real_card_records_a_known_gyra_mutation():
+    ref = Reference.from_release(_real_release())
+    profile = build_profile(
+        parse_gene_text("Staphylococcus aureus gyrA conferring resistance to fluoroquinolones S84L"),
+        ref)
+    p = check_contract(profile)
+    assert p["genes"][0]["variants"][0]["mutation"] == "S84L"
+    assert p["genes"][0]["variants"][0]["param_type"], "CARD should list S84L for this model"
+
+
+@real
+def test_real_card_reports_a_made_up_gene_rather_than_dropping_it():
+    ref = Reference.from_release(_real_release())
+    p = build_profile(parse_gene_text("CTX-M-15, NOTAREALGENE-999"), ref).contract
+    assert [u["text"] for u in p["unresolved_inputs"]] == ["NOTAREALGENE-999"]
+
+
+@real
+@pytest.mark.parametrize("species", ["Acinetobacter baumannii", "Klebsiella pneumoniae",
+                                     "Staphylococcus aureus"])
+def test_every_shipped_preset_profiles_against_real_card(species):
+    """A draft preset whose genes no longer resolve is a bug in the list, not the input."""
+    ref = Reference.from_release(_real_release())
+    p = check_contract(build_profile(parse_preset(species, DEFAULT_PRESETS), ref))
+    assert p["genes"] and p["defeated_classes"]
