@@ -28,8 +28,8 @@
       "smiles": "CC(=O)NC[C@H]1CN(c2ccc(N3CCOCC3)c(F)c2)C(=O)O1",
       "inchikey": "TYZROVQLWOKYKF-ZDUSSCGKSA-N",
       "drug_class": {
-        "aro_id": null,
-        "name": "oxazolidinone"
+        "aro_id": "ARO:3000079",
+        "name": "oxazolidinone antibiotic"
       },
       "mechanism_of_action": "Binds the 50S ribosomal subunit and blocks initiation of protein synthesis.",
       "target": {
@@ -192,7 +192,7 @@
       "smiles": "CC1C(C(CC(O1)OC2C(C(C(OC2OC3=C4C=C5C=C3OC6=C(C=C(C=C6)C(C(C(=O)NC(C(=O)NC5C(=O)NC7C8=CC(=C(C=C8)O)C9=C(C=C(C=C9O)O)C(NC(=O)C(C(C1=CC(=C(O4)C=C1)Cl)O)NC7=O)C(=O)O)CC(=O)N)NC(=O)C(CC(C)C)NC)O)Cl)CO)O)O)(C)N)O",
       "inchikey": "MYPYJXKWCTUITO-UHFFFAOYSA-N",
       "drug_class": {
-        "aro_id": null,
+        "aro_id": "ARO:3000081",
         "name": "glycopeptide antibiotic"
       },
       "mechanism_of_action": "Binds the D-Ala-D-Ala terminus of peptidoglycan precursors and blocks cell-wall synthesis.",

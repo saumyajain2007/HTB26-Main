@@ -25,7 +25,7 @@ Conventions: every object carries `contract_version: "1"` at its top level. Opti
 | `confidence` | `level` (`low`, `medium`, `high`) and the `basis` for it |
 | `caveats[]` | Always at least one. A gene in CARD is not proof it is expressed |
 
-Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, never names.
+Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, never names. The ids in the fixtures were type-checked; see [ontology-check.md](ontology-check.md).
 
 ## AntibioticCandidate result
 
