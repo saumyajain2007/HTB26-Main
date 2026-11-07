@@ -32,3 +32,6 @@ __pycache__/
 /core/discovery_pipeline/review.json
 /core/discovery_pipeline/results.md
 /core/discovery_pipeline/final_paper.md
+
+# Lean build output.
+/core/verify/lean/.lake/

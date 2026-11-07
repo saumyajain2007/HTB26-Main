@@ -12,6 +12,7 @@ members = [
     "htb-api",
     "htb-drug-repurposing",
     "htb-ranking",
+    "htb-verify",
     "htb-worker",
 ]
 
@@ -466,6 +467,17 @@ requires-dist = [
     { name = "scipy", specifier = "==1.17.1" },
 ]
 provides-extras = ["benchmark"]
+
+[[package]]
+name = "htb-verify"
+version = "0.1.0"
+source = { editable = "core/verify" }
+dependencies = [
+    { name = "rdkit" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "rdkit", specifier = "==2026.9.1" }]
 
 [[package]]
 name = "htb-worker"
