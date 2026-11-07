@@ -1,0 +1,135 @@
+<pasted_content id="30b1">
+Inspiration
+Developing a new medicine can take years of research and testing. Meanwhile, thousands of drugs are already approved for other conditions, with substantial information available about their targets, mechanisms and safety. We wanted to ask a different question: could that existing knowledge help researchers identify which medicines are worth investigating for another disease?
+
+The difficult part isn't producing a list of drugs. It's producing a shortlist that a researcher can interrogate: Why this drug? Which proteins connect it to the disease? What evidence supports the idea, and what evidence argues against it?
+
+We built Half Life at OxHack '26 to bring those answers together.
+
+What it does
+A researcher selects a disease. Half Life combines biomedical evidence with a network of human protein interactions to examine existing approved medicines and rank potential Candidates for further study.
+
+The platform:
+
+Connects diseases to biological targets using evidence from Open Targets, then maps approved medicines and their targets using ChEMBL and regulatory drug records.
+Ranks Candidates using protein networks. Our application shortlist combines 10 Candidates prioritised by Random Walk with Restart (RWR) on a physical STRING interaction graph with five prioritised by direct disease–target evidence. The original shortest-path and degree-matched z-score rankings remain available for comparison.
+Shows the biological connections. For shortlisted Candidates, it reconstructs paths through the protein network, identifying drug targets, intermediate proteins and disease-associated targets. These paths explain network proximity; they are not proof of a therapeutic mechanism or a direct explanation of the RWR calculation.
+Challenges the hypothesis with a three-model AI jury. Three distinct models review evidence packets, including mechanisms, pathway context, contradictory findings, safety considerations and missing evidence. Their assessment sits alongside the computational ranking rather than being folded into an invented probability of success.
+Explores molecular interactions in 3D. For supported drug–protein pairs, a Docker-based workflow prepares molecular inputs and uses AutoDock Vina with available experimental protein structures to predict binding poses that can be inspected in 3D.
+Researchers can compare Candidates, review evidence and preserve reproducible Experiments instead of relying on a single opaque AI answer.
+
+How we built it
+We brought together several complementary biomedical resources:
+
+Open Targets for disease–target associations and clinical evidence.
+ChEMBL for drugs, molecular identifiers and drug–target relationships.
+STRING 12.5 for human protein interaction networks.
+Reactome for pathway-level biological context.
+RCSB Protein Data Bank for experimentally determined protein structures used in supported docking workflows.
+Regulatory sources for approval and safety context.
+We constructed our own graph-processing and drug-ranking pipeline. It resolves protein identifiers to stable Ensembl genes, filters and deduplicates STRING interactions, builds reproducible network artifacts and evaluates drug targets against disease-associated targets.
+
+We designed the ranking framework and implemented the algorithms ourselves; we did not invent the underlying mathematics. RWR, shortest-path proximity and degree-matched statistical methods are established techniques. Our engineering contribution is adapting, combining, testing and exposing them in a reproducible disease-specific workflow, including a hybrid 10-plus-5 Candidate-selection policy.
+
+The evidence-review layer uses a three-model jury through Snowflake Cortex. The application connects ranking, evidence review and optional structure-based investigation in a single research workflow.
+
+Challenges we ran into
+Biological data does not line up neatly. Different sources use different identifiers, evidence conventions and coverage. Some approved drugs have no usable human targets in our inputs; others fall outside the connected protein network. We had to make missing data explicit instead of quietly giving unsupported drugs misleading scores.
+
+A plausible-looking ranking is not necessarily a good ranking. Our earliest evaluations did not show a clear advantage for degree-matched proximity, so we also tested RWR and a broader functional association network. Expanding the graph improved coverage, but did not automatically prove better retrieval.
+
+Evaluation labels can be wrong or incomplete. We found contradictions between source-reported approval relationships and regulator documentation, and one frozen disease identifier referred to a symptom-measurement trait rather than the intended disease. We preserved the frozen results, documented the issues and kept the conclusions appropriately limited.
+
+Interpretability has limits. A short path between proteins is a real property of our filtered network, but it doesn't demonstrate that a drug treats a disease. Likewise, a docking pose suggests a possible geometric interaction, not clinical efficacy. We designed the interface and jury evidence to maintain those distinctions.
+
+Accomplishments we're proud of
+Built and tested a pipeline that processes 1,956 approved Candidates for a disease, with explicit network-coverage reporting.
+Implemented both physical-network RWR and alternative rankings, plus reproducible Candidate selection and validated shortest-path explanations.
+Developed a versioned evaluation framework with frozen inputs, checksums, baseline comparisons and reproducibility checks.
+Ran a 14-case retrospective replication: the physical-RWR shortlist retrieved 15 of 293 recorded reference relationships, compared with 11 of 293 for the original z-score shortlist.
+Preserved a scientifically important qualification: the estimated improvement was small and its 95% paired confidence interval included zero. We chose RWR as an application default, not because we proved it was superior.
+Validated the integrated ranking workstream with 118 passing automated tests.
+What we learned
+The biggest lesson was that evidence quality and scientific honesty matter as much as model complexity. A more connected network can cover more drugs without improving every ranking. Three AI models can critique the same hypothesis without constituting independent experimental validation. And a reproducible negative result is more useful than an impressive but unverified claim.
+
+We also learned how much practical work sits between a published biomedical dataset and a usable research tool: identifiers, data lineage, graph coverage, deterministic calculations, test fixtures, model input boundaries and safeguards against overstating conclusions.
+
+What's next
+We want to improve reference-label curation, test against genuinely historical datasets where possible, broaden supported drug–protein docking pairs and collect feedback from researchers on which evidence is most useful for deciding what to investigate next.
+
+Our goal is not to replace laboratory experiments or clinical trials. It is to make the earliest stage of drug-repurposing research more focused, transparent and reproducible.
+
+References and resources
+The resources below informed our biomedical data pipeline, computational methods, evidence review and structural exploration. The research papers are background and methodological references; we do not claim to have reproduced or implemented their full systems.
+
+Biomedical data and drug information
+Open Targets Platform (release 26.09) — disease–Target associations, drug evidence and GraphQL data access: GraphQL API documentation.
+ChEMBL (release 37) — approved-drug identifiers, molecular annotations and drug–Target data: ChEMBL database.
+STRING (release 12.5) — human physical interaction and functional association network data: STRING downloads.
+Reactome — curated biological pathway information: Reactome pathway database.
+Ensembl — stable gene identifiers used for cross-database Target mapping: Ensembl.
+RCSB Protein Data Bank (PDB) — experimentally determined macromolecular structures: RCSB PDB.
+PubChem — molecular properties and chemical structure information: PubChem PUG REST API.
+FDA Drugs@FDA — US drug approval records: Drugs@FDA.
+DailyMed — drug product labels and safety information: DailyMed.
+Scientific papers and methodological background
+Guney, E., Menche, J., Vidal, M. & Barabási, A.-L. (2016). Network-based in silico drug efficacy screening. Nature Communications, 7, 10331. Paper / DOI.
+Wang, Z. et al. (2025). DeepEvidence: Empowering Biomedical Discovery with Deep Knowledge Graph Research. arXiv:2601.11560. Paper (PDF).
+Wei, S. et al. (2026). KG-bench: benchmarking graph neural network algorithms for drug repurposing. Bioinformatics, 42(5), btag159. Paper (PDF) · DOI.
+Scientific software and technical documentation
+AutoDock Vina — molecular docking and pose prediction: AutoDock Vina project.
+3Dmol.js — interactive molecular structure visualisation: 3Dmol.js.
+Snowflake Cortex — model inference infrastructure for the AI evidence jury: Snowflake Cortex documentation.
+Docker — containerised environment for molecular preparation and docking: Docker documentation.
+</pasted_content id="30b1">
+
+<pasted_content id="30b1">
+The Cure That Was Already There
+A potential cancer treatment sat in medicine cabinets for 50 years before anyone noticed. Metformin, one of the most common diabetes drugs in the world, wasn't investigated for pancreatic cancer until 2005 — half a century after FDA approval. We’re making sure that never happens again.
+
+We’re focusing on repurposing already FDA-approved drugs. Developing a new cancer drug through the FDA approval process typically takes 10–15 years and over $1 billion, creating a major bottleneck for patients who urgently need better treatments. Repurposing already FDA-approved drugs offers an easier path.
+
+Recently, there are new tools to simulate drugs and their effectiveness in targeting cancer, but the research space is simply too large to try all of them.
+
+So we built, RepoRx, a research platform for discovering potential cancer treatments in drugs that were never designed for cancer.
+
+See more about the why here.
+
+What it does
+Our agents
+
+Compose a full literature review that synthesizes current research
+Identify proteins to target, and relevant drugs
+Run experiments to simulate the interaction between the proteins and compounds
+Output:
+
+Full research report to share
+Simulation results that show the most promising drugs to take to wet labs
+Confidence scores assigned to each drug candidate
+Once the outputs are received, researchers can take them to the wet lab or continue searching for compounds with similar molecular structures in order to find more potential drugs – right on our platform.
+
+How we built it
+We built a modular, multi-agent pipeline in TypeScript with a Next.js + Tailwind frontend. The app is hosted on Vercel. Each agent handles a distinct phase of the workflow and communicates via structured JSON, allowing independent development, debugging, and resumable execution.
+Orchestrated agent flows using Fetch.ai – registered an agent on AgentVerse where it can be used in ASI:One, an alternative UI to our platform.
+Using the arXiv API and Perplexity AI (Sonar Pro Deep Research), the system synthesizes current research for a selected cancer type and extracts high-impact protein targets (e.g., EGFR, KRAS, p53), along with known drugs, mechanisms of action, and FDA status.
+The agent retrieves high-resolution protein structures from the RCSB Protein Data Bank and queries PubChem to collect and expand candidate compounds. RDKit canonicalizes SMILES - strings for docking compatibility.
+We run DiffDock on RunPod serverless GPUs (Nvidia Blackwells) to predict protein–ligand binding. Ligands are processed in parallel batches, generating multiple poses per pair and ranking candidates by confidence score (0–1).
+Docking results are classified into cancer-approved drugs, repurposing candidates, and novel compounds. The system generates a ranked repurposing leaderboard and automatically produces structured research summaries using Perplexity AI. A final assistant agent explains the results and future recommendations interactively.
+Challenges we ran into
+Running DiffDock locally wasn’t feasible due to GPU and memory limitations. We had to provision cloud infrastructure on RunPod and deploy to virtual NVIDIA Blackwell GPUs to handle large-scale docking simulations. This required setting up remote job orchestration, batching, and polling logic under tight time constraints.
+DiffDock requires clean, consistent structural inputs. Converting compounds from PubChem into canonicalized SMILES and compatible 3D formats introduced edge cases (naming conflicts, malformed structures, conversion mismatches). Ensuring filesystem-safe ligand naming while preserving metadata required additional preprocessing and validation layers.
+We initially built the backend in Python (Flask), but migrated to a full TypeScript stack mid-hackathon for better compatibility with Vercel deployment and frontend integration. This required refactoring API orchestration, async workflows, and agent communication under time pressure.
+Because our system surfaces drug recommendations in a clinical domain, we had to think carefully about disclaimers, scope limitation, and responsible framing. Determining where human oversight is required—and ensuring the system is positioned as a research aid rather than a clinical decision-maker—was an important design consideration.
+Accomplishments that we're proud of
+We built a system that takes a single cancer-type input and autonomously performs literature synthesis, target identification, structure retrieval, compound discovery, molecular docking with DiffDock, classification, and report generation—compressing what typically a lab takes weeks or months to research into one automated workflow that completes in several minutes.
+We deployed real large-scale docking simulations on cloud GPUs via RunPod, using a physics-informed diffusion model, generating ranked confidence scores across multiple protein–drug pairs in parallel.
+Despite migrating tech stacks mid-hackathon and provisioning GPU infrastructure from scratch, we delivered a production-style TypeScript backend with a deployable Next.js frontend.
+What we learned
+Building in the medical domain forced us to think beyond technical performance. Even though our system is research-focused, surfacing drug recommendations carries real-world implications. We learned the importance of positioning the platform as a decision-support tool and not an authority, clearly defining its scope.
+In healthcare, outputs can influence high-stakes decisions. We had to consider disclaimers, human-in-the-loop checkpoints, and how recommendations are communicated.
+What's next
+We plan to incorporate patient-specific safety constraints, including pre-existing conditions, contraindications, and known adverse interaction profiles. This will allow the system to filter or down-rank compounds that may pose elevated clinical risk, improving real-world viability.
+We want to make the workflow fully iterative: allowing users to move forward or backward between stages (e.g., refining target selection after docking results, expanding compound libraries, or re-running simulations with adjusted constraints).
+For top-ranked candidates, we aim to integrate more rigorous physics-based methods beyond DiffDock, such as molecular dynamics simulations and free-energy calculations, to improve binding accuracy and reduce false positives.
+Once computational confidence is strengthened, the next step is structured recommendation for wet-lab validation prioritizing compounds with strong predicted binding, established safety profiles, and mechanistic plausibility for in vitro testing.
+</pasted_content id="30b1">
