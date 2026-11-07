@@ -1,0 +1,9 @@
+start working on the ranking chem lane
+
+---
+
+start with 1 and then go for 2 and 3
+
+---
+
+Git pull and push will not work due to branches diverging. Sort that out. CI is also failing
