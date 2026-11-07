@@ -1,0 +1,5 @@
+Are any other issues that have been committed, and have not been closed
+
+---
+
+if the issues are done, close. if not, start working on completing those issues
