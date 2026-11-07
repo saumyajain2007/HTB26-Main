@@ -1,0 +1,1 @@
+Scope the tasks and add tasks and what it entails cuz pieces is quite vast based just on the outline. Generative step can use existing models that already do candidate molecule generation. We can add constraints via something like formal verification if necessary (I am not sure if what I am saying is valid)
