@@ -1,0 +1,49 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W5TZQ374BQB5QPVAASSG1S",
+  "session_id": "53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T23:34:59.956576Z",
+  "branch": "ranking-pathogens",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "core/ranking/README.md",
+    "core/ranking/antibiotic/ablation.py",
+    "core/ranking/antibiotic/protocol_v1.json",
+    "core/ranking/pyproject.toml",
+    "core/ranking/tests/test_antibiotic_ablation.py",
+    "docs/ranking-observations.md",
+    "docs/retrospective-protocol.md",
+    "tasks.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "b4a4cad192c7",
+  "checkpoint_transcript_start": 1228,
+  "transcript_lines_at_start": 1228,
+  "compact_transcript_start": 137,
+  "token_usage": {
+    "input_tokens": 26,
+    "cache_creation_tokens": 43764,
+    "cache_read_tokens": 3842913,
+    "output_tokens": 33334,
+    "api_call_count": 12
+  },
+  "redaction": {
+    "replacements": 5,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 5,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 5
+  }
+}
