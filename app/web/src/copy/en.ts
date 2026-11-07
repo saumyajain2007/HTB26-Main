@@ -106,6 +106,12 @@ export const copy = {
       title: "Resistance map",
       intro: "Which resistance mechanisms the genes bring, and which drug classes they defeat.",
     },
+    {
+      slug: "candidates",
+      title: "Candidate antibiotics",
+      intro:
+        "Approved drugs ranked by whether they evade the isolate’s resistance mechanisms, with generated proposals kept apart.",
+    },
   ],
 
   /** The antibiotic resistance flow: reading a profile, and the steps not yet built. */
@@ -254,6 +260,81 @@ export const copy = {
       nothingMapped:
         "No resistance determinant in this isolate resolved to a CARD term, so there is nothing " +
         "to map.",
+    },
+    /**
+     * Step 3: the ranked approved antibiotics and, visibly apart from them, any generated
+     * proposals, with a reading pane for the picked molecule’s explanation, separate features,
+     * property rules, cited evidence, jury status and caveats.
+     */
+    candidates: {
+      figureLabel: "Candidate antibiotics and generated proposals",
+      loading: "Loading the ranked candidates",
+      unavailable: "The ranked candidates couldn’t be loaded. The server isn’t answering.",
+      empty: "No candidates were returned for this resistance profile.",
+      approvedTitle: "Approved antibiotics",
+      approvedTableLabel: "Approved antibiotics in rank order",
+      generatedTitle: "Generated proposals (not ranked)",
+      generatedNote:
+        "Hypotheses from a generative model, kept separate from approved drugs and never ranked with them.",
+      generatedListLabel: "Generated molecule proposals",
+      rankingRule: (method: string, order: string) => `Ranked by ${order} (${method}).`,
+      rankHead: "#",
+      rankHeadLabel: "Rank",
+      drugHead: "Antibiotic",
+      evasionHead: "Standing",
+      activityHead: "Activity",
+      verifyHead: "Property check",
+      notMeasured: "Not measured",
+      noClass: "No CARD drug class",
+      proposalBadge: "Proposal",
+      readingLabel: (name: string) => `Details for ${name}`,
+      approvedKicker: (rank: number) => `Rank #${String(rank)} · Approved antibiotic`,
+      generatedKicker: "Unranked hypothesis · Generated molecule",
+      classLabel: "Drug class",
+      targetLabel: "Target",
+      targetAffectedBy: (genes: string) => `Affected in this isolate by ${genes}`,
+      mechanismLabel: "Mechanism of action",
+      provenanceTitle: "Generator provenance",
+      generatorModel: (model: string, version: string, seed: number) =>
+        `Model ${model} (v${version}), seed ${String(seed)}`,
+      derivedFrom: (parent: string) => `Derived from ${parent}`,
+      pocketUsed: (pdbId: string) => `Pocket structure ${pdbId}`,
+      whyTitle: "Why it sits here",
+      evadedTitle: "Mechanisms with no link in CARD",
+      defeatedByTitle: "Mechanisms linked in CARD",
+      featuresTitle: "Separate features",
+      featuresNote: "Kept separate, never blended into a single score.",
+      featureNames: {
+        activity: "Activity",
+        target_hit: "Target hit",
+        docking: "Docking",
+        safety: "Safety",
+      },
+      featureUnavailable: "Not available",
+      verifyTitle: "Property rules and certificate",
+      ruleSetLabel: (ruleSet: string) => `Rule set: ${ruleSet}`,
+      smokePassed: "Passes all encoded property rules",
+      smokeFailed: (count: number) =>
+        count === 1
+          ? "Fails 1 encoded property rule"
+          : `Fails ${String(count)} encoded property rules`,
+      certificateStatus: {
+        certified: "Lean 4 certificate proved",
+        failed: "Lean 4 proof: rule failed",
+        not_run: "Lean 4 proof not run",
+        unavailable: "Lean 4 unavailable",
+      },
+      leanProvenance: (version: string, seconds: number) =>
+        `Lean ${version} (${String(seconds)} s)`,
+      saScore: (score: number) => `Synthetic accessibility ${String(score)} (1 easy to 10 hard)`,
+      alertsLabel: (alerts: string) => `Structural alerts: ${alerts}`,
+      noAlerts: "No PAINS or Brenk structural alerts",
+      evidenceTitle: "Cited evidence",
+      juryTitle: "Model jury",
+      juryPending:
+        "The model jury has not reviewed this shortlist yet. Rebuilding evidence packets for antibiotic resistance is tracked in issue #33.",
+      caveatsTitle: "Caveats and missing data",
+      missingLabel: "Missing",
     },
   },
 
