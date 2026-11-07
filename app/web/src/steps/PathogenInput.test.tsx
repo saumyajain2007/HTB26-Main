@@ -51,12 +51,14 @@ describe("the pathogen input", () => {
     expect(router.state.location.pathname).toBe(RESISTANCE_PATH);
   });
 
-  it("splits and tidies a typed list of genes, and says nothing is sent yet", async () => {
+  it("splits and tidies a typed list of genes", async () => {
     const user = userEvent.setup();
     renderApp(RESISTANCE_PATH);
 
     const field = screen.getByLabelText(PATHOGEN.genesLabel);
-    expect(field).toHaveAccessibleDescription(`${PATHOGEN.genesHint} ${PATHOGEN.genesBlocked}`);
+    expect(field).toHaveAccessibleDescription(`${PATHOGEN.genesHint} ${PATHOGEN.genesHelp}`);
+    // Nothing to profile yet, so the one action is out of use rather than hidden.
+    expect(screen.getByRole("button", { name: PATHOGEN.genesSubmit })).toBeDisabled();
 
     await user.type(field, "mecA, mecA{enter}  gyrA  S84L ,");
 
@@ -64,8 +66,61 @@ describe("the pathogen input", () => {
     expect(screen.getByText("mecA")).toBeInTheDocument();
     expect(screen.getByText("gyrA S84L")).toBeInTheDocument();
     expect(screen.getByText(PATHOGEN.genesRepeated(["mecA"]))).toBeInTheDocument();
-    // Nothing can profile the list yet, so nothing offers to, and the screen says why.
-    expect(screen.getByText(PATHOGEN.genesBlocked)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: PATHOGEN.genesSubmit })).toBeEnabled();
+  });
+
+  it("profiles a typed list and opens the profile it built", async () => {
+    const user = userEvent.setup();
+    const posted: unknown[] = [];
+    server.use(
+      http.post("/api/resistance/profiles", async ({ request, response }) => {
+        posted.push(await request.json());
+        return response(201).json(resistanceProfile());
+      }),
+    );
+    const { router } = renderApp(RESISTANCE_PATH);
+
+    await user.type(screen.getByLabelText(PATHOGEN.genesLabel), "mecA, gyrA S84L");
+    await user.click(screen.getByRole("button", { name: PATHOGEN.genesSubmit }));
+
+    // The tidied list is what is sent, and the profile it returns is the one opened.
+    await waitFor(() => {
+      expect(router.state.location.pathname).toBe(`${RESISTANCE_PATH}/${PROFILE_ID}/map`);
+    });
+    expect(posted).toEqual([{ kind: "gene_list", genes: "mecA, gyrA S84L" }]);
+  });
+
+  it("says the server cannot look names up, rather than blaming the names", async () => {
+    const user = userEvent.setup();
+    server.use(
+      http.post("/api/resistance/profiles", ({ response }) =>
+        response(503).json({ detail: "No usable CARD release under data." }),
+      ),
+    );
+    renderApp(RESISTANCE_PATH);
+
+    await user.type(screen.getByLabelText(PATHOGEN.genesLabel), "mecA");
+    await user.click(screen.getByRole("button", { name: PATHOGEN.genesSubmit }));
+
+    // A 503 means nothing was looked up: never "that name is unknown".
+    expect(await screen.findByText(PATHOGEN.genesUnavailable)).toBeInTheDocument();
+  });
+
+  it("passes on the server's reason when the input is refused", async () => {
+    const user = userEvent.setup();
+    server.use(
+      http.post("/api/resistance/profiles", ({ response }) =>
+        response(422).json({ detail: "no preset for Escherichia coli" }),
+      ),
+    );
+    renderApp(RESISTANCE_PATH);
+
+    await user.type(screen.getByLabelText(PATHOGEN.genesLabel), "mecA");
+    await user.click(screen.getByRole("button", { name: PATHOGEN.genesSubmit }));
+
+    expect(
+      await screen.findByText(PATHOGEN.genesRefused("no preset for Escherichia coli")),
+    ).toBeInTheDocument();
   });
 
   it("names the profile on screen and the names it could not resolve", async () => {
