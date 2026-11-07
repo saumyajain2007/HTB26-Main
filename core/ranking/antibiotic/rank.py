@@ -238,6 +238,7 @@ def rank_candidates(
     smoke: SmokeFn = default_smoke,
     activity: Mapping[str, Activity] | None = None,
     certifier: Callable[[Sequence], Sequence] | None = None,
+    max_median_mic: float | None = None,
 ) -> tuple[dict, list[dict]]:
     """Rank `drugs` under `profile`. Returns (result, log); the log lists drugs that could not be ranked
     and any case where Lean and the Python smoke test disagree.
@@ -246,10 +247,23 @@ def rank_candidates(
     drugs that passed the smoke test and returns one Certificate each. Lean runs on survivors only,
     so a drug that failed the smoke test stays `not_run` and its failing rules are in `smoke_test`.
     Certificates never change the rank.
+
+    `max_median_mic` (mg/L) is an optional gate, off by default. Evasion comes first in the order, so
+    a drug that CARD does not link to the profile can outrank drugs that probably work even if it has
+    never been active against the species (vancomycin against Gram-negatives, say). With the gate on,
+    a drug whose measured median MIC exceeds the value is left out of the ranking and logged. The
+    number is a working assumption, not a clinical breakpoint: some real drugs have high in-vitro
+    MICs (sulfonamides, urinary agents). Drugs with no measured MIC are never gated.
     """
     activity = activity or {}
     log, built, raw = [], [], {}
     for drug in drugs:
+        measured = activity.get(drug.chembl_id)
+        if max_median_mic is not None and measured is not None and measured.value > max_median_mic:
+            log.append({"chembl_id": drug.chembl_id, "name": drug.name,
+                        "reason": f"median MIC {measured.value:g} mg/L is above the {max_median_mic:g} mg/L "
+                                  "gate, so it is left out of the ranking"})
+            continue
         result = smoke(drug.smiles)
         if not result.valid:
             log.append({"chembl_id": drug.chembl_id, "name": drug.name, "reason": "SMILES could not be parsed"})
@@ -283,8 +297,11 @@ def rank_candidates(
         "pathogen": profile["input"].get("species"),
         "releases": releases,
         "ranking": {
-            "method": METHOD, "order": ORDER, "weights": None,
-            "note": "Ordered rule, no blended score. Ties are broken alphabetically for reproducibility only.",
+            "method": METHOD + (f"+mic_gate_{max_median_mic:g}" if max_median_mic is not None else ""),
+            "order": ORDER, "weights": None,
+            "note": "Ordered rule, no blended score. Ties are broken alphabetically for reproducibility only."
+                    + (f" Drugs with a measured median MIC above {max_median_mic:g} mg/L were left out; the "
+                       "limit is a working assumption, not a clinical breakpoint." if max_median_mic is not None else ""),
         },
         "candidates": [c for _, c in built],
     }, log
