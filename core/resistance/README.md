@@ -87,3 +87,33 @@ one CARD class (40), only for groups where that is unambiguous. Check the route 
 
 CARD 4.0.2 attaches cefdinir's term to iclaprim's ChEMBL id. The catalogue keeps the term that matches the drug's
 name and logs the one it ignored.
+
+## Resistance profiles
+
+Issue #16. `build_profile` turns resolved resistance determinants into the frozen `ResistanceProfile` contract
+([docs/contracts.md](../../docs/contracts.md)).
+
+```python
+from htb_resistance import CardProfiler, Determinant, build_profile
+
+card = CardProfiler("data/card/releases/4.0.2")
+profile = build_profile(
+    card,
+    [Determinant("ARO:3000617", "mecA"), Determinant("ARO:3003296", "gyrA S84L", ("S84L",))],
+    kind="gene_list", species={"name": "Staphylococcus aureus", "ncbi_taxid": 1280},
+)
+```
+
+Input is determinants already resolved to CARD detection models. Turning typed names, species presets or
+AMRFinderPlus output into determinants is input handling (#15). A determinant that cannot become a gene row is
+added to `unresolved_inputs` with a reason, never dropped:
+
+- an ARO id that is a gene family or drug class, not a detection model;
+- a variant model (a gyrA or 23S rRNA mutant) with no mutation named, or a mutation CARD does not list for it;
+- a mutation named for a model that has none;
+- a model with no mechanism, or an id that is not in CARD.
+
+Everything in a gene row is CARD's own record: mechanisms and defeated classes from the model's categories, and the
+affected target from the ontology (the sensitive form the resistant one derives from). The target is `null` for
+enzymes, efflux pumps and most regulators, where CARD names none. Defeated classes are class-level and include CARD's
+own odd entries (CARD lists CTX-M-15 under azole and imidazole antibiotics), so treat them as "ruled out", not "ruled in".
