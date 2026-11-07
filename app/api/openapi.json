@@ -281,7 +281,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -741,7 +741,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Graph Version",
             "type": "string"
           },
@@ -2089,7 +2089,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -2249,7 +2249,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Release",
             "type": "string"
           },
@@ -2360,7 +2360,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -2567,7 +2567,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "title": "Data Releases",
@@ -3251,7 +3251,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Graph Version",
             "type": "string"
           },
@@ -3489,7 +3489,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Release",
             "type": "string"
           },
@@ -3877,7 +3877,10 @@
         "type": "object"
       },
       "ResistanceEvidenceSource": {
-        "const": "card",
+        "enum": [
+          "card",
+          "curated"
+        ],
         "type": "string"
       },
       "ResistanceProfile": {
@@ -3961,7 +3964,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
