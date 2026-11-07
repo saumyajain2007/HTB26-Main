@@ -356,8 +356,13 @@ def read_table(release_dir: Path | str, name: str) -> Iterator[dict[str, str]]:
         yield from csv.DictReader(f, delimiter="\t")
 
 
-def verify_release(release_dir: Path | str) -> list[str]:
-    """Return a list of problems (empty if every table matches the manifest)."""
+def verify_release(release_dir: Path | str, raw_dir: Path | str | None = None) -> list[str]:
+    """Return a list of problems (empty if the release matches its manifest).
+
+    Checks each table's checksum and row count, and the raw archives the manifest names. The
+    archives are looked for in `raw_dir` (default: ``raw/`` beside ``releases/``) and are skipped
+    when they are not on disk, since a release can be kept without its downloads.
+    """
     release_dir = Path(release_dir)
     problems: list[str] = []
     try:
@@ -370,9 +375,16 @@ def verify_release(release_dir: Path | str) -> list[str]:
             problems.append(f"{name}: file missing")
         elif sha256_file(path) != info["sha256"]:
             problems.append(f"{name}: checksum differs from manifest")
+        elif name in TABLES and sum(1 for _ in read_table(release_dir, name)) != info["rows"]:
+            problems.append(f"{name}: row count differs from manifest")
     for name in TABLES:
         if name not in manifest.get("tables", {}):
             problems.append(f"{name}: not in manifest")
+    raw_dir = Path(raw_dir) if raw_dir else release_dir.parent.parent / "raw"
+    for kind, info in manifest.get("sources", {}).items():
+        path = raw_dir / kind / info["file"]
+        if path.exists() and sha256_file(path) != info["sha256"]:
+            problems.append(f"source {kind} ({info['file']}): checksum differs from manifest")
     return problems
 
 
@@ -449,13 +461,14 @@ def main(argv: list[str] | None = None) -> int:
     b.add_argument("--ontology-archive", type=Path, help="use this card-ontology archive, no download")
     v = sub.add_parser("verify", help="check a release's tables against its manifest")
     v.add_argument("release_dir", type=Path)
+    v.add_argument("--raw-dir", type=Path, help="where the downloaded archives are (default: raw/ beside releases/)")
     args = p.parse_args(argv)
     try:
         if args.cmd == "build":
             build(args.data_dir, refresh=args.refresh, data_archive=args.data_archive,
                   ontology_archive=args.ontology_archive)
             return 0
-        problems = verify_release(args.release_dir)
+        problems = verify_release(args.release_dir, args.raw_dir)
         for line in problems:
             print(line, file=sys.stderr)
         print("ok" if not problems else f"{len(problems)} problem(s)")

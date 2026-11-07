@@ -11,6 +11,8 @@ uv run python -m htb_resistance verify data/card/releases/<version>
 uv run pytest core/resistance/tests
 ```
 
+The layout of all of `data/` is in [docs/data-layout.md](../../docs/data-layout.md). `verify` checks table checksums, row counts and, when present, the raw archives.
+
 Everything lives under `data/card/` (gitignored):
 
 ```

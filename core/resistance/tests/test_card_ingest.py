@@ -322,3 +322,26 @@ def test_real_release_known_genes():
     assert "antibiotic target replacement" in classes("mecA", "Resistance Mechanism")
     muts = {r["mutation"] for r in read_table(rel, "model_variants") if r["aro_accession"] == "ARO:3003817"}
     assert {"S81L", "G79C"} <= muts
+
+
+def test_verify_detects_a_changed_row_count(tmp_path, archives):
+    data, ont = archives
+    rel = build(tmp_path / "out", data_archive=data, ontology_archive=ont, log=lambda *_: None)
+    manifest = json.loads((rel / "manifest.json").read_text())
+    manifest["tables"]["models"]["rows"] += 1
+    (rel / "manifest.json").write_text(json.dumps(manifest))
+    assert verify_release(rel) == ["models: row count differs from manifest"]
+
+
+def test_verify_checks_the_raw_archives_when_present(tmp_path, archives):
+    data, ont = archives
+    rel = build(tmp_path / "out", data_archive=data, ontology_archive=ont, log=lambda *_: None)
+    raw = tmp_path / "raw"
+    for kind, src in (("data", data), ("ontology", ont)):
+        (raw / kind).mkdir(parents=True)
+        (raw / kind / src.name).write_bytes(src.read_bytes())
+    assert verify_release(rel, raw) == []
+    (raw / "ontology" / ont.name).write_bytes(b"swapped download")
+    assert verify_release(rel, raw) == [f"source ontology ({ont.name}): checksum differs from manifest"]
+    # A release kept without its downloads is not an error.
+    assert verify_release(rel, tmp_path / "nowhere") == []
