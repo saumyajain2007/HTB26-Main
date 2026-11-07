@@ -1,0 +1,1 @@
+lean and smoke tests is done right?
