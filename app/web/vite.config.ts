@@ -38,6 +38,10 @@ export default defineConfig({
   },
   test: {
     environment: "jsdom",
+    // The gated COVID-19 disease flow (src/app/flags.ts) is on for the unit suite: its tests
+    // exercise that flow, and gating it should not have rewritten them. The resistance routes
+    // are mounted either way, so the new flow's tests run under the same setting.
+    env: { VITE_DISEASE_FLOW: "1" },
     include: ["src/**/*.test.{ts,tsx}"],
     setupFiles: ["./src/test/setup.ts"],
     css: { modules: { classNameStrategy: "non-scoped" } },

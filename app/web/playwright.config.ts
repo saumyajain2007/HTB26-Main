@@ -48,7 +48,9 @@ export default defineConfig({
     {
       command: `npm run build && npx vite preview --host 127.0.0.1 --port ${webPort} --strictPort`,
       url: `http://127.0.0.1:${webPort}`,
-      env: { HTB_API_ORIGIN: apiOrigin },
+      // The end-to-end specs walk the COVID-19 disease flow, which is gated off by default
+      // (src/app/flags.ts); Vite reads the flag when it builds the app it previews.
+      env: { HTB_API_ORIGIN: apiOrigin, VITE_DISEASE_FLOW: "1" },
       reuseExistingServer: reuse,
       timeout: 120_000,
     },
