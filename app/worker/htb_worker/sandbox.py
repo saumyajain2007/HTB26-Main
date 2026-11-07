@@ -131,7 +131,7 @@ class SandboxDockRunner:
                 source=SnapshotSource(snapshot_id=self.snapshot_id),
                 resources=SandboxResources(vcpus=self.vcpus, memory=self.memory_mb),
                 execution_time_limit=self.timeout_s + 300,
-                tags={"app": "half-life", "dock_job": str(job.id)},
+                tags={"app": "htb", "dock_job": str(job.id)},
             )
         except Exception as exc:
             raise DockingFailed(

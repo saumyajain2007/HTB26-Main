@@ -1,0 +1,214 @@
+{
+  "_comment": "Curated beta-lactam / beta-lactamase-inhibitor pairs (WS1). Every row carries a citation and the method it was checked by. Enzyme coverage is as stated by the cited source, not inferred. See docs/combinations.md for the source-check record and the known gaps.",
+  "schema_version": "1",
+  "vocabulary": {
+    "ambler_classes": {
+      "A": "serine beta-lactamases, including ESBLs and KPC carbapenemases",
+      "B": "metallo-beta-lactamases (zinc dependent): NDM, VIM, IMP",
+      "C": "cephalosporinases (AmpC, PDC)",
+      "D": "oxacillinases (OXA family)"
+    },
+    "status": {
+      "approved_us": "FDA approved",
+      "investigational": "not approved in the US at the date of the source check"
+    },
+    "citation_types": ["doi", "pmid", "fda_press"]
+  },
+  "sources": {
+    "cercenado2025": {
+      "type": "doi",
+      "id": "10.37201/req/s01.03.2025",
+      "pmid": "41159226",
+      "citation": "Cercenado E, Candel FJ. Classification and applicability of new beta-lactamase inhibitors. Rev Esp Quimioter. 2025 Oct 24;38(Suppl 1):21-26.",
+      "note": "Narrative text preferred over its Table 1 where the two disagree; the text is the more cautious of the two. Disagreements are recorded per row in source_conflicts."
+    },
+    "fda_xacduro_2023": {
+      "type": "fda_press",
+      "id": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-treatment-pneumonia-caused-certain-difficult-treat-bacteria",
+      "citation": "FDA press announcement. FDA approves new treatment for pneumonia caused by certain difficult-to-treat bacteria. 23 May 2023."
+    },
+    "abbvie_emblaveo_2025": {
+      "type": "fda_press",
+      "id": "https://news.abbvie.com/2025-02-07-U-S-FDA-Approves-EMBLAVEO-TM-aztreonam-and-avibactam-for-the-Treatment-of-Adults-With-Complicated-Intra-Abdominal-Infections-With-Limited-or-No-Treatment-Options",
+      "citation": "AbbVie news release. U.S. FDA approves EMBLAVEO (aztreonam and avibactam) for complicated intra-abdominal infections. 7 February 2025."
+    },
+    "venatorx_crl_2024": {
+      "type": "fda_press",
+      "id": "https://www.businesswire.com/news/home/20240223169844/en",
+      "citation": "Venatorx Pharmaceuticals and Melinta Therapeutics. Update on status of U.S. New Drug Application for cefepime-taniborbactam. 23 February 2024. Complete Response Letter; chemistry, manufacturing and controls data requested."
+    }
+  },
+  "combinations": [
+    {
+      "id": "ceftazidime-avibactam",
+      "partner": {"name": "ceftazidime", "drug_class": "cephalosporin"},
+      "inhibitor": {"name": "avibactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": "Avycaz",
+      "status": "approved_us",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C", "D"],
+      "inhibits_enzymes": ["KPC", "GES", "CTX-M", "SHV", "AmpC", "OXA-48"],
+      "not_inhibits_classes": ["B"],
+      "not_inhibits_enzymes": ["NDM", "VIM", "IMP", "OXA-23"],
+      "notes": "Class D cover is partial: OXA-48 yes, extended-spectrum OXA enzymes no, OXA-23 only minimally. Includes P. aeruginosa chromosomal AmpC.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    },
+    {
+      "id": "aztreonam-avibactam",
+      "partner": {"name": "aztreonam", "drug_class": "monobactam"},
+      "inhibitor": {"name": "avibactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": "Emblaveo",
+      "status": "approved_us",
+      "first_approval_us": "2025-02-07",
+      "inhibits_classes": ["A", "B", "C", "D"],
+      "inhibits_enzymes": ["NDM", "VIM", "IMP"],
+      "not_inhibits_classes": [],
+      "not_inhibits_enzymes": [],
+      "notes": "The only pair here that covers class B, and it does so by partnership rather than inhibition: aztreonam is stable to metallo-beta-lactamase hydrolysis, and avibactam protects aztreonam from the serine enzymes that would otherwise destroy it. Avibactam alone does not inhibit class B. No useful in vitro activity against MDR P. aeruginosa or A. baumannii.",
+      "source": "cercenado2025",
+      "source_check": "coverage from the cited article; US approval date confirmed against the AbbVie release abbvie_emblaveo_2025, 2026-11-07",
+      "approval_source": "abbvie_emblaveo_2025"
+    },
+    {
+      "id": "sulbactam-durlobactam",
+      "partner": {"name": "sulbactam", "drug_class": "penam"},
+      "inhibitor": {"name": "durlobactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": "Xacduro",
+      "status": "approved_us",
+      "first_approval_us": "2023-05-23",
+      "inhibits_classes": ["A", "C", "D"],
+      "inhibits_enzymes": ["OXA-23", "OXA-24/40", "OXA-48"],
+      "not_inhibits_classes": [],
+      "not_inhibits_enzymes": [],
+      "notes": "The pair for carbapenem-resistant A. baumannii, so the most relevant row to this project's validation species. Sulbactam is both the partner and an agent with its own activity against Acinetobacter. Class B status is unclear in the source: the text reports activity against some NDM-producing E. coli and Table 1 lists some NDMs, so class B is left out of inhibits_classes rather than asserted.",
+      "source": "cercenado2025",
+      "source_check": "coverage from the cited article; US approval date, indication and organism confirmed against the FDA press announcement fda_xacduro_2023, 2026-11-07",
+      "approval_source": "fda_xacduro_2023",
+      "source_conflicts": ["Narrative text and Table 1 disagree on durlobactam's class B activity."]
+    },
+    {
+      "id": "meropenem-vaborbactam",
+      "partner": {"name": "meropenem", "drug_class": "carbapenem"},
+      "inhibitor": {"name": "vaborbactam", "chemical_class": "cyclic boronate"},
+      "brand_us": "Vabomere",
+      "status": "approved_us",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C"],
+      "inhibits_enzymes": ["KPC"],
+      "not_inhibits_classes": ["B", "D"],
+      "not_inhibits_enzymes": ["NDM", "VIM", "IMP"],
+      "notes": "Class A cover is mainly KPC. Very limited activity against P. aeruginosa and A. baumannii.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    },
+    {
+      "id": "imipenem-cilastatin-relebactam",
+      "partner": {"name": "imipenem-cilastatin", "drug_class": "carbapenem"},
+      "inhibitor": {"name": "relebactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": "Recarbrio",
+      "status": "approved_us",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C"],
+      "inhibits_enzymes": ["AmpC"],
+      "not_inhibits_classes": ["B", "D"],
+      "not_inhibits_enzymes": ["OXA-48", "OXA-23", "OXA-24/40", "OXA-58", "NDM", "VIM", "IMP"],
+      "notes": "Less effective against CTX-M-15 and KPC than other class A enzymes. No cover for the acquired class D enzymes that drive carbapenem resistance in A. baumannii.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    },
+    {
+      "id": "cefepime-enmetazobactam",
+      "partner": {"name": "cefepime", "drug_class": "cephalosporin"},
+      "inhibitor": {"name": "enmetazobactam", "chemical_class": "penicillanic acid sulfone"},
+      "brand_us": "Exblifep",
+      "status": "approved_us",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "D"],
+      "inhibits_enzymes": ["ESBL", "KPC-2", "KPC-3", "OXA-48"],
+      "not_inhibits_classes": ["B"],
+      "not_inhibits_enzymes": ["NDM", "VIM", "IMP"],
+      "notes": "KPC-2 and KPC-3 inhibition is slight. Also covers KPC omega-loop variants. Class C is left out of inhibits_classes because the source disagrees with itself about it.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07",
+      "source_conflicts": ["Table 1 lists class C as inhibited; the narrative text says it is not. The text is followed here."]
+    },
+    {
+      "id": "ceftolozane-tazobactam",
+      "partner": {"name": "ceftolozane", "drug_class": "cephalosporin"},
+      "inhibitor": {"name": "tazobactam", "chemical_class": "penicillanic acid sulfone"},
+      "brand_us": "Zerbaxa",
+      "status": "approved_us",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C", "D"],
+      "inhibits_enzymes": ["ESBL"],
+      "not_inhibits_classes": ["B"],
+      "not_inhibits_enzymes": ["KPC", "NDM", "VIM", "IMP"],
+      "notes": "Class A cover excludes the class A carbapenemases, so KPC defeats it. Class C cover is partial. Ceftolozane itself is stable against P. aeruginosa PDC AmpC, which is what the pair is used for.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    },
+    {
+      "id": "cefepime-taniborbactam",
+      "partner": {"name": "cefepime", "drug_class": "cephalosporin"},
+      "inhibitor": {"name": "taniborbactam", "chemical_class": "bicyclic boronate"},
+      "brand_us": null,
+      "status": "investigational",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "B", "C", "D"],
+      "inhibits_enzymes": ["NDM", "VIM"],
+      "not_inhibits_classes": [],
+      "not_inhibits_enzymes": ["IMP", "NDM-9", "NDM-30", "VIM-83"],
+      "notes": "Not approved in the US. The FDA issued a Complete Response Letter on 23 February 2024 asking for chemistry, manufacturing and controls data, reportedly raising no safety or efficacy concerns and requesting no new trials. Broad cover including metallo-beta-lactamases, but specific MBL variants escape it.",
+      "source": "cercenado2025",
+      "source_check": "coverage from the cited article; US status confirmed as not approved against venatorx_crl_2024 and the Drugs.com approval-history page, 2026-11-07",
+      "approval_source": "venatorx_crl_2024"
+    },
+    {
+      "id": "cefepime-zidebactam",
+      "partner": {"name": "cefepime", "drug_class": "cephalosporin"},
+      "inhibitor": {"name": "zidebactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": null,
+      "status": "investigational",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C"],
+      "inhibits_enzymes": [],
+      "not_inhibits_classes": ["D"],
+      "not_inhibits_enzymes": [],
+      "notes": "Class B is not claimed either way: the source's text does not state metallo-beta-lactamase inhibition clearly, so it is left out rather than asserted.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07",
+      "source_conflicts": ["Table 1 lists classes B and D as inhibited; the narrative text says class D is not. The text is followed here."]
+    },
+    {
+      "id": "meropenem-nacubactam",
+      "partner": {"name": "meropenem", "drug_class": "carbapenem"},
+      "inhibitor": {"name": "nacubactam", "chemical_class": "diazabicyclooctane"},
+      "brand_us": null,
+      "status": "investigational",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "C"],
+      "inhibits_enzymes": [],
+      "not_inhibits_classes": ["B", "D"],
+      "not_inhibits_enzymes": [],
+      "notes": "No activity against A. baumannii.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    },
+    {
+      "id": "meropenem-xeruborbactam",
+      "partner": {"name": "meropenem", "drug_class": "carbapenem"},
+      "inhibitor": {"name": "xeruborbactam", "chemical_class": "bicyclic boronate"},
+      "brand_us": null,
+      "status": "investigational",
+      "first_approval_us": null,
+      "inhibits_classes": ["A", "B", "C", "D"],
+      "inhibits_enzymes": ["KPC", "AmpC", "VIM", "IMP", "NDM", "OXA-48", "OXA-23"],
+      "not_inhibits_classes": [],
+      "not_inhibits_enzymes": [],
+      "notes": "The broadest profile in the source, which states no exclusions. Treat an unqualified all-classes claim with suspicion until a second source is added.",
+      "source": "cercenado2025",
+      "source_check": "coverage read from the cited article's narrative text, 2026-11-07"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { expect, test } from "./console";
 
 test("the introduction leads into step 1", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveTitle("Half Life");
+  await expect(page).toHaveTitle("HTB26");
   await expect(
     page.getByRole("heading", { level: 1, name: "Repurposing existing drugs for diseases" }),
   ).toBeVisible();
