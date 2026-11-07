@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6VX5117Y6N6FDKK393TBK5M",
   "strategy": "manual-commit",
   "branch": "ontology-type-check",
-  "checkpoints_count": 3,
+  "checkpoints_count": 5,
   "files_touched": [
     "core/resistance/htb_resistance/typecheck.py",
     "core/resistance/tests/test_typecheck.py",
@@ -19,25 +19,32 @@
       "compact_transcript": "/0/transcript.jsonl",
       "content_hash": "/0/content_hash.txt",
       "prompt": "/0/prompt.txt"
+    },
+    {
+      "metadata": "/1/metadata.json",
+      "transcript": "/1/full.jsonl",
+      "compact_transcript": "/1/transcript.jsonl",
+      "content_hash": "/1/content_hash.txt",
+      "prompt": "/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 66,
-    "cache_creation_tokens": 73781,
-    "cache_read_tokens": 2258619,
-    "output_tokens": 25738,
-    "api_call_count": 30
+    "input_tokens": 88,
+    "cache_creation_tokens": 85189,
+    "cache_read_tokens": 4725701,
+    "output_tokens": 33029,
+    "api_call_count": 40
   },
   "redaction": {
-    "replacements": 3,
+    "replacements": 24,
     "layers": {
-      "betterleaks": 0,
+      "betterleaks": 6,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 0,
+      "credential_value": 2,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 3,
+      "key_context": 16,
       "provider_token": 0,
       "shell_stdin": 0
     }
