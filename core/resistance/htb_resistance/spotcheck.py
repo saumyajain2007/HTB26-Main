@@ -31,11 +31,14 @@ TEN_GENES = [
     "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones", "adeB", "armA",
 ]
 
-# Differences found on 2026-11-07 and explained in docs/card-spot-check.md. The check fails on
+# Differences found on 2026-11-07 and explained in docs/card-spot-check.md. This compares CARD's
+# download with its website, so the curated supplement (supplement.json) does not change it. The check fails on
 # anything else, and also if one of these stops differing, so the record cannot go stale unnoticed.
 KNOWN_DIFFERENCES = {
     ("ARO:3000617", "classes"): {"only_web": ["carbapenem", "monobactam"], "only_ours": []},  # mecA
     ("ARO:3001209", "classes"): {"only_web": ["carbapenem", "cephalosporin", "monobactam"], "only_ours": []},  # mecC
+    ("ARO:3003440", "classes"): {"only_web": ["carbapenem", "cephalosporin", "monobactam"], "only_ours": []},  # mecB
+    ("ARO:3004185", "classes"): {"only_web": ["carbapenem", "cephalosporin", "monobactam"], "only_ours": []},  # mecD
 }
 
 

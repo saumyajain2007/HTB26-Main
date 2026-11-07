@@ -4,15 +4,18 @@ The synthetic tests build a tiny CARD, so they need no downloads. The last tests
 CARD release (``uv run python -m htb_resistance build``) and are skipped without one.
 """
 
+import html
 import json
 import re
+import unicodedata
+import urllib.request
 from pathlib import Path
 
 import pytest
 
 from htb_resistance import TABLES
-from htb_resistance.card import DEFAULT_DIR, write_table
-from htb_resistance.profile import CardProfiler, Determinant, build_profile
+from htb_resistance.card import CardError, DEFAULT_DIR, write_table
+from htb_resistance.profile import SUPPLEMENT_PATH, CardProfiler, Determinant, build_profile
 
 ROOT = Path(__file__).resolve().parents[3]
 ARO = r"ARO:[0-9]{7}"
@@ -69,7 +72,7 @@ def make_card(root: Path) -> Path:
 
 @pytest.fixture()
 def card(tmp_path):
-    return CardProfiler(make_card(tmp_path))
+    return CardProfiler(make_card(tmp_path), supplement=None)
 
 
 def profile(card, *dets, **kw):
@@ -190,7 +193,61 @@ def test_a_profile_with_no_usable_gene_is_empty_and_says_so(card):
     assert "No determinant could be resolved" in p["confidence"]["basis"]
 
 
+# ----------------------------------------------------------------------------- curated supplement
+
+CITATION = {"pmid": "123", "citation": "Author A. A study. Journal. 2020;1:1."}
+
+
+def write_supplement(path, **overrides):
+    add = {"id": "x", "models": ["ARO:3000003"], "drug_class": {"aro_id": "ARO:0000001", "name": "fluoroquinolone antibiotic"},
+           "reason": "Because the study says so.", "citations": [CITATION], **overrides}
+    path.write_text(json.dumps({"schema": 1, "release": "curated_supplement-1", "additions": [add]}))
+    return path
+
+
+def test_a_curated_class_is_added_and_marked_as_curated(tmp_path):
+    card = CardProfiler(make_card(tmp_path), supplement=write_supplement(tmp_path / "s.json"))
+    p = profile(card, Determinant("ARO:3000003", "bla"), Determinant("ARO:3000001", "pbpX"))
+    check_contract(p)
+    assert p["releases"] == ["card-9.9.9", "curated_supplement-1"]
+    bla = p["genes"][0]
+    assert [c["name"] for c in bla["defeated_classes"]] == ["fluoroquinolone antibiotic", "cephalosporin"]
+    assert bla["evidence_ids"] == ["P1", "P3"]
+    curated = p["evidence"][2]
+    assert (curated["source"], curated["release"], curated["aro_id"]) == ("curated", "curated_supplement-1", "ARO:3000003")
+    assert "not in CARD 9.9.9" in curated["statement"] and "PMID 123" in curated["statement"]
+    assert any("curated supplement" in c for c in p["caveats"])
+    # each class cites the evidence behind it: the curated class only the curated item
+    by_class = {c["name"]: c["evidence_ids"] for c in p["defeated_classes"]}
+    assert by_class["fluoroquinolone antibiotic"] == ["P3"]
+    assert by_class["cephalosporin"] == ["P1", "P2"]  # CARD's own, for both genes
+    # a gene the supplement does not name is untouched
+    assert p["genes"][1]["evidence_ids"] == ["P2"]
+
+
+def test_a_class_card_already_has_is_not_added_twice(tmp_path):
+    supplement = write_supplement(tmp_path / "s.json", drug_class={"aro_id": "ARO:0000032", "name": "cephalosporin"})
+    card = CardProfiler(make_card(tmp_path), supplement=supplement)
+    p = profile(card, Determinant("ARO:3000003", "bla"))
+    assert len(p["evidence"]) == 1 and p["releases"] == ["card-9.9.9"]
+    assert not any("curated" in c for c in p["caveats"])
+
+
+@pytest.mark.parametrize("override, message", [
+    ({"citations": []}, "needs at least one citation"),
+    ({"citations": [{"pmid": "abc", "citation": "x"}]}, "needs at least one citation"),
+    ({"reason": ""}, "no reason given"),
+    ({"models": ["ARO:3999999"]}, "not a CARD detection model"),
+    ({"drug_class": {"aro_id": "ARO:0000001", "name": "wrong name"}}, "is not the Drug Class"),
+    ({"drug_class": {"aro_id": "ARO:3000900", "name": "CTX-M beta-lactamase"}}, "is not the Drug Class"),
+])
+def test_a_stale_or_uncited_supplement_stops_the_build(tmp_path, override, message):
+    with pytest.raises(CardError, match=message):
+        CardProfiler(make_card(tmp_path), supplement=write_supplement(tmp_path / "s.json", **override))
+
+
 # ----------------------------------------------------------------------------- real CARD
+
 
 def real_card():
     found = sorted((DEFAULT_DIR / "releases").glob("*/manifest.json")) if (DEFAULT_DIR / "releases").is_dir() else []
@@ -207,8 +264,8 @@ ISOLATES = {
     "Staphylococcus aureus (MRSA)": (
         [("mecA", ()), ("PC1 beta-lactamase (blaZ)", ()), (GYRA, ("S84L",)),
          ("Staphylococcus aureus parC conferring resistance to fluoroquinolones", ("S80F",)), ("ErmC", ())],
-        {"penicillin beta-lactam", "cephalosporin", "fluoroquinolone antibiotic", "macrolide antibiotic",
-         "lincosamide antibiotic", "streptogramin antibiotic"},
+        {"penicillin beta-lactam", "cephalosporin", "carbapenem", "fluoroquinolone antibiotic",
+         "macrolide antibiotic", "lincosamide antibiotic", "streptogramin antibiotic"},
         {"beta-lactam sensitive penicillin-binding protein", "antibiotic sensitive DNA topoisomerase subunit gyrA"},
     ),
     "Klebsiella pneumoniae (ESBL and carbapenemase)": (
@@ -247,7 +304,8 @@ def test_a_typical_isolate_gives_a_recognisable_class_list(pathogen):
     got = {c["name"] for c in p["defeated_classes"]}
     assert expected_classes <= got, expected_classes - got
     assert expected_targets <= {t["name"] for t in p["affected_targets"]}
-    assert all(e["statement"].startswith("CARD links ") for e in p["evidence"])
+    for e in p["evidence"]:
+        assert e["statement"].startswith("CARD links " if e["source"] == "card" else "Curated supplement")
 
 
 def test_the_contract_fixture_is_real_output():
@@ -262,3 +320,50 @@ def test_the_contract_fixture_is_real_output():
         kind="gene_list", species=fixture["input"]["species"], requested=fixture["input"]["requested"],
         unresolved=fixture["unresolved_inputs"], profile_id=fixture["profile_id"])
     assert p == fixture
+
+
+def test_the_curated_supplement_fills_a_real_gap_in_this_card_release():
+    card = real_card()
+    if card.version != "4.0.2":
+        pytest.skip("the supplement was written against CARD 4.0.2; check whether a newer release makes it redundant")
+    for add in card.supplement["additions"]:
+        for model in add["models"]:
+            assert add in card.supplemented(model), f"CARD already has {add['drug_class']['name']} for {model}"
+
+
+def test_mrsa_profiles_include_carbapenem_with_curated_evidence():
+    card = real_card()
+    names = by_name(card)
+    p = profile(card, Determinant(names["mecA"], "mecA"), Determinant(names["mecC"], "mecC"))
+    check_contract(p)
+    carbapenem = next(c for c in p["defeated_classes"] if c["name"] == "carbapenem")
+    assert carbapenem["gene_aro_ids"] == [names["mecA"], names["mecC"]]
+    sources = {e["id"]: e["source"] for e in p["evidence"]}
+    assert {sources[i] for i in carbapenem["evidence_ids"]} == {"curated"}
+    # mecB and mecD are deliberately left as CARD's download has them
+    for gene in ("mecB", "mecD"):
+        q = profile(card, Determinant(names[gene], gene))
+        assert "carbapenem" not in {c["name"] for c in q["defeated_classes"]}
+
+
+def fold(text):
+    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+
+
+@pytest.mark.network
+def test_every_citation_in_the_supplement_is_what_it_says_it_is():
+    """Each PubMed id has the cited title, year and first author, and its abstract contains the quoted words."""
+    data = json.loads(SUPPLEMENT_PATH.read_text())
+    cited = {(c["pmid"], c["citation"], c["supports"]) for add in data["additions"] for c in add["citations"]}
+    assert cited
+    for pmid, citation, supports in cited:
+        base = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
+        with urllib.request.urlopen(base + f"esummary.fcgi?db=pubmed&retmode=json&id={pmid}", timeout=30) as r:
+            summary = json.load(r)["result"][pmid]
+        assert fold(summary["title"]).rstrip(".") in fold(citation), pmid
+        assert summary["pubdate"][:4] in citation and fold(summary["authors"][0]["name"].split()[0]) in fold(citation)
+        with urllib.request.urlopen(base + f"efetch.fcgi?db=pubmed&retmode=xml&id={pmid}", timeout=30) as r:
+            xml = r.read().decode()
+        abstract = html.unescape(re.sub(r"<[^>]+>", "", " ".join(re.findall(r"<AbstractText[^>]*>(.*?)</AbstractText>", xml, flags=re.S))))
+        quoted = re.search(r'"(.+?)"', supports).group(1)
+        assert fold(quoted) in fold(abstract), f"PMID {pmid}: quoted words not in the abstract"
