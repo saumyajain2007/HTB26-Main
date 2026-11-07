@@ -118,6 +118,12 @@ affected target from the ontology (the sensitive form the resistant one derives 
 enzymes, efflux pumps and most regulators, where CARD names none. Defeated classes are class-level and include CARD's
 own odd entries (CARD lists CTX-M-15 under azole and imidazole antibiotics), so treat them as "ruled out", not "ruled in".
 
-Known gap: CARD's website lists carbapenem and monobactam as drug classes of mecA and mecC, but the downloaded release
-does not, so a profile built from the download under-reports carbapenem resistance for MRSA. See
-[docs/card-spot-check.md](../../docs/card-spot-check.md).
+### Curated supplement
+
+CARD's download omits some classes that its website lists and the literature supports. For example the website gives
+mecA and mecC carbapenem, and the download does not, so a profile from the download alone would call carbapenems
+unaffected by an MRSA isolate. [supplement.json](htb_resistance/supplement.json) adds such classes, each with a
+PubMed citation, and `build_profile` marks them in the evidence (`source: curated`) so they are never mistaken for
+CARD's own links. It is checked against the CARD release on load and refuses to build if an entry is stale or has no
+citation; a class CARD already has is skipped. Pass `supplement=None` to `CardProfiler` to turn it off. What it
+adds, what it leaves out and why: [docs/card-spot-check.md](../../docs/card-spot-check.md).
