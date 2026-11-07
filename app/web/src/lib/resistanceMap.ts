@@ -298,5 +298,9 @@ export function releaseLabel(release: string): string {
   const [source = "", ...rest] = release.split("-");
   const version = rest.join("-");
   if (source.toLowerCase() === "card" && version !== "") return `CARD ${version}`;
+  // Our own cited additions to CARD's data, e.g. curated_supplement-1.
+  if (source.toLowerCase() === "curated_supplement" && version !== "") {
+    return `curated supplement ${version}`;
+  }
   return releaseName(release);
 }

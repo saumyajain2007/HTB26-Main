@@ -315,7 +315,15 @@ export interface paths {
     /** List the resistance profiles this API holds */
     get: operations["list_profiles"];
     put?: never;
-    post?: never;
+    /**
+     * Profile determinants: a species preset, or names as typed
+     * @description Resolves each name against CARD and returns the `ResistanceProfile`.
+     *
+     *     Names that match nothing come back in `unresolved_inputs` with a reason; they are
+     *     never dropped silently. 503 when this process has no CARD release, because only
+     *     CARD can say whether a name is one it knows.
+     */
+    post: operations["build_resistance_profile"];
     delete?: never;
     options?: never;
     head?: never;
@@ -2218,6 +2226,33 @@ export interface components {
        */
       items: components["schemas"]["ResistanceProfile"][];
     };
+    /**
+     * ProfileRequest
+     * @description Determinants to profile: either a species preset, or names as typed.
+     *
+     *     Resolving a name needs CARD's vocabulary, which only the server has, so this is
+     *     the only way the app can turn typed names into a `ResistanceProfile`.
+     */
+    ProfileRequest: {
+      /**
+       * Genes
+       * @description Determinants as typed, separated by commas, semicolons or line breaks. One item may carry a point mutation, as in `gyrA S84L`, so items are never split on spaces. Required for a gene list.
+       * @example mecA, gyrA S84L
+       */
+      genes?: string | null;
+      /**
+       * Kind
+       * @description species_preset: profile the preset for `species`. gene_list: profile `genes`.
+       * @enum {string}
+       */
+      kind: "gene_list" | "species_preset";
+      /**
+       * Species
+       * @description Species name or a known alias, e.g. Staphylococcus aureus. Required for a preset; for a gene list it only records what was asked about.
+       * @example Staphylococcus aureus
+       */
+      species?: string | null;
+    };
     /** @enum {string} */
     PropertyRule: "mw" | "logp" | "hbd" | "hba" | "rot_bonds" | "psa";
     /** @enum {string} */
@@ -2296,8 +2331,8 @@ export interface components {
        */
       top_targets: number;
     };
-    /** @constant */
-    ResistanceEvidenceSource: "card";
+    /** @enum {string} */
+    ResistanceEvidenceSource: "card" | "curated";
     /**
      * ResistanceProfile
      * @description What an isolate is expected to resist, and why (docs/contracts.md).
@@ -3374,6 +3409,48 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["ProfileList"];
+        };
+      };
+    };
+  };
+  build_resistance_profile: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ProfileRequest"];
+      };
+    };
+    responses: {
+      /** @description Successful Response */
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ResistanceProfile"];
+        };
+      };
+      /** @description The request cannot be carried out. */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UnprocessableResponse"];
+        };
+      };
+      /** @description A data source is unavailable. */
+      503: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
         };
       };
     };

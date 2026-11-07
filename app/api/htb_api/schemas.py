@@ -75,7 +75,7 @@ PdbId = Annotated[
 DataRelease = Annotated[
     str,
     Field(
-        pattern=r"^[a-z]+-[0-9][0-9.]*$",
+        pattern=r"^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
         description="A pinned source release, written source-version, e.g. opentargets-26.09.",
         examples=["opentargets-26.09"],
     ),
@@ -1281,7 +1281,7 @@ FeatureName = TypeAliasType("FeatureName", Literal["activity", "target_hit", "do
 RankingFeature = TypeAliasType(
     "RankingFeature", Literal["evasion", "activity", "target_hit", "docking", "safety"]
 )
-ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card"])
+ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card", "curated"])
 CandidateEvidenceKind = TypeAliasType(
     "CandidateEvidenceKind",
     Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval"],
@@ -1469,6 +1469,46 @@ class PathogenPreset(Model):
 
 class PathogenPresets(Model):
     items: list[PathogenPreset] = Field(description="Every preset this API can profile.")
+
+
+class ProfileRequest(Model):
+    """Determinants to profile: either a species preset, or names as typed.
+
+    Resolving a name needs CARD's vocabulary, which only the server has, so this is
+    the only way the app can turn typed names into a `ResistanceProfile`.
+    """
+
+    kind: Literal["gene_list", "species_preset"] = Field(
+        description="species_preset: profile the preset for `species`. gene_list: profile `genes`."
+    )
+    species: str | None = Field(
+        default=None,
+        max_length=120,
+        description=(
+            "Species name or a known alias, e.g. Staphylococcus aureus. Required for a preset; "
+            "for a gene list it only records what was asked about."
+        ),
+        examples=["Staphylococcus aureus"],
+    )
+    genes: str | None = Field(
+        default=None,
+        max_length=4000,
+        description=(
+            "Determinants as typed, separated by commas, semicolons or line breaks. One item may "
+            "carry a point mutation, as in `gyrA S84L`, so items are never split on spaces. "
+            "Required for a gene list."
+        ),
+        examples=["mecA, gyrA S84L"],
+    )
+
+    @model_validator(mode="after")
+    def _check_kind(self) -> ProfileRequest:
+        if self.kind == "species_preset":
+            if not (self.species or "").strip():
+                raise ValueError("a species preset needs a species")
+        elif not (self.genes or "").strip():
+            raise ValueError("a gene list needs genes")
+        return self
 
 
 class ProfileList(Model):
