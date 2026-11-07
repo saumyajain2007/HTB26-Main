@@ -22,6 +22,7 @@ import tempfile
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Sequence
 
 from .smoke import SmokeResult, check_molecule
 
@@ -156,3 +157,103 @@ def certify(molecule: str | SmokeResult, rule_set: str = "oral_druglike", *, tim
     )
     _cache[key] = cert
     return cert
+
+
+def _batch_block(smoke: SmokeResult, i: int) -> tuple[list[str], dict[int, str]]:
+    """Lean lines for molecule `i` in a batch file, with theorem names suffixed `_i`."""
+    d = smoke.descriptors
+    assert d is not None
+    const = LEAN_THRESHOLDS[smoke.rule_set]
+    values = {
+        "mwX10": str(d.mw_x10), "logpX100": _int(d.logp_x100), "hbd": str(d.hbd),
+        "hba": str(d.hba), "rotBonds": str(d.rot_bonds), "psaX10": str(d.psa_x10),
+    }
+    lines = [f"def mol_{i} : Desc :=", "  { " + ", ".join(f"{k} := {v}" for k, v in values.items()) + " }"]
+    offsets: dict[int, str] = {}
+    for name, field, _ in _RULES:
+        lines.append(f"theorem {name}_{i} : mol_{i}.{field} ≤ {const}.{field} := by decide")
+        offsets[len(lines)] = name
+    lines.append(f"theorem all_rules_{i} : mol_{i}.Passes {const} := by decide")
+    offsets[len(lines)] = "all_rules"
+    return lines, offsets
+
+
+def certify_batch(smokes: Sequence[SmokeResult], *, timeout: float = 300.0) -> list[Certificate]:
+    """Certify many molecules in one Lean run. Returns one Certificate per input, in order.
+
+    Each theorem is checked independently, so one molecule failing a rule does not affect the
+    others. If Lean reports any error that cannot be tied to a molecule's theorem (a broken
+    build, a syntax error), nothing in the batch is certified: every pending molecule gets
+    ``ran=False`` and the first error as ``detail``. Results are cached by InChIKey and rule set
+    for the life of the process. `seconds` is the batch time divided evenly over the molecules
+    that were checked.
+    """
+    out: list[Certificate | None] = [None] * len(smokes)
+    pending: list[int] = []
+    for i, smoke in enumerate(smokes):
+        if smoke.rule_set not in LEAN_THRESHOLDS:
+            out[i] = Certificate(False, False, smoke.rule_set,
+                                 detail=f"no Lean thresholds for rule set {smoke.rule_set!r}")
+        elif not smoke.valid or smoke.descriptors is None:
+            out[i] = Certificate(False, False, smoke.rule_set, detail="invalid molecule")
+        elif (cached := _cache.get((smoke.inchikey or smoke.smiles, smoke.rule_set))) is not None:
+            out[i] = cached
+        else:
+            pending.append(i)
+    if not pending:
+        return out  # type: ignore[return-value]
+    if not ensure_built():
+        for i in pending:
+            out[i] = Certificate(False, False, smokes[i].rule_set,
+                                 detail="Lean is not installed or the HtbVerify library did not build")
+        return out  # type: ignore[return-value]
+
+    lines = ["import HtbVerify", "open HtbVerify", ""]
+    where: dict[int, tuple[int, str]] = {}   # file line -> (index into smokes, theorem)
+    blocks: dict[int, list[str]] = {}
+    for i in pending:
+        block, offsets = _batch_block(smokes[i], i)
+        start = len(lines)
+        lines += block + [""]
+        blocks[i] = block
+        where.update({start + off: (i, name) for off, name in offsets.items()})
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / "Mol.lean"
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        start_time = time.monotonic()
+        try:
+            r = subprocess.run(["lake", "env", "lean", str(path)], cwd=LEAN_DIR,
+                               capture_output=True, text=True, timeout=timeout)
+        except subprocess.TimeoutExpired:
+            for i in pending:
+                out[i] = Certificate(True, False, smokes[i].rule_set, detail=f"Lean timed out after {timeout:.0f} s")
+            return out  # type: ignore[return-value]
+        seconds = round((time.monotonic() - start_time) / len(pending), 3)
+
+    output = (r.stdout or "") + (r.stderr or "")
+    errors = [(int(m.group(1)), line) for line in output.splitlines()
+              if (m := re.search(r"Mol\.lean:(\d+):\d+: error", line))]
+    unattributed = [line for n, line in errors if n not in where]
+    if unattributed or (r.returncode != 0 and not errors):
+        detail = (unattributed or output.strip().splitlines() or ["Lean failed with no output"])[0]
+        for i in pending:
+            out[i] = Certificate(False, False, smokes[i].rule_set, detail=f"batch could not be checked: {detail}")
+        return out  # type: ignore[return-value]
+
+    failed: dict[int, dict[str, str]] = {}
+    for n, line in errors:
+        i, name = where[n]
+        failed.setdefault(i, {})[name] = line
+    version = lean_version()
+    for i in pending:
+        smoke, broken = smokes[i], failed.get(i, {})
+        specific = tuple(f for f in broken if f != "all_rules")
+        cert = Certificate(
+            ran=True, certified=not broken, rule_set=smoke.rule_set,
+            failed_rules=specific or tuple(broken), lean_version=version, seconds=seconds,
+            detail=next(iter(broken.values())) if broken else None,
+            source="\n".join(["import HtbVerify", "open HtbVerify", ""] + blocks[i]) + "\n",
+        )
+        _cache[(smoke.inchikey or smoke.smiles, smoke.rule_set)] = cert
+        out[i] = cert
+    return out  # type: ignore[return-value]

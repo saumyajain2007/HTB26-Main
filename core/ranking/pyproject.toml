@@ -13,7 +13,7 @@ dependencies = ["numpy==2.4.6", "scipy==1.17.1"]
 benchmark = ["duckdb==2.0.0", "httpx==0.28.1"]
 
 [tool.setuptools]
-packages = ["ranking", "ranking.application"]
+packages = ["ranking", "ranking.application", "ranking.antibiotic"]
 package-dir = {ranking = "."}
 
 [tool.setuptools.package-data]

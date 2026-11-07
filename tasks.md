@@ -13,7 +13,7 @@ Sizes: **S** under 2 h, **M** 2–6 h, **L** 6–12 h (single person, relative).
 | API, Postgres, jobs, docking worker, 3D viewer, deploy scripts | Built and tested (scope.md reports 564 core and 338 API tests) |
 | Jury (multi-provider incl. Gemini, Vultr, Cortex), reply validators | Built. Gemini and Vultr clients only tested with fakes, never against the live services |
 | Evaluation harness (frozen protocol, bootstrap CIs, errata habit) | Built, but only for the human-disease network method |
-| `core/verify` (RDKit smoke test + Lean 4 certificates) | Built. `antibiotic_relaxed` limits are placeholders |
+| `core/verify` (RDKit smoke test + Lean 4 certificates) | Built. `antibiotic_relaxed` limits calibrated on the approved set (descriptive, not a safety claim) |
 | Structures | 4 PDB entries in `app/worker/structures` (6O0K, 6WTN, 6WTO, 7BQU). They have not been checked against the bacterial target list in WS3 |
 | Resistance data, profiling, evasion ranking, retrospective test | **Not started.** `core/resistance/`, `core/generate/` and `eval/` do not exist |
 | App flow | Still 100% COVID-19 fixtures. The API schemas (`Disease*`, `RankingSettings`, `CandidateRwr`, `CandidateNetwork`) and the web steps are built around a human disease and a STRING network |
@@ -24,7 +24,7 @@ Sizes: **S** under 2 h, **M** 2–6 h, **L** 6–12 h (single person, relative).
 2. **The app pivot touches the API schema, so it is the main merge-conflict risk.** Freeze the data contracts first (Phase 0) so data, ranking and UI work can proceed in parallel against fixtures.
 3. **Validation is what scores on HRT.** A polished UI over an unvalidated ranking will not. Build the retrospective test as soon as a ranking exists.
 4. **Keep the offline fixture path working at all times.** The demo must not depend on a network.
-5. **Honest claims only.** "Predicted to evade known mechanisms" and "passes the encoded rules" are the strongest allowed statements. The placeholder limits and the unverified live sponsor clients must be labelled as such until fixed.
+5. **Honest claims only.** "Predicted to evade known mechanisms" and "passes the encoded rules" are the strongest allowed statements. The property limits describe approved antibiotics, not safety, and the unverified live sponsor clients must be labelled as such until fixed.
 6. **Lesson from the errata:** check ontology type before freezing any case list (a trait was mistaken for a disease). Do the equivalent for antibiotics, drug classes and ARO terms.
 
 **Gaps in the existing plan to close**
@@ -107,10 +107,10 @@ Short, blocks everything. Do together, then split.
 - [ ] Choose targets (PBPs, DNA gyrase B, LpxC, FabI), record essentiality evidence, pick PDB entries with a co-crystallised ligand. `M`
 - [ ] Add entries to `app/worker/structures`, run the existing prepare step, run the redocking control (2 Å rule) and record pass or fail honestly. `M`
 - [ ] Mutant handling: use a mutant structure only where one exists; otherwise say so. `S`
-- [ ] Ranking skeleton against the fixture `ResistanceProfile`: evasion rule (defeated, partly affected, unaffected), features stored separately, simple ordered scoring (evasion first, then evidence), documented weights. `M`
-- [ ] Baselines for WS5: random, "class not defeated" only, "activity data only". `S`
-- [ ] Explanation object per candidate (why here, mechanisms evaded, evidence IDs, what is missing). `M`
-- [ ] Calibrate `antibiotic_relaxed` from the descriptor distribution of the approved-antibiotic catalogue; update Python and Lean together (a test already enforces they match), cite the method. Needs Lane A's catalogue. `M`
+- [x] Ranking skeleton against the fixture `ResistanceProfile`: evasion rule (defeated, partly affected, unaffected), features stored separately, simple ordered scoring (evasion first, then evidence), documented weights. `M`
+- [x] Baselines for WS5: random, "class not defeated" only, "activity data only". `S`
+- [x] Explanation object per candidate (why here, mechanisms evaded, evidence IDs, what is missing). `M`
+- [x] Calibrate `antibiotic_relaxed` from the descriptor distribution of the approved-antibiotic catalogue; update Python and Lean together (a test already enforces they match), cite the method. Needs Lane A's catalogue. `M`
 
 **Done when:** at least three bacterial structures pass redocking, and a reproducible ranking with explanations runs on fixtures.
 
@@ -163,7 +163,7 @@ Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 
 ## 7. Phase 4: packaging (start the early items in Phase 1)
 
-- [ ] Limits statement: what the tool does, does not claim, known weaknesses (a computational hit is not a working antibiotic; Gram-negative cell entry; placeholder thresholds if not yet replaced). `S`, C, **write the first draft early**
+- [ ] Limits statement: what the tool does, does not claim, known weaknesses (a computational hit is not a working antibiotic; Gram-negative cell entry; property limits are descriptive of approved antibiotics, not a safety test). `S`, C, **write the first draft early**
 - [ ] Record a fallback demo video as soon as the offline path works, then re-record at the end. `S`, C
 - [ ] Devpost writeup following the two reference writeups, results with intervals. `M`, C with A for numbers
 - [ ] Two to three minute demo script. `M`, all
