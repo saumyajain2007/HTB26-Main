@@ -1,0 +1,54 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W4RPJE9TD9PC2HCC040SM6",
+  "strategy": "manual-commit",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "README.md",
+    "app/web/e2e/intro.spec.ts",
+    "app/web/index.html",
+    "app/web/src/app/BrandMark.tsx",
+    "app/web/src/copy/en.ts",
+    "app/web/src/intro/LaboratoryScene.tsx",
+    "app/web/src/intro/WorkflowMap.tsx",
+    "app/web/src/intro/content.ts",
+    "app/web/src/intro/laboratory.module.css",
+    "app/web/src/styles/tokens.css",
+    "app/worker/htb_worker/sandbox.py",
+    "core/pipeline/README.md",
+    "core/pyproject.toml",
+    "deploy/vercel/index.py",
+    "scope.md",
+    "tasks.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 12,
+    "cache_creation_tokens": 5749,
+    "cache_read_tokens": 429147,
+    "output_tokens": 2157,
+    "api_call_count": 6
+  },
+  "redaction": {
+    "replacements": 4,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 4,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
