@@ -1,0 +1,1 @@
+using it as a smoke test, or even using python for that purpose should be good enough. RDKit descriptors, toxicity, and stuff can be borrowed straight from that ig. I am not sure there is any advantage of 'formal verification', but smoke test is most definitely useful (and also add the lean code so we could claim we used 'formal verification')
