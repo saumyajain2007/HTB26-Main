@@ -17,7 +17,7 @@ Given a resistant bacterium, profile *why* it is resistant, then rank approved d
 
 ## 3. Reference projects
 
-| | RepoRx (TreeHacks 26) | Half Life (earlier hackathon project) | Us |
+| | RepoRx (TreeHacks 26) | Earlier hackathon project (reused plumbing) | Us |
 | --- | --- | --- | --- |
 | Method | DiffDock docking + LLM literature agents | Network proximity (RWR on STRING) + LLM jury | Resistance profiling + target/docking + predicted activity + verified constraints |
 | Strength | End-to-end automation | Honest validation | (aim for both) |
@@ -93,7 +93,7 @@ Prizes and challenge names are read from the sponsor slide. Judging criteria sti
 
 Done:
 
-- Half Life code imported as the `htb` packages; tree26 scripts imported with declaration (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
+- Earlier project code imported as the `htb` packages; tree26 scripts imported with declaration (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
 - `uv` workspace installed, 564 core and 338 API tests passing, web app running.
 - Local Postgres, migrations and the amd64 Vina docking worker running; a real docking job ran end to end.
 - `core/verify/`: Python smoke test and Lean 4 certificate layer built and tested (see WS8).
@@ -115,7 +115,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Antibiotic catalogue | Antibiotic drugs from ChEMBL (filter by ATC J01 and known antibacterial indications). Record class, mechanism of action, target, SMILES. Map drug names to CARD's drug-class vocabulary. | M |
 | Bioactivity and MIC data | ChEMBL antibacterial bioactivities and any public susceptibility sets. Normalise units, keep organism and assay type, drop doubtful records. | M |
 | Combinations and synergy | A small curated table of well-known pairs (beta-lactam plus inhibitor, others) from published sources, each with a citation. | M |
-| Data model and caching | Schemas, a `/data/` layout (gitignored), a version manifest with checksums so runs are reproducible, as Half Life does. | M |
+| Data model and caching | Schemas, a `/data/` layout (gitignored), a version manifest with checksums so runs are reproducible, as the earlier project did. | M |
 
 **Done when:** one command rebuilds the tables from raw downloads, and spot checks of ten genes match CARD's web pages.
 **Risks:** vocabulary mismatches between CARD, ChEMBL and ATC; patchy MIC data.
@@ -161,7 +161,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Other features | Activity evidence (WS1), target-hit evidence, optional docking score (WS3), safety flags. Each stored separately, not blended early. | M |
 | Scoring and weights | A transparent combination with documented weights. Start with a simple ordered rule (evasion first, then evidence), not a learned model. | M |
 | Baselines | Random, "class not defeated" only, and "activity data only", for WS5 to beat. | S |
-| Explanation object | Per candidate: why ranked here, mechanisms evaded, evidence IDs, what is missing. Same contract style as Half Life's candidate output. | M |
+| Explanation object | Per candidate: why ranked here, mechanisms evaded, evidence IDs, what is missing. Same contract style as the earlier project's candidate output. | M |
 | Resistance-risk score (stretch) | Rate how easily the target mutates away, from the number and kind of known resistance mutations. | M |
 | API integration | Extend the experiment schema and endpoints so a resistance profile and a candidate list replace the human-disease flow. | L |
 
@@ -175,7 +175,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Task | What it entails | Size |
 | --- | --- | --- |
 | Choose the test | Options: (a) hide a drug class by approval year and check its rank; (b) check that known effective treatments for a given resistance profile rank high; (c) known synergistic pairs. Pick one that the data supports. | M |
-| Build ground truth | A small, cited table of resistance profile to known effective drug. Check for label errors, as Half Life found. | M |
+| Build ground truth | A small, cited table of resistance profile to known effective drug. Check for label errors, as the earlier project found. | M |
 | Freeze the protocol | Write inputs, metrics and rules down and checksum them before running, so results cannot be tuned afterwards. | S |
 | Metrics | Hits at k, mean reciprocal rank, with a bootstrap confidence interval against the baselines. | M |
 | Failure analysis | Report misses and why. Include a negative result if that is what happens. | S |
@@ -189,10 +189,10 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 
 | Task | What it entails | Size |
 | --- | --- | --- |
-| Provider decision | Snowflake Cortex (as in Half Life), another provider through the existing client, or a mock. Decide early. | S |
+| Provider decision | Snowflake Cortex (as in the earlier project), another provider through the existing client, or a mock. Decide early. | S |
 | Evidence packets | Rebuild packets for resistance: mechanisms present, supporting and contradicting findings, safety, missing evidence. | M |
 | Keep validators | Reuse the reply checks: valid JSON, only real evidence IDs, exact numbers. | S |
-| Refusal handling | Plan for model refusals, which hurt Half Life's first jury. Use every valid juror. | S |
+| Refusal handling | Plan for model refusals, which hurt the earlier project's first jury. Use every valid juror. | S |
 
 **Done when:** the jury runs on the shortlist and invalid replies are recorded, not filled in.
 
@@ -293,7 +293,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 ```text
 /core
   discovery_pipeline/  imported tree26 scripts (structure retrieval, docking, report generation)
-  pipeline/            data pipeline and evidence packets (from Half Life)
+  pipeline/            data pipeline and evidence packets (from the earlier project)
   ranking/             ranking engine and evaluation
   jury/                evidence review and reply validation
   resistance/          NEW (WS1, WS2): CARD ingest, gene-to-class mapping, profiles

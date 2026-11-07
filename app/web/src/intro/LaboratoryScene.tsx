@@ -7,7 +7,7 @@ import { MonitorStory } from "./MonitorStory";
 import type { CameraMode } from "./playback";
 
 /*
- * Jessica's animated laboratory (Jessica-mak/half-life-ui, round three), ported to CSS Modules.
+ * Jessica's animated laboratory (round three), ported to CSS Modules.
  * One HTML plane holds the illustration in fixed 1672x941 coordinates; a resize projection fills
  * the viewport and a camera transform travels between chapters with the Web Animations API.
  */
