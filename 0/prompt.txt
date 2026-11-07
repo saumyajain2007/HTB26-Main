@@ -1,0 +1,1 @@
+Error: Installation completed but PATH needs adjustment. Then, rerun the installation.
