@@ -140,11 +140,109 @@ export const copy = {
       profileUnresolved: "Not recognised",
     },
     /**
-     * A placeholder for the step still being built, named by its issue. Delete the line with the
-     * placeholder: a half-built step should say nothing rather than imply a result.
+     * The resistance map: the mechanisms an isolate carries, the drug classes they rule out, and
+     * where the ranked drugs fall. Plain words lead and CARD’s own term follows, so a reader needs
+     * no ontology to read the map and a microbiologist still gets the term. Nothing here says a
+     * drug works: a class is *ruled out*, and the other side of the map is only the absence of a
+     * link in CARD.
      */
-    notBuilt: {
-      map: "The resistance map isn’t built yet.",
+    map: {
+      figureLabel: "Resistance map: what this isolate defeats",
+      /** The one sentence a reader should take away, over the map. */
+      summary: (mechanisms: number, ruledOut: number, classes: number) => {
+        const subject =
+          mechanisms === 1
+            ? "One resistance mechanism"
+            : `${String(mechanisms)} resistance mechanisms`;
+        const verb = mechanisms === 1 ? "rules out" : "rule out";
+        const object =
+          ruledOut === classes
+            ? classes === 1
+              ? "the one drug class below"
+              : `all ${String(classes)} drug classes below`
+            : `${String(ruledOut)} of the ${String(classes)} drug classes below`;
+        return `${subject} in this isolate ${verb} ${object}.`;
+      },
+      /** The same sentence when the ranked drugs could not be loaded: classes only. */
+      summaryProfileOnly: (mechanisms: number, ruledOut: number) => {
+        const subject =
+          mechanisms === 1
+            ? "One resistance mechanism"
+            : `${String(mechanisms)} resistance mechanisms`;
+        const verb = mechanisms === 1 ? "rules out" : "rule out";
+        const object = ruledOut === 1 ? "one drug class" : `${String(ruledOut)} drug classes`;
+        return `${subject} in this isolate ${verb} ${object}.`;
+      },
+      caption:
+        "Drug classes run down the side, and the resistance mechanisms this isolate carries run " +
+        "across the top. A marked cell means a determinant CARD links to that class also carries " +
+        "that mechanism, so the class is ruled out. An unmarked cell means no determinant links " +
+        "that class to that mechanism.",
+      classHead: "Drug class",
+      mechanismsHead: "What this isolate can do to a drug",
+      drugsHead: "Drugs ranked here",
+      noDrugs: "None ranked",
+      /** CARD’s own term, after the plain words. */
+      cardTerm: (name: string) => `CARD: ${name}`,
+      /** An unmarked cell, for a reader who meets one cell at a time and not the whole row. */
+      noMark: "No link through this mechanism",
+      status: {
+        ruled_out: "Ruled out",
+        partly_affected: "Partly affected",
+        no_known_link: "No known link",
+        unknown: "CARD can’t say",
+      },
+      statusHelp: {
+        ruled_out:
+          "A determinant in this isolate is linked to this drug class in CARD, so the class is " +
+          "ruled out.",
+        partly_affected:
+          "Linked to only part of the class in CARD, so some drugs in it may still work.",
+        no_known_link:
+          "Nothing in this isolate is linked to this class in CARD. That is an absence of " +
+          "evidence, not a measured result, and never a prediction that a drug works.",
+        unknown: "CARD has nothing to say here, which is not the same as there being no link.",
+      },
+      keyTitle: "What the marks mean",
+      /** CARD’s mechanism vocabulary in plain words. Display text only: the data joins on ARO
+          IDs. A mechanism with no plain words here shows CARD’s term on its own. */
+      mechanismTerms: {
+        "antibiotic target alteration": "Changes what the drug binds",
+        "antibiotic target replacement": "Swaps in a target the drug can’t bind",
+        "antibiotic target protection": "Shields what the drug binds",
+        "antibiotic inactivation": "Breaks the drug apart",
+        "antibiotic efflux": "Pumps the drug back out",
+        "reduced permeability to antibiotic": "Keeps the drug outside the cell",
+        "resistance by absence": "Drops the target the drug needs",
+        "modification to cell morphology": "Changes the shape of the cell",
+      } as Record<string, string | undefined>,
+      determinantsTitle: "What the isolate carries",
+      /** A determinant’s provenance line: CARD’s term, its ID and the model that found it. */
+      determinantSource: (aroId: string, modelType: string) => `${aroId} · ${modelType}`,
+      affects: (target: string) => `Alters or replaces ${target}.`,
+      noTarget: "CARD names no sensitive target for this determinant.",
+      rulesOut: (classes: number) =>
+        classes === 1 ? "Rules out one drug class." : `Rules out ${String(classes)} drug classes.`,
+      readTitle: "How to read this map",
+      confidence: {
+        low: "Low confidence",
+        medium: "Medium confidence",
+        high: "High confidence",
+      },
+      unresolved: (text: string, reason: string) => `“${text}” isn’t in the profile: ${reason}.`,
+      built: (releases: string) => `Built from ${releases}.`,
+      unplaced:
+        "CARD gives these molecules no drug class, so the map can’t place them against a " +
+        "mechanism:",
+      proposed: "proposed molecule, not an approved drug",
+      /** The ranked drugs are missing: the profile alone still says what is ruled out. */
+      withoutCandidates:
+        "The drugs ranked against this profile couldn’t be loaded, so the map shows the classes " +
+        "ruled out and no drugs.",
+      /** Nothing resolved, so there is nothing to draw. */
+      nothingMapped:
+        "No resistance determinant in this isolate resolved to a CARD term, so there is nothing " +
+        "to map.",
     },
   },
 

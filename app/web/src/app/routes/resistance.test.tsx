@@ -42,7 +42,7 @@ describe("the resistance flow", () => {
       expect(screen.queryByText(copy.resistance.loading)).not.toBeInTheDocument();
     });
     expectOnStep(MAP.title);
-    expect(screen.getByText(copy.resistance.notBuilt.map)).toBeInTheDocument();
+    expect(screen.getByRole("table", { name: copy.resistance.map.caption })).toBeInTheDocument();
     expect(screen.getAllByText(SPECIES)).toHaveLength(1);
     expect(within(screen.getByRole("banner")).getByText(SPECIES)).toBeInTheDocument();
   });
@@ -92,7 +92,9 @@ describe("the resistance flow", () => {
 
     server.resetHandlers();
     await user.click(screen.getByRole("button", { name: copy.retry }));
-    expect(await screen.findByText(copy.resistance.notBuilt.map)).toBeInTheDocument();
+    expect(
+      await screen.findByRole("table", { name: copy.resistance.map.caption }),
+    ).toBeInTheDocument();
   });
 
   it("is not found without a step", () => {
