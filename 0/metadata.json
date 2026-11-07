@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W1XDGV7E5PPDMKHHEEN72A",
+  "session_id": "53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T22:26:23.324335Z",
+  "branch": "mec-supplement",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "docs/contracts.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "4508822fb306",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 112517,
+    "cache_read_tokens": 2677032,
+    "output_tokens": 45698,
+    "api_call_count": 27
+  },
+  "redaction": {
+    "replacements": 1,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 1,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}
