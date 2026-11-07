@@ -117,7 +117,7 @@ Short, blocks everything. Do together, then split.
 ### Lane C: app and integrations (WS9, WS6)
 
 - [ ] Prove the sponsor integrations against the live services: Gemini and Vultr jurors, Tiger Data Postgres, Vultr VM via `deploy/vultr/setup.sh`. Update the README line that says they are untested. `M`
-- [ ] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M`
+- [x] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M` Routes and models in [app/api/README.md](app/api/README.md#resistance-routes); `ResistanceSource` is the seam the real profiling and ranking plug into.
 - [ ] Input screen: pick a pathogen or paste resistance genes. `M`
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
 - [ ] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`

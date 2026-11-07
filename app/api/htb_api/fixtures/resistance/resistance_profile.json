@@ -1,0 +1,189 @@
+{
+  "contract_version": "1",
+  "profile_id": "00000000-0000-4000-8000-0000000000a1",
+  "input": {
+    "kind": "gene_list",
+    "species": {
+      "name": "Staphylococcus aureus",
+      "ncbi_taxid": 1280
+    },
+    "requested": [
+      "mecA",
+      "gyrA S84L",
+      "blaZZ"
+    ]
+  },
+  "unresolved_inputs": [
+    {
+      "text": "blaZZ",
+      "reason": "no CARD term or synonym matches this name"
+    }
+  ],
+  "releases": [
+    "card-4.0.2"
+  ],
+  "genes": [
+    {
+      "aro_id": "ARO:3000617",
+      "name": "mecA",
+      "model_type": "protein homolog model",
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0001002",
+          "name": "antibiotic target replacement"
+        }
+      ],
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000032",
+          "name": "cephalosporin"
+        },
+        {
+          "aro_id": "ARO:3000008",
+          "name": "penicillin beta-lactam"
+        }
+      ],
+      "variants": [],
+      "affected_target": {
+        "name": "penicillin-binding protein (replaced by PBP2a)",
+        "pdb_ids": []
+      },
+      "evidence_ids": [
+        "P1"
+      ]
+    },
+    {
+      "aro_id": "ARO:3003296",
+      "name": "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones",
+      "model_type": "protein variant model",
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0001001",
+          "name": "antibiotic target alteration"
+        }
+      ],
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000001",
+          "name": "fluoroquinolone antibiotic"
+        },
+        {
+          "aro_id": "ARO:3007157",
+          "name": "nybomycin-like antibiotic"
+        }
+      ],
+      "variants": [
+        {
+          "mutation": "S84L",
+          "param_type": "single resistance variant"
+        }
+      ],
+      "affected_target": {
+        "name": "DNA gyrase subunit A",
+        "pdb_ids": []
+      },
+      "evidence_ids": [
+        "P2"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "aro_id": "ARO:0001001",
+      "name": "antibiotic target alteration",
+      "gene_aro_ids": [
+        "ARO:3003296"
+      ]
+    },
+    {
+      "aro_id": "ARO:0001002",
+      "name": "antibiotic target replacement",
+      "gene_aro_ids": [
+        "ARO:3000617"
+      ]
+    }
+  ],
+  "defeated_classes": [
+    {
+      "aro_id": "ARO:0000001",
+      "name": "fluoroquinolone antibiotic",
+      "gene_aro_ids": [
+        "ARO:3003296"
+      ],
+      "evidence_ids": [
+        "P2"
+      ]
+    },
+    {
+      "aro_id": "ARO:0000032",
+      "name": "cephalosporin",
+      "gene_aro_ids": [
+        "ARO:3000617"
+      ],
+      "evidence_ids": [
+        "P1"
+      ]
+    },
+    {
+      "aro_id": "ARO:3000008",
+      "name": "penicillin beta-lactam",
+      "gene_aro_ids": [
+        "ARO:3000617"
+      ],
+      "evidence_ids": [
+        "P1"
+      ]
+    },
+    {
+      "aro_id": "ARO:3007157",
+      "name": "nybomycin-like antibiotic",
+      "gene_aro_ids": [
+        "ARO:3003296"
+      ],
+      "evidence_ids": [
+        "P2"
+      ]
+    }
+  ],
+  "affected_targets": [
+    {
+      "name": "DNA gyrase subunit A",
+      "gene_aro_ids": [
+        "ARO:3003296"
+      ],
+      "pdb_ids": []
+    },
+    {
+      "name": "penicillin-binding protein (replaced by PBP2a)",
+      "gene_aro_ids": [
+        "ARO:3000617"
+      ],
+      "pdb_ids": []
+    }
+  ],
+  "evidence": [
+    {
+      "id": "P1",
+      "source": "card",
+      "release": "card-4.0.2",
+      "aro_id": "ARO:3000617",
+      "statement": "CARD links mecA to the cephalosporin and penicillin beta-lactam drug classes and to antibiotic target replacement."
+    },
+    {
+      "id": "P2",
+      "source": "card",
+      "release": "card-4.0.2",
+      "aro_id": "ARO:3003296",
+      "statement": "CARD lists S84L among the resistance variants of the S. aureus gyrA model and links the model to fluoroquinolone resistance."
+    }
+  ],
+  "confidence": {
+    "level": "low",
+    "basis": "Gene presence was asserted by the user. Expression and copy number were not assessed."
+  },
+  "caveats": [
+    "A gene in CARD can confer resistance. It does not show the gene is expressed in this isolate.",
+    "Drug classes are CARD's vocabulary, not ATC.",
+    "One input name could not be resolved and is excluded from the profile."
+  ]
+}
