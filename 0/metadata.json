@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6VYNCKVBV4ESHJYD2WNAM96",
+  "session_id": "6225913b-4f43-4aca-8c92-3c2de2ef691a",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T21:29:36.584148Z",
+  "branch": "antibiotic-catalogue",
+  "checkpoints_count": 3,
+  "files_touched": [
+    "core/resistance/htb_resistance/catalogue.py",
+    "core/resistance/tests/test_catalogue.py"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "7c6ca37c4bca",
+  "checkpoint_transcript_start": 520,
+  "transcript_lines_at_start": 520,
+  "compact_transcript_start": 62,
+  "token_usage": {
+    "input_tokens": 60,
+    "cache_creation_tokens": 62852,
+    "cache_read_tokens": 4268067,
+    "output_tokens": 39720,
+    "api_call_count": 27
+  },
+  "redaction": {
+    "replacements": 11,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 11,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 10
+  }
+}
