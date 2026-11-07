@@ -97,7 +97,7 @@ Short, blocks everything. Do together, then split.
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`
 - [x] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
 - [ ] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M`
-- [ ] Spot check ten genes against CARD's web pages. `S`
+- [x] Spot check ten genes against CARD's web pages. Recorded in [docs/card-spot-check.md](docs/card-spot-check.md). `S`
 
 **Done when:** profiling each pathogen's typical resistant isolate yields class lists a microbiologist would recognise.
 
