@@ -1,0 +1,18 @@
+model_id	sequence_id	protein_accession	dna_accession	taxon_id	taxon_name
+1028	1469	ACR66323.1	FJ668814.1	573	Klebsiella pneumoniae
+1128	885	AAV65289.1	AY795964.1	470	Acinetobacter baumannii
+1166	6035	WP_000819088.1	NC_009641.1	1279	Staphylococcus
+1200	5179	CAA36304.1	X52085.1	1282	Staphylococcus epidermidis
+1222	5386	AAG04518.1	AE004091.2	208964	Pseudomonas aeruginosa PAO1
+1321	11364	WP_057521704.1	NG_047945.1	1280	Staphylococcus aureus
+1345	5182	AAB28795.1	S67449.1	1280	Staphylococcus aureus
+1745	1032	AAK70220.1	AY034847.1	573	Klebsiella pneumoniae
+1952	4668	AFB82783.1	JN420336.1	573	Klebsiella pneumoniae
+2035	1430	AAL02127.1	AY044436.1	562	Escherichia coli
+2354	5443	ABK34773.1	EF016355.1	470	Acinetobacter baumannii
+2399	5460	AAP43109.1	EU370913.1	562	Escherichia coli
+2400	5462	AAP43110.2	EU370913.1	562	Escherichia coli
+450	8229	CAC83905.2	AJ309734.2	470	Acinetobacter baumannii
+630	1	AAX14802.1	AY769962.1	470	Acinetobacter baumannii
+726	4586	ABX30738.1	CP000732.1	450394	Staphylococcus aureus subsp. aureus USA300_TCH959
+866	4257	AAL14440.1	AF370885.1	470	Acinetobacter baumannii

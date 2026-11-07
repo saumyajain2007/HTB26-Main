@@ -1,0 +1,5 @@
+model_id	aro_accession	param_type	mutation	source
+1166	ARO:3003296	single resistance variant	E88A	Curated-R;clinical
+1166	ARO:3003296	single resistance variant	E88K	Curated-R;clinical
+1166	ARO:3003296	single resistance variant	S84L	Curated-R;clinical
+1166	ARO:3003296	single resistance variant	S85P	Curated-R;clinical

@@ -685,7 +685,8 @@ def test_real_card_resolves_known_genes_to_the_expected_classes():
 def test_real_card_records_a_known_gyra_mutation():
     ref = Reference.from_release(_real_release())
     profile = build_profile(
-        parse_gene_text("Staphylococcus aureus gyrA conferring resistance to fluoroquinolones S84L"),
+        # A name with spaces is split into words; a determinant with a mutation is "<one token> <mutation>".
+        parse_gene_text("ARO:3003296 S84L"),
         ref)
     p = check_contract(profile)
     assert p["genes"][0]["variants"][0]["mutation"] == "S84L"
