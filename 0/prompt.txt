@@ -1,0 +1,1 @@
+Which parts can be adopted from the previous stuff, and which stuff needs to be implemented from scratch
