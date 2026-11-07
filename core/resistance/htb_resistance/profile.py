@@ -1,306 +1,284 @@
-"""Map resolved resistance determinants to a ResistanceProfile (issue #16).
+"""Build a ``ResistanceProfile``, contract version 1 (docs/contracts.md).
 
-Input is a list of determinants already resolved to CARD detection models, each with the text
-the user typed and any point mutations they named. Turning typed names, species presets or
-AMRFinderPlus output into determinants is input handling (#15). Output is the frozen
-ResistanceProfile contract (docs/contracts.md).
+``build_profile`` returns a :class:`Profile`, whose ``contract`` is exactly the frozen
+shape that ranking and the app read, matching tests/fixtures/resistance_profile.json.
+Fields outside the contract (how each name was matched, the ok/partial status for an exit
+code) stay on the Python object and never reach the JSON.
 
-Everything comes from the CARD tables, so a profile says what CARD records and nothing more:
+The rules the rest of the pipeline relies on:
 
-    mechanisms        the model's Resistance Mechanism categories
-    defeated classes  the model's Drug Class categories (class level; CARD also records some
-                      drug-level links, which the evasion rule in #23 will use)
-    variants          the named mutations that CARD lists for the model
-    affected target   the sensitive target the resistant form derives from, when CARD has one
-
-Anything that cannot be turned into a gene row is reported in ``unresolved_inputs`` with a
-reason. It is never dropped.
+  - Every string read is in ``input.requested``. Anything that did not become a gene row
+    is in ``unresolved_inputs`` with a reason. Nothing is silently dropped.
+  - Nothing resolvable at all raises ``InputError`` naming every unknown entry.
+  - ``strict=True`` turns any unresolved entry into an ``InputError``.
+  - The ``mechanisms``, ``defeated_classes`` and ``affected_targets`` roll-ups are derived
+    from the gene rows, so they can never disagree with them.
+  - Every gene row cites a ``P#`` evidence item naming the CARD release it came from.
+  - Mechanism and class terms carry ARO ids, because the contract says to join on ids.
 """
-
 from __future__ import annotations
 
 import json
 import uuid
-from collections import defaultdict
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Iterable, Sequence
+from dataclasses import dataclass, field
 
-from .card import CardError, read_table
+from .inputs import AMRFINDERPLUS, GENE_LIST, SPECIES_PRESET, InputError, Parsed, Token
+from .reference import Entry, Reference
 
 CONTRACT_VERSION = "1"
-SUPPLEMENT_PATH = Path(__file__).with_name("supplement.json")
-VARIANT_MODELS = {"protein variant model", "rRNA gene variant model"}
-CONFIDENCE = {
-    "gene_list": ("low", "Gene presence was asserted by the user. Expression and copy number were not assessed."),
-    "species_preset": ("low", "The genes are typical of the species, not observed in an isolate."),
-    "amrfinderplus": ("medium", "Genes were detected in an isolate genome by AMRFinderPlus. Expression and copy "
-                                "number were not assessed."),
-}
+
+PRESENCE_CAVEAT = ("A gene in CARD can confer resistance. It does not show the gene is "
+                   "expressed in this isolate, and AMRFinderPlus documents the same limit.")
+VOCABULARY_CAVEAT = "Drug classes are CARD's vocabulary, not ATC."
+TARGET_CAVEAT = ("Affected target names are CARD's own determinant names, not curated protein "
+                 "names, and pdb_ids are left empty for WS3 to fill.")
+
+# CARD mechanism names that mean the drug's target is changed rather than the drug
+# destroyed or expelled. Only these give the profile an affected target.
+_TARGET_MECHANISMS = ("target alteration", "target replacement", "target protection")
+
+_HIGH_METHODS = ("ALLELE", "EXACT", "POINT")
 
 
-@dataclass(frozen=True)
-class Determinant:
+@dataclass
+class Call:
+    """Internal provenance for one gene row. Not part of the contract."""
+
+    requested_as: str
+    origin: str
     aro_id: str
-    text: str  # what the user typed; reported back if the determinant cannot be used
-    mutations: tuple[str, ...] = ()
+    short_name: str
+    match: str
+    source_method: str
+    evidence_id: str
+    mutation: str | None = None
+    mutation_in_card: bool = True
 
 
-class CardProfiler:
-    """The CARD tables a profile needs, loaded once."""
+@dataclass
+class Profile:
+    contract: dict
+    calls: list = field(default_factory=list)
+    status: str = "ok"            # ok | partial, for the CLI exit code
 
-    def __init__(self, release: Path | str, supplement: Path | str | None = SUPPLEMENT_PATH):
-        """`supplement` is the curated file of extra drug classes (supplement.json); None turns it off."""
-        release = Path(release)
-        self.release = release
-        self.version = self._version(release)
-        self.terms = {r["aro_accession"]: r for r in read_table(release, "aro_terms")}
-        self.models = {r["aro_accession"]: r for r in read_table(release, "models")}
-        self._parents, self._children = defaultdict(set), defaultdict(set)
-        self._derives, self._targets = defaultdict(set), set()
-        for r in read_table(release, "aro_relations"):
-            if r["relation"] == "is_a":
-                self._parents[r["subject"]].add(r["object"])
-                self._children[r["object"]].add(r["subject"])
-            elif r["relation"] == "derives_from":
-                self._derives[r["subject"]].add(r["object"])
-            elif r["relation"] == "targeted_by_antibiotic":
-                self._targets.add(r["subject"])
-        self.mechanisms, self.classes = defaultdict(set), defaultdict(set)
-        for r in read_table(release, "model_categories"):
-            if r["category_class"] == "Resistance Mechanism":
-                self.mechanisms[r["aro_accession"]].add(r["category_aro_accession"])
-            elif r["category_class"] == "Drug Class":
-                self.classes[r["aro_accession"]].add(r["category_aro_accession"])
-        self.variants = defaultdict(list)
-        for r in read_table(release, "model_variants"):
-            self.variants[r["aro_accession"]].append((r["mutation"], r["param_type"]))
-        self.supplement = self._load_supplement(supplement) if supplement else None
+    def to_dict(self) -> dict:
+        return self.contract
 
-    def _load_supplement(self, path: Path | str) -> dict:
-        """Read the curated supplement and check it against this CARD release. A stale or malformed
-        entry stops the build; it is never skipped."""
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-        drug_classes = {c for classes in self.classes.values() for c in classes}
-        for add in data["additions"]:
-            where = f"supplement {add.get('id', '?')}"
-            if not add.get("citations") or not all(c.get("pmid", "").isdigit() and c.get("citation") for c in add["citations"]):
-                raise CardError(f"{where}: every added class needs at least one citation with a PubMed id")
-            if not add.get("reason"):
-                raise CardError(f"{where}: no reason given")
-            for model in add["models"]:
-                if model not in self.models:
-                    raise CardError(f"{where}: {model} is not a CARD detection model in release {self.version}")
-            cls = add["drug_class"]
-            if cls["aro_id"] not in drug_classes or self.name(cls["aro_id"]) != cls["name"]:
-                raise CardError(f"{where}: {cls['aro_id']} is not the Drug Class {cls['name']!r} in release {self.version}")
-        return data
+    def to_json(self) -> str:
+        return json.dumps(self.contract, indent=2)
 
-    def supplemented(self, aro_id: str) -> list[dict]:
-        """Curated additions for a model that CARD's own release does not already have."""
-        if self.supplement is None:
-            return []
-        return [add for add in self.supplement["additions"]
-                if aro_id in add["models"] and add["drug_class"]["aro_id"] not in self.classes[aro_id]]
 
-    @staticmethod
-    def _version(release: Path) -> str:
-        return json.loads((release / "manifest.json").read_text())["card_data_version"]
+def _profile_id(release: str, kind: str, requested) -> str:
+    """A UUID that is stable for the same inputs against the same release.
 
-    def name(self, aro_id: str) -> str:
-        return self.terms[aro_id]["name"]
+    uuid5 of the inputs, with the version and variant bits set to those of a version 4
+    UUID so it satisfies the contract while staying reproducible across runs.
+    """
+    seed = "htb26:resistance-profile:" + "\u001f".join([release, kind, *requested])
+    raw = bytearray(uuid.uuid5(uuid.NAMESPACE_URL, seed).bytes)
+    raw[6] = (raw[6] & 0x0F) | 0x40
+    raw[8] = (raw[8] & 0x3F) | 0x80
+    return str(uuid.UUID(bytes=bytes(raw)))
 
-    def _chain(self, aro_id: str) -> list[str]:
-        """The term and its is_a ancestors, nearest first."""
-        order, seen, frontier = [aro_id], {aro_id}, [aro_id]
-        while frontier:
-            frontier = sorted({p for x in frontier for p in self._parents.get(x, ()) if p not in seen})
-            seen.update(frontier)
-            order += frontier
-        return order
 
-    def _is_target(self, aro_id: str) -> bool:
-        """True if antibiotics target this term or a more specific one below it. CARD marks
-        'fluoroquinolone sensitive gyrA' as targeted, and its parent 'antibiotic sensitive ...
-        gyrA' is what the resistant gyrA derives from."""
-        seen, stack = {aro_id}, [aro_id]
-        while stack:
-            term = stack.pop()
-            if term in self._targets:
-                return True
-            for child in self._children.get(term, ()):
-                if child not in seen:
-                    seen.add(child)
-                    stack.append(child)
-        return False
+def _confidence(parsed: Parsed, calls) -> dict:
+    if parsed.kind == SPECIES_PRESET:
+        return {"level": "low",
+                "basis": f"Genes come from the {parsed.preset_status!r} species preset for "
+                         f"{parsed.species.name if parsed.species else 'this species'}, not from "
+                         "this isolate. No genome was examined."}
+    if parsed.kind == AMRFINDERPLUS:
+        methods = [c.source_method.split(":", 1)[1] for c in calls]
+        if methods and all(m.startswith(_HIGH_METHODS) for m in methods):
+            return {"level": "high",
+                    "basis": "Every call is an exact, allele or point match reported by "
+                             "AMRFinderPlus against the isolate's assembly. Expression and copy "
+                             "number were not assessed."}
+        return {"level": "medium",
+                "basis": "Calls come from AMRFinderPlus against the isolate's assembly, but some "
+                         "rest on a BLAST, HMM or partial hit rather than an exact match. "
+                         "Expression and copy number were not assessed."}
+    return {"level": "low",
+            "basis": "Gene presence was asserted by the user. Expression and copy number were "
+                     "not assessed."}
 
-    def affected_target(self, aro_id: str) -> str | None:
-        """Name of the sensitive target this model's resistant form derives from, nearest first."""
-        for ancestor in self._chain(aro_id):
-            for origin in sorted(self._derives.get(ancestor, ())):
-                if self._is_target(origin):
-                    return self.name(origin)
+
+def _statement(entry: Entry, release: str, mutation: str | None) -> str:
+    classes = ", ".join(t.name for t in entry.drug_classes) or "no drug class"
+    mechanisms = ", ".join(t.name for t in entry.mechanisms)
+    text = (f"CARD release {release} links {entry.name} ({entry.aro}) to {classes} "
+            f"and to {mechanisms}.")
+    if mutation:
+        listed = {v.mutation for v in entry.variants}
+        text += (f" {mutation} is among the resistance variants CARD lists for this model."
+                 if mutation in listed
+                 else f" {mutation} was supplied with the input and is not among the resistance "
+                      "variants CARD lists for this model.")
+    return text
+
+
+def _affected_target(entry: Entry) -> dict | None:
+    """Only a mechanism that changes the drug's target gives the profile a target."""
+    if not any(m for m in entry.mechanisms if any(k in m.name for k in _TARGET_MECHANISMS)):
         return None
-
-    def problem(self, det: Determinant) -> str | None:
-        """Why a determinant cannot become a gene row, or None if it can."""
-        model = self.models.get(det.aro_id)
-        if model is None:
-            if det.aro_id in self.terms:
-                return (f"{det.aro_id} ({self.name(det.aro_id)}) is a CARD ontology term, not a resistance "
-                        "determinant model; name a specific gene")
-            return f"{det.aro_id} is not in CARD {self.version}"
-        if not self.mechanisms.get(det.aro_id):
-            return f"{det.aro_id} ({model['name']}) has no resistance mechanism in CARD"
-        listed = {m for m, _ in self.variants.get(det.aro_id, ())}
-        if model["model_type"] in VARIANT_MODELS:
-            if not det.mutations:
-                return (f"{model['name']} is a variant model: it confers resistance only with one of its "
-                        f"{len(listed)} listed mutations, and none was named")
-            unknown = [m for m in det.mutations if m not in listed]
-            if unknown:
-                return f"{', '.join(unknown)} is not among the mutations CARD lists for {model['name']}"
-        elif det.mutations:
-            return f"{model['name']} is not a variant model; CARD lists no point mutations for it"
-        return None
+    return {"name": entry.short_name or entry.name, "pdb_ids": []}
 
 
-def build_profile(card: CardProfiler, determinants: Sequence[Determinant], *, kind: str,
-                  species: dict | None = None, requested: Sequence[str] | None = None,
-                  unresolved: Iterable[dict] = (), profile_id: str | None = None) -> dict:
-    """Build a ResistanceProfile. `unresolved` holds names the caller could not resolve to a
-    determinant at all ({"text", "reason"}); determinants that fail here are added to it."""
-    if kind not in CONFIDENCE:
-        raise ValueError(f"unknown input kind {kind!r}; expected one of {sorted(CONFIDENCE)}")
-    requested = list(requested) if requested is not None else [d.text for d in determinants]
-    unresolved = [dict(u) for u in unresolved]
+def _rollup(calls, rows, key) -> list:
+    """Group a per-gene term list into a roll-up carrying the genes behind each term."""
+    out: dict[str, dict] = {}
+    for call, row in zip(calls, rows):
+        for term in row[key]:
+            item = out.setdefault(term["aro_id"], {"aro_id": term["aro_id"], "name": term["name"],
+                                                   "gene_aro_ids": [], "evidence_ids": []})
+            if row["aro_id"] not in item["gene_aro_ids"]:
+                item["gene_aro_ids"].append(row["aro_id"])
+            if call.evidence_id not in item["evidence_ids"]:
+                item["evidence_ids"].append(call.evidence_id)
+    return [out[k] for k in sorted(out)]
 
-    merged: dict[str, Determinant] = {}
-    for det in determinants:
-        reason = card.problem(det)
-        if reason:
-            unresolved.append({"text": det.text, "reason": reason})
-        elif det.aro_id in merged:
-            old = merged[det.aro_id]
-            merged[det.aro_id] = Determinant(det.aro_id, old.text, tuple(dict.fromkeys(old.mutations + det.mutations)))
-        else:
-            merged[det.aro_id] = det
 
-    release = f"card-{card.version}"
-    genes, evidence = [], []
-    class_evidence: dict[tuple[str, str], list[str]] = defaultdict(list)  # (gene, class) -> evidence ids
-    curated: list[tuple[int, dict, list[dict]]] = []  # (gene index, gene, additions)
-    for n, det in enumerate(merged.values(), start=1):
-        model = card.models[det.aro_id]
-        mechanisms = [{"aro_id": a, "name": card.name(a)} for a in sorted(card.mechanisms[det.aro_id])]
-        classes = [{"aro_id": a, "name": card.name(a)} for a in sorted(card.classes[det.aro_id])]
-        kinds = dict(card.variants.get(det.aro_id, ()))
-        variants = [{"mutation": m, "param_type": kinds[m]} for m in det.mutations]
-        target = card.affected_target(det.aro_id)
-        statement = f"CARD links {model['name']} to " + (
-            "the " + _join([c["name"] for c in classes]) + " drug " + ("class" if len(classes) == 1 else "classes")
-            if classes else "no drug class") + " and to " + _join([m["name"] for m in mechanisms]) + "."
-        if variants:
-            statement += (f" CARD lists {_join([v['mutation'] for v in variants])} among the resistance variants "
-                          f"of this model.")
-        evidence.append({"id": f"P{n}", "source": "card", "release": release, "aro_id": det.aro_id,
-                         "statement": statement})
-        for c in classes:
-            class_evidence[(det.aro_id, c["aro_id"])].append(f"P{n}")
-        gene = {
-            "aro_id": det.aro_id, "name": model["name"], "model_type": model["model_type"],
-            "mechanisms": mechanisms, "defeated_classes": classes, "variants": variants,
-            # CARD names the sensitive target but carries no structures: PDB entries come from the
-            # target list (#20), so pdb_ids stays empty here.
-            "affected_target": {"name": target, "pdb_ids": []} if target else None,
-            "evidence_ids": [f"P{n}"],
-        }
-        genes.append(gene)
-        additions = card.supplemented(det.aro_id)
-        if additions:
-            curated.append((n, gene, additions))
+def build_profile(parsed: Parsed, reference: Reference, strict: bool = False) -> Profile:
+    release = reference.release
+    # unresolved_inputs is about names the caller supplied, and every text in it has to be
+    # in input.requested. A row with no name at all is counted in the caveats instead.
+    unresolved = [{"text": r.raw, "reason": r.reason} for r in parsed.rejected if r.raw]
+    nameless = sum(1 for r in parsed.rejected if not r.raw)
+    calls: list = []
+    rows: list = []
+    seen_aro: dict[str, str] = {}
 
-    # Classes from the curated supplement come after CARD's own, each with its own evidence item
-    # (source "curated") so they can always be told apart from CARD's links.
-    releases = [release]
-    for _, gene, additions in curated:
-        releases = [release, card.supplement["release"]]
-        added = [add["drug_class"] for add in additions]
-        evidence_id = f"P{len(evidence) + 1}"
-        cites = "; ".join(f"{c['citation']} (PMID {c['pmid']})" for add in additions for c in add["citations"])
-        evidence.append({
-            "id": evidence_id, "source": "curated", "release": card.supplement["release"], "aro_id": gene["aro_id"],
-            "statement": (f"Curated supplement, not in CARD {card.version}: {gene['name']} also defeats the "
-                          f"{_join([c['name'] for c in added])} drug {'class' if len(added) == 1 else 'classes'}. "
-                          + " ".join(dict.fromkeys(add["reason"] for add in additions)) + f" Sources: {cites}"),
+    for token in parsed.tokens:
+        res = reference.resolve(token.lookup)
+        if res.status != "resolved":
+            reason = res.reason
+            if res.candidates:
+                reason += f" (candidates: {', '.join(res.candidates)})"
+            unresolved.append({"text": token.raw, "reason": reason})
+            continue
+        entry = res.entry
+        if entry.aro in seen_aro:
+            unresolved.append({
+                "text": token.raw,
+                "reason": f"the same CARD determinant as '{seen_aro[entry.aro]}' "
+                          f"({entry.aro}), already in the profile"})
+            continue
+        if not entry.mechanisms:
+            unresolved.append({
+                "text": token.raw,
+                "reason": f"{entry.aro} has no resistance mechanism in CARD {release}, so it "
+                          "cannot be reported as a determinant"})
+            continue
+        seen_aro[entry.aro] = token.raw
+
+        evidence_id = f"P{len(rows) + 1}"
+        listed = {v.mutation: v.param_type for v in entry.variants}
+        variants = []
+        if token.mutation:
+            variants.append({"mutation": token.mutation,
+                             "param_type": listed.get(token.mutation)})
+        rows.append({
+            "aro_id": entry.aro,
+            "name": entry.name,
+            "model_type": entry.model_type,
+            "mechanisms": [t.as_dict() for t in entry.mechanisms],
+            "defeated_classes": [t.as_dict() for t in entry.drug_classes],
+            "variants": variants,
+            "affected_target": _affected_target(entry),
+            "evidence_ids": [evidence_id],
         })
-        gene["defeated_classes"] = sorted(gene["defeated_classes"] + [dict(c) for c in added], key=lambda c: c["aro_id"])
-        gene["evidence_ids"].append(evidence_id)
-        for c in added:
-            class_evidence[(gene["aro_id"], c["aro_id"])].append(evidence_id)
+        calls.append(Call(
+            requested_as=token.raw, origin=token.origin, aro_id=entry.aro,
+            short_name=entry.short_name or entry.name, match=res.how,
+            source_method=token.method, evidence_id=evidence_id, mutation=token.mutation,
+            mutation_in_card=token.mutation in listed if token.mutation else True,
+        ))
 
-    level, basis = CONFIDENCE[kind]
-    if not genes:
-        level, basis = "low", "No determinant could be resolved, so the profile is empty."
-    caveats = [
-        "A gene in CARD can confer resistance. It does not show the gene is expressed in this isolate.",
-        "Drug classes are CARD's vocabulary, not ATC.",
-        "Defeated classes are class-level. Some drugs in a class may still work against a given gene, so use them "
-        "to rule drugs out, not to rule them in.",
-    ]
-    if curated:
-        caveats.append("Some defeated classes come from a curated supplement, not from CARD's download. Each is "
-                       "marked in the evidence (source: curated) with its citations.")
-    if unresolved:
-        caveats.append("Input names that could not be resolved are excluded from the profile. See unresolved_inputs.")
-    if any(g["affected_target"] is None and any(m["name"].startswith("antibiotic target") for m in g["mechanisms"])
-           for g in genes):
-        caveats.append("For some target-related genes CARD names no sensitive target, so no affected target is given.")
+    if not rows:
+        if unresolved:
+            raise InputError("nothing could be profiled. " + _describe(unresolved))
+        raise InputError("no entries to profile")
+    if strict and unresolved:
+        raise InputError("strict mode: " + _describe(unresolved))
 
-    return {
+    evidence = [{"id": c.evidence_id, "source": "card", "release": release,
+                 "aro_id": c.aro_id,
+                 "statement": _statement(reference.entries[c.aro_id], release, c.mutation)}
+                for c in calls]
+
+    targets: dict[str, dict] = {}
+    for row in rows:
+        target = row["affected_target"]
+        if target is None:
+            continue
+        item = targets.setdefault(target["name"], {"name": target["name"], "gene_aro_ids": [],
+                                                   "pdb_ids": []})
+        item["gene_aro_ids"].append(row["aro_id"])
+
+    mechanisms = [{k: v for k, v in m.items() if k != "evidence_ids"}
+                  for m in _rollup(calls, rows, "mechanisms")]
+
+    contract = {
         "contract_version": CONTRACT_VERSION,
-        "profile_id": profile_id or str(uuid.uuid4()),
-        "input": {"kind": kind, "species": species, "requested": requested},
+        "profile_id": _profile_id(release, parsed.kind, parsed.requested),
+        "input": {
+            "kind": parsed.kind,
+            "species": parsed.species.as_dict() if parsed.species else None,
+            "requested": list(parsed.requested),
+        },
         "unresolved_inputs": unresolved,
-        "releases": releases,
-        "genes": genes,
-        "mechanisms": _rollup(genes, "mechanisms"),
-        "defeated_classes": _rollup(genes, "defeated_classes", class_evidence),
-        "affected_targets": _targets(genes),
+        "releases": [release],
+        "genes": rows,
+        "mechanisms": mechanisms,
+        "defeated_classes": _rollup(calls, rows, "defeated_classes"),
+        "affected_targets": [targets[k] for k in sorted(targets)],
         "evidence": evidence,
-        "confidence": {"level": level, "basis": basis},
-        "caveats": caveats,
+        "confidence": _confidence(parsed, calls),
+        "caveats": _caveats(parsed, reference, calls, rows, unresolved, nameless),
     }
+    return Profile(contract=contract, calls=calls,
+                   status="ok" if not unresolved else "partial")
 
 
-def _join(items: list[str]) -> str:
-    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+def _caveats(parsed: Parsed, reference: Reference, calls, rows, unresolved,
+             nameless: int = 0) -> list:
+    caveats = [PRESENCE_CAVEAT, VOCABULARY_CAVEAT]
+    caveats.extend(parsed.notes)
+    if nameless:
+        caveats.append(f"{nameless} input row(s) carried no gene symbol and were skipped.")
+    if parsed.kind == SPECIES_PRESET:
+        caveats.append(f"The preset is {parsed.preset_status!r}: its gene list is not a cited "
+                       "typical profile yet, so treat this profile as a draft.")
+    if unresolved:
+        n = len(unresolved)
+        caveats.append(f"{n} input entr{'y was' if n == 1 else 'ies were'} not profiled and "
+                       "excluded; see unresolved_inputs.")
+    if any(row["affected_target"] for row in rows):
+        caveats.append(TARGET_CAVEAT)
+    loose = [c.requested_as for c in calls
+             if c.match in ("case_insensitive", "bla_prefix_stripped")]
+    if loose:
+        caveats.append(f"{', '.join(loose)} matched only after case folding or dropping a leading "
+                       "'bla', which is a guess about spelling rather than CARD data.")
+    unlisted = [f"{c.mutation} in {c.short_name}" for c in calls if not c.mutation_in_card]
+    if unlisted:
+        caveats.append(f"{', '.join(unlisted)} is not among CARD's known resistance variants for "
+                       "that model, so the mutation is recorded but unsupported.")
+    if parsed.kind == AMRFINDERPLUS:
+        weak = [c.requested_as for c in calls
+                if not c.source_method.split(":", 1)[1].startswith(_HIGH_METHODS)]
+        if weak:
+            caveats.append(f"{', '.join(weak)} rests on a BLAST, HMM or partial hit, so the gene "
+                           "may be truncated or non-functional.")
+    if reference.problems:
+        n = len(reference.problems)
+        caveats.append(f"{n} CARD entr{'y' if n == 1 else 'ies'} in this release "
+                       f"{'was' if n == 1 else 'were'} left out of the reference because the ARO "
+                       "id was not the kind of term its field means, for example an obsolete "
+                       "determinant. They cannot appear in any profile.")
+    return caveats
 
 
-def _rollup(genes: list[dict], field: str, evidence_ids: dict[tuple[str, str], list[str]] | None = None) -> list[dict]:
-    """Group a per-gene field by term. With `evidence_ids`, each term cites the evidence behind it for
-    each gene (CARD's for CARD's links, the supplement's for curated ones), not all of the gene's."""
-    groups: dict[str, dict] = {}
-    for gene in genes:
-        for term in gene[field]:
-            item = groups.setdefault(term["aro_id"], {"aro_id": term["aro_id"], "name": term["name"],
-                                                      "gene_aro_ids": [], "evidence_ids": []})
-            item["gene_aro_ids"].append(gene["aro_id"])
-            if evidence_ids is not None:
-                item["evidence_ids"] += evidence_ids[(gene["aro_id"], term["aro_id"])]
-    out = [groups[a] for a in sorted(groups)]
-    if evidence_ids is None:
-        for item in out:
-            del item["evidence_ids"]
-    return out
-
-
-def _targets(genes: list[dict]) -> list[dict]:
-    groups: dict[str, dict] = {}
-    for gene in genes:
-        target = gene["affected_target"]
-        if target:
-            item = groups.setdefault(target["name"], {"name": target["name"], "gene_aro_ids": [], "pdb_ids": []})
-            item["gene_aro_ids"].append(gene["aro_id"])
-            item["pdb_ids"] = sorted(set(item["pdb_ids"]) | set(target["pdb_ids"]))
-    return [groups[n] for n in sorted(groups)]
+def _describe(unresolved) -> str:
+    return "Unresolved entries: " + "; ".join(
+        f"'{u['text']}': {u['reason']}" for u in unresolved)
