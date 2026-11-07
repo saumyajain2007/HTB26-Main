@@ -1,0 +1,18 @@
+model_id	aro_accession	name	model_type	short_name
+1028	ARO:3001059	SHV-1	protein homolog model	SHV-1
+1128	ARO:3001418	OXA-23	protein homolog model	OXA-23
+1166	ARO:3003296	Staphylococcus aureus gyrA conferring resistance to fluoroquinolones	protein variant model	Saur_gyrA_FLO
+1200	ARO:3000251	msrA	protein homolog model	msrA
+1222	ARO:3000149	FosA	protein homolog model	FosA
+1321	ARO:3000617	mecA	protein homolog model	mecA
+1345	ARO:3000178	tet(K)	protein homolog model	tet(K)
+1745	ARO:3002312	KPC-2	protein homolog model	KPC-2
+1952	ARO:3001396	OXA-1	protein homolog model	OXA-1
+2035	ARO:3001878	CTX-M-15	protein homolog model	CTX-M-15
+2354	ARO:3003868	ADC-25	protein homolog model	ADC-25
+2399	ARO:3003922	oqxA	protein homolog model	oqxA
+2400	ARO:3003923	oqxB	protein homolog model	oqxB
+450	ARO:3001612	OXA-51	protein homolog model	OXA-51
+630	ARO:3000781	adeJ	protein homolog model	adeJ
+726	ARO:3000621	PC1 beta-lactamase (blaZ)	protein homolog model	PC1_blaZ
+866	ARO:3000775	adeB	protein homolog model	adeB
