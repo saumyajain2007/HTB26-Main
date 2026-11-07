@@ -103,3 +103,24 @@ licences and add the original download metadata before redistributing data.
 
 `data/`, local environments, caches, and `ranking/artifacts/` are gitignored.
 Keep generated bundles under either ignored artifact directory.
+
+## Antibiotic ranking (`ranking.antibiotic`)
+
+Resistance-aware ranking of approved antibiotics (WS4). Everything above this section is the earlier human-disease network method and is unrelated.
+
+```
+uv run python -m ranking.antibiotic tests/fixtures/resistance_profile.json --lean --out result.json
+uv run pytest core/ranking/tests/test_antibiotic_ranking.py core/ranking/tests/test_antibiotic_activity.py
+```
+
+Needs the built CARD release, the antibiotic catalogue and (for activity) the extracted ChEMBL database under `data/`; see [docs/data-layout.md](../../docs/data-layout.md). Each step is skipped with a note if its data is missing: `--no-activity` skips the MIC lookup, and Lean runs only with `--lean`.
+
+| Module | Does |
+|---|---|
+| `evasion.py` | Evasion status per drug: `unaffected`, `unknown`, `partly_affected`, `defeated`, from CARD only. See [docs/contracts.md](../../docs/contracts.md) |
+| `pool.py` | Approved antibiotics (ChEMBL phase 4, not withdrawn, with a structure); every exclusion is logged |
+| `activity.py` | Median MIC per drug against the pathogen from ChEMBL, species-level, with censored values counted and disclosed |
+| `rank.py` | The ordered rule (evasion, then activity, then the property smoke test), explanations, Lean certificates on smoke-test survivors |
+| `baselines.py` | Random, class-not-defeated and activity-only orders for the retrospective test |
+
+The order is a rule, not a score: there are no weights. Drugs that tie on all three keys are listed alphabetically and the explanation says that order is not a finding. Limits: the MIC is a species-level median across papers, with no breakpoint, so it is evidence that a drug was measured against the species and not a susceptibility call; "unaffected" means no link in CARD, not a measured result; the property limits describe approved antibiotics ([docs/antibiotic-limits.md](../../docs/antibiotic-limits.md)) and say nothing about safety.

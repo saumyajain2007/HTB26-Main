@@ -45,9 +45,11 @@ structure Thresholds where
 def oralDruglike : Thresholds :=
   { mwX10 := 5000, logpX100 := 500, hbd := 5, hba := 10, rotBonds := 10, psaX10 := 1400 }
 
-/-- Placeholder limits for antibiotic candidates. To be calibrated on approved antibiotics. -/
+/-- Limits for antibiotic candidates: the 95th percentile of the approved antibiotics in ChEMBL 37,
+rounded up and floored at the oral limits. Rebuilt by `python -m htb_verify.calibrate`; a test keeps
+these numbers equal to `rules.py`. -/
 def antibioticRelaxed : Thresholds :=
-  { mwX10 := 12000, logpX100 := 500, hbd := 12, hba := 20, rotBonds := 15, psaX10 := 2500 }
+  { mwX10 := 8500, logpX100 := 500, hbd := 13, hba := 17, rotBonds := 13, psaX10 := 3400 }
 
 /-- A molecule passes when every descriptor is within its threshold. -/
 def Desc.Passes (t : Thresholds) (d : Desc) : Prop :=

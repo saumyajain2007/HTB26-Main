@@ -6,7 +6,7 @@ Lean is unavailable. Neither says a molecule is safe or effective; they say it
 satisfies the encoded rules.
 """
 
-from .certify import Certificate, certify
+from .certify import Certificate, certify, certify_batch
 from .rules import RULE_SETS, Thresholds
 from .smoke import SmokeResult, check_molecule
 

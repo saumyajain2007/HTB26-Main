@@ -237,7 +237,7 @@ CARD, not a measured result, and `unknown` means CARD cannot say, which is not
 the same thing. `defeated_classes` is class-level, so it rules drugs out rather
 than in. A certificate confirms the encoded property rules hold; it does not
 show a molecule is safe, selective or active, and the `antibiotic_relaxed`
-limits are placeholders until #26 calibrates them.
+limits only mark where 95% of approved antibiotics sit (docs/antibiotic-limits.md).
 
 ## Docking result files
 
