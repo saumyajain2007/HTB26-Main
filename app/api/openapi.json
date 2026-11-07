@@ -281,7 +281,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -741,7 +741,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Graph Version",
             "type": "string"
           },
@@ -2089,7 +2089,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -2249,7 +2249,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Release",
             "type": "string"
           },
@@ -2360,7 +2360,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -2567,7 +2567,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "title": "Data Releases",
@@ -3251,7 +3251,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Graph Version",
             "type": "string"
           },
@@ -3489,7 +3489,7 @@
             "examples": [
               "opentargets-26.09"
             ],
-            "pattern": "^[a-z]+-[0-9][0-9.]*$",
+            "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
             "title": "Release",
             "type": "string"
           },
@@ -3689,6 +3689,58 @@
         "title": "ProfileList",
         "type": "object"
       },
+      "ProfileRequest": {
+        "additionalProperties": false,
+        "description": "Determinants to profile: either a species preset, or names as typed.\n\nResolving a name needs CARD's vocabulary, which only the server has, so this is\nthe only way the app can turn typed names into a `ResistanceProfile`.",
+        "properties": {
+          "genes": {
+            "anyOf": [
+              {
+                "maxLength": 4000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Determinants as typed, separated by commas, semicolons or line breaks. One item may carry a point mutation, as in `gyrA S84L`, so items are never split on spaces. Required for a gene list.",
+            "examples": [
+              "mecA, gyrA S84L"
+            ],
+            "title": "Genes"
+          },
+          "kind": {
+            "description": "species_preset: profile the preset for `species`. gene_list: profile `genes`.",
+            "enum": [
+              "gene_list",
+              "species_preset"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "species": {
+            "anyOf": [
+              {
+                "maxLength": 120,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Species name or a known alias, e.g. Staphylococcus aureus. Required for a preset; for a gene list it only records what was asked about.",
+            "examples": [
+              "Staphylococcus aureus"
+            ],
+            "title": "Species"
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "title": "ProfileRequest",
+        "type": "object"
+      },
       "PropertyRule": {
         "enum": [
           "mw",
@@ -3877,7 +3929,10 @@
         "type": "object"
       },
       "ResistanceEvidenceSource": {
-        "const": "card",
+        "enum": [
+          "card",
+          "curated"
+        ],
         "type": "string"
       },
       "ResistanceProfile": {
@@ -3961,7 +4016,7 @@
               "examples": [
                 "opentargets-26.09"
               ],
-              "pattern": "^[a-z]+-[0-9][0-9.]*$",
+              "pattern": "^[a-z][a-z0-9_]*-[0-9][0-9.]*$",
               "type": "string"
             },
             "minItems": 1,
@@ -5519,6 +5574,56 @@
           }
         },
         "summary": "List the resistance profiles this API holds",
+        "tags": [
+          "resistance"
+        ]
+      },
+      "post": {
+        "description": "Resolves each name against CARD and returns the `ResistanceProfile`.\n\nNames that match nothing come back in `unresolved_inputs` with a reason; they are\nnever dropped silently. 503 when this process has no CARD release, because only\nCARD can say whether a name is one it knows.",
+        "operationId": "build_resistance_profile",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResistanceProfile"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableResponse"
+                }
+              }
+            },
+            "description": "The request cannot be carried out."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "A data source is unavailable."
+          }
+        },
+        "summary": "Profile determinants: a species preset, or names as typed",
         "tags": [
           "resistance"
         ]
