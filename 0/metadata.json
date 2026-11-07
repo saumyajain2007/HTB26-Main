@@ -1,0 +1,60 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W74F0WM9HS48RBG7PDPZM3",
+  "session_id": "53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T23:57:39.187076Z",
+  "branch": "profiling-known-cases",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "THIRD_PARTY_NOTICES.md",
+    "core/resistance/htb_resistance/slice.py",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/manifest.json",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_categories.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_relations.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_synonyms.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_terms.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_xrefs.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_categories.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_sequences.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_variants.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/models.tsv",
+    "core/resistance/tests/fixtures/known_cases.json",
+    "core/resistance/tests/test_known_cases.py",
+    "core/resistance/tests/test_profile.py",
+    "core/resistance/tests/test_slice.py",
+    "docs/card-spot-check.md",
+    "docs/profiling-known-cases.md",
+    "tasks.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "7c1eec58e1cd",
+  "checkpoint_transcript_start": 1350,
+  "transcript_lines_at_start": 1350,
+  "compact_transcript_start": 150,
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 65396,
+    "cache_read_tokens": 9414961,
+    "output_tokens": 44762,
+    "api_call_count": 25
+  },
+  "redaction": {
+    "replacements": 7,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 7,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 7
+  }
+}

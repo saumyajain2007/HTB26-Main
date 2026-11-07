@@ -1,0 +1,58 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W74F0WM9HS48RBG7PDPZM3",
+  "strategy": "manual-commit",
+  "branch": "profiling-known-cases",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "THIRD_PARTY_NOTICES.md",
+    "core/resistance/htb_resistance/slice.py",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/manifest.json",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_categories.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_relations.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_synonyms.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_terms.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/aro_xrefs.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_categories.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_sequences.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/model_variants.tsv",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/tables/models.tsv",
+    "core/resistance/tests/fixtures/known_cases.json",
+    "core/resistance/tests/test_known_cases.py",
+    "core/resistance/tests/test_profile.py",
+    "core/resistance/tests/test_slice.py",
+    "docs/card-spot-check.md",
+    "docs/profiling-known-cases.md",
+    "tasks.md"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 65396,
+    "cache_read_tokens": 9414961,
+    "output_tokens": 44762,
+    "api_call_count": 25
+  },
+  "redaction": {
+    "replacements": 7,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 7,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
