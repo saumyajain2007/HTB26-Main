@@ -3,7 +3,7 @@ import story2 from "./assets/story-2.webp";
 import story3 from "./assets/story-3.webp";
 
 /*
- * What the introduction borrows from Jessica's Half Life site (Jessica-mak/half-life-ui): her
+ * What the introduction borrows from Jessica's earlier site: her
  * lab's four chapters, and details cut from her three story illustrations.
  */
 

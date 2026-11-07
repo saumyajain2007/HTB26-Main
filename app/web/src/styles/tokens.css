@@ -81,7 +81,7 @@
   --duration-quick: 200ms;
   --duration-step: 350ms;
 
-  /* The homepage story (Jessica's Half Life illustrations): night-lab navy, ice-blue ink. */
+  /* The homepage story (Jessica's illustrations): night-lab navy, ice-blue ink. */
   --story-night: #07172b;
   --story-deep: #061328;
   --story-ink: #f2f6fc;
@@ -106,7 +106,7 @@
   --story-lavender: #f6f6fe;
   --story-slate: #565b80;
   --story-amber-deep: #e0912f;
-  --font-story: "Half Life Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-story: "Story Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --ease-camera: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-settle: cubic-bezier(0.23, 1, 0.32, 1);
 }

@@ -140,7 +140,7 @@ export function WorkflowMap({ className }: { className?: string | undefined }) {
   return (
     <section
       className={cx(styles.root, className)}
-      aria-label="Half Life workflow"
+      aria-label="HTB26 workflow"
       data-playing={playback.playing}
       data-reduced={playback.reduced}
     >
@@ -149,7 +149,7 @@ export function WorkflowMap({ className }: { className?: string | undefined }) {
           className={styles.canvas}
           ref={canvas}
           role="group"
-          aria-label="Half Life technical workflow"
+          aria-label="HTB26 technical workflow"
         >
           <svg
             className={styles.routes}

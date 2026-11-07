@@ -1,4 +1,4 @@
-"""HalfLife's API as one Vercel function (copied to the deploy folder's root by build.py).
+"""The API as one Vercel function (copied to the deploy folder's root by build.py).
 
 This is the serverless composition root. The deploy folder mirrors the repository
 (app/, core/, data/), so the code finds its files where it always does, and
