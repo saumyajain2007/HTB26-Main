@@ -31,3 +31,16 @@ and not committed to this repository (`data/card/` is gitignored). Code that rea
   resistome prediction at the Comprehensive Antibiotic Resistance Database. Nucleic Acids Research
   51, D690-D699. https://pubmed.ncbi.nlm.nih.gov/36263822/
 - The release used is recorded in each `manifest.json` (version, archive checksums).
+
+## ChEMBL
+
+Drug names, structures, ATC codes, mechanisms and targets for the antibiotic catalogue, from the EMBL-EBI
+ChEMBL database release 37, downloaded and not committed (`data/` is gitignored). The catalogue is built by
+[core/resistance/htb_resistance/catalogue.py](core/resistance/htb_resistance/catalogue.py).
+
+- Licence: Creative Commons CC-BY-SA 3.0. Attribute ChEMBL and the release number. Any adaptation of the
+  data, including the catalogue tables, must be distributed under the same share-alike terms.
+- Citation: Zdrazil et al. 2024. The ChEMBL Database in 2023: a drug discovery platform spanning multiple
+  bioactivity data types and time periods. Nucleic Acids Research 52, D1180-D1192.
+  https://pubmed.ncbi.nlm.nih.gov/37933841/
+- The release is recorded in each catalogue `manifest.json`, with the archive checksum.

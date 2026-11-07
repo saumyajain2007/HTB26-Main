@@ -54,3 +54,36 @@ pump parts, not mutations. The count of skipped entries is recorded in the manif
 - Licence: CARD states CC-BY 4.0, but the README inside the data archive says use by any commercial
   organisation needs written permission from McMaster University. Treat the data as
   non-commercial and attribute CARD (see [THIRD_PARTY_NOTICES.md](../../THIRD_PARTY_NOTICES.md)).
+
+## Antibiotic catalogue (ChEMBL)
+
+Issue #12. One row per parent drug with an ATC code under J01, mapped onto CARD's drug classes.
+
+```
+uv run python -m htb_resistance catalogue                       # needs a built CARD release and the extracted ChEMBL database
+uv run python -m htb_resistance verify-catalogue data/antibiotics/releases/<release>
+```
+
+The ChEMBL database is read from `data/chembl_extract/chembl_37/chembl_37_sqlite/chembl_37.db`; extract it from the
+download first (see [docs/data-layout.md](../../docs/data-layout.md)). Output goes to
+`data/antibiotics/releases/chembl-37_card-<version>/`, rebuilt byte-for-byte from the same inputs.
+
+| Table | One row per | Notes |
+|---|---|---|
+| `antibiotics` | parent drug | ChEMBL id, name, SMILES, InChIKey, `max_phase`, `withdrawn`. Salts and forms are merged into the parent. Keep `max_phase` in mind: 59 of the 227 are phase 2 and only 146 are phase 4 |
+| `antibiotic_atc` | drug and J01 code | ATC level 4 group and description |
+| `antibiotic_mechanisms` | drug, mechanism and target | From ChEMBL `drug_mechanism`. 64 drugs have none |
+| `antibiotic_card` | drug and CARD class | `match` records how: `chembl_xref`, `name` or `atc_level4`. Join on `class_aro_id` |
+| `catalogue_log` | merge, gap or note | Every missing value and every merge, with a reason |
+
+Nothing is dropped except by merging a salt into its parent, and each merge is logged. What a drug lacks is logged
+as a `gap` with a reason: no structure (8 natural-product mixtures such as gentamicin and colistin), no mechanism
+(64), and no CARD class (9: beta-lactamase inhibitors and combinations, which CARD does not file under a Drug
+Class, and heterogeneous "other antibacterial" drugs where guessing would be wrong).
+
+CARD classes come from three routes in order. `chembl_xref` uses CARD's own ChEMBL cross-references (163 drugs).
+`name` matches the drug's ChEMBL name or synonym to a CARD antibiotic term (15). `atc_level4` maps an ATC group to
+one CARD class (40), only for groups where that is unambiguous. Check the route before trusting a mapping.
+
+CARD 4.0.2 attaches cefdinir's term to iclaprim's ChEMBL id. The catalogue keeps the term that matches the drug's
+name and logs the one it ignored.
