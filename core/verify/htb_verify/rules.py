@@ -39,20 +39,21 @@ ORAL_DRUGLIKE = Thresholds(
     source="Lipinski et al. 2001; Veber et al. 2002",
 )
 
-# PLACEHOLDER limits for antibiotic candidates. Looser than the oral rules because
-# approved antibiotics (macrolides, glycopeptides, beta-lactams) often exceed them.
-# These numbers are working assumptions, not published thresholds: tune them against
-# the approved-antibiotic set and cite the result before relying on them.
+# Limits for antibiotic candidates, calibrated on the approved antibiotics in the catalogue
+# (ChEMBL 37, 126 drugs) by `python -m htb_verify.calibrate`; the method is in calibrate.py and
+# docs/antibiotic-limits.md. Per descriptor: the 95th percentile (nearest rank), rounded up to a
+# clean step, and never below the oral limit above. A descriptive "looks like an approved
+# antibiotic" filter, not a safety or activity claim. `sa_max_x10` was not calibrated.
 ANTIBIOTIC_RELAXED = Thresholds(
     name="antibiotic_relaxed",
-    mw_x10=12000,
+    mw_x10=8500,
     logp_x100=500,
-    hbd=12,
-    hba=20,
-    rot_bonds=15,
-    psa_x10=2500,
+    hbd=13,
+    hba=17,
+    rot_bonds=13,
+    psa_x10=3400,
     sa_max_x10=65,
-    source="Placeholder; to be calibrated on approved antibiotics",
+    source="95th percentile of approved antibiotics, ChEMBL 37, floored at the oral limits (calibrate.py)",
 )
 
 RULE_SETS: dict[str, Thresholds] = {t.name: t for t in (ORAL_DRUGLIKE, ANTIBIOTIC_RELAXED)}
