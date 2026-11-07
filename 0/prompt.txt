@@ -1,0 +1,1 @@
+Are there models that can generate candidate molecules similar to the molecule in hand that can be used here?
