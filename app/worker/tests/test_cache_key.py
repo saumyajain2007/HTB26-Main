@@ -9,15 +9,15 @@ from uuid import uuid5
 
 import pytest
 from conftest import STRUCTURES_DIR, control_job
-from oxhack_api.repo import MemoryRepo
-from oxhack_api.schemas import DockingBox, DockSettings, Structure
-from oxhack_api.services.docking import (
+from htb_api.repo import MemoryRepo
+from htb_api.schemas import DockingBox, DockSettings, Structure
+from htb_api.services.docking import (
     CONTROL_NAMESPACE,
     FixtureDocking,
     VinaDocking,
     cache_key,
 )
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.settings import FIXTURES_DIR
 
 BARICITINIB = "CCS(=O)(=O)N1CC(CC#N)(n2cc(-c3ncnc4[nH]ccc34)cn2)C1"
 FROZEN_KEY = "fe02bbcc35bf8b114e749c48949f637c78f89c8b3563215a2e981ec4e802ab10"
@@ -39,8 +39,8 @@ def test_the_key_is_frozen() -> None:
 
 def test_the_key_is_the_same_in_another_process() -> None:
     code = (
-        "from oxhack_api.services.docking import FixtureDocking, cache_key\n"
-        "from oxhack_api.settings import FIXTURES_DIR\n"
+        "from htb_api.services.docking import FixtureDocking, cache_key\n"
+        "from htb_api.settings import FIXTURES_DIR\n"
         "d = FixtureDocking(FIXTURES_DIR); s = d.structure('6WTO_A')\n"
         f"print(cache_key(s, {BARICITINIB!r}, d.settings_for(s)))"
     )

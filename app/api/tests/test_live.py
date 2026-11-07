@@ -10,12 +10,12 @@ from typing import Any
 import duckdb
 import pytest
 
-from oxhack_api.services import plain
-from oxhack_api.services.live import COMMON_DISEASES, MIN_TESTED_DRUGS, DiseaseCatalogue
-from oxhack_api.services.live_jury import display_name, map_jury_result
-from oxhack_api.services.ranking import EvidenceRanking, RankingInput
-from oxhack_api.settings import REPO_ROOT
-from oxhack_api.stream_a import DISEASE_PARQUET, EvidenceSources
+from htb_api.services import plain
+from htb_api.services.live import COMMON_DISEASES, MIN_TESTED_DRUGS, DiseaseCatalogue
+from htb_api.services.live_jury import display_name, map_jury_result
+from htb_api.services.ranking import EvidenceRanking, RankingInput
+from htb_api.settings import REPO_ROOT
+from htb_api.stream_a import DISEASE_PARQUET, EvidenceSources
 
 FIXTURES = REPO_ROOT / "tests" / "fixtures"
 DATA = REPO_ROOT / "data"
@@ -135,7 +135,7 @@ def test_network_unavailable_reason_is_plain() -> None:
 
 needs_data = pytest.mark.skipif(
     not (DATA / "drug_targets.json").is_file(),
-    reason="run `uv run python -m oxhack_api.prepare` first to download the live data",
+    reason="run `uv run python -m htb_api.prepare` first to download the live data",
 )
 
 
@@ -147,10 +147,10 @@ def test_live_build_end_to_end(disease_id: str) -> None:
     network ranking when its bundle is prepared, else the evidence ranking."""
     from fastapi.testclient import TestClient
 
-    from oxhack_api.app import build_components, create_app
-    from oxhack_api.schemas import Experiment
-    from oxhack_api.services.live_jury import jury_packet
-    from oxhack_api.settings import Settings
+    from htb_api.app import build_components, create_app
+    from htb_api.schemas import Experiment
+    from htb_api.services.live_jury import jury_packet
+    from htb_api.settings import Settings
 
     settings = Settings(source="live", jury="mock", fixture_delay_ms=0)
     network = (settings.network_dir / "manifest.json").is_file()
@@ -206,7 +206,7 @@ def test_snowflake_json_settings_fail_plainly(monkeypatch: pytest.MonkeyPatch) -
     """uv's .env reader drops the double quotes of an unquoted JSON value."""
     from pydantic import ValidationError
 
-    from oxhack_api.settings import SnowflakeSettings
+    from htb_api.settings import SnowflakeSettings
 
     monkeypatch.setenv("SNOWFLAKE_MODELS", "[claude-opus-5-5,openai-gpt-5.4,kimi-k3]")
     with pytest.raises(ValidationError, match="wrap the JSON in single quotes"):
@@ -219,18 +219,18 @@ def test_snowflake_json_settings_fail_plainly(monkeypatch: pytest.MonkeyPatch) -
 
 
 def test_database_url_accepts_the_codespace_name(monkeypatch: pytest.MonkeyPatch) -> None:
-    from oxhack_api.settings import Settings
+    from htb_api.settings import Settings
 
-    monkeypatch.delenv("OXHACK_DATABASE_URL", raising=False)
+    monkeypatch.delenv("HTB_DATABASE_URL", raising=False)
     monkeypatch.setenv("DATABASE_URL", "postgresql://example/db")
     assert Settings().database_url == "postgresql://example/db"
-    monkeypatch.setenv("OXHACK_DATABASE_URL", "postgresql://preferred/db")
+    monkeypatch.setenv("HTB_DATABASE_URL", "postgresql://preferred/db")
     assert Settings().database_url == "postgresql://preferred/db"
     assert Settings(database_url="postgresql://kwarg/db").database_url == "postgresql://kwarg/db"
 
 
 def test_routes_are_listed_under_every_candidate_whose_target_starts_them() -> None:
-    from oxhack_api.stream_a import share_routes
+    from htb_api.stream_a import share_routes
 
     route = {"id": "E9", "kind": "network_path", "source_id": f"{T1}>{T2}@abc"}
     here = {"id": "E8", "kind": "network_path", "source_id": f"{T2}@abc"}
@@ -248,7 +248,7 @@ def test_routes_are_listed_under_every_candidate_whose_target_starts_them() -> N
 
 @pytest.mark.skipif(
     not (DATA / DISEASE_PARQUET).is_file(),
-    reason="run `uv run python -m oxhack_api.prepare` first to download the Disease listing",
+    reason="run `uv run python -m htb_api.prepare` first to download the Disease listing",
 )
 def test_common_diseases_are_current_open_targets_diseases() -> None:
     """Each common Disease is in the 26.09 listing under its own ID (not an obsolete one that
@@ -321,7 +321,7 @@ def test_search_lists_only_diseases_that_drugs_were_tested_for(tmp_path: Path) -
 
 @pytest.mark.skipif(
     not (DATA / DISEASE_PARQUET).is_file() or not (DATA / "ot" / "clinical_indication").is_dir(),
-    reason="run `uv run python -m oxhack_api.prepare` first to download the Open Targets data",
+    reason="run `uv run python -m htb_api.prepare` first to download the Open Targets data",
 )
 def test_common_diseases_are_searchable() -> None:
     catalogue = DiseaseCatalogue(DATA / DISEASE_PARQUET, DATA / "ot" / "clinical_indication")

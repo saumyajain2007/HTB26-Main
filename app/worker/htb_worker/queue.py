@@ -1,19 +1,19 @@
-"""The docking worker: `uv run python -m oxhack_worker.queue`.
+"""The docking worker: `uv run python -m htb_worker.queue`.
 
-Needs OXHACK_REPO=postgres, OXHACK_DOCKING=vina, DATABASE_URL, DOCKING_VENV and
+Needs HTB_REPO=postgres, HTB_DOCKING=vina, DATABASE_URL, DOCKING_VENV and
 RESULTS_DIR. Until SIGINT or SIGTERM it:
 
 1. claims the oldest queued row of `dock_jobs` with `FOR UPDATE SKIP LOCKED`
    (`PostgresWorker` serving that queue only, so several workers never take the
    same job, and a job whose worker died is re-queued);
-2. runs `oxhack_worker.dock` in the docking venv as a subprocess, in its own
+2. runs `htb_worker.dock` in the docking venv as a subprocess, in its own
    process group, and kills the group if it is still going after
-   OXHACK_DOCK_TIMEOUT_S (180 s);
+   HTB_DOCK_TIMEOUT_S (180 s);
 3. moves the files to `$RESULTS_DIR/{job_id}/` and marks the job done with its
    scores, each file's SHA-256 and, for a redock control, the measured RMSD; or
    failed with the last lines of the run's stderr.
 
-The API and the pipeline worker (`python -m oxhack_api.worker`) queue docking jobs
+The API and the pipeline worker (`python -m htb_api.worker`) queue docking jobs
 but never run them in this mode.
 """
 
@@ -36,24 +36,24 @@ from pathlib import Path
 from types import FrameType
 from typing import Any
 
-from oxhack_api.app import build_components, open_repo
-from oxhack_api.jobs_pg import PostgresWorker
-from oxhack_api.repo.postgres import PostgresRepo
-from oxhack_api.schemas import DOCK_FILE_NAMES, DockJob, PoseScore
-from oxhack_api.services.docking import (
+from htb_api.app import build_components, open_repo
+from htb_api.jobs_pg import PostgresWorker
+from htb_api.repo.postgres import PostgresRepo
+from htb_api.schemas import DOCK_FILE_NAMES, DockJob, PoseScore
+from htb_api.services.docking import (
     DockingFailed,
     DockResult,
     DockSteps,
     VinaDocking,
     describe_files,
 )
-from oxhack_api.settings import Settings
+from htb_api.settings import Settings
 from pydantic import ValidationError
 
-log = logging.getLogger("oxhack_worker.queue")
+log = logging.getLogger("htb_worker.queue")
 
 WORKER_ROOT = Path(__file__).resolve().parents[1]
-"""The folder holding the `oxhack_worker` package, put on the docking venv's path."""
+"""The folder holding the `htb_worker` package, put on the docking venv's path."""
 
 TAIL_LINES = 15
 TAIL_CHARS = 1500
@@ -140,7 +140,7 @@ class DockRunner:
     """The docking venv's interpreter."""
     results_dir: Path
     timeout_s: float = 180.0
-    module: str = "oxhack_worker.dock"
+    module: str = "htb_worker.dock"
     pythonpath: tuple[Path, ...] = (WORKER_ROOT,)
     poll_s: float = 1.0
     env: Mapping[str, str] = field(default_factory=lambda: dict[str, str]())
@@ -283,7 +283,7 @@ def main() -> int:
         sys.stderr.write(f"{exc}\n")
         return 2
     if settings.repo != "postgres" or settings.docking != "vina":
-        sys.stderr.write("The docking worker needs OXHACK_REPO=postgres and OXHACK_DOCKING=vina.\n")
+        sys.stderr.write("The docking worker needs HTB_REPO=postgres and HTB_DOCKING=vina.\n")
         return 2
     runner = DockRunner(
         python=docking_python(settings),

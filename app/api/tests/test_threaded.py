@@ -10,8 +10,8 @@ import pytest
 from conftest import BARICITINIB, COVID, RUXOLITINIB, dock
 from fastapi.testclient import TestClient
 
-from oxhack_api.app import build_components, create_app
-from oxhack_api.settings import Settings
+from htb_api.app import build_components, create_app
+from htb_api.settings import Settings
 
 
 @pytest.fixture

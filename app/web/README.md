@@ -25,11 +25,11 @@ npm run dev        # http://localhost:5173, with /api proxied to FastAPI on 127.
 | `gen:api`                 | Regenerates `src/api/schema.d.ts` from `../api/openapi.json`            |
 
 `VITE_API_BASE` sets the API's origin (default: the page's own origin, whose `/api` Vite proxies).
-`OXHACK_API_ORIGIN` points the dev and preview proxies at an API other than
+`HTB_API_ORIGIN` points the dev and preview proxies at an API other than
 `http://127.0.0.1:8000`.
 
-`npm run e2e` needs `uv` (it runs `uv run uvicorn oxhack_api.app:app` in `../api` with
-`OXHACK_FIXTURE_DELAY_MS=300`) and Playwright's Chromium (`npx playwright install chromium`).
+`npm run e2e` needs `uv` (it runs `uv run uvicorn htb_api.app:app` in `../api` with
+`HTB_FIXTURE_DELAY_MS=300`) and Playwright's Chromium (`npx playwright install chromium`).
 Locally it reuses servers already running on ports 8000 and 4173; `E2E_API_PORT` and
 `E2E_WEB_PORT` move them.
 
@@ -65,7 +65,7 @@ Locally it reuses servers already running on ports 8000 and 4173; `E2E_API_PORT`
 - `src/lib/format.ts`: `drugName()` and the other display formatters; use them everywhere.
 - Tests: `src/test/` has the MSW server (handlers typed by the contract via `openapi-msw`), the
   WebGL and layout stand-ins for jsdom, and fixtures read straight from
-  `../api/oxhack_api/fixtures` through the `@api-fixtures` alias, so both sides share one copy.
+  `../api/htb_api/fixtures` through the `@api-fixtures` alias, so both sides share one copy.
   `e2e/` holds the Playwright tests.
 
 ArrowUp and ArrowDown move between steps, except while typing in a field or moving through the

@@ -1,8 +1,8 @@
-"""Run the background job worker on its own: `uv run python -m oxhack_api.worker`.
+"""Run the background job worker on its own: `uv run python -m htb_api.worker`.
 
 It claims Experiment builds, Model jury runs and docking jobs from Postgres
-(`OXHACK_REPO=postgres`, `OXHACK_DATABASE_URL`) until SIGINT or SIGTERM. Run
-the API with `OXHACK_INPROCESS_WORKER=0` when this runs. Several workers may
+(`HTB_REPO=postgres`, `HTB_DATABASE_URL`) until SIGINT or SIGTERM. Run
+the API with `HTB_INPROCESS_WORKER=0` when this runs. Several workers may
 run at once; each job is claimed by one of them.
 """
 
@@ -21,7 +21,7 @@ from .jobs_pg import PostgresQueue, PostgresWorker
 from .repo.postgres import PostgresRepo
 from .settings import Settings
 
-log = logging.getLogger("oxhack_api.worker")
+log = logging.getLogger("htb_api.worker")
 
 
 def main() -> int:
@@ -32,7 +32,7 @@ def main() -> int:
         sys.stderr.write(f"{exc}\n")
         return 2
     if settings.repo != "postgres":
-        sys.stderr.write("The worker needs OXHACK_REPO=postgres and OXHACK_DATABASE_URL.\n")
+        sys.stderr.write("The worker needs HTB_REPO=postgres and HTB_DATABASE_URL.\n")
         return 2
     components = build_components(settings)
     assert isinstance(components.repo, PostgresRepo)

@@ -6,7 +6,7 @@ in order, with why each drug was selected.
 
 - `NetworkRanking` is stream B's network ranking (Zaid's `ranking.scoring.RankingEngine`
   and `ranking.rwr.RWREngine`) over the protein network bundle that
-  `python -m oxhack_api.prepare` builds. Live mode uses it whenever that bundle
+  `python -m htb_api.prepare` builds. Live mode uses it whenever that bundle
   exists.
 - `EvidenceRanking` is plan.md section 4.4's transparent fallback: stream A's
   direct Target-evidence baseline (`pipeline.experiment.direct_shortlist`). The
@@ -182,7 +182,7 @@ class NetworkRanking:
     """Stream B's network ranking (Zaid's `ranking.scoring.RankingEngine` for closeness and
     `ranking.rwr.RWREngine` for the random walk with restart).
 
-    Reads the artefact bundle `python -m oxhack_api.prepare` builds (stream B's
+    Reads the artefact bundle `python -m htb_api.prepare` builds (stream B's
     `ranking/README.md`: the STRING 12.5 physical network and its distance matrix) and
     the approved drug universe stream B reads, `drug_targets.json`. Both are loaded once,
     on first use or by `warm()`, on a background or job thread, never a request thread.

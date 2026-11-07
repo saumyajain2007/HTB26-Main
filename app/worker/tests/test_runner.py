@@ -11,10 +11,10 @@ from pathlib import Path
 
 import pytest
 from conftest import control_job, drive, fake_runner
-from oxhack_api.schemas import DOCK_FILE_NAMES
-from oxhack_api.services.docking import DockingFailed, DockResult
+from htb_api.schemas import DOCK_FILE_NAMES
+from htb_api.services.docking import DockingFailed, DockResult
 
-from oxhack_worker.queue import TAIL_LINES, run_subprocess, tail
+from htb_worker.queue import TAIL_LINES, run_subprocess, tail
 
 
 def alive(pid: int) -> bool:

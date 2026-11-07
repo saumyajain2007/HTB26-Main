@@ -1,4 +1,4 @@
-"""The live Model jury: stream A's `jury.client.run_jury` (`OXHACK_JURY=mock|cortex`).
+"""The live Model jury: stream A's `jury.client.run_jury` (`HTB_JURY=mock|cortex`).
 
 - **cortex**: the three models in `SNOWFLAKE_MODELS`, through stream A's
   `CortexModel` (Snowflake Cortex, `SNOWFLAKE_ACCOUNT` and `SNOWFLAKE_PAT`), with
@@ -351,7 +351,7 @@ class StreamAJury:
                 if callable(close):
                     close()
 
-        threading.Thread(target=run, name="oxhack-jury", daemon=True).start()
+        threading.Thread(target=run, name="htb-jury", daemon=True).start()
         while True:
             event = events.get()
             if isinstance(event, str):

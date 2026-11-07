@@ -1,4 +1,4 @@
-# oxhack-worker: the AutoDock Vina docking worker
+# htb-worker: the AutoDock Vina docking worker
 
 Computes binding poses for the app (plan.md section 7, docs/engineering/build-reference.md
 C1-C9). A pose is a geometric hypothesis and a Vina score is a rough, unitless
@@ -11,12 +11,12 @@ Two Pythons are involved, because Vina publishes Linux x86_64 wheels only:
 
 | Module | Runs in | Does |
 |---|---|---|
-| `oxhack_worker.prepare` | docking venv | Downloads each structure from RCSB and writes `structures/{PDB}/` (committed) and `structures/settings.json`. |
-| `oxhack_worker.dock` | docking venv | Docks one SMILES into one structure; writes `poses.sdf`, `scores.json`, `log.txt` and copies of `receptor.pdb` and `crystal_ligand.sdf`. |
-| `oxhack_worker.control` | docking venv | The symmetry-aware RMSD (RDKit) to the crystal pose, and a command that redocks a structure's crystal ligand by hand. |
-| `oxhack_worker.queue` | project venv (`uv run`) | The docking worker: claims `dock_jobs`, runs `dock` as a subprocess, stores the files and the result. |
+| `htb_worker.prepare` | docking venv | Downloads each structure from RCSB and writes `structures/{PDB}/` (committed) and `structures/settings.json`. |
+| `htb_worker.dock` | docking venv | Docks one SMILES into one structure; writes `poses.sdf`, `scores.json`, `log.txt` and copies of `receptor.pdb` and `crystal_ligand.sdf`. |
+| `htb_worker.control` | docking venv | The symmetry-aware RMSD (RDKit) to the crystal pose, and a command that redocks a structure's crystal ligand by hand. |
+| `htb_worker.queue` | project venv (`uv run`) | The docking worker: claims `dock_jobs`, runs `dock` as a subprocess, stores the files and the result. |
 
-With `OXHACK_DOCKING=vina` (which needs `OXHACK_REPO=postgres`):
+With `HTB_DOCKING=vina` (which needs `HTB_REPO=postgres`):
 
 1. The API lists the structures in `structures/` and queues a docking request as a
    `dock_jobs` row. Its `cache_key` is the SHA-256 of the PDB ID, chain, SMILES,
@@ -26,18 +26,18 @@ With `OXHACK_DOCKING=vina` (which needs `OXHACK_REPO=postgres`):
 2. Every process seeds one queued `redock_control` job per structure, with an ID
    derived from its cache key, so the control is measured once per toolchain.
 3. The docking worker claims the oldest queued row with `FOR UPDATE SKIP LOCKED`.
-   It runs `python -m oxhack_worker.dock` with `$DOCKING_VENV/bin/python` in its
-   own process group and kills the group after `OXHACK_DOCK_TIMEOUT_S` (180 s).
+   It runs `python -m htb_worker.dock` with `$DOCKING_VENV/bin/python` in its
+   own process group and kills the group after `HTB_DOCK_TIMEOUT_S` (180 s).
 4. On success the files move to `$RESULTS_DIR/{job_id}/`; the row gets the
    scores, each file's SHA-256 and, for a control, the top pose's RMSD. The API
    serves the files from `/api/files/{job_id}/{name}` and shows the control's
    measured RMSD as passed (at most 2.0 angstroms) or failed. On a timeout or an
    error the row is `failed` with the last lines of stderr.
-5. A job whose worker dies is re-queued after `OXHACK_JOB_STALE_AFTER_S`, and
-   failed after `OXHACK_JOB_MAX_ATTEMPTS` claims. The pipeline worker
-   (`python -m oxhack_api.worker`) does not touch `dock_jobs` in this mode.
+5. A job whose worker dies is re-queued after `HTB_JOB_STALE_AFTER_S`, and
+   failed after `HTB_JOB_MAX_ATTEMPTS` claims. The pipeline worker
+   (`python -m htb_api.worker`) does not touch `dock_jobs` in this mode.
 
-The default, `OXHACK_DOCKING=fixture`, keeps the made-up fixture results and never
+The default, `HTB_DOCKING=fixture`, keeps the made-up fixture results and never
 runs Vina.
 
 ## Run it in the codespace
@@ -53,13 +53,13 @@ deploy/serve.sh                   # API on :8000, pipeline worker, docking worke
 or the docking worker on its own:
 
 ```bash
-OXHACK_REPO=postgres OXHACK_DOCKING=vina uv run python -m oxhack_worker.queue
+HTB_REPO=postgres HTB_DOCKING=vina uv run python -m htb_worker.queue
 ```
 
 Check one control by hand, without the database:
 
 ```bash
-PYTHONPATH=worker "$DOCKING_VENV/bin/python" -m oxhack_worker.control 6WTO
+PYTHONPATH=worker "$DOCKING_VENV/bin/python" -m htb_worker.control 6WTO
 ```
 
 On a Mac, run the docking venv side in an amd64 container (Docker Desktop with
@@ -68,33 +68,33 @@ On a Mac, run the docking venv side in an amd64 container (Docker Desktop with
 ```bash
 docker run --rm --platform linux/amd64 -v "$PWD":/repo -w /repo -e PYTHONPATH=/repo/worker \
   python:3.11-slim-bookworm sh -c \
-  'pip install -q -r .devcontainer/docking-requirements.txt && python -m oxhack_worker.control 6WTO'
+  'pip install -q -r .devcontainer/docking-requirements.txt && python -m htb_worker.control 6WTO'
 ```
 
 ### The whole stack on a Mac
 
 Vina has no arm64 wheel, so on Apple Silicon the docking worker runs in an amd64
-container (`oxhack-docking:local`, built from `.devcontainer/docking-requirements.txt`)
+container (`htb-docking:local`, built from `.devcontainer/docking-requirements.txt`)
 while the API runs natively. Both share the repository, so results land in
 `data/docking/` for the API to serve. Use a local Postgres, not Tiger:
 
 ```bash
-docker run -d --name oxhack-dockworker --platform linux/amd64 -v "$PWD":/repo -w /repo \
+docker run -d --name htb-dockworker --platform linux/amd64 -v "$PWD":/repo -w /repo \
   -e DATABASE_URL="postgresql://<user>:<password>@host.docker.internal:<port>/<db>" \
-  -e OXHACK_REPO=postgres -e OXHACK_DOCKING=vina -e DOCKING_VENV=/usr/local \
-  -e UV_PROJECT_ENVIRONMENT=/opt/venv -e UV_LINK_MODE=copy oxhack-docking:local \
+  -e HTB_REPO=postgres -e HTB_DOCKING=vina -e DOCKING_VENV=/usr/local \
+  -e UV_PROJECT_ENVIRONMENT=/opt/venv -e UV_LINK_MODE=copy htb-docking:local \
   sh -c 'pip install -q uv && uv sync --all-packages --frozen --quiet &&
-         exec uv run --no-sync python -m oxhack_worker.queue'
+         exec uv run --no-sync python -m htb_worker.queue'
 ```
 
-Then start the API with `OXHACK_REPO=postgres OXHACK_DOCKING=vina
+Then start the API with `HTB_REPO=postgres HTB_DOCKING=vina
 DOCKING_VENV=/usr/local` and the same database on `127.0.0.1`.
 
 ## Which ligand is docked
 
 The SMILES is fixed when a request is queued and saved with the job
 (`dock_jobs.ligand_smiles`); the worker docks exactly that. The API takes it from
-`api/oxhack_api/fixtures/docking.json` (hand-checked) or, for any other live
+`api/htb_api/fixtures/docking.json` (hand-checked) or, for any other live
 Candidate, from ChEMBL's parent record (`services/ligands.py`), kept in
 `data/ligands/`. A drug ChEMBL does not call a small molecule (an antibody, a
 protein) has no SMILES and is not offered for docking.
@@ -102,10 +102,10 @@ protein) has no SMILES and is not offered for docking.
 ## Prepare the structures again
 
 ```bash
-PYTHONPATH=worker "$DOCKING_VENV/bin/python" -m oxhack_worker.prepare   # or: ... prepare 6WTO
+PYTHONPATH=worker "$DOCKING_VENV/bin/python" -m htb_worker.prepare   # or: ... prepare 6WTO
 ```
 
-The set is the one in `api/oxhack_api/fixtures/structures.json`. Receptor
+The set is the one in `api/htb_api/fixtures/structures.json`. Receptor
 preparation keeps the docking chain's protein atoms and makes each residue match a
 Meeko template without inventing coordinates:
 

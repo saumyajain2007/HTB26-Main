@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "oxhack-ranking"
+name = "htb-ranking"
 version = "0.3.0"
-description = "Protein network, Candidate ranking and retrospective evaluation for OxHack Stream B"
+description = "Protein network, Candidate ranking and retrospective evaluation for HTB26 Stream B"
 requires-python = ">=3.11"
 dependencies = ["numpy==2.4.6", "scipy==1.17.1"]
 

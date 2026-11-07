@@ -1,10 +1,10 @@
 # pyright: reportMissingImports=false, reportMissingTypeStubs=false
 """Prepare the docking structures (docs/engineering/build-reference.md C2 and C3).
 
-    python -m oxhack_worker.prepare            # every structure, in $DOCKING_VENV
-    python -m oxhack_worker.prepare 6WTO 6WTN  # some of them
+    python -m htb_worker.prepare            # every structure, in $DOCKING_VENV
+    python -m htb_worker.prepare 6WTO 6WTN  # some of them
 
-The prepared set is the one the API lists, `api/oxhack_api/fixtures/structures.json`
+The prepared set is the one the API lists, `api/htb_api/fixtures/structures.json`
 (PDB entry, chain, protein, co-crystal ligand). For each entry this downloads it
 from RCSB, checks the listing against RCSB's own records and writes
 `worker/structures/{PDB}/`, which is committed:
@@ -47,7 +47,7 @@ from typing import Any
 from .dock import STRUCTURES_DIR, toolchain
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-LISTING = REPO_ROOT / "api" / "oxhack_api" / "fixtures" / "structures.json"
+LISTING = REPO_ROOT / "api" / "htb_api" / "fixtures" / "structures.json"
 
 BOX_SIZE = 25.0
 SETTINGS = {"engine": "vina", "exhaustiveness": 8, "seed": 42, "n_poses": 9}
@@ -98,7 +98,7 @@ MODIFIED: dict[str, tuple[str, dict[str, str]]] = {
 
 
 def fetch(url: str) -> bytes:
-    request = urllib.request.Request(url, headers={"User-Agent": "oxhack-worker/0.1"})
+    request = urllib.request.Request(url, headers={"User-Agent": "htb-worker/0.1"})
     with urllib.request.urlopen(request, timeout=60) as response:
         body: bytes = response.read()
     return body
@@ -202,7 +202,7 @@ def meeko_receptor(clean_pdb: str, out: Path, center: Sequence[float]) -> str:
         "--box_center", *(f"{c:.3f}" for c in center),
         "--box_size", *(f"{BOX_SIZE:g}" for _ in range(3)),
     ]  # fmt: skip
-    with tempfile.TemporaryDirectory(prefix="oxhack-prepare-") as scratch:
+    with tempfile.TemporaryDirectory(prefix="htb-prepare-") as scratch:
         source = Path(scratch) / "clean.pdb"
         source.write_text(clean_pdb)
         command = [
@@ -266,7 +266,7 @@ def complete_molfile(sdf_text: str, title: str, properties: dict[str, str]) -> s
     lines = sdf_text.split("$$$$")[0].splitlines()
     end = next(i for i, line in enumerate(lines) if line.startswith("M  END"))
     counts = lines[3].ljust(30)[:30] + "999 V2000"
-    block = [title, "  oxhack            3D", "", counts, *lines[4 : end + 1]]
+    block = [title, "  htb            3D", "", counts, *lines[4 : end + 1]]
     for key, value in properties.items():
         block += [f"> <{key}>", value, ""]
     return "\n".join([*block, "$$$$"]) + "\n"

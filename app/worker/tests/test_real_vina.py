@@ -15,11 +15,11 @@ from pathlib import Path
 
 import pytest
 from conftest import STRUCTURES_DIR, control_job, drive
-from oxhack_api.repo import MemoryRepo
-from oxhack_api.services.docking import VinaDocking
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.repo import MemoryRepo
+from htb_api.services.docking import VinaDocking
+from htb_api.settings import FIXTURES_DIR
 
-from oxhack_worker.queue import DockRunner, check_toolchain
+from htb_worker.queue import DockRunner, check_toolchain
 
 pytestmark = pytest.mark.docking
 

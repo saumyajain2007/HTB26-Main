@@ -4,7 +4,7 @@ Postgres tests use a fresh migrated database on a throwaway local cluster
 (`db/throwaway_pg.py`, shared with api/ and db/), never Tiger; they skip when
 there is no local Postgres (initdb, pg_ctl) and no TEST_DATABASE_URL.
 
-Docking runs use `fake_dock.py` in place of `oxhack_worker.dock`, so no test
+Docking runs use `fake_dock.py` in place of `htb_worker.dock`, so no test
 needs Vina except those marked `docking`.
 """
 
@@ -18,12 +18,12 @@ from typing import Any, TypeVar
 import migrate  # db/migrate.py, on the path through [tool.pytest.ini_options] pythonpath
 import pytest
 import throwaway_pg  # db/throwaway_pg.py
-from oxhack_api.repo import MemoryRepo
-from oxhack_api.schemas import DockJob
-from oxhack_api.services.docking import VinaDocking
-from oxhack_api.settings import FIXTURES_DIR, Settings
+from htb_api.repo import MemoryRepo
+from htb_api.schemas import DockJob
+from htb_api.services.docking import VinaDocking
+from htb_api.settings import FIXTURES_DIR, Settings
 
-from oxhack_worker.queue import WORKER_ROOT, DockRunner
+from htb_worker.queue import WORKER_ROOT, DockRunner
 
 TESTS_DIR = Path(__file__).resolve().parent
 STRUCTURES_DIR = WORKER_ROOT / "structures"
@@ -50,7 +50,7 @@ def pg_admin() -> Iterator[str]:
 
 @pytest.fixture(scope="session")
 def pg_template(pg_admin: str) -> Iterator[str]:
-    conninfo = throwaway_pg.create_database(pg_admin, prefix="oxhack_worker_template")
+    conninfo = throwaway_pg.create_database(pg_admin, prefix="htb_worker_template")
     migrate.migrate(conninfo)
     yield throwaway_pg.database_name(conninfo)
     throwaway_pg.drop_database(pg_admin, conninfo)

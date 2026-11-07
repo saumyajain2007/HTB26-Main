@@ -4,8 +4,8 @@ A function has one or two CPUs and five minutes, too little for a large ligand
 (venetoclax takes about 7.5 minutes on two). Each job here gets its own microVM
 with four vCPUs, restored in about a second from a snapshot whose /opt/dock venv
 holds .devcontainer/docking-requirements.txt (`deploy/vercel/dock_snapshot.py`
-makes it). The job's structure and the `oxhack_worker` code are uploaded, and the
-same `oxhack_worker.dock` command the docking worker runs is started there, so a
+makes it). The job's structure and the `htb_worker` code are uploaded, and the
+same `htb_worker.dock` command the docking worker runs is started there, so a
 result is the same computation either way.
 
 The run does not depend on the function that started it. The sandbox is named
@@ -31,8 +31,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from oxhack_api.schemas import DOCK_FILE_NAMES, DockJob
-from oxhack_api.services.docking import (
+from htb_api.schemas import DOCK_FILE_NAMES, DockJob
+from htb_api.services.docking import (
     DockingFailed,
     DockingInProgress,
     DockResult,

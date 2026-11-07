@@ -8,10 +8,10 @@ import pytest
 from conftest import SteppedRunner, ready_experiment
 from fastapi.testclient import TestClient
 
-from oxhack_api.app import open_jury
-from oxhack_api.repo import Repo
-from oxhack_api.services import live_jury
-from oxhack_api.settings import Settings
+from htb_api.app import open_jury
+from htb_api.repo import Repo
+from htb_api.services import live_jury
+from htb_api.settings import Settings
 
 
 def test_cortex_budget_blocks_retries_and_survives_backend_recreation(

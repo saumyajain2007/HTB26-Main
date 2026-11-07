@@ -1,16 +1,16 @@
 [project]
-name = "oxhack-api"
+name = "htb-api"
 version = "0.1.0"
-description = "HTTP API for the OxHack '26 drug repurposing app."
+description = "HTTP API for the HTB26 drug repurposing app."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115",
   # Stream A (core/pipeline/ and core/jury/): the live evidence
   # pipeline and the Model jury.
-  "oxhack-drug-repurposing",
+  "htb-drug-repurposing",
   # Stream B (core/ranking/): the network-proximity ranking.
-  "oxhack-ranking",
+  "htb-ranking",
   "psycopg-pool>=3.2,<4",
   "psycopg[binary]>=3.2,<4",
   "pydantic>=2.9",
@@ -31,20 +31,20 @@ dev = [
 ]
 
 [tool.uv.sources]
-oxhack-drug-repurposing = { workspace = true }
-oxhack-ranking = { workspace = true }
+htb-drug-repurposing = { workspace = true }
+htb-ranking = { workspace = true }
 
 [build-system]
 requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["oxhack_api"]
+packages = ["htb_api"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra -m 'not network'"
-markers = ["network: calls Open Targets and needs `python -m oxhack_api.prepare` data; run with -m network"]
+markers = ["network: calls Open Targets and needs `python -m htb_api.prepare` data; run with -m network"]
 # deploy/db/ holds migrate.py and the throwaway-Postgres helpers shared with db/tests.
 pythonpath = ["../../deploy/db"]
 
@@ -58,7 +58,7 @@ select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "N", "C4", "PT", "RET"]
 ignore = ["N818"]
 
 [tool.pyright]
-include = ["oxhack_api", "tests"]
+include = ["htb_api", "tests"]
 pythonVersion = "3.11"
 typeCheckingMode = "strict"
 # The uv workspace keeps one .venv at the repository root.

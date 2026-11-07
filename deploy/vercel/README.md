@@ -8,8 +8,8 @@ Live at **https://halflife-bio.vercel.app** (Vercel project `halflife`, also
 | Website (`app/web`) | Vercel's CDN, from `public/` |
 | API (`app/api`) | One Python function: `index.py`, FastAPI, 300 s per request |
 | Database | Neon Postgres (free), through the Vercel integration |
-| Experiment builds, Model jury | In the API function, after the request that queued them (`oxhack_api.drain`) |
-| Docking | Vercel Sandbox microVMs with 4 vCPUs (`oxhack_worker.sandbox`) |
+| Experiment builds, Model jury | In the API function, after the request that queued them (`htb_api.drain`) |
+| Docking | Vercel Sandbox microVMs with 4 vCPUs (`htb_worker.sandbox`) |
 
 ## How it fits together
 
@@ -17,13 +17,13 @@ Live at **https://halflife-bio.vercel.app** (Vercel project `halflife`, also
   Postgres job queues in the background (`wait_until`). The browser polls while
   work is live, so jobs move on while someone is watching; a job whose function
   ended mid-way is recovered by the next request (stale heartbeat). A drain
-  claims new jobs for 30 s (`OXHACK_DRAIN_CLAIM_S`), so each job ends inside the
+  claims new jobs for 30 s (`HTB_DRAIN_CLAIM_S`), so each job ends inside the
   300 s limit: a jury makes at most two 120 s attempts per model
   (`SNOWFLAKE_TIMEOUT_SECONDS`); Kimi K3 took about 75 s per attempt here.
 - **Docking outlives functions.** Each job gets a sandbox named after it,
   restored from a snapshot with the pinned toolchain. A drain watches the run
   for up to two minutes, then puts the job back in the queue; the next drain
-  reattaches by name. The sandbox kills a run after `OXHACK_DOCK_TIMEOUT_S`.
+  reattaches by name. The sandbox kills a run after `HTB_DOCK_TIMEOUT_S`.
   Result files are kept in Postgres (`dock_files`), so any function serves them.
 - **A large function.** The prepared data (about 0.5 GB) ships in the function
   bundle, under Vercel's 5 GB large-function limit
@@ -39,7 +39,7 @@ Live at **https://halflife-bio.vercel.app** (Vercel project `halflife`, also
   holds the database's credentials. The API uses `DATABASE_URL_UNPOOLED`: it
   relies on session settings and advisory locks that a transaction pooler drops.
 - **Rate limits** key on `x-vercel-forwarded-for`, which Vercel overwrites on
-  every request (`OXHACK_CLIENT_IP_HEADER`). Paid Cortex calls and creation
+  every request (`HTB_CLIENT_IP_HEADER`). Paid Cortex calls and creation
   quotas are counted in Postgres; per-IP request bursts are per function instance.
 
 Vercel's Python builder installs only a uv workspace's root project, so CI does
@@ -79,25 +79,25 @@ Done for `halflife` on 26-27 October 2026; repeat for a new project.
 
    ```
    VERCEL_SUPPORT_LARGE_FUNCTIONS=1
-   OXHACK_REPO=postgres
-   OXHACK_SOURCE=live
-   OXHACK_JURY=cortex
-   OXHACK_DOCKING=vina
-   OXHACK_SESSION_COOKIE_SECURE=true
-   OXHACK_DOCK_TIMEOUT_S=900
+   HTB_REPO=postgres
+   HTB_SOURCE=live
+   HTB_JURY=cortex
+   HTB_DOCKING=vina
+   HTB_SESSION_COOKIE_SECURE=true
+   HTB_DOCK_TIMEOUT_S=900
    DOCK_SNAPSHOT_ID=<printed by dock_snapshot.py>
    SNOWFLAKE_ACCOUNT=<account identifier>
    SNOWFLAKE_PAT=<programmatic access token>
    SNOWFLAKE_MODELS=["openai-gpt-5.4","glm-5.3","kimi-k3"]
    SNOWFLAKE_REASONING_EFFORT={"glm-5.3":"low","kimi-k3":"low"}
    SNOWFLAKE_TIMEOUT_SECONDS=120
-   OXHACK_DRAIN_CLAIM_S=30
+   HTB_DRAIN_CLAIM_S=30
    ```
 
    A Snowflake programmatic access token works only for a user with a network
    policy. Function IPs are not fixed, so that policy must allow all addresses.
    Variable changes apply from the next deployment.
-5. **Prepared data.** Build it with `uv run python -m oxhack_api.prepare`, pack it
+5. **Prepared data.** Build it with `uv run python -m htb_api.prepare`, pack it
    and attach it to a GitHub release (data is git-ignored):
 
    ```bash

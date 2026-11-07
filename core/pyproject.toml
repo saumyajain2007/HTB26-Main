@@ -1,7 +1,7 @@
 # The evidence pipeline and the Model jury, one package because each imports the
 # other. core/ranking/ is its own package (core/ranking/pyproject.toml).
 [project]
-name = "oxhack-drug-repurposing"
+name = "htb-drug-repurposing"
 version = "0.1.0"
 description = "Evidence pipeline and Model jury for Half Life"
 requires-python = ">=3.11"

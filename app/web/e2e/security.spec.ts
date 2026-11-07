@@ -18,9 +18,9 @@ test("anonymous browsers keep private histories and cannot access each other's e
     })
     .toBe("ready");
 
-  const ownerCookie = (await context.cookies()).find((cookie) => cookie.name === "oxhack_session");
+  const ownerCookie = (await context.cookies()).find((cookie) => cookie.name === "htb_session");
   expect(ownerCookie).toMatchObject({ httpOnly: true, sameSite: "Lax", path: "/" });
-  expect(await page.evaluate(() => document.cookie)).not.toContain("oxhack_session");
+  expect(await page.evaluate(() => document.cookie)).not.toContain("htb_session");
 
   const other = await browser.newContext({ baseURL: new URL(page.url()).origin });
   try {
@@ -29,7 +29,7 @@ test("anonymous browsers keep private histories and cannot access each other's e
     await expect(otherPage).toHaveURL(/\/e\/[0-9a-f-]{36}\/disease$/);
     const otherId = new URL(otherPage.url()).pathname.split("/")[2];
     expect(otherId).not.toBe(ownerId);
-    const otherCookie = (await other.cookies()).find((cookie) => cookie.name === "oxhack_session");
+    const otherCookie = (await other.cookies()).find((cookie) => cookie.name === "htb_session");
     expect(otherCookie?.value).toBeTruthy();
     expect(otherCookie?.value).not.toBe(ownerCookie?.value);
 
@@ -58,7 +58,7 @@ test("anonymous browsers keep private histories and cannot access each other's e
     await page.reload();
     await expect(page).toHaveURL(new RegExp(`/e/${ownerId}/disease$`));
     const reloadedCookie = (await context.cookies()).find(
-      (cookie) => cookie.name === "oxhack_session",
+      (cookie) => cookie.name === "htb_session",
     );
     expect(reloadedCookie?.value).toBe(ownerCookie?.value);
   } finally {

@@ -15,7 +15,7 @@ from .errors import TooManyRequests
 from .limits import MemoryLimits
 from .settings import Settings
 
-COOKIE = "oxhack_session"
+COOKIE = "htb_session"
 SESSION_AGE = 30 * 24 * 60 * 60
 
 
@@ -111,7 +111,7 @@ class BrowserSecurity:
 
     def peer(self, request: Request) -> str:
         """The reader's IP: the connection's peer, normalized by Uvicorn's trusted proxy
-        handling, or OXHACK_CLIENT_IP_HEADER's address behind a proxy that overwrites
+        handling, or HTB_CLIENT_IP_HEADER's address behind a proxy that overwrites
         it. Accepting a header the caller controls, such as X-Forwarded-For through an
         external rewrite, would let callers bypass quotas."""
         peer = request.client.host if request.client else "unknown"

@@ -1,7 +1,7 @@
 """The network ranking adapter (stream B) on a tiny artificial protein network.
 
 The bundle is built with stream B's own `build_artifacts`, from a made-up STRING links
-file and mapping, the same way `python -m oxhack_api.prepare` builds the real one:
+file and mapping, the same way `python -m htb_api.prepare` builds the real one:
 
     G1 - G2 - G3 - G4 - G5 - G6 - G7 - G8     (the largest component)
               |
@@ -21,17 +21,17 @@ from typing import Any
 
 import pytest
 
-from oxhack_api import stream_b
-from oxhack_api.app import open_ranking
-from oxhack_api.schemas import Candidate
-from oxhack_api.services.ranking import (
+from htb_api import stream_b
+from htb_api.app import open_ranking
+from htb_api.schemas import Candidate
+from htb_api.services.ranking import (
     EvidenceRanking,
     NetworkRanking,
     Ranked,
     RankingInput,
     subgraph,
 )
-from oxhack_api.settings import Settings
+from htb_api.settings import Settings
 
 
 def gene(i: int) -> str:
@@ -257,7 +257,7 @@ def test_the_drawn_network_keeps_every_path_even_past_its_limit(data: Path) -> N
 
 def test_candidates_built_from_the_ranking_validate(data: Path) -> None:
     """A not_scorable network Candidate needs its plain reason; a placed one its path."""
-    from oxhack_api.services import plain
+    from htb_api.services import plain
 
     result = ranking(data, min_bin_size=1).rank(request(), frozenset())
     for position, ranked in enumerate(result.shortlist, 1):

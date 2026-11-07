@@ -35,16 +35,16 @@ from conftest import (
 )
 from fastapi.testclient import TestClient
 
-from oxhack_api.app import build_components, create_app
-from oxhack_api.deps import Components
-from oxhack_api.drain import make_drain
-from oxhack_api.jobs_pg import PostgresQueue, PostgresWorker
-from oxhack_api.repo.postgres import SCHEMA_VERSION, PostgresRepo, SchemaOutOfDate
-from oxhack_api.schemas import DockJob, DockSettings, Structure
-from oxhack_api.services.docking import DockingFailed, DockSteps, FixtureDocking
-from oxhack_api.services.jury import FixtureJury
-from oxhack_api.services.source import FixtureSource
-from oxhack_api.settings import FIXTURES_DIR, Settings
+from htb_api.app import build_components, create_app
+from htb_api.deps import Components
+from htb_api.drain import make_drain
+from htb_api.jobs_pg import PostgresQueue, PostgresWorker
+from htb_api.repo.postgres import SCHEMA_VERSION, PostgresRepo, SchemaOutOfDate
+from htb_api.schemas import DockJob, DockSettings, Structure
+from htb_api.services.docking import DockingFailed, DockSteps, FixtureDocking
+from htb_api.services.jury import FixtureJury
+from htb_api.services.source import FixtureSource
+from htb_api.settings import FIXTURES_DIR, Settings
 
 MIGRATIONS = Path(__file__).resolve().parents[3] / "deploy" / "db" / "migrations"
 
@@ -327,15 +327,15 @@ def test_the_in_process_worker_runs_jobs_and_stops_cleanly(pg_settings: Settings
 def test_the_worker_command_runs_jobs_until_terminated(queued: Components) -> None:
     client = client_for(queued)
     experiment_id = create(client)["id"]
-    env = {k: v for k, v in os.environ.items() if not k.startswith(("OXHACK_", "DATABASE_URL"))}
+    env = {k: v for k, v in os.environ.items() if not k.startswith(("HTB_", "DATABASE_URL"))}
     env |= {
-        "OXHACK_REPO": "postgres",
-        "OXHACK_DATABASE_URL": queued.settings.database_url or "",
-        "OXHACK_FIXTURE_DELAY_MS": "0",
-        "OXHACK_WORKER_POLL_MS": "50",
+        "HTB_REPO": "postgres",
+        "HTB_DATABASE_URL": queued.settings.database_url or "",
+        "HTB_FIXTURE_DELAY_MS": "0",
+        "HTB_WORKER_POLL_MS": "50",
     }
     process = subprocess.Popen(
-        [sys.executable, "-m", "oxhack_api.worker"],
+        [sys.executable, "-m", "htb_api.worker"],
         env=env,
         stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT,
@@ -632,7 +632,7 @@ def test_token_usage_and_reasoning_effort_round_trip(
 
 def drained(pg_settings: Settings, **settings: Any) -> Components:
     """Components as a serverless deployment runs them: no worker process; jobs run
-    after the API's responses (OXHACK_AFTER_REQUEST_JOBS)."""
+    after the API's responses (HTB_AFTER_REQUEST_JOBS)."""
     return build_components(pg_settings.model_copy(update={"after_request_jobs": True, **settings}))
 
 

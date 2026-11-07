@@ -6,10 +6,10 @@
 #   deploy/serve.sh             # API on http://0.0.0.0:8000
 #
 # Needs DATABASE_URL (a codespace secret, or in .env). Docking is real Vina
-# (OXHACK_DOCKING=vina, needs DOCKING_VENV and RESULTS_DIR, both set in the dev
-# container); OXHACK_DOCKING=fixture serves the made-up fixture results instead and
-# starts no docking worker. Other OXHACK_* settings pass through, from the
-# environment or .env, e.g. OXHACK_SOURCE=live OXHACK_JURY=cortex. HOST and PORT
+# (HTB_DOCKING=vina, needs DOCKING_VENV and RESULTS_DIR, both set in the dev
+# container); HTB_DOCKING=fixture serves the made-up fixture results instead and
+# starts no docking worker. Other HTB_* settings pass through, from the
+# environment or .env, e.g. HTB_SOURCE=live HTB_JURY=cortex. HOST and PORT
 # choose where the API listens.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -33,23 +33,23 @@ if [[ -z "$(setting DATABASE_URL)" ]]; then
   echo "serve.sh: set DATABASE_URL to the Postgres connection string, then migrate it" >&2
   exit 2
 fi
-docking=$(setting OXHACK_DOCKING)
+docking=$(setting HTB_DOCKING)
 docking=${docking:-vina}
 if [[ "$docking" == vina ]]; then
   for name in DOCKING_VENV RESULTS_DIR; do
     if [[ -z "$(setting "$name")" ]]; then
-      echo "serve.sh: OXHACK_DOCKING=vina needs $name (see app/worker/README.md)" >&2
+      echo "serve.sh: HTB_DOCKING=vina needs $name (see app/worker/README.md)" >&2
       exit 2
     fi
   done
   mkdir -p "$(setting RESULTS_DIR)"
 fi
-export OXHACK_REPO=postgres
-export OXHACK_INPROCESS_WORKER=0 # the pipeline worker below runs the jobs
-export OXHACK_DOCKING=$docking
+export HTB_REPO=postgres
+export HTB_INPROCESS_WORKER=0 # the pipeline worker below runs the jobs
+export HTB_DOCKING=$docking
 # Codespaces serves HTTPS; local development uses HTTP unless configured otherwise.
-secure_cookie=$(setting OXHACK_SESSION_COOKIE_SECURE)
-export OXHACK_SESSION_COOKIE_SECURE=${secure_cookie:-${CODESPACES:-false}}
+secure_cookie=$(setting HTB_SESSION_COOKIE_SECURE)
+export HTB_SESSION_COOKIE_SECURE=${secure_cookie:-${CODESPACES:-false}}
 
 uv sync --all-packages --frozen --quiet
 
@@ -64,15 +64,15 @@ trap stop EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 
-"${run[@]}" uvicorn oxhack_api.app:app --host "${HOST:-0.0.0.0}" --port "${PORT:-8000}" \
+"${run[@]}" uvicorn htb_api.app:app --host "${HOST:-0.0.0.0}" --port "${PORT:-8000}" \
   --limit-concurrency 64 --backlog 128 --timeout-keep-alive 5 \
   --timeout-graceful-shutdown 15 --forwarded-allow-ips 127.0.0.1 &
 pids+=($!)
-"${run[@]}" python -m oxhack_api.worker &
+"${run[@]}" python -m htb_api.worker &
 pids+=($!)
 if [[ "$docking" == vina ]]; then
   # Vina uses every CPU; at a lower priority it never slows the API's answers to the reader.
-  nice -n 10 "${run[@]}" python -m oxhack_worker.queue &
+  nice -n 10 "${run[@]}" python -m htb_worker.queue &
   pids+=($!)
 fi
 echo "serve.sh: API on port ${PORT:-8000}, docking $docking; Ctrl-C stops everything"

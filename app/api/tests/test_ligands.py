@@ -8,8 +8,8 @@ from typing import Any
 import httpx
 import pytest
 
-from oxhack_api.services import ligands
-from oxhack_api.services.ligands import ChemblLigands
+from htb_api.services import ligands
+from htb_api.services.ligands import ChemblLigands
 
 TOFACITINIB_SMILES = "C[C@@H]1CCN(C(=O)CC#N)C[C@@H]1N(C)c1ncnc2[nH]ccc12"
 

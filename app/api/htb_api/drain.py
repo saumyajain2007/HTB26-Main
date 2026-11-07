@@ -1,4 +1,4 @@
-"""Run queued jobs in the API's own process after its responses (OXHACK_AFTER_REQUEST_JOBS).
+"""Run queued jobs in the API's own process after its responses (HTB_AFTER_REQUEST_JOBS).
 
 A serverless host such as Vercel runs no worker process between requests, and
 keeps a function alive only while a request, or work it registered with
@@ -88,7 +88,7 @@ class JobDrain:
 
 def make_drain(components: Components) -> JobDrain | None:
     """The drain the settings ask for, or None. Docking jobs are drained only when
-    this process can run them: in sandboxes (OXHACK_DOCK_SNAPSHOT_ID) or as fixtures."""
+    this process can run them: in sandboxes (HTB_DOCK_SNAPSHOT_ID) or as fixtures."""
     settings = components.settings
     if not (
         settings.after_request_jobs
@@ -117,7 +117,7 @@ def after_response(task: Callable[[], object]) -> None:
 
         wait_until(asyncio.to_thread(task))
     else:
-        threading.Thread(target=task, name="oxhack-drain", daemon=True).start()
+        threading.Thread(target=task, name="htb-drain", daemon=True).start()
 
 
 class DrainAfterResponse:

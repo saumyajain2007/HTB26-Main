@@ -2,7 +2,7 @@
 
 Postgres schema for saved Experiments, the Model jury, background jobs and
 docking (plan.md section 9.3). Production runs on the Tiger Cloud service
-`oxhack`; tests never touch it.
+`htb`; tests never touch it.
 
 ## Apply migrations
 

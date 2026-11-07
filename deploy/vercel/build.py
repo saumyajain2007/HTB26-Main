@@ -14,7 +14,7 @@ pointing it at this repository the folder is explicit:
 - requirements.txt: the API's locked third-party packages (`uv export`).
 - index.py (deploy/vercel/index.py) and the code it imports, at the paths they have
   here (app/api, app/worker, core), so every repository-relative path still works.
-- data/: the prepared data (`python -m oxhack_api.prepare`) minus run-time output.
+- data/: the prepared data (`python -m htb_api.prepare`) minus run-time output.
   It is about 0.5 GB, so the project uses Vercel's large functions
   (VERCEL_SUPPORT_LARGE_FUNCTIONS=1). Files over Vercel's 100 MB upload limit (the
   network's 158 MB distance matrix) ship gzipped and are restored on start-up.
@@ -34,8 +34,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 CODE = {
-    "app/api/oxhack_api": "app/api/oxhack_api",
-    "app/worker/oxhack_worker": "app/worker/oxhack_worker",
+    "app/api/htb_api": "app/api/htb_api",
+    "app/worker/htb_worker": "app/worker/htb_worker",
     "app/worker/structures": "app/worker/structures",
     "core/pipeline": "core/pipeline",
     "core/jury": "core/jury",
@@ -153,7 +153,7 @@ def main() -> None:
     pack_folders(out / "data")
     subprocess.run(
         [
-            "uv", "export", "--frozen", "--no-dev", "--package", "oxhack-api",
+            "uv", "export", "--frozen", "--no-dev", "--package", "htb-api",
             "--no-emit-workspace", "--no-hashes", "--no-header", "--quiet",
             "--output-file", str(out / "requirements.txt"),
         ],

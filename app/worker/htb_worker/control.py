@@ -1,7 +1,7 @@
 # pyright: reportMissingImports=false, reportMissingTypeStubs=false
 """The redocking control (docs/engineering/build-reference.md C6): RMSD to the crystal pose.
 
-    python -m oxhack_worker.control 6WTO [--out DIR]     # in $DOCKING_VENV
+    python -m htb_worker.control 6WTO [--out DIR]     # in $DOCKING_VENV
 
 docks a structure's own crystal ligand back into it, with the settings user jobs
 get, and prints each pose's RMSD to the crystal pose. The queue runs the same
@@ -77,7 +77,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     structure = args.structures / args.pdb_id.upper()
     meta = json.loads((structure / "meta.json").read_text())
     settings = json.loads((args.structures / "settings.json").read_text())
-    with tempfile.TemporaryDirectory(prefix="oxhack-control-") as scratch:
+    with tempfile.TemporaryDirectory(prefix="htb-control-") as scratch:
         out = args.out or Path(scratch)
         result = dock.run(
             structure=structure,

@@ -12,7 +12,7 @@ import pytest
 from conftest import BARICITINIB, COVID, REMDESIVIR
 from pydantic import ValidationError
 
-from oxhack_api.schemas import (
+from htb_api.schemas import (
     REDOCK_SUCCESS_ANGSTROM,
     SHORTLIST_MAX,
     Candidate,
@@ -20,10 +20,10 @@ from oxhack_api.schemas import (
     Experiment,
     StructureList,
 )
-from oxhack_api.services.docking import FixtureDocking, unsupported_reason
-from oxhack_api.services.jury import FixtureJury, JuryFixture, check_against
-from oxhack_api.services.source import ExperimentFixture, FixtureSource
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.services.docking import FixtureDocking, unsupported_reason
+from htb_api.services.jury import FixtureJury, JuryFixture, check_against
+from htb_api.services.source import ExperimentFixture, FixtureSource
+from htb_api.settings import FIXTURES_DIR
 
 
 @pytest.fixture(scope="module")

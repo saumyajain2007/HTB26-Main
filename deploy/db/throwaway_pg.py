@@ -48,7 +48,7 @@ def admin_conninfo() -> Iterator[str | None]:
     if not (shutil.which("initdb") and shutil.which("pg_ctl")):
         yield None
         return
-    root = Path(tempfile.mkdtemp(prefix="oxhack-pg-"))
+    root = Path(tempfile.mkdtemp(prefix="htb-pg-"))
     data, port = root / "data", _free_port()
     subprocess.run(
         ["initdb", "-D", str(data), "-U", "postgres", "-A", "trust"],
@@ -85,7 +85,7 @@ def admin_conninfo() -> Iterator[str | None]:
 
 
 def create_database(
-    admin: str, *, template: str | None = None, prefix: str = "oxhack_test"
+    admin: str, *, template: str | None = None, prefix: str = "htb_test"
 ) -> str:
     """Create an empty (or template-cloned) database; return its connection string."""
     name = f"{prefix}_{uuid.uuid4().hex[:12]}"

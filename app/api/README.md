@@ -1,15 +1,15 @@
-# oxhack-api
+# htb-api
 
 The FastAPI service behind the web app: Disease search, Experiments and their
 build progress, the Model jury, docking jobs, history (archive and restore) and
-the evaluation results. `oxhack_api/schemas.py` is the single source of truth
+the evaluation results. `htb_api/schemas.py` is the single source of truth
 for every request and response; `openapi.json` is generated from it and the
 web app's TypeScript types are generated from that.
 
 By default the API runs in **fixture mode**: Experiments, jury reviews,
-structures and docking results come from `oxhack_api/fixtures/`. They are kept
-in memory by default, or saved in Postgres with `OXHACK_REPO=postgres` (see
-below). **Live mode** (`OXHACK_SOURCE=live`, see "Live mode") builds
+structures and docking results come from `htb_api/fixtures/`. They are kept
+in memory by default, or saved in Postgres with `HTB_REPO=postgres` (see
+below). **Live mode** (`HTB_SOURCE=live`, see "Live mode") builds
 Experiments for any Disease with stream A's pipeline and stream B's network
 ranking. The docking worker (phase 7) plugs into the same seams.
 
@@ -18,31 +18,31 @@ ranking. The docking worker (phase 7) plugs into the same seams.
 ```sh
 cd api
 uv sync
-uv run uvicorn oxhack_api.app:app --reload     # http://127.0.0.1:8000/docs
+uv run uvicorn htb_api.app:app --reload     # http://127.0.0.1:8000/docs
 ```
 
 | Variable | Default | Meaning |
 |---|---|---|
-| `OXHACK_SOURCE` | `fixture` | `fixture` or `live` (see "Live mode"). |
-| `OXHACK_JURY` | `fixture` | `fixture`, `mock` (practice reviewers, no model called) or `cortex`. Live mode needs `mock` or `cortex`. |
-| `OXHACK_DATA_DIR` | `data` | Prepared data for live mode; relative to the repository root. |
-| `OXHACK_NETWORK_DIR` | `<data dir>/ranking/string-12.5-c700-e400` | Stream B's protein network bundle. |
-| `OXHACK_FIXTURE_DELAY_MS` | `400` | Pause between background job steps, so the UI can show progress. |
-| `OXHACK_FIXTURES_DIR` | `oxhack_api/fixtures` | Folder holding the fixture files. |
-| `OXHACK_WORKER_THREADS` | `4` | Threads that run background jobs, in the API or in the worker. |
-| `OXHACK_REPO` | `memory` | `memory` (lost on restart) or `postgres`. |
-| `OXHACK_DATABASE_URL` | none | Postgres connection string; required with `OXHACK_REPO=postgres`. |
-| `OXHACK_DATABASE_POOL_SIZE` | `10` | Most Postgres connections one process opens. |
-| `OXHACK_INPROCESS_WORKER` | `1` | With Postgres, also run the job worker inside the API. Set `0` when `python -m oxhack_api.worker` runs. |
-| `OXHACK_WORKER_POLL_MS` | `1000` | How often an idle worker checks for jobs it was not notified about. |
-| `OXHACK_JOB_HEARTBEAT_S` | `10` | How often a worker refreshes the heartbeat of the jobs it runs. |
-| `OXHACK_JOB_STALE_AFTER_S` | `60` | A running job with an older heartbeat lost its worker and is re-queued. |
-| `OXHACK_JOB_MAX_ATTEMPTS` | `3` | Claims of one job before a stale one is failed instead of re-queued. |
-| `OXHACK_DOCKING` | `fixture` | `fixture` (made-up scores) or `vina`: real AutoDock Vina jobs run by the docking worker (`python -m oxhack_worker.queue`, see `worker/README.md`). `vina` needs `OXHACK_REPO=postgres`. |
-| `OXHACK_STRUCTURES_DIR` | `app/worker/structures` | The prepared docking structures, for `vina`. |
+| `HTB_SOURCE` | `fixture` | `fixture` or `live` (see "Live mode"). |
+| `HTB_JURY` | `fixture` | `fixture`, `mock` (practice reviewers, no model called) or `cortex`. Live mode needs `mock` or `cortex`. |
+| `HTB_DATA_DIR` | `data` | Prepared data for live mode; relative to the repository root. |
+| `HTB_NETWORK_DIR` | `<data dir>/ranking/string-12.5-c700-e400` | Stream B's protein network bundle. |
+| `HTB_FIXTURE_DELAY_MS` | `400` | Pause between background job steps, so the UI can show progress. |
+| `HTB_FIXTURES_DIR` | `htb_api/fixtures` | Folder holding the fixture files. |
+| `HTB_WORKER_THREADS` | `4` | Threads that run background jobs, in the API or in the worker. |
+| `HTB_REPO` | `memory` | `memory` (lost on restart) or `postgres`. |
+| `HTB_DATABASE_URL` | none | Postgres connection string; required with `HTB_REPO=postgres`. |
+| `HTB_DATABASE_POOL_SIZE` | `10` | Most Postgres connections one process opens. |
+| `HTB_INPROCESS_WORKER` | `1` | With Postgres, also run the job worker inside the API. Set `0` when `python -m htb_api.worker` runs. |
+| `HTB_WORKER_POLL_MS` | `1000` | How often an idle worker checks for jobs it was not notified about. |
+| `HTB_JOB_HEARTBEAT_S` | `10` | How often a worker refreshes the heartbeat of the jobs it runs. |
+| `HTB_JOB_STALE_AFTER_S` | `60` | A running job with an older heartbeat lost its worker and is re-queued. |
+| `HTB_JOB_MAX_ATTEMPTS` | `3` | Claims of one job before a stale one is failed instead of re-queued. |
+| `HTB_DOCKING` | `fixture` | `fixture` (made-up scores) or `vina`: real AutoDock Vina jobs run by the docking worker (`python -m htb_worker.queue`, see `worker/README.md`). `vina` needs `HTB_REPO=postgres`. |
+| `HTB_STRUCTURES_DIR` | `app/worker/structures` | The prepared docking structures, for `vina`. |
 | `RESULTS_DIR` | `data/docking` | Where the docking worker writes each job's files; served from `/api/files`. |
 | `DOCKING_VENV` | none | The venv with Vina, Meeko and RDKit; only the docking worker needs it. |
-| `OXHACK_DOCK_TIMEOUT_S` | `180` | A docking run still going after this long is killed and fails. |
+| `HTB_DOCK_TIMEOUT_S` | `180` | A docking run still going after this long is killed and fails. |
 
 ## Live mode
 
@@ -51,8 +51,8 @@ is resumable and skips what is already there):
 
 ```sh
 cd api
-uv run python -m oxhack_api.prepare
-OXHACK_SOURCE=live OXHACK_JURY=mock uv run uvicorn oxhack_api.app:app
+uv run python -m htb_api.prepare
+HTB_SOURCE=live HTB_JURY=mock uv run uvicorn htb_api.app:app
 ```
 
 `prepare` downloads the Open Targets 26.09 tables and builds stream A's drug
@@ -92,28 +92,28 @@ local runs at the Tiger service. A throwaway local Postgres 16:
 
 ```sh
 # From the repository root. Any free port works; 5433 avoids a system Postgres.
-initdb -D /tmp/oxhack-pg -U postgres -A trust
-pg_ctl -D /tmp/oxhack-pg -o "-p 5433 -c listen_addresses=localhost" -l /tmp/oxhack-pg/log -w start
-createdb -h localhost -p 5433 -U postgres oxhack
-DATABASE_URL=postgresql://postgres@localhost:5433/oxhack uv run deploy/db/migrate.py
+initdb -D /tmp/htb-pg -U postgres -A trust
+pg_ctl -D /tmp/htb-pg -o "-p 5433 -c listen_addresses=localhost" -l /tmp/htb-pg/log -w start
+createdb -h localhost -p 5433 -U postgres htb
+DATABASE_URL=postgresql://postgres@localhost:5433/htb uv run deploy/db/migrate.py
 ```
 
-Or with Docker: `docker run --rm -d --name oxhack-pg -e POSTGRES_HOST_AUTH_METHOD=trust
+Or with Docker: `docker run --rm -d --name htb-pg -e POSTGRES_HOST_AUTH_METHOD=trust
 -p 5433:5432 postgres:16`, then the same `createdb` and `migrate.py` lines.
 
 Then start the API on it:
 
 ```sh
 cd api
-OXHACK_REPO=postgres \
-OXHACK_DATABASE_URL=postgresql://postgres@localhost:5433/oxhack \
-uv run uvicorn oxhack_api.app:app --reload
+HTB_REPO=postgres \
+HTB_DATABASE_URL=postgresql://postgres@localhost:5433/htb \
+uv run uvicorn htb_api.app:app --reload
 ```
 
 Experiments, jury runs and docking jobs now survive a restart. The API refuses
 to start on a database that is missing a migration, and says to run
 `uv run deploy/db/migrate.py`. Stop the throwaway server with
-`pg_ctl -D /tmp/oxhack-pg stop` and delete the folder.
+`pg_ctl -D /tmp/htb-pg stop` and delete the folder.
 
 ## Background jobs
 
@@ -130,16 +130,16 @@ needs them:
 
 A worker claims the oldest queued row with `FOR UPDATE SKIP LOCKED`, so several
 workers never take the same job, and Postgres `NOTIFY` wakes it when a job is
-committed. By default the worker runs inside the API (`OXHACK_INPROCESS_WORKER=1`).
+committed. By default the worker runs inside the API (`HTB_INPROCESS_WORKER=1`).
 To run it as its own process, or several of them:
 
 ```sh
 cd api
-OXHACK_REPO=postgres OXHACK_DATABASE_URL=postgresql://postgres@localhost:5433/oxhack \
-uv run python -m oxhack_api.worker      # stops on Ctrl-C or SIGTERM
+HTB_REPO=postgres HTB_DATABASE_URL=postgresql://postgres@localhost:5433/htb \
+uv run python -m htb_api.worker      # stops on Ctrl-C or SIGTERM
 ```
 
-and start the API with `OXHACK_INPROCESS_WORKER=0`. With `OXHACK_DOCKING=vina`
+and start the API with `HTB_INPROCESS_WORKER=0`. With `HTB_DOCKING=vina`
 this worker leaves `dock_jobs` to the docking worker; `deploy/serve.sh` starts
 the API, this worker and the docking worker together.
 
@@ -148,13 +148,13 @@ Job states (both tables):
 | State | Meaning |
 |---|---|
 | `queued` | Waiting for a worker. |
-| `running` | Claimed: `attempts` went up by one, `started_at` and `heartbeat_at` are set. The worker writes `progress` (e.g. `{"stage": "ranking"}`, `{"jurors_done": 1, "jurors_total": 3}`) and the heartbeat after each step, and refreshes the heartbeat every `OXHACK_JOB_HEARTBEAT_S` while a step runs. |
+| `running` | Claimed: `attempts` went up by one, `started_at` and `heartbeat_at` are set. The worker writes `progress` (e.g. `{"stage": "ranking"}`, `{"jurors_done": 1, "jurors_total": 3}`) and the heartbeat after each step, and refreshes the heartbeat every `HTB_JOB_HEARTBEAT_S` while a step runs. |
 | `done` | Finished. The Experiment, jury run or docking job holds the result. |
 | `failed` | Finished with `error`, the same reason the Experiment, jury run or docking job shows. |
 
-A `running` job whose heartbeat is older than `OXHACK_JOB_STALE_AFTER_S` lost
+A `running` job whose heartbeat is older than `HTB_JOB_STALE_AFTER_S` lost
 its worker. Workers put it back to `queued` when they start and then every
-half of that period; after `OXHACK_JOB_MAX_ATTEMPTS` claims it is `failed`
+half of that period; after `HTB_JOB_MAX_ATTEMPTS` claims it is `failed`
 instead, and so is its Experiment build, jury run or docking job. A worker that
 is stopped between steps puts its job back at once. Jobs are safe to run again:
 a rebuild replaces what an interrupted one left, and a jury run starts from the
@@ -180,7 +180,7 @@ with the local `initdb` and `pg_ctl`, or the disposable server in
 ## Export the contract
 
 ```sh
-uv run python -m oxhack_api.export_openapi    # writes api/openapi.json
+uv run python -m htb_api.export_openapi    # writes api/openapi.json
 ```
 
 Run it after any change to `schemas.py` or the routes, then commit
@@ -231,7 +231,7 @@ its bytes, so the web app can load them straight into the viewer.
   request (scores only, `files: null`), answers 404 with the reason.
 - Live docking jobs will keep their files in `$RESULTS_DIR/{job_id}/`
   (docs/engineering/build-reference.md C7); in fixture mode they are in
-  `oxhack_api/fixtures/docking_files/{job_id}/`. The API hashes them when it
+  `htb_api/fixtures/docking_files/{job_id}/`. The API hashes them when it
   starts, and refreshes a saved demo job (and the jobs reusing it) whose
   files changed.
 

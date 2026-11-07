@@ -8,9 +8,9 @@ from typing import Any
 from conftest import BARICITINIB, SteppedRunner, create
 from fastapi.testclient import TestClient
 
-from oxhack_api.schemas import Candidate, Structure
-from oxhack_api.services.docking import FixtureDocking, structure_for
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.schemas import Candidate, Structure
+from htb_api.services.docking import FixtureDocking, structure_for
+from htb_api.settings import FIXTURES_DIR
 
 COVID_DOCKABLE = 6
 """Drugs on the COVID-19 fixture's shortlist that can be docked into a prepared structure."""

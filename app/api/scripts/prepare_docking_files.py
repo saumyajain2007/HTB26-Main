@@ -30,7 +30,7 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
-FIXTURES = Path(__file__).resolve().parents[1] / "oxhack_api" / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "htb_api" / "fixtures"
 ENTRY_URL = "https://files.rcsb.org/download/{pdb_id}.pdb"
 LIGAND_URL = (
     "https://models.rcsb.org/v1/{pdb_id}/ligand"
@@ -128,7 +128,7 @@ class Molfile:
         return [(r[31:34].strip(), (float(r[:10]), float(r[10:20]), float(r[20:30]))) for r in rows]
 
     def sdf(self, title: str, properties: dict[str, str]) -> str:
-        lines = [title, "  oxhack            3D", "", *self.table]
+        lines = [title, "  htb            3D", "", *self.table]
         for key, value in properties.items():
             lines += [f"> <{key}>", value, ""]
         return "\n".join([*lines, "$$$$"]) + "\n"

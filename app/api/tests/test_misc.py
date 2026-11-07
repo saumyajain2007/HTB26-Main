@@ -5,8 +5,8 @@ from __future__ import annotations
 from conftest import COVID
 from fastapi.testclient import TestClient
 
-from oxhack_api import __version__
-from oxhack_api.export_openapi import OPENAPI_PATH, render_openapi
+from htb_api import __version__
+from htb_api.export_openapi import OPENAPI_PATH, render_openapi
 
 
 def test_health(client: TestClient) -> None:
@@ -62,7 +62,7 @@ def test_unknown_route_is_404(client: TestClient) -> None:
 
 def test_committed_openapi_is_current() -> None:
     assert OPENAPI_PATH.read_text(encoding="utf-8") == render_openapi(), (
-        "api/openapi.json is stale: run `uv run python -m oxhack_api.export_openapi`."
+        "api/openapi.json is stale: run `uv run python -m htb_api.export_openapi`."
     )
 
 

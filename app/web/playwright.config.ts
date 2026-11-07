@@ -37,18 +37,18 @@ export default defineConfig({
   ],
   webServer: [
     {
-      command: `uv run uvicorn oxhack_api.app:app --port ${apiPort}`,
+      command: `uv run uvicorn htb_api.app:app --port ${apiPort}`,
       cwd: "../api",
       url: `${apiOrigin}/api/health`,
       // Slow enough to see each build stage, quick enough for a test.
-      env: { OXHACK_FIXTURE_DELAY_MS: "300" },
+      env: { HTB_FIXTURE_DELAY_MS: "300" },
       reuseExistingServer: reuse,
       timeout: 120_000,
     },
     {
       command: `npm run build && npx vite preview --host 127.0.0.1 --port ${webPort} --strictPort`,
       url: `http://127.0.0.1:${webPort}`,
-      env: { OXHACK_API_ORIGIN: apiOrigin },
+      env: { HTB_API_ORIGIN: apiOrigin },
       reuseExistingServer: reuse,
       timeout: 120_000,
     },

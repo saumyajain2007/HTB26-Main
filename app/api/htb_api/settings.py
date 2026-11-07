@@ -1,4 +1,4 @@
-"""App settings, read from `OXHACK_*` environment variables."""
+"""App settings, read from `HTB_*` environment variables."""
 
 from __future__ import annotations
 
@@ -20,11 +20,11 @@ FIXTURES_DIR = Path(__file__).parent / "fixtures"
 NETWORK_BUNDLE = "string-12.5-c700-e400"
 """Stream B's bundle name for the STRING 12.5 network at combined score 700, experiments 400."""
 REPO_ROOT = Path(__file__).resolve().parents[3]
-"""The repository root. A relative OXHACK_DATA_DIR is read from here, whatever the cwd."""
+"""The repository root. A relative HTB_DATA_DIR is read from here, whatever the cwd."""
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_prefix="OXHACK_", extra="ignore", populate_by_name=True)
+    model_config = SettingsConfigDict(env_prefix="HTB_", extra="ignore", populate_by_name=True)
 
     session_cookie_secure: bool = False
     client_ip_header: str | None = Field(
@@ -49,7 +49,7 @@ class Settings(BaseSettings):
         description=(
             "Where Experiment data comes from. fixture: saved files in fixtures_dir. live: "
             "stream A's pipeline over the prepared data in data_dir "
-            "(`python -m oxhack_api.prepare`), with the network ranking when its bundle "
+            "(`python -m htb_api.prepare`), with the network ranking when its bundle "
             "exists, else the evidence ranking."
         ),
     )
@@ -64,7 +64,7 @@ class Settings(BaseSettings):
         default=Path(),
         description=(
             "Stream B's protein network bundle, by default data_dir/ranking/"
-            "string-12.5-c700-e400 (`python -m oxhack_api.prepare` builds it). When it "
+            "string-12.5-c700-e400 (`python -m htb_api.prepare` builds it). When it "
             "exists, live Experiments use the network ranking; otherwise the evidence "
             "ranking. A relative path is relative to the repository root."
         ),
@@ -96,19 +96,19 @@ class Settings(BaseSettings):
         description=(
             "Binding poses. fixture: made-up scores for the prepared set in fixtures_dir. "
             "vina: real AutoDock Vina jobs on the structures in structures_dir, queued in "
-            "Postgres and run by the docking worker (`python -m oxhack_worker.queue`)."
+            "Postgres and run by the docking worker (`python -m htb_worker.queue`)."
         ),
     )
     structures_dir: Path = Field(
         default=Path("app/worker/structures"),
         description=(
-            "Prepared docking structures (`python -m oxhack_worker.prepare`). A relative "
+            "Prepared docking structures (`python -m htb_worker.prepare`). A relative "
             "path is relative to the repository root."
         ),
     )
     results_dir: Path = Field(
         default=Path("data/docking"),
-        validation_alias=AliasChoices("OXHACK_RESULTS_DIR", "RESULTS_DIR"),
+        validation_alias=AliasChoices("HTB_RESULTS_DIR", "RESULTS_DIR"),
         description=(
             "Where the docking worker writes each job's files ({job_id}/), served from "
             "/api/files. RESULTS_DIR in the dev container. Relative to the repository root."
@@ -116,7 +116,7 @@ class Settings(BaseSettings):
     )
     docking_venv: Path | None = Field(
         default=None,
-        validation_alias=AliasChoices("OXHACK_DOCKING_VENV", "DOCKING_VENV"),
+        validation_alias=AliasChoices("HTB_DOCKING_VENV", "DOCKING_VENV"),
         description=(
             "The virtual environment with Vina, Meeko and RDKit (DOCKING_VENV in the dev "
             "container). Only the docking worker needs it."
@@ -132,14 +132,14 @@ class Settings(BaseSettings):
 
     repo: Literal["memory", "postgres"] = Field(
         default="memory",
-        description="memory: lost on restart. postgres: saved in OXHACK_DATABASE_URL.",
+        description="memory: lost on restart. postgres: saved in HTB_DATABASE_URL.",
     )
     database_url: str | None = Field(
         default=None,
         # DATABASE_URL is the name the codespace secret, .env.example and db/migrate.py use.
-        validation_alias=AliasChoices("OXHACK_DATABASE_URL", "DATABASE_URL"),
+        validation_alias=AliasChoices("HTB_DATABASE_URL", "DATABASE_URL"),
         description=(
-            "Postgres connection string (OXHACK_DATABASE_URL or DATABASE_URL), used when "
+            "Postgres connection string (HTB_DATABASE_URL or DATABASE_URL), used when "
             "repo is postgres. Migrate it first."
         ),
     )
@@ -153,7 +153,7 @@ class Settings(BaseSettings):
         default=True,
         description=(
             "With repo postgres, also run the job worker inside the API process. Set 0 when "
-            "`python -m oxhack_api.worker` runs separately."
+            "`python -m htb_api.worker` runs separately."
         ),
     )
     worker_poll_ms: int = Field(
@@ -193,7 +193,7 @@ class Settings(BaseSettings):
 
     dock_snapshot_id: str | None = Field(
         default=None,
-        validation_alias=AliasChoices("OXHACK_DOCK_SNAPSHOT_ID", "DOCK_SNAPSHOT_ID"),
+        validation_alias=AliasChoices("HTB_DOCK_SNAPSHOT_ID", "DOCK_SNAPSHOT_ID"),
         description=(
             "A Vercel Sandbox snapshot with the docking toolchain in /opt/dock "
             "(`deploy/vercel/dock_snapshot.py`). With docking vina and this set, the API "
@@ -219,7 +219,7 @@ class Settings(BaseSettings):
     def _vina_needs_postgres(self) -> Settings:
         if self.docking == "vina" and self.repo != "postgres":
             raise ValueError(
-                "OXHACK_DOCKING=vina needs OXHACK_REPO=postgres: the docking worker is a "
+                "HTB_DOCKING=vina needs HTB_REPO=postgres: the docking worker is a "
                 "separate process that claims jobs from Postgres"
             )
         return self
@@ -228,7 +228,7 @@ class Settings(BaseSettings):
     def _live_needs_a_live_jury(self) -> Settings:
         if self.source == "live" and self.jury == "fixture":
             raise ValueError(
-                "OXHACK_SOURCE=live needs OXHACK_JURY=mock or cortex: the fixture jury only "
+                "HTB_SOURCE=live needs HTB_JURY=mock or cortex: the fixture jury only "
                 "reviews the saved fixture shortlists"
             )
         return self
@@ -236,12 +236,12 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def _postgres_needs_a_url(self) -> Settings:
         if self.repo == "postgres" and not self.database_url:
-            raise ValueError("OXHACK_REPO=postgres needs DATABASE_URL (or OXHACK_DATABASE_URL)")
+            raise ValueError("HTB_REPO=postgres needs DATABASE_URL (or HTB_DATABASE_URL)")
         if self.job_heartbeat_s >= self.job_stale_after_s:
-            raise ValueError("OXHACK_JOB_HEARTBEAT_S must be shorter than OXHACK_JOB_STALE_AFTER_S")
+            raise ValueError("HTB_JOB_HEARTBEAT_S must be shorter than HTB_JOB_STALE_AFTER_S")
         if self.after_request_jobs and self.repo != "postgres":
             raise ValueError(
-                "OXHACK_AFTER_REQUEST_JOBS needs OXHACK_REPO=postgres: the jobs wait there "
+                "HTB_AFTER_REQUEST_JOBS needs HTB_REPO=postgres: the jobs wait there "
                 "between requests"
             )
         return self
@@ -250,7 +250,7 @@ class Settings(BaseSettings):
 class SnowflakeSettings(BaseSettings):
     """The live Cortex jury's settings, from the `SNOWFLAKE_*` variables stream A reads.
 
-    Only read when OXHACK_JURY=cortex. Stream A's `CortexModel` reads the account and
+    Only read when HTB_JURY=cortex. Stream A's `CortexModel` reads the account and
     token itself; they are checked here so the API refuses to start without them.
     """
 
@@ -297,9 +297,9 @@ class SnowflakeSettings(BaseSettings):
             if not value
         ]
         if missing:
-            raise ValueError(f"OXHACK_JURY=cortex needs {' and '.join(missing)}")
+            raise ValueError(f"HTB_JURY=cortex needs {' and '.join(missing)}")
         if len(self.models) != 3 or len(set(self.models)) != 3:
             raise ValueError(
-                "OXHACK_JURY=cortex needs SNOWFLAKE_MODELS: a JSON array of three distinct "
+                "HTB_JURY=cortex needs SNOWFLAKE_MODELS: a JSON array of three distinct "
                 "model IDs, one per model family"
             )

@@ -9,10 +9,10 @@ idempotent, so a job interrupted by a dying worker can simply run again.
 Runners:
 
 - `ThreadRunner` runs jobs on in-process threads, pausing
-  `OXHACK_FIXTURE_DELAY_MS` between steps. Used with the memory repo.
+  `HTB_FIXTURE_DELAY_MS` between steps. Used with the memory repo.
 - `jobs_pg.PostgresQueue` writes the job into the Postgres `jobs` table (dock
   jobs are queued by their own `dock_jobs` row) and `jobs_pg.PostgresWorker`
-  claims and runs it, in the API process or in `python -m oxhack_api.worker`.
+  claims and runs it, in the API process or in `python -m htb_api.worker`.
 - Tests use a stepping runner, so each state can be observed.
 """
 
@@ -110,7 +110,7 @@ class ThreadRunner:
     ) -> None:
         self._factory = factory
         self._delay = delay_ms / 1000
-        self._pool = ThreadPoolExecutor(max_workers=threads, thread_name_prefix="oxhack-job")
+        self._pool = ThreadPoolExecutor(max_workers=threads, thread_name_prefix="htb-job")
         self._stopping = threading.Event()
         self._slots = threading.BoundedSemaphore(max_pending)
 

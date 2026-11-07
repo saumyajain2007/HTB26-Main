@@ -1174,7 +1174,7 @@ export interface components {
       status: "ok";
       /**
        * Version
-       * @description Version of the oxhack-api package.
+       * @description Version of the htb-api package.
        */
       version: string;
     };

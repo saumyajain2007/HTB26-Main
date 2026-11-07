@@ -20,10 +20,10 @@ from conftest import (
 )
 from fastapi.testclient import TestClient
 
-from oxhack_api.repo import Repo
-from oxhack_api.schemas import DOCK_FILE_NAMES, PoseScore, Structure
-from oxhack_api.services.docking import FixtureDocking
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.repo import Repo
+from htb_api.schemas import DOCK_FILE_NAMES, PoseScore, Structure
+from htb_api.services.docking import FixtureDocking
+from htb_api.settings import FIXTURES_DIR
 
 FILES_DIR = FIXTURES_DIR / "docking_files" / CONTROL_JOB
 CONTENT_TYPES = {

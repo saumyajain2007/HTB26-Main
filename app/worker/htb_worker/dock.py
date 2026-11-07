@@ -1,12 +1,12 @@
 # pyright: reportMissingImports=false, reportMissingTypeStubs=false
 """Dock one ligand into one prepared structure with AutoDock Vina (build-reference C4-C6).
 
-    python -m oxhack_worker.dock --structure worker/structures/6WTO \\
+    python -m htb_worker.dock --structure worker/structures/6WTO \\
         --smiles 'CCS(=O)(=O)N1CC(...)C1' --out /tmp/job \\
         --exhaustiveness 8 --seed 42 --n-poses 9 [--control]
-    python -m oxhack_worker.dock --toolchain    # print the installed versions as JSON
+    python -m htb_worker.dock --toolchain    # print the installed versions as JSON
 
-Runs in the docking venv (`$DOCKING_VENV`), started by `oxhack_worker.queue` as a
+Runs in the docking venv (`$DOCKING_VENV`), started by `htb_worker.queue` as a
 subprocess so it can be killed at the job's time limit. It writes to `--out`:
 
 - `poses.sdf`: the poses, best first, each with its Vina score;

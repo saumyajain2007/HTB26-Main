@@ -1,4 +1,4 @@
-"""A stand-in for `oxhack_worker.dock` in tests: same arguments, no Vina.
+"""A stand-in for `htb_worker.dock` in tests: same arguments, no Vina.
 
 FAKE_DOCK picks what it does:
 

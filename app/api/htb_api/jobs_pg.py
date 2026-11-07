@@ -15,12 +15,12 @@ look dead. A running job whose heartbeat is older than `stale_after` belonged
 to a worker that died: it is put back in the queue (on start-up and then
 periodically), or failed with a reason after `max_attempts` claims.
 
-`PostgresQueue.submit` notifies `oxhack_jobs` in the caller's transaction, so
+`PostgresQueue.submit` notifies `htb_jobs` in the caller's transaction, so
 Postgres wakes the workers when the work is committed, not before. Workers
 also poll, in case a notification is missed.
 
-A worker serves both queues unless told otherwise. With OXHACK_DOCKING=vina the
-pipeline worker serves `jobs` only and the docking worker (`oxhack_worker.queue`)
+A worker serves both queues unless told otherwise. With HTB_DOCKING=vina the
+pipeline worker serves `jobs` only and the docking worker (`htb_worker.queue`)
 serves `dock_jobs` only; each recovers only its own queue's stale jobs.
 """
 
@@ -48,7 +48,7 @@ from .settings import Settings
 
 log = logging.getLogger(__name__)
 
-CHANNEL: Final = "oxhack_jobs"
+CHANNEL: Final = "htb_jobs"
 
 Queue = Literal["jobs", "dock_jobs"]
 QUEUES: tuple[Queue, ...] = ("jobs", "dock_jobs")
@@ -150,7 +150,7 @@ class PostgresWorker:
             stale_after=settings.job_stale_after_s,
             max_attempts=settings.job_max_attempts,
             step_delay=settings.fixture_delay_ms / 1000,
-            # With real docking, the docking worker (oxhack_worker.queue) runs dock_jobs.
+            # With real docking, the docking worker (htb_worker.queue) runs dock_jobs.
             queues=("jobs",) if settings.docking == "vina" else QUEUES,
         )
 
@@ -161,7 +161,7 @@ class PostgresWorker:
         self.requeue_stale()
         targets = [self._listen, self._keep_alive] + [self._loop] * self._threads
         for i, target in enumerate(targets):
-            thread = threading.Thread(target=target, name=f"oxhack-worker-{i}", daemon=True)
+            thread = threading.Thread(target=target, name=f"htb-worker-{i}", daemon=True)
             thread.start()
             self._running.append(thread)
 
@@ -179,7 +179,7 @@ class PostgresWorker:
         """Keep the heartbeats of jobs run with `run_once` fresh, and re-queue stale
         ones, while the block runs: for a caller that runs jobs itself, not `start`."""
         self._stopping.clear()
-        thread = threading.Thread(target=self._keep_alive, name="oxhack-heartbeat", daemon=True)
+        thread = threading.Thread(target=self._keep_alive, name="htb-heartbeat", daemon=True)
         thread.start()
         try:
             yield

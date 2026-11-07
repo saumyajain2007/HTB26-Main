@@ -34,7 +34,7 @@ uv run --no-sync deploy/db/migrate.py
 
 # Before the folder move this was scripts/serve.sh; match both while old stacks run.
 pkill -f "[s]cripts/serve.sh|[d]eploy/serve.sh" || true
-pkill -f "[u]vicorn oxhack_api" || true
+pkill -f "[u]vicorn htb_api" || true
 pkill -f "[o]xhack_api.worker" || true
 pkill -f "[o]xhack_worker.queue" || true
 pkill -f "[v]ite preview" || true

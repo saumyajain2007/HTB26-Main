@@ -17,13 +17,13 @@ import pytest
 import throwaway_pg  # db/throwaway_pg.py
 from fastapi.testclient import TestClient
 
-from oxhack_api.app import build_components, create_app, open_repo
-from oxhack_api.deps import Components
-from oxhack_api.jobs import Job, JobFactory, JobRef
-from oxhack_api.repo import Repo
-from oxhack_api.schemas import DockJob
-from oxhack_api.services.docking import DockingFailed, DockSteps, FixtureDocking
-from oxhack_api.settings import FIXTURES_DIR, Settings
+from htb_api.app import build_components, create_app, open_repo
+from htb_api.deps import Components
+from htb_api.jobs import Job, JobFactory, JobRef
+from htb_api.repo import Repo
+from htb_api.schemas import DockJob
+from htb_api.services.docking import DockingFailed, DockSteps, FixtureDocking
+from htb_api.settings import FIXTURES_DIR, Settings
 
 COVID = "MONDO_0100096"
 BARICITINIB = "CHEMBL2105759"
@@ -81,7 +81,7 @@ def pg_admin() -> Iterator[str]:
 @pytest.fixture(scope="session")
 def pg_template(pg_admin: str) -> Iterator[str]:
     """A database migrated once, which each test's database is cloned from."""
-    conninfo = throwaway_pg.create_database(pg_admin, prefix="oxhack_template")
+    conninfo = throwaway_pg.create_database(pg_admin, prefix="htb_template")
     migrate.migrate(conninfo)
     yield throwaway_pg.database_name(conninfo)
     throwaway_pg.drop_database(pg_admin, conninfo)

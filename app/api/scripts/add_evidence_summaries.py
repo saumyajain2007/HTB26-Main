@@ -2,7 +2,7 @@
 
     uv run python scripts/add_evidence_summaries.py
 
-Uses oxhack_api.services.plain, the same wording the live pipeline uses. The
+Uses htb_api.services.plain, the same wording the live pipeline uses. The
 fixture statements follow stream A's sentence patterns, which this reads the
 target, action, regulator and toxicity class from. Fails loudly on anything
 it can't read, so no summary is guessed.
@@ -16,9 +16,9 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from oxhack_api.services import plain
+from htb_api.services import plain
 
-FIXTURES = Path(__file__).resolve().parents[1] / "oxhack_api" / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "htb_api" / "fixtures"
 
 
 def summarize(

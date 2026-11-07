@@ -1,11 +1,11 @@
-"""The docking seam: `FixtureDocking` and `VinaDocking` (OXHACK_DOCKING).
+"""The docking seam: `FixtureDocking` and `VinaDocking` (HTB_DOCKING).
 
 - Fixture mode (the default) serves the prepared structure set from
   `fixtures/structures.json` and made-up scores from `fixtures/docking.json`. Its
   precomputed demo jobs also have result files, in `fixtures/docking_files/{job_id}/`
   (made by `scripts/prepare_docking_files.py`).
 - Vina mode serves the structures prepared in `worker/structures/` and queues real
-  jobs in `dock_jobs`; the docking worker (`python -m oxhack_worker.queue`) runs them
+  jobs in `dock_jobs`; the docking worker (`python -m htb_worker.queue`) runs them
   and writes their files to `$RESULTS_DIR/{job_id}/`. Each structure's redocking
   control is queued as a job too, so its RMSD is measured, never pre-filled.
 
@@ -67,7 +67,7 @@ DockSteps = Generator[None, None, DockResult]
 
 DockExecutor = Callable[[DockJob, Path, str], DockSteps]
 """Runs one docking job: the job, its prepared structure's folder and the SMILES to
-dock. The docking worker's is `oxhack_worker.queue.DockRunner`."""
+dock. The docking worker's is `htb_worker.queue.DockRunner`."""
 
 
 FILE_MEDIA_TYPES: dict[DockFileName, str] = {
@@ -304,7 +304,7 @@ process seeds the same row and a new toolchain or setting gets a new control."""
 
 
 class _Prepared(BaseModel):
-    """What the API reads of `worker/structures/{PDB}/meta.json` (oxhack_worker.prepare)."""
+    """What the API reads of `worker/structures/{PDB}/meta.json` (htb_worker.prepare)."""
 
     model_config = ConfigDict(extra="ignore")
 
@@ -369,7 +369,7 @@ class VinaDocking:
         if not settings_file.is_file():
             raise FileNotFoundError(
                 f"{settings_file} is missing: prepare the structures with "
-                "`python -m oxhack_worker.prepare` in $DOCKING_VENV"
+                "`python -m htb_worker.prepare` in $DOCKING_VENV"
             )
         self._settings = _PreparedSettings.model_validate_json(settings_file.read_text())
         prepared = [
@@ -449,7 +449,7 @@ class VinaDocking:
         if self._execute is None:
             raise DockingFailed(
                 "This process does not run docking jobs: the docking worker "
-                "(python -m oxhack_worker.queue) does."
+                "(python -m htb_worker.queue) does."
             )
         return (yield from self._execute(job, self.structures_dir / prepared.pdb_id, smiles))
 

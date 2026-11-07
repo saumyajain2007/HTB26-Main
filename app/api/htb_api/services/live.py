@@ -1,6 +1,6 @@
-"""The live source (`OXHACK_SOURCE=live`): stream A's pipeline over the prepared data.
+"""The live source (`HTB_SOURCE=live`): stream A's pipeline over the prepared data.
 
-Prepare the data first with `uv run python -m oxhack_api.prepare`. A build runs
+Prepare the data first with `uv run python -m htb_api.prepare`. A build runs
 on the job's thread, in the stages the job runner reports:
 
 - **targets**: stream A's A1 (`pipeline.disease_targets`): every Open Targets
@@ -116,7 +116,7 @@ app is for. 1,757 Diseases in Open Targets 26.09 qualify, every common one among
 
 TESTED_STAGES = ("PHASE_2", "PHASE_2_3", "PHASE_3", "PHASE_4", "APPROVAL")
 
-PREPARE_HINT = "Run `uv run python -m oxhack_api.prepare` first."
+PREPARE_HINT = "Run `uv run python -m htb_api.prepare` first."
 STRING_MAP = Path("string_id_map.json")
 """Stream A's STRING-to-gene mapping (A3) under the data folder; network routes cite it."""
 

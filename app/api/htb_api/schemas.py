@@ -1,7 +1,7 @@
 """The API contract: every request and response body, as Pydantic v2 models.
 
 This module is the single source of truth for the shapes the API sends and
-accepts. `python -m oxhack_api.export_openapi` turns it into `api/openapi.json`,
+accepts. `python -m htb_api.export_openapi` turns it into `api/openapi.json`,
 which the web app turns into TypeScript types.
 
 IDs follow plan.md section 3: one ID per kind of thing. Names and symbols are
@@ -191,7 +191,7 @@ class Health(Model):
     source: Literal["fixture", "live"] = Field(
         description="Where Experiment data comes from: saved fixtures or the live pipeline."
     )
-    version: str = Field(description="Version of the oxhack-api package.")
+    version: str = Field(description="Version of the htb-api package.")
 
 
 class ErrorResponse(Model):

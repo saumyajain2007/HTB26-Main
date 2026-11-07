@@ -6,8 +6,8 @@ import json
 
 import pytest
 
-from oxhack_api.services import plain
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.services import plain
+from htb_api.settings import FIXTURES_DIR
 
 
 def test_target_association() -> None:

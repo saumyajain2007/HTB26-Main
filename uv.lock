@@ -1,5 +1,5 @@
 version = 1
-revision = 5
+revision = 3
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.12' and sys_platform == 'emscripten'",
@@ -9,10 +9,10 @@ resolution-markers = [
 
 [manifest]
 members = [
-    "oxhack-api",
-    "oxhack-drug-repurposing",
-    "oxhack-ranking",
-    "oxhack-worker",
+    "htb-api",
+    "htb-drug-repurposing",
+    "htb-ranking",
+    "htb-worker",
 ]
 
 [manifest.dependency-groups]
@@ -378,6 +378,123 @@ wheels = [
 ]
 
 [[package]]
+name = "htb-api"
+version = "0.1.0"
+source = { editable = "app/api" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "htb-drug-repurposing" },
+    { name = "htb-ranking" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "psycopg-pool" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "starlette" },
+    { name = "typing-extensions" },
+    { name = "uvicorn", extra = ["standard"] },
+    { name = "vercel" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "httpx2" },
+    { name = "pyright" },
+    { name = "pytest" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.115" },
+    { name = "htb-drug-repurposing", editable = "core" },
+    { name = "htb-ranking", editable = "core/ranking" },
+    { name = "psycopg", extras = ["binary"], specifier = ">=3.2,<4" },
+    { name = "psycopg-pool", specifier = ">=3.2,<4" },
+    { name = "pydantic", specifier = ">=2.9" },
+    { name = "pydantic-settings", specifier = ">=2.6" },
+    { name = "starlette", specifier = ">=1.10,<2" },
+    { name = "typing-extensions", specifier = ">=4.12" },
+    { name = "uvicorn", extras = ["standard"], specifier = ">=0.32" },
+    { name = "vercel", specifier = ">=0.12.1" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "httpx2", specifier = ">=2.16" },
+    { name = "pyright", specifier = ">=1.1.390" },
+    { name = "pytest", specifier = ">=8.3" },
+    { name = "ruff", specifier = ">=0.8" },
+]
+
+[[package]]
+name = "htb-drug-repurposing"
+version = "0.1.0"
+source = { editable = "core" }
+dependencies = [
+    { name = "duckdb" },
+    { name = "httpx" },
+    { name = "openai" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "duckdb", specifier = ">=1.1" },
+    { name = "httpx", specifier = ">=0.27" },
+    { name = "openai", specifier = ">=1.50" },
+]
+
+[[package]]
+name = "htb-ranking"
+version = "0.3.0"
+source = { editable = "core/ranking" }
+dependencies = [
+    { name = "numpy" },
+    { name = "scipy" },
+]
+
+[package.optional-dependencies]
+benchmark = [
+    { name = "duckdb" },
+    { name = "httpx" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "duckdb", marker = "extra == 'benchmark'", specifier = "==2.0.0" },
+    { name = "httpx", marker = "extra == 'benchmark'", specifier = "==0.28.1" },
+    { name = "numpy", specifier = "==2.4.6" },
+    { name = "scipy", specifier = "==1.17.1" },
+]
+provides-extras = ["benchmark"]
+
+[[package]]
+name = "htb-worker"
+version = "0.1.0"
+source = { editable = "app/worker" }
+dependencies = [
+    { name = "htb-api" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "pyright" },
+    { name = "pytest" },
+    { name = "rdkit" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "htb-api", editable = "app/api" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "pyright", specifier = ">=1.1.390" },
+    { name = "pytest", specifier = ">=8.3" },
+    { name = "rdkit", specifier = "==2026.9.1" },
+    { name = "ruff", specifier = ">=0.8" },
+]
+
+[[package]]
 name = "httpcore"
 version = "1.0.9"
 source = { registry = "https://pypi.org/simple" }
@@ -395,8 +512,8 @@ name = "httpcore2"
 version = "2.16.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "h11" },
-    { name = "truststore" },
+    { name = "h11", marker = "python_full_version < '3.12' or sys_platform != 'emscripten'" },
+    { name = "truststore", marker = "python_full_version < '3.12' or sys_platform != 'emscripten'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz", hash = "sha256:c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643", size = 69886, upload-time = "2026-10-21T07:09:45.31Z" }
 wheels = [
@@ -806,123 +923,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/2e/02/6e0ae9cc61bd3169d401077b507b3ebc344745171e1051ab430be012dcd9/opentelemetry_api-1.45.1.tar.gz", hash = "sha256:aa38ed19bcc084ba42782a73255b3582283eced7ad6dddbd6695189e69adfb75", size = 72804, upload-time = "2026-10-06T17:32:58.133Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1e/41/f7dcf80b81ee8e71c1a2b59f14208bc723edbd89ed027a73b175abf6348e/opentelemetry_api-1.45.1-py3-none-any.whl", hash = "sha256:b31553efa588ae44bc306f863c785c5333a9ecc091248c6ee68b4b6c87fdedfb", size = 60256, upload-time = "2026-10-06T17:32:33.506Z" },
-]
-
-[[package]]
-name = "oxhack-api"
-version = "0.1.0"
-source = { editable = "app/api" }
-dependencies = [
-    { name = "fastapi" },
-    { name = "oxhack-drug-repurposing" },
-    { name = "oxhack-ranking" },
-    { name = "psycopg", extra = ["binary"] },
-    { name = "psycopg-pool" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-    { name = "starlette" },
-    { name = "typing-extensions" },
-    { name = "uvicorn", extra = ["standard"] },
-    { name = "vercel" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "httpx2" },
-    { name = "pyright" },
-    { name = "pytest" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastapi", specifier = ">=0.115" },
-    { name = "oxhack-drug-repurposing", editable = "core" },
-    { name = "oxhack-ranking", editable = "core/ranking" },
-    { name = "psycopg", extras = ["binary"], specifier = ">=3.2,<4" },
-    { name = "psycopg-pool", specifier = ">=3.2,<4" },
-    { name = "pydantic", specifier = ">=2.9" },
-    { name = "pydantic-settings", specifier = ">=2.6" },
-    { name = "starlette", specifier = ">=1.10,<2" },
-    { name = "typing-extensions", specifier = ">=4.12" },
-    { name = "uvicorn", extras = ["standard"], specifier = ">=0.32" },
-    { name = "vercel", specifier = ">=0.12.1" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "httpx2", specifier = ">=2.16" },
-    { name = "pyright", specifier = ">=1.1.390" },
-    { name = "pytest", specifier = ">=8.3" },
-    { name = "ruff", specifier = ">=0.8" },
-]
-
-[[package]]
-name = "oxhack-drug-repurposing"
-version = "0.1.0"
-source = { editable = "core" }
-dependencies = [
-    { name = "duckdb" },
-    { name = "httpx" },
-    { name = "openai" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "duckdb", specifier = ">=1.1" },
-    { name = "httpx", specifier = ">=0.27" },
-    { name = "openai", specifier = ">=1.50" },
-]
-
-[[package]]
-name = "oxhack-ranking"
-version = "0.3.0"
-source = { editable = "core/ranking" }
-dependencies = [
-    { name = "numpy" },
-    { name = "scipy" },
-]
-
-[package.optional-dependencies]
-benchmark = [
-    { name = "duckdb" },
-    { name = "httpx" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "duckdb", marker = "extra == 'benchmark'", specifier = "==2.0.0" },
-    { name = "httpx", marker = "extra == 'benchmark'", specifier = "==0.28.1" },
-    { name = "numpy", specifier = "==2.4.6" },
-    { name = "scipy", specifier = "==1.17.1" },
-]
-provides-extras = ["benchmark"]
-
-[[package]]
-name = "oxhack-worker"
-version = "0.1.0"
-source = { editable = "app/worker" }
-dependencies = [
-    { name = "oxhack-api" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "pyright" },
-    { name = "pytest" },
-    { name = "rdkit" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "oxhack-api", editable = "app/api" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "pyright", specifier = ">=1.1.390" },
-    { name = "pytest", specifier = ">=8.3" },
-    { name = "rdkit", specifier = "==2026.9.1" },
-    { name = "ruff", specifier = ">=0.8" },
 ]
 
 [[package]]

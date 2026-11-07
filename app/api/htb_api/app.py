@@ -1,4 +1,4 @@
-"""The FastAPI app. Run with `uv run uvicorn oxhack_api.app:app --reload`."""
+"""The FastAPI app. Run with `uv run uvicorn htb_api.app:app --reload`."""
 
 from __future__ import annotations
 
@@ -92,7 +92,7 @@ def open_docking(
     settings: Settings, repo: Repo, execute: DockExecutor | None = None
 ) -> DockingBackend:
     """The docking backend the settings name. Vina mode needs the prepared structures
-    (`python -m oxhack_worker.prepare`). Only a process given an `execute` runs its
+    (`python -m htb_worker.prepare`). Only a process given an `execute` runs its
     jobs: the docking worker's, or a serverless API's sandbox runner."""
     if settings.docking == "fixture":
         return FixtureDocking(settings.fixtures_dir)
@@ -118,7 +118,7 @@ def open_molecules(settings: Settings) -> MoleculeSource:
 
 def open_source(settings: Settings, docking: DockingBackend) -> ExperimentSource:
     """The Experiment source the settings name. The live source needs prepared data
-    (`python -m oxhack_api.prepare`) and refuses to start without it."""
+    (`python -m htb_api.prepare`) and refuses to start without it."""
     if settings.source == "fixture":
         return FixtureSource(settings.fixtures_dir)
     structures = docking.structures()
@@ -138,7 +138,7 @@ def open_ranking(settings: Settings) -> RankingBackend:
     if not stream_b.bundle_ready(bundle):
         log.warning(
             "No protein network in %s, so live Experiments use the evidence ranking. "
-            "Run `uv run python -m oxhack_api.prepare` to build it.",
+            "Run `uv run python -m htb_api.prepare` to build it.",
             bundle,
         )
         return EvidenceRanking()
@@ -239,7 +239,7 @@ def create_app(settings: Settings | None = None, components: Components | None =
                 current.runner.shutdown()
 
     app = FastAPI(
-        title="OxHack '26 drug repurposing API",
+        title="HTB26 drug repurposing API",
         version=__version__,
         description=(
             "Educational research tool. Candidate rankings, Model jury assessments and binding "

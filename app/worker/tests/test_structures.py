@@ -7,9 +7,9 @@ import re
 from pathlib import Path
 
 from conftest import STRUCTURES_DIR
-from oxhack_api.repo import MemoryRepo
-from oxhack_api.services.docking import FixtureDocking, VinaDocking
-from oxhack_api.settings import FIXTURES_DIR, REPO_ROOT
+from htb_api.repo import MemoryRepo
+from htb_api.services.docking import FixtureDocking, VinaDocking
+from htb_api.settings import FIXTURES_DIR, REPO_ROOT
 
 LOCK = REPO_ROOT / ".devcontainer" / "docking-requirements.txt"
 

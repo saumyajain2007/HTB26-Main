@@ -1,6 +1,6 @@
 """The docking queue on a throwaway Postgres: claiming, results, failures, the API.
 
-Each test runs the docking worker as `python -m oxhack_worker.queue` sets it up (the
+Each test runs the docking worker as `python -m htb_worker.queue` sets it up (the
 job worker serving `dock_jobs` only, with Vina docking), with `fake_dock.py` in
 place of Vina.
 """
@@ -20,13 +20,13 @@ import psycopg
 import pytest
 from conftest import STRUCTURES_DIR, fake_runner, vina_settings
 from fastapi.testclient import TestClient
-from oxhack_api.app import build_components, create_app
-from oxhack_api.deps import Components
-from oxhack_api.jobs_pg import PostgresWorker
-from oxhack_api.repo.postgres import PostgresRepo
-from oxhack_api.schemas import DockJob
-from oxhack_api.services.docking import VinaDocking
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.app import build_components, create_app
+from htb_api.deps import Components
+from htb_api.jobs_pg import PostgresWorker
+from htb_api.repo.postgres import PostgresRepo
+from htb_api.schemas import DockJob
+from htb_api.services.docking import VinaDocking
+from htb_api.settings import FIXTURES_DIR
 
 COVID = "MONDO_0100096"
 BARICITINIB = "CHEMBL2105759"

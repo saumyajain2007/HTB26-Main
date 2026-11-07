@@ -14,15 +14,15 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from psycopg import OperationalError
 
-from oxhack_api.app import build_components, create_app
-from oxhack_api.errors import TooManyRequests
-from oxhack_api.jobs import ThreadRunner
-from oxhack_api.jobs_pg import PostgresWorker
-from oxhack_api.repo import DockInputs, Repo
-from oxhack_api.repo.postgres import PostgresRepo
-from oxhack_api.schemas import DockFileName
-from oxhack_api.services.docking import FixtureDocking, cache_key
-from oxhack_api.settings import FIXTURES_DIR, Settings
+from htb_api.app import build_components, create_app
+from htb_api.errors import TooManyRequests
+from htb_api.jobs import ThreadRunner
+from htb_api.jobs_pg import PostgresWorker
+from htb_api.repo import DockInputs, Repo
+from htb_api.repo.postgres import PostgresRepo
+from htb_api.schemas import DockFileName
+from htb_api.services.docking import FixtureDocking, cache_key
+from htb_api.settings import FIXTURES_DIR, Settings
 
 
 def test_browser_sessions_are_private(make_client: Callable[..., TestClient]) -> None:
@@ -31,8 +31,8 @@ def test_browser_sessions_are_private(make_client: Callable[..., TestClient]) ->
     experiment_id = experiment["id"]
     response = bob.get("/api/experiments?include_building=true")
     assert response.json() == {"items": []}
-    assert alice.cookies.get("oxhack_session") != bob.cookies.get("oxhack_session")
-    assert alice.cookies.get("oxhack_session")
+    assert alice.cookies.get("htb_session") != bob.cookies.get("htb_session")
+    assert alice.cookies.get("htb_session")
     assert alice.get(f"/api/experiments/{experiment_id}").status_code == 200
     assert bob.get(f"/api/experiments/{experiment_id}").status_code == 404
     for action in ("archive", "restore", "jury", "follow-ups"):
@@ -113,7 +113,7 @@ def test_creation_quota_persists_across_app_restarts_and_browser_rotation(
     # Arbitrary valid-looking cookies are fresh browsers, but share a durable IP budget.
     for _ in range(2):
         fresh = make_client()
-        fresh.cookies.set("oxhack_session", token_urlsafe(32))
+        fresh.cookies.set("htb_session", token_urlsafe(32))
         create(fresh)
     fresh = make_client()
     assert (
@@ -164,7 +164,7 @@ def test_cookie_security_and_malformed_cookie_rotation(
 ) -> None:
     settings.session_cookie_secure = configured_secure
     with TestClient(make_client().app, base_url=base_url) as browser:
-        browser.cookies.set("oxhack_session", "malformed")
+        browser.cookies.set("htb_session", "malformed")
         response = browser.get("/api/health")
         cookie = response.headers["set-cookie"].lower()
         assert "httponly" in cookie

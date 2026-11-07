@@ -117,11 +117,11 @@ class PostgresRepo:
             configure=_configure,
             check=_check,
             open=False,
-            name="oxhack",
+            name="htb",
         )
         # The connection of the transaction the current thread is in, if any.
         self._current: ContextVar[Conn | None] = ContextVar(
-            f"oxhack_pg_connection_{id(self)}", default=None
+            f"htb_pg_connection_{id(self)}", default=None
         )
 
     @property

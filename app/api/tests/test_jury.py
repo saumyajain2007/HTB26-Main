@@ -15,10 +15,10 @@ import pytest
 from conftest import COVID, SteppedRunner, create, ready_experiment
 from fastapi.testclient import TestClient
 
-from oxhack_api.services import live_jury
-from oxhack_api.services.jury import FixtureJury
-from oxhack_api.services.live_jury import StreamAJury
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.services import live_jury
+from htb_api.services.jury import FixtureJury
+from htb_api.services.live_jury import StreamAJury
+from htb_api.settings import FIXTURES_DIR
 
 
 def jury_of(client: TestClient, experiment_id: str) -> dict[str, Any]:

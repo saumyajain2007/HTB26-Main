@@ -9,9 +9,9 @@ from typing import Any
 
 import pytest
 
-from oxhack_api.schemas import Evaluation
-from oxhack_api.services.evaluation import canonical_hash, from_stage3
-from oxhack_api.settings import FIXTURES_DIR
+from htb_api.schemas import Evaluation
+from htb_api.services.evaluation import canonical_hash, from_stage3
+from htb_api.settings import FIXTURES_DIR
 
 METHODS = ("direct_evidence", "shared_targets", "raw_proximity", "degree_matched_z", "random")
 MYELOMA, COVID = "MONDO_0009693", "MONDO_0100096"

@@ -23,17 +23,17 @@ from conftest import (
 from fastapi.testclient import TestClient
 from pydantic import ValidationError
 
-from oxhack_api.app import seed_dock_jobs
-from oxhack_api.repo import Repo
-from oxhack_api.schemas import DockJob, Structure
-from oxhack_api.services.docking import (
+from htb_api.app import seed_dock_jobs
+from htb_api.repo import Repo
+from htb_api.schemas import DockJob, Structure
+from htb_api.services.docking import (
     DockInputs,
     FixtureDocking,
     VinaDocking,
     unsupported_reason,
 )
-from oxhack_api.services.source import FixtureSource
-from oxhack_api.settings import FIXTURES_DIR, REPO_ROOT, Settings
+from htb_api.services.source import FixtureSource
+from htb_api.settings import FIXTURES_DIR, REPO_ROOT, Settings
 
 
 def test_structures_lists_the_prepared_set(client: TestClient) -> None:
@@ -283,7 +283,7 @@ def test_an_experiment_has_at_most_three_computations_waiting(
 
 
 def test_real_docking_needs_postgres() -> None:
-    with pytest.raises(ValidationError, match="OXHACK_DOCKING=vina needs OXHACK_REPO=postgres"):
+    with pytest.raises(ValidationError, match="HTB_DOCKING=vina needs HTB_REPO=postgres"):
         Settings(docking="vina", repo="memory")
 
 

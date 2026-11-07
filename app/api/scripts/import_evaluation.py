@@ -6,7 +6,7 @@
 The first argument is the folder `python -m ranking evaluate --output` wrote; the rest are
 the Stage 2 ranking files it read (for the Disease names). Checks the manifest hash and
 each ranking file's SHA-256 against what the evaluation recorded, then writes
-oxhack_api/fixtures/evaluation.json.
+htb_api/fixtures/evaluation.json.
 """
 
 from __future__ import annotations
@@ -14,9 +14,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-from oxhack_api.services.evaluation import from_stage3
+from htb_api.services.evaluation import from_stage3
 
-FIXTURE = Path(__file__).resolve().parents[1] / "oxhack_api" / "fixtures" / "evaluation.json"
+FIXTURE = Path(__file__).resolve().parents[1] / "htb_api" / "fixtures" / "evaluation.json"
 
 
 def main(argv: list[str]) -> int:

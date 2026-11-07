@@ -1,6 +1,6 @@
 /**
  * Test data, read straight from the API's own fixture files (`@api-fixtures` is an alias for
- * `api/oxhack_api/fixtures`), so the web tests and the API serve one copy of the data.
+ * `api/htb_api/fixtures`), so the web tests and the API serve one copy of the data.
  */
 import covidFile from "@api-fixtures/MONDO_0100096/experiment.json";
 import juryFile from "@api-fixtures/MONDO_0100096/jury.json";

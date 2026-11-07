@@ -10,7 +10,7 @@ import pytest
 from conftest import SteppedRunner, ready_experiment
 from fastapi.testclient import TestClient
 
-from oxhack_api.services.molecules import MoleculesUnavailable, PubChemMolecules
+from htb_api.services.molecules import MoleculesUnavailable, PubChemMolecules
 
 BARICITINIB_CID = 44205240
 

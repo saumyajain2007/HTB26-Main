@@ -9,7 +9,7 @@ from uuid import UUID, uuid4
 from conftest import COVID, SteppedRunner, create, ready_experiment
 from fastapi.testclient import TestClient
 
-from oxhack_api.services.source import BuildSteps, FixtureSource, SourceError
+from htb_api.services.source import BuildSteps, FixtureSource, SourceError
 
 
 def test_create_returns_202_and_a_queued_experiment(client: TestClient) -> None:
@@ -166,7 +166,7 @@ class BrokenSource(FixtureSource):
 def test_a_failed_build_reports_why(
     make_client: Callable[..., TestClient], runner: SteppedRunner
 ) -> None:
-    from oxhack_api.settings import FIXTURES_DIR
+    from htb_api.settings import FIXTURES_DIR
 
     client = make_client(source=BrokenSource(FIXTURES_DIR))
     experiment_id = create(client)["id"]
@@ -187,7 +187,7 @@ def test_a_failed_build_reports_why(
 def test_an_invalid_fixture_is_reported_as_unavailable(
     make_client: Callable[..., TestClient], tmp_path: Path
 ) -> None:
-    from oxhack_api.settings import FIXTURES_DIR
+    from htb_api.settings import FIXTURES_DIR
 
     folder = tmp_path / COVID
     folder.mkdir()

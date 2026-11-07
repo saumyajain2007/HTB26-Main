@@ -8,9 +8,9 @@ Vercel serves this module's `app` for /api/* while public/ holds the web app.
   of symlinks: readers see every bundled file, and caches written at run time
   (ChEMBL, PubChem, HTTP responses, audits) become real files beside them. Files
   and folders build.py packed for Vercel's upload limits are restored there.
-- There is no worker process: jobs run after the API's responses (oxhack_api.drain).
+- There is no worker process: jobs run after the API's responses (htb_api.drain).
 - Docking runs in Vercel Sandboxes restored from DOCK_SNAPSHOT_ID
-  (oxhack_worker.sandbox); its result files are kept in Postgres.
+  (htb_worker.sandbox); its result files are kept in Postgres.
 - The database is Neon, from the Vercel integration's DATABASE_URL_UNPOOLED: the
   repo uses session settings and advisory locks, which a transaction pooler drops.
   Each cold start applies pending migrations first (idempotent, under an advisory
@@ -40,19 +40,19 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s %(message
 # The Vercel SDK logs each HTTP call at INFO; a docking poll makes one every 2 s.
 logging.getLogger("httpx").setLevel(logging.WARNING)
 os.environ.setdefault(
-    "OXHACK_DATA_DIR", str(writable_mirror(ROOT / "data", SCRATCH / "data"))
+    "HTB_DATA_DIR", str(writable_mirror(ROOT / "data", SCRATCH / "data"))
 )
-os.environ.setdefault("OXHACK_RESULTS_DIR", str(SCRATCH / "docking"))
-os.environ.setdefault("OXHACK_AFTER_REQUEST_JOBS", "true")
+os.environ.setdefault("HTB_RESULTS_DIR", str(SCRATCH / "docking"))
+os.environ.setdefault("HTB_AFTER_REQUEST_JOBS", "true")
 # Vercel overwrites this on every request, so it names the reader for rate limits.
-os.environ.setdefault("OXHACK_CLIENT_IP_HEADER", "x-vercel-forwarded-for")
+os.environ.setdefault("HTB_CLIENT_IP_HEADER", "x-vercel-forwarded-for")
 if direct := os.environ.get("DATABASE_URL_UNPOOLED"):
-    os.environ.setdefault("OXHACK_DATABASE_URL", direct)
+    os.environ.setdefault("HTB_DATABASE_URL", direct)
 
 import migrate
-from oxhack_api.app import build_components, create_app, open_docking, open_repo
-from oxhack_api.settings import Settings
-from oxhack_worker.sandbox import SandboxDockRunner
+from htb_api.app import build_components, create_app, open_docking, open_repo
+from htb_api.settings import Settings
+from htb_worker.sandbox import SandboxDockRunner
 
 settings = Settings()
 if settings.database_url:

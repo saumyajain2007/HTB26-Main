@@ -11,7 +11,7 @@ from rdkit import Chem  # a dev dependency, so this runs without the docking ven
 from rdkit.Chem.rdDistGeom import EmbedMolecule
 from rdkit.Geometry import Point3D
 
-from oxhack_worker.control import crystal_ligand, pose_rmsds
+from htb_worker.control import crystal_ligand, pose_rmsds
 
 BARICITINIB = STRUCTURES_DIR / "6WTO"
 

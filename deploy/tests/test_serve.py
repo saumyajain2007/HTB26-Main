@@ -25,7 +25,7 @@ def test_launch_bounds_connections_and_sets_cookie_security(
     uv = commands / "uv"
     uv.write_text(
         '#!/bin/bash\nprintf "%s cookie=%s\\n" "$*" '
-        '"$OXHACK_SESSION_COOKIE_SECURE" >> "$COMMAND_LOG"\n'
+        '"$HTB_SESSION_COOKIE_SECURE" >> "$COMMAND_LOG"\n'
     )
     uv.chmod(0o755)
     result = subprocess.run(
@@ -35,9 +35,9 @@ def test_launch_bounds_connections_and_sets_cookie_security(
             "PATH": f"{commands}:{os.environ['PATH']}",
             "COMMAND_LOG": str(log),
             "DATABASE_URL": "postgresql://unused",
-            "OXHACK_DOCKING": "fixture",
+            "HTB_DOCKING": "fixture",
             "CODESPACES": codespaces,
-            "OXHACK_SESSION_COOKIE_SECURE": override,
+            "HTB_SESSION_COOKIE_SECURE": override,
         },
         check=False,
         capture_output=True,

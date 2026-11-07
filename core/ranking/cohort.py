@@ -1,6 +1,6 @@
 """Collect a release-pinned cohort, seal its inputs, then reuse Stages 2 and 3.
 
-Optional dependencies: install oxhack-ranking[benchmark]. Network access is
+Optional dependencies: install htb-ranking[benchmark]. Network access is
 confined to collection; run/verify use only the sealed local inputs.
 """
 

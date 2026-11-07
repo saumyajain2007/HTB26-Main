@@ -2,7 +2,7 @@
 
     uv run python scripts/fetch_conformers.py
 
-Writes oxhack_api/fixtures/conformers/<cid>.json. Antibodies have no CID and are
+Writes htb_api/fixtures/conformers/<cid>.json. Antibodies have no CID and are
 skipped. Re-run after adding Candidates to a fixture.
 """
 
@@ -13,9 +13,9 @@ import sys
 import urllib.request
 from pathlib import Path
 
-from oxhack_api.services.molecules import parse_sdf
+from htb_api.services.molecules import parse_sdf
 
-FIXTURES = Path(__file__).resolve().parents[1] / "oxhack_api" / "fixtures"
+FIXTURES = Path(__file__).resolve().parents[1] / "htb_api" / "fixtures"
 SDF_URL = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/SDF?record_type=3d"
 
 

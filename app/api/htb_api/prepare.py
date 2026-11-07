@@ -1,6 +1,6 @@
-"""Prepare the source data the live source reads: `uv run python -m oxhack_api.prepare`.
+"""Prepare the source data the live source reads: `uv run python -m htb_api.prepare`.
 
-Runs stream A's offline steps into the data folder (`OXHACK_DATA_DIR`, by default
+Runs stream A's offline steps into the data folder (`HTB_DATA_DIR`, by default
 the repository's git-ignored `data/`):
 
 1. the Open Targets 26.09 disease listing (`ot/26.09/disease/00000000.parquet`),
@@ -52,7 +52,7 @@ import httpx
 from . import stream_a, stream_b
 from .settings import Settings
 
-log = logging.getLogger("oxhack_api.prepare")
+log = logging.getLogger("htb_api.prepare")
 
 
 def folder_size(path: Path) -> int:
@@ -215,12 +215,12 @@ def prepare(data_dir: Path, *, rebuild_drugs: bool = False) -> dict[str, int]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        prog="python -m oxhack_api.prepare", description=(__doc__ or "").split("\n\n")[0]
+        prog="python -m htb_api.prepare", description=(__doc__ or "").split("\n\n")[0]
     )
     parser.add_argument(
         "--data-dir",
         type=Path,
-        help="Data folder (default: OXHACK_DATA_DIR, else the repository's data/).",
+        help="Data folder (default: HTB_DATA_DIR, else the repository's data/).",
     )
     parser.add_argument(
         "--rebuild-drugs",

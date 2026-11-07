@@ -1,4 +1,4 @@
-"""Write the API contract to `api/openapi.json`: `python -m oxhack_api.export_openapi`.
+"""Write the API contract to `api/openapi.json`: `python -m htb_api.export_openapi`.
 
 Keys are sorted so the file only changes when the contract does. A test fails
 when the committed file is stale.
