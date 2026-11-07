@@ -91,7 +91,7 @@ Short, blocks everything. Do together, then split.
 ### Lane A: data and resistance (WS1, WS2)
 
 - [ ] Ingest CARD with release version recorded: ARO ontology, gene-to-class and gene-to-mechanism links, point-mutation models. `L`
-- [ ] Antibiotic catalogue from ChEMBL (ATC J01 and antibacterial indications): class, mechanism, target, SMILES; map names to CARD's drug-class vocabulary. `M`
+- [x] Antibiotic catalogue from ChEMBL (ATC J01 and antibacterial indications): class, mechanism, target, SMILES; map names to CARD's drug-class vocabulary. `M`
 - [ ] Version manifest and checksums, `/data/` layout gitignored, one command rebuilds the tables (reuse the pattern in `core/pipeline/manifest.py`). `M`
 - [ ] Curated combinations table, every row cited (for example beta-lactam plus inhibitor). `M`
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`

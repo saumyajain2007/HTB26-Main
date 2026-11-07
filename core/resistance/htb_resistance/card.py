@@ -462,8 +462,29 @@ def main(argv: list[str] | None = None) -> int:
     v = sub.add_parser("verify", help="check a release's tables against its manifest")
     v.add_argument("release_dir", type=Path)
     v.add_argument("--raw-dir", type=Path, help="where the downloaded archives are (default: raw/ beside releases/)")
+    c = sub.add_parser("catalogue", help="build the ChEMBL antibiotic catalogue mapped onto CARD classes")
+    c.add_argument("--card-release", type=Path, help="CARD release dir (default: the newest built)")
+    c.add_argument("--chembl-db", type=Path, help="extracted ChEMBL sqlite database")
+    c.add_argument("--out-dir", type=Path, help="default: data/antibiotics")
+    cv = sub.add_parser("verify-catalogue", help="check a catalogue release against its manifest")
+    cv.add_argument("release_dir", type=Path)
     args = p.parse_args(argv)
     try:
+        if args.cmd == "catalogue":
+            from . import catalogue
+
+            card_release = args.card_release or sorted((DEFAULT_DIR / "releases").glob("*/"))[-1]
+            catalogue.build_catalogue(args.chembl_db or catalogue.CHEMBL_DB, card_release,
+                                      args.out_dir or catalogue.DEFAULT_OUT)
+            return 0
+        if args.cmd == "verify-catalogue":
+            from . import catalogue
+
+            problems = catalogue.verify_catalogue(args.release_dir)
+            for line in problems:
+                print(line, file=sys.stderr)
+            print("ok" if not problems else f"{len(problems)} problem(s)")
+            return 1 if problems else 0
         if args.cmd == "build":
             build(args.data_dir, refresh=args.refresh, data_archive=args.data_archive,
                   ontology_archive=args.ontology_archive)
