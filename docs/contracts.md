@@ -23,7 +23,7 @@ Conventions: every object carries `contract_version: "1"` at its top level. Opti
 | `releases` | CARD release used |
 | `genes[]` | One row per resolved determinant: `aro_id`, `name`, `model_type`, `mechanisms[]`, `defeated_classes[]`, `variants[]` (point mutations), `affected_target` (`name`, `pdb_ids`; `null` when CARD names no sensitive target), `evidence_ids` |
 | `mechanisms[]`, `defeated_classes[]`, `affected_targets[]` | Roll-ups with the `gene_aro_ids` behind each. Must be derivable from `genes[]` |
-| `evidence[]` | `P#` items: `source`, `release`, `aro_id`, `statement` |
+| `evidence[]` | `P#` items: `source` (`card`, or `curated` for a class added from the curated supplement with its citations), `release`, `aro_id`, `statement` |
 | `confidence` | `level` (`low`, `medium`, `high`) and the `basis` for it |
 | `caveats[]` | Always at least one. A gene in CARD is not proof it is expressed |
 
@@ -49,7 +49,7 @@ Mechanism and drug-class terms use CARD's vocabulary and ARO IDs. Join on IDs, n
 | `certificate` | A Certificate, or `null` when `not_run` |
 | `evidence[]` | `E#` items local to the result |
 
-Rules the tests enforce: a candidate is `defeated` exactly when its drug class is in the profile's `defeated_classes`; ranks run 1..n over approved candidates only; no defeated candidate outranks an unaffected one; `unknown` means CARD cannot say, which is not the same as `unaffected`. `partly_affected` is reserved for the evasion rule (#23) to define and has no fixture yet.
+Rules the tests enforce: a candidate is `defeated` exactly when its drug class is in the profile's `defeated_classes`; ranks run 1..n over approved candidates only; no defeated candidate outranks an unaffected one; `unknown` means CARD cannot say, which is not the same as `unaffected`. The evasion rule ([evasion.py](../core/ranking/antibiotic/evasion.py)) sets the status from CARD alone: `defeated` when CARD lists the drug itself against a gene in the profile, `partly_affected` when CARD links only the drug's class to a gene (CARD's drug lists are sparse, so a class mate that is not named is probably affected, not known to be), `unaffected` when no gene links to the class. Order, best first: `unaffected`, `unknown`, `partly_affected`, `defeated`. `partly_affected` has no fixture yet; the fixture's oxacillin is `defeated`, which the real CARD data would call `partly_affected` for mecA.
 
 ## Certificate
 

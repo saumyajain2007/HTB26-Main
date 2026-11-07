@@ -19,15 +19,17 @@ reason. It is never dropped.
 
 from __future__ import annotations
 
+import json
 import uuid
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Sequence
 
-from .card import read_table
+from .card import CardError, read_table
 
 CONTRACT_VERSION = "1"
+SUPPLEMENT_PATH = Path(__file__).with_name("supplement.json")
 VARIANT_MODELS = {"protein variant model", "rRNA gene variant model"}
 CONFIDENCE = {
     "gene_list": ("low", "Gene presence was asserted by the user. Expression and copy number were not assessed."),
@@ -47,7 +49,8 @@ class Determinant:
 class CardProfiler:
     """The CARD tables a profile needs, loaded once."""
 
-    def __init__(self, release: Path | str):
+    def __init__(self, release: Path | str, supplement: Path | str | None = SUPPLEMENT_PATH):
+        """`supplement` is the curated file of extra drug classes (supplement.json); None turns it off."""
         release = Path(release)
         self.release = release
         self.version = self._version(release)
@@ -72,10 +75,36 @@ class CardProfiler:
         self.variants = defaultdict(list)
         for r in read_table(release, "model_variants"):
             self.variants[r["aro_accession"]].append((r["mutation"], r["param_type"]))
+        self.supplement = self._load_supplement(supplement) if supplement else None
+
+    def _load_supplement(self, path: Path | str) -> dict:
+        """Read the curated supplement and check it against this CARD release. A stale or malformed
+        entry stops the build; it is never skipped."""
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        drug_classes = {c for classes in self.classes.values() for c in classes}
+        for add in data["additions"]:
+            where = f"supplement {add.get('id', '?')}"
+            if not add.get("citations") or not all(c.get("pmid", "").isdigit() and c.get("citation") for c in add["citations"]):
+                raise CardError(f"{where}: every added class needs at least one citation with a PubMed id")
+            if not add.get("reason"):
+                raise CardError(f"{where}: no reason given")
+            for model in add["models"]:
+                if model not in self.models:
+                    raise CardError(f"{where}: {model} is not a CARD detection model in release {self.version}")
+            cls = add["drug_class"]
+            if cls["aro_id"] not in drug_classes or self.name(cls["aro_id"]) != cls["name"]:
+                raise CardError(f"{where}: {cls['aro_id']} is not the Drug Class {cls['name']!r} in release {self.version}")
+        return data
+
+    def supplemented(self, aro_id: str) -> list[dict]:
+        """Curated additions for a model that CARD's own release does not already have."""
+        if self.supplement is None:
+            return []
+        return [add for add in self.supplement["additions"]
+                if aro_id in add["models"] and add["drug_class"]["aro_id"] not in self.classes[aro_id]]
 
     @staticmethod
     def _version(release: Path) -> str:
-        import json
         return json.loads((release / "manifest.json").read_text())["card_data_version"]
 
     def name(self, aro_id: str) -> str:
@@ -159,6 +188,8 @@ def build_profile(card: CardProfiler, determinants: Sequence[Determinant], *, ki
 
     release = f"card-{card.version}"
     genes, evidence = [], []
+    class_evidence: dict[tuple[str, str], list[str]] = defaultdict(list)  # (gene, class) -> evidence ids
+    curated: list[tuple[int, dict, list[dict]]] = []  # (gene index, gene, additions)
     for n, det in enumerate(merged.values(), start=1):
         model = card.models[det.aro_id]
         mechanisms = [{"aro_id": a, "name": card.name(a)} for a in sorted(card.mechanisms[det.aro_id])]
@@ -174,14 +205,39 @@ def build_profile(card: CardProfiler, determinants: Sequence[Determinant], *, ki
                           f"of this model.")
         evidence.append({"id": f"P{n}", "source": "card", "release": release, "aro_id": det.aro_id,
                          "statement": statement})
-        genes.append({
+        for c in classes:
+            class_evidence[(det.aro_id, c["aro_id"])].append(f"P{n}")
+        gene = {
             "aro_id": det.aro_id, "name": model["name"], "model_type": model["model_type"],
             "mechanisms": mechanisms, "defeated_classes": classes, "variants": variants,
             # CARD names the sensitive target but carries no structures: PDB entries come from the
             # target list (#20), so pdb_ids stays empty here.
             "affected_target": {"name": target, "pdb_ids": []} if target else None,
             "evidence_ids": [f"P{n}"],
+        }
+        genes.append(gene)
+        additions = card.supplemented(det.aro_id)
+        if additions:
+            curated.append((n, gene, additions))
+
+    # Classes from the curated supplement come after CARD's own, each with its own evidence item
+    # (source "curated") so they can always be told apart from CARD's links.
+    releases = [release]
+    for _, gene, additions in curated:
+        releases = [release, card.supplement["release"]]
+        added = [add["drug_class"] for add in additions]
+        evidence_id = f"P{len(evidence) + 1}"
+        cites = "; ".join(f"{c['citation']} (PMID {c['pmid']})" for add in additions for c in add["citations"])
+        evidence.append({
+            "id": evidence_id, "source": "curated", "release": card.supplement["release"], "aro_id": gene["aro_id"],
+            "statement": (f"Curated supplement, not in CARD {card.version}: {gene['name']} also defeats the "
+                          f"{_join([c['name'] for c in added])} drug {'class' if len(added) == 1 else 'classes'}. "
+                          + " ".join(dict.fromkeys(add["reason"] for add in additions)) + f" Sources: {cites}"),
         })
+        gene["defeated_classes"] = sorted(gene["defeated_classes"] + [dict(c) for c in added], key=lambda c: c["aro_id"])
+        gene["evidence_ids"].append(evidence_id)
+        for c in added:
+            class_evidence[(gene["aro_id"], c["aro_id"])].append(evidence_id)
 
     level, basis = CONFIDENCE[kind]
     if not genes:
@@ -192,6 +248,9 @@ def build_profile(card: CardProfiler, determinants: Sequence[Determinant], *, ki
         "Defeated classes are class-level. Some drugs in a class may still work against a given gene, so use them "
         "to rule drugs out, not to rule them in.",
     ]
+    if curated:
+        caveats.append("Some defeated classes come from a curated supplement, not from CARD's download. Each is "
+                       "marked in the evidence (source: curated) with its citations.")
     if unresolved:
         caveats.append("Input names that could not be resolved are excluded from the profile. See unresolved_inputs.")
     if any(g["affected_target"] is None and any(m["name"].startswith("antibiotic target") for m in g["mechanisms"])
@@ -203,10 +262,10 @@ def build_profile(card: CardProfiler, determinants: Sequence[Determinant], *, ki
         "profile_id": profile_id or str(uuid.uuid4()),
         "input": {"kind": kind, "species": species, "requested": requested},
         "unresolved_inputs": unresolved,
-        "releases": [release],
+        "releases": releases,
         "genes": genes,
-        "mechanisms": _rollup(genes, "mechanisms", evidence=False),
-        "defeated_classes": _rollup(genes, "defeated_classes", evidence=True),
+        "mechanisms": _rollup(genes, "mechanisms"),
+        "defeated_classes": _rollup(genes, "defeated_classes", class_evidence),
         "affected_targets": _targets(genes),
         "evidence": evidence,
         "confidence": {"level": level, "basis": basis},
@@ -218,16 +277,19 @@ def _join(items: list[str]) -> str:
     return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
 
 
-def _rollup(genes: list[dict], field: str, *, evidence: bool) -> list[dict]:
+def _rollup(genes: list[dict], field: str, evidence_ids: dict[tuple[str, str], list[str]] | None = None) -> list[dict]:
+    """Group a per-gene field by term. With `evidence_ids`, each term cites the evidence behind it for
+    each gene (CARD's for CARD's links, the supplement's for curated ones), not all of the gene's."""
     groups: dict[str, dict] = {}
     for gene in genes:
         for term in gene[field]:
             item = groups.setdefault(term["aro_id"], {"aro_id": term["aro_id"], "name": term["name"],
                                                       "gene_aro_ids": [], "evidence_ids": []})
             item["gene_aro_ids"].append(gene["aro_id"])
-            item["evidence_ids"] += gene["evidence_ids"]
+            if evidence_ids is not None:
+                item["evidence_ids"] += evidence_ids[(gene["aro_id"], term["aro_id"])]
     out = [groups[a] for a in sorted(groups)]
-    if not evidence:
+    if evidence_ids is None:
         for item in out:
             del item["evidence_ids"]
     return out

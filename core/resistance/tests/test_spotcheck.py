@@ -107,5 +107,5 @@ def test_ten_genes_match_the_web_except_for_the_recorded_differences():
     release = found[-1].parent
     if json.loads((release / "manifest.json").read_text())["card_data_version"] != "4.0.2":
         pytest.skip("the differences are recorded for CARD 4.0.2")
-    rows = spot_check(release, TEN_GENES + ["mecC"])
+    rows = spot_check(release, TEN_GENES + ["mecC", "mecB", "mecD"])
     assert len(TEN_GENES) == 10 and unexpected(rows) == []
