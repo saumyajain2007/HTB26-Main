@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W04TSQ9Y72EPRWYV26F0A8",
+  "session_id": "6225913b-4f43-4aca-8c92-3c2de2ef691a",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T21:55:31.199873Z",
+  "branch": "resistance-profile",
+  "checkpoints_count": 5,
+  "files_touched": [
+    "core/resistance/htb_resistance/profile.py",
+    "core/resistance/tests/test_profile.py"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "1cc4a8db395b",
+  "checkpoint_transcript_start": 804,
+  "transcript_lines_at_start": 804,
+  "compact_transcript_start": 92,
+  "token_usage": {
+    "input_tokens": 62,
+    "cache_creation_tokens": 71229,
+    "cache_read_tokens": 5699250,
+    "output_tokens": 43197,
+    "api_call_count": 26
+  },
+  "redaction": {
+    "replacements": 16,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 16,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 15
+  }
+}

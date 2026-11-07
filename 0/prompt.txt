@@ -1,0 +1,17 @@
+is it necessary to map them all to the same value? isnt the very purpose of the extended spectrum to handle resistances?
+
+---
+
+Wait for #23
+
+---
+
+so is pr 62 done?
+
+---
+
+merge
+
+---
+
+Can you jump to issue #16
