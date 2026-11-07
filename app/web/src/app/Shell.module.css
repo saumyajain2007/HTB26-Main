@@ -1,7 +1,7 @@
-/* Header, after the product name: Disease and steps. Footer: Back and Next. */
+/* Header, after the product name: what the flow is about, and the steps. Footer: Back and Next. */
 
-/* A long Disease name gives way to the steps: it ends in an ellipsis rather than push them out. */
-.disease {
+/* A long name gives way to the steps: it ends in an ellipsis rather than push them out. */
+.subject {
   display: inline-flex;
   flex: 0 1 auto;
   align-items: center;
@@ -12,12 +12,12 @@
   white-space: nowrap;
 }
 
-.diseaseName {
+.subjectName {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.diseaseMark {
+.subjectMark {
   flex: none;
   width: 8px;
   height: 8px;
@@ -130,7 +130,7 @@ a.navLink:hover,
 }
 
 @media (max-width: 1360px) {
-  .disease {
+  .subject {
     font-size: var(--text-label);
   }
 
