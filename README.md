@@ -72,5 +72,14 @@ works as is: create a service, copy its connection string into `DATABASE_URL`, s
 `HTB_REPO=postgres`, and migrate. Nothing here uses Timescale features yet.
 
 **Entire.** Entire records AI coding sessions alongside your commits. It is a CLI,
-not a dependency of the app: install it from [entire.io](https://entire.io), then run
-`entire enable` in this repository. Nothing is committed for it on this branch.
+not a dependency of the app. Install it, then enable it inside this repository:
+
+```
+brew install --cask entireio/tap/entire     # note --cask; or: curl -fsSL https://entire.com/install.sh | bash
+entire enable                               # pick your agents; installs agent and git hooks
+entire status
+```
+
+Session data goes to a separate `entire/checkpoints/v1` branch; `entire doctor` helps
+if something is stuck. Details: [github.com/entireio/cli](https://github.com/entireio/cli).
+Nothing is committed for it on this branch.
