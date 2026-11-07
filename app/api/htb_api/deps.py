@@ -14,6 +14,7 @@ from .services.evaluation import EvaluationSource
 from .services.experiments import ExperimentService
 from .services.jury import JuryBackend
 from .services.molecules import MoleculeSource
+from .services.resistance import ResistanceSource
 from .services.source import ExperimentSource
 from .settings import Settings
 
@@ -27,6 +28,7 @@ class Components:
     docking: DockingBackend
     evaluation: EvaluationSource
     molecules: MoleculeSource
+    resistance: ResistanceSource
     runner: Runner
     jobs: JobFactory
 
@@ -43,6 +45,13 @@ def get_components(request: Request) -> Components:
 
 
 ComponentsDep = Annotated[Components, Depends(get_components)]
+
+
+def get_resistance(components: ComponentsDep) -> ResistanceSource:
+    return components.resistance
+
+
+ResistanceDep = Annotated[ResistanceSource, Depends(get_resistance)]
 
 
 def get_service(components: ComponentsDep, request: Request) -> ExperimentService:
