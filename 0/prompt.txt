@@ -1,0 +1,19 @@
+Start working on issue #10
+
+---
+
+chembl is downloaded here.
+
+---
+
+<task-notification>
+<task-id>bmp0l2fb1</task-id>
+<tool-use-id>toolu_01KzY5t4SvPXTT63MRSGtugX</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/6225913b-4f43-4aca-8c92-3c2de2ef691a/tasks/bmp0l2fb1.output</output-file>
+<status>completed</status>
+<summary>Background command "Extract ChEMBL sqlite database from the archive" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Why is the issue not closed then?
