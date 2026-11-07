@@ -1,0 +1,381 @@
+{
+  "experiment_id": "00000000-0000-4000-8000-000000000001",
+  "disease": {
+    "id": "MONDO_0009693",
+    "name": "plasma cell myeloma"
+  },
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37",
+    "string-12.5",
+    "reactome-97"
+  ],
+  "candidates": [
+    {
+      "label": "C1",
+      "candidate_id": "CHEMBL2105759",
+      "name": "BARICITINIB",
+      "targets": [
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000105397",
+          "name": "TYK2",
+          "mechanism": null
+        }
+      ],
+      "evidence_ids": [
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E23"
+      ],
+      "safety_status": "warnings_recorded"
+    },
+    {
+      "label": "C2",
+      "candidate_id": "CHEMBL3137309",
+      "name": "VENETOCLAX",
+      "targets": [
+        {
+          "id": "ENSG00000171791",
+          "name": "BCL2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence_ids": [
+        "E19",
+        "E20",
+        "E21"
+      ],
+      "safety_status": "unknown"
+    },
+    {
+      "label": "C3",
+      "candidate_id": "CHEMBL3545376",
+      "name": "ERDAFITINIB",
+      "targets": [
+        {
+          "id": "ENSG00000068078",
+          "name": "FGFR3",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000077782",
+          "name": "FGFR1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000160867",
+          "name": "FGFR4",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000066468",
+          "name": "FGFR2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E22"
+      ],
+      "safety_status": "unknown"
+    },
+    {
+      "label": "C4",
+      "candidate_id": "CHEMBL1789941",
+      "name": "RUXOLITINIB",
+      "targets": [
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence_ids": [
+        "E4",
+        "E5",
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E23"
+      ],
+      "safety_status": "warnings_recorded"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "kind": "target_association",
+      "source": "open_targets",
+      "source_id": "ENSG00000068078/MONDO_0009693",
+      "url": "https://platform.opentargets.org/evidence/ENSG00000068078/MONDO_0009693",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.90 with plasma cell myeloma.",
+      "values": {
+        "evidence_only_score": 0.9
+      }
+    },
+    {
+      "id": "E2",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "7379",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7379.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records ERDAFITINIB's mechanism as Fibroblast growth factor receptor inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E3",
+      "kind": "approval",
+      "source": "open_targets",
+      "source_id": "label/2019/212018s000lbl.pdf",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/212018s000lbl.pdf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a regulator-backed approval for ERDAFITINIB from FDA.",
+      "values": {}
+    },
+    {
+      "id": "E4",
+      "kind": "target_association",
+      "source": "open_targets",
+      "source_id": "ENSG00000162434/MONDO_0009693",
+      "url": "https://platform.opentargets.org/evidence/ENSG00000162434/MONDO_0009693",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 gives JAK1 an evidence-only association score of 0.80 with plasma cell myeloma.",
+      "values": {
+        "evidence_only_score": 0.8
+      }
+    },
+    {
+      "id": "E5",
+      "kind": "target_association",
+      "source": "open_targets",
+      "source_id": "ENSG00000096968/MONDO_0009693",
+      "url": "https://platform.opentargets.org/evidence/ENSG00000096968/MONDO_0009693",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 gives JAK2 an evidence-only association score of 0.70 with plasma cell myeloma.",
+      "values": {
+        "evidence_only_score": 0.7
+      }
+    },
+    {
+      "id": "E6",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "5293",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5293.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E7",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "5294",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5294.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E8",
+      "kind": "bioactivity",
+      "source": "chembl",
+      "source_id": "CHEMBL2105759/CHEMBL2835",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL2835&pchembl_value__isnull=false",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records a median pChEMBL of 7.5 across 10 human JAK1 activities for BARICITINIB.",
+      "values": {
+        "median_pchembl": 7.5,
+        "n_activities": 10
+      }
+    },
+    {
+      "id": "E9",
+      "kind": "bioactivity",
+      "source": "chembl",
+      "source_id": "CHEMBL2105759/CHEMBL3553",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL3553&pchembl_value__isnull=false",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records a median pChEMBL of 7.5 across 10 human TYK2 activities for BARICITINIB.",
+      "values": {
+        "median_pchembl": 7.5,
+        "n_activities": 10
+      }
+    },
+    {
+      "id": "E10",
+      "kind": "approval",
+      "source": "open_targets",
+      "source_id": "label/2018/207924s000lbl.pdf",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/207924s000lbl.pdf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a regulator-backed approval for BARICITINIB from FDA.",
+      "values": {}
+    },
+    {
+      "id": "E11",
+      "kind": "warning",
+      "source": "open_targets",
+      "source_id": "172",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: vascular toxicity.",
+      "values": {}
+    },
+    {
+      "id": "E12",
+      "kind": "warning",
+      "source": "open_targets",
+      "source_id": "173",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: carcinogenicity.",
+      "values": {}
+    },
+    {
+      "id": "E13",
+      "kind": "warning",
+      "source": "open_targets",
+      "source_id": "2333",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: respiratory toxicity.",
+      "values": {}
+    },
+    {
+      "id": "E14",
+      "kind": "warning",
+      "source": "open_targets",
+      "source_id": "2334",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: infectious disease.",
+      "values": {}
+    },
+    {
+      "id": "E15",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "934",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/934.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records RUXOLITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E16",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "936",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/936.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records RUXOLITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E17",
+      "kind": "approval",
+      "source": "open_targets",
+      "source_id": "f1c82580-87ae-11e0-bc84-0002a5d5c51b",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f1c82580-87ae-11e0-bc84-0002a5d5c51b",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a regulator-backed approval for RUXOLITINIB from DailyMed.",
+      "values": {}
+    },
+    {
+      "id": "E18",
+      "kind": "warning",
+      "source": "open_targets",
+      "source_id": "3762",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24da5509-6631-4795-9d42-273faecd08e7",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a Black Box Warning for RUXOLITINIB: infectious disease.",
+      "values": {}
+    },
+    {
+      "id": "E19",
+      "kind": "target_association",
+      "source": "open_targets",
+      "source_id": "ENSG00000171791/MONDO_0009693",
+      "url": "https://platform.opentargets.org/evidence/ENSG00000171791/MONDO_0009693",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 gives BCL2 an evidence-only association score of 0.60 with plasma cell myeloma.",
+      "values": {
+        "evidence_only_score": 0.6
+      }
+    },
+    {
+      "id": "E20",
+      "kind": "mechanism",
+      "source": "chembl",
+      "source_id": "5516",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5516.json",
+      "release": "chembl-37",
+      "statement": "ChEMBL 37 records VENETOCLAX's mechanism as Apoptosis regulator Bcl-2 inhibitor.",
+      "values": {}
+    },
+    {
+      "id": "E21",
+      "kind": "approval",
+      "source": "open_targets",
+      "source_id": "b118a40d-6b56-cee3-10f6-ded821a97018",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b118a40d-6b56-cee3-10f6-ded821a97018",
+      "release": "opentargets-26.09",
+      "statement": "Open Targets 26.09 records a regulator-backed approval for VENETOCLAX from DailyMed.",
+      "values": {}
+    },
+    {
+      "id": "E22",
+      "kind": "network_path",
+      "source": "string",
+      "source_id": "ENSG00000068078@d410b238a7baf780595ac5efe5f22868d4679a1f785d441cc3780efb626105ea",
+      "url": "https://string-db.org/cgi/network?identifiers=9606.ENSP00000339824&species=9606&network_type=physical&required_score=700&add_color_nodes=0&add_white_nodes=0",
+      "release": "string-12.5",
+      "statement": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), FGFR3 connects to the Disease Target FGFR3 in 0 steps: FGFR3. This is a network association, not a proven mechanism.",
+      "values": {
+        "hops": 0
+      }
+    },
+    {
+      "id": "E23",
+      "kind": "pathway",
+      "source": "reactome",
+      "source_id": "R-HSA-9006335",
+      "url": "https://reactome.org/content/detail/R-HSA-9006335",
+      "release": "reactome-97",
+      "statement": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Signaling by Erythropoietin' (R-HSA-9006335, 5 genes). Shared membership is not proof of effect.",
+      "values": {
+        "pathway_gene_count": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "cases": [
+    {
+      "disease_id": "EFO_0803536",
+      "targets_file": "targets-EFO_0803536.json"
+    },
+    {
+      "disease_id": "MONDO_0007915",
+      "targets_file": "targets-MONDO_0007915.json"
+    },
+    {
+      "disease_id": "MONDO_0005252",
+      "targets_file": "targets-MONDO_0005252.json"
+    },
+    {
+      "disease_id": "MONDO_0005393",
+      "targets_file": "targets-MONDO_0005393.json"
+    },
+    {
+      "disease_id": "MONDO_0005133",
+      "targets_file": "targets-MONDO_0005133.json"
+    },
+    {
+      "disease_id": "MONDO_0005041",
+      "targets_file": "targets-MONDO_0005041.json"
+    },
+    {
+      "disease_id": "MONDO_0011786",
+      "targets_file": "targets-MONDO_0011786.json"
+    },
+    {
+      "disease_id": "MONDO_0005147",
+      "targets_file": "targets-MONDO_0005147.json"
+    },
+    {
+      "disease_id": "MONDO_0005086",
+      "targets_file": "targets-MONDO_0005086.json"
+    },
+    {
+      "disease_id": "MONDO_0005109",
+      "targets_file": "targets-MONDO_0005109.json"
+    },
+    {
+      "disease_id": "MONDO_0015924",
+      "targets_file": "targets-MONDO_0015924.json"
+    },
+    {
+      "disease_id": "MONDO_0005277",
+      "targets_file": "targets-MONDO_0005277.json"
+    },
+    {
+      "disease_id": "MONDO_0011438",
+      "targets_file": "targets-MONDO_0011438.json"
+    },
+    {
+      "disease_id": "MONDO_0006624",
+      "targets_file": "targets-MONDO_0006624.json"
+    }
+  ],
+  "cohort_id": "experiment-b-independent-replication-14-v1",
+  "format_version": 1
+}

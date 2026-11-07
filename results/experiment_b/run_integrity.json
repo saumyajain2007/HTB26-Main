@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-25T01:55:36.149469+00:00",
+  "protocol_sha256": "133ccad551116b6c5c29b8ddf41e0b12d9b8a0827212309ba0c6c7b63dafd60c",
+  "frozen_at": "2026-10-25T01:42:04.245654+00:00",
+  "first_dispatch": "2026-10-25T01:42:09.509613+00:00",
+  "all_sealed_source_and_input_hashes_match": true,
+  "panels_identical_between_methods": true,
+  "panel_count": 11,
+  "attempts_reserved": 45,
+  "attempts_dispatched": 45,
+  "attempt_statuses": {
+    "valid": 37,
+    "invalid": 8
+  },
+  "retry_count": 3,
+  "budget": 45
+}

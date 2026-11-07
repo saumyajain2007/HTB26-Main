@@ -1,0 +1,556 @@
+{
+  "provenance": {
+    "recorded_at": "2026-10-24",
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "ot_source": "https://open-targets-public-data-releases.s3.eu-west-1.amazonaws.com/platform/26.09/output/",
+    "chembl_source": "https://www.ebi.ac.uk/chembl/api/data/",
+    "note": "Projected cached source fields for tagraxofusp and risdiplam; APPROVAL indications and their reports; no bioactivity rows."
+  },
+  "tables": {
+    "drug_molecule": [
+      {
+        "id": "CHEMBL4297528",
+        "name": "RISDIPLAM",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL4297573",
+        "name": "TAGRAXOFUSP",
+        "drugType": "Protein",
+        "parentId": null,
+        "childChemblIds": null
+      }
+    ],
+    "clinical_indication": [
+      {
+        "drugId": "CHEMBL4297528",
+        "diseaseId": "MONDO_0001516",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "d0n5mh/spinal muscular atrophy",
+          "emea/h/c/005145",
+          "label/2020/213535s000lbl.pdf",
+          "nct04256265",
+          "nct05861986",
+          "nct05861999",
+          "nct05115110",
+          "nct02908685",
+          "nct02913482",
+          "nct03779334",
+          "nct05808764",
+          "nct07047144",
+          "nct05219487",
+          "nct05769465",
+          "risdiplam"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297573",
+        "diseaseId": "MONDO_0015667",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "d0r7ni/acute myeloid leukaemia",
+          "d08mkr/acute myeloid leukaemia",
+          "d0z2zy/acute myeloid leukaemia"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297573",
+        "diseaseId": "MONDO_0019467",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "d0r7ni/blastic plasmacytoid dendritic cell neoplasm",
+          "nct04216524",
+          "nct04317781",
+          "nct07007052",
+          "d0z2zy/blastic plasmacytoid dendritic cell neoplasm",
+          "nct02113982",
+          "nct03113643"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297528",
+        "diseaseId": "EFO_1000096",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "eceb9a99-7191-4be5-87c3-0102707cf98e"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297573",
+        "diseaseId": "MONDO_0005062",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "emea/h/c/005031"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297573",
+        "diseaseId": "MONDO_0005070",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "l01xx67",
+          "tagraxofusp"
+        ]
+      },
+      {
+        "drugId": "CHEMBL4297573",
+        "diseaseId": "MONDO_0018874",
+        "maxClinicalStage": "APPROVAL",
+        "clinicalReportIds": [
+          "label/2018/761116s000lbl.pdf",
+          "nct04342962",
+          "nct05442216",
+          "nct06456463",
+          "nct02113982",
+          "nct02270463",
+          "nct06561152",
+          "nct07148180",
+          "nct03113643",
+          "nct05716009",
+          "nct05720988",
+          "nct06498973"
+        ]
+      }
+    ],
+    "clinical_report": [
+      {
+        "id": "d08mkr/acute myeloid leukaemia",
+        "source": "TTD",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "d0n5mh/spinal muscular atrophy",
+        "source": "TTD",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "d0r7ni/acute myeloid leukaemia",
+        "source": "TTD",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "d0r7ni/blastic plasmacytoid dendritic cell neoplasm",
+        "source": "TTD",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "d0z2zy/acute myeloid leukaemia",
+        "source": "TTD",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "d0z2zy/blastic plasmacytoid dendritic cell neoplasm",
+        "source": "TTD",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "eceb9a99-7191-4be5-87c3-0102707cf98e",
+        "source": "DailyMed",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "emea/h/c/005031",
+        "source": "EMA Human Drugs",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "emea/h/c/005145",
+        "source": "EMA Human Drugs",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "l01xx67",
+        "source": "ATC",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "label/2018/761116s000lbl.pdf",
+        "source": "FDA",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "label/2020/213535s000lbl.pdf",
+        "source": "FDA",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "nct02113982",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "nct02270463",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "nct02908685",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct02913482",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct03113643",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1"
+      },
+      {
+        "id": "nct03779334",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct04216524",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct04256265",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "APPROVAL"
+      },
+      {
+        "id": "nct04317781",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct04342962",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct05115110",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2_3"
+      },
+      {
+        "id": "nct05219487",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "UNKNOWN"
+      },
+      {
+        "id": "nct05442216",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct05716009",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1"
+      },
+      {
+        "id": "nct05720988",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1"
+      },
+      {
+        "id": "nct05769465",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "UNKNOWN"
+      },
+      {
+        "id": "nct05808764",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct05861986",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_4"
+      },
+      {
+        "id": "nct05861999",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_4"
+      },
+      {
+        "id": "nct06456463",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct06498973",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1"
+      },
+      {
+        "id": "nct06561152",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "nct07007052",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct07047144",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_2"
+      },
+      {
+        "id": "nct07148180",
+        "source": "ClinicalTrials.gov",
+        "clinicalStage": "PHASE_1_2"
+      },
+      {
+        "id": "risdiplam",
+        "source": "USAN",
+        "clinicalStage": "UNKNOWN"
+      },
+      {
+        "id": "tagraxofusp",
+        "source": "USAN",
+        "clinicalStage": "UNKNOWN"
+      }
+    ],
+    "drug_mechanism_of_action": [
+      {
+        "chemblIds": [
+          "CHEMBL4297573"
+        ],
+        "targetName": "Interleukin-3 receptor subunit alpha",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000185291",
+          "ENSG00000292332"
+        ],
+        "actionType": "BINDING AGENT"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL4297573"
+        ],
+        "targetName": "Elongation factor 2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000167658"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL4297528"
+        ],
+        "targetName": "SMN2 pre-mRNA",
+        "targetType": "nucleic-acid",
+        "targets": [
+          "ENSG00000205571"
+        ],
+        "actionType": "POSITIVE MODULATOR"
+      }
+    ],
+    "target": [
+      {
+        "id": "ENSG00000167658",
+        "approvedSymbol": "EEF2",
+        "proteinIds": [
+          {
+            "id": "P13639",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "M0R0I6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A384N6H1",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B2RMP5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "D6W618",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q58J86",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000185291",
+        "approvedSymbol": "IL3RA",
+        "proteinIds": [
+          {
+            "id": "P26951",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "J3JS34",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K3F3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B9VI81",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5HYQ7",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5HYQ8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UEH7",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000205571",
+        "approvedSymbol": "SMN2",
+        "proteinIds": [
+          {
+            "id": "Q16637",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "B4DP61",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E7EQZ4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YBZ9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "U3KPX7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K0V4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13119",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q549U5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96J51",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000292332",
+        "approvedSymbol": "IL3RA",
+        "proteinIds": [
+          {
+            "id": "P26951",
+            "source": "uniprot_swissprot"
+          }
+        ]
+      }
+    ]
+  },
+  "chembl_molecules": [
+    {
+      "molecule_chembl_id": "CHEMBL4297528",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL4297528",
+        "molecule_chembl_id": "CHEMBL4297528",
+        "parent_chembl_id": "CHEMBL4297528"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL4297573",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL4297573",
+        "molecule_chembl_id": "CHEMBL4297573",
+        "parent_chembl_id": "CHEMBL4297573"
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "mec_id": 7363,
+      "molecule_chembl_id": "CHEMBL4297573",
+      "parent_molecule_chembl_id": "CHEMBL4297573",
+      "target_chembl_id": "CHEMBL3712987",
+      "action_type": "BINDING AGENT",
+      "mechanism_of_action": "Interleukin-3 receptor subunit alpha binding agent"
+    },
+    {
+      "mec_id": 7376,
+      "molecule_chembl_id": "CHEMBL4297573",
+      "parent_molecule_chembl_id": "CHEMBL4297573",
+      "target_chembl_id": "CHEMBL1795108",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Elongation factor 2 inhibitor"
+    },
+    {
+      "mec_id": 7638,
+      "molecule_chembl_id": "CHEMBL4297528",
+      "parent_molecule_chembl_id": "CHEMBL4297528",
+      "target_chembl_id": "CHEMBL3826841",
+      "action_type": "POSITIVE MODULATOR",
+      "mechanism_of_action": "SMN2 pre-mRNA positive modulator"
+    }
+  ],
+  "chembl_targets": [
+    {
+      "target_chembl_id": "CHEMBL1795108",
+      "pref_name": "Elongation factor 2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P13639",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3712987",
+      "pref_name": "Interleukin-3 receptor subunit alpha",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P26951",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3826841",
+      "pref_name": "SMN2 pre-mRNA",
+      "target_type": "NUCLEIC-ACID",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "ENSG00000205571",
+          "component_type": "RNA"
+        }
+      ]
+    }
+  ],
+  "activities": {}
+}

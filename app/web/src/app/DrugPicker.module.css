@@ -1,0 +1,28 @@
+/* The drug's name in heading type, with a dashed rule and a chevron that say it can change. As
+   wide as the chosen name where the browser can size it so, not as the longest option. */
+.picker {
+  field-sizing: content;
+  max-width: 100%;
+  padding: 0 22px 2px 0;
+  border: 0;
+  border-bottom: 1px dashed var(--color-grey-2);
+  border-radius: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E")
+    no-repeat right 2px center;
+  font-size: 20px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  appearance: none;
+  cursor: pointer;
+}
+
+.picker:hover {
+  border-bottom-color: var(--color-ink);
+}
+
+@media (max-width: 720px) {
+  .picker {
+    font-size: var(--text-body);
+  }
+}

@@ -1,0 +1,121 @@
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  align-items: flex-start;
+  max-width: var(--measure);
+  padding-top: var(--space-8);
+}
+
+.headline {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.detail {
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+.stages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.stage {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  font-size: var(--text-body-lg);
+  color: var(--color-grey-2);
+  transition: color var(--duration-quick);
+}
+
+.stage[data-state="done"] {
+  color: var(--color-grey-1);
+}
+
+.stage[data-state="current"] {
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+/*
+ * The ring and its turning gap are two layers of one size, so they stay concentric however the
+ * browser rounds a 1.5px border.
+ */
+.marker {
+  position: relative;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.marker::before,
+.stage[data-state="current"] .marker::after,
+.line .marker::after {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--color-edge);
+  border-radius: 50%;
+  content: "";
+}
+
+.stage[data-state="done"] .marker {
+  background: var(--color-ink);
+}
+
+.stage[data-state="done"] .marker::before,
+.stage[data-state="current"] .marker::before {
+  border-color: var(--color-ink);
+}
+
+/* The one-line status beside an Experiment that is partly drawn. */
+.line {
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.line .marker::before {
+  border-color: var(--color-ink);
+}
+
+/* The current stage's ring turns slowly: one quiet sign of work in progress. */
+.stage[data-state="current"] .marker::after,
+.line .marker::after {
+  border-color: transparent;
+  border-top-color: var(--color-paper);
+  animation: turn 1.4s linear infinite;
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.action,
+.retry {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+}
+
+.retry {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+}
+
+.retry:hover {
+  background: var(--color-hover);
+}

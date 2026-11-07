@@ -1,0 +1,303 @@
+/* The introduction's showpieces. They sit in the app's white page and read its tokens. */
+
+/* The lab plate. */
+
+.labPlate {
+  position: relative;
+  min-width: 0;
+}
+
+.stage {
+  perspective: 1400px;
+}
+
+.labFrame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--story-night);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 8%) inset,
+    0 30px 60px -28px rgb(7 23 43 / 55%),
+    0 12px 24px -16px rgb(7 23 43 / 35%);
+  transform: rotateX(var(--lean-x, 0deg)) rotateY(var(--lean-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 600ms var(--ease-settle);
+  will-change: transform;
+}
+
+/* A soft light that follows the pointer across the glass, and a band that sweeps now and then. */
+.shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60% 60% at var(--shine-x, 30%) var(--shine-y, 20%),
+      rgb(255 255 255 / 10%),
+      transparent 60%
+    ),
+    linear-gradient(
+      105deg,
+      transparent 40%,
+      rgb(212 232 255 / 16%) 48%,
+      rgb(157 226 207 / 10%) 52%,
+      transparent 60%
+    );
+  background-size:
+    100% 100%,
+    300% 100%;
+  background-repeat: no-repeat;
+  animation: sweep 9s var(--ease-camera) infinite;
+}
+
+@keyframes sweep {
+  0%,
+  70% {
+    background-position:
+      0 0,
+      120% 0;
+  }
+  100% {
+    background-position:
+      0 0,
+      -20% 0;
+  }
+}
+
+.labFrame .labNote {
+  position: absolute;
+  top: var(--space-16);
+  left: var(--space-16);
+  z-index: 3;
+}
+
+.labCaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-24);
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-16);
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+/* Jessica's numbered chapter buttons, in ink. */
+.dots {
+  display: flex;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.dots button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--color-rule);
+  border-radius: 50%;
+  background: var(--color-paper);
+  font-size: var(--text-label-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-grey-1);
+  transition:
+    background var(--duration-quick) var(--ease-out),
+    color var(--duration-quick) var(--ease-out),
+    border-color var(--duration-quick) var(--ease-out);
+}
+
+.dots button:hover {
+  border-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+.dots button[aria-pressed="true"] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.dots svg {
+  position: absolute;
+  inset: -5px;
+  width: calc(100% + 10px);
+  max-width: none;
+  height: calc(100% + 10px);
+  overflow: visible;
+  transform: rotate(-90deg);
+}
+
+.dots circle {
+  fill: none;
+  stroke: var(--color-route);
+  stroke-width: 1.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: fill-ring var(--chapter-duration) linear forwards;
+}
+
+.dots svg[data-playing="false"] circle {
+  animation-play-state: paused;
+}
+
+@keyframes fill-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* A detail of an illustration. */
+
+.crop {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--story-night);
+  isolation: isolate;
+}
+
+.cropArt {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  animation: drift 16s ease-in-out infinite alternate;
+  transition: transform 900ms var(--ease-settle);
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1) translate(0, 0);
+  }
+  to {
+    transform: scale(1.08) translate(-1.5%, -1%);
+  }
+}
+
+/* Stickers. */
+
+.sticker {
+  position: relative;
+  display: inline-block;
+  padding: 6px 12px 7px;
+  border-radius: 2px;
+  background: var(--story-tape);
+  font-family: var(--font-sans);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-semibold);
+  line-height: 1.25;
+  color: var(--story-tape-ink);
+  white-space: nowrap;
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 45%) inset,
+    0 8px 18px -10px rgb(0 0 0 / 55%);
+  rotate: var(--tilt);
+}
+
+/* A strip of clear tape holding the label down. */
+.sticker::before {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 30px;
+  height: 11px;
+  background: rgb(255 255 255 / 55%);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 4%);
+  content: "";
+  transform: translateX(-50%) rotate(-5deg);
+}
+
+.sticker[data-animate="true"] {
+  animation: stick 560ms var(--ease-settle) 250ms both;
+}
+
+@keyframes stick {
+  from {
+    opacity: 0;
+    scale: 1.25;
+    rotate: calc(var(--tilt) + 8deg);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    rotate: var(--tilt);
+  }
+}
+
+/* Backdrop: blooms of the role colours and a dot grid that fades out. */
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bloom {
+  position: absolute;
+  width: 46vw;
+  max-width: 760px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.2;
+  animation: float 18s ease-in-out infinite alternate;
+}
+
+/* The blooms take the illustrations' indigo, violet and periwinkle so the page and the
+   pictures read as one palette. */
+.bloom[data-role="disease"] {
+  top: -22%;
+  right: -8%;
+  background: var(--story-periwinkle);
+  opacity: 0.32;
+}
+
+.bloom[data-role="drug"] {
+  top: 6%;
+  right: 22%;
+  width: 30vw;
+  background: var(--story-indigo);
+  animation-delay: -6s;
+  opacity: 0.14;
+}
+
+.bloom[data-role="route"] {
+  top: 40%;
+  left: -14%;
+  background: var(--story-violet);
+  animation-delay: -12s;
+  opacity: 0.16;
+}
+
+@keyframes float {
+  to {
+    translate: 4% -6%;
+    scale: 1.12;
+  }
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgb(0 0 0 / 14%) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(70% 60% at 70% 20%, #000 0%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shine,
+  .cropArt,
+  .bloom,
+  .sticker[data-animate="true"] {
+    animation: none;
+  }
+  .labFrame {
+    transform: none;
+  }
+}

@@ -1,0 +1,1151 @@
+{
+  "fixture_note": "Fixture data. IDs, names, mechanisms, warnings, source links, network edges and structures are real public records (checked 2026-10-24/25). Every score, rank, distance, z-score, pChEMBL median, activity count, jury vote, latency and docking number is fictional, and the Disease Targets are a small sample, not the real top 50.",
+  "jurors": [
+    {
+      "model_id": "claude-sonnet-5",
+      "status": "valid",
+      "attempts": 1,
+      "latency_ms": 41200,
+      "errors": []
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "status": "valid",
+      "attempts": 1,
+      "latency_ms": 28700,
+      "errors": []
+    },
+    {
+      "model_id": "glm-5.3",
+      "status": "valid",
+      "attempts": 2,
+      "latency_ms": 96400,
+      "errors": [
+        "Attempt 1: cited E99, which is not in the evidence packet."
+      ]
+    }
+  ],
+  "votes": [
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL2105759",
+      "rank": 1,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Baricitinib's recorded mechanisms block JAK1 and JAK2, and its TYK2 activity touches a Target with a recorded COVID-19 association.",
+      "objection": "None of the evidence shows when in the illness the drug's action would help.",
+      "missing_evidence": [
+        "Whether blocking JAK1 helps, or weakens the body's antiviral defence.",
+        "Whether baricitinib affects how the virus enters cells."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E7",
+          "E8",
+          "E9",
+          "E10"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL221959",
+      "rank": 2,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Tofacitinib's recorded mechanism blocks the JAK family, including TYK2, a Target with a recorded COVID-19 association.",
+      "objection": "The mechanism record covers the whole JAK family, so it does not show which kinase matters here.",
+      "missing_evidence": [
+        "Which JAK family member drives any effect in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E15"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E17",
+          "E18",
+          "E19"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL1789941",
+      "rank": 3,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Ruxolitinib's recorded mechanisms block JAK1 and JAK2, which sit one step from TYK2 in the protein network.",
+      "objection": "It does not act on any Disease Target directly.",
+      "missing_evidence": [
+        "Any direct link between ruxolitinib's Targets and this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E11",
+        "E12"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E14"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL3622821",
+      "rank": 4,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Upadacitinib's recorded mechanisms block JAK1, JAK2, JAK3 and TYK2, and TYK2 has a recorded COVID-19 association.",
+      "objection": "The TYK2 association does not say whether blocking it helps or harms.",
+      "missing_evidence": [
+        "Evidence that blocking TYK2 changes the course of this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E25",
+          "E26"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL1287853",
+      "rank": 5,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fedratinib's recorded mechanisms block JAK2 and FLT3; JAK2 is one step from Disease Targets.",
+      "objection": "FLT3 has no link to the Disease in the evidence.",
+      "missing_evidence": [
+        "Any Disease-specific evidence for JAK2 blockade."
+      ],
+      "supporting_evidence_ids": [
+        "E27",
+        "E28"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E30"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL1237022",
+      "rank": 6,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Tocilizumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "The association does not show whether blocking IL6R helps at every stage of illness.",
+      "missing_evidence": [
+        "When in the illness blocking IL6R could help."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E45"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E47",
+          "E48"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL107",
+      "rank": 7,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Colchicine's recorded mechanism blocks tubulin.",
+      "objection": "Tubulin has no Disease link in the evidence, so any benefit would have to come through general inflammation.",
+      "missing_evidence": [
+        "Any Disease-specific link for tubulin."
+      ],
+      "supporting_evidence_ids": [
+        "E56"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL2108730",
+      "rank": 8,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Sarilumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "Its closeness to the Disease proteins could not be compared with random proteins.",
+      "missing_evidence": [
+        "Evidence that sarilumab differs from tocilizumab in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E49"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E51"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL2103830",
+      "rank": 9,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fostamatinib's recorded mechanism blocks SYK, which sits next to TYK2 in the protein network.",
+      "objection": "SYK is not a Disease Target in the evidence.",
+      "missing_evidence": [
+        "A Disease-specific link for SYK."
+      ],
+      "supporting_evidence_ids": [
+        "E31"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL384467",
+      "rank": 10,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Dexamethasone's recorded mechanism activates the glucocorticoid receptor, which reduces inflammatory signalling.",
+      "objection": "Its only Target is not a Disease Target in the evidence.",
+      "missing_evidence": [
+        "A Disease-specific link for the glucocorticoid receptor."
+      ],
+      "supporting_evidence_ids": [
+        "E33"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL941",
+      "rank": 11,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Imatinib's recorded mechanisms block ABL1, KIT and PDGFRB.",
+      "objection": "None of its Targets is a Disease Target in the evidence.",
+      "missing_evidence": [
+        "Any Disease-specific link for its Targets."
+      ],
+      "supporting_evidence_ids": [
+        "E35",
+        "E36",
+        "E37",
+        "E38"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL1743070",
+      "rank": 12,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Siltuximab's recorded mechanism blocks IL6, which binds IL6R, a Disease Target.",
+      "objection": "IL6 itself is not a Disease Target in the evidence.",
+      "missing_evidence": [
+        "Direct Disease evidence for IL6."
+      ],
+      "supporting_evidence_ids": [
+        "E42"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL4065616",
+      "rank": 13,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Remdesivir's recorded mechanisms act on the virus's own RNA polymerase and replicase.",
+      "objection": "It has no human Target, so none of the human-protein evidence applies to it.",
+      "missing_evidence": [
+        "A measured antiviral effect in the evidence.",
+        "Any human Target."
+      ],
+      "supporting_evidence_ids": [
+        "E52",
+        "E53"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E55"
+        ]
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL2364653",
+      "rank": 14,
+      "decision": "deprioritise",
+      "direction": "contradicted",
+      "rationale": "Anifrolumab's recorded mechanism blocks IFNAR1, which partners IFNAR2, a Disease Target.",
+      "objection": "Blocking interferon signalling could weaken antiviral defence.",
+      "missing_evidence": [
+        "Whether blocking IFNAR1 helps or harms in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E40"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "claude-sonnet-5",
+      "candidate_id": "CHEMBL468",
+      "rank": 15,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Thalidomide's recorded mechanism blocks the CRBN E3 ubiquitin ligase complex.",
+      "objection": "Its Targets have no Disease link in the evidence.",
+      "missing_evidence": [
+        "Any Disease-specific link for CRBN."
+      ],
+      "supporting_evidence_ids": [
+        "E58"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E60",
+          "E61",
+          "E62"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL2105759",
+      "rank": 1,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Baricitinib's recorded mechanisms block JAK1 and JAK2, and its TYK2 activity touches a Target with a recorded COVID-19 association.",
+      "objection": "The TYK2 link rests on bioactivity measurements, not on a mechanism record.",
+      "missing_evidence": [
+        "Whether blocking JAK1 helps, or weakens the body's antiviral defence."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E7",
+          "E8",
+          "E9",
+          "E10"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL221959",
+      "rank": 2,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Tofacitinib's recorded mechanism blocks the JAK family, including TYK2, a Target with a recorded COVID-19 association.",
+      "objection": "Broad JAK blockade may weaken antiviral interferon responses.",
+      "missing_evidence": [
+        "Which JAK family member drives any effect in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E15"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E17",
+          "E18",
+          "E19"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL107",
+      "rank": 3,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Colchicine's recorded mechanism blocks tubulin, which white blood cells need to move, so it may calm the inflammation of severe illness.",
+      "objection": "Its link to the disease proteins is long and indirect.",
+      "missing_evidence": [
+        "Any Disease-specific link for tubulin."
+      ],
+      "supporting_evidence_ids": [
+        "E56"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL1237022",
+      "rank": 4,
+      "decision": "watch",
+      "direction": "supported",
+      "rationale": "Tocilizumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "Recorded warnings include serious infections, which matter in an infectious disease.",
+      "missing_evidence": [
+        "When in the illness blocking IL6R could help."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E45"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E47",
+          "E48"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL2108730",
+      "rank": 5,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Sarilumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "Recorded warnings include serious infections.",
+      "missing_evidence": [
+        "Evidence that sarilumab differs from tocilizumab in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E49"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E51"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL384467",
+      "rank": 6,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Dexamethasone's recorded mechanism activates the glucocorticoid receptor, which reduces inflammatory signalling.",
+      "objection": "Dampening immunity may slow viral clearance.",
+      "missing_evidence": [
+        "A Disease-specific link for the glucocorticoid receptor."
+      ],
+      "supporting_evidence_ids": [
+        "E33"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL1743070",
+      "rank": 7,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Siltuximab's recorded mechanism blocks IL6, which binds IL6R, a Disease Target.",
+      "objection": "The link to the Disease runs through its receptor only.",
+      "missing_evidence": [
+        "Direct Disease evidence for IL6."
+      ],
+      "supporting_evidence_ids": [
+        "E42"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL4065616",
+      "rank": 8,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Remdesivir's recorded mechanisms act on the virus's own RNA polymerase and replicase.",
+      "objection": "The evidence holds no measurement of its antiviral effect.",
+      "missing_evidence": [
+        "A measured antiviral effect in the evidence."
+      ],
+      "supporting_evidence_ids": [
+        "E52",
+        "E53"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E55"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL2103830",
+      "rank": 9,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fostamatinib's recorded mechanism blocks SYK, which sits next to TYK2 in the protein network.",
+      "objection": "The network link is indirect.",
+      "missing_evidence": [
+        "A Disease-specific link for SYK."
+      ],
+      "supporting_evidence_ids": [
+        "E31"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL941",
+      "rank": 10,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Imatinib's recorded mechanisms block ABL1, KIT and PDGFRB.",
+      "objection": "The network routes are long and indirect.",
+      "missing_evidence": [
+        "Any Disease-specific link for its Targets."
+      ],
+      "supporting_evidence_ids": [
+        "E35",
+        "E36",
+        "E37",
+        "E38"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL3622821",
+      "rank": 11,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Upadacitinib's recorded mechanisms block JAK1, JAK2, JAK3 and TYK2, and TYK2 has a recorded COVID-19 association.",
+      "objection": "Its profile repeats tofacitinib's without adding Disease-specific evidence.",
+      "missing_evidence": [
+        "Evidence that blocking TYK2 changes the course of this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E25",
+          "E26"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL1789941",
+      "rank": 12,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Ruxolitinib's recorded mechanisms block JAK1 and JAK2, which sit one step from TYK2 in the protein network.",
+      "objection": "The evidence has no Disease-specific measurement.",
+      "missing_evidence": [
+        "Any direct link between ruxolitinib's Targets and this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E11",
+        "E12"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E14"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL1287853",
+      "rank": 13,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fedratinib's recorded mechanisms block JAK2 and FLT3; JAK2 is one step from Disease Targets.",
+      "objection": "Its recorded warning concerns gastrointestinal harm.",
+      "missing_evidence": [
+        "Any Disease-specific evidence for JAK2 blockade."
+      ],
+      "supporting_evidence_ids": [
+        "E27",
+        "E28"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E30"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL468",
+      "rank": 14,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Thalidomide's recorded mechanism blocks the CRBN E3 ubiquitin ligase complex.",
+      "objection": "Recorded warnings include harm to unborn children.",
+      "missing_evidence": [
+        "Any Disease-specific link for CRBN."
+      ],
+      "supporting_evidence_ids": [
+        "E58"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E60",
+          "E61",
+          "E62"
+        ]
+      }
+    },
+    {
+      "model_id": "openai-gpt-5.4",
+      "candidate_id": "CHEMBL2364653",
+      "rank": 15,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Anifrolumab's recorded mechanism blocks IFNAR1, which partners IFNAR2, a Disease Target.",
+      "objection": "IFNAR1 is not a Disease Target in the evidence.",
+      "missing_evidence": [
+        "Whether blocking IFNAR1 helps or harms in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E40"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL221959",
+      "rank": 1,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Tofacitinib's recorded mechanism blocks the JAK family, including TYK2, a Target with a recorded COVID-19 association.",
+      "objection": "The association links TYK2 to the Disease without saying whether blocking it helps.",
+      "missing_evidence": [
+        "Which JAK family member drives any effect in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E15"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E17",
+          "E18",
+          "E19"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL2105759",
+      "rank": 2,
+      "decision": "investigate",
+      "direction": "unknown",
+      "rationale": "Baricitinib's recorded mechanisms block JAK1 and JAK2, and its TYK2 activity touches a Target with a recorded COVID-19 association.",
+      "objection": "Blocking JAK1 may also weaken the body's early antiviral defence, so early in infection it could do harm.",
+      "missing_evidence": [
+        "Whether blocking JAK1 helps, or weakens the body's antiviral defence.",
+        "Whether baricitinib affects how the virus enters cells."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E7",
+          "E8",
+          "E9",
+          "E10"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL4065616",
+      "rank": 3,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Remdesivir's recorded mechanisms act on the virus's own RNA polymerase and replicase.",
+      "objection": "Without a human Target, the evidence cannot support a direction of effect.",
+      "missing_evidence": [
+        "A measured antiviral effect in the evidence.",
+        "Any human Target."
+      ],
+      "supporting_evidence_ids": [
+        "E52",
+        "E53"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E55"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL384467",
+      "rank": 4,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Dexamethasone's recorded mechanism activates the glucocorticoid receptor, which reduces inflammatory signalling.",
+      "objection": "The route to Disease proteins runs through general inflammatory proteins.",
+      "missing_evidence": [
+        "A Disease-specific link for the glucocorticoid receptor."
+      ],
+      "supporting_evidence_ids": [
+        "E33"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL2103830",
+      "rank": 5,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fostamatinib's recorded mechanism blocks SYK, which sits next to TYK2 in the protein network.",
+      "objection": "No Disease-specific measurement is given.",
+      "missing_evidence": [
+        "A Disease-specific link for SYK."
+      ],
+      "supporting_evidence_ids": [
+        "E31"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL941",
+      "rank": 6,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Imatinib's recorded mechanisms block ABL1, KIT and PDGFRB.",
+      "objection": "No Disease-specific measurement is given.",
+      "missing_evidence": [
+        "Any Disease-specific link for its Targets."
+      ],
+      "supporting_evidence_ids": [
+        "E35",
+        "E36",
+        "E37",
+        "E38"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL1743070",
+      "rank": 7,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Siltuximab's recorded mechanism blocks IL6, which binds IL6R, a Disease Target.",
+      "objection": "No Disease-specific measurement is given.",
+      "missing_evidence": [
+        "Direct Disease evidence for IL6."
+      ],
+      "supporting_evidence_ids": [
+        "E42"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL1287853",
+      "rank": 8,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Fedratinib's recorded mechanisms block JAK2 and FLT3; JAK2 is one step from Disease Targets.",
+      "objection": "The evidence does not support a direction of effect.",
+      "missing_evidence": [
+        "Any Disease-specific evidence for JAK2 blockade."
+      ],
+      "supporting_evidence_ids": [
+        "E27",
+        "E28"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E30"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL1237022",
+      "rank": 9,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Tocilizumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "The evidence does not say which patients the association comes from.",
+      "missing_evidence": [
+        "When in the illness blocking IL6R could help."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E45"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E47",
+          "E48"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL3622821",
+      "rank": 10,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Upadacitinib's recorded mechanisms block JAK1, JAK2, JAK3 and TYK2, and TYK2 has a recorded COVID-19 association.",
+      "objection": "Nothing in the evidence separates its effect from other JAK inhibitors.",
+      "missing_evidence": [
+        "Evidence that blocking TYK2 changes the course of this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E1",
+        "E20",
+        "E21",
+        "E22",
+        "E23"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E25",
+          "E26"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL2108730",
+      "rank": 11,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Sarilumab's recorded mechanism blocks IL6R, a Target with a recorded COVID-19 association.",
+      "objection": "It adds nothing to tocilizumab's evidence apart from a second molecule.",
+      "missing_evidence": [
+        "Evidence that sarilumab differs from tocilizumab in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E44",
+        "E49"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E51"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL1789941",
+      "rank": 12,
+      "decision": "watch",
+      "direction": "unknown",
+      "rationale": "Ruxolitinib's recorded mechanisms block JAK1 and JAK2, which sit one step from TYK2 in the protein network.",
+      "objection": "JAK1 blockade may weaken antiviral defence.",
+      "missing_evidence": [
+        "Any direct link between ruxolitinib's Targets and this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E11",
+        "E12"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E14"
+        ]
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL2364653",
+      "rank": 13,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Anifrolumab's recorded mechanism blocks IFNAR1, which partners IFNAR2, a Disease Target.",
+      "objection": "The direction of effect is likely the opposite of what would help.",
+      "missing_evidence": [
+        "Whether blocking IFNAR1 helps or harms in this Disease."
+      ],
+      "supporting_evidence_ids": [
+        "E40"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL107",
+      "rank": 14,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Colchicine's recorded mechanism blocks tubulin.",
+      "objection": "Its closeness rests on a long route through a hub protein, not on a Disease Target.",
+      "missing_evidence": [
+        "Any Disease-specific link for tubulin."
+      ],
+      "supporting_evidence_ids": [
+        "E56"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "unknown",
+        "evidence_ids": []
+      }
+    },
+    {
+      "model_id": "glm-5.3",
+      "candidate_id": "CHEMBL468",
+      "rank": 15,
+      "decision": "deprioritise",
+      "direction": "unknown",
+      "rationale": "Thalidomide's recorded mechanism blocks the CRBN E3 ubiquitin ligase complex.",
+      "objection": "The network route runs through a hub protein.",
+      "missing_evidence": [
+        "Any Disease-specific link for CRBN."
+      ],
+      "supporting_evidence_ids": [
+        "E58"
+      ],
+      "contradicting_evidence_ids": [],
+      "safety": {
+        "status": "warnings_recorded",
+        "evidence_ids": [
+          "E60",
+          "E61",
+          "E62"
+        ]
+      }
+    }
+  ],
+  "consensus": {
+    "method": "borda",
+    "jurors_counted": 3,
+    "ranking": [
+      {
+        "candidate_id": "CHEMBL2105759",
+        "rank": 1,
+        "borda_points": 41
+      },
+      {
+        "candidate_id": "CHEMBL221959",
+        "rank": 2,
+        "borda_points": 40
+      },
+      {
+        "candidate_id": "CHEMBL1237022",
+        "rank": 3,
+        "borda_points": 26
+      },
+      {
+        "candidate_id": "CHEMBL384467",
+        "rank": 4,
+        "borda_points": 25
+      },
+      {
+        "candidate_id": "CHEMBL2103830",
+        "rank": 5,
+        "borda_points": 22
+      },
+      {
+        "candidate_id": "CHEMBL2108730",
+        "rank": 6,
+        "borda_points": 21
+      },
+      {
+        "candidate_id": "CHEMBL4065616",
+        "rank": 6,
+        "borda_points": 21
+      },
+      {
+        "candidate_id": "CHEMBL107",
+        "rank": 6,
+        "borda_points": 21
+      },
+      {
+        "candidate_id": "CHEMBL3622821",
+        "rank": 9,
+        "borda_points": 20
+      },
+      {
+        "candidate_id": "CHEMBL1287853",
+        "rank": 10,
+        "borda_points": 19
+      },
+      {
+        "candidate_id": "CHEMBL1743070",
+        "rank": 10,
+        "borda_points": 19
+      },
+      {
+        "candidate_id": "CHEMBL1789941",
+        "rank": 12,
+        "borda_points": 18
+      },
+      {
+        "candidate_id": "CHEMBL941",
+        "rank": 12,
+        "borda_points": 18
+      },
+      {
+        "candidate_id": "CHEMBL2364653",
+        "rank": 14,
+        "borda_points": 3
+      },
+      {
+        "candidate_id": "CHEMBL468",
+        "rank": 15,
+        "borda_points": 1
+      }
+    ]
+  },
+  "agreement": 0.6167,
+  "contested": [
+    "CHEMBL107"
+  ]
+}

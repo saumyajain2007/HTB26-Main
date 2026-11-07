@@ -1,0 +1,524 @@
+{
+  "release": "opentargets-26.09",
+  "records": [
+    {
+      "chemblIds": [
+        "CHEMBL1252",
+        "CHEMBL2108570",
+        "CHEMBL1742992",
+        "CHEMBL1201748",
+        "CHEMBL2103868",
+        "CHEMBL2105717",
+        "CHEMBL2024517",
+        "CHEMBL2028019",
+        "CHEMBL1200530",
+        "CHEMBL996",
+        "CHEMBL44354",
+        "CHEMBL1201831",
+        "CHEMBL1159650",
+        "CHEMBL1200475",
+        "CHEMBL178",
+        "CHEMBL3989861",
+        "CHEMBL1118",
+        "CHEMBL1201864",
+        "CHEMBL1201466",
+        "CHEMBL41355",
+        "CHEMBL917",
+        "CHEMBL1501",
+        "CHEMBL1908362",
+        "CHEMBL1908843",
+        "CHEMBL1200457",
+        "CHEMBL1200983",
+        "CHEMBL4297534",
+        "CHEMBL2043437",
+        "CHEMBL1282",
+        "CHEMBL2108035",
+        "CHEMBL2108508",
+        "CHEMBL1201557",
+        "CHEMBL1201125",
+        "CHEMBL1201300",
+        "CHEMBL1201752",
+        "CHEMBL1201052",
+        "CHEMBL1088",
+        "CHEMBL30219",
+        "CHEMBL7413",
+        "CHEMBL502097",
+        "CHEMBL2219536",
+        "CHEMBL1200334",
+        "CHEMBL1075",
+        "CHEMBL1201608",
+        "CHEMBL730",
+        "CHEMBL1434513",
+        "CHEMBL1437",
+        "CHEMBL9",
+        "CHEMBL3989694",
+        "CHEMBL715",
+        "CHEMBL1201574",
+        "CHEMBL1201573",
+        "CHEMBL395429",
+        "CHEMBL2107840",
+        "CHEMBL1963684",
+        "CHEMBL2107866",
+        "CHEMBL1177",
+        "CHEMBL1430",
+        "CHEMBL4297229",
+        "CHEMBL43128",
+        "CHEMBL506",
+        "CHEMBL1200410",
+        "CHEMBL1321",
+        "CHEMBL1237104",
+        "CHEMBL1213351",
+        "CHEMBL1201486",
+        "CHEMBL1201594",
+        "CHEMBL122",
+        "CHEMBL1200411",
+        "CHEMBL589",
+        "CHEMBL114",
+        "CHEMBL1201467",
+        "CHEMBL231813",
+        "CHEMBL374731",
+        "CHEMBL1136",
+        "CHEMBL810",
+        "CHEMBL3989824",
+        "CHEMBL1201",
+        "CHEMBL1201414",
+        "CHEMBL1200773",
+        "CHEMBL1762",
+        "CHEMBL1201604",
+        "CHEMBL1200779",
+        "CHEMBL428",
+        "CHEMBL865",
+        "CHEMBL1200628",
+        "CHEMBL262777",
+        "CHEMBL2108667",
+        "CHEMBL853",
+        "CHEMBL714",
+        "CHEMBL1455",
+        "CHEMBL1497",
+        "CHEMBL2303621",
+        "CHEMBL2023898",
+        "CHEMBL3989522",
+        "CHEMBL1200375",
+        "CHEMBL1200987",
+        "CHEMBL813",
+        "CHEMBL1201649",
+        "CHEMBL1201468",
+        "CHEMBL1201867",
+        "CHEMBL1200621",
+        "CHEMBL430",
+        "CHEMBL1201558",
+        "CHEMBL2105720",
+        "CHEMBL1201001",
+        "CHEMBL427",
+        "CHEMBL19019",
+        "CHEMBL1201560",
+        "CHEMBL1201561",
+        "CHEMBL3989716",
+        "CHEMBL1200727",
+        "CHEMBL2110557",
+        "CHEMBL479",
+        "CHEMBL1717",
+        "CHEMBL833",
+        "CHEMBL1398126",
+        "CHEMBL945",
+        "CHEMBL6067484",
+        "CHEMBL6067485",
+        "CHEMBL3989677",
+        "CHEMBL1457",
+        "CHEMBL1201124",
+        "CHEMBL469",
+        "CHEMBL2359966",
+        "CHEMBL170",
+        "CHEMBL4802239",
+        "CHEMBL4650319",
+        "CHEMBL5095051",
+        "CHEMBL637",
+        "CHEMBL1729",
+        "CHEMBL1201159",
+        "CHEMBL596",
+        "CHEMBL1201631",
+        "CHEMBL1200463",
+        "CHEMBL1071",
+        "CHEMBL3989509",
+        "CHEMBL100116",
+        "CHEMBL3137358",
+        "CHEMBL501849",
+        "CHEMBL3989769",
+        "CHEMBL3989751",
+        "CHEMBL1200945",
+        "CHEMBL780",
+        "CHEMBL1200424",
+        "CHEMBL5314355",
+        "CHEMBL5314354",
+        "CHEMBL4297809",
+        "CHEMBL5315048",
+        "CHEMBL177",
+        "CHEMBL3544988",
+        "CHEMBL3233142",
+        "CHEMBL3306803",
+        "CHEMBL4594345",
+        "CHEMBL3646221",
+        "CHEMBL6068328",
+        "CHEMBL461101",
+        "CHEMBL2165326",
+        "CHEMBL4594382",
+        "CHEMBL1789941",
+        "CHEMBL5095401",
+        "CHEMBL4594448",
+        "CHEMBL6068395",
+        "CHEMBL4650827",
+        "CHEMBL1201599",
+        "CHEMBL4298200",
+        "CHEMBL5095440",
+        "CHEMBL4650269",
+        "CHEMBL4802254",
+        "CHEMBL1467",
+        "CHEMBL4594618",
+        "CHEMBL1237023",
+        "CHEMBL3545183",
+        "CHEMBL3545184",
+        "CHEMBL1201061",
+        "CHEMBL1002",
+        "CHEMBL878",
+        "CHEMBL3545132",
+        "CHEMBL1201032",
+        "CHEMBL905",
+        "CHEMBL1796998",
+        "CHEMBL4297990",
+        "CHEMBL3707248",
+        "CHEMBL2364639"
+      ],
+      "toxicityClass": null,
+      "country": "United States",
+      "description": null,
+      "id": 5,
+      "references": [],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": null
+    },
+    {
+      "chemblIds": [
+        "CHEMBL2105759"
+      ],
+      "toxicityClass": "vascular toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 172,
+      "references": [
+        {
+          "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011062"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL2105759"
+      ],
+      "toxicityClass": "carcinogenicity",
+      "country": "United States",
+      "description": null,
+      "id": 173,
+      "references": [
+        {
+          "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011046"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL1200863",
+        "CHEMBL852"
+      ],
+      "toxicityClass": "immune system toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 1155,
+      "references": [
+        {
+          "id": "69f55869-dc11-408e-8fc7-47634269a52c",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=69f55869-dc11-408e-8fc7-47634269a52c"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011053"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL1200863",
+        "CHEMBL852"
+      ],
+      "toxicityClass": "hematological toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 1156,
+      "references": [
+        {
+          "id": "c5d68b96-14bd-4605-b6d2-2bf8b0c5ca8a",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c5d68b96-14bd-4605-b6d2-2bf8b0c5ca8a"
+        },
+        {
+          "id": "69f55869-dc11-408e-8fc7-47634269a52c",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=69f55869-dc11-408e-8fc7-47634269a52c"
+        },
+        {
+          "id": "c23e868a-dc62-2181-5099-76c9226602b2",
+          "source": "FDA",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c23e868a-dc62-2181-5099-76c9226602b2"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011051"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL2105759"
+      ],
+      "toxicityClass": "respiratory toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 2333,
+      "references": [
+        {
+          "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011060"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL2105759"
+      ],
+      "toxicityClass": "infectious disease",
+      "country": "United States",
+      "description": null,
+      "id": 2334,
+      "references": [
+        {
+          "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0005741"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL852"
+      ],
+      "toxicityClass": "hematological toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 2570,
+      "references": [
+        {
+          "id": "5bc0a79d-eb07-9685-8e98-4f1979b84a48",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5bc0a79d-eb07-9685-8e98-4f1979b84a48"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011051"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL852"
+      ],
+      "toxicityClass": "teratogenicity",
+      "country": "United States",
+      "description": null,
+      "id": 2571,
+      "references": [
+        {
+          "id": "5bc0a79d-eb07-9685-8e98-4f1979b84a48",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5bc0a79d-eb07-9685-8e98-4f1979b84a48"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0009880"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL1795071",
+        "CHEMBL1789941"
+      ],
+      "toxicityClass": "infectious disease",
+      "country": "United States",
+      "description": null,
+      "id": 3762,
+      "references": [
+        {
+          "id": "24da5509-6631-4795-9d42-273faecd08e7",
+          "source": "FDA",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24da5509-6631-4795-9d42-273faecd08e7"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0005741"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL3655081",
+        "CHEMBL1083993",
+        "CHEMBL633",
+        "CHEMBL4802263",
+        "CHEMBL1034",
+        "CHEMBL139",
+        "CHEMBL1201020",
+        "CHEMBL517",
+        "CHEMBL359744",
+        "CHEMBL53463",
+        "CHEMBL1908360",
+        "CHEMBL4298199",
+        "CHEMBL848",
+        "CHEMBL1200863",
+        "CHEMBL852",
+        "CHEMBL1201740",
+        "CHEMBL255863"
+      ],
+      "toxicityClass": "musculoskeletal toxicity",
+      "country": "United States",
+      "description": null,
+      "id": 5031,
+      "references": [],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011055"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL495",
+        "CHEMBL3608680",
+        "CHEMBL1200863",
+        "CHEMBL852",
+        "CHEMBL2107857",
+        "CHEMBL539423",
+        "CHEMBL671"
+      ],
+      "toxicityClass": "teratogenicity",
+      "country": "United States",
+      "description": null,
+      "id": 5036,
+      "references": [],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0009880"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL4802263",
+        "CHEMBL359744",
+        "CHEMBL53463",
+        "CHEMBL3608680",
+        "CHEMBL4298199",
+        "CHEMBL2364649",
+        "CHEMBL1200863",
+        "CHEMBL852",
+        "CHEMBL1946170",
+        "CHEMBL539423",
+        "CHEMBL1201585"
+      ],
+      "toxicityClass": "hepatotoxicity",
+      "country": "United States",
+      "description": null,
+      "id": 5063,
+      "references": [],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011052"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL1201506"
+      ],
+      "toxicityClass": "hepatotoxicity",
+      "country": "United States",
+      "description": null,
+      "id": 843,
+      "references": [
+        {
+          "id": "32fd2bb2-1cfa-4250-feb8-d7956c794e05",
+          "source": "DailyMed",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=32fd2bb2-1cfa-4250-feb8-d7956c794e05"
+        }
+      ],
+      "warningType": "Black Box Warning",
+      "year": null,
+      "efoTerm": null,
+      "efoId": null,
+      "efoIdForWarningClass": "EFO:0011052"
+    },
+    {
+      "chemblIds": [
+        "CHEMBL1201506"
+      ],
+      "toxicityClass": null,
+      "country": "United States",
+      "description": "greater number of deaths",
+      "id": 4457,
+      "references": [
+        {
+          "id": "7993/20170112165432/http://www.fda.gov/Safety/MedWatch/SafetyInformation/SafetyAlertsforHumanMedicalProducts/ucm216458.htm",
+          "source": "FDA",
+          "url": "http://wayback.archive-it.org/7993/20170112165432/http://www.fda.gov/Safety/MedWatch/SafetyInformation/SafetyAlertsforHumanMedicalProducts/ucm216458.htm"
+        }
+      ],
+      "warningType": "Withdrawn",
+      "year": 2010,
+      "efoTerm": "dead",
+      "efoId": "PATO:0001422",
+      "efoIdForWarningClass": null
+    }
+  ]
+}

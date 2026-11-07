@@ -1,0 +1,142 @@
+/* Link-strength bars: label on the left, bar on a shared 0-1 scale on the right. */
+
+.chart {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.bars {
+  composes: scroll-fade from global;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.row {
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: var(--space-16);
+  min-height: 36px;
+  max-height: 56px;
+  cursor: default;
+}
+
+.label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.label b {
+  flex: none;
+  font-size: var(--text-body);
+  font-weight: var(--weight-bold);
+}
+
+.label span {
+  overflow: hidden;
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.track {
+  position: relative;
+  margin-right: 44px;
+  border-left: 1px solid var(--color-ink);
+}
+
+.track i {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 0;
+  height: 14px;
+  background: var(--color-disease);
+  transition: opacity var(--duration-quick);
+}
+
+.track em {
+  position: absolute;
+  top: 50%;
+  font-size: var(--text-label);
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  transform: translateY(-50%);
+}
+
+/* Hovering one protein dims the others' bars, matching the network. */
+.bars:hover .row:not(:hover) .track i {
+  opacity: 0.35;
+}
+
+.row:hover .label b {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.axis {
+  display: grid;
+  flex: none;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  column-gap: var(--space-16);
+}
+
+.ticks {
+  position: relative;
+  grid-column: 2;
+  height: 24px;
+  margin-right: 44px;
+  border-top: 1px solid var(--color-ink);
+}
+
+.ticks span {
+  position: absolute;
+  top: 7px;
+  font-size: var(--text-label-sm);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  color: var(--color-grey-1);
+  transform: translateX(-50%);
+}
+
+.ticks span::before {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 1px;
+  height: 5px;
+  background: var(--color-ink);
+  content: "";
+}
+
+.axisTitle {
+  grid-column: 2;
+  margin-right: 44px;
+  font-size: var(--text-label);
+  text-align: center;
+}
+
+.notes {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 60ch;
+  padding-top: var(--space-16);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .notes {
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+  }
+}

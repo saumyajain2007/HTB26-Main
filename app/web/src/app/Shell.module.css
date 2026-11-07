@@ -1,0 +1,168 @@
+/* Header, after the product name: Disease and steps. Footer: Back and Next. */
+
+/* A long Disease name gives way to the steps: it ends in an ellipsis rather than push them out. */
+.disease {
+  display: inline-flex;
+  flex: 0 1 auto;
+  align-items: center;
+  min-width: 0;
+  gap: var(--space-8);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+  white-space: nowrap;
+}
+
+.diseaseName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diseaseMark {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-disease);
+}
+
+.nav {
+  flex: none;
+  align-self: stretch;
+  margin-left: auto;
+}
+
+.navList {
+  display: flex;
+  gap: var(--space-16);
+  height: 100%;
+}
+
+.navItem {
+  display: flex;
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: var(--text-body-sm);
+  font-stretch: 92%;
+  color: var(--color-grey-2);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color var(--duration-quick);
+}
+
+.navLink::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--color-ink);
+  transform: scaleX(0);
+  transition: transform var(--duration-step) var(--ease-out);
+  content: "";
+}
+
+a.navLink:hover,
+.navLink[aria-current="step"] {
+  color: var(--color-ink);
+}
+
+.navLink[aria-current="step"]::after {
+  transform: scaleX(1);
+}
+
+.navLink:focus-visible {
+  outline: none;
+}
+
+/* The link fills the header's height, so its focus ring hugs the label instead. */
+.navLink:focus-visible::before {
+  position: absolute;
+  inset: 14px calc(-1 * var(--space-8));
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  content: "";
+}
+
+.navLink[aria-disabled="true"] {
+  cursor: default;
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  gap: var(--space-8);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: var(--color-hover);
+}
+
+.primary {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.primary:hover {
+  background: var(--color-ink-hover);
+}
+
+.button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 1360px) {
+  .disease {
+    font-size: var(--text-label);
+  }
+
+  .navList {
+    gap: var(--space-12);
+  }
+
+  .navLink {
+    font-size: var(--text-label);
+    font-stretch: 88%;
+  }
+
+  .button {
+    padding: 0 var(--space-12);
+  }
+}
+
+@media (min-width: 1700px) {
+  .navList {
+    gap: 28px;
+  }
+}
+
+/* Narrow screens: the steps move to their own scrolling row under the product. */
+@media (max-width: 1100px) {
+  .nav {
+    order: 3;
+    flex-basis: calc(100% + 2 * var(--page-gutter));
+    height: 48px;
+    margin: 0 calc(-1 * var(--page-gutter));
+    padding: 0 var(--page-gutter);
+    overflow-x: auto;
+    border-top: 1px solid var(--color-rule);
+  }
+}

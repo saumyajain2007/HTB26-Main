@@ -1,0 +1,307 @@
+/* Figure compositions: one grid per step, at most three panels. */
+
+.grid {
+  display: grid;
+  flex: 1;
+  grid-template-rows: minmax(0, 1fr);
+  column-gap: var(--space-56);
+  row-gap: var(--space-32);
+  min-height: 0;
+  padding-bottom: var(--space-8);
+}
+
+.grid[data-layout="search"] {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  grid-template-areas: "search net";
+}
+
+.grid[data-layout="biology"] {
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas: "net targets";
+}
+
+.grid[data-layout="candidates"] {
+  grid-template-columns: minmax(0, 7.4fr) minmax(0, 4.6fr);
+  grid-template-areas: "slope net";
+}
+
+.grid[data-layout="evidence"] {
+  grid-template-columns: minmax(0, 3.5fr) minmax(0, 4.9fr) minmax(0, 3.6fr);
+  grid-template-areas: "molecule evidence net";
+}
+
+/* The jury's ballot board, with the drug it is reading beside it. */
+.grid[data-layout="jury"] {
+  grid-template-columns: minmax(0, 7.4fr) minmax(0, 4.6fr);
+  grid-template-areas: "ballot reading";
+}
+
+/* The binding pose takes the stage; what it means and what is missing sit beside it, in a narrow
+   column that wraps its text. */
+.grid[data-layout="pose"] {
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 22%, 400px);
+  grid-template-areas: "pose scores";
+  column-gap: var(--space-40);
+}
+
+/* No protein network for this Experiment: the step's own panels take its cell. */
+.grid[data-network="none"][data-layout="biology"] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "targets";
+}
+
+.grid[data-network="none"][data-layout="candidates"] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "slope";
+}
+
+.grid[data-network="none"][data-layout="evidence"] {
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  grid-template-areas: "molecule evidence";
+}
+
+/* The evaluation: the results table, with what was tested and its limits beside it. */
+.grid[data-layout="evaluation"] {
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+  grid-template-areas: "results tested";
+}
+
+.grid[data-layout="single"] {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "main";
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  transform-origin: 50% 100%;
+  animation: hinge 820ms var(--ease-out) 120ms backwards;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+/* The network persists across steps; it glides to its new cell instead of hinging up. */
+.panel[data-area="net"] {
+  animation: none;
+}
+
+.panel[data-area="search"] {
+  grid-area: search;
+}
+
+.panel[data-area="net"] {
+  grid-area: net;
+}
+
+.panel[data-area="targets"] {
+  grid-area: targets;
+}
+
+.panel[data-area="slope"] {
+  grid-area: slope;
+}
+
+.panel[data-area="molecule"] {
+  grid-area: molecule;
+}
+
+.panel[data-area="evidence"] {
+  grid-area: evidence;
+}
+
+.panel[data-area="ballot"] {
+  grid-area: ballot;
+}
+
+.panel[data-area="reading"] {
+  grid-area: reading;
+}
+
+/* The pose runs on past the grid's foot, beside the step's Back and Next (which sit under the
+   narrow column), down to the level of their bottom edge. */
+.panel[data-area="pose"] {
+  grid-area: pose;
+  margin-bottom: calc(-1 * (var(--space-8) + var(--footer-gap) + var(--control-height)));
+}
+
+.panel[data-area="scores"] {
+  grid-area: scores;
+}
+
+.panel[data-area="results"] {
+  grid-area: results;
+}
+
+.panel[data-area="tested"] {
+  grid-area: tested;
+}
+
+.panel[data-area="main"] {
+  grid-area: main;
+}
+
+/* New panels are plates turned up from the table: they hinge on their bottom edge. */
+@keyframes hinge {
+  from {
+    opacity: 0;
+    transform: perspective(2400px) rotateX(-80deg);
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: perspective(2400px) rotateX(0deg);
+  }
+}
+
+.head {
+  display: flex;
+  flex: none;
+  gap: var(--space-16);
+  align-items: baseline;
+  min-height: 24px;
+  margin-bottom: var(--space-12);
+}
+
+.title {
+  min-width: 0;
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.005em;
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  gap: var(--space-16);
+  align-items: baseline;
+  margin-left: auto;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  align-items: flex-start;
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+@media (max-width: 1360px) {
+  .grid {
+    column-gap: var(--space-40);
+  }
+}
+
+@media (min-width: 1700px) {
+  .grid {
+    column-gap: 72px;
+    row-gap: var(--space-40);
+  }
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .grid {
+    row-gap: var(--space-24);
+  }
+
+  /* Short windows: the pose's side column takes a little more width, so its numbers and caveat
+     still fit its height. */
+  .grid[data-layout="pose"] {
+    grid-template-columns: minmax(0, 1fr) clamp(340px, 26%, 400px);
+  }
+}
+
+/* Mid widths: the evidence step stacks its molecule over the network, beside the list. */
+@media (max-width: 1100px) and (min-width: 721px) {
+  .grid[data-layout="evidence"] {
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    grid-template-areas:
+      "molecule evidence"
+      "net evidence";
+  }
+
+  .grid[data-network="none"][data-layout="evidence"] {
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-areas: "molecule evidence";
+  }
+}
+
+/* Narrow screens: one column, in reading order; 3D plates get a fixed height. */
+@media (max-width: 720px) {
+  .grid {
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    row-gap: var(--space-40);
+    padding-bottom: var(--space-24);
+  }
+
+  .grid[data-layout] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid[data-layout="search"] {
+    grid-template-areas: "search" "net";
+  }
+
+  .grid[data-layout="biology"] {
+    grid-template-areas: "net" "targets";
+  }
+
+  .grid[data-layout="candidates"] {
+    grid-template-areas: "slope" "net";
+  }
+
+  .grid[data-layout="evidence"] {
+    grid-template-areas: "molecule" "evidence" "net";
+  }
+
+  /* As specific as the two-column evidence-only rule above, so phones still get one column. */
+  .grid[data-network="none"][data-layout="evidence"] {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "molecule" "evidence";
+  }
+
+  .grid[data-layout="jury"] {
+    grid-template-areas: "ballot" "reading";
+  }
+
+  .grid[data-layout="pose"] {
+    grid-template-areas: "pose" "scores";
+  }
+
+  .grid[data-layout="evaluation"] {
+    grid-template-areas: "results" "tested";
+  }
+
+  /* Tall enough, under its wrapped controls, for a view about as tall as it is wide. */
+  .panel[data-area="pose"] {
+    min-height: 600px;
+    margin-bottom: 0;
+  }
+
+  .panel[data-area="net"] {
+    min-height: 420px;
+  }
+
+  .panel[data-area="molecule"] {
+    min-height: 300px;
+  }
+}

@@ -1,0 +1,1603 @@
+{
+  "packet": {
+    "experiment_id": "8f81e9a5-9d7c-5f1f-b3f6-cc3eb1201cdb",
+    "disease": {
+      "id": "MONDO_0005044",
+      "name": "hypertensive disorder"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "candidates": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL4297756",
+        "name": "Agent C1",
+        "targets": [
+          {
+            "id": "ENSG00000110680",
+            "name": "CALCA",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000175868",
+            "name": "CALCB",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E46",
+          "E47",
+          "E48",
+          "E49"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL714",
+        "name": "Agent C2",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E3",
+          "E58",
+          "E59",
+          "E60",
+          "E45",
+          "E61"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL1614701",
+        "name": "Agent C3",
+        "targets": [
+          {
+            "id": "ENSG00000126934",
+            "name": "MAP2K2",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000169032",
+            "name": "MAP2K1",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E31",
+          "E32",
+          "E33",
+          "E34",
+          "E35",
+          "E36"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL1404",
+        "name": "Agent C4",
+        "targets": [
+          {
+            "id": "ENSG00000007314",
+            "name": "SCN4A",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000183873",
+            "name": "SCN5A",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C5",
+        "candidate_id": "CHEMBL2165326",
+        "name": "Agent C5",
+        "targets": [
+          {
+            "id": "ENSG00000136160",
+            "name": "EDNRB",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000151617",
+            "name": "EDNRA",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E40",
+          "E41",
+          "E42",
+          "E43",
+          "E44",
+          "E45"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C6",
+        "candidate_id": "CHEMBL1201237",
+        "name": "Agent C6",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E3",
+          "E9",
+          "E10",
+          "E11",
+          "E12",
+          "E13"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C7",
+        "candidate_id": "CHEMBL839",
+        "name": "Agent C7",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000188778",
+            "name": "ADRB3",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E3",
+          "E66",
+          "E67",
+          "E68",
+          "E69",
+          "E70"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C8",
+        "candidate_id": "CHEMBL1742466",
+        "name": "Agent C8",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E37",
+          "E38",
+          "E39"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL471",
+        "name": "Agent C9",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000055118",
+            "name": "KCNH2",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E52",
+          "E3",
+          "E53",
+          "E54",
+          "E55",
+          "E56",
+          "E57"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C10",
+        "candidate_id": "CHEMBL4594379",
+        "name": "Agent C10",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E50",
+          "E51"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C11",
+        "candidate_id": "CHEMBL1389",
+        "name": "Agent C11",
+        "targets": [
+          {
+            "id": "ENSG00000082175",
+            "name": "PGR",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000169083",
+            "name": "AR",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24",
+          "E25"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C12",
+        "candidate_id": "CHEMBL953",
+        "name": "Agent C12",
+        "targets": [
+          {
+            "id": "ENSG00000093010",
+            "name": "COMT",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E71",
+          "E72",
+          "E73",
+          "E74",
+          "E75"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C13",
+        "candidate_id": "CHEMBL817",
+        "name": "Agent C13",
+        "targets": [
+          {
+            "id": "ENSG00000006071",
+            "name": "ABCC8",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000187486",
+            "name": "KCNJ11",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E62",
+          "E63",
+          "E64",
+          "E65"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C14",
+        "candidate_id": "CHEMBL1095777",
+        "name": "Agent C14",
+        "targets": [
+          {
+            "id": "ENSG00000043591",
+            "name": "ADRB1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000142319",
+            "name": "SLC6A3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C15",
+        "candidate_id": "CHEMBL1201338",
+        "name": "Agent C15",
+        "targets": [
+          {
+            "id": "ENSG00000133019",
+            "name": "CHRM3",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000168539",
+            "name": "CHRM1",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E14",
+          "E15",
+          "E16",
+          "E17",
+          "E18",
+          "E19"
+        ],
+        "safety_status": "unknown"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000043591/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000043591/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ADRB1 an evidence-only association score of 0.59656828 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.59656828
+        }
+      },
+      {
+        "id": "E2",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000142319/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000142319/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SLC6A3 an evidence-only association score of 0.028991791 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.028991791
+        }
+      },
+      {
+        "id": "E3",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000169252/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000169252/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ADRB2 an evidence-only association score of 0.072234072 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.072234072
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1346",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1346.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C14's mechanism as Beta-2 adrenergic receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E5",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1095777/CHEMBL210",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1095777&target_chembl_id=CHEMBL210&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.69 across 9 human ADRB2 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.69,
+          "n_activities": 9
+        }
+      },
+      {
+        "id": "E6",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1095777/CHEMBL213",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1095777&target_chembl_id=CHEMBL213&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.04 across 3 human ADRB1 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.04,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E7",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1095777/CHEMBL238",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1095777&target_chembl_id=CHEMBL238&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.12 across 1 human SLC6A3 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.12,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E8",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "f7d013b1-5ee9-4126-8297-9efd9a5a8344",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f7d013b1-5ee9-4126-8297-9efd9a5a8344",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E9",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "315",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/315.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C6's mechanism as Beta-1 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E10",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1363",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1363.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C6's mechanism as Beta-2 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E11",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1201237/CHEMBL210",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1201237&target_chembl_id=CHEMBL210&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.18 across 2 human ADRB2 activities for Agent C6.",
+        "values": {
+          "median_pchembl": 9.18,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E12",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1201237/CHEMBL213",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1201237&target_chembl_id=CHEMBL213&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.280000000000001 across 2 human ADRB1 activities for Agent C6.",
+        "values": {
+          "median_pchembl": 8.280000000000001,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E13",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "1a32c0e8-7d10-447e-a7c4-252c98b629bd",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a32c0e8-7d10-447e-a7c4-252c98b629bd",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E14",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000133019/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000133019/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CHRM3 an evidence-only association score of 0.046557816 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.046557816
+        }
+      },
+      {
+        "id": "E15",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000168539/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000168539/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CHRM1 an evidence-only association score of 0.0029566209 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.0029566209
+        }
+      },
+      {
+        "id": "E16",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "39",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/39.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C15's mechanism as Muscarinic acetylcholine receptor M3 antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E17",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1201338/CHEMBL216",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1201338&target_chembl_id=CHEMBL216&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.16 across 1 human CHRM1 activities for Agent C15.",
+        "values": {
+          "median_pchembl": 7.16,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E18",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1201338/CHEMBL245",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1201338&target_chembl_id=CHEMBL245&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.4 across 1 human CHRM3 activities for Agent C15.",
+        "values": {
+          "median_pchembl": 7.4,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E19",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "1d008c76-7210-4ace-90fa-7cd22762e12e",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1d008c76-7210-4ace-90fa-7cd22762e12e",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E20",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000082175/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000082175/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PGR an evidence-only association score of 0.21401908 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.21401908
+        }
+      },
+      {
+        "id": "E21",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000169083/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000169083/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives AR an evidence-only association score of 0.4037412 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.4037412
+        }
+      },
+      {
+        "id": "E22",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1021",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1021.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C11's mechanism as Progesterone receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E23",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1389/CHEMBL1871",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1389&target_chembl_id=CHEMBL1871&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.04 across 1 human AR activities for Agent C11.",
+        "values": {
+          "median_pchembl": 8.04,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E24",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1389/CHEMBL208",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1389&target_chembl_id=CHEMBL208&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.0 across 3 human PGR activities for Agent C11.",
+        "values": {
+          "median_pchembl": 9.0,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E25",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "92231d6f-f4d8-43b0-aa95-f7cec1cc18c5",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=92231d6f-f4d8-43b0-aa95-f7cec1cc18c5",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E26",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000007314/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000007314/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCN4A an evidence-only association score of 0.07331917 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.07331917
+        }
+      },
+      {
+        "id": "E27",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000183873/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000183873/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCN5A an evidence-only association score of 0.080119336 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.080119336
+        }
+      },
+      {
+        "id": "E28",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "529",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/529.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C4's mechanism as Sodium channel protein type V alpha subunit blocker.",
+        "values": {}
+      },
+      {
+        "id": "E29",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "871",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/871.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C4's mechanism as Sodium channel protein type IV alpha subunit blocker.",
+        "values": {}
+      },
+      {
+        "id": "E30",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "60c0ba10-5871-4dd8-aca3-5911e43be2ec",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60c0ba10-5871-4dd8-aca3-5911e43be2ec",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E31",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000126934/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000126934/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives MAP2K2 an evidence-only association score of 0.0083154962 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.0083154962
+        }
+      },
+      {
+        "id": "E32",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000169032/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000169032/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives MAP2K1 an evidence-only association score of 0.01058742 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.01058742
+        }
+      },
+      {
+        "id": "E33",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4647",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4647.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C3's mechanism as Dual specificity mitogen-activated protein kinase kinase 1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E34",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4648",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4648.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C3's mechanism as Dual specificity mitogen-activated protein kinase kinase 2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E35",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1614701/CHEMBL3587",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1614701&target_chembl_id=CHEMBL3587&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.0 across 18 human MAP2K1 activities for Agent C3.",
+        "values": {
+          "median_pchembl": 7.0,
+          "n_activities": 18
+        }
+      },
+      {
+        "id": "E36",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2020/213756s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/213756s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E37",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7753",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7753.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C8's mechanism as Beta-1 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E38",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9886",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9886.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C8's mechanism as Beta-1 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E39",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2024/217202s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217202s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E40",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000136160/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000136160/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives EDNRB an evidence-only association score of 0.31031798 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.31031798
+        }
+      },
+      {
+        "id": "E41",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000151617/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000151617/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives EDNRA an evidence-only association score of 0.50920216 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.50920216
+        }
+      },
+      {
+        "id": "E42",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "8240",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8240.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as Endothelin receptor, ET-A/ET-B antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E43",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2165326/CHEMBL252",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2165326&target_chembl_id=CHEMBL252&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.47 across 2 human EDNRA activities for Agent C5.",
+        "values": {
+          "median_pchembl": 8.47,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E44",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2024/217686s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217686s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E45",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5",
+        "url": "https://platform.opentargets.org/drug/CHEMBL2165326",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C5, Agent C2: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E46",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000110680/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000110680/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CALCA an evidence-only association score of 0.082415379 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.082415379
+        }
+      },
+      {
+        "id": "E47",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000175868/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000175868/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CALCB an evidence-only association score of 0.010348173 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.010348173
+        }
+      },
+      {
+        "id": "E48",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7398",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7398.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Calcitonin gene-related peptide antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E49",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2018/761089s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/761089s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E50",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9952",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9952.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C10's mechanism as Beta-1 adrenergic receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E51",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "b5eadf6a926328fa7b2d13c594db9c6fcdaba515e711335774eefec9217a31f2",
+        "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from PMDA.",
+        "values": {}
+      },
+      {
+        "id": "E52",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000055118/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000055118/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNH2 an evidence-only association score of 0.49859307 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.49859307
+        }
+      },
+      {
+        "id": "E53",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "323",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/323.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C9's mechanism as Beta-1 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E54",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "504",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/504.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C9's mechanism as HERG blocker.",
+        "values": {}
+      },
+      {
+        "id": "E55",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1361",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1361.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C9's mechanism as Beta-2 adrenergic receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E56",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "1f33f900-0777-4a92-a7f7-00cf3d57d95c",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1f33f900-0777-4a92-a7f7-00cf3d57d95c",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E57",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1747",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5ede17b7-3898-4f9f-abec-e15620cef76a",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C9: cardiotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E58",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1338",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1338.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C2's mechanism as Beta-2 adrenergic receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E59",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1351",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1351.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C2's mechanism as Beta-2 adrenergic receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E60",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2012/021527s021lbl.pdf",
+        "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2012/021527s021lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E61",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "47",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8c278b6f-d32b-b750-e053-2995a90ad7e9",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C2: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E62",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000006071/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000006071/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ABCC8 an evidence-only association score of 0.47907329 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.47907329
+        }
+      },
+      {
+        "id": "E63",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000187486/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000187486/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNJ11 an evidence-only association score of 0.46228478 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.46228478
+        }
+      },
+      {
+        "id": "E64",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1251",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1251.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C13's mechanism as Sulfonylurea receptor 1, Kir6.2 blocker.",
+        "values": {}
+      },
+      {
+        "id": "E65",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "5cde1f9b-74f6-6c03-6329-20969b6f1cbb",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5cde1f9b-74f6-6c03-6329-20969b6f1cbb",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E66",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000188778/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000188778/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ADRB3 an evidence-only association score of 0.083609003 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.083609003
+        }
+      },
+      {
+        "id": "E67",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1124",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1124.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C7's mechanism as Adrenergic receptor beta antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E68",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL839/CHEMBL210",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL839&target_chembl_id=CHEMBL210&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.22 across 1 human ADRB2 activities for Agent C7.",
+        "values": {
+          "median_pchembl": 8.22,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E69",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL839/CHEMBL213",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL839&target_chembl_id=CHEMBL213&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.86 across 2 human ADRB1 activities for Agent C7.",
+        "values": {
+          "median_pchembl": 8.86,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E70",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "571fe550-399d-4296-835c-37aa1ab9b409",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=571fe550-399d-4296-835c-37aa1ab9b409",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E71",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000093010/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000093010/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives COMT an evidence-only association score of 0.10666765 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.10666765
+        }
+      },
+      {
+        "id": "E72",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000160789/MONDO_0005044",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000160789/MONDO_0005044",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives LMNA an evidence-only association score of 0.074168421 with hypertensive disorder.",
+        "values": {
+          "evidence_only_score": 0.074168421
+        }
+      },
+      {
+        "id": "E73",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "736",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/736.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C12's mechanism as Catechol O-methyltransferase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E74",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL953/CHEMBL1293235",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL953&target_chembl_id=CHEMBL1293235&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.35 across 1 human LMNA activities for Agent C12.",
+        "values": {
+          "median_pchembl": 7.35,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E75",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "01ea62f4-bfac-485a-bb4b-a9abb345749f",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=01ea62f4-bfac-485a-bb4b-a9abb345749f",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      }
+    ]
+  },
+  "name_aliases": [
+    "3-hydroxy-o-phosphono-l-tyrosine",
+    "70 kDa lamin",
+    "ABBOTT-43326",
+    "ABBV-951",
+    "ABC36",
+    "ABCC8",
+    "ACT-132577",
+    "ADRB1",
+    "ADRB1R",
+    "ADRB2",
+    "ADRB2R",
+    "ADRB3",
+    "ADRB3R",
+    "AOP-200704",
+    "AOP200704",
+    "AR8",
+    "ARB2",
+    "ARRAY142886",
+    "ARRY-142886",
+    "ARRY-886",
+    "ATP binding cassette subfamily C member 8",
+    "ATP-binding cassette sub-family C member 8",
+    "ATP-binding cassette transporter sub-family C member 8",
+    "ATP-binding cassette, sub-family C (CFTR/MRP), member 8",
+    "ATP-sensitive inward rectifier potassium channel 11",
+    "AZD 6244",
+    "AZD-6244",
+    "AZD-6244 HYD-SULFATE",
+    "AZD-6244 HYDROGEN SULFATE",
+    "AZD6244",
+    "AZD6244 (SELUMETINIB)",
+    "AZD6244 HYD-SULFATE",
+    "AZD6244 HYDROGEN SULFATE",
+    "Act-132577",
+    "Aerolin 400",
+    "Azd-6244",
+    "Azd-6244 hydrogen sulphate",
+    "Azd6244 hydrogen sulphate",
+    "B1AR",
+    "B2AR",
+    "B3AR",
+    "BAY86-5028",
+    "BETA1AR",
+    "BETA2AR",
+    "BETA3AR",
+    "Beta-1 adrenergic receptor",
+    "Beta-1 adrenoceptor",
+    "Beta-1 adrenoreceptor",
+    "Beta-2 adrenergic receptor",
+    "Beta-2 adrenoceptor",
+    "Beta-2 adrenoreceptor",
+    "Beta-3 adrenergic receptor",
+    "Beta-3 adrenoceptor",
+    "Beta-3 adrenoreceptor",
+    "C07AA07",
+    "CALC1",
+    "CALC2",
+    "CDCD1",
+    "CDCD2",
+    "CFC3",
+    "CFC4",
+    "CGRP1",
+    "CGRP2",
+    "CHEMBL1095777",
+    "CHEMBL1200473",
+    "CHEMBL1201002",
+    "CHEMBL1201177",
+    "CHEMBL1201237",
+    "CHEMBL1201338",
+    "CHEMBL1389",
+    "CHEMBL1404",
+    "CHEMBL1441059",
+    "CHEMBL1614701",
+    "CHEMBL1700",
+    "CHEMBL1742466",
+    "CHEMBL1789842",
+    "CHEMBL2105684",
+    "CHEMBL2165326",
+    "CHEMBL2362410",
+    "CHEMBL4297657",
+    "CHEMBL4297756",
+    "CHEMBL4594379",
+    "CHEMBL471",
+    "CHEMBL714",
+    "CHEMBL817",
+    "CHEMBL839",
+    "CHEMBL953",
+    "CHRM1",
+    "CHRM3",
+    "CMD1A",
+    "CMD1E",
+    "CMPD2",
+    "CMS16",
+    "CMT2B1",
+    "CMYO22A",
+    "CMYP22A",
+    "CTC-264K15.6",
+    "CVT-303",
+    "Calcitonin gene-related peptide 1",
+    "Calcitonin gene-related peptide 2",
+    "DAT1",
+    "DL-MJ-1999",
+    "Dual specificity mitogen-activated protein kinase kinase 1",
+    "Dual specificity mitogen-activated protein kinase kinase 2",
+    "EMD2",
+    "ERG-1",
+    "ERG1",
+    "ERK activator kinase 1",
+    "ERK activator kinase 2",
+    "ETB1",
+    "Eag-related protein 1",
+    "Endothelin-1 receptor",
+    "Ether-a-go-go-related gene potassium channel 1",
+    "Ether-a-go-go-related protein 1",
+    "FLJ30166",
+    "FNSS2",
+    "FOSLEVODOPA COMPONENT OF ABBV-951",
+    "FPLD2",
+    "HB1",
+    "HB2",
+    "HEL-S-98n",
+    "HERG1",
+    "HH1",
+    "HHF1",
+    "HHF2",
+    "HM1",
+    "HM3",
+    "HOKPP2",
+    "HPCX3",
+    "HSCR2",
+    "HYSP1",
+    "Hirschsprung disease 2",
+    "Indacaterol maleate component of qva-149",
+    "Indacaterol maleate component of qva149",
+    "Inward rectifier K(+) channel Kir6.2",
+    "KCNH2",
+    "KCNJ11",
+    "KIR6.2",
+    "Kir6.2",
+    "Kv11.1",
+    "LBR-101",
+    "LBR101",
+    "LDLL-600",
+    "LDLL600",
+    "LDP1",
+    "LGMD1B",
+    "LMN1",
+    "LMNL1",
+    "LQT2",
+    "LQT3",
+    "Levodopa-4'-monophosphate",
+    "Levonelle-2",
+    "M1",
+    "M1R",
+    "MAP kinase kinase 1",
+    "MAP kinase kinase 2",
+    "MAP2K1",
+    "MAP2K2",
+    "MAPK/ERK kinase 1",
+    "MAPK/ERK kinase 2",
+    "MAPKK 1",
+    "MAPKK 2",
+    "MAPKK1",
+    "MAPKK2",
+    "MEK 1",
+    "MEK 2",
+    "MEK1",
+    "MEK2",
+    "MJ 1999",
+    "MJ-1999",
+    "MKK1",
+    "MKK2",
+    "MODY12",
+    "MODY13",
+    "MRP8",
+    "Macitentan metabolite m6",
+    "Muscarinic acetylcholine receptor M1",
+    "Muscarinic acetylcholine receptor M3",
+    "NAC1A",
+    "NR3C3",
+    "NR3C4",
+    "NSC-289928",
+    "NSC-300906",
+    "NSC-337251",
+    "NSC-70762",
+    "NSC-744007",
+    "NSC-756706",
+    "NSC-757417",
+    "NSC-759100",
+    "NSC-759158",
+    "NSC-760358",
+    "Na(V)1.4",
+    "Nav1.4",
+    "Nav1.5",
+    "Nuclear hormone receptor subfamily 3",
+    "Nuclear hormone receptor subfamily 3 group C",
+    "Nuclear hormone receptor subfamily 3 group C member 3",
+    "Nuclear hormone receptor subfamily 3 group C member 4",
+    "Nuclear receptor subfamily 3 group C member 3",
+    "Nuclear receptor subfamily 3 group C member 4",
+    "ONO-1101",
+    "OPC-1085",
+    "OR-611",
+    "Ono 1101 hydrochloride",
+    "Ono-1101 hydrochloride",
+    "PDN-21",
+    "PF-04472429",
+    "PF04472429",
+    "PFHB1",
+    "PKDYS1",
+    "PNDM2",
+    "PNDM3",
+    "PRKMK1",
+    "PRKMK2",
+    "PRO1",
+    "Postinor-2",
+    "Potassium channel, inwardly rectifying subfamily J member 11",
+    "Potassium voltage-gated channel subfamily H member 2",
+    "QAB-149",
+    "QAB-149-AFA",
+    "QAB149",
+    "QAB149-AFA",
+    "QABI49",
+    "R03AC02",
+    "R03CC02",
+    "RN-307",
+    "RN307",
+    "RS-43285-003",
+    "Renal carcinoma antigen NY-REN-32",
+    "SCH 13949W",
+    "SCH 13949W SULFATE",
+    "SCH-13949W",
+    "SCH-13949W SULFATE",
+    "SCN4A",
+    "SCN5A",
+    "SELUMETINIB (AZD6244)",
+    "SLC06 neurotransmitter transporter family",
+    "SLC6A3",
+    "SMAX1",
+    "SQT1",
+    "SSS1",
+    "STE protein kinase STE7 family",
+    "SUR1",
+    "SUR1delta2",
+    "Sch 13949w sulphate",
+    "Sch-13949w sulphate",
+    "SkM1",
+    "Sodium channel protein type 4 subunit alpha",
+    "Sodium channel protein type 5 subunit alpha",
+    "Solute carrier family 6 member 3",
+    "Sulfonylurea receptor 1",
+    "TEV-48125",
+    "TEV48125",
+    "TNDM2",
+    "TNDM3",
+    "Tev-48125",
+    "U-17835",
+    "VF1",
+    "Voltage-gated inwardly rectifying potassium channel KCNH2",
+    "Voltage-gated potassium channel subunit Kv11.1",
+    "Voltage-gated sodium channel subunit alpha Nav1.4",
+    "Voltage-gated sodium channel subunit alpha Nav1.5",
+    "W 7000A",
+    "W-7000A",
+    "WS4A",
+    "WY-5104",
+    "a006",
+    "acetylcholine receptor, muscarinic 1",
+    "acetylcholine receptor, muscarinic 3",
+    "adrenergic, beta-1-, receptor",
+    "adrenergic, beta-2-, receptor, surface",
+    "adrenergic, beta-3-, receptor",
+    "adrenoceptor beta 1",
+    "adrenoceptor beta 2",
+    "adrenoceptor beta 2 surface",
+    "adrenoceptor beta 3",
+    "ag200-15",
+    "arry142886",
+    "azd6244 hyd sulfate",
+    "beta-1 adrenergic receptor",
+    "beta-1 adrenoceptor",
+    "beta-1 adrenoreceptor",
+    "beta-2 adrenergic receptor",
+    "beta-2 adrenoceptor",
+    "beta-2 adrenoreceptor",
+    "beta-3 adrenergic receptor",
+    "beta-3 adrenoceptor",
+    "beta-3 adrenoreceptor",
+    "calcitonin 1",
+    "calcitonin 2",
+    "calcitonin gene-related peptide 1",
+    "calcitonin gene-related peptide 2",
+    "cholinergic receptor muscarinic 1",
+    "cholinergic receptor muscarinic 3",
+    "dopamine transporter 1",
+    "dual specificity mitogen-activated protein kinase kinase 1",
+    "dual specificity mitogen-activated protein kinase kinase 2",
+    "eag-related protein 1",
+    "endothelin receptor subtype B1",
+    "endothelin-1 receptor",
+    "endothelin-1-specific receptor",
+    "epididymis secretory sperm binding protein Li 98n",
+    "erg1",
+    "ether-a-go-go-related gene potassium channel 1",
+    "ether-a-go-go-related protein 1",
+    "hERG-1",
+    "hERG1",
+    "hH1",
+    "hyd-sulfate azd6244",
+    "inward rectifier K(+) channel Kir6.2",
+    "inwardly rectifing potassium channel subfamily J member 11",
+    "inwardly rectifying potassium channel KIR6.2",
+    "inwardly-rectifying potassium channel subfamily J member 11",
+    "lamin A/C-like 1",
+    "lcs12",
+    "lcs16",
+    "lng 52 mg iud",
+    "lng-ius 8",
+    "long QT syndrome 3",
+    "long QT syndrome type 2",
+    "m3 muscarinic receptor",
+    "m3AChR",
+    "microgynon 30",
+    "mitogen-activated protein kinase kinase 1",
+    "mitogen-activated protein kinase kinase 2",
+    "mitogen-activated protein kinase kinase 2, p45",
+    "mk-5618",
+    "muscarinic acetylcholine receptor M1",
+    "muscarinic acetylcholine receptor M3",
+    "nuclear receptor subfamily 3 group C member 3",
+    "nuclear receptor subfamily 3 group C member 4",
+    "potassium channel inwardly rectifing subfamily J member 11",
+    "potassium channel, inwardly rectifying subfamily J member 11",
+    "potassium channel, voltage gated eag related subfamily H, member 2",
+    "potassium inwardly rectifying channel subfamily J member 11",
+    "potassium voltage-gated channel subfamily H member 2",
+    "potassium voltage-gated channel subfamily J member 11",
+    "potassium voltage-gated channel, subfamily H (eag-related), member 2",
+    "proair hfa (albuterol sulfate) inhalation aerosol, eq 90 mcg base (teva respiratory, llc)",
+    "protein kinase, mitogen-activated, kinase 1 (MAP kinase kinase 1)",
+    "pt007",
+    "pt027",
+    "renal carcinoma antigen NY-REN-32",
+    "salbutamol hfa-134a",
+    "salbutamol hfa-152a",
+    "sodium channel protein type 4 subunit alpha",
+    "sodium channel protein type 5 subunit alpha",
+    "sodium voltage-gated channel alpha subunit 4",
+    "sodium voltage-gated channel alpha subunit 5",
+    "solute carrier family 6 (neurotransmitter transporter), member 3",
+    "solute carrier family 6 (neurotransmitter transporter, dopamine), member 3",
+    "solute carrier family 6 member 3",
+    "sulfonylurea receptor 1",
+    "testicular tissue protein Li 42",
+    "voltage-gated inwardly rectifying potassium channel KCNH2",
+    "voltage-gated potassium channel subunit Kv11.1",
+    "voltage-gated sodium channel subunit alpha Nav1.4",
+    "voltage-gated sodium channel subunit alpha Nav1.5"
+  ],
+  "raw_output": "{\"reviews\": [{\"label\": \"C9\", \"rationale\": \"Beta-adrenergic receptor antagonist with regulator-backed approval and a strong ADRB1 association with the disease.\", \"objection\": \"The HERG blocker mechanism and a recorded cardiotoxicity Black Box Warning raise safety concerns, and no cited item shows the action is beneficial.\", \"rank\": 1, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that beta-adrenergic receptor antagonism lowers blood pressure in this disease\", \"Evidence on the effect of KCNH2 blockade in this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E3\", \"E52\", \"E53\", \"E55\", \"E56\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E57\"]}}, {\"label\": \"C5\", \"rationale\": \"Dual endothelin receptor antagonist with regulator-backed approval and high association scores for both targets.\", \"objection\": \"A Black Box Warning is recorded, and association scores alone do not establish that antagonism benefits this disease.\", \"rank\": 2, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that endothelin receptor antagonism improves outcomes in this disease\"], \"supporting_evidence_ids\": [\"E40\", \"E41\", \"E42\", \"E43\", \"E44\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E45\"]}}, {\"label\": \"C6\", \"rationale\": \"Beta-1 and beta-2 adrenergic receptor antagonist with potent bioactivity and regulator-backed approval.\", \"objection\": \"No cited item demonstrates that beta-adrenergic antagonism is beneficial in this disease.\", \"rank\": 3, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that beta-adrenergic receptor antagonism lowers blood pressure in this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E3\", \"E9\", \"E10\", \"E11\", \"E12\", \"E13\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C7\", \"rationale\": \"Broad beta-adrenergic receptor antagonist with potent bioactivity and regulator-backed approval.\", \"objection\": \"The ADRB3 association is weak and no cited item shows the antagonism is beneficial in this disease.\", \"rank\": 4, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that beta-adrenergic receptor antagonism improves this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E3\", \"E66\", \"E67\", \"E68\", \"E69\", \"E70\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C8\", \"rationale\": \"Beta-1 adrenergic receptor antagonist with regulator-backed approval and a strong ADRB1 disease association.\", \"objection\": \"Only a single target is covered and no cited item shows the antagonism is beneficial in this disease.\", \"rank\": 5, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ADRB1 antagonism lowers blood pressure in this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E37\", \"E38\", \"E39\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C13\", \"rationale\": \"Potassium channel blocker with regulator-backed approval and moderately high target association scores.\", \"objection\": \"No cited item shows that blocking ABCC8 or KCNJ11 helps this disease, and the mechanism is not obviously antihypertensive.\", \"rank\": 6, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ABCC8 or KCNJ11 blockade affects blood pressure in this disease\"], \"supporting_evidence_ids\": [\"E62\", \"E63\", \"E64\", \"E65\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C14\", \"rationale\": \"Approved agent with documented ADRB2 agonism and bioactivity across several targets.\", \"objection\": \"The ADRB2 disease association is weak and no cited item shows agonism benefits this disease.\", \"rank\": 7, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ADRB2 agonism affects this disease\", \"Evidence on the role of SLC6A3 in this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E3\", \"E4\", \"E5\", \"E6\", \"E7\", \"E8\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C11\", \"rationale\": \"Approved progesterone receptor agonist with bioactivity against targets carrying moderate disease associations.\", \"objection\": \"No cited item links progesterone receptor agonism or androgen receptor activity to benefit in this disease.\", \"rank\": 8, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that PGR agonism affects blood pressure in this disease\", \"Evidence on AR activity in this disease\"], \"supporting_evidence_ids\": [\"E20\", \"E21\", \"E22\", \"E23\", \"E24\", \"E25\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C12\", \"rationale\": \"Approved COMT inhibitor with a modest COMT disease association and recorded bioactivity.\", \"objection\": \"The LMNA association is weak and no cited item shows COMT inhibition benefits this disease.\", \"rank\": 9, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that COMT inhibition affects blood pressure in this disease\"], \"supporting_evidence_ids\": [\"E71\", \"E72\", \"E73\", \"E74\", \"E75\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C15\", \"rationale\": \"Approved muscarinic receptor antagonist with bioactivity against targets having disease associations.\", \"objection\": \"Both target association scores are low and no cited item shows muscarinic antagonism benefits this disease.\", \"rank\": 10, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that CHRM3 or CHRM1 antagonism affects this disease\"], \"supporting_evidence_ids\": [\"E14\", \"E15\", \"E16\", \"E17\", \"E18\", \"E19\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C4\", \"rationale\": \"Approved sodium channel blocker with weak target disease associations.\", \"objection\": \"No cited item shows sodium channel blockade benefits this disease, and the target associations are weak.\", \"rank\": 11, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that SCN4A or SCN5A blockade affects this disease\"], \"supporting_evidence_ids\": [\"E26\", \"E27\", \"E28\", \"E29\", \"E30\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C1\", \"rationale\": \"Approved calcitonin gene-related peptide antagonist with weak target disease associations.\", \"objection\": \"No cited item shows CGRP antagonism benefits this disease and the target associations are weak.\", \"rank\": 12, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that CALCA or CALCB antagonism affects this disease\"], \"supporting_evidence_ids\": [\"E46\", \"E47\", \"E48\", \"E49\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C10\", \"rationale\": \"Approved beta-1 adrenergic receptor agonist with a strong ADRB1 disease association.\", \"objection\": \"Agonising ADRB1 has no cited support for benefit in this disease and the mechanism runs opposite to the antagonist candidates.\", \"rank\": 13, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ADRB1 agonism affects blood pressure in this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E50\", \"E51\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C3\", \"rationale\": \"Approved MAP2K inhibitor with bioactivity but very weak target disease associations.\", \"objection\": \"No cited item shows MAP2K inhibition benefits this disease and the target associations are negligible.\", \"rank\": 14, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that MAP2K1 or MAP2K2 inhibition affects this disease\"], \"supporting_evidence_ids\": [\"E31\", \"E32\", \"E33\", \"E34\", \"E35\", \"E36\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C2\", \"rationale\": \"Approved beta-2 adrenergic receptor agonist with a weak ADRB2 disease association.\", \"objection\": \"A Black Box Warning is recorded, the ADRB2 association is weak, and no cited item shows agonism benefits this disease.\", \"rank\": 15, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ADRB2 agonism affects this disease\"], \"supporting_evidence_ids\": [\"E1\", \"E3\", \"E58\", \"E59\", \"E60\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E45\", \"E61\"]}}]}"
+}

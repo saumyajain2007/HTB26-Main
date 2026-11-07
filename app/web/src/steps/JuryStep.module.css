@@ -1,0 +1,616 @@
+/* Asking, progress and failure: one calm column of text, like the build progress. */
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  align-items: flex-start;
+  max-width: var(--measure);
+  padding-top: var(--space-8);
+}
+
+.lede {
+  font-size: var(--text-body-lg);
+}
+
+.headline {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.detail {
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+.ask {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-24);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-paper);
+}
+
+.ask:hover {
+  background: var(--color-ink-hover);
+}
+
+.ask:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* One grid for every model, so the statuses share a left edge whatever the names' widths. */
+.jurors {
+  display: grid;
+  grid-template-columns: 12px minmax(10em, max-content) 1fr;
+  column-gap: var(--space-12);
+  row-gap: var(--space-16);
+  font-size: var(--text-body-lg);
+}
+
+.juror {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+
+.jurorName {
+  font-weight: var(--weight-medium);
+}
+
+.jurorStatus {
+  color: var(--color-grey-1);
+  text-wrap: pretty;
+}
+
+.juror[data-state="pending"] .jurorName,
+.juror[data-state="pending"] .jurorStatus {
+  color: var(--color-grey-2);
+}
+
+.juror[data-state="running"] .jurorStatus {
+  color: var(--color-ink);
+}
+
+/* A ring per model: filled when done, turning while it reviews, empty while it waits. */
+/* Centred on the first line, so a status that wraps leaves the ring beside the name. */
+.ring {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin-top: calc((1lh - 12px) / 2);
+  border: 1.5px solid var(--color-edge);
+  border-radius: 50%;
+}
+
+.juror[data-state="valid"] .ring {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+}
+
+.juror[data-state="running"] .ring {
+  border-color: var(--color-ink);
+}
+
+.juror[data-state="running"] .ring::after {
+  position: absolute;
+  inset: -1.5px;
+  border: 1.5px solid transparent;
+  border-top-color: var(--color-paper);
+  border-radius: 50%;
+  animation: turn 1.4s linear infinite;
+  content: "";
+}
+
+.juror[data-state="invalid"] .ring,
+.juror[data-state="failed"] .ring {
+  border-style: dashed;
+  border-color: var(--color-ink);
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The ballot board: its key, the table (which scrolls on its own), then quiet notes. */
+.board {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-16);
+  min-height: 0;
+}
+
+.key {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-40);
+  align-items: center;
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.agreement {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.agreement b {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}
+
+/* Agreement runs from 0 to 1: the bar's length is the value. */
+.agreementBar {
+  position: relative;
+  width: var(--space-64);
+  height: var(--space-4);
+  margin-left: var(--space-4);
+  background: var(--color-rule);
+}
+
+.agreementBar > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--color-ink);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-24);
+  align-items: center;
+}
+
+.legend li {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.keyNote {
+  color: var(--color-grey-2);
+}
+
+.legend .keyNote {
+  white-space: normal;
+}
+
+.splitSwatch {
+  width: 3px;
+  height: 14px;
+  background: var(--color-contested);
+}
+
+/* Sideways too on narrow screens; on wide ones the rows scroll under a fixed header. */
+.scroll {
+  composes: scroll-fade from global;
+  flex: 0 1 auto;
+  min-height: 0;
+  overflow: auto;
+  scroll-padding-top: var(--space-48);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: var(--space-8) var(--space-16) var(--space-8) 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding-top: 0;
+  padding-bottom: 10px;
+  background: var(--color-paper);
+  box-shadow: inset 0 -1px 0 var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  vertical-align: bottom;
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-right: 0;
+}
+
+/* Room on the left for the row's edge marks. */
+.table .rankHead,
+.table .rank {
+  width: var(--space-48);
+  padding-left: var(--space-12);
+}
+
+.modelHead,
+.spreadHead {
+  width: 1%;
+}
+
+.model {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.word,
+.spreadHead {
+  white-space: nowrap;
+}
+
+.row {
+  position: relative;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.row:hover,
+.row[data-selected] {
+  background: var(--color-hover);
+}
+
+/* The row's edge: ink for the drug being read, the contested colour for a split decision. */
+.row[data-selected] .rank {
+  box-shadow: inset 2px 0 0 var(--color-ink);
+}
+
+.row[data-contested] .rank {
+  box-shadow: inset 3px 0 0 var(--color-contested);
+}
+
+.row[data-selected][data-contested] .rank {
+  box-shadow:
+    inset 2px 0 0 var(--color-ink),
+    inset 5px 0 0 var(--color-contested);
+}
+
+.rank {
+  font-size: var(--text-label);
+  color: var(--color-grey-2);
+}
+
+.drug {
+  font-weight: var(--weight-regular);
+}
+
+/* The drug's button stretches over the whole row, so any part of it picks the drug. */
+.pick {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-12);
+  align-items: baseline;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+.pick::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.pick:focus-visible {
+  outline: none;
+}
+
+.pick:focus-visible::after {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+.drugName {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+}
+
+.known {
+  display: inline-block;
+  font-size: var(--text-label);
+  color: var(--color-grey-2);
+  white-space: nowrap;
+}
+
+/* A tile per vote: the number is the model's rank, the look is its decision. */
+.tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: var(--space-24);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.swatch {
+  flex: none;
+  width: var(--space-16);
+  height: var(--space-12);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-control);
+}
+
+.tile[data-decision="investigate"],
+.swatch[data-decision="investigate"] {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.tile[data-decision="watch"],
+.swatch[data-decision="watch"] {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.tile[data-decision="deprioritise"],
+.swatch[data-decision="deprioritise"] {
+  border-color: var(--color-rule);
+  background: var(--color-rule);
+  color: var(--color-grey-1);
+}
+
+.tile[data-decision="none"] {
+  border-style: dashed;
+  border-color: var(--color-placeholder);
+}
+
+/* Rank spread: a bar as long as the gap between the best and worst rank, then the number. */
+.spread {
+  --spread-width: var(--space-64);
+
+  white-space: nowrap;
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.spreadBar {
+  display: inline-block;
+  width: calc(var(--share, 0) * var(--spread-width));
+  min-width: 2px;
+  height: 3px;
+  margin-right: var(--space-8);
+  vertical-align: middle;
+  background: var(--color-grey-2);
+}
+
+/* Notes under the board: models without votes, what agreement means, and retries. */
+.notes {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.note {
+  display: flex;
+  gap: var(--space-12);
+  align-items: baseline;
+  max-width: var(--measure);
+  text-wrap: pretty;
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.note > svg {
+  position: relative;
+  top: 1px;
+}
+
+.indent {
+  flex: none;
+  width: 12px;
+}
+
+/* The reading pane: the drug's heading stays put while what the models said scrolls. */
+.reading {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  scroll-margin-top: var(--space-16);
+  padding-left: var(--space-32);
+  border-left: 1px solid var(--color-rule);
+}
+
+.readingHead {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.kicker {
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.readingTitle {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "opsz" 48;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.012em;
+  overflow-wrap: anywhere;
+}
+
+.verdict {
+  margin-top: var(--space-8);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-medium);
+}
+
+.verdict[data-contested] {
+  padding-left: var(--space-12);
+  box-shadow: inset 3px 0 0 var(--color-contested);
+}
+
+.calls {
+  composes: scroll-fade from global;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.call {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-16) 0;
+}
+
+.call + .call {
+  border-top: 1px solid var(--color-rule);
+}
+
+.callHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+  align-items: center;
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.callDecision {
+  margin-left: auto;
+  font-weight: var(--weight-regular);
+  color: var(--color-grey-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.callDecision[data-decision="investigate"] {
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.rationale,
+.objection {
+  max-width: var(--measure);
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+.objection {
+  color: var(--color-grey-1);
+}
+
+.objection b {
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Mid widths: a model's name sits under its marker and may wrap between words, and the columns
+   share the room by their content, so the drug keeps enough of it. */
+@media (max-width: 1100px) {
+  .modelHead,
+  .spreadHead {
+    width: auto;
+  }
+
+  .model {
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .spreadHead {
+    white-space: normal;
+  }
+
+  .spread {
+    --spread-width: var(--space-40);
+  }
+}
+
+/* Narrow screens: the page scrolls, so the board and the pane take their full height. Model
+   names sit under their markers, and the rank spread, which the tiles already show, is left out. */
+@media (max-width: 720px) {
+  .key {
+    column-gap: var(--space-24);
+  }
+
+  .table th,
+  .table td {
+    padding-right: var(--space-8);
+  }
+
+  .drugName {
+    font-size: var(--text-body-sm);
+  }
+
+  .table .rankHead,
+  .table .rank {
+    width: var(--space-40);
+    padding-left: var(--space-8);
+  }
+
+  .model {
+    min-width: 4.5em;
+    font-size: var(--text-label-sm);
+  }
+
+  .tile {
+    width: var(--space-32);
+  }
+
+  .spreadHead,
+  .spread {
+    display: none;
+  }
+
+  .table .vote:nth-last-child(2) {
+    padding-right: 0;
+  }
+
+  .reading {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .calls {
+    overflow: visible;
+  }
+}

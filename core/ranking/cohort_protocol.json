@@ -1,0 +1,32 @@
+{
+  "format_version": 1,
+  "cohort_id": "ot26.09-established-human-v1",
+  "release": "26.09",
+  "pipeline_commit": "181f4ac755512cc4c42654c8a35b1468a13bb4af",
+  "selection_rule": "Purposive, predeclared 16-name panel spanning eight therapeutic areas. Resolve unique exact canonical names or exact synonyms in the pinned Disease table. Include all cases passing the declared label and Target checks; never consult ranks, z-scores or recall for selection. No replacement for a failed case.",
+  "minimum_positive_evidence_targets": 25,
+  "minimum_lcc_disease_targets": 20,
+  "minimum_eligible_human_mechanism_references": 1,
+  "label_rule": "Exact Disease-ID clinical_indication membership joined through clinicalReportIds to clinical_report. Require indication maxClinicalStage=APPROVAL and at least one linked FDA, EMA Human Drugs, PMDA or DailyMed report at clinicalStage=APPROVAL and type=INDICATION, with exact Disease and original drug membership and an HTTP(S) source URL. Reject pairs with a linked regulator WITHDRAWAL report. Preserve all qualifying original drug IDs, source reports and eligibility outcomes; never derive labels from Stream A approval.disease_ids or scores.",
+  "smoke_test_excluded_ids": ["MONDO_0100096", "MONDO_0009693"],
+  "ranking_settings": {"top_targets": 50, "randomisations": 200, "seed": 0, "min_bin_size": 100},
+  "evaluation_settings": {"seed": 0, "bootstrap_samples": 1000, "missing_score_policy": "unretrieved"},
+  "cases": [
+    {"name": "rheumatoid arthritis", "area": "rheumatology"},
+    {"name": "psoriasis", "area": "dermatology"},
+    {"name": "atopic eczema", "area": "dermatology"},
+    {"name": "asthma", "area": "respiratory"},
+    {"name": "chronic obstructive pulmonary disease", "area": "respiratory"},
+    {"name": "ulcerative colitis", "area": "gastroenterology"},
+    {"name": "Crohn disease", "area": "gastroenterology"},
+    {"name": "type 2 diabetes mellitus", "area": "metabolic"},
+    {"name": "hypercholesterolemia", "area": "metabolic"},
+    {"name": "osteoporosis", "area": "metabolic"},
+    {"name": "hypertension", "area": "cardiovascular"},
+    {"name": "breast carcinoma", "area": "oncology"},
+    {"name": "prostate carcinoma", "area": "oncology"},
+    {"name": "Parkinson disease", "area": "neurology"},
+    {"name": "Alzheimer disease", "area": "neurology"},
+    {"name": "epilepsy", "area": "neurology"}
+  ]
+}

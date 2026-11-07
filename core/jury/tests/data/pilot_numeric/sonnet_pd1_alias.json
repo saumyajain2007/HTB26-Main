@@ -1,0 +1,729 @@
+{
+  "source_run": "corrected MONDO_0005180-claude-sonnet-5.json",
+  "packet": {
+    "experiment_id": "b5683098-369a-5674-a098-76e0b97dcd2e",
+    "disease": {
+      "id": "MONDO_0005180",
+      "name": "Parkinson disease"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "candidates": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL3544914",
+        "name": "TEZACAFTOR",
+        "targets": [
+          {
+            "id": "ENSG00000001626",
+            "name": "CFTR",
+            "mechanism": "POSITIVE MODULATOR"
+          }
+        ],
+        "evidence_ids": [
+          "E23",
+          "E24"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL4594550",
+        "name": "SERPLULIMAB",
+        "targets": [
+          {
+            "id": "ENSG00000188389",
+            "name": "PDCD1",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E36",
+          "E37"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL4594214",
+        "name": "ZICONOTIDE",
+        "targets": [
+          {
+            "id": "ENSG00000148408",
+            "name": "CACNA1B",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E34",
+          "E35"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL2110731",
+        "name": "TOFOGLIFLOZIN ANHYDROUS",
+        "targets": [
+          {
+            "id": "ENSG00000140675",
+            "name": "SLC5A2",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E20",
+          "E21",
+          "E22"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C5",
+        "candidate_id": "CHEMBL3668014",
+        "name": "LINZAGOLIX",
+        "targets": [
+          {
+            "id": "ENSG00000109163",
+            "name": "GNRHR",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E27",
+          "E28",
+          "E29",
+          "E30"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C6",
+        "candidate_id": "CHEMBL2109093",
+        "name": "EPOETIN DELTA",
+        "targets": [
+          {
+            "id": "ENSG00000187266",
+            "name": "EPOR",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E19"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C7",
+        "candidate_id": "CHEMBL204656",
+        "name": "ELVITEGRAVIR",
+        "targets": [
+          {
+            "id": "ENSG00000165819",
+            "name": "METTL3",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E17",
+          "E18"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C8",
+        "candidate_id": "CHEMBL838",
+        "name": "BENAZEPRIL",
+        "targets": [
+          {
+            "id": "ENSG00000159640",
+            "name": "ACE",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E38",
+          "E39",
+          "E40",
+          "E41",
+          "E42"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL1201593",
+        "name": "ALTEPLASE",
+        "targets": [
+          {
+            "id": "ENSG00000104368",
+            "name": "PLAT",
+            "mechanism": "EXOGENOUS PROTEIN"
+          }
+        ],
+        "evidence_ids": [
+          "E11",
+          "E12"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C10",
+        "candidate_id": "CHEMBL1009",
+        "name": "LEVODOPA",
+        "targets": [
+          {
+            "id": "ENSG00000151577",
+            "name": "DRD3",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E2"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C11",
+        "candidate_id": "CHEMBL1619",
+        "name": "CLADRIBINE",
+        "targets": [
+          {
+            "id": "ENSG00000198805",
+            "name": "PNP",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E13",
+          "E14",
+          "E15",
+          "E16"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C12",
+        "candidate_id": "CHEMBL1024",
+        "name": "IFOSFAMIDE",
+        "targets": [
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C13",
+        "candidate_id": "CHEMBL4297573",
+        "name": "TAGRAXOFUSP",
+        "targets": [
+          {
+            "id": "ENSG00000167658",
+            "name": "EEF2",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E31",
+          "E32",
+          "E33"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C14",
+        "candidate_id": "CHEMBL1201199",
+        "name": "LEUPROLIDE",
+        "targets": [
+          {
+            "id": "ENSG00000109163",
+            "name": "GNRHR",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E8",
+          "E9",
+          "E10"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C15",
+        "candidate_id": "CHEMBL3545313",
+        "name": "BEMPEDOIC ACID",
+        "targets": [
+          {
+            "id": "ENSG00000131473",
+            "name": "ACLY",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E25",
+          "E26"
+        ],
+        "safety_status": "unknown"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "246",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/246.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LEVODOPA's mechanism as Dopamine D3 receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E2",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "043db807-8381-4df8-b3a3-825988d63ef5",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=043db807-8381-4df8-b3a3-825988d63ef5",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E3",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1024/CHEMBL1293235",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1024&target_chembl_id=CHEMBL1293235&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.25 across 1 human LMNA activities for IFOSFAMIDE.",
+        "values": {
+          "median_pchembl": 7.25,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "fb7f49af-ffe9-4969-a69c-8ed14dd0616b",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb7f49af-ffe9-4969-a69c-8ed14dd0616b",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E5",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "925",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a311a947-7b78-4226-bfe0-f4aa0be20e27",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for IFOSFAMIDE: neurotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E6",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "926",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b7241707-7538-4d1a-91e7-3a25a91e0b9a",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for IFOSFAMIDE: nephrotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E7",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "927",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb7f49af-ffe9-4969-a69c-8ed14dd0616b",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for IFOSFAMIDE: hematological toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E8",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "265",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/265.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LEUPROLIDE's mechanism as Gonadotropin-releasing hormone receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E9",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "8996",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8996.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LEUPROLIDE's mechanism as Gonadotropin-releasing hormone receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E10",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2021/211488s000lbl.pdf",
+        "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2021/211488s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E11",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "84",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/84.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ALTEPLASE's mechanism as Tissue-type plasminogen activator exogenous protein.",
+        "values": {}
+      },
+      {
+        "id": "E12",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "c669f77c-fa48-478b-a14b-80b20a0139c2",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c669f77c-fa48-478b-a14b-80b20a0139c2",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E13",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1619/CHEMBL4338",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1619&target_chembl_id=CHEMBL4338&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.64 across 1 human PNP activities for CLADRIBINE.",
+        "values": {
+          "median_pchembl": 8.64,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E14",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "71c39b37-33b5-42e1-bf4f-93ff751cc7fe",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71c39b37-33b5-42e1-bf4f-93ff751cc7fe",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E15",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "385",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9c75e30a-a410-40f1-b653-04d532bd9144",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for CLADRIBINE: teratogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E16",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2391",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=71c39b37-33b5-42e1-bf4f-93ff751cc7fe",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for CLADRIBINE: neurotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E17",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL204656/CHEMBL4739695",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL204656&target_chembl_id=CHEMBL4739695&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.32 across 2 human METTL3 activities for ELVITEGRAVIR.",
+        "values": {
+          "median_pchembl": 8.32,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E18",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "144067b2-0532-476a-996e-e4a0a9d09b05",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=144067b2-0532-476a-996e-e4a0a9d09b05",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E19",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7536",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7536.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records EPOETIN DELTA's mechanism as Erythropoietin receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E20",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5672",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5672.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TOFOGLIFLOZIN ANHYDROUS's mechanism as Sodium/glucose cotransporter 2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E21",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2110731/CHEMBL3884",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2110731&target_chembl_id=CHEMBL3884&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.54 across 3 human SLC5A2 activities for TOFOGLIFLOZIN ANHYDROUS.",
+        "values": {
+          "median_pchembl": 8.54,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E22",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "cff96031ad0f1831de178322908b3522413be599fe65e992c0105c332fbd49b7",
+        "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from PMDA.",
+        "values": {}
+      },
+      {
+        "id": "E23",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5167",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5167.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TEZACAFTOR's mechanism as Cystic fibrosis transmembrane conductance regulator positive modulator.",
+        "values": {}
+      },
+      {
+        "id": "E24",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2018/210491lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/210491lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E25",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7480",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7480.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records BEMPEDOIC ACID's mechanism as ATP-citrate synthase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E26",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2020/211616s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/211616s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E27",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5054",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5054.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LINZAGOLIX's mechanism as Gonadotropin-releasing hormone receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E28",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9823",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9823.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LINZAGOLIX's mechanism as Gonadotropin-releasing hormone receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E29",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3668014/CHEMBL1855",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3668014&target_chembl_id=CHEMBL1855&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.82 across 1 human GNRHR activities for LINZAGOLIX.",
+        "values": {
+          "median_pchembl": 7.82,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E30",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/005442",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/yselty",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E31",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7376",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7376.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TAGRAXOFUSP's mechanism as Elongation factor 2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E32",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2018/761116s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/761116s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E33",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2754",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80eb1080-fe20-4af0-b2a5-a67999923fa8",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for TAGRAXOFUSP: nephrotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E34",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "8560",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8560.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ZICONOTIDE's mechanism as Voltage-gated N-type calcium channel alpha-1B subunit blocker.",
+        "values": {}
+      },
+      {
+        "id": "E35",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/000551",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/prialt",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E36",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7785",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7785.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records SERPLULIMAB's mechanism as Programmed cell death protein 1 antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E37",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/006170",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/hetronifly",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E38",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "113",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/113.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records BENAZEPRIL's mechanism as Angiotensin-converting enzyme inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E39",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL838/CHEMBL1808",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL838&target_chembl_id=CHEMBL1808&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.77 across 1 human ACE activities for BENAZEPRIL.",
+        "values": {
+          "median_pchembl": 8.77,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E40",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2015/020033s052lbl.pdf",
+        "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2015/020033s052lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E41",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "183",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=be41d21c-4747-47bb-b4b7-bbfabcd7a9b1",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BENAZEPRIL: teratogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E42",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2340",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2abb091b-a53e-46b0-9b84-e5ee8f2bdd8e",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BENAZEPRIL: toxicity class unspecified.",
+        "values": {}
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_output": "{\"reviews\":[{\"label\":\"C5\",\"rationale\":\"LINZAGOLIX has a well-documented GnRH receptor antagonist mechanism with quantified binding and a regulatory approval, but no evidence ties this action to Parkinson disease.\",\"objection\":\"Without any disease-specific signal, the relevance of GnRH antagonism to Parkinson disease is purely speculative.\",\"rank\":1,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association or genetic evidence\",\"Preclinical or clinical efficacy data in Parkinson disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C7\",\"rationale\":\"ELVITEGRAVIR shows measurable METTL3 binding and an approval record, yet nothing connects METTL3 inhibition to Parkinson disease outcomes.\",\"objection\":\"The absence of any Parkinson-specific data means the drug's suitability for this disease is unverified.\",\"rank\":2,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Mechanistic link between METTL3 and neurodegeneration\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C4\",\"rationale\":\"TOFOGLIFLOZIN ANHYDROUS has clear SLC5A2 binding data and regulatory approval, but no evidence links SGLT2 inhibition to Parkinson disease.\",\"objection\":\"No disease-specific evidence exists, so any benefit in Parkinson disease remains unproven.\",\"rank\":3,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"PD-relevant pharmacodynamic evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C14\",\"rationale\":\"LEUPROLIDE's GnRH receptor agonist mechanism and approval are documented, but there is no evidence relating this action to Parkinson disease.\",\"objection\":\"Lacking any disease-linked data, the candidate's relevance to Parkinson disease cannot be assessed.\",\"rank\":4,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Efficacy data in PD models\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"SERPLULIMAB's PD-1 antagonism and approval are noted, but no evidence ties immune checkpoint blockade to Parkinson disease.\",\"objection\":\"Without disease-specific evidence, the mechanism's relevance to Parkinson disease is unknown.\",\"rank\":5,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Neuroimmune evidence linking PDCD1 to PD\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C15\",\"rationale\":\"BEMPEDOIC ACID's ACLY inhibition and approval are documented, yet no evidence connects this pathway to Parkinson disease.\",\"objection\":\"No disease-specific data exist to support or refute relevance to Parkinson disease.\",\"rank\":6,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"CNS pharmacodynamic evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"ALTEPLASE's role as an exogenous plasminogen activator and its approval are recorded, but no evidence links this action to Parkinson disease.\",\"objection\":\"The lack of neurological disease evidence leaves its relevance to Parkinson disease unresolved.\",\"rank\":7,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Mechanistic rationale for PLAT in neurodegeneration\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C3\",\"rationale\":\"ZICONOTIDE's calcium channel blocking mechanism and approval are documented, but no evidence associates this with Parkinson disease.\",\"objection\":\"No disease-specific evidence supports or contradicts a role in Parkinson disease.\",\"rank\":8,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"CNS efficacy evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C10\",\"rationale\":\"LEVODOPA's DRD3 agonist mechanism and approval are recorded, but the evidence provided does not establish a Parkinson disease-specific benefit.\",\"objection\":\"Despite a plausible dopaminergic mechanism, no disease-linked evidence is cited to confirm efficacy.\",\"rank\":9,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease clinical efficacy data\",\"Association evidence linking DRD3 to PD pathology\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"TEZACAFTOR's CFTR modulation and approval are documented, but there is no evidence connecting this mechanism to Parkinson disease.\",\"objection\":\"No disease-specific evidence exists to assess relevance to Parkinson disease.\",\"rank\":10,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Mechanistic rationale for CFTR in PD\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C6\",\"rationale\":\"EPOETIN DELTA's EPOR agonist mechanism is noted, but no approval or disease-specific evidence is provided for Parkinson disease.\",\"objection\":\"The absence of approval or disease evidence weakens confidence in further pursuit.\",\"rank\":11,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Approval or regulatory evidence\",\"Parkinson disease association data\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C13\",\"rationale\":\"TAGRAXOFUSP's EEF2 inhibition and approval are documented, but no evidence relates this mechanism to Parkinson disease.\",\"objection\":\"A recorded nephrotoxicity warning adds risk without any compensating disease-specific evidence.\",\"rank\":12,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Safety data specific to CNS use\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E33\"]}},{\"label\":\"C11\",\"rationale\":\"CLADRIBINE's PNP-related bioactivity and approval are recorded, but no evidence links this target to Parkinson disease.\",\"objection\":\"Teratogenicity and neurotoxicity warnings raise safety concerns absent any disease-specific benefit data.\",\"rank\":13,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Neurological safety evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\",\"E16\"]}},{\"label\":\"C8\",\"rationale\":\"BENAZEPRIL's ACE inhibition and approval are documented, but no evidence ties this mechanism to Parkinson disease.\",\"objection\":\"Teratogenicity and unspecified toxicity warnings undercut any case for further investigation absent disease evidence.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"CNS safety profile\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E41\",\"E42\"]}},{\"label\":\"C12\",\"rationale\":\"IFOSFAMIDE's LMNA-related bioactivity and approval are recorded, but no evidence connects this target to Parkinson disease.\",\"objection\":\"Multiple black-box warnings for neurotoxicity, nephrotoxicity, and hematological toxicity make this candidate unsuitable without any offsetting disease evidence.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Parkinson disease association data\",\"Safety data supporting CNS use\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E5\",\"E6\",\"E7\"]}}]}"
+    }
+  ]
+}

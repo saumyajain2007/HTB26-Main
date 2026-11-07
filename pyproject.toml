@@ -1,0 +1,13 @@
+# The uv workspace: one .venv and one uv.lock for every Python package here.
+[tool.uv.workspace]
+members = ["core", "core/ranking", "app/api", "app/worker"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "core"]
+# The repository root, so tests can import shared helpers as tests.*.
+pythonpath = ["."]
+addopts = "-m 'not network'"
+markers = ["network: needs internet access; run with -m network"]

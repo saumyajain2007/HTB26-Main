@@ -1,0 +1,69 @@
+[project]
+name = "oxhack-worker"
+version = "0.1.0"
+description = "AutoDock Vina docking worker for the OxHack '26 drug repurposing app."
+readme = "README.md"
+requires-python = ">=3.11"
+# The project venv only runs the queue (oxhack_worker.queue). The docking toolchain
+# (Vina, Meeko, RDKit, gemmi, PoseBusters) lives in $DOCKING_VENV, from
+# .devcontainer/docking-requirements.txt: Vina has Linux x86_64 wheels only.
+dependencies = ["oxhack-api"]
+
+[dependency-groups]
+dev = [
+  "pyright>=1.1.390",
+  "pytest>=8.3",
+  "ruff>=0.8",
+  # For the RMSD tests, which run without Vina. Same version as the docking venv.
+  "rdkit==2026.9.1",
+]
+
+[tool.uv.sources]
+oxhack-api = { workspace = true }
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["oxhack_worker"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -m 'not docking'"
+markers = [
+  "docking: runs real AutoDock Vina in $DOCKING_VENV; skipped when Vina is not there. Run with -m docking",
+]
+# deploy/db/ holds migrate.py and the throwaway-Postgres helpers shared with app/api/ and deploy/db/tests.
+pythonpath = ["../../deploy/db", "tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "N", "C4", "PT", "RET"]
+ignore = ["N818"]
+
+[tool.pyright]
+include = ["oxhack_worker", "tests"]
+pythonVersion = "3.11"
+# Strict except where RDKit, Meeko, gemmi and Vina are used: they ship no type
+# information (prepare, dock and control run in the docking venv).
+typeCheckingMode = "standard"
+strict = [
+  "oxhack_worker/__init__.py",
+  "oxhack_worker/queue.py",
+  "tests/conftest.py",
+  "tests/fake_dock.py",
+  "tests/test_cache_key.py",
+  "tests/test_queue.py",
+  "tests/test_real_vina.py",
+  "tests/test_runner.py",
+  "tests/test_structures.py",
+]
+venvPath = "../.."
+venv = ".venv"
+# ../api: the API package's source, so pyright checks against it rather than an
+# untyped installed package.
+extraPaths = ["../api", "../../deploy/db", "tests"]

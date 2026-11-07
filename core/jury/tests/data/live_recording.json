@@ -1,0 +1,167 @@
+{
+  "claude-sonnet-5": {
+    "status": "invalid",
+    "attempts": 2,
+    "latency_ms": 54274,
+    "raw_output": "```json\n{\n  \"reviews\": [\n    {\n      \"label\": \"C3\",\n      \"rank\": 1,\n      \"decision\": \"investigate\",\n      \"direction\": \"unknown\",\n      \"rationale\": \"ERDAFITINIB targets FGFR3, which has the highest evidence-only association score (0.9) with plasma cell myeloma among all candidates (E1). Its mechanism as an FGFR inhibitor is recorded (E2), and it holds a regulator-backed FDA approval (E3).\",\n      \"objection\": \"The 0.9 score is a single evidence-only association metric with no accompanying bioactivity (e.g., pChEMBL) data to confirm potency against FGFR3, and the approval (E3) is not disease-specific, so relevance to plasma cell myeloma cannot be confirmed from this packet alone.\",\n      \"missing_evidence\": [\n        \"Bioactivity data (e.g., pChEMBL values) for ERDAFITINIB against FGFR3/FGFR1/FGFR2/FGFR4\",\n        \"Clinical trial evidence in plasma cell myeloma\",\n        \"Safety/warning data for ERDAFITINIB\"\n      ],\n      \"supporting_evidence_ids\": [\"E1\", \"E2\", \"E3\"],\n      \"contradicting_evidence_ids\": [],\n      \"safety\": {\n        \"status\": \"unknown\",\n        \"evidence_ids\": []\n      }\n    },\n    {\n      \"label\": \"C1\",\n      \"rank\": 2,\n      \"decision\": \"investigate\",\n      \"direction\": \"unknown\",\n      \"rationale\": \"BARICITINIB targets JAK1 (0.80) and JAK2 (0.70) association scores with plasma cell myeloma (E4, E5), with mechanisms confirmed as JAK1 and JAK2 inhibition (E6, E7). Bioactivity data show a median pChEMBL of 7.5 across 10 human JAK1 activities (E8) and a median pChEMBL of 7.5 across 10 human TYK2 activities (E9). The drug has a regulator-backed FDA approval (E10).\",\n      \"objection\": \"The JAK1/JAK2 association scores (0.80, 0.70) are evidence-only and not disease-specific proof of causal relevance; the TYK2 bioactivity data (E9) is cited for a target not scored for disease association, and the approval (E10) is not specific to plasma cell myeloma.\",\n      \"missing_evidence\": [\n        \"Clinical trial data in plasma cell myeloma\",\n        \"TYK2 target association score with plasma cell myeloma\",\n        \"Bioactivity data specific to JAK2 for BARICITINIB\"\n      ],\n      \"supporting_evidence_ids\": [\"E4\", \"E5\", \"E6\", \"E7\", \"E8\", \"E9\", \"E10\"],\n      \"contradicting_evidence_ids\": [],\n      \"safety\": {\n        \"status\": \"warnings_recorded\",\n        \"evidence_ids\": [\"E11\", \"E12\", \"E13\", \"E14\"]\n      }\n    },\n    {\n      \"label\": \"C4\",\n      \"rank\": 3,\n      \"decision\": \"watch\",\n      \"direction\": \"unknown\",\n      \"rationale\": \"RUXOLITINIB targets JAK1 (0.80) and JAK2 (0.70) association scores with plasma cell myeloma (E4, E5), with mechanisms confirmed as JAK1 and JAK2 inhibition (E15, E16). The drug has a regulator-backed approval from DailyMed (E17).\",\n      \"objection\": \"Unlike BARICITINIB, no bioactivity (pChEMBL) data is provided to confirm potency against JAK1/JAK2 for RUXOLITINIB, and the association scores (0.80, 0.70) are evidence-only, not disease-specific causal proof; the approval source (DailyMed) is weaker than a direct regulator approval record.\",\n      \"missing_evidence\": [\n        \"Bioactivity data (e.g., pChEMBL values) for RUXOLITINIB against JAK1/JAK2\",\n        \"Clinical trial data in plasma cell myeloma\",\n        \"Additional regulator approval confirmation beyond DailyMed\"\n      ],\n      \"supporting_evidence_ids\": [\"E4\", \"E5\", \"E15\", \"E16\", \"E17\"],\n      \"contradicting_evidence_ids\": [],\n      \"safety\": {\n        \"status\": \"warnings_recorded\",\n        \"evidence_ids\": [\"E18\"]\n      }\n    },\n    {\n      \"label\": \"C2\",\n      \"rank\": 4,\n      \"decision\": \"deprioritise\",\n      \"direction\": \"unknown\",\n      \"rationale\": \"VENETOCLAX targets BCL2, which has the lowest evidence-only association score (0.60) with plasma cell myeloma among all candidates (E19). Its mechanism as a Bcl-2 inhibitor is recorded (E20), and it holds a regulator-backed approval from DailyMed (E21).\",\n      \"objection\": \"The 0.60 association score is the weakest among the candidates and is evidence-only with no bioactivity data to support target engagement; the approval (E21) is not disease-specific, limiting confidence in relevance to plasma cell myeloma.\",\n      \"missing_evidence\": [\n        \"Bioactivity data (e.g., pChEMBL values) for VENETOCLAX against BCL2\",\n        \"Clinical trial data in plasma cell myeloma\",\n        \"Safety/warning data for VENETOCLAX\"\n      ],\n      \"supporting_evidence_ids\": [\"E19\", \"E20\", \"E21\"],\n      \"contradicting_evidence_ids\": [],\n      \"safety\": {\n        \"status\": \"unknown\",\n        \"evidence_ids\": []\n      }\n    }\n  ]\n}\n```",
+    "reviews": null,
+    "validation": {
+      "schema": false,
+      "unique_ranks": null,
+      "evidence_ids_exist": null,
+      "numbers_match": null,
+      "errors": [
+        "Attempt 1: JSON decoding failed",
+        "Attempt 2: JSON decoding failed"
+      ]
+    }
+  },
+  "openai-gpt-5.4": {
+    "status": "valid",
+    "attempts": 2,
+    "latency_ms": 17246,
+    "raw_output": null,
+    "reviews": [
+      {
+        "label": "C3",
+        "rank": 1,
+        "decision": "investigate",
+        "direction": "supported",
+        "rationale": "FGFR3 has an evidence-only association score of 0.9 with plasma cell myeloma, and ERDAFITINIB is recorded as a fibroblast growth factor receptor inhibitor. This aligns the drug mechanism with a disease-associated target and supports investigation.",
+        "objection": "The evidence packet provides association for FGFR3 at 0.9 and a class mechanism, but no candidate-specific bioactivity, no plasma cell myeloma efficacy data, and no direct evidence for FGFR1, FGFR2, or FGFR4 relevance in this disease within the supplied packet.",
+        "missing_evidence": [
+          "Candidate-specific bioactivity against FGFR3",
+          "Direct preclinical or clinical efficacy in plasma cell myeloma",
+          "Evidence linking FGFR1, FGFR2, or FGFR4 to plasma cell myeloma within this packet",
+          "Safety or warning evidence"
+        ],
+        "supporting_evidence_ids": [
+          "E1",
+          "E2"
+        ],
+        "contradicting_evidence_ids": [],
+        "safety": {
+          "status": "unknown",
+          "evidence_ids": []
+        },
+        "candidate_id": "CHEMBL3545376"
+      },
+      {
+        "label": "C1",
+        "rank": 2,
+        "decision": "investigate",
+        "direction": "supported",
+        "rationale": "JAK1 has an evidence-only association score of 0.8 and JAK2 has an evidence-only association score of 0.7 with plasma cell myeloma. BARICITINIB is recorded as an inhibitor of JAK1 and JAK2, with median pChEMBL 7.5 across 10 human JAK1 activities and median pChEMBL 7.5 across 10 human TYK2 activities. The JAK1 and JAK2 mechanism matches disease-associated targets, supporting investigation.",
+        "objection": "The supplied packet does not provide candidate-specific bioactivity for JAK2, does not provide any disease association value for TYK2, and contains no direct plasma cell myeloma efficacy evidence. Warning evidence is present and limits confidence for prioritisation.",
+        "missing_evidence": [
+          "Candidate-specific bioactivity against JAK2",
+          "Disease association evidence for TYK2 in plasma cell myeloma",
+          "Direct preclinical or clinical efficacy in plasma cell myeloma",
+          "Exposure, selectivity, or biomarker-response evidence in this disease"
+        ],
+        "supporting_evidence_ids": [
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9"
+        ],
+        "contradicting_evidence_ids": [],
+        "safety": {
+          "status": "warnings_recorded",
+          "evidence_ids": [
+            "E11",
+            "E12",
+            "E13",
+            "E14"
+          ]
+        },
+        "candidate_id": "CHEMBL2105759"
+      },
+      {
+        "label": "C4",
+        "rank": 3,
+        "decision": "watch",
+        "direction": "supported",
+        "rationale": "JAK1 has an evidence-only association score of 0.8 and JAK2 has an evidence-only association score of 0.7 with plasma cell myeloma. RUXOLITINIB is recorded as an inhibitor of JAK1 and JAK2, so the mechanism is consistent with disease-associated targets and supports a watch status.",
+        "objection": "The packet includes mechanism and target association only, with no candidate-specific bioactivity and no direct plasma cell myeloma efficacy evidence. A warning is recorded, which argues against stronger prioritisation.",
+        "missing_evidence": [
+          "Candidate-specific bioactivity against JAK1 and JAK2",
+          "Direct preclinical or clinical efficacy in plasma cell myeloma",
+          "Selectivity or pharmacodynamic evidence in this disease context",
+          "Biomarker-defined response evidence"
+        ],
+        "supporting_evidence_ids": [
+          "E4",
+          "E5",
+          "E15",
+          "E16"
+        ],
+        "contradicting_evidence_ids": [],
+        "safety": {
+          "status": "warnings_recorded",
+          "evidence_ids": [
+            "E18"
+          ]
+        },
+        "candidate_id": "CHEMBL1789941"
+      },
+      {
+        "label": "C2",
+        "rank": 4,
+        "decision": "watch",
+        "direction": "supported",
+        "rationale": "BCL2 has an evidence-only association score of 0.6 with plasma cell myeloma, and VENETOCLAX is recorded as an apoptosis regulator Bcl-2 inhibitor. This provides mechanism-to-target consistency supporting investigation at a lower priority.",
+        "objection": "The association score is 0.6, and the packet provides no candidate-specific bioactivity and no direct plasma cell myeloma efficacy evidence. Support is therefore limited to target association plus mechanism.",
+        "missing_evidence": [
+          "Candidate-specific bioactivity against BCL2",
+          "Direct preclinical or clinical efficacy in plasma cell myeloma",
+          "Biomarker-defined response evidence in this disease",
+          "Safety or warning evidence"
+        ],
+        "supporting_evidence_ids": [
+          "E19",
+          "E20"
+        ],
+        "contradicting_evidence_ids": [],
+        "safety": {
+          "status": "unknown",
+          "evidence_ids": []
+        },
+        "candidate_id": "CHEMBL3137309"
+      }
+    ],
+    "validation": {
+      "schema": true,
+      "unique_ranks": true,
+      "evidence_ids_exist": true,
+      "numbers_match": true,
+      "errors": [
+        "Attempt 1: C2: unsupported or unparseable number in rationale",
+        "Attempt 1: C2: unsupported or unparseable number in objection"
+      ]
+    }
+  },
+  "glm-5.3": {
+    "status": "failed",
+    "attempts": 2,
+    "latency_ms": 120363,
+    "raw_output": null,
+    "reviews": null,
+    "validation": {
+      "schema": false,
+      "unique_ranks": null,
+      "evidence_ids_exist": null,
+      "numbers_match": null,
+      "errors": [
+        "Attempt 1: call failed (APITimeoutError)",
+        "Attempt 2: call failed (APITimeoutError)"
+      ]
+    },
+    "recovered_vote": {
+      "latency_ms": 178768,
+      "reply": "{\"reviews\": [{\"label\": \"C1\", \"rationale\": \"BARICITINIB is recorded as a JAK1 inhibitor and a JAK2 inhibitor (E6, E7), and both targets carry evidence-only association scores with plasma cell myeloma: JAK1 at 0.8 (E4) and JAK2 at 0.7 (E5). Drug action and disease biology therefore align on both associated targets, establishing a supported direction on consistency grounds rather than efficacy. Bioactivity records a median pChEMBL of 7.5 across 10 human JAK1 activities (E8) and a median pChEMBL of 7.5 across 10 human TYK2 activities (E9), quantifying potent kinase action. A regulator-backed FDA approval is recorded (E10), which speaks to regulatory standing rather than disease-specific efficacy.\", \"objection\": \"The association scores establish linkage, not causality: nothing supplied shows whether JAK1 or JAK2 activity promotes or restrains plasma cell myeloma, so the therapeutic value of inhibition is inferred from consistency alone. No bioactivity data are supplied for JAK2, so potency against that associated target is unquantified. The TYK2 bioactivity (E9) has no matching disease association evidence, so that action is unlinked to plasma cell myeloma in this packet. No clinical or disease-model evidence in plasma cell myeloma is supplied, and the recorded black box warnings, captured in the safety field, add a risk burden that any investigation would need to manage.\", \"rank\": 2, \"decision\": \"investigate\", \"direction\": \"supported\", \"missing_evidence\": [\"Bioactivity or potency measurements for BARICITINIB against JAK2\", \"Disease association evidence for TYK2 in plasma cell myeloma\", \"Evidence on whether JAK1 or JAK2 has a disease-promoting role in plasma cell myeloma, which would move the case beyond consistency\", \"Clinical or disease-model evidence for BARICITINIB in plasma cell myeloma\"], \"supporting_evidence_ids\": [\"E4\", \"E5\", \"E6\", \"E7\", \"E8\", \"E9\", \"E10\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E11\", \"E12\", \"E13\", \"E14\"]}}, {\"label\": \"C2\", \"rationale\": \"BCL2 carries an evidence-only association score of 0.6 with plasma cell myeloma (E19), and VENETOCLAX is recorded as a BCL2 inhibitor (E20), so drug action and disease biology are consistent and direction is supported on consistency grounds. A regulator-backed DailyMed approval is recorded (E21), which speaks to regulatory standing rather than disease-specific efficacy.\", \"objection\": \"The BCL2 association score of 0.6 is the only disease-biology linkage supplied for this candidate, and no bioactivity data quantify VENETOCLAX's potency against BCL2. The association establishes linkage, not whether BCL2 activity promotes plasma cell myeloma, so the therapeutic direction of inhibition rests on consistency alone. No safety or warning record is supplied, leaving safety unknown rather than favorable, and no clinical or disease-model evidence in plasma cell myeloma is supplied.\", \"rank\": 4, \"decision\": \"watch\", \"direction\": \"supported\", \"missing_evidence\": [\"Bioactivity or potency measurements for VENETOCLAX against BCL2\", \"Evidence on whether BCL2 has a disease-promoting role in plasma cell myeloma, which would move the case beyond consistency\", \"Safety and warning records for VENETOCLAX\", \"Clinical or disease-model evidence for VENETOCLAX in plasma cell myeloma\"], \"supporting_evidence_ids\": [\"E19\", \"E20\", \"E21\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C3\", \"rationale\": \"FGFR3 carries an evidence-only association score of 0.9 with plasma cell myeloma (E1), the strongest disease-biology signal supplied in this packet. ERDAFITINIB is recorded as a fibroblast growth factor receptor inhibitor (E2), matching its FGFR3 target, so drug action and disease biology align on FGFR3 and direction is supported on consistency grounds. A regulator-backed FDA approval is recorded (E3), which speaks to regulatory standing rather than disease-specific efficacy.\", \"objection\": \"The mechanism record names the fibroblast growth factor receptor family generically (E2) and no bioactivity data are supplied for FGFR3 or any other FGFR, so potency against the associated target is unquantified. Only FGFR3 has disease association evidence; FGFR1, FGFR2, and FGFR4 have no supplied association with plasma cell myeloma, so the remaining listed targets are unlinked to the disease in this packet. The association score establishes linkage, not whether FGFR3 activity drives the disease, and no safety or warning record is supplied, leaving safety unknown. No clinical or disease-model evidence in plasma cell myeloma is supplied.\", \"rank\": 1, \"decision\": \"investigate\", \"direction\": \"supported\", \"missing_evidence\": [\"Bioactivity or potency measurements for ERDAFITINIB against FGFR3\", \"Disease association evidence for FGFR1, FGFR2, and FGFR4 in plasma cell myeloma\", \"Evidence on whether FGFR3 has a disease-promoting role in plasma cell myeloma, which would move the case beyond consistency\", \"Safety and warning records for ERDAFITINIB\", \"Clinical or disease-model evidence for ERDAFITINIB in plasma cell myeloma\"], \"supporting_evidence_ids\": [\"E1\", \"E2\", \"E3\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C4\", \"rationale\": \"RUXOLITINIB is recorded as a JAK1 inhibitor and a JAK2 inhibitor (E15, E16), and both targets carry evidence-only association scores with plasma cell myeloma: JAK1 at 0.8 (E4) and JAK2 at 0.7 (E5). Drug action and disease biology therefore align on both associated targets, and direction is supported on consistency grounds. A regulator-backed DailyMed approval is recorded (E17), which speaks to regulatory standing rather than disease-specific efficacy.\", \"objection\": \"No bioactivity data are supplied for RUXOLITINIB against JAK1 or JAK2, so potency against both associated targets is unquantified. The association scores establish linkage, not whether JAK1 or JAK2 activity promotes or restrains plasma cell myeloma, so the therapeutic value of inhibition is inferred from consistency alone. No clinical or disease-model evidence in plasma cell myeloma is supplied, and the candidate carries a recorded black box warning, captured in the safety field.\", \"rank\": 3, \"decision\": \"watch\", \"direction\": \"supported\", \"missing_evidence\": [\"Bioactivity or potency measurements for RUXOLITINIB against JAK1 and JAK2\", \"Evidence on whether JAK1 or JAK2 has a disease-promoting role in plasma cell myeloma, which would move the case beyond consistency\", \"Clinical or disease-model evidence for RUXOLITINIB in plasma cell myeloma\"], \"supporting_evidence_ids\": [\"E4\", \"E5\", \"E15\", \"E16\", \"E17\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E18\"]}}]}"
+    }
+  }
+}

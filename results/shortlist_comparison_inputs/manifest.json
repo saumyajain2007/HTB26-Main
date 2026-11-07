@@ -1,0 +1,461 @@
+{
+  "artifacts": {
+    "files": {
+      "data/a6/stage1/distances.npy": {
+        "bytes": 164711684,
+        "path": "data/a6/stage1/distances.npy",
+        "sha256": "8ff1550afec69b7d4637c95df02727063c5afa4c3b105f247170c53f40d9af75"
+      },
+      "data/a6/stage1/graph.npz": {
+        "bytes": 386927,
+        "path": "data/a6/stage1/graph.npz",
+        "sha256": "d410b238a7baf780595ac5efe5f22868d4679a1f785d441cc3780efb626105ea"
+      },
+      "data/a6/stage1/index.json": {
+        "bytes": 889093,
+        "path": "data/a6/stage1/index.json",
+        "sha256": "0986901459e736c96a19e20d9d934a9f33f0a03ab90eba63f1eb651492ea17f3"
+      },
+      "data/a6/stage1/manifest.json": {
+        "bytes": 59016,
+        "path": "data/a6/stage1/manifest.json",
+        "sha256": "01174a38a69748de4e7f591a3b3aa0f4d1cfe0825d48c00da76244c816a98033"
+      },
+      "data/a6/stage1/mapping_exclusions.json": {
+        "bytes": 18509,
+        "path": "data/a6/stage1/mapping_exclusions.json",
+        "sha256": "1665de4b9b4c402feaf195448859604be026e3e16a3bb0e59c2e7de032ac375f"
+      }
+    },
+    "matches_replication_freeze": true,
+    "path": "data/a6/stage1"
+  },
+  "cohort_id": "experiment-b-independent-replication-14-v1",
+  "compare_command": "PYTHONDONTWRITEBYTECODE=1 ranking/.venv/bin/python -B -m ranking.shortlist_comparison compare \\\n  --seal data/evaluation/shortlist-comparison-v1/implementation.json \\\n  --cases results/shortlist_comparison_inputs/cases.json \\\n  --targets-dir results/shortlist_comparison_inputs/targets \\\n  --references results/shortlist_comparison_inputs/references.json \\\n  --protocol results/experiment_b_replication/protocol.md \\\n  --drugs data/drug_targets.json \\\n  --artifacts data/ranking/string-12.5-c700-e400 \\\n  --out data/evaluation/shortlist-comparison-v1/official-run-v1",
+  "compare_working_directory": ".",
+  "comparison_run": false,
+  "data_provenance": "data/ files come from the stream-a-data-v1 release or a local build; historical validation hashes remain pinned below.",
+  "disease_order": [
+    "EFO_0803536",
+    "MONDO_0007915",
+    "MONDO_0005252",
+    "MONDO_0005393",
+    "MONDO_0005133",
+    "MONDO_0005041",
+    "MONDO_0011786",
+    "MONDO_0005147",
+    "MONDO_0005086",
+    "MONDO_0005109",
+    "MONDO_0015924",
+    "MONDO_0005277",
+    "MONDO_0011438",
+    "MONDO_0006624"
+  ],
+  "drugs": {
+    "bytes": 3245375,
+    "matches_replication_freeze": true,
+    "path": "data/drug_targets.json",
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "sha256": "bf133936221f124ec77877fdfb8a23dc26dd1b14aeb11735ee71540668cd7d24"
+  },
+  "files": {
+    "README.md": {
+      "bytes": 2087,
+      "sha256": "6722ea7b98439d3188af8a68bbbf85d4db95807e9033a91e45d98501da86c009"
+    },
+    "cases.json": {
+      "bytes": 1514,
+      "sha256": "890baa3632cc688cc06a536a8c0d2069ada57f8256146878c9b129520eca25b0"
+    },
+    "protocol.md": {
+      "bytes": 22616,
+      "sha256": "b6659a69f5e3474fc71b748e8f748e57fb9c598ca1824c80b182065f63b2b65a"
+    },
+    "protocol_frozen.json": {
+      "bytes": 285,
+      "sha256": "9da4997116da64cd30acaedb14df2bd006cfd2f7442633cf980bb5df736d7b34"
+    },
+    "references.json": {
+      "bytes": 75742,
+      "sha256": "b8bbc09fb1d6fa3366627aaac9ac97dccc50db7964775c079d7ed994f60f8cbc"
+    },
+    "targets/targets-EFO_0803536.json": {
+      "bytes": 7352,
+      "sha256": "2fb69fc893f61861e9ff30f8886c64d2d0e476079ee7635c6c2c2b8e9f8be481"
+    },
+    "targets/targets-MONDO_0005041.json": {
+      "bytes": 7306,
+      "sha256": "fd5d1795e465b9f61aa3562994ea6b144b0b579a39c684aab37988e54d3f2b13"
+    },
+    "targets/targets-MONDO_0005086.json": {
+      "bytes": 7297,
+      "sha256": "3b473a57d5439fdc387d45fb70c2818eaac2a7bf41af3ceb72f360a8d4b1be9a"
+    },
+    "targets/targets-MONDO_0005109.json": {
+      "bytes": 7328,
+      "sha256": "f04c1d5f82753e9378585610df93adce385eb844fcd720990f4a6808e57ef8b2"
+    },
+    "targets/targets-MONDO_0005133.json": {
+      "bytes": 7307,
+      "sha256": "44eb9d2284cd24f37d12da6dcc7d54a58cd321cc8ec32e8c78095a56d2e0b9bc"
+    },
+    "targets/targets-MONDO_0005147.json": {
+      "bytes": 7317,
+      "sha256": "dc4c12cf1e2818bd8304831e50826e46f854bb357d3447f8f87f7ad60b999c37"
+    },
+    "targets/targets-MONDO_0005252.json": {
+      "bytes": 7305,
+      "sha256": "111e27af02384ff8b30a67dced83951bb40d85ae36d982d5d2b3da7f8ff887ad"
+    },
+    "targets/targets-MONDO_0005277.json": {
+      "bytes": 7340,
+      "sha256": "e60a77c1b2eec0837dc44b0bb10c66a874b7b5f72e9180789de57776d2caa9ee"
+    },
+    "targets/targets-MONDO_0005393.json": {
+      "bytes": 7305,
+      "sha256": "72524894f06f9ad99b0470498e011cc8a80697a2613f5ee57c2a9641ced52bca"
+    },
+    "targets/targets-MONDO_0006624.json": {
+      "bytes": 7343,
+      "sha256": "2e2371925c9c715946ac596d1db224fa005e21566a2857a0da7bc81fd667b7ed"
+    },
+    "targets/targets-MONDO_0007915.json": {
+      "bytes": 7319,
+      "sha256": "a1216d8944ddc90bb734b0f9f18e19f6e9344d033aff410980597d5a0f04bc38"
+    },
+    "targets/targets-MONDO_0011438.json": {
+      "bytes": 7332,
+      "sha256": "4d8fc7e259628ca5dce5a2a4dfe503e5d98a00e026f81abd6b90f7ea1396d593"
+    },
+    "targets/targets-MONDO_0011786.json": {
+      "bytes": 7322,
+      "sha256": "c00f66a0b72518fc7abf87b26137e1f41bee6d168c53d62192c52f94823af5f2"
+    },
+    "targets/targets-MONDO_0015924.json": {
+      "bytes": 7362,
+      "sha256": "e65f6c408e6602ef6096ae10ab3da1da2a7f33e3ea305629d712b0513a7acbb8"
+    },
+    "validate_inputs.py": {
+      "bytes": 6905,
+      "sha256": "3e9a513ab39fd87b1763a44e04569378247ca8efef5503dc9b4b51ca05be7691"
+    }
+  },
+  "format_version": 1,
+  "implementation_seal": {
+    "file": "data/evaluation/shortlist-comparison-v1/implementation.json",
+    "limitation": "No seal is supplied or verified by this bundle. Zaid must use his own original pre-label seal; its timing and hash equivalence remain unverified.",
+    "original_handoff_implementation_sha256": "a58bad6a56b692ef64164d19d1a974915bd03d929af410be2ae9fa9efad04647",
+    "original_handoff_seal_available": false,
+    "status": "requires_zaid_original_pre_label_seal"
+  },
+  "limitations": [
+    "Exact approval.disease_ids membership in the pinned A2 release; no name, symbol, ontology expansion or new label curation.",
+    "Approval sources are aggregated at drug level in A2. This export does not independently establish a regulator report for each drug-Disease pair or clinical indication truth.",
+    "The published protocol evaluates fixed blind panels. This separate full-universe shortlist comparison is descriptive retrospective source-record recovery, not a newly preregistered confirmatory analysis.",
+    "Both FDA overrides concern MONDO_0100096, outside the frozen 14 Diseases; they remain in the unchanged drug release and override_inventory, and add zero cohort reference pairs.",
+    "Warnings were not transformed or interpreted; missing warnings remain unknown."
+  ],
+  "override_inventory": [
+    {
+      "candidate_id": "CHEMBL1237022",
+      "disease_id": "MONDO_0100096",
+      "in_cohort": false,
+      "regulator": "FDA",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/125276s138lbl.pdf"
+    },
+    {
+      "candidate_id": "CHEMBL2105759",
+      "disease_id": "MONDO_0100096",
+      "in_cohort": false,
+      "regulator": "FDA",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/207924s006lbl.pdf"
+    }
+  ],
+  "reference_pairs": 293,
+  "references_per_disease": {
+    "EFO_0803536": 34,
+    "MONDO_0005041": 18,
+    "MONDO_0005086": 14,
+    "MONDO_0005109": 43,
+    "MONDO_0005133": 9,
+    "MONDO_0005147": 5,
+    "MONDO_0005252": 33,
+    "MONDO_0005277": 34,
+    "MONDO_0005393": 17,
+    "MONDO_0006624": 10,
+    "MONDO_0007915": 8,
+    "MONDO_0011438": 26,
+    "MONDO_0011786": 29,
+    "MONDO_0015924": 13
+  },
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37"
+  ],
+  "schema_notes": [
+    "cases.json wraps the ordered Disease IDs as format_version/cohort_id/cases with relative targets_file paths.",
+    "references.json uses Stage 3 known_candidate_ids; approved_drugs and override_inventory retain provenance.",
+    "Target files are copied byte-for-byte in the existing fixture shape; no regeneration or score changes.",
+    "Drug sidecar output checksum is stale: 5eeee1eab279a74ea4267dfd67c68f6e5fb55fe55023f1cb26b8ba46423a02b8; use results/experiment_b_replication/preregistered.json and the verified actual SHA256 bf133936221f124ec77877fdfb8a23dc26dd1b14aeb11735ee71540668cd7d24.",
+    "protocol.md is a relative symlink to the unchanged historical protocol; file hashes follow the link."
+  ],
+  "source_files": [
+    {
+      "bytes": 22616,
+      "path": "results/experiment_b_replication/protocol.md",
+      "sha256": "b6659a69f5e3474fc71b748e8f748e57fb9c598ca1824c80b182065f63b2b65a"
+    },
+    {
+      "bytes": 285,
+      "path": "results/experiment_b_replication/protocol_frozen.json",
+      "sha256": "9da4997116da64cd30acaedb14df2bd006cfd2f7442633cf980bb5df736d7b34"
+    },
+    {
+      "bytes": 1181053,
+      "path": "results/experiment_b_replication/preregistered.json",
+      "sha256": "d57b11620952e87e9a64ead80b3054728fea6f0cb50038cf6085c51968cf6cf7"
+    },
+    {
+      "bytes": 4044905,
+      "path": "results/experiment_b_replication/results.json",
+      "sha256": "ebe80ada76a5fc55e4f44471bb1f3c4c1d5bc55bd4a96b02c0c8f15ceff284ce"
+    },
+    {
+      "bytes": 3245375,
+      "matches_replication_freeze": true,
+      "path": "data/drug_targets.json",
+      "releases": [
+        "opentargets-26.09",
+        "chembl-37"
+      ],
+      "sha256": "bf133936221f124ec77877fdfb8a23dc26dd1b14aeb11735ee71540668cd7d24"
+    }
+  ],
+  "targets": [
+    {
+      "copy": {
+        "bytes": 7352,
+        "path": "results/shortlist_comparison_inputs/targets/targets-EFO_0803536.json",
+        "sha256": "2fb69fc893f61861e9ff30f8886c64d2d0e476079ee7635c6c2c2b8e9f8be481"
+      },
+      "disease_id": "EFO_0803536",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7352,
+        "path": "data/experiment_b_replication/targets-EFO_0803536.json",
+        "sha256": "2fb69fc893f61861e9ff30f8886c64d2d0e476079ee7635c6c2c2b8e9f8be481"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7319,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0007915.json",
+        "sha256": "a1216d8944ddc90bb734b0f9f18e19f6e9344d033aff410980597d5a0f04bc38"
+      },
+      "disease_id": "MONDO_0007915",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7319,
+        "path": "data/experiment_b_replication/targets-MONDO_0007915.json",
+        "sha256": "a1216d8944ddc90bb734b0f9f18e19f6e9344d033aff410980597d5a0f04bc38"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7305,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005252.json",
+        "sha256": "111e27af02384ff8b30a67dced83951bb40d85ae36d982d5d2b3da7f8ff887ad"
+      },
+      "disease_id": "MONDO_0005252",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7305,
+        "path": "data/experiment_b_replication/targets-MONDO_0005252.json",
+        "sha256": "111e27af02384ff8b30a67dced83951bb40d85ae36d982d5d2b3da7f8ff887ad"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7305,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005393.json",
+        "sha256": "72524894f06f9ad99b0470498e011cc8a80697a2613f5ee57c2a9641ced52bca"
+      },
+      "disease_id": "MONDO_0005393",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7305,
+        "path": "data/experiment_b_replication/targets-MONDO_0005393.json",
+        "sha256": "72524894f06f9ad99b0470498e011cc8a80697a2613f5ee57c2a9641ced52bca"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7307,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005133.json",
+        "sha256": "44eb9d2284cd24f37d12da6dcc7d54a58cd321cc8ec32e8c78095a56d2e0b9bc"
+      },
+      "disease_id": "MONDO_0005133",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7307,
+        "path": "data/experiment_b_replication/targets-MONDO_0005133.json",
+        "sha256": "44eb9d2284cd24f37d12da6dcc7d54a58cd321cc8ec32e8c78095a56d2e0b9bc"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7306,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005041.json",
+        "sha256": "fd5d1795e465b9f61aa3562994ea6b144b0b579a39c684aab37988e54d3f2b13"
+      },
+      "disease_id": "MONDO_0005041",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7306,
+        "path": "data/experiment_b_replication/targets-MONDO_0005041.json",
+        "sha256": "fd5d1795e465b9f61aa3562994ea6b144b0b579a39c684aab37988e54d3f2b13"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7322,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0011786.json",
+        "sha256": "c00f66a0b72518fc7abf87b26137e1f41bee6d168c53d62192c52f94823af5f2"
+      },
+      "disease_id": "MONDO_0011786",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7322,
+        "path": "data/experiment_b_replication/targets-MONDO_0011786.json",
+        "sha256": "c00f66a0b72518fc7abf87b26137e1f41bee6d168c53d62192c52f94823af5f2"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7317,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005147.json",
+        "sha256": "dc4c12cf1e2818bd8304831e50826e46f854bb357d3447f8f87f7ad60b999c37"
+      },
+      "disease_id": "MONDO_0005147",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7317,
+        "path": "data/experiment_b_replication/targets-MONDO_0005147.json",
+        "sha256": "dc4c12cf1e2818bd8304831e50826e46f854bb357d3447f8f87f7ad60b999c37"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7297,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005086.json",
+        "sha256": "3b473a57d5439fdc387d45fb70c2818eaac2a7bf41af3ceb72f360a8d4b1be9a"
+      },
+      "disease_id": "MONDO_0005086",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7297,
+        "path": "data/experiment_b_replication/targets-MONDO_0005086.json",
+        "sha256": "3b473a57d5439fdc387d45fb70c2818eaac2a7bf41af3ceb72f360a8d4b1be9a"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7328,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005109.json",
+        "sha256": "f04c1d5f82753e9378585610df93adce385eb844fcd720990f4a6808e57ef8b2"
+      },
+      "disease_id": "MONDO_0005109",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7328,
+        "path": "data/experiment_b_replication/targets-MONDO_0005109.json",
+        "sha256": "f04c1d5f82753e9378585610df93adce385eb844fcd720990f4a6808e57ef8b2"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7362,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0015924.json",
+        "sha256": "e65f6c408e6602ef6096ae10ab3da1da2a7f33e3ea305629d712b0513a7acbb8"
+      },
+      "disease_id": "MONDO_0015924",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7362,
+        "path": "data/experiment_b_replication/targets-MONDO_0015924.json",
+        "sha256": "e65f6c408e6602ef6096ae10ab3da1da2a7f33e3ea305629d712b0513a7acbb8"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7340,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0005277.json",
+        "sha256": "e60a77c1b2eec0837dc44b0bb10c66a874b7b5f72e9180789de57776d2caa9ee"
+      },
+      "disease_id": "MONDO_0005277",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7340,
+        "path": "data/experiment_b_replication/targets-MONDO_0005277.json",
+        "sha256": "e60a77c1b2eec0837dc44b0bb10c66a874b7b5f72e9180789de57776d2caa9ee"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7332,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0011438.json",
+        "sha256": "4d8fc7e259628ca5dce5a2a4dfe503e5d98a00e026f81abd6b90f7ea1396d593"
+      },
+      "disease_id": "MONDO_0011438",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7332,
+        "path": "data/experiment_b_replication/targets-MONDO_0011438.json",
+        "sha256": "4d8fc7e259628ca5dce5a2a4dfe503e5d98a00e026f81abd6b90f7ea1396d593"
+      }
+    },
+    {
+      "copy": {
+        "bytes": 7343,
+        "path": "results/shortlist_comparison_inputs/targets/targets-MONDO_0006624.json",
+        "sha256": "2e2371925c9c715946ac596d1db224fa005e21566a2857a0da7bc81fd667b7ed"
+      },
+      "disease_id": "MONDO_0006624",
+      "matches_replication_freeze": true,
+      "source": {
+        "bytes": 7343,
+        "path": "data/experiment_b_replication/targets-MONDO_0006624.json",
+        "sha256": "2e2371925c9c715946ac596d1db224fa005e21566a2857a0da7bc81fd667b7ed"
+      }
+    }
+  ],
+  "unmapped_count": 0,
+  "upstream_drug_coverage": {
+    "approval_overrides": 2,
+    "drugs": 1956,
+    "drugs_with_targets": 1399,
+    "unmapped_approval_overrides": [],
+    "unmapped_by_reason": {
+      "ambiguous_action_type": 27,
+      "ambiguous_uniprot_mapping": 291,
+      "missing_parent": 12,
+      "missing_target_mapping": 432,
+      "missing_uniprot_mapping": 6,
+      "no_target_evidence": 87,
+      "non_human_target": 346,
+      "non_protein_target": 4186,
+      "non_single_protein_target": 328
+    },
+    "unmapped_items": 5715
+  },
+  "validation": {
+    "command_from_repo_root": "PYTHONDONTWRITEBYTECODE=1 ranking/.venv/bin/python -B results/shortlist_comparison_inputs/validate_inputs.py --ranking-venv ranking/.venv",
+    "comparison_run": false,
+    "failed": 0,
+    "passed": 7,
+    "seal_verify": "not performed; requires Zaid original pre-label seal"
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "release": "opentargets-26.09",
+  "records": [
+    {
+      "id": "5a16e24cabb1750472ec3c3adaeee6eaa38104382e764c03442061b9f8ac35bd",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "18cbb49bf16fef2c275810b11fd75fd33d8efaabcaf426e7a6c761deeb075dba"
+      ],
+      "diseaseId": "MONDO_0011429",
+      "drugId": "CHEMBL2105759"
+    },
+    {
+      "id": "9146b5a3a7e73e437b5029b6c918c765c760434bcba770f5d4e9de8f3842ea31",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "2509e355a887d4a09a8c2149e248220306d9cb4c02017945976b1a2701f55067",
+        "nct03825484"
+      ],
+      "diseaseId": "MONDO_0004992",
+      "drugId": "CHEMBL3545376"
+    },
+    {
+      "id": "d8100ee2bfd220e4a18fa8809b2017e03fa5cbbc8c506a5e5e940a8db2744131",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "2a8aa5c0-6c92-4566-8c45-e8f4d1fc20ee",
+        "62f44c651f9fd260e80f2fcb6dfbb9bae63dfd76374f36bd1f4b2d9b1dc9e5db",
+        "label/2019/212018s000lbl.pdf"
+      ],
+      "diseaseId": "MONDO_0040679",
+      "drugId": "CHEMBL3545376"
+    },
+    {
+      "id": "74c0a54e8b7d2a46461a1c87c15e511a4ad06a77454911ea5f57256123f96666",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "49d2becbc0e65cc2e57785a0c541f5bf1410142f214219b8fbbc461c1c948ce0"
+      ],
+      "diseaseId": "MONDO_0004980",
+      "drugId": "CHEMBL2105759"
+    },
+    {
+      "id": "d97975f21e33a340786aaa2dbfe8dde74a24a28c85402395ba349c71a87bac66",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "866e9f35-9035-4581-a4b1-75a621ab55cf",
+        "d0d5fu/rheumatoid arthritis",
+        "d0y7ic/rheumatoid arthritis",
+        "d886ccb512254f14ed7baa56956f4d9396c78fec6933d41e83e65682ae3a069b",
+        "emea/h/c/004085",
+        "label/2018/207924s000lbl.pdf"
+      ],
+      "diseaseId": "MONDO_0008383",
+      "drugId": "CHEMBL2105759"
+    },
+    {
+      "id": "d64f61b41f05730986018d3b1d2f207da35de799f160603acb8468338d5b2829",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "86a96e9608f9cad1e8cf91487d79c1faee70ea07b972119b824c7b3540ec04c9"
+      ],
+      "diseaseId": "MONDO_0013730",
+      "drugId": "CHEMBL1795071"
+    },
+    {
+      "id": "0f8083395e2538c5d174eba54e3e5b63e142d2e37e0b020844899e217a91dfd3",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "b118a40d-6b56-cee3-10f6-ded821a97018",
+        "c5f7dc1ecd3813f74e8ec343036365016109f347aa36b87890ce77933dd33fd4",
+        "c7ece99352de06adf3eebd269c04256524636164555f81747c64690075b20ea1",
+        "emea/h/c/004106",
+        "label/2016/208573s000lbl.pdf"
+      ],
+      "diseaseId": "MONDO_0004948",
+      "drugId": "CHEMBL3137309"
+    },
+    {
+      "id": "9e2ee93afc2027a17aebdc555f5dc94f41a4c78bf0a58c7897027cd1150214dc",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d00fgo/multiple myeloma",
+        "emea/h/c/005173",
+        "ff913271-0090-4832-a0fe-5154fe8f97b9"
+      ],
+      "diseaseId": "MONDO_0009693",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "734f5db5a1810114b6db6d55e9bfd9fe046631c715d3d95ec69ad02803128f31",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d04lks/essential thrombocythemia"
+      ],
+      "diseaseId": "MONDO_0005029",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "6107da3b319ead756cef611676f4f8b945f45cc9078e3ad2c33e7a8aefa72b60",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d06xes/ovarian cancer"
+      ],
+      "diseaseId": "MONDO_0008170",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "88ea570d473f8938c3ccd242ed4330bf175b90e400e5acb83cbcb47c9ca96f47",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d0kh8q/myelofibrosis"
+      ],
+      "diseaseId": "MONDO_0044903",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "fcfcff98d14da425bc02d79c88fd8611107c6b690c01f719d60da2e646ce1ee6",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d0nw0t/bladder cancer"
+      ],
+      "diseaseId": "MONDO_0004986",
+      "drugId": "CHEMBL3545376"
+    },
+    {
+      "id": "b6bdad19f72d947058adb71046e76b98de8a05b32600dc6ca440d13f27f0e7e0",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d11ah09"
+      ],
+      "diseaseId": "MONDO_0004980",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "662884339202ce090c3315a0dadc44f02b50f9ae21b476cab9894d155a2eb727",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/002464"
+      ],
+      "diseaseId": "MONDO_0009891",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "b421be04ed1c7036932a36e4a295a3531ae91c91d231d5db849fb8fa1d7710a9",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/002464"
+      ],
+      "diseaseId": "EFO_0004251",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "bc83845c746903a058e51bbe37d8927869cb24f7ee677ab8b1cd935ffa3548c1",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/002464",
+        "nct03147742"
+      ],
+      "diseaseId": "MONDO_0013730",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "953775cdf2e9b518d14de3a2747040702def92cf9bcae1c47dac00ef866aa588",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005173"
+      ],
+      "diseaseId": "MONDO_0018908",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "290a45d36b7862d1308905daea0afaf34a28a2dad392a0fb680c077b85da2c2c",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005173"
+      ],
+      "diseaseId": "MONDO_0021068",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "aa2a23d108d37bef612d5c652dd20102f5e1bd16d32a50c3de890a1b1dafb0ce",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005173"
+      ],
+      "diseaseId": "MONDO_0005072",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "a6a95f739df9b9d35514d65ace7ce59d86fa97497ce6d687a7b49325551a5fba",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005173"
+      ],
+      "diseaseId": "MONDO_0018874",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "493493daaf435269b4ddd7bb4d60270181650521c13076330f1c7eeb562319f1",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005173"
+      ],
+      "diseaseId": "MONDO_0004952",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "e6d813195516929995de447eed6bad7cd168104f0ae1e362af6e941500ed144b",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/005843"
+      ],
+      "diseaseId": "MONDO_0008661",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "9f94d73051923e6aa30b4898e2ddd8bd13bffe2a0a4edaeb93a2ec24f0c00deb",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "f1c82580-87ae-11e0-bc84-0002a5d5c51b",
+        "f22a4b5d2c942351107edcd232881dceeaaed0b42a33273af57c762e5b624c5b"
+      ],
+      "diseaseId": "MONDO_0044903",
+      "drugId": "CHEMBL1795071"
+    },
+    {
+      "id": "fc2aac5cf769338b8643cb6c350259928e96c164d44d6cad9ff0cdb20adb6cb4",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "f1c82580-87ae-11e0-bc84-0002a5d5c51b"
+      ],
+      "diseaseId": "MONDO_0009692",
+      "drugId": "CHEMBL1795071"
+    },
+    {
+      "id": "76b702ec913530302776f8ca16808fd6ce4edf312f87d4769e9b3ae0163be0db",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "f1c82580-87ae-11e0-bc84-0002a5d5c51b"
+      ],
+      "diseaseId": "MONDO_0009891",
+      "drugId": "CHEMBL1795071"
+    },
+    {
+      "id": "90e810082d1d2cc047ecacb8b1624a41cf4a900124362d4dfe2d395c6e910d50",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "ff913271-0090-4832-a0fe-5154fe8f97b9"
+      ],
+      "diseaseId": "MONDO_0004993",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "8d374fbe3f7aa752faa8b5bd47dfdd019c215b4d6703513dd8002f2414870427",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "l01aa03"
+      ],
+      "diseaseId": "MONDO_0005070",
+      "drugId": "CHEMBL852"
+    },
+    {
+      "id": "998790c5beb9dbb48477985cf5519439c712781ed814f4f3f64377749f156ccd",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "l01ej01"
+      ],
+      "diseaseId": "MONDO_0005070",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "11c063502b18e1d7a25a8db61c2fd010c829879c2768ee607d0acd13e482ffca",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "l01en01"
+      ],
+      "diseaseId": "MONDO_0005070",
+      "drugId": "CHEMBL3545376"
+    },
+    {
+      "id": "dfd1af6008abafa55cb5c7dd5a0cd4169613faf23e9ac188dcc65140ae971321",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "l01xx52"
+      ],
+      "diseaseId": "MONDO_0005070",
+      "drugId": "CHEMBL3137309"
+    },
+    {
+      "id": "8593885d6e9a4da5686074e361b514c3355c9d8f5c91193edce3455fe0c49a48",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "nct01724580"
+      ],
+      "diseaseId": "MONDO_0008054",
+      "drugId": "CHEMBL2105759"
+    },
+    {
+      "id": "8d1d39ece532379cdc7b48e9ed642dda4cc1b1cf5c63cf0865aebe8de318ccda",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "nct05722912"
+      ],
+      "diseaseId": "MONDO_0020547",
+      "drugId": "CHEMBL1789941"
+    },
+    {
+      "id": "9f45a40285d27fd37643fabfc7395c81055218cd7f2ea1171b442b3a3e0cd23b",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25",
+        "302ae804-37db-44fd-ac2f-3dbdeda9aa4b",
+        "3fc1c40e-cfac-47a1-9e1a-61ead3570600",
+        "d0s9wb/cystic fibrosis",
+        "d0w7wc/cystic fibrosis",
+        "emea/h/c/002494",
+        "emea/h/c/003954",
+        "emea/h/c/004682",
+        "emea/h/c/005269",
+        "f354423a-85c2-41c3-a9db-0f3aee135d8d",
+        "label/2018/210491lbl.pdf",
+        "nct01381289",
+        "nct03278314",
+        "nct04058210",
+        "nct04702360"
+      ],
+      "diseaseId": "MONDO_0009061",
+      "drugId": "CHEMBL2010601"
+    },
+    {
+      "id": "6742de971e08de27ac76fd6e735477b44c6171c4af2b558796e44049229aab57",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "32fd2bb2-1cfa-4250-feb8-d7956c794e05"
+      ],
+      "diseaseId": "MONDO_0004643",
+      "drugId": "CHEMBL1201506"
+    },
+    {
+      "id": "6e780c1c4ea6a40b67ee57cca8f0a07ed2d7e583361a37309d32b021f34beb2b",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d06ewo/acute myeloid leukaemia"
+      ],
+      "diseaseId": "MONDO_0015667",
+      "drugId": "CHEMBL1201506"
+    },
+    {
+      "id": "ab4c0e5c7fb57e54a71e0a178c977df8ccce8564f29b1f25fdc51786772b7c0c",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d0e1hc/acute lung injury",
+        "d0s9wb/acute lung injury"
+      ],
+      "diseaseId": "MONDO_0015796",
+      "drugId": "CHEMBL2010601"
+    },
+    {
+      "id": "052fd6851aadbe1d1518f25a1b50b59bec580bb5e85fd19caff1c8a03da0c097",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "d0e1hc/acute lung injury"
+      ],
+      "diseaseId": "MONDO_0015796",
+      "drugId": "CHEMBL3544914"
+    },
+    {
+      "id": "089db617205a5846fea86b884d93ee4c1091053809d1c8bfecdf1d4e606fdd98",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/004204",
+        "nct01869803"
+      ],
+      "diseaseId": "MONDO_0018874",
+      "drugId": "CHEMBL1201506"
+    },
+    {
+      "id": "f2b9389ac3d74c5c20f40a0a4899dcbad842ab73f5df281828aa2b3692f31657",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "emea/h/c/004682",
+        "emea/h/c/005269",
+        "emea/h/c/006382",
+        "label/2018/210491lbl.pdf",
+        "nct03278314",
+        "nct04058210",
+        "nct04702360"
+      ],
+      "diseaseId": "MONDO_0009061",
+      "drugId": "CHEMBL3544914"
+    },
+    {
+      "id": "1c81b055db927f6df54bfa03f0d9b903d44e3ee183fb8e532a4d019b0b01ea06",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "l01fx02"
+      ],
+      "diseaseId": "MONDO_0005070",
+      "drugId": "CHEMBL1201506"
+    },
+    {
+      "id": "86a02fba675e8fc341100b074c2d61ad6f9de311f9e1a96c7b11cb8a6a7544e3",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "nct01869803"
+      ],
+      "diseaseId": "MONDO_0012883",
+      "drugId": "CHEMBL1201506"
+    },
+    {
+      "id": "60f6a4516993540dd40722bbf9c490145fb9b7eb3e270c95a5653df519cc1e9e",
+      "maxClinicalStage": "APPROVAL",
+      "clinicalReportIds": [
+        "r07ax02"
+      ],
+      "diseaseId": "MONDO_0005087",
+      "drugId": "CHEMBL2010601"
+    }
+  ]
+}

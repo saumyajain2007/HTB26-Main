@@ -1,0 +1,342 @@
+{
+  "experiment_id": "00000000-0000-4000-8000-000000000001",
+  "jury": {
+    "models": [
+      "claude-sonnet-5",
+      "openai-gpt-5.4",
+      "glm-5.3"
+    ],
+    "prompt_version": "jury-v7",
+    "temperature": 0,
+    "max_attempts": 2,
+    "shuffle_seed": 7,
+    "reasoning_effort": {
+      "claude-sonnet-5": null,
+      "openai-gpt-5.4": null,
+      "glm-5.3": null
+    }
+  },
+  "jurors": [
+    {
+      "model": "claude-sonnet-5",
+      "status": "valid",
+      "attempts": 1,
+      "latency_ms": 10000,
+      "presented_order": [
+        "C3",
+        "C1",
+        "C4",
+        "C2"
+      ],
+      "reviews": [
+        {
+          "label": "C1",
+          "candidate_id": "CHEMBL2105759",
+          "rank": 1,
+          "decision": "investigate",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents JAK1 inhibition.",
+          "objection": "Example: The JAK1 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E4",
+            "E6"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "warnings_recorded",
+            "evidence_ids": [
+              "E11",
+              "E12",
+              "E13",
+              "E14"
+            ]
+          }
+        },
+        {
+          "label": "C2",
+          "candidate_id": "CHEMBL3137309",
+          "rank": 4,
+          "decision": "deprioritise",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents BCL2 inhibition.",
+          "objection": "Example: The BCL2 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E19",
+            "E20"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "unknown",
+            "evidence_ids": []
+          }
+        },
+        {
+          "label": "C3",
+          "candidate_id": "CHEMBL3545376",
+          "rank": 2,
+          "decision": "investigate",
+          "direction": "unknown",
+          "rationale": "Example: FGFR3 has a recorded Disease association.",
+          "objection": "Example: The FGFR3 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E1",
+            "E2"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "unknown",
+            "evidence_ids": []
+          }
+        },
+        {
+          "label": "C4",
+          "candidate_id": "CHEMBL1789941",
+          "rank": 3,
+          "decision": "watch",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents JAK2 inhibition.",
+          "objection": "Example: The JAK2 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E5",
+            "E16"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "warnings_recorded",
+            "evidence_ids": [
+              "E18"
+            ]
+          }
+        }
+      ],
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "raw_output": null,
+      "token_usage": [
+        {
+          "attempt": 1,
+          "input_tokens": null,
+          "output_tokens": null
+        }
+      ]
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "status": "valid",
+      "attempts": 1,
+      "latency_ms": 10000,
+      "presented_order": [
+        "C2",
+        "C4",
+        "C1",
+        "C3"
+      ],
+      "reviews": [
+        {
+          "label": "C1",
+          "candidate_id": "CHEMBL2105759",
+          "rank": 1,
+          "decision": "investigate",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents JAK1 inhibition.",
+          "objection": "Example: The JAK1 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E4",
+            "E6"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "warnings_recorded",
+            "evidence_ids": [
+              "E11",
+              "E12",
+              "E13",
+              "E14"
+            ]
+          }
+        },
+        {
+          "label": "C2",
+          "candidate_id": "CHEMBL3137309",
+          "rank": 4,
+          "decision": "deprioritise",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents BCL2 inhibition.",
+          "objection": "Example: The BCL2 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E19",
+            "E20"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "unknown",
+            "evidence_ids": []
+          }
+        },
+        {
+          "label": "C3",
+          "candidate_id": "CHEMBL3545376",
+          "rank": 3,
+          "decision": "watch",
+          "direction": "unknown",
+          "rationale": "Example: FGFR3 has a recorded Disease association.",
+          "objection": "Example: The FGFR3 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E1",
+            "E2"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "unknown",
+            "evidence_ids": []
+          }
+        },
+        {
+          "label": "C4",
+          "candidate_id": "CHEMBL1789941",
+          "rank": 2,
+          "decision": "watch",
+          "direction": "unknown",
+          "rationale": "Example: The mechanism documents JAK2 inhibition.",
+          "objection": "Example: The JAK2 association does not specify whether inhibition helps.",
+          "missing_evidence": [
+            "Example: The mechanism does not describe an effect in this Disease."
+          ],
+          "supporting_evidence_ids": [
+            "E5",
+            "E16"
+          ],
+          "contradicting_evidence_ids": [],
+          "safety": {
+            "status": "warnings_recorded",
+            "evidence_ids": [
+              "E18"
+            ]
+          }
+        }
+      ],
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "raw_output": null,
+      "token_usage": [
+        {
+          "attempt": 1,
+          "input_tokens": null,
+          "output_tokens": null
+        }
+      ]
+    },
+    {
+      "model": "glm-5.3",
+      "status": "invalid",
+      "attempts": 2,
+      "latency_ms": 10000,
+      "presented_order": [
+        "C4",
+        "C2",
+        "C3",
+        "C1"
+      ],
+      "reviews": null,
+      "validation": {
+        "schema": false,
+        "unique_ranks": null,
+        "evidence_ids_exist": null,
+        "numbers_match": null,
+        "errors": [
+          "Attempt 1: JSON decoding failed because the reply was plain text.",
+          "Attempt 2: JSON decoding failed because the reply was plain text."
+        ]
+      },
+      "raw_output": "Example: I cannot return structured reviews.",
+      "token_usage": [
+        {
+          "attempt": 1,
+          "input_tokens": null,
+          "output_tokens": null
+        },
+        {
+          "attempt": 2,
+          "input_tokens": null,
+          "output_tokens": null
+        }
+      ]
+    }
+  ],
+  "consensus": {
+    "method": "borda",
+    "jurors_counted": 2,
+    "ranking": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL2105759",
+        "borda_points": 6,
+        "rank": 1
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL3545376",
+        "borda_points": 3,
+        "rank": 2
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL1789941",
+        "borda_points": 3,
+        "rank": 2
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL3137309",
+        "borda_points": 0,
+        "rank": 4
+      }
+    ],
+    "kendalls_w": 0.9,
+    "contested": [
+      "C3"
+    ],
+    "failed_jurors": [
+      "glm-5.3"
+    ],
+    "reason": null
+  },
+  "consensus_status": {
+    "jurors_counted": 2,
+    "failed_jurors": [
+      "glm-5.3"
+    ],
+    "reason": null
+  }
+}

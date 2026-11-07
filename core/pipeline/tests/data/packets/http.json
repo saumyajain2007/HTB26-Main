@@ -1,0 +1,2788 @@
+[
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:31.194850+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL1200863.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL1200863",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL852",
+        "molecule_chembl_id": "CHEMBL1200863",
+        "parent_chembl_id": "CHEMBL852"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "Cl.N[C@@H](Cc1ccc(N(CCCl)CCCl)cc1)C(=O)O",
+        "molfile": "\n     RDKit          2D\n\n 20 19  0  0  0  0  0  0  0  0999 V2000\n    7.1417   -7.6042    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    6.6042   -5.2000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.9917   -5.5583    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.5417   -6.2750    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.9292   -6.6292    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    6.6042   -4.4917    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    5.3792   -5.2042    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.1542   -6.6292    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.5417   -5.5625    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.7667   -5.5625    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.9958   -6.2667    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    7.2208   -5.5542    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.1542   -5.2083    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.7667   -6.2750    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.0875   -6.2750    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    1.7000   -7.3375    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    2.9292   -7.3375    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.3125   -6.2750    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.3125   -7.6917    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.7000   -6.6292    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  3  2  1  0\n  4  9  2  0\n  5  4  1  0\n  6  2  2  0\n  7  3  1  0\n  8 14  2  0\n  9 13  1  0\n 10  7  1  0\n  3 11  1  1\n 12  2  1  0\n 13 10  2  0\n 14 10  1  0\n 15 20  1  0\n 16 19  1  0\n 17  5  1  0\n 18  5  1  0\n 19 17  1  0\n 20 18  1  0\n  8  4  1  0\nM  END\n> <chembl_id>\nCHEMBL1200863\n\n> <chembl_pref_name>\nMELPHALAN HYDROCHLORIDE",
+        "standard_inchi": "InChI=1S/C13H18Cl2N2O2.ClH/c14-5-7-17(8-6-15)11-3-1-10(2-4-11)9-12(16)13(18)19;/h1-4,12H,5-9,16H2,(H,18,19);1H/t12-;/m0./s1",
+        "standard_inchi_key": "OUUYBRCCFUEMLH-YDALLXLXSA-N"
+      },
+      "pref_name": "MELPHALAN HYDROCHLORIDE"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:45.519194+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3384.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3384",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q16512"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:44.936139+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3301390.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3301390",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458"
+        },
+        {
+          "accession": "O60674"
+        },
+        {
+          "accession": "P29597"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:42.462689+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2041.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2041",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P07949"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:42.758948+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2148.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2148",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P52333"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.241546+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4105933.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4105933",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q6ZSR9"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:39.938933+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL1789941&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 934,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2012/202192s001lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2012/202192s001lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL1795071",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 1435100,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2835",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 936,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2012/202192s001lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2012/202192s001lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL1795071",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 1435100,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2971",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 9864,
+          "mechanism_comment": "Geater inhibitory potency for JAK1, JAK2 and TYK2 relative to JAK3.",
+          "mechanism_of_action": "Tyrosine-protein kinase JAK3 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2024/217900Orig1s000correctedlbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217900Orig1s000correctedlbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL4594382",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 3461052,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2148",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 9908,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2024/217900Orig1s000correctedlbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217900Orig1s000correctedlbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL4594382",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 3461052,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2971",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 9931,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2024/217900Orig1s000correctedlbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217900Orig1s000correctedlbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL4594382",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 3461052,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2835",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 9953,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase TYK2 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2024/217900Orig1s000correctedlbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217900Orig1s000correctedlbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL4594382",
+          "parent_molecule_chembl_id": "CHEMBL1789941",
+          "record_id": 3461052,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL3553",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 6
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:44.344389+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3045.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3045",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P05771"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.087394+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2543.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2543",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P78368"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.934742+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4105891.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4105891",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9UHD8"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:50.445418+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3545376.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3545376",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3545376",
+        "molecule_chembl_id": "CHEMBL3545376",
+        "parent_chembl_id": "CHEMBL3545376"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "COc1cc(OC)cc(N(CCNC(C)C)c2ccc3ncc(-c4cnn(C)c4)nc3c2)c1",
+        "molfile": "\n     RDKit          2D\n\n 33 36  0  0  0  0  0  0  0  0999 V2000\n   -6.6000   -3.9482    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -7.3145   -4.3607    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -7.3145   -5.1857    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.6000   -5.5982    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.8855   -5.1857    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.8855   -4.3607    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1710   -5.5982    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4565   -5.1857    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4565   -4.3606    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1710   -3.9482    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.0290   -3.9482    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.1152   -3.1277    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.9221   -2.9562    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -9.3346   -3.6707    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.7827   -4.2837    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7421   -3.9481    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7421   -3.1231    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0276   -4.3606    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0276   -2.7106    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0276   -1.8856    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7421   -1.4731    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4566   -1.8856    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4566   -2.7106    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3131   -3.9481    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.5987   -4.3606    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8842   -3.9481    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1697   -4.3606    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8842   -3.1231    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3131   -1.4731    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3131   -0.6481    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1711   -1.4731    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.8855   -1.8856    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  -10.1551   -3.7569    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  1  6  2  0\n  2  3  2  0\n  3  4  1  0\n  4  5  2  0\n  5  7  1  0\n  5  6  1  0\n  6 10  1  0\n  7  8  2  0\n  8  9  1  0\n  9 10  2  0\n  2 11  1  0\n 11 12  1  0\n 11 15  2  0\n 12 13  2  0\n 13 14  1  0\n 14 15  1  0\n  9 16  1  0\n 16 17  1  0\n 16 18  1  0\n 17 19  1  0\n 17 23  2  0\n 19 20  2  0\n 20 21  1  0\n 21 22  2  0\n 22 23  1  0\n 18 24  1  0\n 24 25  1  0\n 25 26  1  0\n 26 27  1  0\n 26 28  1  0\n 20 29  1  0\n 29 30  1  0\n 22 31  1  0\n 31 32  1  0\n 14 33  1  0\nM  END\n> <chembl_id>\nCHEMBL3545376\n\n> <chembl_pref_name>\nERDAFITINIB",
+        "standard_inchi": "InChI=1S/C25H30N6O2/c1-17(2)26-8-9-31(20-10-21(32-4)13-22(11-20)33-5)19-6-7-23-24(12-19)29-25(15-27-23)18-14-28-30(3)16-18/h6-7,10-17,26H,8-9H2,1-5H3",
+        "standard_inchi_key": "OLAHOMJCDNXHFI-UHFFFAOYSA-N"
+      },
+      "pref_name": "ERDAFITINIB"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:31.101320+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL852.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL852",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL852",
+        "molecule_chembl_id": "CHEMBL852",
+        "parent_chembl_id": "CHEMBL852"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "N[C@@H](Cc1ccc(N(CCCl)CCCl)cc1)C(=O)O",
+        "molfile": "\n     RDKit          2D\n\n 19 19  0  0  1  0  0  0  0  0999 V2000\n    2.1917   -4.0417    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8125   -4.4167    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2542   -5.1667    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.8750   -5.5375    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1917   -3.3292    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    3.4292   -4.0708    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.6375   -5.5167    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2542   -4.4667    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.0500   -4.4417    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.8000   -5.1167    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    1.5667   -4.3667    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.6667   -4.1125    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.0375   -5.1625    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.1000   -6.2625    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    7.7292   -5.2250    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    6.4917   -5.2000    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.8667   -6.2542    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.1042   -5.5667    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.4792   -6.6167    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  2  1  1  0\n  3  7  2  0\n  4  3  1  0\n  5  1  2  0\n  6  2  1  0\n  7 13  1  0\n  8 12  2  0\n  9  6  1  0\n  2 10  1  6\n 11  1  1  0\n 12  9  1  0\n 13  9  2  0\n 14 19  1  0\n 15 18  1  0\n 16  4  1  0\n 17  4  1  0\n 18 16  1  0\n 19 17  1  0\n  3  8  1  0\nM  END\n> <chembl_id>\nCHEMBL852\n\n> <chembl_pref_name>\nMELPHALAN",
+        "standard_inchi": "InChI=1S/C13H18Cl2N2O2/c14-5-7-17(8-6-15)11-3-1-10(2-4-11)9-12(16)13(18)19/h1-4,12H,5-9,16H2,(H,18,19)/t12-/m0/s1",
+        "standard_inchi_key": "SGDBTWWWUNNDEQ-LBPRGKRZSA-N"
+      },
+      "pref_name": "MELPHALAN"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:42.270504+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&pchembl_value__isnull=false&target_organism=Homo%20sapiens&limit=1000&only=activity_id,target_chembl_id,pchembl_value",
+      null
+    ],
+    "response": {
+      "activities": [
+        {
+          "activity_id": 14751949,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 14751953,
+          "pchembl_value": "8.18",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "6.6"
+        },
+        {
+          "activity_id": 14751959,
+          "pchembl_value": "7.68",
+          "target_chembl_id": "CHEMBL3301390",
+          "value": "21.1"
+        },
+        {
+          "activity_id": 14751962,
+          "pchembl_value": "7.54",
+          "target_chembl_id": "CHEMBL3301391",
+          "value": "28.7"
+        },
+        {
+          "activity_id": 14751978,
+          "pchembl_value": "7.21",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "61.0"
+        },
+        {
+          "activity_id": 14751985,
+          "pchembl_value": "7.09",
+          "target_chembl_id": "CHEMBL3301392",
+          "value": "81.9"
+        },
+        {
+          "activity_id": 14751986,
+          "pchembl_value": "7.06",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "87.8"
+        },
+        {
+          "activity_id": 14751989,
+          "pchembl_value": "6.83",
+          "target_chembl_id": "CHEMBL3301392",
+          "value": "149.0"
+        },
+        {
+          "activity_id": 14751992,
+          "pchembl_value": "6.59",
+          "target_chembl_id": "CHEMBL3038491",
+          "value": "259.0"
+        },
+        {
+          "activity_id": 14752001,
+          "pchembl_value": "6.10",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "787.0"
+        },
+        {
+          "activity_id": 15747163,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 15747171,
+          "pchembl_value": "8.22",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "6.0"
+        },
+        {
+          "activity_id": 15747175,
+          "pchembl_value": "8.22",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "6.0"
+        },
+        {
+          "activity_id": 16480287,
+          "pchembl_value": "9.10",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "0.8"
+        },
+        {
+          "activity_id": 16481193,
+          "pchembl_value": "9.00",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "0.99"
+        },
+        {
+          "activity_id": 16481213,
+          "pchembl_value": "8.06",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "8.7"
+        },
+        {
+          "activity_id": 16481234,
+          "pchembl_value": "6.54",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "290.0"
+        },
+        {
+          "activity_id": 16481236,
+          "pchembl_value": "7.17",
+          "target_chembl_id": "CHEMBL3038491",
+          "value": "67.0"
+        },
+        {
+          "activity_id": 16481238,
+          "pchembl_value": "7.80",
+          "target_chembl_id": "CHEMBL3301390",
+          "value": "16.0"
+        },
+        {
+          "activity_id": 16481240,
+          "pchembl_value": "7.82",
+          "target_chembl_id": "CHEMBL3301391",
+          "value": "15.0"
+        },
+        {
+          "activity_id": 16481242,
+          "pchembl_value": "6.70",
+          "target_chembl_id": "CHEMBL3301392",
+          "value": "200.0"
+        },
+        {
+          "activity_id": 16481326,
+          "pchembl_value": "7.60",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "25.0"
+        },
+        {
+          "activity_id": 16582342,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 16582343,
+          "pchembl_value": "8.15",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "7.0"
+        },
+        {
+          "activity_id": 16582344,
+          "pchembl_value": "6.10",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "787.0"
+        },
+        {
+          "activity_id": 17878374,
+          "pchembl_value": "7.34",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "46.0"
+        },
+        {
+          "activity_id": 17884899,
+          "pchembl_value": "6.67",
+          "target_chembl_id": "CHEMBL4522",
+          "value": "216.0"
+        },
+        {
+          "activity_id": 17886622,
+          "pchembl_value": "6.51",
+          "target_chembl_id": "CHEMBL2801",
+          "value": "312.0"
+        },
+        {
+          "activity_id": 17886830,
+          "pchembl_value": "6.61",
+          "target_chembl_id": "CHEMBL3829",
+          "value": "243.0"
+        },
+        {
+          "activity_id": 17892149,
+          "pchembl_value": "5.36",
+          "target_chembl_id": "CHEMBL5579",
+          "value": "4361.0"
+        },
+        {
+          "activity_id": 17892420,
+          "pchembl_value": "6.11",
+          "target_chembl_id": "CHEMBL4224",
+          "value": "778.0"
+        },
+        {
+          "activity_id": 17894264,
+          "pchembl_value": "5.76",
+          "target_chembl_id": "CHEMBL2426",
+          "value": "1753.0"
+        },
+        {
+          "activity_id": 17894447,
+          "pchembl_value": "6.58",
+          "target_chembl_id": "CHEMBL2543",
+          "value": "265.0"
+        },
+        {
+          "activity_id": 17898766,
+          "pchembl_value": "6.47",
+          "target_chembl_id": "CHEMBL6029",
+          "value": "335.0"
+        },
+        {
+          "activity_id": 17904348,
+          "pchembl_value": "5.31",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "4862.0"
+        },
+        {
+          "activity_id": 17911774,
+          "pchembl_value": "5.72",
+          "target_chembl_id": "CHEMBL3956",
+          "value": "1891.0"
+        },
+        {
+          "activity_id": 17917306,
+          "pchembl_value": "6.90",
+          "target_chembl_id": "CHEMBL3831",
+          "value": "125.0"
+        },
+        {
+          "activity_id": 17917533,
+          "pchembl_value": "6.98",
+          "target_chembl_id": "CHEMBL5600",
+          "value": "104.0"
+        },
+        {
+          "activity_id": 17927326,
+          "pchembl_value": "6.98",
+          "target_chembl_id": "CHEMBL3384",
+          "value": "104.0"
+        },
+        {
+          "activity_id": 17927539,
+          "pchembl_value": "6.57",
+          "target_chembl_id": "CHEMBL3032",
+          "value": "269.0"
+        },
+        {
+          "activity_id": 17928427,
+          "pchembl_value": "5.44",
+          "target_chembl_id": "CHEMBL4101",
+          "value": "3597.0"
+        },
+        {
+          "activity_id": 17929836,
+          "pchembl_value": "5.68",
+          "target_chembl_id": "CHEMBL299",
+          "value": "2071.0"
+        },
+        {
+          "activity_id": 17930040,
+          "pchembl_value": "4.58",
+          "target_chembl_id": "CHEMBL3045",
+          "value": "26324.0"
+        },
+        {
+          "activity_id": 17930271,
+          "pchembl_value": "5.97",
+          "target_chembl_id": "CHEMBL2996",
+          "value": "1075.0"
+        },
+        {
+          "activity_id": 17933651,
+          "pchembl_value": "7.11",
+          "target_chembl_id": "CHEMBL4105933",
+          "value": "78.0"
+        },
+        {
+          "activity_id": 17935044,
+          "pchembl_value": "6.01",
+          "target_chembl_id": "CHEMBL2041",
+          "value": "973.0"
+        },
+        {
+          "activity_id": 17935787,
+          "pchembl_value": "6.32",
+          "target_chembl_id": "CHEMBL3231",
+          "value": "482.0"
+        },
+        {
+          "activity_id": 17936034,
+          "pchembl_value": "6.12",
+          "target_chembl_id": "CHEMBL2973",
+          "value": "756.0"
+        },
+        {
+          "activity_id": 17937697,
+          "pchembl_value": "7.08",
+          "target_chembl_id": "CHEMBL4105891",
+          "value": "84.0"
+        },
+        {
+          "activity_id": 17945592,
+          "pchembl_value": "6.21",
+          "target_chembl_id": "CHEMBL5334",
+          "value": "622.0"
+        },
+        {
+          "activity_id": 17947302,
+          "pchembl_value": "6.09",
+          "target_chembl_id": "CHEMBL6006",
+          "value": "810.0"
+        },
+        {
+          "activity_id": 18106892,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "0.004"
+        },
+        {
+          "activity_id": 18106935,
+          "pchembl_value": "8.15",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "0.007"
+        },
+        {
+          "activity_id": 18107021,
+          "pchembl_value": "7.54",
+          "target_chembl_id": "CHEMBL3301391",
+          "value": "0.029"
+        },
+        {
+          "activity_id": 18107064,
+          "pchembl_value": "7.06",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "0.088"
+        },
+        {
+          "activity_id": 18991826,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 18991848,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 18991850,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 18991851,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 18991867,
+          "pchembl_value": "6.25",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "560.0"
+        },
+        {
+          "activity_id": 18991870,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 18991873,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 23160394,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 23160429,
+          "pchembl_value": "8.15",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "7.0"
+        },
+        {
+          "activity_id": 23160452,
+          "pchembl_value": "6.10",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "787.0"
+        },
+        {
+          "activity_id": 23160460,
+          "pchembl_value": "7.21",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "61.0"
+        },
+        {
+          "activity_id": 23160468,
+          "pchembl_value": "6.25",
+          "target_chembl_id": "CHEMBL3038491",
+          "value": "0.562"
+        },
+        {
+          "activity_id": 23160476,
+          "pchembl_value": "6.33",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "0.47"
+        },
+        {
+          "activity_id": 23240774,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 23240775,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 23240780,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 23240913,
+          "pchembl_value": "7.70",
+          "target_chembl_id": "CHEMBL4522",
+          "value": "20.0"
+        },
+        {
+          "activity_id": 23240914,
+          "pchembl_value": "6.92",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "120.0"
+        },
+        {
+          "activity_id": 24788451,
+          "pchembl_value": "6.87",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "136.0"
+        },
+        {
+          "activity_id": 24788499,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 24788520,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 24788674,
+          "pchembl_value": "7.77",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "17.0"
+        },
+        {
+          "activity_id": 24788678,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 24788686,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 24788689,
+          "pchembl_value": "6.92",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "120.0"
+        },
+        {
+          "activity_id": 24789050,
+          "pchembl_value": "6.92",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "120.0"
+        },
+        {
+          "activity_id": 24789061,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 24861799,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 24861800,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 24872441,
+          "pchembl_value": "8.18",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "6.6"
+        },
+        {
+          "activity_id": 24872443,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 24893915,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 24893916,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 24893921,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 24893922,
+          "pchembl_value": "7.70",
+          "target_chembl_id": "CHEMBL4522",
+          "value": "20.0"
+        },
+        {
+          "activity_id": 24893923,
+          "pchembl_value": "6.92",
+          "target_chembl_id": "CHEMBL4355",
+          "value": "120.0"
+        },
+        {
+          "activity_id": 25044255,
+          "pchembl_value": "7.36",
+          "target_chembl_id": "CHEMBL4026",
+          "value": "44.0"
+        },
+        {
+          "activity_id": 25044257,
+          "pchembl_value": "7.70",
+          "target_chembl_id": "CHEMBL4026",
+          "value": "20.0"
+        },
+        {
+          "activity_id": 25452149,
+          "pchembl_value": "8.62",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "2.4"
+        },
+        {
+          "activity_id": 25452161,
+          "pchembl_value": "8.54",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "2.9"
+        },
+        {
+          "activity_id": 25452173,
+          "pchembl_value": "6.75",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "178.0"
+        },
+        {
+          "activity_id": 25452185,
+          "pchembl_value": "7.64",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "23.0"
+        },
+        {
+          "activity_id": 25452197,
+          "pchembl_value": "8.30",
+          "target_chembl_id": "CHEMBL3038491",
+          "value": "5.0"
+        },
+        {
+          "activity_id": 25452209,
+          "pchembl_value": "7.89",
+          "target_chembl_id": "CHEMBL3301391",
+          "value": "13.0"
+        },
+        {
+          "activity_id": 25452221,
+          "pchembl_value": "7.46",
+          "target_chembl_id": "CHEMBL3038491",
+          "value": "35.0"
+        },
+        {
+          "activity_id": 25461561,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 25535379,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.8"
+        },
+        {
+          "activity_id": 25535380,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 25535382,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 25555152,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 25555153,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 25555155,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 25701591,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 25701599,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 25848289,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 25848296,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 25848457,
+          "pchembl_value": "8.09",
+          "target_chembl_id": "CHEMBL3830",
+          "value": "8.2"
+        },
+        {
+          "activity_id": 25851497,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 25851498,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 25851500,
+          "pchembl_value": "7.28",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "53.0"
+        },
+        {
+          "activity_id": 26023216,
+          "pchembl_value": "8.24",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.7"
+        },
+        {
+          "activity_id": 26023221,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 26279117,
+          "pchembl_value": "6.63",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "234.0"
+        },
+        {
+          "activity_id": 26279120,
+          "pchembl_value": "7.63",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "7.631"
+        },
+        {
+          "activity_id": 26279135,
+          "pchembl_value": "7.20",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "7.195"
+        },
+        {
+          "activity_id": 26279138,
+          "pchembl_value": "7.20",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "63.8"
+        },
+        {
+          "activity_id": 26981419,
+          "pchembl_value": "9.15",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "0.7"
+        },
+        {
+          "activity_id": 26981422,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 26981425,
+          "pchembl_value": "6.60",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "250.0"
+        },
+        {
+          "activity_id": 26981428,
+          "pchembl_value": "7.52",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "30.0"
+        },
+        {
+          "activity_id": 28111496,
+          "pchembl_value": "9.15",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "0.7"
+        },
+        {
+          "activity_id": 28111499,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 28111502,
+          "pchembl_value": "6.60",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "250.0"
+        },
+        {
+          "activity_id": 28111505,
+          "pchembl_value": "7.52",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "30.0"
+        },
+        {
+          "activity_id": 28568324,
+          "pchembl_value": "9.15",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "0.7"
+        },
+        {
+          "activity_id": 28568327,
+          "pchembl_value": "8.40",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "4.0"
+        },
+        {
+          "activity_id": 28568330,
+          "pchembl_value": "6.60",
+          "target_chembl_id": "CHEMBL2148",
+          "value": "250.0"
+        },
+        {
+          "activity_id": 28568333,
+          "pchembl_value": "7.52",
+          "target_chembl_id": "CHEMBL3553",
+          "value": "30.0"
+        },
+        {
+          "activity_id": 28763561,
+          "pchembl_value": "8.23",
+          "target_chembl_id": "CHEMBL2835",
+          "value": "5.9"
+        },
+        {
+          "activity_id": 28763564,
+          "pchembl_value": "8.26",
+          "target_chembl_id": "CHEMBL2971",
+          "value": "5.5"
+        }
+      ],
+      "page_meta": {
+        "limit": 1000,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 135
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.595521+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4355.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4355",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O14976"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:45.709403+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3553.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3553",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P29597"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:45.135784+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3301391.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3301391",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458"
+        },
+        {
+          "accession": "P29597"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:37.655225+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/status.json",
+      null
+    ],
+    "response": {
+      "activities": 24527044,
+      "chembl_db_version": "ChEMBL_37",
+      "chembl_release_date": "2026-05-01",
+      "compound_records": 3824604,
+      "disinct_compounds": 2921148,
+      "publications": 101100,
+      "status": "UP",
+      "targets": 18552
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:31.392635+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2311221.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2311221",
+      "target_type": "NUCLEIC-ACID",
+      "organism": "Homo sapiens",
+      "target_components": []
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.767682+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4522.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4522",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9NSY1"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:48.066194+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL5600.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL5600",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P27448"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:41.196192+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL2105759.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL2105759",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL2105759",
+        "molecule_chembl_id": "CHEMBL2105759",
+        "parent_chembl_id": "CHEMBL2105759"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "CCS(=O)(=O)N1CC(CC#N)(n2cc(-c3ncnc4[nH]ccc34)cn2)C1",
+        "molfile": "\n     RDKit          2D\n\n 26 29  0  0  0  0  0  0  0  0999 V2000\n    3.8377   -5.4590    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.8377   -4.6340    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.0530   -5.7139    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5521   -5.8715    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2666   -4.6340    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5521   -4.2215    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.5521   -3.3965    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.8847   -2.9115    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.1396   -2.1269    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2196   -2.9115    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.9646   -2.1269    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.0530   -4.3790    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.5681   -5.0465    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6547   -1.4595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.1698   -0.7920    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.8372   -0.3071    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    4.3222   -0.9745    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.1597   -3.5854    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    3.0735   -2.7649    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.9873   -1.9444    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.2666   -5.4590    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.0953    1.3226    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.4542    1.8418    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.9663    0.5077    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0\n    4.7811    0.3787    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    3.1514    0.6368    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0\n  1  4  1  0\n  3  1  1  0\n  3 13  1  0\n  4 21  2  0\n  5  6  2  0\n  6  7  1  0\n  6  2  1  0\n  7  8  2  0\n  7 10  1  0\n  8  9  1  0\n 10 11  2  0\n 11  9  1  0\n 12  2  1  0\n 13 12  2  0\n 14  9  1  0\n 14 15  1  0\n 16 15  1  0\n 17 16  1  0\n 17 14  1  0\n 19 18  3  0\n 19 20  1  0\n 20 14  1  0\n 21  5  1  0\n 22 23  1  0\n 24 22  1  0\n 24 16  1  0\n 25 24  2  0\n 26 24  2  0\nM  END\n> <chembl_id>\nCHEMBL2105759\n\n> <chembl_pref_name>\nBARICITINIB",
+        "standard_inchi": "InChI=1S/C16H17N7O2S/c1-2-26(24,25)22-9-16(10-22,4-5-17)23-8-12(7-21-23)14-13-3-6-18-15(13)20-11-19-14/h3,6-8,11H,2,4,9-10H2,1H3,(H,18,19,20)",
+        "standard_inchi_key": "XUZMWHLSFXCVMG-UHFFFAOYSA-N"
+      },
+      "pref_name": "BARICITINIB"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:45.358956+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3301392.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3301392",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O60674"
+        },
+        {
+          "accession": "P29597"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.401516+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2973.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2973",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O75116"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:39.803670+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL1789941.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL1789941",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL1789941",
+        "parent_chembl_id": "CHEMBL1789941"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "N#CC[C@H](C1CCCC1)n1cc(-c2ncnc3[nH]ccc23)cn1",
+        "molfile": "\n     RDKit          2D\n\n 23 26  0  0  0  0  0  0  0  0999 V2000\n   17.3332    0.7562    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   18.7667   -0.0734    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   18.7667    0.7562    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   18.0478    1.1733    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   18.0478   -0.4858    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.3271   -0.0750    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.7136   -0.6335    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.0552   -1.3894    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.8797   -1.2982    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   16.6154    1.1725    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.6123    1.9975    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   15.8268    2.2495    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   15.3443    1.5803    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   15.8318    0.9148    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.5194    1.5772    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.1043    2.2900    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.4370    3.0453    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.8218    3.5949    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.1089    3.1797    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.2836    2.3736    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.1096    0.8611    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.2847    0.8581    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.4569    0.8662    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n  1  6  1  0\n  1  4  2  0\n 11 12  2  0\n 12 13  1  0\n 13 14  1  0\n 14 10  2  0\n  1 10  1  0\n  5  2  1  0\n 13 15  1  0\n  2  3  2  0\n 15 16  1  6\n 16 17  1  0\n  6  7  1  0\n  7  8  2  0\n  8  9  1  0\n  9  5  1  0\n 17 18  1  0\n 18 19  1  0\n 19 20  1  0\n 20 16  1  0\n 10 11  1  0\n 15 21  1  0\n  3  4  1  0\n 21 22  1  0\n  5  6  2  0\n 22 23  3  0\nM  END\n> <chembl_id>\nCHEMBL1789941\n\n> <chembl_pref_name>\nRUXOLITINIB",
+        "standard_inchi": "InChI=1S/C17H18N6/c18-7-5-15(12-3-1-2-4-12)23-10-13(9-22-23)16-14-6-8-19-17(14)21-11-20-16/h6,8-12,15H,1-5H2,(H,19,20,21)/t15-/m1/s1",
+        "standard_inchi_key": "HFNKQEVNSGCOJV-OAHLLOKOSA-N"
+      },
+      "pref_name": "RUXOLITINIB"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.251528+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2801.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2801",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13557"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.451175+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4224.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4224",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P49759"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:28.918699+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL1795071.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL1795071",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL1795071",
+        "parent_chembl_id": "CHEMBL1789941"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "N#CC[C@H](C1CCCC1)n1cc(-c2ncnc3[nH]ccc23)cn1.O=P(O)(O)O",
+        "molfile": "\n     RDKit          2D\n\n 28 30  0  0  0  0  0  0  0  0999 V2000\n    5.1338   -0.8250    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    5.1338    0.0000    0.0000 P   0  0  0  0  0  0  0  0  0  0  0  0\n    5.1338    0.8250    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    5.9588    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.3088    0.0000    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2017   -3.0229    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9161   -2.6104    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2017   -1.3729    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5128   -1.7854    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5128   -2.6104    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.2017   -0.5479    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.4658   -0.0630    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8691   -0.0630    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.6142    0.7216    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2108    0.7216    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6958    1.3890    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.5162    1.3028    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.8518    0.5491    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.3602    2.1427    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.2207    3.4703    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.7727    2.8572    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.4468    2.3143    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.5330    3.1347    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7008   -2.8654    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.1857   -2.1979    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.7008   -1.5305    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9161   -1.7854    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.1873   -0.2045    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  3  2  2  0\n  2  4  1  0\n  2  5  1  0\n  6  7  1  0\n  6 10  2  0\n 27  8  1  0\n  8  9  2  0\n  9 10  1  0\n 11 13  1  0\n 12 11  2  0\n 13 14  2  0\n 12 15  1  0\n 14 15  1  0\n 15 16  1  0\n 16 17  1  1\n 17 18  1  0\n 16 19  1  0\n 21 19  1  0\n 19 22  1  0\n 20 21  1  0\n 20 23  1  0\n 22 23  1  0\n  7 24  1  0\n 24 25  1  0\n 25 26  2  0\n 26 27  1  0\n  7 27  2  0\n  8 11  1  0\n 18 28  3  0\nM  END\n> <chembl_id>\nCHEMBL1795071\n\n> <chembl_pref_name>\nRUXOLITINIB PHOSPHATE",
+        "standard_inchi": "InChI=1S/C17H18N6.H3O4P/c18-7-5-15(12-3-1-2-4-12)23-10-13(9-22-23)16-14-6-8-19-17(14)21-11-20-16;1-5(2,3)4/h6,8-12,15H,1-5H2,(H,19,20,21);(H3,1,2,3,4)/t15-;/m1./s1",
+        "standard_inchi_key": "JFMWPOCYMYGEDM-XFULWGLBSA-N"
+      },
+      "pref_name": "RUXOLITINIB PHOSPHATE"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:40.074000+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2835.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2835",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:48.287837+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL6029.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL6029",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9BQI3"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:40.644485+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2971.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2971",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O60674"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:45.915502+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3829.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3829",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13555"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.970423+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL5579.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL5579",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O14578"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:51.366236+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2095217.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2095217",
+      "target_type": "PROTEIN FAMILY",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P22607"
+        },
+        {
+          "accession": "P11362"
+        },
+        {
+          "accession": "P22455"
+        },
+        {
+          "accession": "P21802"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:50.712147+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL3545376&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 7379,
+          "mechanism_comment": "Inhibits FGFR phosphorylation and signalling which decreases viability in cells with abnormal FGFR. ",
+          "mechanism_of_action": "Fibroblast growth factor receptor inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2019/212018s000lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/212018s000lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL3545376",
+          "parent_molecule_chembl_id": "CHEMBL3545376",
+          "record_id": 2473682,
+          "selectivity_comment": "Active against FGFR1, FGFR2, FGFR3 and FGFR4. Also binds to RET, CSF1R, PDGFRA, PDGFRB, FLT4, KIT and VEGFR2. ",
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2095217",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 1
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.378544+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3956.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3956",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13233"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:44.504603+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3231.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3231",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13464"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:47.868344+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL5334.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL5334",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13470"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.217972+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3831.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3831",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q7KZI7"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.949322+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3032.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3032",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q16513"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.763837+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2996.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2996",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q05655"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:30.739011+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3948043.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3948043",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3545376",
+        "molecule_chembl_id": "CHEMBL3948043",
+        "parent_chembl_id": "CHEMBL3545376"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "COc1cc(OC)cc(N(CCNC(C)C)c2ccc3ncc(-c4cnn(C)c4)nc3c2)c1.Cl",
+        "molfile": "\n     RDKit          2D\n\n 34 36  0  0  0  0  0  0  0  0999 V2000\n   20.2812  -24.1856    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n   20.0426  -22.6443    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   20.8176  -22.9195    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   21.3152  -22.2670    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.8497  -21.5881    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.0642  -21.8245    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   22.1330  -22.2887    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   22.5270  -23.0122    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   23.3797  -21.6071    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   22.5606  -21.5896    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.7745  -22.3315    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.3460  -23.0313    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.7342  -23.7522    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.5549  -23.7746    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.9857  -23.0701    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.5910  -22.3520    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.9494  -24.4966    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   24.5188  -25.1937    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.6977  -25.1712    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.4871  -26.6129    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.9140  -25.9118    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.8795  -27.3297    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   24.4549  -28.0279    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.6618  -26.5945    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.2704  -25.8746    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.3688  -23.1068    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   22.4535  -25.8550    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   22.0280  -26.5526    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   25.7663  -24.5184    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   26.1936  -23.8218    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   27.0105  -23.8436    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   27.4378  -23.1470    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   28.2547  -23.1688    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   27.0482  -22.4287    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  2  3  1  0\n  3  4  2  0\n  4  5  1  0\n  5  6  2  0\n  6  2  1  0\n  7  8  2  0\n  8 12  1  0\n 11  9  1  0\n  9 10  2  0\n 10  7  1  0\n  4  7  1  0\n 11 12  1  0\n 12 13  2  0\n 13 14  1  0\n 14 15  2  0\n 15 16  1  0\n 16 11  2  0\n 14 17  1  0\n 17 18  1  0\n 18 19  2  0\n 19 25  1  0\n 24 20  1  0\n 20 21  2  0\n 21 18  1  0\n 20 22  1  0\n 22 23  1  0\n 24 25  2  0\n  2 26  1  0\n 25 27  1  0\n 27 28  1  0\n 17 29  1  0\n 29 30  1  0\n 30 31  1  0\n 31 32  1  0\n 32 33  1  0\n 32 34  1  0\nM  END\n> <chembl_id>\nCHEMBL3948043\n\n> <chembl_pref_name>\nNone",
+        "standard_inchi": "InChI=1S/C25H30N6O2.ClH/c1-17(2)26-8-9-31(20-10-21(32-4)13-22(11-20)33-5)19-6-7-23-24(12-19)29-25(15-27-23)18-14-28-30(3)16-18;/h6-7,10-17,26H,8-9H2,1-5H3;1H",
+        "standard_inchi_key": "QAAOEMXHEWVIBB-UHFFFAOYSA-N"
+      },
+      "pref_name": null
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:30.626333+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3919709.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3919709",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3545376",
+        "molecule_chembl_id": "CHEMBL3919709",
+        "parent_chembl_id": "CHEMBL3545376"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "[2H]C([2H])([2H])n1cc(-c2cnc3ccc(N(CCNC(C)C)c4cc(OC)cc(OC)c4)cc3n2)cn1",
+        "molfile": "\n     RDKit          2D\n\n 36 39  0  0  0  0  0  0  0  0999 V2000\n    3.2483   -4.0881    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6510   -4.7929    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.4608   -4.7957    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8689   -4.0944    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.4614   -3.3888    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6529   -3.3896    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4312   -4.0857    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0247   -3.3768    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8669   -5.5048    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.4559   -6.2111    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8696   -2.6809    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    5.6868   -2.6804    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    4.4606   -1.9734    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.6434   -1.9739    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    3.2344   -1.2664    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    2.4172   -1.2669    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0082   -0.5594    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    2.0090   -1.9748    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.0935   -3.3883    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.9055   -1.9699    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.0904   -1.9735    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.3189   -2.6797    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.9077   -3.3851    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.3129   -4.0918    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    8.1292   -4.0944    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.5385   -3.3843    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.1310   -2.6805    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    8.5403   -4.8020    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2070   -5.5481    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.8136   -6.0957    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    9.5219   -5.6879    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    9.3528   -4.8884    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.2680   -6.0212    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3525   -6.8340    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   10.9297   -5.5416    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   10.9702   -6.4261    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0\n  2  3  1  0\n  3  4  2  0\n  4  5  1  0\n  5  6  2  0\n  6  1  1  0\n  1  7  1  0\n  7  8  1  0\n  3  9  1  0\n  9 10  1  0\n  5 11  1  0\n 11 12  1  0\n 11 13  1  0\n 13 14  1  0\n 14 15  1  0\n 15 16  1  0\n 16 17  1  0\n 16 18  1  0\n 12 19  2  0\n 19 23  1  0\n 22 20  1  0\n 20 21  2  0\n 21 12  1  0\n 22 23  1  0\n 23 24  2  0\n 24 25  1  0\n 25 26  2  0\n 26 27  1  0\n 27 22  2  0\n 28 29  1  0\n 29 30  2  0\n 30 31  1  0\n 31 32  1  0\n 32 28  2  0\n 25 28  1  0\n 31 33  1  0\n 33 34  1  0\n 33 35  1  0\n 33 36  1  0\nM  ISO  3  34   2  35   2  36   2\nM  END\n> <chembl_id>\nCHEMBL3919709\n\n> <chembl_pref_name>\nNone",
+        "standard_inchi": "InChI=1S/C25H30N6O2/c1-17(2)26-8-9-31(20-10-21(32-4)13-22(11-20)33-5)19-6-7-23-24(12-19)29-25(15-27-23)18-14-28-30(3)16-18/h6-7,10-17,26H,8-9H2,1-5H3/i3D3",
+        "standard_inchi_key": "OLAHOMJCDNXHFI-HPRDVNIFSA-N"
+      },
+      "pref_name": null
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:48.165911+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL6006.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL6006",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O75385"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:49.478325+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL3137309&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 5516,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Apoptosis regulator Bcl-2 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2016/208573s000lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2016/208573s000lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL3137309",
+          "parent_molecule_chembl_id": "CHEMBL3137309",
+          "record_id": 1976726,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL4860",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 1
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:41.335288+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL2105759&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 5293,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "20363976",
+              "ref_type": "PubMed",
+              "ref_url": "http://europepmc.org/abstract/MED/20363976"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL2105759",
+          "parent_molecule_chembl_id": "CHEMBL2105759",
+          "record_id": 1702681,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2835",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 5294,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "20363976",
+              "ref_type": "PubMed",
+              "ref_url": "http://europepmc.org/abstract/MED/20363976"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL2105759",
+          "parent_molecule_chembl_id": "CHEMBL2105759",
+          "record_id": 1702681,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2971",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 2
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.073053+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3830.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3830",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q2M2I8"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:30.868057+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3975791.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3975791",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3545376",
+        "molecule_chembl_id": "CHEMBL3975791",
+        "parent_chembl_id": "CHEMBL3545376"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "[2H]C([2H])([2H])Oc1cc(OC)cc(N(CCNC(C)C)c2ccc3ncc(-c4cnn(C)c4)nc3c2)c1",
+        "molfile": "\n     RDKit          2D\n\n 36 39  0  0  0  0  0  0  0  0999 V2000\n   15.8163   -2.0742    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   16.5872   -2.3452    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.0848   -1.6969    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.6193   -1.0221    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   15.8379   -1.2585    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   17.8985   -1.7186    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   18.2884   -2.4380    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   19.1369   -1.0411    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   18.3220   -1.0236    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.5317   -1.7614    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.1032   -2.4570    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.4914   -3.1739    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.3079   -3.1962    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.7347   -2.4958    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.3441   -1.7819    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.6983   -3.9141    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   21.5153   -3.9350    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   21.9029   -4.6536    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   22.7191   -4.6748    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.1464   -3.9772    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   22.7517   -3.2569    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   21.9368   -3.2392    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   23.1757   -2.5583    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   23.9927   -2.5763    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   20.2718   -4.6112    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.4549   -4.5903    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   19.0284   -5.2874    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   23.1092   -5.3929    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   23.9261   -5.4141    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   15.1432   -2.5377    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   18.2115   -5.2665    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.8211   -4.5486    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.7850   -5.9636    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   24.3857   -3.2928    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   24.4168   -1.8777    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   24.8088   -2.5754    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  2  3  2  0\n  3  4  1  0\n  4  5  2  0\n  5  1  1  0\n  6  7  2  0\n  7 11  1  0\n 10  8  1  0\n  8  9  2  0\n  9  6  1  0\n  3  6  1  0\n 10 11  1  0\n 11 12  2  0\n 12 13  1  0\n 13 14  2  0\n 14 15  1  0\n 15 10  2  0\n 13 16  1  0\n 16 17  1  0\n 17 18  2  0\n 18 19  1  0\n 19 20  2  0\n 20 21  1  0\n 21 22  2  0\n 22 17  1  0\n 21 23  1  0\n 23 24  1  0\n 16 25  1  0\n 25 26  1  0\n 26 27  1  0\n 19 28  1  0\n 28 29  1  0\n  1 30  1  0\n 27 31  1  0\n 31 32  1  0\n 31 33  1  0\n 24 34  1  0\n 24 35  1  0\n 24 36  1  0\nM  ISO  3  34   2  35   2  36   2\nM  END\n> <chembl_id>\nCHEMBL3975791\n\n> <chembl_pref_name>\nNone",
+        "standard_inchi": "InChI=1S/C25H30N6O2/c1-17(2)26-8-9-31(20-10-21(32-4)13-22(11-20)33-5)19-6-7-23-24(12-19)29-25(15-27-23)18-14-28-30(3)16-18/h6-7,10-17,26H,8-9H2,1-5H3/i4D3",
+        "standard_inchi_key": "OLAHOMJCDNXHFI-GKOSEXJESA-N"
+      },
+      "pref_name": null
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:49.094827+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3137309.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3137309",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3137309",
+        "molecule_chembl_id": "CHEMBL3137309",
+        "parent_chembl_id": "CHEMBL3137309"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "CC1(C)CCC(CN2CCN(c3ccc(C(=O)NS(=O)(=O)c4ccc(NCC5CCOCC5)c([N+](=O)[O-])c4)c(Oc4cnc5[nH]ccc5c4)c3)CC2)=C(c2ccc(Cl)cc2)C1",
+        "molfile": "\n     RDKit          2D\n\n 61 68  0  0  0  0  0  0  0  0999 V2000\n   11.7762    5.4095    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.4907    4.9970    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617    4.9970    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617    4.1720    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473    3.7595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.6328    4.1720    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.9183    3.7595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.1059    3.6162    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.6362    4.5347    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.9183    2.9345    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.6328    2.5220    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473    2.9345    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617    1.6970    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617    2.5220    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762    3.7595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.4907    4.1720    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.2052    5.4095    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0\n    7.4894   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.7048   -2.2705    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2039   -2.4280    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.9183   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.6328   -2.4280    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    8.9183   -1.1905    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2039   -0.7780    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4894   -1.1905    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.7048   -0.9356    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    6.2198   -1.6030    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.0630   -0.3655    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.0630    0.4595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.4920    0.4595    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   16.7775    0.8720    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   15.3486   -1.6030    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   15.3486   -0.7780    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   16.7775   -0.7780    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   17.4920   -0.3655    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617    0.0470    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473    0.4595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473    1.2845    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762    1.2845    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762    0.4595    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617   -0.7780    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762   -1.1905    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617   -2.4280    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0617   -3.2530    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473   -3.6655    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   11.7762   -3.6655    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3473   -1.1905    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.2052   -2.8405    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.2052   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.4907   -3.2530    0.0000 S   0  0  0  0  0  0  0  0  0  0  0  0\n   13.9196   -3.2530    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.6341   -2.8405    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.6341   -2.0155    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.9196   -1.6030    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.0782   -2.5386    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   12.9032   -3.9675    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   15.3486   -3.2530    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   16.0630   -2.8405    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   15.3486   -4.0780    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  2 16  2  0\n  3  1  2  0\n  3  4  1  0\n  4 15  2  0\n  5  4  1  0\n  5 12  2  0\n  6  5  1  0\n  7  8  1  0\n  7  9  1  0\n  7 10  1  0\n  7  6  1  0\n 10 11  1  0\n 12 11  1  0\n 12 14  1  0\n 13 14  1  0\n 13 39  1  0\n 16 15  1  0\n 17  2  1  0\n 18 19  1  0\n 18 25  2  0\n 19 27  2  0\n 20 18  1  0\n 20 21  2  0\n 21 22  1  0\n 21 23  1  0\n 24 23  2  0\n 25 24  1  0\n 25 26  1  0\n 27 26  1  0\n 28 29  1  0\n 28 34  1  0\n 30 31  1  0\n 31 29  1  0\n 32 33  1  0\n 33 28  1  0\n 34 35  1  0\n 35 30  1  0\n 36 37  1  0\n 36 41  1  0\n 37 38  1  0\n 38 13  1  0\n 39 40  1  0\n 40 36  1  0\n 41 49  2  0\n 42 41  1  0\n 42 43  2  0\n 43 44  1  0\n 44 48  2  0\n 45 46  2  0\n 45 44  1  0\n 47 45  1  0\n 47 52  1  0\n 48 22  1  0\n 49 48  1  0\n 50 51  1  0\n 50 52  1  0\n 50 53  2  0\n 51 56  2  0\n 52 57  2  0\n 53 54  1  0\n 54 55  2  0\n 55 32  1  0\n 56 55  1  0\n 52 58  2  0\n 54 59  1  0\n 59 60  1  0\n 59 61  2  0\nM  CHG  2  59   1  60  -1\nM  END\n> <chembl_id>\nCHEMBL3137309\n\n> <chembl_pref_name>\nVENETOCLAX",
+        "standard_inchi": "InChI=1S/C45H50ClN7O7S/c1-45(2)15-11-33(39(26-45)31-3-5-34(46)6-4-31)29-51-17-19-52(20-18-51)35-7-9-38(42(24-35)60-36-23-32-12-16-47-43(32)49-28-36)44(54)50-61(57,58)37-8-10-40(41(25-37)53(55)56)48-27-30-13-21-59-22-14-30/h3-10,12,16,23-25,28,30,48H,11,13-15,17-22,26-27,29H2,1-2H3,(H,47,49)(H,50,54)",
+        "standard_inchi_key": "LQBVNQSMGBZMKD-UHFFFAOYSA-N"
+      },
+      "pref_name": "VENETOCLAX"
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.751172+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4101.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4101",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P17612"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:46.535751+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4026.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4026",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P40763"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:31.290146+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL852&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 1858,
+          "mechanism_comment": null,
+          "mechanism_of_action": "DNA inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "setid=9706e9a1-96ab-46b8-8846-32ee9d756b1d",
+              "ref_type": "DailyMed",
+              "ref_url": "http://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=9706e9a1-96ab-46b8-8846-32ee9d756b1d"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL852",
+          "parent_molecule_chembl_id": "CHEMBL852",
+          "record_id": 1344487,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2311221",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "INHIBITOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 1866,
+          "mechanism_comment": null,
+          "mechanism_of_action": "DNA inhibitor",
+          "mechanism_refs": [
+            {
+              "ref_id": "setid=9706e9a1-96ab-46b8-8846-32ee9d756b1d",
+              "ref_type": "DailyMed",
+              "ref_url": "http://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=9706e9a1-96ab-46b8-8846-32ee9d756b1d"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL1200863",
+          "parent_molecule_chembl_id": "CHEMBL852",
+          "record_id": 1344300,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2311221",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 2
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:49.898294+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4860.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4860",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P10415"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:44.156529+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL3038491.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL3038491",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P52333"
+        },
+        {
+          "accession": "P23458"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:42.932056+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL2426.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL2426",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9HCP0"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:38:30.506816+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3918638.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3918638",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3545376",
+        "molecule_chembl_id": "CHEMBL3918638",
+        "parent_chembl_id": "CHEMBL3545376"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "[2H]C([2H])([2H])Oc1cc(OC([2H])([2H])[2H])cc(N(c2ccc3ncc(-c4cnn(C)c4)nc3c2)C([2H])([2H])C([2H])([2H])NC(C)C)c1",
+        "molfile": "\n     RDKit          2D\n\n 43 46  0  0  0  0  0  0  0  0999 V2000\n   12.7655  -17.6274    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   12.7696  -16.8102    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.0599  -17.2152    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   12.3776  -15.2707    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   12.3817  -16.0879    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.0873  -15.6758    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   11.1308  -16.7718    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4254  -14.4906    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.9753  -14.6793    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.0649  -17.4288    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    9.8832  -17.4501    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.6009  -14.6422    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.1380  -14.5840    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   10.2722  -18.1739    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.9584  -14.6032    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.9222  -13.8379    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.6493  -14.2177    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4577  -13.1586    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.5287  -17.4907    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.6711  -13.3965    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   11.4939  -18.9098    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    9.1719  -13.1600    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.1672  -15.3473    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   12.3123  -18.9285    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.6353  -18.1262    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3451  -15.3249    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.7414  -13.8597    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.2035  -13.9234    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.0989  -18.1923    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.9923  -13.1777    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3857  -13.9028    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   11.5643  -16.0701    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   10.3084  -16.7492    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.8184  -18.1029    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n    9.0235  -18.8453    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2214  -18.8284    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   12.7046  -19.6454    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   12.7370  -18.2303    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   13.1287  -18.9275    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0\n   13.5890  -16.8322    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   13.9786  -17.5505    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   14.7955  -17.5723    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   13.5512  -18.2471    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  2  1  1  0\n  3  2  1  0\n  5  4  1  0\n  6  5  1  0\n 12 28  1  0\n 31 15  1  0\n 32  7  1  0\n 22 27  1  0\n 20 17  1  0\n 23 32  1  0\n 33 11  1  0\n 10 25  1  0\n 16 27  1  0\n 28 31  2  0\n 23 12  2  0\n 15 26  2  0\n 17  9  1  0\n 19  7  1  0\n 26 23  1  0\n 14 29  1  0\n 29 21  1  0\n 16 18  1  0\n 30 22  2  0\n 17  8  1  0\n  7 33  2  0\n 11 10  1  0\n 21 24  1  0\n 29 19  2  0\n 31 30  1  0\n  8 16  2  0\n 18 20  2  0\n 13 15  1  0\n 11 14  2  0\n 27 13  2  0\n 32  5  1  0\n 25 34  1  0\n 25 35  1  0\n 25 36  1  0\n 24 37  1  0\n 24 38  1  0\n 24 39  1  0\n  5  2  1  0\n  2 40  1  0\n 40 41  1  0\n 41 42  1  0\n 41 43  1  0\nM  ISO  8   1   2   3   2   4   2   6   2  34   2  35   2  36   2  37   2\nM  ISO  2  38   2  39   2\nM  END\n> <chembl_id>\nCHEMBL3918638\n\n> <chembl_pref_name>\nNone",
+        "standard_inchi": "InChI=1S/C25H30N6O2/c1-17(2)26-8-9-31(20-10-21(32-4)13-22(11-20)33-5)19-6-7-23-24(12-19)29-25(15-27-23)18-14-28-30(3)16-18/h6-7,10-17,26H,8-9H2,1-5H3/i4D3,5D3,8D2,9D2",
+        "standard_inchi_key": "OLAHOMJCDNXHFI-RCEBUFFYSA-N"
+      },
+      "pref_name": null
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:37:43.572670+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL299.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL299",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P17252"
+        }
+      ]
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "opentargets-26.09",
+    "retrieved_at": "2026-10-24T19:37:39.617515+00:00",
+    "request": [
+      "POST",
+      "https://api.platform.opentargets.org/api/v4/graphql",
+      {
+        "query": "query Assoc($id: String!, $i: Int!, $size: Int!) {\n  disease(efoId: $id) {\n    associatedTargets(page: {index: $i, size: $size}) {\n      count\n      rows { target { id approvedSymbol } score\n             datatypeScores { id score } datasourceScores { id score } } } } }\n",
+        "variables": {
+          "i": 1,
+          "id": "MONDO_0009693",
+          "size": 3000
+        }
+      }
+    ],
+    "response": {
+      "data": {
+        "disease": {
+          "associatedTargets": {
+            "count": 6,
+            "rows": []
+          }
+        }
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "opentargets-26.09",
+    "retrieved_at": "2026-10-24T19:37:37.872427+00:00",
+    "request": [
+      "POST",
+      "https://api.platform.opentargets.org/api/v4/graphql",
+      {
+        "query": "query Assoc($id: String!, $i: Int!, $size: Int!) {\n  disease(efoId: $id) {\n    associatedTargets(page: {index: $i, size: $size}) {\n      count\n      rows { target { id approvedSymbol } score\n             datatypeScores { id score } datasourceScores { id score } } } } }\n",
+        "variables": {
+          "i": 0,
+          "id": "MONDO_0009693",
+          "size": 3000
+        }
+      }
+    ],
+    "response": {
+      "data": {
+        "disease": {
+          "associatedTargets": {
+            "count": 6,
+            "rows": [
+              {
+                "target": {
+                  "id": "ENSG00000141510",
+                  "approvedSymbol": "TP53"
+                },
+                "score": 0.6695017045305537,
+                "datatypeScores": [
+                  {
+                    "id": "literature",
+                    "score": 0.7728920876310014
+                  },
+                  {
+                    "id": "genetic_association",
+                    "score": 0.547137717850459
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.7738710918576502
+                  },
+                  {
+                    "id": "clinical",
+                    "score": 0.1131426762221628
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "intogen",
+                    "score": 0.8274613634158176
+                  },
+                  {
+                    "id": "eva_somatic",
+                    "score": 0.7008091139133965
+                  },
+                  {
+                    "id": "eva",
+                    "score": 0.547137717850459
+                  },
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.7728920876310014
+                  },
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.1131426762221628
+                  }
+                ]
+              },
+              {
+                "target": {
+                  "id": "ENSG00000068078",
+                  "approvedSymbol": "FGFR3"
+                },
+                "score": 0.6448177838059391,
+                "datatypeScores": [
+                  {
+                    "id": "clinical",
+                    "score": 0.4953581450704324
+                  },
+                  {
+                    "id": "genetic_literature",
+                    "score": 0.3039653988058105
+                  },
+                  {
+                    "id": "affected_pathway",
+                    "score": 0.8443483300161404
+                  },
+                  {
+                    "id": "literature",
+                    "score": 0.42621145448328696
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.6389454082372304
+                  },
+                  {
+                    "id": "animal_model",
+                    "score": 0.400038729188367
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "reactome",
+                    "score": 0.7599134970145264
+                  },
+                  {
+                    "id": "eva_somatic",
+                    "score": 0.6839221473130737
+                  },
+                  {
+                    "id": "intogen",
+                    "score": 0.5403705897243085
+                  },
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.4953581450704324
+                  },
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "cancer_biomarkers",
+                    "score": 0.865457038266544
+                  },
+                  {
+                    "id": "uniprot_literature",
+                    "score": 0.3039653988058105
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.42621145448328696
+                  },
+                  {
+                    "id": "impc",
+                    "score": 0.400038729188367
+                  }
+                ]
+              },
+              {
+                "target": {
+                  "id": "ENSG00000110092",
+                  "approvedSymbol": "CCND1"
+                },
+                "score": 0.5369470000107317,
+                "datatypeScores": [
+                  {
+                    "id": "clinical",
+                    "score": 0.17964355069423402
+                  },
+                  {
+                    "id": "genetic_literature",
+                    "score": 0.607930797611621
+                  },
+                  {
+                    "id": "affected_pathway",
+                    "score": 0.45230052269933385
+                  },
+                  {
+                    "id": "literature",
+                    "score": 0.5287991330306262
+                  },
+                  {
+                    "id": "genetic_association",
+                    "score": 0.48800597137518864
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.5891741603474507
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.607930797611621
+                  },
+                  {
+                    "id": "uniprot_literature",
+                    "score": 0.607930797611621
+                  },
+                  {
+                    "id": "gwas_credible_sets",
+                    "score": 0.5613730004100561
+                  },
+                  {
+                    "id": "intogen",
+                    "score": 0.5141476112907695
+                  },
+                  {
+                    "id": "crispr",
+                    "score": 0.45230052269933385
+                  },
+                  {
+                    "id": "eva",
+                    "score": 0.19453785523571876
+                  },
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.17964355069423402
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.5287991330306262
+                  }
+                ]
+              },
+              {
+                "target": {
+                  "id": "ENSG00000171791",
+                  "approvedSymbol": "BCL2"
+                },
+                "score": 0.4957277168877347,
+                "datatypeScores": [
+                  {
+                    "id": "clinical",
+                    "score": 0.6266117263704055
+                  },
+                  {
+                    "id": "affected_pathway",
+                    "score": 0.7599134970145264
+                  },
+                  {
+                    "id": "literature",
+                    "score": 0.6031938305358064
+                  },
+                  {
+                    "id": "genetic_association",
+                    "score": 0.3968350628756009
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "animal_model",
+                    "score": 0.3906124244320669
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.6266117263704055
+                  },
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "gwas_credible_sets",
+                    "score": 0.3968350628756009
+                  },
+                  {
+                    "id": "cancer_biomarkers",
+                    "score": 0.7599134970145264
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.6031938305358064
+                  },
+                  {
+                    "id": "impc",
+                    "score": 0.3906124244320669
+                  }
+                ]
+              },
+              {
+                "target": {
+                  "id": "ENSG00000096968",
+                  "approvedSymbol": "JAK2"
+                },
+                "score": 0.31184267910230257,
+                "datatypeScores": [
+                  {
+                    "id": "literature",
+                    "score": 0.573863109037844
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "clinical",
+                    "score": 0.1770276647940519
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.1770276647940519
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.573863109037844
+                  }
+                ]
+              },
+              {
+                "target": {
+                  "id": "ENSG00000162434",
+                  "approvedSymbol": "JAK1"
+                },
+                "score": 0.30755155454764055,
+                "datatypeScores": [
+                  {
+                    "id": "rna_expression",
+                    "score": 0.025476959497882572
+                  },
+                  {
+                    "id": "clinical",
+                    "score": 0.15821399007842438
+                  },
+                  {
+                    "id": "literature",
+                    "score": 0.163133124089015
+                  },
+                  {
+                    "id": "somatic_mutation",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "animal_model",
+                    "score": 0.3669470294383745
+                  }
+                ],
+                "datasourceScores": [
+                  {
+                    "id": "cancer_gene_census",
+                    "score": 0.4559480982087158
+                  },
+                  {
+                    "id": "clinical_precedence",
+                    "score": 0.15821399007842438
+                  },
+                  {
+                    "id": "impc",
+                    "score": 0.3669470294383745
+                  },
+                  {
+                    "id": "europepmc",
+                    "score": 0.163133124089015
+                  },
+                  {
+                    "id": "expression_atlas",
+                    "score": 0.025476959497882572
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:37:41.046130+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/HFNKQEVNSGCOJV-OAHLLOKOSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          25126798
+        ]
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:38:31.800277+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/SGDBTWWWUNNDEQ-LBPRGKRZSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          460612,
+          6918992
+        ]
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:37:51.885528+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/OLAHOMJCDNXHFI-UHFFFAOYSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          67462786
+        ]
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:37:50.173865+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/LQBVNQSMGBZMKD-UHFFFAOYSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          49846579
+        ]
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:37:48.794269+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/XUZMWHLSFXCVMG-UHFFFAOYSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          44205240
+        ]
+      }
+    },
+    "sample": "Projected source records; see README.md"
+  }
+]

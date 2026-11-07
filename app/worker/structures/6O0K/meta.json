@@ -1,0 +1,60 @@
+{
+  "id": "6O0K_A",
+  "pdb_id": "6O0K",
+  "chain": "A",
+  "uniprot": [
+    "P10415",
+    "Q07817"
+  ],
+  "target_id": "ENSG00000171791",
+  "symbol": "BCL2",
+  "title": "crystal structure of BCL-2 with venetoclax",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.62,
+  "ligand": {
+    "comp_id": "LBM",
+    "name": "venetoclax",
+    "candidate_id": "CHEMBL3137309",
+    "residue_number": "301",
+    "heavy_atoms": 61
+  },
+  "box_center": [
+    -15.357,
+    2.24,
+    -9.562
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "CC1(CCC(=C(C1)c2ccc(cc2)Cl)CN3CCN(CC3)c4ccc(c(c4)Oc5cc6cc[nH]c6nc5)C(=O)NS(=O)(=O)c7ccc(c(c7)[N+](=O)[O-])NCC8CCOCC8)C",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 98,
+      "2PE": 1,
+      "LBM": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [
+      "ASP A35 -> ALA"
+    ],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center -15.357 2.240 -9.562 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/6O0K.pdb",
+    "entry_sha256": "5684f30360ab071a290c2ece175e96dc676515f24e01e653d8fb286fba101450",
+    "ligand": "https://models.rcsb.org/v1/6O0K/ligand?auth_asym_id=A&label_comp_id=LBM&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/LBM"
+  },
+  "prepared_on": "2026-10-25",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.17",
+    "posebusters": "0.6.5"
+  }
+}

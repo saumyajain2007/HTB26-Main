@@ -1,0 +1,316 @@
+{
+  "requested_id": "EFO_0803536",
+  "disease_id": "EFO_0803536",
+  "disease_name": "multiple sclerosis symptom measurement",
+  "release": "opentargets-26.09",
+  "rule": {
+    "score": "evidence_only",
+    "top_n": 50,
+    "excluded_datasources": [
+      "clinical_precedence",
+      "cancer_biomarkers"
+    ]
+  },
+  "targets": [
+    {
+      "rank": 1,
+      "target_id": "ENSG00000067182",
+      "name": "TNFRSF1A",
+      "evidence_only_score": 0.6819918801823363
+    },
+    {
+      "rank": 2,
+      "target_id": "ENSG00000168685",
+      "name": "IL7R",
+      "evidence_only_score": 0.5991170530767684
+    },
+    {
+      "rank": 3,
+      "target_id": "ENSG00000197746",
+      "name": "PSAP",
+      "evidence_only_score": 0.5380772731073344
+    },
+    {
+      "rank": 4,
+      "target_id": "ENSG00000135446",
+      "name": "CDK4",
+      "evidence_only_score": 0.5365850846239986
+    },
+    {
+      "rank": 5,
+      "target_id": "ENSG00000167601",
+      "name": "AXL",
+      "evidence_only_score": 0.536022288483251
+    },
+    {
+      "rank": 6,
+      "target_id": "ENSG00000124762",
+      "name": "CDKN1A",
+      "evidence_only_score": 0.5336490170776464
+    },
+    {
+      "rank": 7,
+      "target_id": "ENSG00000067533",
+      "name": "RRP15",
+      "evidence_only_score": 0.5321279460228378
+    },
+    {
+      "rank": 8,
+      "target_id": "ENSG00000166851",
+      "name": "PLK1",
+      "evidence_only_score": 0.5292454005858749
+    },
+    {
+      "rank": 9,
+      "target_id": "ENSG00000129757",
+      "name": "CDKN1C",
+      "evidence_only_score": 0.5288150188940676
+    },
+    {
+      "rank": 10,
+      "target_id": "ENSG00000178999",
+      "name": "AURKB",
+      "evidence_only_score": 0.5271973246753191
+    },
+    {
+      "rank": 11,
+      "target_id": "ENSG00000164167",
+      "name": "LSM6",
+      "evidence_only_score": 0.5270587330723491
+    },
+    {
+      "rank": 12,
+      "target_id": "ENSG00000135486",
+      "name": "HNRNPA1",
+      "evidence_only_score": 0.5265310049934583
+    },
+    {
+      "rank": 13,
+      "target_id": "ENSG00000168653",
+      "name": "NDUFS5",
+      "evidence_only_score": 0.526205843499536
+    },
+    {
+      "rank": 14,
+      "target_id": "ENSG00000119421",
+      "name": "NDUFA8",
+      "evidence_only_score": 0.5261347890525495
+    },
+    {
+      "rank": 15,
+      "target_id": "ENSG00000178127",
+      "name": "NDUFV2",
+      "evidence_only_score": 0.5245318597456333
+    },
+    {
+      "rank": 16,
+      "target_id": "ENSG00000058729",
+      "name": "RIOK2",
+      "evidence_only_score": 0.5244122571784701
+    },
+    {
+      "rank": 17,
+      "target_id": "ENSG00000166311",
+      "name": "SMPD1",
+      "evidence_only_score": 0.5238634331311305
+    },
+    {
+      "rank": 18,
+      "target_id": "ENSG00000198563",
+      "name": "DDX39B",
+      "evidence_only_score": 0.5222843463765647
+    },
+    {
+      "rank": 19,
+      "target_id": "ENSG00000023228",
+      "name": "NDUFS1",
+      "evidence_only_score": 0.5209689460585492
+    },
+    {
+      "rank": 20,
+      "target_id": "ENSG00000134460",
+      "name": "IL2RA",
+      "evidence_only_score": 0.5205952096544638
+    },
+    {
+      "rank": 21,
+      "target_id": "ENSG00000082701",
+      "name": "GSK3B",
+      "evidence_only_score": 0.5205059873362103
+    },
+    {
+      "rank": 22,
+      "target_id": "ENSG00000147416",
+      "name": "ATP6V1B2",
+      "evidence_only_score": 0.5174141308439467
+    },
+    {
+      "rank": 23,
+      "target_id": "ENSG00000170312",
+      "name": "CDK1",
+      "evidence_only_score": 0.5132731333256182
+    },
+    {
+      "rank": 24,
+      "target_id": "ENSG00000116815",
+      "name": "CD58",
+      "evidence_only_score": 0.5116358247566919
+    },
+    {
+      "rank": 25,
+      "target_id": "ENSG00000101017",
+      "name": "CD40",
+      "evidence_only_score": 0.5108537104383754
+    },
+    {
+      "rank": 26,
+      "target_id": "ENSG00000158864",
+      "name": "NDUFS2",
+      "evidence_only_score": 0.5096805616642143
+    },
+    {
+      "rank": 27,
+      "target_id": "ENSG00000147889",
+      "name": "CDKN2A",
+      "evidence_only_score": 0.5074312464848904
+    },
+    {
+      "rank": 28,
+      "target_id": "ENSG00000110448",
+      "name": "CD5",
+      "evidence_only_score": 0.5071076756636497
+    },
+    {
+      "rank": 29,
+      "target_id": "ENSG00000125735",
+      "name": "TNFSF14",
+      "evidence_only_score": 0.5066383252159729
+    },
+    {
+      "rank": 30,
+      "target_id": "ENSG00000114013",
+      "name": "CD86",
+      "evidence_only_score": 0.5064414502786146
+    },
+    {
+      "rank": 31,
+      "target_id": "ENSG00000101224",
+      "name": "CDC25B",
+      "evidence_only_score": 0.5049922999639846
+    },
+    {
+      "rank": 32,
+      "target_id": "ENSG00000131408",
+      "name": "NR1H2",
+      "evidence_only_score": 0.5042024626850231
+    },
+    {
+      "rank": 33,
+      "target_id": "ENSG00000120539",
+      "name": "MASTL",
+      "evidence_only_score": 0.503960132577359
+    },
+    {
+      "rank": 34,
+      "target_id": "ENSG00000100330",
+      "name": "MTMR3",
+      "evidence_only_score": 0.5030361885575595
+    },
+    {
+      "rank": 35,
+      "target_id": "ENSG00000143374",
+      "name": "TARS2",
+      "evidence_only_score": 0.5030361885575595
+    },
+    {
+      "rank": 36,
+      "target_id": "ENSG00000023516",
+      "name": "AKAP11",
+      "evidence_only_score": 0.5026919216097876
+    },
+    {
+      "rank": 37,
+      "target_id": "ENSG00000155097",
+      "name": "ATP6V1C1",
+      "evidence_only_score": 0.5014731440211382
+    },
+    {
+      "rank": 38,
+      "target_id": "ENSG00000167258",
+      "name": "CDK12",
+      "evidence_only_score": 0.5012574160540137
+    },
+    {
+      "rank": 39,
+      "target_id": "ENSG00000139180",
+      "name": "NDUFA9",
+      "evidence_only_score": 0.5006169269586519
+    },
+    {
+      "rank": 40,
+      "target_id": "ENSG00000010256",
+      "name": "UQCRC1",
+      "evidence_only_score": 0.4999313657521128
+    },
+    {
+      "rank": 41,
+      "target_id": "ENSG00000143393",
+      "name": "PI4KB",
+      "evidence_only_score": 0.4998934935159843
+    },
+    {
+      "rank": 42,
+      "target_id": "ENSG00000087586",
+      "name": "AURKA",
+      "evidence_only_score": 0.49942356299995455
+    },
+    {
+      "rank": 43,
+      "target_id": "ENSG00000019186",
+      "name": "CYP24A1",
+      "evidence_only_score": 0.49883673785756516
+    },
+    {
+      "rank": 44,
+      "target_id": "ENSG00000114573",
+      "name": "ATP6V1A",
+      "evidence_only_score": 0.4980834777125136
+    },
+    {
+      "rank": 45,
+      "target_id": "ENSG00000113161",
+      "name": "HMGCR",
+      "evidence_only_score": 0.49807698647801635
+    },
+    {
+      "rank": 46,
+      "target_id": "ENSG00000139505",
+      "name": "MTMR6",
+      "evidence_only_score": 0.4976690461637963
+    },
+    {
+      "rank": 47,
+      "target_id": "ENSG00000115020",
+      "name": "PIKFYVE",
+      "evidence_only_score": 0.4971963311163791
+    },
+    {
+      "rank": 48,
+      "target_id": "ENSG00000004779",
+      "name": "NDUFAB1",
+      "evidence_only_score": 0.49698233185577223
+    },
+    {
+      "rank": 49,
+      "target_id": "ENSG00000113712",
+      "name": "CSNK1A1",
+      "evidence_only_score": 0.49697690796463884
+    },
+    {
+      "rank": 50,
+      "target_id": "ENSG00000147883",
+      "name": "CDKN2B",
+      "evidence_only_score": 0.4960416534306026
+    }
+  ]
+}

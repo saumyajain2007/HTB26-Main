@@ -1,0 +1,206 @@
+/* The chart and its notes scroll together when the full shortlist is taller than the panel;
+   when there is room, the notes sit at the panel's foot, level with the network's key. */
+.chart {
+  composes: scroll-fade from global;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.svg {
+  overflow: visible;
+}
+
+.svg text {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+.head {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  fill: var(--color-ink);
+}
+
+.sup {
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+}
+
+.tick {
+  font-size: var(--text-label-sm);
+  fill: var(--color-grey-1);
+}
+
+.axis {
+  stroke: var(--color-ink);
+  stroke-width: 1;
+}
+
+.zero {
+  stroke: var(--color-rule);
+}
+
+.break rect {
+  fill: var(--color-paper);
+}
+
+.break path {
+  fill: none;
+  stroke: var(--color-ink);
+}
+
+.hit {
+  fill: transparent;
+}
+
+/* A wide invisible stroke along a drug's line, so pointing near it is enough. */
+.hitLine {
+  stroke: transparent;
+  stroke-width: 12;
+  pointer-events: stroke;
+}
+
+.guide {
+  stroke: var(--color-edge);
+  stroke-dasharray: 1 3;
+}
+
+.dot {
+  fill: var(--color-grey-2);
+  stroke: var(--color-ink);
+  stroke-width: 1;
+}
+
+.value {
+  font-size: var(--text-label);
+  fill: var(--color-grey-1);
+}
+
+.name {
+  font-size: var(--text-body-sm);
+  fill: var(--color-ink);
+}
+
+.slope {
+  fill: none;
+  stroke: var(--color-edge);
+  stroke-width: 1.4;
+  transition: stroke var(--duration-quick);
+}
+
+.point {
+  fill: var(--color-edge);
+}
+
+.unranked {
+  font-size: var(--text-label-sm);
+  font-style: italic;
+  fill: var(--color-grey-2);
+}
+
+.missing path {
+  fill: none;
+  stroke: var(--color-grey-2);
+}
+
+.missing text {
+  font-size: var(--text-label);
+  font-style: italic;
+  fill: var(--color-grey-1);
+}
+
+.missing .sup {
+  font-style: normal;
+  fill: var(--color-ink);
+}
+
+.row {
+  cursor: default;
+  transition: opacity var(--duration-quick);
+}
+
+.emphasis .slope {
+  stroke: var(--color-ink);
+  stroke-width: 2.25;
+}
+
+.emphasis .point,
+.emphasis .dot {
+  fill: var(--color-ink);
+}
+
+.hovering .row:not(.on) {
+  opacity: 0.22;
+}
+
+.on .slope {
+  stroke: var(--color-ink);
+  stroke-width: 2.5;
+}
+
+.on .point,
+.on .dot {
+  fill: var(--color-ink);
+}
+
+.on .name {
+  font-weight: var(--weight-bold);
+}
+
+.on .value {
+  fill: var(--color-ink);
+}
+
+.notes {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-top: auto;
+  padding-top: var(--space-16);
+}
+
+.note {
+  display: flex;
+  gap: var(--space-12);
+  align-items: baseline;
+  max-width: 62ch;
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.note sup {
+  flex: none;
+  width: 8px;
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.inkLine {
+  position: relative;
+  top: -4px;
+  flex: none;
+  width: 20px;
+  height: 2px;
+  background: var(--color-ink);
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .notes {
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+  }
+}
+
+@media (max-width: 720px) {
+  .name,
+  .head {
+    font-size: var(--text-label);
+  }
+}

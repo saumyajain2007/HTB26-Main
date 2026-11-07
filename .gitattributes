@@ -1,0 +1,3 @@
+# Published hashes cover exact repository bytes, including intentional CRLF CSVs.
+# Disable checkout/check-in newline conversion rather than rewriting sealed records.
+/results/** -text

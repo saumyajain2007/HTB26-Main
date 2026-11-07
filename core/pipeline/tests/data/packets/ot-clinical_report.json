@@ -1,0 +1,377 @@
+{
+  "release": "opentargets-26.09",
+  "records": [
+    {
+      "id": "nct05722912",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT05722912"
+    },
+    {
+      "id": "nct01724580",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT01724580"
+    },
+    {
+      "id": "nct03147742",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT03147742"
+    },
+    {
+      "id": "nct03825484",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT03825484"
+    },
+    {
+      "id": "18cbb49bf16fef2c275810b11fd75fd33d8efaabcaf426e7a6c761deeb075dba",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "2509e355a887d4a09a8c2149e248220306d9cb4c02017945976b1a2701f55067",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "2a8aa5c0-6c92-4566-8c45-e8f4d1fc20ee",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2a8aa5c0-6c92-4566-8c45-e8f4d1fc20ee"
+    },
+    {
+      "id": "49d2becbc0e65cc2e57785a0c541f5bf1410142f214219b8fbbc461c1c948ce0",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "62f44c651f9fd260e80f2fcb6dfbb9bae63dfd76374f36bd1f4b2d9b1dc9e5db",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf"
+    },
+    {
+      "id": "86a96e9608f9cad1e8cf91487d79c1faee70ea07b972119b824c7b3540ec04c9",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "b118a40d-6b56-cee3-10f6-ded821a97018",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b118a40d-6b56-cee3-10f6-ded821a97018"
+    },
+    {
+      "id": "c5f7dc1ecd3813f74e8ec343036365016109f347aa36b87890ce77933dd33fd4",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "c7ece99352de06adf3eebd269c04256524636164555f81747c64690075b20ea1",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "d00fgo/multiple myeloma",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D00FGO"
+    },
+    {
+      "id": "d04lks/essential thrombocythemia",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D04LKS"
+    },
+    {
+      "id": "d06xes/ovarian cancer",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D06XES"
+    },
+    {
+      "id": "d0d5fu/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0D5FU"
+    },
+    {
+      "id": "d0kh8q/myelofibrosis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0KH8Q"
+    },
+    {
+      "id": "d0nw0t/bladder cancer",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0NW0T"
+    },
+    {
+      "id": "d0y7ic/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0Y7IC"
+    },
+    {
+      "id": "d11ah09",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=D11AH09"
+    },
+    {
+      "id": "d886ccb512254f14ed7baa56956f4d9396c78fec6933d41e83e65682ae3a069b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "emea/h/c/002464",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/jakavi"
+    },
+    {
+      "id": "emea/h/c/004085",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/olumiant"
+    },
+    {
+      "id": "emea/h/c/004106",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/venclyxto"
+    },
+    {
+      "id": "emea/h/c/005173",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/phelinun"
+    },
+    {
+      "id": "emea/h/c/005843",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/opzelura"
+    },
+    {
+      "id": "f1c82580-87ae-11e0-bc84-0002a5d5c51b",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f1c82580-87ae-11e0-bc84-0002a5d5c51b"
+    },
+    {
+      "id": "f22a4b5d2c942351107edcd232881dceeaaed0b42a33273af57c762e5b624c5b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html"
+    },
+    {
+      "id": "ff913271-0090-4832-a0fe-5154fe8f97b9",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ff913271-0090-4832-a0fe-5154fe8f97b9"
+    },
+    {
+      "id": "l01aa03",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=L01AA03"
+    },
+    {
+      "id": "l01ej01",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=L01EJ01"
+    },
+    {
+      "id": "l01en01",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=L01EN01"
+    },
+    {
+      "id": "l01xx52",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=L01XX52"
+    },
+    {
+      "id": "label/2016/208573s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL",
+      "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2016/208573s000lbl.pdf"
+    },
+    {
+      "id": "label/2018/207924s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/207924s000lbl.pdf"
+    },
+    {
+      "id": "label/2019/212018s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/212018s000lbl.pdf"
+    },
+    {
+      "id": "r07ax02",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=R07AX02"
+    },
+    {
+      "id": "nct01869803",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT01869803"
+    },
+    {
+      "id": "nct03278314",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT03278314"
+    },
+    {
+      "id": "nct04058210",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT04058210"
+    },
+    {
+      "id": "nct04702360",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT04702360"
+    },
+    {
+      "id": "0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25"
+    },
+    {
+      "id": "302ae804-37db-44fd-ac2f-3dbdeda9aa4b",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=302ae804-37db-44fd-ac2f-3dbdeda9aa4b"
+    },
+    {
+      "id": "32fd2bb2-1cfa-4250-feb8-d7956c794e05",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=32fd2bb2-1cfa-4250-feb8-d7956c794e05"
+    },
+    {
+      "id": "3fc1c40e-cfac-47a1-9e1a-61ead3570600",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3fc1c40e-cfac-47a1-9e1a-61ead3570600"
+    },
+    {
+      "id": "d06ewo/acute myeloid leukaemia",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D06EWO"
+    },
+    {
+      "id": "d0e1hc/acute lung injury",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0E1HC"
+    },
+    {
+      "id": "d0s9wb/acute lung injury",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0S9WB"
+    },
+    {
+      "id": "d0s9wb/cystic fibrosis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0S9WB"
+    },
+    {
+      "id": "d0w7wc/cystic fibrosis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL",
+      "url": "https://ttd.idrblab.cn/data/drug/details/D0W7WC"
+    },
+    {
+      "id": "emea/h/c/002494",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/kalydeco"
+    },
+    {
+      "id": "emea/h/c/003954",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/orkambi"
+    },
+    {
+      "id": "emea/h/c/004204",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/mylotarg"
+    },
+    {
+      "id": "emea/h/c/004682",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/symkevi"
+    },
+    {
+      "id": "emea/h/c/005269",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/kaftrio"
+    },
+    {
+      "id": "emea/h/c/006382",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/alyftrek"
+    },
+    {
+      "id": "f354423a-85c2-41c3-a9db-0f3aee135d8d",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f354423a-85c2-41c3-a9db-0f3aee135d8d"
+    },
+    {
+      "id": "l01fx02",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.whocc.no/atc_ddd_index/?code=L01FX02"
+    },
+    {
+      "id": "label/2018/210491lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/210491lbl.pdf"
+    },
+    {
+      "id": "nct01381289",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL",
+      "url": "https://clinicaltrials.gov/study/NCT01381289"
+    }
+  ]
+}

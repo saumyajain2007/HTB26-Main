@@ -1,0 +1,4261 @@
+{
+  "version": 2,
+  "models": {
+    "claude-opus-5-5": {
+      "named": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.6666666666666666,
+        "mrr": 0.5115740740740741,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 2,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.5
+          }
+        ],
+        "median_latency_ms": 41303.5,
+        "input_tokens": 70025,
+        "output_tokens": 21341,
+        "median_input_tokens": 10734.5,
+        "median_output_tokens": 3553.5,
+        "median_first_attempt_latency_ms": 41303.5,
+        "first_attempt_input_tokens": 70025,
+        "first_attempt_output_tokens": 21341,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      },
+      "blind": {
+        "valid_runs": 4,
+        "runs": 6,
+        "valid_reply_rate": 0.6666666666666666,
+        "attempts": 7,
+        "hits_at_5": 0.16666666666666666,
+        "mrr": 0.11011904761904762,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "invalid_or_failed",
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "invalid_or_failed",
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 4,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.25
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          }
+        ],
+        "median_latency_ms": 39989.0,
+        "input_tokens": 87660,
+        "output_tokens": 15445,
+        "median_input_tokens": 10491.5,
+        "median_output_tokens": 3442.5,
+        "median_first_attempt_latency_ms": 39989.0,
+        "first_attempt_input_tokens": 68355,
+        "first_attempt_output_tokens": 14649,
+        "valid_attempt_rate": 0.5714285714285714,
+        "missing_usage_attempts": 0,
+        "rejections": {
+          "JSON decoding failed": 3
+        }
+      }
+    },
+    "openai-gpt-5.4": {
+      "named": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.6666666666666666,
+        "mrr": 0.583994708994709,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 4,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.25
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          }
+        ],
+        "median_latency_ms": 20516.5,
+        "input_tokens": 45967,
+        "output_tokens": 14720,
+        "median_input_tokens": 6964.5,
+        "median_output_tokens": 2453.5,
+        "median_first_attempt_latency_ms": 20516.5,
+        "first_attempt_input_tokens": 45967,
+        "first_attempt_output_tokens": 14720,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      },
+      "blind": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.3333333333333333,
+        "mrr": 0.19093915343915344,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 10,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          }
+        ],
+        "median_latency_ms": 22750.0,
+        "input_tokens": 45027,
+        "output_tokens": 14898,
+        "median_input_tokens": 6855.5,
+        "median_output_tokens": 2483.0,
+        "median_first_attempt_latency_ms": 22750.0,
+        "first_attempt_input_tokens": 45027,
+        "first_attempt_output_tokens": 14898,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      }
+    },
+    "glm-5.3": {
+      "named": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.16666666666666666,
+        "mrr": 0.26435185185185184,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 10,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 12,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.08333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 6,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.16666666666666666
+          }
+        ],
+        "median_latency_ms": 13273.0,
+        "input_tokens": 47386,
+        "output_tokens": 17573,
+        "median_input_tokens": 7180.5,
+        "median_output_tokens": 2881.5,
+        "median_first_attempt_latency_ms": 13273.0,
+        "first_attempt_input_tokens": 47386,
+        "first_attempt_output_tokens": 17573,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      },
+      "blind": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 7,
+        "hits_at_5": 0.16666666666666666,
+        "mrr": 0.18564814814814815,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 10,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 2,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.5
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 6,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.16666666666666666
+          }
+        ],
+        "median_latency_ms": 16163.5,
+        "input_tokens": 59840,
+        "output_tokens": 20660,
+        "median_input_tokens": 7049.5,
+        "median_output_tokens": 2945.0,
+        "median_first_attempt_latency_ms": 15653.0,
+        "first_attempt_input_tokens": 46381,
+        "first_attempt_output_tokens": 17494,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      }
+    },
+    "kimi-k3": {
+      "named": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.6666666666666666,
+        "mrr": 0.6001984126984127,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          }
+        ],
+        "median_latency_ms": 12985.0,
+        "input_tokens": 47643,
+        "output_tokens": 17544,
+        "median_input_tokens": 7279.0,
+        "median_output_tokens": 2933.5,
+        "median_first_attempt_latency_ms": 12985.0,
+        "first_attempt_input_tokens": 47643,
+        "first_attempt_output_tokens": 17544,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      },
+      "blind": {
+        "valid_runs": 6,
+        "runs": 6,
+        "valid_reply_rate": 1.0,
+        "attempts": 6,
+        "hits_at_5": 0.3333333333333333,
+        "mrr": 0.1974206349206349,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "status": "valid",
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "status": "valid",
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285
+          },
+          {
+            "disease_id": "HP_0000975",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "status": "valid",
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125
+          }
+        ],
+        "median_latency_ms": 18399.0,
+        "input_tokens": 46687,
+        "output_tokens": 21055,
+        "median_input_tokens": 7162.0,
+        "median_output_tokens": 3523.5,
+        "median_first_attempt_latency_ms": 18399.0,
+        "first_attempt_input_tokens": 46687,
+        "first_attempt_output_tokens": 21055,
+        "valid_attempt_rate": 1.0,
+        "missing_usage_attempts": 0,
+        "rejections": {}
+      }
+    }
+  },
+  "juries": {
+    "opus_gpt_glm": {
+      "named": {
+        "models": [
+          "claude-opus-5-5",
+          "openai-gpt-5.4",
+          "glm-5.3"
+        ],
+        "complete_panels": 6,
+        "hits_at_5": 0.5,
+        "mrr": 0.3216931216931217,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "complete": true,
+            "rank": 9,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.1111111111111111,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1444",
+                  "borda_points": 41,
+                  "rank": 1
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1399",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1200374",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1200989",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1200386",
+                  "borda_points": 31,
+                  "rank": 5
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1200538",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1200878",
+                  "borda_points": 25,
+                  "rank": 7
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL5095183",
+                  "borda_points": 20,
+                  "rank": 8
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL291657",
+                  "borda_points": 18,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL5314341",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL1201497",
+                  "borda_points": 12,
+                  "rank": 11
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL2108611",
+                  "borda_points": 6,
+                  "rank": 12
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL2364612",
+                  "borda_points": 6,
+                  "rank": 12
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL5095275",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL607400",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.977,
+              "contested": [
+                "C5",
+                "C7",
+                "C11",
+                "C12",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "complete": true,
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1201835",
+                  "borda_points": 39,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1201823",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1742990",
+                  "borda_points": 29,
+                  "rank": 3
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL389621",
+                  "borda_points": 29,
+                  "rank": 3
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1238",
+                  "borda_points": 28,
+                  "rank": 5
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL294199",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL230158",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1743070",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL672",
+                  "borda_points": 23,
+                  "rank": 9
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1519",
+                  "borda_points": 20,
+                  "rank": 10
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1200799",
+                  "borda_points": 10,
+                  "rank": 11
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL600",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL3137343",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL2108286",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1773",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.8206,
+              "contested": [
+                "C1",
+                "C2",
+                "C5",
+                "C8",
+                "C10",
+                "C11",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "complete": true,
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL945",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL585",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1766",
+                  "borda_points": 31,
+                  "rank": 3
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL38",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1131",
+                  "borda_points": 28,
+                  "rank": 5
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2111112",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL4594287",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL103",
+                  "borda_points": 21,
+                  "rank": 8
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL3353410",
+                  "borda_points": 18,
+                  "rank": 9
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL3813873",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL53",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL2403108",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL2104993",
+                  "borda_points": 8,
+                  "rank": 13
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL386630",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL439849",
+                  "borda_points": 2,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.8317,
+              "contested": [
+                "C1",
+                "C4",
+                "C5",
+                "C11",
+                "C13",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "complete": true,
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2165326",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL471",
+                  "borda_points": 36,
+                  "rank": 2
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1742466",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL839",
+                  "borda_points": 34,
+                  "rank": 4
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1201237",
+                  "borda_points": 33,
+                  "rank": 5
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL817",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1389",
+                  "borda_points": 24,
+                  "rank": 7
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1095777",
+                  "borda_points": 20,
+                  "rank": 8
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1404",
+                  "borda_points": 13,
+                  "rank": 9
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL953",
+                  "borda_points": 13,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL714",
+                  "borda_points": 12,
+                  "rank": 11
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL4594379",
+                  "borda_points": 12,
+                  "rank": 11
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL4297756",
+                  "borda_points": 9,
+                  "rank": 13
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1201338",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1614701",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9333,
+              "contested": [
+                "C1",
+                "C2",
+                "C4",
+                "C6",
+                "C7",
+                "C10",
+                "C12",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "HP_0000975",
+            "complete": true,
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1621597",
+                  "borda_points": 37,
+                  "rank": 1
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL517712",
+                  "borda_points": 37,
+                  "rank": 1
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1900528",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL3707224",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1888176",
+                  "borda_points": 33,
+                  "rank": 5
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL569713",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1194325",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1200604",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1484",
+                  "borda_points": 16,
+                  "rank": 9
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1680",
+                  "borda_points": 15,
+                  "rank": 10
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL2",
+                  "borda_points": 14,
+                  "rank": 11
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL190461",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL4650215",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3137320",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL848",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.931,
+              "contested": [
+                "C4",
+                "C5",
+                "C7",
+                "C8",
+                "C10",
+                "C12"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "complete": true,
+            "rank": 5,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.2,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL3301612",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL4297522",
+                  "borda_points": 37,
+                  "rank": 2
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL3686884",
+                  "borda_points": 36,
+                  "rank": 3
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL3889654",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1173655",
+                  "borda_points": 30,
+                  "rank": 5
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3348923",
+                  "borda_points": 30,
+                  "rank": 5
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL2110732",
+                  "borda_points": 25,
+                  "rank": 7
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL34259",
+                  "borda_points": 21,
+                  "rank": 8
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL2103830",
+                  "borda_points": 16,
+                  "rank": 9
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1648",
+                  "borda_points": 15,
+                  "rank": 10
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL1726",
+                  "borda_points": 14,
+                  "rank": 11
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL17860",
+                  "borda_points": 7,
+                  "rank": 12
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1201284",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL605846",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL476960",
+                  "borda_points": 3,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9556,
+              "contested": [
+                "C3",
+                "C6",
+                "C8",
+                "C13",
+                "C15"
+              ]
+            }
+          }
+        ]
+      },
+      "blind": {
+        "models": [
+          "claude-opus-5-5",
+          "openai-gpt-5.4",
+          "glm-5.3"
+        ],
+        "complete_panels": 4,
+        "hits_at_5": 0.16666666666666666,
+        "mrr": 0.12103174603174603,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "complete": false,
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 2,
+              "ranking": [
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1444",
+                  "borda_points": 27,
+                  "rank": 1
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1200374",
+                  "borda_points": 26,
+                  "rank": 2
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1399",
+                  "borda_points": 25,
+                  "rank": 3
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1200989",
+                  "borda_points": 21,
+                  "rank": 4
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1200386",
+                  "borda_points": 21,
+                  "rank": 4
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1200538",
+                  "borda_points": 18,
+                  "rank": 6
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1200878",
+                  "borda_points": 16,
+                  "rank": 7
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL5095183",
+                  "borda_points": 14,
+                  "rank": 8
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL5314341",
+                  "borda_points": 12,
+                  "rank": 9
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL291657",
+                  "borda_points": 10,
+                  "rank": 10
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL1201497",
+                  "borda_points": 8,
+                  "rank": 11
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL2108611",
+                  "borda_points": 6,
+                  "rank": 12
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL2364612",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL5095275",
+                  "borda_points": 2,
+                  "rank": 14
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL607400",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": null,
+              "contested": [
+                "C5",
+                "C7",
+                "C11",
+                "C12"
+              ]
+            }
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "complete": true,
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1201835",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1201823",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1742990",
+                  "borda_points": 34,
+                  "rank": 3
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL389621",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1238",
+                  "borda_points": 31,
+                  "rank": 5
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1743070",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL294199",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1519",
+                  "borda_points": 19,
+                  "rank": 8
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL230158",
+                  "borda_points": 19,
+                  "rank": 8
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL672",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL3137343",
+                  "borda_points": 10,
+                  "rank": 11
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1200799",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL600",
+                  "borda_points": 7,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL2108286",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1773",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9659,
+              "contested": [
+                "C3",
+                "C6",
+                "C11",
+                "C12",
+                "C13",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "complete": false,
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 2,
+              "ranking": [
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL585",
+                  "borda_points": 27,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL945",
+                  "borda_points": 27,
+                  "rank": 1
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1131",
+                  "borda_points": 21,
+                  "rank": 3
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL4594287",
+                  "borda_points": 18,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL38",
+                  "borda_points": 18,
+                  "rank": 4
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL103",
+                  "borda_points": 17,
+                  "rank": 6
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1766",
+                  "borda_points": 17,
+                  "rank": 6
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL53",
+                  "borda_points": 17,
+                  "rank": 6
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2111112",
+                  "borda_points": 13,
+                  "rank": 9
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL3353410",
+                  "borda_points": 11,
+                  "rank": 10
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL2104993",
+                  "borda_points": 8,
+                  "rank": 11
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL3813873",
+                  "borda_points": 7,
+                  "rank": 12
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL439849",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL2403108",
+                  "borda_points": 2,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL386630",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": null,
+              "contested": [
+                "C4",
+                "C5",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "complete": true,
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1201237",
+                  "borda_points": 39,
+                  "rank": 1
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL839",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2165326",
+                  "borda_points": 36,
+                  "rank": 3
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL471",
+                  "borda_points": 35,
+                  "rank": 4
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1742466",
+                  "borda_points": 27,
+                  "rank": 5
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL817",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1095777",
+                  "borda_points": 24,
+                  "rank": 7
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1389",
+                  "borda_points": 22,
+                  "rank": 8
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL4594379",
+                  "borda_points": 15,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL714",
+                  "borda_points": 14,
+                  "rank": 10
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL953",
+                  "borda_points": 14,
+                  "rank": 10
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1404",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL4297756",
+                  "borda_points": 8,
+                  "rank": 13
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1201338",
+                  "borda_points": 7,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1614701",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.8524,
+              "contested": [
+                "C2",
+                "C8",
+                "C9",
+                "C10",
+                "C12",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "HP_0000975",
+            "complete": true,
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL517712",
+                  "borda_points": 41,
+                  "rank": 1
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1621597",
+                  "borda_points": 40,
+                  "rank": 2
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1900528",
+                  "borda_points": 36,
+                  "rank": 3
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1888176",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1194325",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1200604",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL569713",
+                  "borda_points": 24,
+                  "rank": 7
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL3707224",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1484",
+                  "borda_points": 17,
+                  "rank": 9
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL2",
+                  "borda_points": 14,
+                  "rank": 10
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3137320",
+                  "borda_points": 9,
+                  "rank": 11
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL4650215",
+                  "borda_points": 8,
+                  "rank": 12
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL190461",
+                  "borda_points": 7,
+                  "rank": 13
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1680",
+                  "borda_points": 6,
+                  "rank": 14
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL848",
+                  "borda_points": 2,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.946,
+              "contested": [
+                "C2",
+                "C3",
+                "C5",
+                "C13",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "complete": true,
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL3301612",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL4297522",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL3686884",
+                  "borda_points": 36,
+                  "rank": 3
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL3889654",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1173655",
+                  "borda_points": 31,
+                  "rank": 5
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL2110732",
+                  "borda_points": 26,
+                  "rank": 6
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3348923",
+                  "borda_points": 24,
+                  "rank": 7
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL2103830",
+                  "borda_points": 18,
+                  "rank": 8
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL1726",
+                  "borda_points": 17,
+                  "rank": 9
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL34259",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1648",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL17860",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL605846",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL476960",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1201284",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.969,
+              "contested": [
+                "C1",
+                "C3",
+                "C8",
+                "C13",
+                "C15"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "opus_gpt_kimi": {
+      "named": {
+        "models": [
+          "claude-opus-5-5",
+          "openai-gpt-5.4",
+          "kimi-k3"
+        ],
+        "complete_panels": 6,
+        "hits_at_5": 0.5,
+        "mrr": 0.47222222222222227,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "complete": true,
+            "rank": 6,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.16666666666666666,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1444",
+                  "borda_points": 41,
+                  "rank": 1
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1399",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1200374",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1200989",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1200386",
+                  "borda_points": 29,
+                  "rank": 5
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL291657",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1200538",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1200878",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL5095183",
+                  "borda_points": 19,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL5314341",
+                  "borda_points": 15,
+                  "rank": 10
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL1201497",
+                  "borda_points": 11,
+                  "rank": 11
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL2364612",
+                  "borda_points": 7,
+                  "rank": 12
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL2108611",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL5095275",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL607400",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9333,
+              "contested": [
+                "C2",
+                "C5",
+                "C7",
+                "C10",
+                "C11",
+                "C12",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "complete": true,
+            "rank": 6,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.16666666666666666,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1201835",
+                  "borda_points": 39,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1201823",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1743070",
+                  "borda_points": 30,
+                  "rank": 3
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL294199",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL389621",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL230158",
+                  "borda_points": 28,
+                  "rank": 6
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1238",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1742990",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL672",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1519",
+                  "borda_points": 20,
+                  "rank": 10
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL600",
+                  "borda_points": 10,
+                  "rank": 11
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1200799",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL3137343",
+                  "borda_points": 7,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL2108286",
+                  "borda_points": 4,
+                  "rank": 14
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1773",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.8317,
+              "contested": [
+                "C1",
+                "C3",
+                "C5",
+                "C8",
+                "C10",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "complete": true,
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL945",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL585",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL4594287",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1766",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL38",
+                  "borda_points": 28,
+                  "rank": 5
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1131",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2111112",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL103",
+                  "borda_points": 18,
+                  "rank": 8
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL3353410",
+                  "borda_points": 17,
+                  "rank": 9
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL53",
+                  "borda_points": 16,
+                  "rank": 10
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL3813873",
+                  "borda_points": 15,
+                  "rank": 11
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL2403108",
+                  "borda_points": 11,
+                  "rank": 12
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL386630",
+                  "borda_points": 5,
+                  "rank": 13
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL2104993",
+                  "borda_points": 4,
+                  "rank": 14
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL439849",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9135,
+              "contested": [
+                "C1",
+                "C5",
+                "C9",
+                "C11",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "complete": true,
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2165326",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL471",
+                  "borda_points": 35,
+                  "rank": 2
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1201237",
+                  "borda_points": 33,
+                  "rank": 3
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL839",
+                  "borda_points": 33,
+                  "rank": 3
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1742466",
+                  "borda_points": 33,
+                  "rank": 3
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL817",
+                  "borda_points": 31,
+                  "rank": 6
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1389",
+                  "borda_points": 21,
+                  "rank": 7
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1095777",
+                  "borda_points": 21,
+                  "rank": 7
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL4594379",
+                  "borda_points": 14,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL714",
+                  "borda_points": 13,
+                  "rank": 10
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL953",
+                  "borda_points": 13,
+                  "rank": 10
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1404",
+                  "borda_points": 12,
+                  "rank": 12
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL4297756",
+                  "borda_points": 9,
+                  "rank": 13
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1201338",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1614701",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9,
+              "contested": [
+                "C1",
+                "C2",
+                "C4",
+                "C6",
+                "C7",
+                "C8",
+                "C10",
+                "C11",
+                "C12",
+                "C13",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "HP_0000975",
+            "complete": true,
+            "rank": 1,
+            "hits_at_5": 1,
+            "reciprocal_rank": 1.0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL3707224",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1900528",
+                  "borda_points": 36,
+                  "rank": 2
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1621597",
+                  "borda_points": 36,
+                  "rank": 2
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL517712",
+                  "borda_points": 34,
+                  "rank": 4
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1888176",
+                  "borda_points": 32,
+                  "rank": 5
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL569713",
+                  "borda_points": 25,
+                  "rank": 6
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1194325",
+                  "borda_points": 25,
+                  "rank": 6
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1200604",
+                  "borda_points": 22,
+                  "rank": 8
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1484",
+                  "borda_points": 17,
+                  "rank": 9
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL2",
+                  "borda_points": 14,
+                  "rank": 10
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1680",
+                  "borda_points": 13,
+                  "rank": 11
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL190461",
+                  "borda_points": 10,
+                  "rank": 12
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL4650215",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3137320",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL848",
+                  "borda_points": 0,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9738,
+              "contested": [
+                "C7",
+                "C10",
+                "C12",
+                "C14"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "complete": true,
+            "rank": 6,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.16666666666666666,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL3301612",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL4297522",
+                  "borda_points": 38,
+                  "rank": 2
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL3686884",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1173655",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL3889654",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3348923",
+                  "borda_points": 28,
+                  "rank": 6
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL2110732",
+                  "borda_points": 26,
+                  "rank": 7
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL34259",
+                  "borda_points": 25,
+                  "rank": 8
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL2103830",
+                  "borda_points": 18,
+                  "rank": 9
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL1726",
+                  "borda_points": 14,
+                  "rank": 10
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1648",
+                  "borda_points": 13,
+                  "rank": 11
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL17860",
+                  "borda_points": 7,
+                  "rank": 12
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1201284",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL605846",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL476960",
+                  "borda_points": 3,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9381,
+              "contested": [
+                "C3",
+                "C6",
+                "C7",
+                "C8",
+                "C11",
+                "C13",
+                "C15"
+              ]
+            }
+          }
+        ]
+      },
+      "blind": {
+        "models": [
+          "claude-opus-5-5",
+          "openai-gpt-5.4",
+          "kimi-k3"
+        ],
+        "complete_panels": 4,
+        "hits_at_5": 0.16666666666666666,
+        "mrr": 0.12400793650793651,
+        "per_panel": [
+          {
+            "disease_id": "MONDO_0018479",
+            "complete": false,
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 2,
+              "ranking": [
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1444",
+                  "borda_points": 26,
+                  "rank": 1
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1200989",
+                  "borda_points": 25,
+                  "rank": 2
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1399",
+                  "borda_points": 24,
+                  "rank": 3
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1200386",
+                  "borda_points": 23,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1200374",
+                  "borda_points": 22,
+                  "rank": 5
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1200538",
+                  "borda_points": 18,
+                  "rank": 6
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1200878",
+                  "borda_points": 16,
+                  "rank": 7
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL5095183",
+                  "borda_points": 13,
+                  "rank": 8
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL291657",
+                  "borda_points": 12,
+                  "rank": 9
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL5314341",
+                  "borda_points": 11,
+                  "rank": 10
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL1201497",
+                  "borda_points": 8,
+                  "rank": 11
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL2364612",
+                  "borda_points": 5,
+                  "rank": 12
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL2108611",
+                  "borda_points": 3,
+                  "rank": 13
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL5095275",
+                  "borda_points": 2,
+                  "rank": 14
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL607400",
+                  "borda_points": 2,
+                  "rank": 14
+                }
+              ],
+              "kendalls_w": null,
+              "contested": [
+                "C7"
+              ]
+            }
+          },
+          {
+            "disease_id": "EFO_0004267",
+            "complete": true,
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1201835",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1201823",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1742990",
+                  "borda_points": 32,
+                  "rank": 3
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL389621",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL1238",
+                  "borda_points": 30,
+                  "rank": 5
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1743070",
+                  "borda_points": 28,
+                  "rank": 6
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL230158",
+                  "borda_points": 25,
+                  "rank": 7
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL294199",
+                  "borda_points": 24,
+                  "rank": 8
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1519",
+                  "borda_points": 18,
+                  "rank": 9
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL672",
+                  "borda_points": 15,
+                  "rank": 10
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1200799",
+                  "borda_points": 11,
+                  "rank": 11
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL3137343",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL600",
+                  "borda_points": 7,
+                  "rank": 13
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL2108286",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1773",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9325,
+              "contested": [
+                "C1",
+                "C3",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005002",
+            "complete": false,
+            "rank": null,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 2,
+              "ranking": [
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL585",
+                  "borda_points": 27,
+                  "rank": 1
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL945",
+                  "borda_points": 27,
+                  "rank": 1
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL4594287",
+                  "borda_points": 24,
+                  "rank": 3
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1766",
+                  "borda_points": 20,
+                  "rank": 4
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL53",
+                  "borda_points": 17,
+                  "rank": 5
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL3353410",
+                  "borda_points": 14,
+                  "rank": 6
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL38",
+                  "borda_points": 14,
+                  "rank": 6
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1131",
+                  "borda_points": 14,
+                  "rank": 6
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL2104993",
+                  "borda_points": 11,
+                  "rank": 9
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2111112",
+                  "borda_points": 10,
+                  "rank": 10
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL2403108",
+                  "borda_points": 9,
+                  "rank": 11
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL439849",
+                  "borda_points": 9,
+                  "rank": 11
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL103",
+                  "borda_points": 8,
+                  "rank": 13
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL3813873",
+                  "borda_points": 5,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL386630",
+                  "borda_points": 1,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": null,
+              "contested": [
+                "C2",
+                "C5",
+                "C7",
+                "C10",
+                "C11",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0005044",
+            "complete": true,
+            "rank": 3,
+            "hits_at_5": 1,
+            "reciprocal_rank": 0.3333333333333333,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1201237",
+                  "borda_points": 41,
+                  "rank": 1
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL839",
+                  "borda_points": 40,
+                  "rank": 2
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL2165326",
+                  "borda_points": 31,
+                  "rank": 3
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1742466",
+                  "borda_points": 29,
+                  "rank": 4
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL471",
+                  "borda_points": 28,
+                  "rank": 5
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL817",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL1095777",
+                  "borda_points": 27,
+                  "rank": 6
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL1389",
+                  "borda_points": 24,
+                  "rank": 8
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL714",
+                  "borda_points": 14,
+                  "rank": 9
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL4594379",
+                  "borda_points": 14,
+                  "rank": 9
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL953",
+                  "borda_points": 11,
+                  "rank": 11
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1404",
+                  "borda_points": 10,
+                  "rank": 12
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL1201338",
+                  "borda_points": 8,
+                  "rank": 13
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL4297756",
+                  "borda_points": 7,
+                  "rank": 14
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1614701",
+                  "borda_points": 4,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.8048,
+              "contested": [
+                "C2",
+                "C4",
+                "C5",
+                "C8",
+                "C10",
+                "C13",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "HP_0000975",
+            "complete": true,
+            "rank": 8,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.125,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL517712",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL1621597",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL1900528",
+                  "borda_points": 35,
+                  "rank": 3
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1888176",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL1194325",
+                  "borda_points": 32,
+                  "rank": 4
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL1200604",
+                  "borda_points": 25,
+                  "rank": 6
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL569713",
+                  "borda_points": 24,
+                  "rank": 7
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL3707224",
+                  "borda_points": 23,
+                  "rank": 8
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL1484",
+                  "borda_points": 14,
+                  "rank": 9
+                },
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL2",
+                  "borda_points": 14,
+                  "rank": 9
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3137320",
+                  "borda_points": 12,
+                  "rank": 11
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL4650215",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL190461",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL1680",
+                  "borda_points": 6,
+                  "rank": 13
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL848",
+                  "borda_points": 2,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9389,
+              "contested": [
+                "C1",
+                "C2",
+                "C4",
+                "C13",
+                "C14",
+                "C15"
+              ]
+            }
+          },
+          {
+            "disease_id": "MONDO_0021637",
+            "complete": true,
+            "rank": 7,
+            "hits_at_5": 0,
+            "reciprocal_rank": 0.14285714285714285,
+            "consensus": {
+              "method": "borda",
+              "jurors_counted": 3,
+              "ranking": [
+                {
+                  "label": "C14",
+                  "candidate_id": "CHEMBL3301612",
+                  "borda_points": 42,
+                  "rank": 1
+                },
+                {
+                  "label": "C5",
+                  "candidate_id": "CHEMBL4297522",
+                  "borda_points": 39,
+                  "rank": 2
+                },
+                {
+                  "label": "C12",
+                  "candidate_id": "CHEMBL3686884",
+                  "borda_points": 36,
+                  "rank": 3
+                },
+                {
+                  "label": "C3",
+                  "candidate_id": "CHEMBL1173655",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C7",
+                  "candidate_id": "CHEMBL3889654",
+                  "borda_points": 31,
+                  "rank": 4
+                },
+                {
+                  "label": "C6",
+                  "candidate_id": "CHEMBL2110732",
+                  "borda_points": 28,
+                  "rank": 6
+                },
+                {
+                  "label": "C15",
+                  "candidate_id": "CHEMBL3348923",
+                  "borda_points": 22,
+                  "rank": 7
+                },
+                {
+                  "label": "C1",
+                  "candidate_id": "CHEMBL34259",
+                  "borda_points": 20,
+                  "rank": 8
+                },
+                {
+                  "label": "C11",
+                  "candidate_id": "CHEMBL2103830",
+                  "borda_points": 19,
+                  "rank": 9
+                },
+                {
+                  "label": "C13",
+                  "candidate_id": "CHEMBL1726",
+                  "borda_points": 15,
+                  "rank": 10
+                },
+                {
+                  "label": "C8",
+                  "candidate_id": "CHEMBL1648",
+                  "borda_points": 14,
+                  "rank": 11
+                },
+                {
+                  "label": "C9",
+                  "candidate_id": "CHEMBL17860",
+                  "borda_points": 9,
+                  "rank": 12
+                },
+                {
+                  "label": "C4",
+                  "candidate_id": "CHEMBL605846",
+                  "borda_points": 4,
+                  "rank": 13
+                },
+                {
+                  "label": "C10",
+                  "candidate_id": "CHEMBL476960",
+                  "borda_points": 3,
+                  "rank": 14
+                },
+                {
+                  "label": "C2",
+                  "candidate_id": "CHEMBL1201284",
+                  "borda_points": 2,
+                  "rank": 15
+                }
+              ],
+              "kendalls_w": 0.9714,
+              "contested": [
+                "C1",
+                "C3",
+                "C7",
+                "C8",
+                "C13"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "named_minus_blind": {
+    "claude-opus-5-5": {
+      "hits_at_5_named_minus_blind": 0.5,
+      "mrr_named_minus_blind": 0.40145502645502645,
+      "both_valid_panels": 4,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.125
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": -0.013888888888888895
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": 0.3333333333333333
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.75
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.8571428571428572
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.35714285714285715
+        }
+      ],
+      "both_valid_mrr_gap": 0.4875992063492064,
+      "both_valid_hits_at_5_gap": 0.5
+    },
+    "openai-gpt-5.4": {
+      "hits_at_5_named_minus_blind": 0.3333333333333333,
+      "mrr_named_minus_blind": 0.3930555555555555,
+      "both_valid_panels": 6,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.0111111111111111
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": 0.8888888888888888
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": -0.08333333333333331
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.6666666666666667
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.8571428571428572
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.01785714285714285
+        }
+      ],
+      "both_valid_mrr_gap": 0.39305555555555555,
+      "both_valid_hits_at_5_gap": 0.3333333333333333
+    },
+    "glm-5.3": {
+      "hits_at_5_named_minus_blind": 0.0,
+      "mrr_named_minus_blind": 0.07870370370370369,
+      "both_valid_panels": 6,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.0
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": 0.0
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": -0.027777777777777776
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.5
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.0
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.0
+        }
+      ],
+      "both_valid_mrr_gap": 0.0787037037037037,
+      "both_valid_hits_at_5_gap": 0.0
+    },
+    "kimi-k3": {
+      "hits_at_5_named_minus_blind": 0.3333333333333333,
+      "mrr_named_minus_blind": 0.4027777777777778,
+      "both_valid_panels": 6,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.875
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": -0.19047619047619047
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": 0.0
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.8571428571428572
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.875
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.0
+        }
+      ],
+      "both_valid_mrr_gap": 0.40277777777777785,
+      "both_valid_hits_at_5_gap": 0.3333333333333333
+    },
+    "opus_gpt_glm": {
+      "hits_at_5_named_minus_blind": 0.33333333333333337,
+      "mrr_named_minus_blind": 0.20066137566137565,
+      "both_valid_panels": 4,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.1111111111111111
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": 0.01785714285714285
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": 0.14285714285714285
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.6666666666666667
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.20833333333333331
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.05714285714285716
+        }
+      ],
+      "both_valid_mrr_gap": 0.23750000000000002,
+      "both_valid_hits_at_5_gap": 0.5
+    },
+    "opus_gpt_kimi": {
+      "hits_at_5_named_minus_blind": 0.33333333333333337,
+      "mrr_named_minus_blind": 0.34821428571428575,
+      "both_valid_panels": 4,
+      "paired_rr_gaps": [
+        {
+          "disease_id": "MONDO_0018479",
+          "delta": 0.16666666666666666
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "delta": 0.023809523809523808
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "delta": 0.3333333333333333
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "delta": 0.6666666666666667
+        },
+        {
+          "disease_id": "HP_0000975",
+          "delta": 0.875
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "delta": 0.023809523809523808
+        }
+      ],
+      "both_valid_mrr_gap": 0.3973214285714286,
+      "both_valid_hits_at_5_gap": 0.25
+    }
+  },
+  "direct_baseline": {
+    "hits_at_5": 0.0,
+    "mrr": 0.11282051282051282,
+    "per_panel": [
+      {
+        "disease_id": "MONDO_0018479",
+        "rank": 10,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.1,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL1200374",
+            "score": 0.13790416,
+            "observed_associations": 1,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL1399",
+            "score": 0.13790416,
+            "observed_associations": 1,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL1444",
+            "score": 0.13790416,
+            "observed_associations": 1,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL1200386",
+            "score": 0.085084678,
+            "observed_associations": 1,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL1200538",
+            "score": 0.085084678,
+            "observed_associations": 1,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL1200878",
+            "score": 0.085084678,
+            "observed_associations": 1,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL1200989",
+            "score": 0.085084678,
+            "observed_associations": 1,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL5095183",
+            "score": 0.069715114,
+            "observed_associations": 1,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL5314341",
+            "score": 0.048930176,
+            "observed_associations": 1,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL291657",
+            "score": 0.012025022,
+            "observed_associations": 1,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL1201497",
+            "score": 0.0027718321,
+            "observed_associations": 1,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL2108611",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL2364612",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL5095275",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL607400",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 15
+          }
+        ]
+      },
+      {
+        "disease_id": "EFO_0004267",
+        "rank": 12,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.08333333333333333,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL1201835",
+            "score": 0.3865447,
+            "observed_associations": 1,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL1201823",
+            "score": 0.16762102,
+            "observed_associations": 1,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL1742990",
+            "score": 0.16762102,
+            "observed_associations": 1,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL1238",
+            "score": 0.041424173,
+            "observed_associations": 1,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL389621",
+            "score": 0.041424173,
+            "observed_associations": 1,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL294199",
+            "score": 0.022913812,
+            "observed_associations": 1,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL1743070",
+            "score": 0.019259909,
+            "observed_associations": 1,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL1519",
+            "score": 0.0022174656,
+            "observed_associations": 1,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL1200799",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL1773",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL2108286",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL230158",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL3137343",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL600",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL672",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 15
+          }
+        ]
+      },
+      {
+        "disease_id": "MONDO_0005002",
+        "rank": 13,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.07692307692307693,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL585",
+            "score": 0.80326854,
+            "observed_associations": 5,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL945",
+            "score": 0.80326854,
+            "observed_associations": 3,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL2111112",
+            "score": 0.48754094,
+            "observed_associations": 6,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL1131",
+            "score": 0.44330599,
+            "observed_associations": 3,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL38",
+            "score": 0.44330599,
+            "observed_associations": 4,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL103",
+            "score": 0.40888569,
+            "observed_associations": 5,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL1766",
+            "score": 0.40888569,
+            "observed_associations": 4,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL53",
+            "score": 0.35312549,
+            "observed_associations": 2,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL3353410",
+            "score": 0.20224635,
+            "observed_associations": 6,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL2104993",
+            "score": 0.094863618,
+            "observed_associations": 5,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL2403108",
+            "score": 0.081073366,
+            "observed_associations": 4,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL3813873",
+            "score": 0.080782363,
+            "observed_associations": 6,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL4594287",
+            "score": 0.074451951,
+            "observed_associations": 6,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL439849",
+            "score": 0.047200439,
+            "observed_associations": 5,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL386630",
+            "score": 0.031098907,
+            "observed_associations": 6,
+            "rank": 15
+          }
+        ]
+      },
+      {
+        "disease_id": "MONDO_0005044",
+        "rank": 8,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.125,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL1095777",
+            "score": 0.59656828,
+            "observed_associations": 3,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL1201237",
+            "score": 0.59656828,
+            "observed_associations": 2,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL1742466",
+            "score": 0.59656828,
+            "observed_associations": 1,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL4594379",
+            "score": 0.59656828,
+            "observed_associations": 1,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL471",
+            "score": 0.59656828,
+            "observed_associations": 3,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL714",
+            "score": 0.59656828,
+            "observed_associations": 2,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL839",
+            "score": 0.59656828,
+            "observed_associations": 3,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL2165326",
+            "score": 0.50920216,
+            "observed_associations": 2,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL817",
+            "score": 0.47907329,
+            "observed_associations": 2,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL1389",
+            "score": 0.4037412,
+            "observed_associations": 2,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL953",
+            "score": 0.10666765,
+            "observed_associations": 2,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL4297756",
+            "score": 0.082415379,
+            "observed_associations": 2,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL1404",
+            "score": 0.080119336,
+            "observed_associations": 2,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL1201338",
+            "score": 0.046557816,
+            "observed_associations": 2,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL1614701",
+            "score": 0.01058742,
+            "observed_associations": 2,
+            "rank": 15
+          }
+        ]
+      },
+      {
+        "disease_id": "HP_0000975",
+        "rank": 6,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.16666666666666666,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL1194325",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL1200604",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL1621597",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL1888176",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL1900528",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL3707224",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL517712",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL569713",
+            "score": 0.24935188,
+            "observed_associations": 1,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL1484",
+            "score": 0.016446204,
+            "observed_associations": 1,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL1680",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL190461",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL2",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL3137320",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL4650215",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL848",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 15
+          }
+        ]
+      },
+      {
+        "disease_id": "MONDO_0021637",
+        "rank": 8,
+        "hits_at_5": 0,
+        "reciprocal_rank": 0.125,
+        "ranking": [
+          {
+            "candidate_id": "CHEMBL3301612",
+            "score": 0.72803559,
+            "observed_associations": 3,
+            "rank": 1
+          },
+          {
+            "candidate_id": "CHEMBL34259",
+            "score": 0.71486553,
+            "observed_associations": 3,
+            "rank": 2
+          },
+          {
+            "candidate_id": "CHEMBL3686884",
+            "score": 0.64918048,
+            "observed_associations": 4,
+            "rank": 3
+          },
+          {
+            "candidate_id": "CHEMBL4297522",
+            "score": 0.64918048,
+            "observed_associations": 4,
+            "rank": 4
+          },
+          {
+            "candidate_id": "CHEMBL1173655",
+            "score": 0.5272342,
+            "observed_associations": 4,
+            "rank": 5
+          },
+          {
+            "candidate_id": "CHEMBL2110732",
+            "score": 0.5272342,
+            "observed_associations": 3,
+            "rank": 6
+          },
+          {
+            "candidate_id": "CHEMBL3889654",
+            "score": 0.50231882,
+            "observed_associations": 4,
+            "rank": 7
+          },
+          {
+            "candidate_id": "CHEMBL3348923",
+            "score": 0.49784641,
+            "observed_associations": 2,
+            "rank": 8
+          },
+          {
+            "candidate_id": "CHEMBL1648",
+            "score": 0.29212292,
+            "observed_associations": 2,
+            "rank": 9
+          },
+          {
+            "candidate_id": "CHEMBL1726",
+            "score": 0.29212292,
+            "observed_associations": 2,
+            "rank": 10
+          },
+          {
+            "candidate_id": "CHEMBL2103830",
+            "score": 0.24259529,
+            "observed_associations": 4,
+            "rank": 11
+          },
+          {
+            "candidate_id": "CHEMBL476960",
+            "score": 0.059799617,
+            "observed_associations": 1,
+            "rank": 12
+          },
+          {
+            "candidate_id": "CHEMBL17860",
+            "score": 0.025870433,
+            "observed_associations": 1,
+            "rank": 13
+          },
+          {
+            "candidate_id": "CHEMBL605846",
+            "score": 0.025870433,
+            "observed_associations": 1,
+            "rank": 14
+          },
+          {
+            "candidate_id": "CHEMBL1201284",
+            "score": 0,
+            "observed_associations": 0,
+            "rank": 15
+          }
+        ]
+      }
+    ]
+  },
+  "chance": {
+    "hits_at_5": 0.3333333333333333,
+    "mrr": 0.22121526621526622
+  },
+  "total_attempts": 60,
+  "blind_output_identity_mentions": [
+    {
+      "model": "claude-opus-5-5",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "somatostatin"
+      ]
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "somatostatin"
+      ]
+    },
+    {
+      "model": "glm-5.3",
+      "disease_id": "MONDO_0005002",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "androgen"
+      ]
+    },
+    {
+      "model": "glm-5.3",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "somatostatin"
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "disease_id": "EFO_0004267",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "glucocorticoid"
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "disease_id": "MONDO_0005002",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "Androgen"
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "valid_final": true,
+      "name_or_id_mentions": [
+        "Somatostatin"
+      ]
+    }
+  ],
+  "interpretation": "Six-Disease retrospective pilot. Name masking does not mask Target/mechanism fingerprints. A paired name-visibility gap is not a pure measure of memory. Decoys are unlabelled, not known ineffective.",
+  "manual_citation_audit": "not performed",
+  "credit_cost": null,
+  "protocol_amendment": {
+    "initial_dispatched_calls": 30,
+    "interrupted_requests": 4,
+    "queued_reservations_never_dispatched": 18,
+    "prior_calls_not_in_active_runs": 10,
+    "retained_unchanged_prompt_runs": [
+      "EFO_0004267-kimi-k3-named.json",
+      "HP_0000975-glm-5.3-named.json",
+      "HP_0000975-openai-gpt-5.4-named.json",
+      "MONDO_0005002-claude-opus-5-5-named.json",
+      "MONDO_0005002-glm-5.3-named.json",
+      "MONDO_0005044-glm-5.3-blind.json",
+      "MONDO_0005044-glm-5.3-named.json",
+      "MONDO_0005044-kimi-k3-blind.json",
+      "MONDO_0005044-openai-gpt-5.4-blind.json",
+      "MONDO_0005044-openai-gpt-5.4-named.json",
+      "MONDO_0018479-claude-opus-5-5-named.json",
+      "MONDO_0018479-kimi-k3-named.json",
+      "MONDO_0018479-openai-gpt-5.4-named.json",
+      "MONDO_0021637-claude-opus-5-5-named.json",
+      "MONDO_0021637-glm-5.3-blind.json",
+      "MONDO_0021637-glm-5.3-named.json",
+      "MONDO_0021637-kimi-k3-blind.json",
+      "MONDO_0021637-kimi-k3-named.json",
+      "MONDO_0021637-openai-gpt-5.4-blind.json",
+      "MONDO_0021637-openai-gpt-5.4-named.json"
+    ],
+    "excluded_runs": [
+      {
+        "file": "EFO_0004267-claude-opus-5-5-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": null,
+        "output_tokens": null,
+        "latency_ms": 34811,
+        "receipt_status": "failed"
+      },
+      {
+        "file": "EFO_0004267-claude-opus-5-5-named.json",
+        "reason": "interrupted request",
+        "input_tokens": null,
+        "output_tokens": null,
+        "latency_ms": 6864,
+        "receipt_status": "failed"
+      },
+      {
+        "file": "EFO_0004267-glm-5.3-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 4580,
+        "output_tokens": 2619,
+        "latency_ms": 14296,
+        "receipt_status": "valid"
+      },
+      {
+        "file": "EFO_0004267-kimi-k3-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 4672,
+        "output_tokens": 3809,
+        "latency_ms": 15566,
+        "receipt_status": "valid"
+      },
+      {
+        "file": "HP_0000975-kimi-k3-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 8103,
+        "output_tokens": 3592,
+        "latency_ms": 16442,
+        "receipt_status": "valid"
+      },
+      {
+        "file": "MONDO_0005002-claude-opus-5-5-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 19317,
+        "output_tokens": 767,
+        "latency_ms": 11667,
+        "receipt_status": "invalid"
+      },
+      {
+        "file": "MONDO_0005002-kimi-k3-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 13331,
+        "output_tokens": 4449,
+        "latency_ms": 23724,
+        "receipt_status": "valid"
+      },
+      {
+        "file": "MONDO_0005002-openai-gpt-5.4-named.json",
+        "reason": "interrupted request",
+        "input_tokens": null,
+        "output_tokens": null,
+        "latency_ms": 4394,
+        "receipt_status": "failed"
+      },
+      {
+        "file": "MONDO_0005044-kimi-k3-named.json",
+        "reason": "interrupted request",
+        "input_tokens": null,
+        "output_tokens": null,
+        "latency_ms": 17073,
+        "receipt_status": "failed"
+      },
+      {
+        "file": "MONDO_0018479-kimi-k3-blind.json",
+        "reason": "changed blind prompt",
+        "input_tokens": 3836,
+        "output_tokens": 3910,
+        "latency_ms": 22750,
+        "receipt_status": "valid"
+      }
+    ],
+    "blinding_change": "Replace drug-synonym overlaps in mechanism descriptions with source Target symbols joined by ChEMBL Target ID and the recorded action type. No change to structured Targets or evidence values.",
+    "validation_change": "Uniform source-grounded MAP2K family-root and FGFR1-3 range handling; retain exact cited measurement checks.",
+    "budget": "At most 60 live calls including all 30 initial calls. Eighteen queued reservations were never dispatched and are not live calls; all four interrupted workers are charged.",
+    "initial_preregistration": "superseded-masking/preregistered.json"
+  },
+  "active_attempts": 50,
+  "leakage_review": {
+    "summary": "One named Kimi rationale introduced an ACTH disease-mechanism claim absent from every supplied statement; the true drug ranked 1 named and 8 blind. This is an outside-knowledge finding, not a source-backed scientific conclusion. The explicit approved-use screen found 0 matching rationales among 690 valid-final rationales; this does not exclude implicit memorization. Seven blind-output alias flags were inspected: all used androgen, somatostatin or glucocorticoid in Target/mechanism descriptions, without identifying a compound. These generic source-synonym overlaps are not affirmative drug identifications. No blind prompt contained a recorded panel drug identity or ChEMBL ID. Unknown synonyms and preserved Target/mechanism fingerprints remain risks. The Opus blind CAH and COPD jobs have no usable reply; both juries are therefore complete on only four blind panels. Their overall gaps include this reliability difference; both-valid subset gaps are reported separately.",
+    "valid_final_rationales_screened": 690,
+    "explicit_panel_disease_approved_use_rationales": [],
+    "outside_knowledge_claims": [
+      {
+        "model": "kimi-k3",
+        "condition": "named",
+        "disease_id": "MONDO_0018479",
+        "label": "C5",
+        "rank": 1,
+        "text": "CRHR1 antagonism directly targets the ACTH drive central to congenital adrenal hyperplasia, with a target association and FDA approval recorded.",
+        "citations": [
+          "E30",
+          "E31",
+          "E32"
+        ]
+      }
+    ],
+    "blind_alias_flags_manual_classification": "All seven flags are biological Target descriptions; no explicit compound identification in those matched sentences.",
+    "manual_independent_citation_audit": "pending; audit_sample.csv contains 30 cited sentences, 8/8/7/7 by model and balanced by condition as closely as possible. Review-level citations are candidates for entailment audit, not proof of support.",
+    "scope": "Human inspection of heuristic flags and outside-knowledge wording; no exhaustive guarantee."
+  }
+}

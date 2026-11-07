@@ -1,0 +1,34 @@
+{
+  "provenance": {
+    "checked_on": "2026-10-25",
+    "source": "FDA archived 2022 approved labels, sections 1.2 / 1.7, and signed approval letters; whitespace and PDF line-break hyphens normalized.",
+    "releases": [
+      "fda-2022-05-10",
+      "fda-2022-12-21"
+    ]
+  },
+  "records": [
+    {
+      "drug_id": "CHEMBL2105759",
+      "disease_id": "MONDO_0100096",
+      "regulator": "FDA",
+      "approval_date": "2022-05-10",
+      "application_number": "NDA 207924/S-006",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/207924s006lbl.pdf",
+      "approval_url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/207924Orig1s006ltr.pdf",
+      "checked_on": "2026-10-25",
+      "label_text": "OLUMIANT is indicated for the treatment of coronavirus disease 2019 (COVID-19) in hospitalized adults requiring supplemental oxygen, non-invasive or invasive mechanical ventilation, or extracorporeal membrane oxygenation (ECMO)."
+    },
+    {
+      "drug_id": "CHEMBL1237022",
+      "disease_id": "MONDO_0100096",
+      "regulator": "FDA",
+      "approval_date": "2022-12-21",
+      "application_number": "BLA 125276/S-138",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/125276s138lbl.pdf",
+      "approval_url": "https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2022/125276Orig1s138ltr.pdf",
+      "checked_on": "2026-10-25",
+      "label_text": "ACTEMRA\u00ae (tocilizumab) is indicated for the treatment of coronavirus disease 2019 (COVID-19) in hospitalized adult patients who are receiving systemic corticosteroids and require supplemental oxygen, non-invasive or invasive mechanical ventilation, or extracorporeal membrane oxygenation (ECMO)."
+    }
+  ]
+}

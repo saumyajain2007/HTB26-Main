@@ -1,0 +1,7 @@
+.marker {
+  flex: none;
+  overflow: visible;
+  fill: var(--color-paper);
+  stroke: var(--color-ink);
+  stroke-width: 1.3;
+}

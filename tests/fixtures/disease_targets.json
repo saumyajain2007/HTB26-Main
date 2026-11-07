@@ -1,0 +1,52 @@
+{
+  "requested_id": "EFO_0001378",
+  "disease_id": "MONDO_0009693",
+  "disease_name": "plasma cell myeloma",
+  "release": "opentargets-26.09",
+  "rule": {
+    "score": "evidence_only",
+    "top_n": 50,
+    "excluded_datasources": [
+      "clinical_precedence",
+      "cancer_biomarkers"
+    ]
+  },
+  "targets": [
+    {
+      "rank": 1,
+      "target_id": "ENSG00000068078",
+      "name": "FGFR3",
+      "evidence_only_score": 0.9
+    },
+    {
+      "rank": 2,
+      "target_id": "ENSG00000162434",
+      "name": "JAK1",
+      "evidence_only_score": 0.8
+    },
+    {
+      "rank": 3,
+      "target_id": "ENSG00000096968",
+      "name": "JAK2",
+      "evidence_only_score": 0.7
+    },
+    {
+      "rank": 4,
+      "target_id": "ENSG00000171791",
+      "name": "BCL2",
+      "evidence_only_score": 0.6
+    },
+    {
+      "rank": 5,
+      "target_id": "ENSG00000141510",
+      "name": "TP53",
+      "evidence_only_score": 0.5
+    },
+    {
+      "rank": 6,
+      "target_id": "ENSG00000110092",
+      "name": "CCND1",
+      "evidence_only_score": 0.4
+    }
+  ]
+}

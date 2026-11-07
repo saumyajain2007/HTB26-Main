@@ -1,0 +1,355 @@
+[
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:47:29.276307+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL3544914&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "POSITIVE MODULATOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 5167,
+          "mechanism_comment": "CF-drug in development for people with one or two copies of the F508del mutation. A CFTR corrector that modulates the folding and trafficking of CFTR protein. In Ph3 in combination with CFTR potentiator Ivacaftor.\r\nIndication: Cystic Fibrosis, COPD",
+          "mechanism_of_action": "Cystic fibrosis transmembrane conductance regulator positive modulator",
+          "mechanism_refs": [
+            {
+              "ref_id": "24392786",
+              "ref_type": "PubMed",
+              "ref_url": "http://europepmc.org/abstract/MED/24392786"
+            },
+            {
+              "ref_id": "25083129",
+              "ref_type": "PubMed",
+              "ref_url": "http://europepmc.org/abstract/MED/25083129"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL3544914",
+          "parent_molecule_chembl_id": "CHEMBL3544914",
+          "record_id": 2472677,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL4051",
+          "variant_sequence": {
+            "accession": "P13569",
+            "isoform": 1,
+            "mutation": "F508del",
+            "organism": "Homo sapiens",
+            "sequence": "MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLINALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHPAIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVALLMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEAMEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAVTRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRKTSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISFCSQFSWIMPGTIKENIIGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL",
+            "tax_id": 9606,
+            "version": 3
+          }
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 1
+      }
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:47:28.302161+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL2010601&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "POSITIVE MODULATOR",
+          "binding_site_comment": "Mode of action is potentiator, so likely allosteric",
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 965,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Cystic fibrosis transmembrane conductance regulator positive modulator",
+          "mechanism_refs": [
+            {
+              "ref_id": "setid=0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25#nlm34090-1",
+              "ref_type": "DailyMed",
+              "ref_url": "http://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25#nlm34090-1"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL2010601",
+          "parent_molecule_chembl_id": "CHEMBL2010601",
+          "record_id": 1583659,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL4051",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "ACTIVATOR",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 9954,
+          "mechanism_comment": null,
+          "mechanism_of_action": "Cystic fibrosis transmembrane conductance regulator activator",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2024/218730s000lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/218730s000lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL4297603",
+          "parent_molecule_chembl_id": "CHEMBL2010601",
+          "record_id": 3133199,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL4051",
+          "variant_sequence": {
+            "accession": "P13569",
+            "isoform": 1,
+            "mutation": "F508del",
+            "organism": "Homo sapiens",
+            "sequence": "MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLINALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHPAIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVALLMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEAMEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAVTRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRKTSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISFCSQFSWIMPGTIKENIIGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL",
+            "tax_id": 9606,
+            "version": 3
+          }
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 2
+      }
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:46:44.439895+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL2010601.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL2010601",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL2010601",
+        "molecule_chembl_id": "CHEMBL2010601",
+        "parent_chembl_id": "CHEMBL2010601"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "CC(C)(C)c1cc(C(C)(C)C)c(NC(=O)c2c[nH]c3ccccc3c2=O)cc1O",
+        "molfile": "\n     RDKit          2D\n\n 29 31  0  0  0  0  0  0  0  0999 V2000\n   -5.9002    0.2357    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.9002   -0.5893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1857   -1.0018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4712   -0.5893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.4712    0.2357    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.1857    0.6482    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7568    0.6482    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7568   -1.0018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0423   -0.5893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.0423    0.2357    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.7568   -1.8268    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3278   -1.0018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.6134   -0.5892    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.3278   -1.8268    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8989   -1.0017    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8989   -1.8267    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1844   -2.2392    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5301   -1.8268    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.5301   -1.0018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1844   -0.5892    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1844    0.2358    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.8989    0.6483    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    0.6774    0.4126    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1844    1.0608    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1844   -3.0642    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    1.2446   -2.2393    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.9590   -2.6518    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.6571   -1.5248    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    1.1267   -3.0126    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  1  0\n  1  6  2  0\n  2  3  2  0\n  3  4  1  0\n  5  6  1  0\n  4  8  1  0\n  4  5  2  0\n  7  5  1  0\n  7 10  1  0\n  8  9  1  0\n  9 10  2  0\n  8 11  2  0\n  9 12  1  0\n 12 13  1  0\n 12 14  2  0\n 13 15  1  0\n 15 16  1  0\n 15 20  2  0\n 16 17  2  0\n 17 18  1  0\n 18 19  2  0\n 19 20  1  0\n 20 21  1  0\n 21 22  1  0\n 21 23  1  0\n 21 24  1  0\n 17 25  1  0\n 18 26  1  0\n 26 27  1  0\n 26 28  1  0\n 26 29  1  0\nM  END\n> <chembl_id>\nCHEMBL2010601\n\n> <chembl_pref_name>\nIVACAFTOR",
+        "standard_inchi": "InChI=1S/C24H28N2O3/c1-23(2,3)16-11-17(24(4,5)6)20(27)12-19(16)26-22(29)15-13-25-18-10-8-7-9-14(18)21(15)28/h7-13,27H,1-6H3,(H,25,28)(H,26,29)",
+        "standard_inchi_key": "PURKAOJPTOLRMP-UHFFFAOYSA-N"
+      },
+      "pref_name": "IVACAFTOR"
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:47:30.266411+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL1842.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL1842",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P20138"
+        }
+      ]
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:46:44.745268+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL1201506.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL1201506",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1201506",
+        "molecule_chembl_id": "CHEMBL1201506",
+        "parent_chembl_id": "CHEMBL1201506"
+      },
+      "molecule_structures": null,
+      "pref_name": "GEMTUZUMAB OZOGAMICIN"
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:47:30.172732+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/mechanism.json?parent_molecule_chembl_id=CHEMBL1201506&limit=100",
+      null
+    ],
+    "response": {
+      "mechanisms": [
+        {
+          "action_type": "BINDING AGENT",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 233,
+          "mechanism_comment": "targets ozogamicin to cell",
+          "mechanism_of_action": "Myeloid cell surface antigen CD33 binding agent",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2006/021174s020lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2006/021174s020lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL1201506",
+          "parent_molecule_chembl_id": "CHEMBL1201506",
+          "record_id": 1697242,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL1842",
+          "variant_sequence": null
+        },
+        {
+          "action_type": "DISRUPTING AGENT",
+          "binding_site_comment": null,
+          "direct_interaction": 1,
+          "disease_efficacy": 1,
+          "max_phase": 4,
+          "mec_id": 1843,
+          "mechanism_comment": "intercalates DNA and causes double strand breakage",
+          "mechanism_of_action": "DNA disrupting agent",
+          "mechanism_refs": [
+            {
+              "ref_id": "label/2006/021174s020lbl.pdf",
+              "ref_type": "FDA",
+              "ref_url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2006/021174s020lbl.pdf"
+            }
+          ],
+          "molecular_mechanism": 1,
+          "molecule_chembl_id": "CHEMBL1201506",
+          "parent_molecule_chembl_id": "CHEMBL1201506",
+          "record_id": 1697242,
+          "selectivity_comment": null,
+          "site_id": null,
+          "target_chembl_id": "CHEMBL2311221",
+          "variant_sequence": null
+        }
+      ],
+      "page_meta": {
+        "limit": 100,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total_count": 2
+      }
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:46:44.618168+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/molecule/CHEMBL3544914.json",
+      null
+    ],
+    "response": {
+      "molecule_chembl_id": "CHEMBL3544914",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3544914",
+        "molecule_chembl_id": "CHEMBL3544914",
+        "parent_chembl_id": "CHEMBL3544914"
+      },
+      "molecule_structures": {
+        "canonical_smiles": "CC(C)(CO)c1cc2cc(NC(=O)C3(c4ccc5c(c4)OC(F)(F)O5)CC3)c(F)cc2n1C[C@@H](O)CO",
+        "molfile": "\n     RDKit          2D\n\n 37 41  0  0  0  0  0  0  0  0999 V2000\n   -7.5625   13.1018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.2770   12.6893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -8.2770   11.8643    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -7.5625   11.4518    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.8480   11.8643    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.8480   12.6893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -9.0616   11.6093    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -9.5465   12.2768    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -9.0616   12.9442    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  -10.2610   12.6893    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0\n  -10.1299   11.6934    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.1335   13.1018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.4191   12.6893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -6.5461   13.8162    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.7211   13.8162    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -4.7046   13.1018    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -5.4191   11.8643    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.9901   12.6893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.9901   11.8643    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2756   11.4518    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5612   11.8643    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5612   12.6893    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2756   13.1018    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.2756   13.9268    0.0000 F   0  0  0  0  0  0  0  0  0  0  0  0\n   -3.1041   10.6449    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.2836   10.5586    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.9481   11.3123    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8711    9.8442    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.0461    9.8442    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.6336   10.5586    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n   -2.5856    9.4317    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.8711    9.0192    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.1411   11.4838    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.9276   12.2807    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -0.1307   12.4942    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   -1.5110   12.8640    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    0.0828   13.2911    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0\n  1  6  1  0\n  3  4  2  0\n  4  5  1  0\n  5  6  2  0\n  3  7  1  0\n  2  3  1  0\n  2  9  1  0\n  7  8  1  0\n  8  9  1  0\n  8 10  1  0\n  8 11  1  0\n  6 12  1  0\n 12 13  1  0\n 14 12  1  0\n 12 15  1  0\n 15 14  1  0\n 13 16  1  0\n 13 17  2  0\n 16 18  1  0\n 18 19  2  0\n 18 23  1  0\n 19 20  1  0\n 21 22  1  0\n 22 23  2  0\n 23 24  1  0\n 20 25  1  0\n 20 21  2  0\n 21 27  1  0\n 25 26  2  0\n 26 27  1  0\n 26 28  1  0\n 28 29  1  0\n 29 30  1  0\n 28 31  1  0\n 28 32  1  0\n 27 33  1  0\n 33 34  1  0\n 34 35  1  0\n 34 36  1  1\n 35 37  1  0\nM  END\n> <chembl_id>\nCHEMBL3544914\n\n> <chembl_pref_name>\nTEZACAFTOR",
+        "standard_inchi": "InChI=1S/C26H27F3N2O6/c1-24(2,13-33)22-8-14-7-18(17(27)10-19(14)31(22)11-16(34)12-32)30-23(35)25(5-6-25)15-3-4-20-21(9-15)37-26(28,29)36-20/h3-4,7-10,16,32-34H,5-6,11-13H2,1-2H3,(H,30,35)/t16-/m1/s1",
+        "standard_inchi_key": "MJUVRTYWUMPBTR-MRXNPFEDSA-N"
+      },
+      "pref_name": "TEZACAFTOR"
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "chembl-37",
+    "retrieved_at": "2026-10-24T19:47:28.423075+00:00",
+    "request": [
+      "GET",
+      "https://www.ebi.ac.uk/chembl/api/data/target/CHEMBL4051.json",
+      null
+    ],
+    "response": {
+      "target_chembl_id": "CHEMBL4051",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P13569"
+        }
+      ]
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:47:29.862707+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/MJUVRTYWUMPBTR-MRXNPFEDSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          46199646
+        ]
+      }
+    },
+    "sample": "QA regression source projection; see README.md"
+  },
+  {
+    "release": "pubchem-2026-10-24",
+    "retrieved_at": "2026-10-24T19:47:29.159400+00:00",
+    "request": [
+      "GET",
+      "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/inchikey/PURKAOJPTOLRMP-UHFFFAOYSA-N/cids/JSON",
+      null
+    ],
+    "response": {
+      "IdentifierList": {
+        "CID": [
+          16220172
+        ]
+      }
+    },
+    "sample": "QA regression source projection; see README.md"
+  }
+]

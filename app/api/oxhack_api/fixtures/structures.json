@@ -1,0 +1,144 @@
+{
+  "structures": [
+    {
+      "id": "6WTO_A",
+      "pdb_id": "6WTO",
+      "chain": "A",
+      "target_id": "ENSG00000096968",
+      "target_symbol": "JAK2",
+      "title": "Human JAK2 JH1 domain in complex with Baricitinib",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.74,
+      "ligand": {
+        "comp_id": "3JW",
+        "name": "baricitinib",
+        "candidate_id": "CHEMBL2105759"
+      },
+      "box": {
+        "center": [
+          -20.7,
+          -13.864,
+          8.115
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": 0.74,
+        "status": "passed",
+        "success_threshold": 2.0,
+        "job_id": "6f1d2c1e-0a4b-4c55-9d0e-5b7a3c9e0001",
+        "fixture": true
+      }
+    },
+    {
+      "id": "6WTN_A",
+      "pdb_id": "6WTN",
+      "chain": "A",
+      "target_id": "ENSG00000096968",
+      "target_symbol": "JAK2",
+      "title": "Human JAK2 JH1 domain in complex with Ruxolitinib",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.83,
+      "ligand": {
+        "comp_id": "RXT",
+        "name": "ruxolitinib",
+        "candidate_id": "CHEMBL1789941"
+      },
+      "box": {
+        "center": [
+          20.837,
+          13.28,
+          9.233
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    },
+    {
+      "id": "6O0K_A",
+      "pdb_id": "6O0K",
+      "chain": "A",
+      "target_id": "ENSG00000171791",
+      "target_symbol": "BCL2",
+      "title": "crystal structure of BCL-2 with venetoclax",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.62,
+      "ligand": {
+        "comp_id": "LBM",
+        "name": "venetoclax",
+        "candidate_id": "CHEMBL3137309"
+      },
+      "box": {
+        "center": [
+          -15.357,
+          2.24,
+          -9.562
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    },
+    {
+      "id": "7BQU_A",
+      "pdb_id": "7BQU",
+      "chain": "A",
+      "target_id": "ENSG00000113851",
+      "target_symbol": "CRBN",
+      "title": "Cereblon in complex with SALL4 and (S)-thalidomide",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.9,
+      "ligand": {
+        "comp_id": "EF2",
+        "name": "(S)-thalidomide",
+        "candidate_id": "CHEMBL426123"
+      },
+      "box": {
+        "center": [
+          25.158,
+          17.655,
+          13.36
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    }
+  ]
+}

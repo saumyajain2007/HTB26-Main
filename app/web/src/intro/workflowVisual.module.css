@@ -1,0 +1,161 @@
+/*
+ * The Workflow map's per-step mini diagrams (Jessica's round-three drawings) in the app's
+ * ink-on-paper style: thin grey rules, black ink, and the role colours only where they mean
+ * something (drug blue, disease orange, route green).
+ */
+
+.visual {
+  display: block;
+  width: 100%;
+  height: clamp(88px, 7vw, 106px);
+  margin: var(--space-8) 0 var(--space-12);
+  overflow: visible;
+}
+
+.visual text {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: var(--weight-regular);
+  fill: var(--color-grey-1);
+}
+
+.visual .caption {
+  font-size: 11px;
+  fill: var(--color-grey-2);
+}
+
+.visual .accent {
+  font-weight: var(--weight-semibold);
+  fill: var(--color-route);
+}
+
+.visual .eid {
+  font-size: 16px;
+  font-weight: var(--weight-bold);
+  fill: var(--color-route);
+}
+
+.edges {
+  fill: none;
+  stroke: var(--color-edge);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.path {
+  fill: none;
+  stroke: var(--color-route);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.protein {
+  fill: var(--color-route);
+}
+
+.target {
+  fill: var(--color-drug);
+}
+
+.disease {
+  fill: var(--color-disease);
+}
+
+.proteinMuted {
+  fill: var(--color-paper);
+  stroke: var(--color-node);
+  stroke-width: 1;
+}
+
+.slot {
+  fill: var(--color-route);
+}
+
+.slotDirect {
+  fill: var(--color-disease);
+}
+
+.paper,
+.rank,
+.model {
+  fill: var(--color-paper);
+  stroke: var(--color-edge);
+  stroke-width: 1;
+}
+
+.model {
+  stroke: var(--color-grey-2);
+}
+
+.database,
+.databaseTop {
+  fill: var(--color-paper);
+  stroke: var(--color-ink);
+  stroke-width: 1;
+}
+
+.databaseBand {
+  fill: none;
+  stroke: var(--color-route);
+  stroke-width: 1.5;
+}
+
+.pocket {
+  fill: var(--color-backbone);
+  fill-opacity: 0.35;
+  stroke: var(--color-drug);
+  stroke-width: 1;
+}
+
+.ligand {
+  fill: none;
+  stroke: var(--color-ink);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.ligandNode {
+  fill: var(--color-ink);
+}
+
+/* Pulses run only on the active step, and hold still while the map is paused. */
+
+[data-active="true"] .microPulse {
+  animation: cue 1600ms ease-in-out infinite;
+}
+
+[data-active="true"] .pulse1 {
+  animation-delay: 150ms;
+}
+
+[data-active="true"] .pulse2 {
+  animation-delay: 300ms;
+}
+
+[data-active="true"] .pulse3 {
+  animation-delay: 450ms;
+}
+
+[data-playing="false"] .microPulse {
+  animation-play-state: paused;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  45% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .microPulse {
+    animation: none !important;
+  }
+}

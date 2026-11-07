@@ -1,0 +1,173 @@
+/* The pose viewer: the view takes the panel's whole height, its controls and key in a quiet bar
+   along its top edge, just inside the rule. On phones the bar sits above the view. */
+.viewer {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.toolbar {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-24);
+  align-items: center;
+  padding: var(--space-4) var(--space-12);
+  border-bottom: 1px solid var(--color-rule);
+  background: color-mix(in srgb, var(--color-paper) 88%, transparent);
+}
+
+.toggle {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* A check box drawn in ink: filled with a paper inset when on. */
+.box {
+  position: relative;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 1px;
+}
+
+.toggle[aria-pressed="true"] .box::after {
+  position: absolute;
+  inset: 2px;
+  background: var(--color-ink);
+  content: "";
+}
+
+/* The crystal position's toggle is also its key: its box is in the redock colour. */
+.toggle[data-swatch="overlay"] .box {
+  border-color: var(--color-redock);
+}
+
+.toggle[data-swatch="overlay"][aria-pressed="true"] .box::after {
+  background: var(--color-redock);
+}
+
+.toggle:hover .box {
+  background: var(--color-hover);
+}
+
+.reset {
+  height: 32px;
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+}
+
+.reset:hover {
+  background: var(--color-hover);
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.plate {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.plate:active {
+  cursor: grabbing;
+}
+
+/* 3Dmol draws into this layer, which it sizes from its box. */
+.layer {
+  position: absolute;
+  inset: 0;
+}
+
+.note {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-24);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-2);
+  text-align: center;
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The key, at the row's far end. The crystal position needs none: its toggle is its key. */
+.legend {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-24);
+  margin-left: auto;
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.legend li {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.swatch {
+  flex: none;
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+  outline: 1px solid var(--color-ink);
+}
+
+.swatch[data-key="protein"] {
+  background: var(--color-backbone);
+}
+
+.swatch[data-key="drug"] {
+  background: var(--color-ink);
+}
+
+@media (max-width: 720px) {
+  .toolbar {
+    position: static;
+    gap: var(--space-8) var(--space-24);
+    margin-bottom: var(--space-12);
+    padding: 0;
+    border-bottom: 0;
+    background: none;
+  }
+}

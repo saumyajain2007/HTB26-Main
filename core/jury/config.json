@@ -1,0 +1,8 @@
+{
+  "models": ["mock-family-a", "mock-family-b", "mock-family-c"],
+  "reasoning_effort": {},
+  "prompt_version": "jury-v7",
+  "temperature": 0,
+  "max_attempts": 2,
+  "shuffle_seed": 7
+}

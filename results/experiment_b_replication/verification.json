@@ -1,0 +1,262 @@
+{
+  "integrity": {
+    "status": "passed",
+    "all_frozen_bytes_verified": true,
+    "all_prompt_and_retry_hashes_verified": true,
+    "all_ballots_revalidated": true,
+    "all_ranks_recomputed": true,
+    "primary_and_secondary_statistics_reproduced": true,
+    "attempts": 53,
+    "attempt_statuses": {
+      "valid": 36,
+      "invalid": 17
+    },
+    "panels": 14,
+    "areas": 11,
+    "first_dispatch": "2026-10-25T02:08:56.118049+00:00",
+    "protocol_sha256": "b6659a69f5e3474fc71b748e8f748e57fb9c598ca1824c80b182065f63b2b65a"
+  },
+  "independent_statistics": {
+    "status": "passed",
+    "exact_rational_binomial": true,
+    "streaming_unsorted_mrr_null": true,
+    "independent_holm": true,
+    "primary_n": 14,
+    "secondary_n": 25
+  },
+  "true_drug_regulator_labels": [
+    {
+      "disease_id": "EFO_0803536",
+      "true_drug_id": "CHEMBL635",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0007915",
+      "true_drug_id": "CHEMBL131",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005252",
+      "true_drug_id": "CHEMBL1393",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed",
+        "EMA Human Drugs"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005393",
+      "true_drug_id": "CHEMBL1078685",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "PMDA"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005133",
+      "true_drug_id": "CHEMBL717",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005041",
+      "true_drug_id": "CHEMBL20",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0011786",
+      "true_drug_id": "CHEMBL131",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005147",
+      "true_drug_id": "CHEMBL1743078",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "EMA Human Drugs",
+        "FDA"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005086",
+      "true_drug_id": "CHEMBL4585668",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "EMA Human Drugs",
+        "FDA"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005109",
+      "true_drug_id": "CHEMBL1201567",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "PMDA"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0015924",
+      "true_drug_id": "CHEMBL192",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed",
+        "PMDA"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0005277",
+      "true_drug_id": "CHEMBL1510",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0011438",
+      "true_drug_id": "CHEMBL3590187",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "EMA Human Drugs"
+      ]
+    },
+    {
+      "disease_id": "MONDO_0006624",
+      "true_drug_id": "CHEMBL1734",
+      "exact_pair_regulator_label": true,
+      "human_mechanism": true,
+      "sources": [
+        "DailyMed",
+        "PMDA"
+      ]
+    }
+  ],
+  "offline_tests": {
+    "command": ".venv/bin/python -m pytest -q",
+    "passed": 386,
+    "failed": 0,
+    "network_deselected": 6,
+    "log": "data/experiment_b_replication/tests-final.log"
+  },
+  "frozen_pipeline_source_comparison": {
+    "jury/client.py": {
+      "expected": "7c70386783221387a44ab33448bac17eb83cae1a7b7ae141098f80d418aed923",
+      "actual": "7c70386783221387a44ab33448bac17eb83cae1a7b7ae141098f80d418aed923",
+      "unchanged": true
+    },
+    "pipeline/packets.py": {
+      "expected": "82208a32b7d407a632dd66415c2fbb8abea0f60e7bff6fe66d444895dbb4cea7",
+      "actual": "82208a32b7d407a632dd66415c2fbb8abea0f60e7bff6fe66d444895dbb4cea7",
+      "unchanged": true
+    },
+    "pipeline/pathways.py": {
+      "expected": "11a7ddc9b124abac2ffa4866b30f1a0f14b3aae82b8293ff20cd6a3861bc020c",
+      "actual": "11a7ddc9b124abac2ffa4866b30f1a0f14b3aae82b8293ff20cd6a3861bc020c",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/__init__.py": {
+      "expected": "76dffeb04dc7ae0cf205693de319772ac52711c8a3acf36fe45f4fd1bbbe76ee",
+      "actual": "76dffeb04dc7ae0cf205693de319772ac52711c8a3acf36fe45f4fd1bbbe76ee",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/__main__.py": {
+      "expected": "544b83b1c914e72fa5773ca0e865ee4a90a30932e388405bfb11a381f5b15551",
+      "actual": "544b83b1c914e72fa5773ca0e865ee4a90a30932e388405bfb11a381f5b15551",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/artifacts.py": {
+      "expected": "8e1f9b0ba8916145426f5c9220970c5789dc6bad25fc285ec5f17299bd7775f5",
+      "actual": "8e1f9b0ba8916145426f5c9220970c5789dc6bad25fc285ec5f17299bd7775f5",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/cohort.py": {
+      "expected": "67ac1e799b2da54c7b9bcf6357951cfe591b19cadb243884d952ad9c6c917133",
+      "actual": "67ac1e799b2da54c7b9bcf6357951cfe591b19cadb243884d952ad9c6c917133",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/cohort_report.py": {
+      "expected": "27bbac320d8130f88c72f17dfdb252268a571ca21ead113937cbe0aeb0e78457",
+      "actual": "27bbac320d8130f88c72f17dfdb252268a571ca21ead113937cbe0aeb0e78457",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/data.py": {
+      "expected": "5f38b29e5a6de52453e3244aa18d46a36c1af7be4e64566cc3d76ff3de1b7c63",
+      "actual": "5f38b29e5a6de52453e3244aa18d46a36c1af7be4e64566cc3d76ff3de1b7c63",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/evaluation.py": {
+      "expected": "378b436fcdc4cec3a447aace0002864b41f8cf8ca1922d103c07d8b1eebb3fc1",
+      "actual": "378b436fcdc4cec3a447aace0002864b41f8cf8ca1922d103c07d8b1eebb3fc1",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/evaluation_io.py": {
+      "expected": "e543caa6341cc72640ed1809044b70d4d127e4babcc0102b9f3bdec69d65cca1",
+      "actual": "e543caa6341cc72640ed1809044b70d4d127e4babcc0102b9f3bdec69d65cca1",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/integration.py": {
+      "expected": "bbb3a1b1fc9eb4d0089cb20caff5ff9693d28cabe30d868097f836cdf3cbe4c8",
+      "actual": "bbb3a1b1fc9eb4d0089cb20caff5ff9693d28cabe30d868097f836cdf3cbe4c8",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/network.py": {
+      "expected": "3912f2ca062d96aebd96397874fa2819a290378f92fcd02682548bd93c64555c",
+      "actual": "3912f2ca062d96aebd96397874fa2819a290378f92fcd02682548bd93c64555c",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/paths.py": {
+      "expected": "c4d2cad5f90f524e7b69a278757e49f6bf6f7b67b668e859e8b1cd737907abf4",
+      "actual": "c4d2cad5f90f524e7b69a278757e49f6bf6f7b67b668e859e8b1cd737907abf4",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/proximity.py": {
+      "expected": "7968c76aad768c0242434cb5fcc67eda41bac5c981e52fe615492896c0ffd8fb",
+      "actual": "7968c76aad768c0242434cb5fcc67eda41bac5c981e52fe615492896c0ffd8fb",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/references.py": {
+      "expected": "d0deb6fde9946a37a1d623ca12699146ca6873f96b58488bac2b5d54306bbacf",
+      "actual": "d0deb6fde9946a37a1d623ca12699146ca6873f96b58488bac2b5d54306bbacf",
+      "unchanged": true
+    },
+    "/Users/jessicamak/oxhack-workers/zaid-ro/ranking/scoring.py": {
+      "expected": "3ead2d135a75a1dfdb125f7b33e5ea6ef6650fb8c2005d5611722074437019e8",
+      "actual": "3ead2d135a75a1dfdb125f7b33e5ea6ef6650fb8c2005d5611722074437019e8",
+      "unchanged": true
+    }
+  },
+  "original_network_panel_reproduction": {
+    "disease_id": "MONDO_0005083",
+    "candidates": 15,
+    "all_network_fields_identical": true,
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "code_changed_after_first_model_call": false
+}

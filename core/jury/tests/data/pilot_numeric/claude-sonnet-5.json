@@ -1,0 +1,884 @@
+{
+  "source_run": "MONDO_0005148-claude-sonnet-5.json",
+  "attempt": 1,
+  "packet": {
+    "experiment_id": "ff70951e-4c2c-523f-9974-0c22d017547a",
+    "disease": {
+      "id": "MONDO_0005148",
+      "name": "type 2 diabetes mellitus"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "candidates": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL2010601",
+        "name": "IVACAFTOR",
+        "targets": [
+          {
+            "id": "ENSG00000001626",
+            "name": "CFTR",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E38",
+          "E39",
+          "E40",
+          "E41"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL5095451",
+        "name": "ETRANACOGENE DEZAPARVOVEC",
+        "targets": [
+          {
+            "id": "ENSG00000101981",
+            "name": "F9",
+            "mechanism": "EXOGENOUS PROTEIN"
+          }
+        ],
+        "evidence_ids": [
+          "E53",
+          "E54"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL3707229",
+        "name": "TEZEPELUMAB",
+        "targets": [
+          {
+            "id": "ENSG00000145777",
+            "name": "TSLP",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E50",
+          "E51",
+          "E52"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL1756",
+        "name": "ESTRAMUSTINE PHOSPHATE",
+        "targets": [
+          {
+            "id": "ENSG00000140009",
+            "name": "ESR2",
+            "mechanism": "MODULATOR"
+          }
+        ],
+        "evidence_ids": [
+          "E36",
+          "E37"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C5",
+        "candidate_id": "CHEMBL2105720",
+        "name": "LESINURAD",
+        "targets": [
+          {
+            "id": "ENSG00000197891",
+            "name": "SLC22A12",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E46",
+          "E47",
+          "E15"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C6",
+        "candidate_id": "CHEMBL1684",
+        "name": "BENDROFLUMETHIAZIDE",
+        "targets": [
+          {
+            "id": "ENSG00000070915",
+            "name": "SLC12A3",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E34",
+          "E35"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C7",
+        "candidate_id": "CHEMBL1213351",
+        "name": "PROPOXYPHENE",
+        "targets": [
+          {
+            "id": "ENSG00000112038",
+            "name": "OPRM1",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E17",
+          "E18",
+          "E19",
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24",
+          "E25",
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30",
+          "E31",
+          "E32",
+          "E33"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C8",
+        "candidate_id": "CHEMBL638",
+        "name": "VORICONAZOLE",
+        "targets": [
+          {
+            "id": "ENSG00000036530",
+            "name": "CYP46A1",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E55",
+          "E56"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL1201593",
+        "name": "ALTEPLASE",
+        "targets": [
+          {
+            "id": "ENSG00000104368",
+            "name": "PLAT",
+            "mechanism": "EXOGENOUS PROTEIN"
+          }
+        ],
+        "evidence_ids": [
+          "E8",
+          "E9"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C10",
+        "candidate_id": "CHEMBL1144",
+        "name": "PRAVASTATIN",
+        "targets": [
+          {
+            "id": "ENSG00000113161",
+            "name": "HMGCR",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C11",
+        "candidate_id": "CHEMBL1201821",
+        "name": "PALIFERMIN",
+        "targets": [
+          {
+            "id": "ENSG00000066468",
+            "name": "FGFR2",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E10",
+          "E11"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C12",
+        "candidate_id": "CHEMBL1201182",
+        "name": "TEMSIROLIMUS",
+        "targets": [
+          {
+            "id": "ENSG00000088832",
+            "name": "FKBP1A",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E4",
+          "E5"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C13",
+        "candidate_id": "CHEMBL2108286",
+        "name": "TUROCTOCOG ALFA",
+        "targets": [
+          {
+            "id": "ENSG00000185010",
+            "name": "F8",
+            "mechanism": "EXOGENOUS PROTEIN"
+          }
+        ],
+        "evidence_ids": [
+          "E48",
+          "E49"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C14",
+        "candidate_id": "CHEMBL1201549",
+        "name": "TERIPARATIDE ACETATE",
+        "targets": [
+          {
+            "id": "ENSG00000160801",
+            "name": "PTH1R",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E6",
+          "E7"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C15",
+        "candidate_id": "CHEMBL2048484",
+        "name": "CANAGLIFLOZIN ANHYDROUS",
+        "targets": [
+          {
+            "id": "ENSG00000140675",
+            "name": "SLC5A2",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E42",
+          "E43",
+          "E44",
+          "E45"
+        ],
+        "safety_status": "warnings_recorded"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1057",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1057.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PRAVASTATIN's mechanism as HMG-CoA reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E2",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1144/CHEMBL402",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1144&target_chembl_id=CHEMBL402&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.52 across 3 human HMGCR activities for PRAVASTATIN.",
+        "values": {
+          "median_pchembl": 7.52,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E3",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "00bf4e02-633e-453b-8c3c-fb8b1d829887",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00bf4e02-633e-453b-8c3c-fb8b1d829887",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E4",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "382",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/382.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TEMSIROLIMUS's mechanism as FK506-binding protein 1A inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E5",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "95b7dc92-2180-42f1-8699-3c28f609e674",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=95b7dc92-2180-42f1-8699-3c28f609e674",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E6",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "69",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/69.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TERIPARATIDE ACETATE's mechanism as Parathyroid hormone receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E7",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "4ec9940294fd1483c7a2e1704cfd90df8b5dcfb1b719a31fe6a66490b8b0b6fe",
+        "url": "https://www.pmda.go.jp/english/review-services/reviews/approved-information/drugs/0001.html",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from PMDA.",
+        "values": {}
+      },
+      {
+        "id": "E8",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "84",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/84.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ALTEPLASE's mechanism as Tissue-type plasminogen activator exogenous protein.",
+        "values": {}
+      },
+      {
+        "id": "E9",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "c669f77c-fa48-478b-a14b-80b20a0139c2",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c669f77c-fa48-478b-a14b-80b20a0139c2",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E10",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "969",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/969.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PALIFERMIN's mechanism as Fibroblast growth factor receptor 2 agonist.",
+        "values": {}
+      },
+      {
+        "id": "E11",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "426f6e64-2c20-4a61-6d65-7320426f6e64",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=426f6e64-2c20-4a61-6d65-7320426f6e64",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E12",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "715",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/715.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PROPOXYPHENE's mechanism as Mu opioid receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E13",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "719",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/719.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PROPOXYPHENE's mechanism as Mu opioid receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E14",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "09e1e32d-1874-40d7-8829-52b3a489d9fd",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=09e1e32d-1874-40d7-8829-52b3a489d9fd",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E15",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5",
+        "url": "https://platform.opentargets.org/drug/CHEMBL1213351",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for PROPOXYPHENE, LESINURAD: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E16",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "3910",
+        "url": "https://healthycanadians.gc.ca/recall-alert-rappel-avis/hc-sc/2010/16115a-eng.php",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Serious abnormal heart rhythms",
+        "values": {}
+      },
+      {
+        "id": "E17",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "3950",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Prolong the PR interval, widen the QRS complex, prolong the QT interval and therefore increase the risk of serious abnormal heart rhythms.",
+        "values": {}
+      },
+      {
+        "id": "E18",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "3951",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Prolong the PR interval, widen the QRS complex, prolong the QT interval and therefore increase the risk of serious abnormal heart rhythms.",
+        "values": {}
+      },
+      {
+        "id": "E19",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4013",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: toxicity class unspecified. Description: Risk of serious abnormal heart rhythms that have been linked to serious adverse effects including sudden death",
+        "values": {}
+      },
+      {
+        "id": "E20",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4081",
+        "url": "https://www.govinfo.gov/content/pkg/FR-2014-07-02/pdf/2014-15371.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: when propoxyphene was taken at therapeutic doses, there were significant changes to the electrical activity of the heart which can increase the risk for serious abnormal heart rhythms",
+        "values": {}
+      },
+      {
+        "id": "E21",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4216",
+        "url": "https://www.who.int/publications/i/item/WHO-EMP-QSM-2010.3",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: toxicity class unspecified. Description: Adverse drug reactions",
+        "values": {}
+      },
+      {
+        "id": "E22",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4217",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Prolong the PR interval, widen the QRS complex, prolong the QT interval and therefore increase the risk of serious abnormal heart rhythms.",
+        "values": {}
+      },
+      {
+        "id": "E23",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4218",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Prolong the PR interval, widen the QRS complex, prolong the QT interval and therefore increase the risk of serious abnormal heart rhythms.",
+        "values": {}
+      },
+      {
+        "id": "E24",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4219",
+        "url": "https://www.govinfo.gov/content/pkg/FR-2014-07-02/pdf/2014-15371.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Serious toxicity to the heart; increase the risk for serious abnormal heart rhythms.",
+        "values": {}
+      },
+      {
+        "id": "E25",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4474",
+        "url": "https://www.who.int/publications/i/item/9789240014770",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: cardiotoxicity. Description: Risk of serious abnormal heart rhythms that have been linked to serious adverse effects including sudden death",
+        "values": {}
+      },
+      {
+        "id": "E26",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4507",
+        "url": "https://www.who.int/publications/i/item/WHO-EMP-QSM-2010.3",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E27",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4650",
+        "url": "https://www.who.int/publications/i/item/WHO-EMP-QSM-2010.3",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E28",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4801",
+        "url": "https://www.ema.europa.eu/en/news/european-medicines-agency-recommends-withdrawal-dextropropoxyphene-containing-medicines",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Risk of potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E29",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4802",
+        "url": "https://www.ema.europa.eu/en/news/european-medicines-agency-recommends-withdrawal-dextropropoxyphene-containing-medicines",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Risk of potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E30",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4803",
+        "url": "https://www.who.int/publications/i/item/WHO-EMP-QSM-2010.3",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E31",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4924",
+        "url": "https://www.medsafe.govt.nz/hot/media/2010/ParadexandCapadexMarch2010.asp",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: toxicity class unspecified. Description: Deaths. More dangerous than other simple analgesics in overdose, particularly when combined with alcohol",
+        "values": {}
+      },
+      {
+        "id": "E32",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4925",
+        "url": "https://www.medsafe.govt.nz/hot/media/2010/ParadexandCapadexMarch2010.asp",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Deaths. More dangerous than other simple analgesics in overdose, particularly when combined with alcohol",
+        "values": {}
+      },
+      {
+        "id": "E33",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "4954",
+        "url": "https://www.ema.europa.eu/en/news/european-medicines-agency-recommends-withdrawal-dextropropoxyphene-containing-medicines",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Withdrawn for PROPOXYPHENE: drug misuse. Description: Risk of potentially fatal overdose",
+        "values": {}
+      },
+      {
+        "id": "E34",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "351",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/351.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records BENDROFLUMETHIAZIDE's mechanism as Thiazide-sensitive sodium-chloride cotransporter inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E35",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "3f11df27-710b-4903-a985-74ee4674a844",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3f11df27-710b-4903-a985-74ee4674a844",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E36",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "647",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/647.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ESTRAMUSTINE PHOSPHATE's mechanism as Estrogen receptor beta modulator.",
+        "values": {}
+      },
+      {
+        "id": "E37",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "a9b01bc6-95ac-46f9-befa-d845a74d53c1",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a9b01bc6-95ac-46f9-befa-d845a74d53c1",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E38",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "965",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/965.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records IVACAFTOR's mechanism as Cystic fibrosis transmembrane conductance regulator positive modulator.",
+        "values": {}
+      },
+      {
+        "id": "E39",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9954",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9954.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records IVACAFTOR's mechanism as Cystic fibrosis transmembrane conductance regulator activator.",
+        "values": {}
+      },
+      {
+        "id": "E40",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2010601/CHEMBL4051",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2010601&target_chembl_id=CHEMBL4051&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.31 across 21 human CFTR activities for IVACAFTOR.",
+        "values": {
+          "median_pchembl": 7.31,
+          "n_activities": 21
+        }
+      },
+      {
+        "id": "E41",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2018/210491lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/210491lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E42",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "939",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/939.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records CANAGLIFLOZIN ANHYDROUS's mechanism as Sodium/glucose cotransporter 2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E43",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2048484/CHEMBL3884",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2048484&target_chembl_id=CHEMBL3884&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.62 across 9 human SLC5A2 activities for CANAGLIFLOZIN ANHYDROUS.",
+        "values": {
+          "median_pchembl": 8.62,
+          "n_activities": 9
+        }
+      },
+      {
+        "id": "E44",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "6868666b-c25e-40d1-9d1f-306bbe9390c1",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6868666b-c25e-40d1-9d1f-306bbe9390c1",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E45",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2365",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5f76e16f-0c24-454a-81af-4080b312c940",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for CANAGLIFLOZIN ANHYDROUS: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E46",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2436",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2436.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records LESINURAD's mechanism as Solute carrier family 22 member 12 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E47",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2015/207988lbl.pdf",
+        "url": "http://www.accessdata.fda.gov/drugsatfda_docs/label/2015/207988lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E48",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9650",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9650.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TUROCTOCOG ALFA's mechanism as Coagulation factor VIII exogenous protein.",
+        "values": {}
+      },
+      {
+        "id": "E49",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/002719",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/novoeight",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E50",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "6432",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/6432.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TEZEPELUMAB's mechanism as Thymic stromal lymphopoietin inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E51",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "6433",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/6433.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TEZEPELUMAB's mechanism as Thymic stromal lymphopoietin inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E52",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2021/761224s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/761224s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E53",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9611",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9611.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ETRANACOGENE DEZAPARVOVEC's mechanism as Coagulation factor IX exogenous protein.",
+        "values": {}
+      },
+      {
+        "id": "E54",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/004827",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/hemgenix",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E55",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL638/CHEMBL4523510",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL638&target_chembl_id=CHEMBL4523510&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.495 across 4 human CYP46A1 activities for VORICONAZOLE.",
+        "values": {
+          "median_pchembl": 7.495,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E56",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "08d08721-1f4c-478a-8abf-d9c402d50553",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=08d08721-1f4c-478a-8abf-d9c402d50553",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      }
+    ]
+  },
+  "raw_output": "{\"reviews\":[{\"label\":\"C10\",\"rationale\":\"Mechanism and bioactivity data show potent HMGCR target engagement with regulatory approval, but no evidence ties this inhibition to type 2 diabetes benefit or harm.\",\"objection\":\"Strong general pharmacology data cannot establish disease-specific direction without diabetes-relevant evidence.\",\"rank\":1,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking HMGCR inhibition to type 2 diabetes outcomes\",\"No disease association data provided\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C8\",\"rationale\":\"Bioactivity and approval data confirm CYP46A1 engagement, yet nothing in the evidence addresses type 2 diabetes relevance.\",\"objection\":\"Robust target binding data does not substitute for disease-specific proof of benefit or harm.\",\"rank\":2,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking CYP46A1 inhibition to type 2 diabetes\",\"No disease association score\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"Mechanism and bioactivity evidence demonstrate CFTR modulation with regulatory approval, but no data connect this action to type 2 diabetes.\",\"objection\":\"Extensive CFTR activity data does not clarify whether this mechanism helps or harms glucose regulation.\",\"rank\":3,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking CFTR modulation to type 2 diabetes\",\"No disease association data\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C15\",\"rationale\":\"Strong SLC5A2 inhibition and approval data exist, but a black box warning and absence of diabetes-specific evidence temper prioritization.\",\"objection\":\"The recorded warning introduces risk that offsets the otherwise strong target engagement evidence.\",\"rank\":4,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No disease-specific evidence for SLC5A2 inhibition in type 2 diabetes\",\"Safety context beyond the recorded warning\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E45\"]}},{\"label\":\"C14\",\"rationale\":\"Mechanism and approval data describe PTH1R agonism, but no evidence addresses type 2 diabetes relevance.\",\"objection\":\"Absence of bioactivity or disease-linked data limits confidence in further prioritization.\",\"rank\":5,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"Mechanism and approval data describe F9 exogenous protein replacement, with no evidence tying it to type 2 diabetes.\",\"objection\":\"A gene-therapy replacement mechanism lacks any metabolic disease linkage in the supplied evidence.\",\"rank\":6,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C11\",\"rationale\":\"Mechanism and approval data describe FGFR2 agonism, but no evidence links this to type 2 diabetes outcomes.\",\"objection\":\"Only mechanistic and approval evidence is present, offering no insight into metabolic disease relevance.\",\"rank\":7,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C12\",\"rationale\":\"Mechanism and approval data describe FKBP1A inhibition, with no evidence connecting it to type 2 diabetes.\",\"objection\":\"The evidence is limited to mechanism and approval, leaving disease relevance unaddressed.\",\"rank\":8,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C3\",\"rationale\":\"Mechanism and approval data describe TSLP inhibition, but no evidence ties this to type 2 diabetes.\",\"objection\":\"Repeated mechanism entries do not add disease-specific information.\",\"rank\":9,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C13\",\"rationale\":\"Mechanism and approval data describe F8 exogenous protein replacement, with no evidence of type 2 diabetes relevance.\",\"objection\":\"A clotting-factor replacement mechanism has no stated link to glucose metabolism.\",\"rank\":10,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C6\",\"rationale\":\"Mechanism and approval data describe SLC12A3 inhibition, but no evidence connects it to type 2 diabetes.\",\"objection\":\"Only mechanistic and approval evidence exists, without disease-specific context.\",\"rank\":11,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"Mechanism and approval data describe PLAT exogenous protein activity, with no evidence tying it to type 2 diabetes.\",\"objection\":\"A thrombolytic replacement mechanism shows no metabolic disease relevance in the evidence.\",\"rank\":12,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C4\",\"rationale\":\"Mechanism and approval data describe ESR2 modulation, but no evidence links it to type 2 diabetes.\",\"objection\":\"The evidence offers no disease-specific context for this modulator mechanism.\",\"rank\":13,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C5\",\"rationale\":\"Mechanism and approval data describe SLC22A12 inhibition, but no diabetes-specific evidence exists and a black box warning is recorded.\",\"objection\":\"The recorded warning combined with the absence of disease-relevant data supports deprioritizing this candidate.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\",\"Further safety detail beyond the recorded warning\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\"]}},{\"label\":\"C7\",\"rationale\":\"Mechanism and approval data describe mu-opioid agonism, but no diabetes-specific evidence exists and numerous withdrawal warnings are recorded.\",\"objection\":\"Extensive cardiotoxicity and overdose warnings, together with no disease-relevant data, justify deprioritizing this candidate.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\",\"Any evidence of benefit outweighing the extensive safety concerns\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\",\"E16\",\"E17\",\"E18\",\"E19\",\"E20\",\"E21\",\"E22\",\"E23\",\"E24\",\"E25\",\"E26\",\"E27\",\"E28\",\"E29\",\"E30\",\"E31\",\"E32\",\"E33\"]}}]}",
+  "attempts": [
+    {
+      "attempt": 1,
+      "raw_output": "{\"reviews\":[{\"label\":\"C10\",\"rationale\":\"Mechanism and bioactivity data show potent HMGCR target engagement with regulatory approval, but no evidence ties this inhibition to type 2 diabetes benefit or harm.\",\"objection\":\"Strong general pharmacology data cannot establish disease-specific direction without diabetes-relevant evidence.\",\"rank\":1,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking HMGCR inhibition to type 2 diabetes outcomes\",\"No disease association data provided\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C8\",\"rationale\":\"Bioactivity and approval data confirm CYP46A1 engagement, yet nothing in the evidence addresses type 2 diabetes relevance.\",\"objection\":\"Robust target binding data does not substitute for disease-specific proof of benefit or harm.\",\"rank\":2,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking CYP46A1 inhibition to type 2 diabetes\",\"No disease association score\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"Mechanism and bioactivity evidence demonstrate CFTR modulation with regulatory approval, but no data connect this action to type 2 diabetes.\",\"objection\":\"Extensive CFTR activity data does not clarify whether this mechanism helps or harms glucose regulation.\",\"rank\":3,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"No evidence linking CFTR modulation to type 2 diabetes\",\"No disease association data\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C15\",\"rationale\":\"Strong SLC5A2 inhibition and approval data exist, but a black box warning and absence of diabetes-specific evidence temper prioritization.\",\"objection\":\"The recorded warning introduces risk that offsets the otherwise strong target engagement evidence.\",\"rank\":4,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No disease-specific evidence for SLC5A2 inhibition in type 2 diabetes\",\"Safety context beyond the recorded warning\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E45\"]}},{\"label\":\"C14\",\"rationale\":\"Mechanism and approval data describe PTH1R agonism, but no evidence addresses type 2 diabetes relevance.\",\"objection\":\"Absence of bioactivity or disease-linked data limits confidence in further prioritization.\",\"rank\":5,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"Mechanism and approval data describe F9 exogenous protein replacement, with no evidence tying it to type 2 diabetes.\",\"objection\":\"A gene-therapy replacement mechanism lacks any metabolic disease linkage in the supplied evidence.\",\"rank\":6,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C11\",\"rationale\":\"Mechanism and approval data describe FGFR2 agonism, but no evidence links this to type 2 diabetes outcomes.\",\"objection\":\"Only mechanistic and approval evidence is present, offering no insight into metabolic disease relevance.\",\"rank\":7,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C12\",\"rationale\":\"Mechanism and approval data describe FKBP1A inhibition, with no evidence connecting it to type 2 diabetes.\",\"objection\":\"The evidence is limited to mechanism and approval, leaving disease relevance unaddressed.\",\"rank\":8,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C3\",\"rationale\":\"Mechanism and approval data describe TSLP inhibition, but no evidence ties this to type 2 diabetes.\",\"objection\":\"Repeated mechanism entries do not add disease-specific information.\",\"rank\":9,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C13\",\"rationale\":\"Mechanism and approval data describe F8 exogenous protein replacement, with no evidence of type 2 diabetes relevance.\",\"objection\":\"A clotting-factor replacement mechanism has no stated link to glucose metabolism.\",\"rank\":10,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C6\",\"rationale\":\"Mechanism and approval data describe SLC12A3 inhibition, but no evidence connects it to type 2 diabetes.\",\"objection\":\"Only mechanistic and approval evidence exists, without disease-specific context.\",\"rank\":11,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"Mechanism and approval data describe PLAT exogenous protein activity, with no evidence tying it to type 2 diabetes.\",\"objection\":\"A thrombolytic replacement mechanism shows no metabolic disease relevance in the evidence.\",\"rank\":12,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C4\",\"rationale\":\"Mechanism and approval data describe ESR2 modulation, but no evidence links it to type 2 diabetes.\",\"objection\":\"The evidence offers no disease-specific context for this modulator mechanism.\",\"rank\":13,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C5\",\"rationale\":\"Mechanism and approval data describe SLC22A12 inhibition, but no diabetes-specific evidence exists and a black box warning is recorded.\",\"objection\":\"The recorded warning combined with the absence of disease-relevant data supports deprioritizing this candidate.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\",\"Further safety detail beyond the recorded warning\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\"]}},{\"label\":\"C7\",\"rationale\":\"Mechanism and approval data describe mu-opioid agonism, but no diabetes-specific evidence exists and numerous withdrawal warnings are recorded.\",\"objection\":\"Extensive cardiotoxicity and overdose warnings, together with no disease-relevant data, justify deprioritizing this candidate.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"No bioactivity data\",\"No disease association evidence\",\"Any evidence of benefit outweighing the extensive safety concerns\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\",\"E16\",\"E17\",\"E18\",\"E19\",\"E20\",\"E21\",\"E22\",\"E23\",\"E24\",\"E25\",\"E26\",\"E27\",\"E28\",\"E29\",\"E30\",\"E31\",\"E32\",\"E33\"]}}]}"
+    },
+    {
+      "attempt": 2,
+      "raw_output": "{\"reviews\":[{\"label\":\"C15\",\"rationale\":\"Mechanism and bioactivity data confirm strong engagement of the target, but no evidence links this action to type 2 diabetes mellitus.\",\"objection\":\"Potency data alone does not show that inhibiting this transporter is beneficial for T2DM.\",\"rank\":1,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E42\",\"E43\",\"E44\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E45\"]}},{\"label\":\"C10\",\"rationale\":\"Mechanism and bioactivity evidence show measurable target engagement, but nothing ties this activity to type 2 diabetes mellitus.\",\"objection\":\"Approval and potency data pertain to other indications, not to T2DM efficacy.\",\"rank\":2,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E1\",\"E2\",\"E3\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C8\",\"rationale\":\"Bioactivity and approval evidence demonstrate target engagement, but no T2DM-specific linkage is present.\",\"objection\":\"A quantified activity score does not indicate whether this action helps or harms T2DM.\",\"rank\":3,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E55\",\"E56\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"Mechanism and bioactivity evidence show clear target engagement, yet none relate to type 2 diabetes mellitus.\",\"objection\":\"Approval for another condition does not imply any effect on T2DM.\",\"rank\":4,\"decision\":\"watch\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E38\",\"E39\",\"E40\",\"E41\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C14\",\"rationale\":\"Only mechanism and approval evidence exist; no data connect this target action to type 2 diabetes mellitus.\",\"objection\":\"Regulatory approval for an unrelated indication cannot substitute for disease-specific evidence.\",\"rank\":5,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E6\",\"E7\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"Mechanism and approval evidence describe an exogenous protein replacement with no T2DM relevance stated.\",\"objection\":\"Approval data from another indication provides no insight into T2DM biology.\",\"rank\":6,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E53\",\"E54\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C11\",\"rationale\":\"Mechanism and approval evidence are present but unrelated to type 2 diabetes mellitus.\",\"objection\":\"Growth factor receptor agonism in another setting does not establish T2DM relevance.\",\"rank\":7,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E10\",\"E11\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C3\",\"rationale\":\"Mechanism and approval evidence exist but do not address type 2 diabetes mellitus.\",\"objection\":\"Inhibition of this cytokine target in another condition cannot be assumed relevant to T2DM.\",\"rank\":8,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E50\",\"E51\",\"E52\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C12\",\"rationale\":\"Only mechanism and approval evidence are available, none specific to type 2 diabetes mellitus.\",\"objection\":\"An approved use elsewhere does not demonstrate any T2DM effect.\",\"rank\":9,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E4\",\"E5\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C5\",\"rationale\":\"Mechanism and approval evidence are present, with no data tying the target to type 2 diabetes mellitus.\",\"objection\":\"A warning record does not inform on biological relevance to T2DM.\",\"rank\":10,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E46\",\"E47\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\"]}},{\"label\":\"C13\",\"rationale\":\"Mechanism and approval evidence describe a coagulation factor replacement unrelated to type 2 diabetes mellitus.\",\"objection\":\"Approval for a different condition provides no evidence of T2DM relevance.\",\"rank\":11,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E48\",\"E49\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C7\",\"rationale\":\"Mechanism and approval evidence exist, but none connect opioid receptor agonism to type 2 diabetes mellitus.\",\"objection\":\"Extensive withdrawal and misuse warnings reflect safety issues, not disease relevance.\",\"rank\":12,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E12\",\"E13\",\"E14\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E15\",\"E16\",\"E17\",\"E18\",\"E19\",\"E20\",\"E21\",\"E22\",\"E23\",\"E24\",\"E25\",\"E26\",\"E27\",\"E28\",\"E29\",\"E30\",\"E31\",\"E32\",\"E33\"]}},{\"label\":\"C6\",\"rationale\":\"Mechanism and approval evidence are present but do not address type 2 diabetes mellitus.\",\"objection\":\"Thiazide-type inhibition data for another condition does not indicate T2DM benefit or harm.\",\"rank\":13,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E34\",\"E35\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C4\",\"rationale\":\"Mechanism and approval evidence are available but unrelated to type 2 diabetes mellitus.\",\"objection\":\"Estrogen receptor modulation data from another indication offers no T2DM insight.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E36\",\"E37\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"Mechanism and approval evidence describe a plasminogen activator with no stated link to type 2 diabetes mellitus.\",\"objection\":\"Thrombolytic approval data does not translate into T2DM relevance.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target-disease association evidence for type 2 diabetes mellitus\",\"Clinical outcome data in T2DM patients\"],\"supporting_evidence_ids\":[\"E8\",\"E9\"],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}}]}"
+    }
+  ]
+}

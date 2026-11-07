@@ -1,0 +1,194 @@
+[
+  {
+    "name": "multiple sclerosis",
+    "area": "neurology"
+  },
+  {
+    "name": "systemic lupus erythematosus",
+    "area": "rheumatology"
+  },
+  {
+    "name": "heart failure",
+    "area": "cardiovascular"
+  },
+  {
+    "name": "gout",
+    "area": "rheumatology"
+  },
+  {
+    "name": "endometriosis",
+    "area": "gynaecology"
+  },
+  {
+    "name": "glaucoma",
+    "area": "ophthalmology"
+  },
+  {
+    "name": "allergic rhinitis",
+    "area": "respiratory"
+  },
+  {
+    "name": "type 1 diabetes mellitus",
+    "area": "metabolic"
+  },
+  {
+    "name": "renal cell carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "HIV infection",
+    "area": "infectious disease"
+  },
+  {
+    "name": "pulmonary arterial hypertension",
+    "area": "cardiovascular"
+  },
+  {
+    "name": "migraine",
+    "area": "neurology"
+  },
+  {
+    "name": "acne",
+    "area": "dermatology"
+  },
+  {
+    "name": "overactive bladder",
+    "area": "urology"
+  },
+  {
+    "name": "schizophrenia",
+    "area": "psychiatry"
+  },
+  {
+    "name": "major depressive disorder",
+    "area": "psychiatry"
+  },
+  {
+    "name": "bipolar disorder",
+    "area": "psychiatry"
+  },
+  {
+    "name": "ankylosing spondylitis",
+    "area": "rheumatology"
+  },
+  {
+    "name": "psoriatic arthritis",
+    "area": "rheumatology"
+  },
+  {
+    "name": "systemic sclerosis",
+    "area": "rheumatology"
+  },
+  {
+    "name": "idiopathic pulmonary fibrosis",
+    "area": "respiratory"
+  },
+  {
+    "name": "cystic fibrosis",
+    "area": "respiratory"
+  },
+  {
+    "name": "narcolepsy",
+    "area": "neurology"
+  },
+  {
+    "name": "neuropathic pain",
+    "area": "neurology"
+  },
+  {
+    "name": "gastric carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "colorectal carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "hepatocellular carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "ovarian carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "chronic myeloid leukemia",
+    "area": "oncology"
+  },
+  {
+    "name": "acute myeloid leukemia",
+    "area": "oncology"
+  },
+  {
+    "name": "chronic lymphocytic leukemia",
+    "area": "oncology"
+  },
+  {
+    "name": "melanoma",
+    "area": "oncology"
+  },
+  {
+    "name": "non-small cell lung carcinoma",
+    "area": "oncology"
+  },
+  {
+    "name": "diabetic nephropathy",
+    "area": "nephrology"
+  },
+  {
+    "name": "chronic kidney disease",
+    "area": "nephrology"
+  },
+  {
+    "name": "erectile dysfunction",
+    "area": "urology"
+  },
+  {
+    "name": "benign prostatic hyperplasia",
+    "area": "urology"
+  },
+  {
+    "name": "obesity",
+    "area": "metabolic"
+  },
+  {
+    "name": "hypothyroidism",
+    "area": "endocrinology"
+  },
+  {
+    "name": "Cushing syndrome",
+    "area": "endocrinology"
+  },
+  {
+    "name": "rosacea",
+    "area": "dermatology"
+  },
+  {
+    "name": "urticaria",
+    "area": "dermatology"
+  },
+  {
+    "name": "dry eye disease",
+    "area": "ophthalmology"
+  },
+  {
+    "name": "age-related macular degeneration",
+    "area": "ophthalmology"
+  },
+  {
+    "name": "hepatitis B",
+    "area": "infectious disease"
+  },
+  {
+    "name": "hepatitis C",
+    "area": "infectious disease"
+  },
+  {
+    "name": "tuberculosis",
+    "area": "infectious disease"
+  },
+  {
+    "name": "rheumatic polymyalgia",
+    "area": "rheumatology"
+  }
+]

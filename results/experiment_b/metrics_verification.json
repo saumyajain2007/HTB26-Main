@@ -1,0 +1,8 @@
+{
+  "all_45_verdicts_reproduced": true,
+  "independent_rank_comparisons": 66,
+  "all_66_ranks_and_aggregate_metrics_match": true,
+  "network_order_recomputed_from_z_distance_status": true,
+  "corrected_significant_methods": [],
+  "all_six_paired_jury_ranks_match": true
+}

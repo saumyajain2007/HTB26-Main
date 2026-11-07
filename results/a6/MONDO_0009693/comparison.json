@@ -1,0 +1,2234 @@
+{
+  "experiment_id": "e326e91b-8795-5045-80f0-be8f55ec623b",
+  "disease": {
+    "id": "MONDO_0009693",
+    "name": "plasma cell myeloma"
+  },
+  "universe_size": 1956,
+  "panel_size": 15,
+  "rank_scope": {
+    "network_rank": "eligible universe (scorable entries only)",
+    "direct_evidence_rank": "eligible universe; supplied top-50 Disease Targets only",
+    "panel_ranks_and_jury": "exact same frozen shortlist; missing ranks remain null"
+  },
+  "jurors": [
+    {
+      "model": "claude-opus-5-5",
+      "status": "valid",
+      "attempts": 2,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": [
+          "Attempt 1: C10: unsupported or unparseable number in objection",
+          "Attempt 1: C12: unsupported or unparseable number in rationale"
+        ]
+      }
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "status": "valid",
+      "attempts": 1,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      }
+    },
+    {
+      "model": "kimi-k3",
+      "status": "valid",
+      "attempts": 2,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      }
+    }
+  ],
+  "kendalls_w": 0.8714,
+  "jurors_counted": 3,
+  "rows": [
+    {
+      "candidate_id": "CHEMBL535",
+      "name": "SUNITINIB",
+      "label": "C11",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 1,
+      "network_z": -4.999301240523475,
+      "direct_evidence_rank": 28,
+      "network_panel_rank": 1,
+      "direct_evidence_panel_rank": 10,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 8,
+      "borda_points": 20,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.3695776079198396,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL502835",
+      "name": "NINTEDANIB",
+      "label": "C6",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 2,
+      "network_z": -4.932260663930607,
+      "direct_evidence_rank": 14,
+      "network_panel_rank": 2,
+      "direct_evidence_panel_rank": 8,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 3,
+      "borda_points": 35,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6295639782734208,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL24828",
+      "name": "VANDETANIB",
+      "label": "C3",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 3,
+      "network_z": -4.84578892527597,
+      "direct_evidence_rank": 1027,
+      "network_panel_rank": 3,
+      "direct_evidence_panel_rank": 13,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 15,
+      "borda_points": 3,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL1171837",
+      "name": "PONATINIB",
+      "label": "C2",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 4,
+      "network_z": -4.501649186341146,
+      "direct_evidence_rank": 6,
+      "network_panel_rank": 4,
+      "direct_evidence_panel_rank": 6,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 7,
+      "borda_points": 28,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6295639782734208,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4650215",
+      "name": "INAVOLISIB",
+      "label": "C10",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 5,
+      "network_z": -4.493826395829849,
+      "direct_evidence_rank": 26,
+      "network_panel_rank": 5,
+      "direct_evidence_panel_rank": 9,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 5,
+      "borda_points": 30,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.3733555123563535,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL1421",
+      "name": "DASATINIB ANHYDROUS",
+      "label": "C5",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 6,
+      "network_z": -4.373682725400358,
+      "direct_evidence_rank": 510,
+      "network_panel_rank": 6,
+      "direct_evidence_panel_rank": 11,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 9,
+      "borda_points": 14,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL608533",
+      "name": "MIDOSTAURIN",
+      "label": "C7",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 7,
+      "network_z": -4.301925411120477,
+      "direct_evidence_rank": 1733,
+      "network_panel_rank": 7,
+      "direct_evidence_panel_rank": 15,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 13,
+      "borda_points": 8,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL1289601",
+      "name": "LENVATINIB",
+      "label": "C8",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 8,
+      "network_z": -4.283973193654816,
+      "direct_evidence_rank": 7,
+      "network_panel_rank": 8,
+      "direct_evidence_panel_rank": 7,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 6,
+      "borda_points": 29,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6295639782734208,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL2105717",
+      "name": "CABOZANTINIB",
+      "label": "C12",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 9,
+      "network_z": -4.022867555991647,
+      "direct_evidence_rank": 831,
+      "network_panel_rank": 9,
+      "direct_evidence_panel_rank": 12,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 12,
+      "borda_points": 9,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL576982",
+      "name": "QUIZARTINIB",
+      "label": "C13",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 10,
+      "network_z": -3.9396459980468657,
+      "direct_evidence_rank": 1681,
+      "network_panel_rank": 10,
+      "direct_evidence_panel_rank": 14,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 14,
+      "borda_points": 7,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL34259",
+      "name": "METHOTREXATE",
+      "label": "C15",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 32,
+      "network_z": -2.777492088041788,
+      "direct_evidence_rank": 1,
+      "network_panel_rank": 12,
+      "direct_evidence_panel_rank": 1,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 10,
+      "borda_points": 13,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6675870094893862,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL790",
+      "name": "CHLORHEXIDINE",
+      "label": "C14",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 18,
+      "network_z": -3.5287181598778683,
+      "direct_evidence_rank": 2,
+      "network_panel_rank": 11,
+      "direct_evidence_panel_rank": 2,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 11,
+      "borda_points": 10,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6675870094893862,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL298734",
+      "name": "LONAFARNIB",
+      "label": "C1",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 115,
+      "network_z": -2.070026144093907,
+      "direct_evidence_rank": 3,
+      "network_panel_rank": 15,
+      "direct_evidence_panel_rank": 3,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 4,
+      "borda_points": 32,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6604992290559352,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4535757",
+      "name": "SOTORASIB",
+      "label": "C9",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 57,
+      "network_z": -2.416131754531151,
+      "direct_evidence_rank": 4,
+      "network_panel_rank": 13,
+      "direct_evidence_panel_rank": 4,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 2,
+      "borda_points": 37,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6604992290559352,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4594350",
+      "name": "ADAGRASIB",
+      "label": "C4",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 58,
+      "network_z": -2.416131754531151,
+      "direct_evidence_rank": 5,
+      "network_panel_rank": 14,
+      "direct_evidence_panel_rank": 5,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 1,
+      "borda_points": 40,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6604992290559352,
+      "direct_evidence_status": "supported"
+    }
+  ],
+  "approved_references": [
+    {
+      "candidate_id": "CHEMBL1201558",
+      "name": "INTERFERON ALFA-2B",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 587,
+      "network_z": -0.14939525851364835,
+      "direct_evidence_rank": 312,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0005055",
+          "MONDO_0005105",
+          "MONDO_0005344",
+          "MONDO_0005354",
+          "MONDO_0005366",
+          "MONDO_0005369",
+          "MONDO_0005647",
+          "MONDO_0009693",
+          "MONDO_0011996",
+          "MONDO_0018906",
+          "MONDO_0018935"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL1201718",
+      "name": "HYALURONIDASE (HUMAN RECOMBINANT)",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 362,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "PMDA"
+        ],
+        "disease_ids": [
+          "HP_0004313",
+          "MONDO_0009693",
+          "MONDO_0015977"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL1237023",
+      "name": "DENOSUMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 280,
+      "network_z": -1.1302089465110965,
+      "direct_evidence_rank": 425,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "EFO_0009708",
+          "EFO_0009870",
+          "GO_0045453",
+          "MONDO_0001566",
+          "MONDO_0002171",
+          "MONDO_0005070",
+          "MONDO_0005298",
+          "MONDO_0005674",
+          "MONDO_0007254",
+          "MONDO_0008159",
+          "MONDO_0009693",
+          "MONDO_0019060"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL1743007",
+      "name": "DARATUMUMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 283,
+      "network_z": -1.1302089465110965,
+      "direct_evidence_rank": 682,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL1743010",
+      "name": "ELOTUZUMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 683,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL18442",
+      "name": "PLERIXAFOR",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1121,
+      "network_z": 1.6732671998811672,
+      "direct_evidence_rank": 735,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0004967",
+          "MONDO_0005062",
+          "MONDO_0009693",
+          "MONDO_0018908"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL2141296",
+      "name": "IXAZOMIB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1254,
+      "network_z": 3.717250373281255,
+      "direct_evidence_rank": 957,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL325041",
+      "name": "BORTEZOMIB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1251,
+      "network_z": 3.372617129279003,
+      "direct_evidence_rank": 1103,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693",
+          "MONDO_0018876"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL3545131",
+      "name": "ISATUXIMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 288,
+      "network_z": -1.1302089465110965,
+      "direct_evidence_rank": 1153,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL3545185",
+      "name": "SELINEXOR",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 94,
+      "network_z": -2.184153804319486,
+      "direct_evidence_rank": 1156,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693",
+          "MONDO_0018905"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL3545432",
+      "name": "IXAZOMIB CITRATE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1255,
+      "network_z": 3.717250373281255,
+      "direct_evidence_rank": 1166,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL384467",
+      "name": "DEXAMETHASONE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 238,
+      "network_z": -1.5561070988868309,
+      "direct_evidence_rank": 24,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.44151171334042827,
+      "direct_evidence_status": "supported",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "EFO_0000544",
+          "EFO_0007520",
+          "EFO_0803536",
+          "EFO_1001896",
+          "HP_0000559",
+          "HP_0001873",
+          "MONDO_0001280",
+          "MONDO_0001566",
+          "MONDO_0002400",
+          "MONDO_0002406",
+          "MONDO_0003005",
+          "MONDO_0003085",
+          "MONDO_0004247",
+          "MONDO_0004496",
+          "MONDO_0004609",
+          "MONDO_0004674",
+          "MONDO_0004773",
+          "MONDO_0004855",
+          "MONDO_0004979",
+          "MONDO_0004980",
+          "MONDO_0004992",
+          "MONDO_0005011",
+          "MONDO_0005059",
+          "MONDO_0005062",
+          "MONDO_0005083",
+          "MONDO_0005101",
+          "MONDO_0005178",
+          "MONDO_0005249",
+          "MONDO_0005266",
+          "MONDO_0005306",
+          "MONDO_0005324",
+          "MONDO_0005377",
+          "MONDO_0005393",
+          "MONDO_0005480",
+          "MONDO_0005495",
+          "MONDO_0005642",
+          "MONDO_0005749",
+          "MONDO_0005883",
+          "MONDO_0005885",
+          "MONDO_0006042",
+          "MONDO_0006052",
+          "MONDO_0006545",
+          "MONDO_0006608",
+          "MONDO_0006640",
+          "MONDO_0006763",
+          "MONDO_0006814",
+          "MONDO_0006918",
+          "MONDO_0006982",
+          "MONDO_0007004",
+          "MONDO_0007915",
+          "MONDO_0008219",
+          "MONDO_0008383",
+          "MONDO_0008558",
+          "MONDO_0008728",
+          "MONDO_0009691",
+          "MONDO_0009693",
+          "MONDO_0011429",
+          "MONDO_0011786",
+          "MONDO_0011849",
+          "MONDO_0015128",
+          "MONDO_0015614",
+          "MONDO_0015909",
+          "MONDO_0018229",
+          "MONDO_0019198",
+          "MONDO_0019338",
+          "MONDO_0020283",
+          "MONDO_0021559",
+          "MONDO_0043233",
+          "MP_0001845"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4297809",
+      "name": "ELRANATAMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 486,
+      "network_z": -0.4339780040570412,
+      "direct_evidence_rank": 1377,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4298199",
+      "name": "IDECABTAGENE VICLEUCEL",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 354,
+      "network_z": -0.9523766616819744,
+      "direct_evidence_rank": 1427,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4298209",
+      "name": "BELANTAMAB MAFODOTIN",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1002,
+      "network_z": 1.0517623704587262,
+      "direct_evidence_rank": 1430,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4303060",
+      "name": "MELPHALAN FLUFENAMIDE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1437,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL43452",
+      "name": "POMALIDOMIDE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 215,
+      "network_z": -1.612107269818514,
+      "direct_evidence_rank": 1443,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL451887",
+      "name": "CARFILZOMIB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 1256,
+      "network_z": 3.717250373281255,
+      "direct_evidence_rank": 1464,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4594503",
+      "name": "TALQUETAMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 638,
+      "network_z": -0.0708881205008345,
+      "direct_evidence_rank": 1504,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4594505",
+      "name": "TECLISTAMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 487,
+      "network_z": -0.4339780040570412,
+      "direct_evidence_rank": 1505,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL468",
+      "name": "THALIDOMIDE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 212,
+      "network_z": -1.6294861211650167,
+      "direct_evidence_rank": 1537,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4802263",
+      "name": "CILTACABTAGENE AUTOLEUCEL",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 355,
+      "network_z": -0.9523766616819744,
+      "direct_evidence_rank": 1554,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL483254",
+      "name": "PANOBINOSTAT",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 25,
+      "network_z": -3.137441369294698,
+      "direct_evidence_rank": 1556,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL5095373",
+      "name": "LINVOSELTAMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1592,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL5095449",
+      "name": "MOTIXAFORTIDE ACETATE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1594,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL513",
+      "name": "CARMUSTINE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 306,
+      "network_z": -1.1091466332989297,
+      "direct_evidence_rank": 1602,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004952",
+          "MONDO_0007959",
+          "MONDO_0009693",
+          "MONDO_0016698",
+          "MONDO_0018177",
+          "MONDO_0018908",
+          "MONDO_0019781",
+          "MONDO_0021042",
+          "MONDO_0100342"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL53463",
+      "name": "DOXORUBICIN",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 257,
+      "network_z": -1.3826199292133492,
+      "direct_evidence_rank": 1650,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004952",
+          "MONDO_0004986",
+          "MONDO_0004989",
+          "MONDO_0004992",
+          "MONDO_0005055",
+          "MONDO_0005089",
+          "MONDO_0005140",
+          "MONDO_0005252",
+          "MONDO_0007254",
+          "MONDO_0008170",
+          "MONDO_0009693",
+          "MONDO_0011962",
+          "MONDO_0012268",
+          "MONDO_0018871",
+          "MONDO_0018908",
+          "MONDO_0019060",
+          "MONDO_0021054",
+          "MONDO_0021068",
+          "MONDO_0021100"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL848",
+      "name": "LENALIDOMIDE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 241,
+      "network_z": -1.5419676232126793,
+      "direct_evidence_rank": 1874,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0002280",
+          "MONDO_0009693",
+          "MONDO_0018876",
+          "MONDO_0018881",
+          "MONDO_0018906"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL852",
+      "name": "MELPHALAN",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1876,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0004952",
+          "MONDO_0004993",
+          "MONDO_0005072",
+          "MONDO_0009693",
+          "MONDO_0018874",
+          "MONDO_0018908",
+          "MONDO_0021068"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL88",
+      "name": "CYCLOPHOSPHAMIDE ANHYDROUS",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1891,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed"
+        ],
+        "disease_ids": [
+          "MONDO_0004952",
+          "MONDO_0004989",
+          "MONDO_0005062",
+          "MONDO_0005377",
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL90555",
+      "name": "VINCRISTINE",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 961,
+      "network_z": 0.9382971799412423,
+      "direct_evidence_rank": 1907,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009693"
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL924",
+      "name": "ZOLEDRONIC ACID ANHYDROUS",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 730,
+      "network_z": 0.20194466632789249,
+      "direct_evidence_rank": 1917,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "EFO_0009708",
+          "EFO_0009870",
+          "MONDO_0001566",
+          "MONDO_0004992",
+          "MONDO_0005159",
+          "MONDO_0005298",
+          "MONDO_0005315",
+          "MONDO_0005382",
+          "MONDO_0008159",
+          "MONDO_0008315",
+          "MONDO_0009693",
+          "MONDO_0021165"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Two worked examples, not the matched-decoy evaluation panels in plan §6.2.",
+    "Same-release retrospective comparison; no prospective or clinical validation.",
+    "Association does not establish beneficial direction of drug action.",
+    "Names and literature evidence may retain indirect known-answer leakage.",
+    "Approval IDs are display labels only and were withheld from the jury.",
+    "Citation/number validation does not establish that a claim is supported; audit pending.",
+    "Missing warnings mean unknown. Agreement measures consistency, not efficacy."
+  ],
+  "source_alias_revalidation": [
+    {
+      "model": "kimi-k3",
+      "original_status": "invalid",
+      "original_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": false,
+        "errors": [
+          "Attempt 1: C12: unsupported or unparseable number in rationale",
+          "Attempt 2: C12: unsupported or unparseable number in rationale",
+          "Attempt 2: C7: unsupported or unparseable number in rationale"
+        ]
+      },
+      "replay_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "recovered": true,
+      "source_phrase_disambiguations": []
+    }
+  ]
+}

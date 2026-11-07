@@ -1,0 +1,23 @@
+{
+  "format_version": 1,
+  "experiment_id": "rwr-functional-ot26.09-v1",
+  "rwr": {"restart_probability": 0.3, "tolerance": 1e-12, "max_iterations": 1000, "top_targets": 50},
+  "transition": "binary undirected adjacency, row-normalized in float64; dangling rows receive a self-loop",
+  "iteration": "p_next = (1-restart_probability) * P.T @ p + restart_probability * uniform_retained_disease_targets",
+  "convergence": "L1 norm of consecutive distributions <= tolerance; failed convergence yields no Candidate scores",
+  "score": "mean stationary mass at all retained drug Targets; descending score then ascending ChEMBL ID",
+  "scope": "largest connected component of each graph; select top 50 evidence_only Disease Targets before graph filtering",
+  "physical_filters": {"combined_score_min": 700, "experiments_min": 400},
+  "functional_filters": {"combined_score_min": 700, "experiments_min": null, "experimental_channel_required": false},
+  "excluded_jury_development_cases": {
+    "MONDO_0008383": "rheumatoid arthritis",
+    "MONDO_0005148": "type 2 diabetes mellitus",
+    "MONDO_0005180": "Parkinson disease",
+    "MONDO_0005002": "chronic obstructive pulmonary disease",
+    "MONDO_0005044": "hypertensive disorder"
+  },
+  "methods": ["direct_evidence", "raw_proximity", "degree_matched_z", "rwr_physical", "rwr_functional"],
+  "evaluation": {"seed": 0, "bootstrap_samples": 1000, "missing_score_policy": "unretrieved"},
+  "comparisons": "all unordered method pairs, reported as second minus first with paired Disease bootstrap intervals",
+  "classification": "retrospective source-record relationship recovery; jury-development-excluded, not a prospective or unseen clinical holdout"
+}

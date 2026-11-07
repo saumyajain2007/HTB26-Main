@@ -1,0 +1,2189 @@
+{
+  "fixture_note": "Fixture data. IDs, names, mechanisms, warnings, source links, network edges and structures are real public records (checked 2026-10-24/25). Every score, rank, distance, z-score, pChEMBL median, activity count, jury vote, latency and docking number is fictional, and the Disease Targets are a small sample, not the real top 50.",
+  "disease": {
+    "id": "MONDO_0100096",
+    "name": "COVID-19"
+  },
+  "description": "A disease caused by infection with severe acute respiratory syndrome coronavirus 2.",
+  "synonyms": [
+    "2019 novel coronavirus",
+    "2019 novel coronavirus infection",
+    "2019-nCoV",
+    "2019-nCoV infection",
+    "CoV-2 infection",
+    "SARS-CoV-2",
+    "SARS-coronavirus 2",
+    "beta-CoV",
+    "beta-CoVs",
+    "betacoronavirus",
+    "coronavirus disease 2019",
+    "severe acute respiratory syndrome coronavirus 2",
+    "severe acute respiratory syndrome coronavirus 2 infectious disease",
+    "β-CoV",
+    "β-CoVs",
+    "β-coronavirus"
+  ],
+  "data_releases": [
+    "opentargets-26.09",
+    "chembl-37",
+    "string-12.5"
+  ],
+  "ranking_method": "network",
+  "ranking_settings": {
+    "top_targets": 50,
+    "randomisations": 200,
+    "seed": 0,
+    "min_bin_size": 100,
+    "shortlist_method": "zscore",
+    "restart_probability": null,
+    "network_slots": 10,
+    "evidence_slots": 5
+  },
+  "jury_config": {
+    "mode": "fixture",
+    "models": [
+      {
+        "id": "claude-sonnet-5",
+        "display_name": "Claude Sonnet 5",
+        "family": "Anthropic"
+      },
+      {
+        "id": "openai-gpt-5.4",
+        "display_name": "GPT-5.4",
+        "family": "OpenAI"
+      },
+      {
+        "id": "glm-5.3",
+        "display_name": "GLM-5.3",
+        "family": "Zhipu"
+      }
+    ],
+    "prompt_version": "jury-v3",
+    "temperature": 0,
+    "max_attempts": 2,
+    "shuffle_seed": 7
+  },
+  "targets": [
+    {
+      "rank": 1,
+      "target_id": "ENSG00000130234",
+      "symbol": "ACE2",
+      "name": "angiotensin converting enzyme 2",
+      "evidence_only_score": 0.82,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 2,
+      "target_id": "ENSG00000184012",
+      "symbol": "TMPRSS2",
+      "name": "transmembrane serine protease 2",
+      "evidence_only_score": 0.77,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 3,
+      "target_id": "ENSG00000105397",
+      "symbol": "TYK2",
+      "name": "tyrosine kinase 2",
+      "evidence_only_score": 0.71,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 4,
+      "target_id": "ENSG00000159110",
+      "symbol": "IFNAR2",
+      "name": "interferon alpha and beta receptor subunit 2",
+      "evidence_only_score": 0.69,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 5,
+      "target_id": "ENSG00000089127",
+      "symbol": "OAS1",
+      "name": "2'-5'-oligoadenylate synthetase 1",
+      "evidence_only_score": 0.64,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 6,
+      "target_id": "ENSG00000142002",
+      "symbol": "DPP9",
+      "name": "dipeptidyl peptidase 9",
+      "evidence_only_score": 0.58,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 7,
+      "target_id": "ENSG00000121807",
+      "symbol": "CCR2",
+      "name": "C-C motif chemokine receptor 2",
+      "evidence_only_score": 0.55,
+      "retained": false,
+      "excluded_reason": "not_in_graph"
+    },
+    {
+      "rank": 8,
+      "target_id": "ENSG00000160712",
+      "symbol": "IL6R",
+      "name": "interleukin 6 receptor",
+      "evidence_only_score": 0.51,
+      "retained": true,
+      "excluded_reason": null
+    },
+    {
+      "rank": 9,
+      "target_id": "ENSG00000163818",
+      "symbol": "LZTFL1",
+      "name": "leucine zipper transcription factor like 1",
+      "evidence_only_score": 0.49,
+      "retained": true,
+      "excluded_reason": null
+    }
+  ],
+  "network": {
+    "graph_version": "string-12.5",
+    "nodes": [
+      {
+        "id": "ENSG00000130234",
+        "symbol": "ACE2",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000142002",
+        "symbol": "DPP9",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000159110",
+        "symbol": "IFNAR2",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000163818",
+        "symbol": "LZTFL1",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000089127",
+        "symbol": "OAS1",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000184012",
+        "symbol": "TMPRSS2",
+        "role": "disease"
+      },
+      {
+        "id": "ENSG00000160712",
+        "symbol": "IL6R",
+        "role": "both"
+      },
+      {
+        "id": "ENSG00000105397",
+        "symbol": "TYK2",
+        "role": "both"
+      },
+      {
+        "id": "ENSG00000115977",
+        "symbol": "AAK1",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000097007",
+        "symbol": "ABL1",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000113851",
+        "symbol": "CRBN",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000122025",
+        "symbol": "FLT3",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000142166",
+        "symbol": "IFNAR1",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000136244",
+        "symbol": "IL6",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000162434",
+        "symbol": "JAK1",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000096968",
+        "symbol": "JAK2",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000105639",
+        "symbol": "JAK3",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000157404",
+        "symbol": "KIT",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000113580",
+        "symbol": "NR3C1",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000165025",
+        "symbol": "SYK",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000196230",
+        "symbol": "TUBB",
+        "role": "drug"
+      },
+      {
+        "id": "ENSG00000161203",
+        "symbol": "AP2M1",
+        "role": "link"
+      },
+      {
+        "id": "ENSG00000198793",
+        "symbol": "MTOR",
+        "role": "link"
+      },
+      {
+        "id": "ENSG00000115415",
+        "symbol": "STAT1",
+        "role": "link"
+      },
+      {
+        "id": "ENSG00000168610",
+        "symbol": "STAT3",
+        "role": "link"
+      }
+    ],
+    "edges": [
+      {
+        "source": "ENSG00000115977",
+        "target": "ENSG00000161203"
+      },
+      {
+        "source": "ENSG00000097007",
+        "target": "ENSG00000161203"
+      },
+      {
+        "source": "ENSG00000097007",
+        "target": "ENSG00000198793"
+      },
+      {
+        "source": "ENSG00000097007",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000097007",
+        "target": "ENSG00000184012"
+      },
+      {
+        "source": "ENSG00000130234",
+        "target": "ENSG00000136244"
+      },
+      {
+        "source": "ENSG00000130234",
+        "target": "ENSG00000184012"
+      },
+      {
+        "source": "ENSG00000161203",
+        "target": "ENSG00000142166"
+      },
+      {
+        "source": "ENSG00000113851",
+        "target": "ENSG00000198793"
+      },
+      {
+        "source": "ENSG00000122025",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000122025",
+        "target": "ENSG00000165025"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000159110"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000136244"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000162434"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000096968"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000157404"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000142166",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000136244"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000162434"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000096968"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000089127"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000159110",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000160712"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000162434"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000096968"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000198793"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000184012"
+      },
+      {
+        "source": "ENSG00000136244",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000162434"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000096968"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000160712",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000162434",
+        "target": "ENSG00000096968"
+      },
+      {
+        "source": "ENSG00000162434",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000162434",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000162434",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000162434",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000105639"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000157404"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000198793"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000165025"
+      },
+      {
+        "source": "ENSG00000096968",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000105639",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000105639",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000105639",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000157404",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000157404",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000198793",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000198793",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000198793",
+        "target": "ENSG00000196230"
+      },
+      {
+        "source": "ENSG00000113580",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000113580",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000089127",
+        "target": "ENSG00000115415"
+      },
+      {
+        "source": "ENSG00000115415",
+        "target": "ENSG00000168610"
+      },
+      {
+        "source": "ENSG00000115415",
+        "target": "ENSG00000165025"
+      },
+      {
+        "source": "ENSG00000115415",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000168610",
+        "target": "ENSG00000165025"
+      },
+      {
+        "source": "ENSG00000168610",
+        "target": "ENSG00000105397"
+      },
+      {
+        "source": "ENSG00000165025",
+        "target": "ENSG00000105397"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "candidate_id": "CHEMBL2105759",
+      "name": "BARICITINIB",
+      "status": "scored",
+      "shortlist_rank": 1,
+      "selected_by": [
+        "network",
+        "evidence"
+      ],
+      "selection_reasons": [
+        "initial_network_quota",
+        "initial_evidence_quota"
+      ],
+      "network": {
+        "rank": 1,
+        "rwr": null,
+        "mean_distance": 1.25,
+        "degree_matched_z": -3.1,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000105397"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 1,
+      "shared_target_count": 1,
+      "targets": [
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000105397",
+          "name": "TYK2",
+          "mechanism": null
+        },
+        {
+          "id": "ENSG00000115977",
+          "name": "AAK1",
+          "mechanism": null
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "target_association",
+          "source": "open_targets",
+          "source_id": "ENSG00000105397/MONDO_0100096",
+          "url": "https://platform.opentargets.org/evidence/ENSG00000105397/MONDO_0100096",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 gives TYK2 an evidence-only association score of 0.71 with COVID-19.",
+          "values": {
+            "evidence_only_score": 0.71
+          },
+          "summary": "TYK2 is linked to COVID-19 (link strength 0.71)."
+        },
+        {
+          "id": "E2",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5293",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5293.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK1."
+        },
+        {
+          "id": "E3",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5294",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5294.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK2."
+        },
+        {
+          "id": "E4",
+          "kind": "bioactivity",
+          "source": "chembl",
+          "source_id": "CHEMBL2105759/CHEMBL3553",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL3553&pchembl_value__isnull=false",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records a median pChEMBL of 7.5 across 10 human TYK2 activities for BARICITINIB.",
+          "values": {
+            "median_pchembl": 7.5,
+            "n_activities": 10
+          },
+          "summary": "Binds TYK2 strongly in lab tests (10 tests)."
+        },
+        {
+          "id": "E5",
+          "kind": "bioactivity",
+          "source": "chembl",
+          "source_id": "CHEMBL2105759/CHEMBL3830",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL3830&pchembl_value__isnull=false",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records a median pChEMBL of 8.0 across 9 human AAK1 activities for BARICITINIB.",
+          "values": {
+            "median_pchembl": 8.0,
+            "n_activities": 9
+          },
+          "summary": "Binds AAK1 very strongly in lab tests (9 tests)."
+        },
+        {
+          "id": "E6",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "label/2018/207924s000lbl.pdf",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/207924s000lbl.pdf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for BARICITINIB from FDA.",
+          "values": {},
+          "summary": "Approved by the US regulator (FDA)."
+        },
+        {
+          "id": "E7",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "172",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: vascular toxicity.",
+          "values": {},
+          "summary": "Blood clots and blood vessel problems."
+        },
+        {
+          "id": "E8",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "173",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: carcinogenicity.",
+          "values": {},
+          "summary": "Cancer."
+        },
+        {
+          "id": "E9",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "2333",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: respiratory toxicity.",
+          "values": {},
+          "summary": "Lung problems."
+        },
+        {
+          "id": "E10",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "2334",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: infectious disease.",
+          "values": {},
+          "summary": "Serious infections."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E7",
+          "type": "Black Box Warning",
+          "toxicity_class": "vascular toxicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E8",
+          "type": "Black Box Warning",
+          "toxicity_class": "carcinogenicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E9",
+          "type": "Black Box Warning",
+          "toxicity_class": "respiratory toxicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E10",
+          "type": "Black Box Warning",
+          "toxicity_class": "infectious disease",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 44205240,
+      "known_answer": true
+    },
+    {
+      "candidate_id": "CHEMBL1789941",
+      "name": "RUXOLITINIB",
+      "status": "scored",
+      "shortlist_rank": 2,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 2,
+        "rwr": null,
+        "mean_distance": 1.0,
+        "degree_matched_z": -2.8,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000162434",
+          "ENSG00000159110"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 241,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E11",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "934",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/934.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records RUXOLITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK1."
+        },
+        {
+          "id": "E12",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "936",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/936.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records RUXOLITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK2."
+        },
+        {
+          "id": "E13",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/002464",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/jakavi",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for RUXOLITINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E14",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3762",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24da5509-6631-4795-9d42-273faecd08e7",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for RUXOLITINIB: infectious disease.",
+          "values": {},
+          "summary": "Serious infections."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E14",
+          "type": "Black Box Warning",
+          "toxicity_class": "infectious disease",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 25126798,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL221959",
+      "name": "TOFACITINIB",
+      "status": "scored",
+      "shortlist_rank": 3,
+      "selected_by": [
+        "network",
+        "evidence"
+      ],
+      "selection_reasons": [
+        "initial_network_quota",
+        "initial_evidence_quota"
+      ],
+      "network": {
+        "rank": 3,
+        "rwr": null,
+        "mean_distance": 0.75,
+        "degree_matched_z": -2.5,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000105397"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 2,
+      "shared_target_count": 1,
+      "targets": [
+        {
+          "id": "ENSG00000105639",
+          "name": "JAK3",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000105397",
+          "name": "TYK2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "target_association",
+          "source": "open_targets",
+          "source_id": "ENSG00000105397/MONDO_0100096",
+          "url": "https://platform.opentargets.org/evidence/ENSG00000105397/MONDO_0100096",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 gives TYK2 an evidence-only association score of 0.71 with COVID-19.",
+          "values": {
+            "evidence_only_score": 0.71
+          },
+          "summary": "TYK2 is linked to COVID-19 (link strength 0.71)."
+        },
+        {
+          "id": "E15",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "1565",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1565.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records TOFACITINIB's mechanism as Janus Kinase (JAK) inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK3, JAK1, JAK2 and TYK2."
+        },
+        {
+          "id": "E16",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/004214",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/xeljanz",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for TOFACITINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E17",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "1882",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=68e3d6b2-7838-4d2d-a417-09d919b43e13",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for TOFACITINIB: carcinogenicity.",
+          "values": {},
+          "summary": "Cancer."
+        },
+        {
+          "id": "E18",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "1883",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cf74ba2f-afc5-4baa-8594-979c889a5831",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for TOFACITINIB: vascular toxicity.",
+          "values": {},
+          "summary": "Blood clots and blood vessel problems."
+        },
+        {
+          "id": "E19",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "2782",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=68e3d6b2-7838-4d2d-a417-09d919b43e13",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for TOFACITINIB: infectious disease.",
+          "values": {},
+          "summary": "Serious infections."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E17",
+          "type": "Black Box Warning",
+          "toxicity_class": "carcinogenicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E18",
+          "type": "Black Box Warning",
+          "toxicity_class": "vascular toxicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E19",
+          "type": "Black Box Warning",
+          "toxicity_class": "infectious disease",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 9926791,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL3622821",
+      "name": "UPADACITINIB",
+      "status": "scored",
+      "shortlist_rank": 4,
+      "selected_by": [
+        "network",
+        "evidence"
+      ],
+      "selection_reasons": [
+        "initial_network_quota",
+        "initial_evidence_quota"
+      ],
+      "network": {
+        "rank": 4,
+        "rwr": null,
+        "mean_distance": 0.75,
+        "degree_matched_z": -2.5,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000105397"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 3,
+      "shared_target_count": 1,
+      "targets": [
+        {
+          "id": "ENSG00000105397",
+          "name": "TYK2",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000105639",
+          "name": "JAK3",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000162434",
+          "name": "JAK1",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "target_association",
+          "source": "open_targets",
+          "source_id": "ENSG00000105397/MONDO_0100096",
+          "url": "https://platform.opentargets.org/evidence/ENSG00000105397/MONDO_0100096",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 gives TYK2 an evidence-only association score of 0.71 with COVID-19.",
+          "values": {
+            "evidence_only_score": 0.71
+          },
+          "summary": "TYK2 is linked to COVID-19 (link strength 0.71)."
+        },
+        {
+          "id": "E20",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "9834",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9834.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase TYK2 inhibitor.",
+          "values": {},
+          "summary": "Blocks TYK2."
+        },
+        {
+          "id": "E21",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "9835",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9835.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK3."
+        },
+        {
+          "id": "E22",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "9836",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9836.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK2."
+        },
+        {
+          "id": "E23",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "9837",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9837.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK1."
+        },
+        {
+          "id": "E24",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/004760",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/rinvoq",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for UPADACITINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E25",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3843",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2966aec7-2ef0-923c-d8ff-fe1a957bf095",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for UPADACITINIB: vascular toxicity.",
+          "values": {},
+          "summary": "Blood clots and blood vessel problems."
+        },
+        {
+          "id": "E26",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3844",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2966aec7-2ef0-923c-d8ff-fe1a957bf095",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for UPADACITINIB: carcinogenicity.",
+          "values": {},
+          "summary": "Cancer."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E25",
+          "type": "Black Box Warning",
+          "toxicity_class": "vascular toxicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E26",
+          "type": "Black Box Warning",
+          "toxicity_class": "carcinogenicity",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 58557659,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL1287853",
+      "name": "FEDRATINIB",
+      "status": "scored",
+      "shortlist_rank": 5,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 5,
+        "rwr": null,
+        "mean_distance": 1.5,
+        "degree_matched_z": -2.2,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000096968",
+          "ENSG00000159110"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 112,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000122025",
+          "name": "FLT3",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000096968",
+          "name": "JAK2",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E27",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5326",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5326.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records FEDRATINIB's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.",
+          "values": {},
+          "summary": "Blocks FLT3."
+        },
+        {
+          "id": "E28",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5327",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5327.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records FEDRATINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+          "values": {},
+          "summary": "Blocks JAK2."
+        },
+        {
+          "id": "E29",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/005026",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/inrebic",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for FEDRATINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E30",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3740",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0f55a2a-4e0c-4cba-8571-03e1424486d7",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for FEDRATINIB: gastrointestinal toxicity.",
+          "values": {},
+          "summary": "Gut problems."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E30",
+          "type": "Black Box Warning",
+          "toxicity_class": "gastrointestinal toxicity",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 16722836,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL2103830",
+      "name": "FOSTAMATINIB",
+      "status": "scored",
+      "shortlist_rank": 6,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 6,
+        "rwr": null,
+        "mean_distance": 1.0,
+        "degree_matched_z": -1.9,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000165025",
+          "ENSG00000105397"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 402,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000165025",
+          "name": "SYK",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E31",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5323",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5323.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records FOSTAMATINIB's mechanism as Tyrosine-protein kinase SYK inhibitor.",
+          "values": {},
+          "summary": "Blocks SYK."
+        },
+        {
+          "id": "E32",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/005012",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/tavlesse",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for FOSTAMATINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": 11671467,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL384467",
+      "name": "DEXAMETHASONE",
+      "status": "scored",
+      "shortlist_rank": 7,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 7,
+        "rwr": null,
+        "mean_distance": 2.0,
+        "degree_matched_z": -1.7,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000113580",
+          "ENSG00000115415",
+          "ENSG00000159110"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 790,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000113580",
+          "name": "NR3C1",
+          "mechanism": "AGONIST"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E33",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "813",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/813.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records DEXAMETHASONE's mechanism as Glucocorticoid receptor agonist.",
+          "values": {},
+          "summary": "Activates NR3C1."
+        },
+        {
+          "id": "E34",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/001140",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/ozurdex",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for DEXAMETHASONE from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": 5743,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL941",
+      "name": "IMATINIB",
+      "status": "scored",
+      "shortlist_rank": 8,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 8,
+        "rwr": null,
+        "mean_distance": 1.5,
+        "degree_matched_z": -1.5,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000097007",
+          "ENSG00000184012"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 1777,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000097007",
+          "name": "ABL1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000113721",
+          "name": "PDGFRB",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000157404",
+          "name": "KIT",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000186716",
+          "name": "BCR",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E35",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "304",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/304.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records IMATINIB's mechanism as Tyrosine-protein kinase ABL inhibitor.",
+          "values": {},
+          "summary": "Blocks ABL1, PDGFRB, KIT and BCR."
+        },
+        {
+          "id": "E36",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "418",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/418.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records IMATINIB's mechanism as Platelet-derived growth factor receptor beta inhibitor.",
+          "values": {},
+          "summary": "Blocks ABL1, PDGFRB, KIT and BCR."
+        },
+        {
+          "id": "E37",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "451",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/451.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records IMATINIB's mechanism as Stem cell growth factor receptor inhibitor.",
+          "values": {},
+          "summary": "Blocks ABL1, PDGFRB, KIT and BCR."
+        },
+        {
+          "id": "E38",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "8630",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8630.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records IMATINIB's mechanism as Bcr/Abl fusion protein inhibitor.",
+          "values": {},
+          "summary": "Blocks ABL1, PDGFRB, KIT and BCR."
+        },
+        {
+          "id": "E39",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/000406",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/glivec",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for IMATINIB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": 5291,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL2364653",
+      "name": "ANIFROLUMAB",
+      "status": "scored",
+      "shortlist_rank": 9,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 9,
+        "rwr": null,
+        "mean_distance": 1.0,
+        "degree_matched_z": -1.4,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000142166",
+          "ENSG00000159110"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 455,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000142166",
+          "name": "IFNAR1",
+          "mechanism": "ANTAGONIST"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E40",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "6335",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/6335.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records ANIFROLUMAB's mechanism as Interferon-alpha/beta receptor alpha chain antagonist.",
+          "values": {},
+          "summary": "Blocks IFNAR1."
+        },
+        {
+          "id": "E41",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "label/2021/761123s000lbl.pdf",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/761123s000lbl.pdf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for ANIFROLUMAB from FDA.",
+          "values": {},
+          "summary": "Approved by the US regulator (FDA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": null,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL1743070",
+      "name": "SILTUXIMAB",
+      "status": "scored",
+      "shortlist_rank": 10,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "initial_network_quota"
+      ],
+      "network": {
+        "rank": 10,
+        "rwr": null,
+        "mean_distance": 1.0,
+        "degree_matched_z": -1.3,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000136244",
+          "ENSG00000130234"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 230,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000136244",
+          "name": "IL6",
+          "mechanism": "ANTAGONIST"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E42",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "2274",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2274.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records SILTUXIMAB's mechanism as Interleukin-6 antagonist.",
+          "values": {},
+          "summary": "Blocks IL6."
+        },
+        {
+          "id": "E43",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/003708",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/sylvant",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for SILTUXIMAB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": null,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL1237022",
+      "name": "TOCILIZUMAB",
+      "status": "distance_only",
+      "shortlist_rank": 11,
+      "selected_by": [
+        "evidence"
+      ],
+      "selection_reasons": [
+        "initial_evidence_quota"
+      ],
+      "network": {
+        "rank": 1308,
+        "rwr": null,
+        "mean_distance": 0.0,
+        "degree_matched_z": null,
+        "graph_version": "string-12.5",
+        "warning": "zero_null_variance",
+        "path": [
+          "ENSG00000160712"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 4,
+      "shared_target_count": 1,
+      "targets": [
+        {
+          "id": "ENSG00000160712",
+          "name": "IL6R",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E44",
+          "kind": "target_association",
+          "source": "open_targets",
+          "source_id": "ENSG00000160712/MONDO_0100096",
+          "url": "https://platform.opentargets.org/evidence/ENSG00000160712/MONDO_0100096",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 gives IL6R an evidence-only association score of 0.51 with COVID-19.",
+          "values": {
+            "evidence_only_score": 0.51
+          },
+          "summary": "IL6R is linked to COVID-19 (link strength 0.51)."
+        },
+        {
+          "id": "E45",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "1839",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1839.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records TOCILIZUMAB's mechanism as Interleukin-6 receptor alpha subunit inhibitor.",
+          "values": {},
+          "summary": "Blocks IL6R."
+        },
+        {
+          "id": "E46",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/000955",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/roactemra",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for TOCILIZUMAB from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E47",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "2781",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2e5365ff-cb2a-4b16-b2c7-e35c6bf2de13",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for TOCILIZUMAB: infectious disease.",
+          "values": {},
+          "summary": "Serious infections."
+        },
+        {
+          "id": "E48",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "5054",
+          "url": "https://platform.opentargets.org/drug/CHEMBL1237022",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for TOCILIZUMAB: carcinogenicity.",
+          "values": {},
+          "summary": "Cancer."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E47",
+          "type": "Black Box Warning",
+          "toxicity_class": "infectious disease",
+          "description": null
+        },
+        {
+          "evidence_id": "E48",
+          "type": "Black Box Warning",
+          "toxicity_class": "carcinogenicity",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": false,
+      "pubchem_cid": null,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL2108730",
+      "name": "SARILUMAB",
+      "status": "distance_only",
+      "shortlist_rank": 12,
+      "selected_by": [
+        "evidence"
+      ],
+      "selection_reasons": [
+        "initial_evidence_quota"
+      ],
+      "network": {
+        "rank": 1309,
+        "rwr": null,
+        "mean_distance": 0.0,
+        "degree_matched_z": null,
+        "graph_version": "string-12.5",
+        "warning": "zero_null_variance",
+        "path": [
+          "ENSG00000160712"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 5,
+      "shared_target_count": 1,
+      "targets": [
+        {
+          "id": "ENSG00000160712",
+          "name": "IL6R",
+          "mechanism": "ANTAGONIST"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E44",
+          "kind": "target_association",
+          "source": "open_targets",
+          "source_id": "ENSG00000160712/MONDO_0100096",
+          "url": "https://platform.opentargets.org/evidence/ENSG00000160712/MONDO_0100096",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 gives IL6R an evidence-only association score of 0.51 with COVID-19.",
+          "values": {
+            "evidence_only_score": 0.51
+          },
+          "summary": "IL6R is linked to COVID-19 (link strength 0.51)."
+        },
+        {
+          "id": "E49",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5487",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5487.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records SARILUMAB's mechanism as Interleukin-6 receptor alpha subunit antagonist.",
+          "values": {},
+          "summary": "Blocks IL6R."
+        },
+        {
+          "id": "E50",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "label/2017/761037s000lbl.pdf",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2017/761037s000lbl.pdf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for SARILUMAB from FDA.",
+          "values": {},
+          "summary": "Approved by the US regulator (FDA)."
+        },
+        {
+          "id": "E51",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "2717",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=827bc01c-d379-4266-a18c-c7f904b76af3",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for SARILUMAB: infectious disease.",
+          "values": {},
+          "summary": "Serious infections."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E51",
+          "type": "Black Box Warning",
+          "toxicity_class": "infectious disease",
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": false,
+      "pubchem_cid": null,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL4065616",
+      "name": "REMDESIVIR",
+      "status": "not_scorable",
+      "shortlist_rank": 13,
+      "selected_by": [
+        "evidence"
+      ],
+      "selection_reasons": [
+        "evidence_fill_after_deduplication"
+      ],
+      "network": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "unscorable_detail": "Remdesivir acts on the virus's own RNA polymerase, not on a human protein, so it has no place in the human protein network.",
+      "direct_evidence_rank": 1012,
+      "shared_target_count": 0,
+      "targets": [],
+      "evidence": [
+        {
+          "id": "E52",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "7481",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7481.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records REMDESIVIR's mechanism as RNA-directed RNA polymerase L inhibitor.",
+          "values": {},
+          "summary": "Blocks RNA-directed RNA polymerase L, which is not a human protein."
+        },
+        {
+          "id": "E53",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "7689",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7689.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records REMDESIVIR's mechanism as Replicase polyprotein 1ab inhibitor.",
+          "values": {},
+          "summary": "Blocks Replicase polyprotein 1ab, which is not a human protein."
+        },
+        {
+          "id": "E54",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "label/2020/214787orig1s000lbl.pdf",
+          "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/214787Orig1s000lbl.pdf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for REMDESIVIR from FDA.",
+          "values": {},
+          "summary": "Approved by the US regulator (FDA)."
+        },
+        {
+          "id": "E55",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3760",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=98b7e6bf-2668-4a61-a874-194eb674b15c",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for REMDESIVIR.",
+          "values": {},
+          "summary": "Serious risks listed on the label."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E55",
+          "type": "Black Box Warning",
+          "toxicity_class": null,
+          "description": null
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": false,
+      "pubchem_cid": 121304016,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL107",
+      "name": "COLCHICINE",
+      "status": "scored",
+      "shortlist_rank": 14,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "network_fill_after_deduplication"
+      ],
+      "network": {
+        "rank": 11,
+        "rwr": null,
+        "mean_distance": 3.0,
+        "degree_matched_z": -1.2,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000196230",
+          "ENSG00000198793",
+          "ENSG00000097007",
+          "ENSG00000184012"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 58,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000188229",
+          "name": "TUBB4B",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000101162",
+          "name": "TUBB1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000198033",
+          "name": "TUBA3C",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000127824",
+          "name": "TUBA4A",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000258947",
+          "name": "TUBB3",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000167552",
+          "name": "TUBA1A",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000104833",
+          "name": "TUBB4A",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000261456",
+          "name": "TUBB8",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000196230",
+          "name": "TUBB",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000123416",
+          "name": "TUBA1B",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000167553",
+          "name": "TUBA1C",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000152086",
+          "name": "TUBA3E",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000137267",
+          "name": "TUBB2A",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000137285",
+          "name": "TUBB2B",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000176014",
+          "name": "TUBB6",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E56",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "1106",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1106.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records COLCHICINE's mechanism as Tubulin inhibitor.",
+          "values": {},
+          "summary": "Blocks 15 proteins, including TUBB4B and TUBB1."
+        },
+        {
+          "id": "E57",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "14d4be16-d355-4baf-b4cd-4d97d4b2dca0",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=14d4be16-d355-4baf-b4cd-4d97d4b2dca0",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for COLCHICINE from DailyMed.",
+          "values": {},
+          "summary": "Approved by the US regulator (FDA)."
+        }
+      ],
+      "warnings": [],
+      "safety_status": "unknown",
+      "dockable": false,
+      "pubchem_cid": 6167,
+      "known_answer": false
+    },
+    {
+      "candidate_id": "CHEMBL468",
+      "name": "THALIDOMIDE",
+      "status": "scored",
+      "shortlist_rank": 15,
+      "selected_by": [
+        "network"
+      ],
+      "selection_reasons": [
+        "network_fill_after_deduplication"
+      ],
+      "network": {
+        "rank": 12,
+        "rwr": null,
+        "mean_distance": 3.0,
+        "degree_matched_z": -1.1,
+        "graph_version": "string-12.5",
+        "warning": null,
+        "path": [
+          "ENSG00000113851",
+          "ENSG00000198793",
+          "ENSG00000097007",
+          "ENSG00000184012"
+        ]
+      },
+      "unscorable_reason": null,
+      "unscorable_detail": null,
+      "direct_evidence_rank": 1050,
+      "shared_target_count": 0,
+      "targets": [
+        {
+          "id": "ENSG00000113851",
+          "name": "CRBN",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000167986",
+          "name": "DDB1",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000139842",
+          "name": "CUL4A",
+          "mechanism": "INHIBITOR"
+        },
+        {
+          "id": "ENSG00000100387",
+          "name": "RBX1",
+          "mechanism": "INHIBITOR"
+        }
+      ],
+      "evidence": [
+        {
+          "id": "E58",
+          "kind": "mechanism",
+          "source": "chembl",
+          "source_id": "5875",
+          "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5875.json",
+          "release": "chembl-37",
+          "statement": "ChEMBL 37 records THALIDOMIDE's mechanism as CRL4(CRBN) E3 ubiquitin ligase inhibitor.",
+          "values": {},
+          "summary": "Blocks CRBN."
+        },
+        {
+          "id": "E59",
+          "kind": "approval",
+          "source": "open_targets",
+          "source_id": "emea/h/c/000823",
+          "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/thalidomide-bms",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a regulator-backed approval for THALIDOMIDE from EMA.",
+          "values": {},
+          "summary": "Approved by the European regulator (EMA)."
+        },
+        {
+          "id": "E60",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "1843",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2eda833b-1357-4ed4-a093-194524fcb061",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for THALIDOMIDE: teratogenicity.",
+          "values": {},
+          "summary": "Harm to an unborn baby."
+        },
+        {
+          "id": "E61",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "1844",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2eda833b-1357-4ed4-a093-194524fcb061",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a Black Box Warning for THALIDOMIDE: vascular toxicity.",
+          "values": {},
+          "summary": "Blood clots and blood vessel problems."
+        },
+        {
+          "id": "E62",
+          "kind": "warning",
+          "source": "open_targets",
+          "source_id": "3999",
+          "url": "https://www.un.org/esa/coordination/CL12.pdf",
+          "release": "opentargets-26.09",
+          "statement": "Open Targets 26.09 records a withdrawal for THALIDOMIDE: teratogenicity.",
+          "values": {},
+          "summary": "Harm to an unborn baby."
+        }
+      ],
+      "warnings": [
+        {
+          "evidence_id": "E60",
+          "type": "Black Box Warning",
+          "toxicity_class": "teratogenicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E61",
+          "type": "Black Box Warning",
+          "toxicity_class": "vascular toxicity",
+          "description": null
+        },
+        {
+          "evidence_id": "E62",
+          "type": "Withdrawn",
+          "toxicity_class": "teratogenicity",
+          "description": "teratogenic effects"
+        }
+      ],
+      "safety_status": "warnings_recorded",
+      "dockable": true,
+      "pubchem_cid": 5426,
+      "known_answer": false
+    }
+  ]
+}

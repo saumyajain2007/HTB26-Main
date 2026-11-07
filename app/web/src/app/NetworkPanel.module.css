@@ -1,0 +1,13 @@
+.lede {
+  flex: none;
+  max-width: 46ch;
+  margin: calc(-1 * var(--space-4)) 0 var(--space-4);
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+/* Holds the plate's space while three.js loads. */
+.loading {
+  flex: 1;
+  min-height: 0;
+}

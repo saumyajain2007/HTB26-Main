@@ -1,0 +1,898 @@
+{
+  "seed": 20261024,
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37"
+  ],
+  "universe_coverage": {
+    "drugs": 1956,
+    "drugs_with_targets": 1399,
+    "unmapped_items": 5715,
+    "unmapped_by_reason": {
+      "ambiguous_action_type": 27,
+      "ambiguous_uniprot_mapping": 291,
+      "missing_parent": 12,
+      "missing_target_mapping": 432,
+      "missing_uniprot_mapping": 6,
+      "no_target_evidence": 87,
+      "non_human_target": 346,
+      "non_protein_target": 4186,
+      "non_single_protein_target": 328
+    }
+  },
+  "panels": [
+    {
+      "disease": {
+        "id": "MONDO_0008383",
+        "area": "immune",
+        "name": "rheumatoid arthritis"
+      },
+      "true_drug": {
+        "drug_id": "CHEMBL384467",
+        "name": "DEXAMETHASONE",
+        "target_count": 6,
+        "target_count_difference": 0,
+        "approval": {
+          "sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "disease_ids": [
+            "EFO_0000544",
+            "EFO_0007520",
+            "EFO_0803536",
+            "EFO_1001896",
+            "HP_0000559",
+            "HP_0001873",
+            "MONDO_0001280",
+            "MONDO_0001566",
+            "MONDO_0002400",
+            "MONDO_0002406",
+            "MONDO_0003005",
+            "MONDO_0003085",
+            "MONDO_0004247",
+            "MONDO_0004496",
+            "MONDO_0004609",
+            "MONDO_0004674",
+            "MONDO_0004773",
+            "MONDO_0004855",
+            "MONDO_0004979",
+            "MONDO_0004980",
+            "MONDO_0004992",
+            "MONDO_0005011",
+            "MONDO_0005059",
+            "MONDO_0005062",
+            "MONDO_0005083",
+            "MONDO_0005101",
+            "MONDO_0005178",
+            "MONDO_0005249",
+            "MONDO_0005266",
+            "MONDO_0005306",
+            "MONDO_0005324",
+            "MONDO_0005377",
+            "MONDO_0005393",
+            "MONDO_0005480",
+            "MONDO_0005495",
+            "MONDO_0005642",
+            "MONDO_0005749",
+            "MONDO_0005883",
+            "MONDO_0005885",
+            "MONDO_0006042",
+            "MONDO_0006052",
+            "MONDO_0006545",
+            "MONDO_0006608",
+            "MONDO_0006640",
+            "MONDO_0006763",
+            "MONDO_0006814",
+            "MONDO_0006918",
+            "MONDO_0006982",
+            "MONDO_0007004",
+            "MONDO_0007915",
+            "MONDO_0008219",
+            "MONDO_0008383",
+            "MONDO_0008558",
+            "MONDO_0008728",
+            "MONDO_0009691",
+            "MONDO_0009693",
+            "MONDO_0011429",
+            "MONDO_0011786",
+            "MONDO_0011849",
+            "MONDO_0015128",
+            "MONDO_0015614",
+            "MONDO_0015909",
+            "MONDO_0018229",
+            "MONDO_0019198",
+            "MONDO_0019338",
+            "MONDO_0020283",
+            "MONDO_0021559",
+            "MONDO_0043233",
+            "MP_0001845"
+          ]
+        }
+      },
+      "decoys": [
+        {
+          "drug_id": "CHEMBL98",
+          "name": "VORINOSTAT",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0000607",
+              "MONDO_0015760"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1382",
+          "name": "TOLTERODINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "EFO_0006865",
+              "HP_0000020",
+              "MONDO_0006624"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL2109171",
+          "name": "DIBOTERMIN ALFA",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "EFO_0022932",
+              "MONDO_0005320"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL639",
+          "name": "AZELASTINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "HP_0001742",
+              "MONDO_0005324",
+              "MONDO_0005642",
+              "MONDO_0006004",
+              "MONDO_0011786",
+              "MONDO_0024332"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL3353410",
+          "name": "OSIMERTINIB",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005233"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL225072",
+          "name": "PEMETREXED",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "FDA",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "EFO_1000016",
+              "MONDO_0004970",
+              "MONDO_0005065",
+              "MONDO_0005112",
+              "MONDO_0005233"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL716",
+          "name": "QUETIAPINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "EFO_0009963",
+              "EFO_0009964",
+              "MONDO_0002009",
+              "MONDO_0004985",
+              "MONDO_0005090"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL439849",
+          "name": "VILAZODONE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0002009"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL4594287",
+          "name": "ENSIFENTRINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005002"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL761",
+          "name": "NAPHAZOLINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "HP_0001742",
+              "MONDO_0005324",
+              "MONDO_0005709",
+              "MONDO_0005961"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL53",
+          "name": "APOMORPHINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "HP_0001300",
+              "MONDO_0005180",
+              "MONDO_0005362"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL134",
+          "name": "CLONIDINE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "EFO_0005762",
+              "MONDO_0004992",
+              "MONDO_0005044",
+              "MONDO_0007743"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL406",
+          "name": "INDAPAMIDE",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0005009",
+              "MONDO_0005044",
+              "MONDO_0005081"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL2338329",
+          "name": "ROXADUSTAT",
+          "target_count": 6,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0002280",
+              "MONDO_0005300",
+              "MONDO_0024327"
+            ]
+          }
+        }
+      ],
+      "seed": 20261024,
+      "matching": {
+        "metric": "absolute mapped Target count difference",
+        "ties": "seeded shuffle of ID-sorted eligible drugs",
+        "exclusion": "any clinical_indication record across parent and included salts, at any stage",
+        "eligible_true_drugs": 56,
+        "eligible_decoys": 1247,
+        "decoy_target_count_histogram": {
+          "6": 14
+        }
+      }
+    },
+    {
+      "disease": {
+        "id": "MONDO_0005148",
+        "area": "metabolic",
+        "name": "type 2 diabetes mellitus"
+      },
+      "true_drug": {
+        "drug_id": "CHEMBL2048484",
+        "name": "CANAGLIFLOZIN ANHYDROUS",
+        "target_count": 1,
+        "target_count_difference": 0,
+        "approval": {
+          "sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "disease_ids": [
+            "MONDO_0005148"
+          ]
+        }
+      },
+      "decoys": [
+        {
+          "drug_id": "CHEMBL2108286",
+          "name": "TUROCTOCOG ALFA",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0010602"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL638",
+          "name": "VORICONAZOLE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "EFO_0000544",
+              "EFO_1001282",
+              "MONDO_0002026",
+              "MONDO_0005657",
+              "MONDO_0016426"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL2105720",
+          "name": "LESINURAD",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "EFO_0009104",
+              "MONDO_0005393"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1684",
+          "name": "BENDROFLUMETHIAZIDE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0005044",
+              "MONDO_0005098"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1213351",
+          "name": "PROPOXYPHENE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "HP_0012531"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL3707229",
+          "name": "TEZEPELUMAB",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs",
+              "FDA",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0004979",
+              "MONDO_0005961"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL5095451",
+          "name": "ETRANACOGENE DEZAPARVOVEC",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0010604"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201821",
+          "name": "PALIFERMIN",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "EFO_1001898",
+              "EFO_1001904"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201549",
+          "name": "TERIPARATIDE ACETATE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005298",
+              "MONDO_0005315"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1756",
+          "name": "ESTRAMUSTINE PHOSPHATE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0004993"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201182",
+          "name": "TEMSIROLIMUS",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005086",
+              "MONDO_0018876"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL2010601",
+          "name": "IVACAFTOR",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "MONDO_0009061"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201593",
+          "name": "ALTEPLASE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0005009",
+              "MONDO_0005068",
+              "MONDO_0005098",
+              "MONDO_0005252",
+              "MONDO_0005279"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL206253",
+          "name": "NETUPITANT",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "EFO_0006911",
+              "HP_0002013",
+              "HP_0002018",
+              "MONDO_0004992",
+              "MONDO_0005070"
+            ]
+          }
+        }
+      ],
+      "seed": 20261024,
+      "matching": {
+        "metric": "absolute mapped Target count difference",
+        "ties": "seeded shuffle of ID-sorted eligible drugs",
+        "exclusion": "any clinical_indication record across parent and included salts, at any stage",
+        "eligible_true_drugs": 52,
+        "eligible_decoys": 1186,
+        "decoy_target_count_histogram": {
+          "1": 14
+        }
+      }
+    },
+    {
+      "disease": {
+        "id": "MONDO_0005180",
+        "area": "neurological",
+        "name": "Parkinson disease"
+      },
+      "true_drug": {
+        "drug_id": "CHEMBL1009",
+        "name": "LEVODOPA",
+        "target_count": 1,
+        "target_count_difference": 0,
+        "approval": {
+          "sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "disease_ids": [
+            "MONDO_0005180",
+            "MONDO_0021178"
+          ]
+        }
+      },
+      "decoys": [
+        {
+          "drug_id": "CHEMBL2110731",
+          "name": "TOFOGLIFLOZIN ANHYDROUS",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005148"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL4594550",
+          "name": "SERPLULIMAB",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0005233",
+              "MONDO_0005580",
+              "MONDO_0008433"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL4297573",
+          "name": "TAGRAXOFUSP",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "MONDO_0005062",
+              "MONDO_0018874"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL204656",
+          "name": "ELVITEGRAVIR",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "EFO_0000180",
+              "MONDO_0005109"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1619",
+          "name": "CLADRIBINE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "EFO_0803536",
+              "MONDO_0002280",
+              "MONDO_0018935"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL3545313",
+          "name": "BEMPEDOIC ACID",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "HP_0003124",
+              "MONDO_0002525",
+              "MONDO_0005010",
+              "MONDO_0005311",
+              "MONDO_0005439"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL3668014",
+          "name": "LINZAGOLIX",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0001572"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1024",
+          "name": "IFOSFAMIDE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0003510",
+              "MONDO_0005040",
+              "MONDO_0021068",
+              "MONDO_0021348",
+              "MONDO_0044334"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201593",
+          "name": "ALTEPLASE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed"
+            ],
+            "disease_ids": [
+              "MONDO_0005009",
+              "MONDO_0005068",
+              "MONDO_0005098",
+              "MONDO_0005252",
+              "MONDO_0005279"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL2109093",
+          "name": "EPOETIN DELTA",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "MONDO_0002280",
+              "MONDO_0005300",
+              "MONDO_0024327"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL3544914",
+          "name": "TEZACAFTOR",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs",
+              "FDA"
+            ],
+            "disease_ids": [
+              "MONDO_0009061"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL1201199",
+          "name": "LEUPROLIDE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "EMA Human Drugs",
+              "FDA",
+              "PMDA"
+            ],
+            "disease_ids": [
+              "MONDO_0000088",
+              "MONDO_0005159",
+              "MONDO_0007254",
+              "MONDO_0008315",
+              "MONDO_0021259"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL4594214",
+          "name": "ZICONOTIDE",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "EMA Human Drugs"
+            ],
+            "disease_ids": [
+              "HP_0012531"
+            ]
+          }
+        },
+        {
+          "drug_id": "CHEMBL838",
+          "name": "BENAZEPRIL",
+          "target_count": 1,
+          "target_count_difference": 0,
+          "approval": {
+            "sources": [
+              "DailyMed",
+              "FDA"
+            ],
+            "disease_ids": [
+              "MONDO_0001106",
+              "MONDO_0005015",
+              "MONDO_0005044",
+              "MONDO_0005098"
+            ]
+          }
+        }
+      ],
+      "seed": 20261024,
+      "matching": {
+        "metric": "absolute mapped Target count difference",
+        "ties": "seeded shuffle of ID-sorted eligible drugs",
+        "exclusion": "any clinical_indication record across parent and included salts, at any stage",
+        "eligible_true_drugs": 22,
+        "eligible_decoys": 1277,
+        "decoy_target_count_histogram": {
+          "1": 14
+        }
+      }
+    }
+  ],
+  "universe_sha256": "5eeee1eab279a74ea4267dfd67c68f6e5fb55fe55023f1cb26b8ba46423a02b8"
+}

@@ -1,0 +1,289 @@
+{
+  "provenance": "Worker 8 live COVID-19 GPT reply and OT 26.09 / ChEMBL 37 packet; single review excerpt, rank normalized to 1.",
+  "packet": {
+    "experiment_id": "98e4e2d9-4368-4699-8c1d-4b393cb55d17",
+    "disease": {
+      "id": "MONDO_0100096",
+      "name": "COVID-19"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37",
+      "string-12.5"
+    ],
+    "candidates": [
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL2105759",
+        "name": "BARICITINIB",
+        "targets": [
+          {
+            "id": "ENSG00000096968",
+            "name": "JAK2",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000105397",
+            "name": "TYK2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000115977",
+            "name": "AAK1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000138756",
+            "name": "BMP2K",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000162434",
+            "name": "JAK1",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000168610",
+            "name": "STAT3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000184640",
+            "name": "SEPTIN9",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E62",
+          "E63",
+          "E64",
+          "E65",
+          "E66",
+          "E67",
+          "E68",
+          "E69",
+          "E70",
+          "E71",
+          "E72",
+          "E73",
+          "E74",
+          "E75"
+        ],
+        "safety_status": "warnings_recorded"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000105397/MONDO_0100096",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000105397/MONDO_0100096",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.",
+        "values": {
+          "evidence_only_score": 0.60374362
+        }
+      },
+      {
+        "id": "E62",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5293",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5293.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E63",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5294",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5294.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E64",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL2835",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL2835&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.23 across 26 human JAK1 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 8.23,
+          "n_activities": 26
+        }
+      },
+      {
+        "id": "E65",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL2971",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL2971&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.24 across 30 human JAK2 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 8.24,
+          "n_activities": 30
+        }
+      },
+      {
+        "id": "E66",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL3553",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL3553&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.28 across 13 human TYK2 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 7.28,
+          "n_activities": 13
+        }
+      },
+      {
+        "id": "E67",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL3830",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL3830&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.09 across 9 human AAK1 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 8.09,
+          "n_activities": 9
+        }
+      },
+      {
+        "id": "E68",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL4026",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL4026&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.53 across 2 human STAT3 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 7.53,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E69",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL4105891",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL4105891&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.08 across 1 human SEPTIN9 activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 7.08,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E70",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2105759/CHEMBL4522",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2105759&target_chembl_id=CHEMBL4522&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.7 across 3 human BMP2K activities for BARICITINIB.",
+        "values": {
+          "median_pchembl": 7.7,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E71",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2018/207924s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2018/207924s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E72",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "172",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: vascular toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E73",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "173",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: carcinogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E74",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2333",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: respiratory toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E75",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2334",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=866e9f35-9035-4581-a4b1-75a621ab55cf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for BARICITINIB: infectious disease.",
+        "values": {}
+      }
+    ]
+  },
+  "reply": {
+    "reviews": [
+      {
+        "label": "C9",
+        "rationale": "This candidate has direct mechanism evidence for JAK1 and JAK2 inhibition and human bioactivity showing median pChEMBL values of 8.23 across 26 JAK1 activities, 8.24 across 30 JAK2 activities, 7.28 across 13 TYK2 activities, and 8.09 across 9 AAK1 activities. TYK2 has a COVID-19 association score of 0.60374362. The packet therefore supports plausible engagement of COVID-19-associated signaling targets, but not whether this inhibition is beneficial in the disease.",
+        "objection": "No supplied evidence demonstrates improved COVID-19 outcomes from this mechanism, so direction remains unresolved. The evidence also includes multiple Black Box Warnings and some off-target activity, including 7.53 across 2 STAT3 activities and 7.7 across 3 BMP2K activities, which adds uncertainty about interpretation and risk.",
+        "rank": 1,
+        "decision": "investigate",
+        "direction": "unknown",
+        "missing_evidence": [
+          "COVID-19-specific efficacy studies for baricitinib",
+          "Evidence that JAK1/JAK2 inhibition is beneficial in COVID-19 rather than harmful",
+          "Exposure-response data for relevant targets in COVID-19 settings",
+          "Controlled safety data in COVID-19 populations"
+        ],
+        "supporting_evidence_ids": [
+          "E1",
+          "E62",
+          "E63",
+          "E64",
+          "E65",
+          "E66",
+          "E67"
+        ],
+        "contradicting_evidence_ids": [],
+        "safety": {
+          "status": "warnings_recorded",
+          "evidence_ids": [
+            "E72",
+            "E73",
+            "E74",
+            "E75"
+          ]
+        }
+      }
+    ]
+  }
+}

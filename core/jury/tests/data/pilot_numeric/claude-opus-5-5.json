@@ -1,0 +1,2212 @@
+{
+  "source_run": "MONDO_0008383-claude-opus-5-5.json",
+  "attempt": 2,
+  "packet": {
+    "experiment_id": "aa525a12-4a0e-5f78-af47-d1b8c98cfab5",
+    "disease": {
+      "id": "MONDO_0008383",
+      "name": "rheumatoid arthritis"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "candidates": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL439849",
+        "name": "VILAZODONE",
+        "targets": [
+          {
+            "id": "ENSG00000103546",
+            "name": "SLC6A2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000108576",
+            "name": "SLC6A4",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000135914",
+            "name": "HTR2B",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000142319",
+            "name": "SLC6A3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000147955",
+            "name": "SIGMAR1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000178394",
+            "name": "HTR1A",
+            "mechanism": "PARTIAL AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E85",
+          "E86",
+          "E87",
+          "E88",
+          "E89",
+          "E90"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL761",
+        "name": "NAPHAZOLINE",
+        "targets": [
+          {
+            "id": "ENSG00000120907",
+            "name": "ADRA1A",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000150594",
+            "name": "ADRA2A",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000170214",
+            "name": "ADRA1B",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000171873",
+            "name": "ADRA1D",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000184160",
+            "name": "ADRA2C",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000274286",
+            "name": "ADRA2B",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E115",
+          "E116",
+          "E117",
+          "E118",
+          "E119"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL716",
+        "name": "QUETIAPINE",
+        "targets": [
+          {
+            "id": "ENSG00000102468",
+            "name": "HTR2A",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000147246",
+            "name": "HTR2C",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000149295",
+            "name": "DRD2",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000170214",
+            "name": "ADRA1B",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000171873",
+            "name": "ADRA1D",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000196639",
+            "name": "HRH1",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E107",
+          "E108",
+          "E109",
+          "E110",
+          "E111",
+          "E112",
+          "E113",
+          "E114"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL4085457",
+        "name": "RITLECITINIB",
+        "targets": [
+          {
+            "id": "ENSG00000010671",
+            "name": "BTK",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000074966",
+            "name": "TXK",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000102010",
+            "name": "BMX",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000105639",
+            "name": "JAK3",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000113263",
+            "name": "ITK",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000135605",
+            "name": "TEC",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E75",
+          "E76",
+          "E77",
+          "E78",
+          "E79",
+          "E80",
+          "E81",
+          "E82",
+          "E83",
+          "E84"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C5",
+        "candidate_id": "CHEMBL53",
+        "name": "APOMORPHINE",
+        "targets": [
+          {
+            "id": "ENSG00000069696",
+            "name": "DRD4",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000072506",
+            "name": "HSD17B10",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000149295",
+            "name": "DRD2",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000151577",
+            "name": "DRD3",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000169676",
+            "name": "DRD5",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000171873",
+            "name": "ADRA1D",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E94",
+          "E95",
+          "E96",
+          "E97",
+          "E98",
+          "E99",
+          "E100"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C6",
+        "candidate_id": "CHEMBL384467",
+        "name": "DEXAMETHASONE",
+        "targets": [
+          {
+            "id": "ENSG00000104365",
+            "name": "IKBKB",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000113580",
+            "name": "NR3C1",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000151623",
+            "name": "NR3C2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000165409",
+            "name": "TSHR",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000169252",
+            "name": "ADRB2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000213341",
+            "name": "CHUK",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E67",
+          "E68",
+          "E69",
+          "E70",
+          "E71",
+          "E72",
+          "E73",
+          "E74"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C7",
+        "candidate_id": "CHEMBL3813873",
+        "name": "PEXIDARTINIB",
+        "targets": [
+          {
+            "id": "ENSG00000065675",
+            "name": "PRKCQ",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000113721",
+            "name": "PDGFRB",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000122025",
+            "name": "FLT3",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000134853",
+            "name": "PDGFRA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000157404",
+            "name": "KIT",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000182578",
+            "name": "CSF1R",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E52",
+          "E53",
+          "E54",
+          "E55",
+          "E56",
+          "E57",
+          "E58",
+          "E59",
+          "E60",
+          "E61",
+          "E62",
+          "E63",
+          "E64",
+          "E65",
+          "E66"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C8",
+        "candidate_id": "CHEMBL98",
+        "name": "VORINOSTAT",
+        "targets": [
+          {
+            "id": "ENSG00000094631",
+            "name": "HDAC6",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000100429",
+            "name": "HDAC10",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000116478",
+            "name": "HDAC1",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000141867",
+            "name": "BRD4",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000171720",
+            "name": "HDAC3",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000196591",
+            "name": "HDAC2",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E120",
+          "E121",
+          "E122",
+          "E123",
+          "E124",
+          "E125",
+          "E126",
+          "E127",
+          "E128",
+          "E129"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL225072",
+        "name": "PEMETREXED",
+        "targets": [
+          {
+            "id": "ENSG00000076351",
+            "name": "SLC46A1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000110195",
+            "name": "FOLR1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000111816",
+            "name": "FRK",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000159131",
+            "name": "GART",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000176890",
+            "name": "TYMS",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000228716",
+            "name": "DHFR",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E25",
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30",
+          "E31",
+          "E32",
+          "E33",
+          "E34",
+          "E35",
+          "E36",
+          "E37",
+          "E38",
+          "E39",
+          "E40",
+          "E41",
+          "E42"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C10",
+        "candidate_id": "CHEMBL134",
+        "name": "CLONIDINE",
+        "targets": [
+          {
+            "id": "ENSG00000010322",
+            "name": "NISCH",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000150594",
+            "name": "ADRA2A",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000184160",
+            "name": "ADRA2C",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000197299",
+            "name": "BLM",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000274286",
+            "name": "ADRA2B",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C11",
+        "candidate_id": "CHEMBL3353410",
+        "name": "OSIMERTINIB",
+        "targets": [
+          {
+            "id": "ENSG00000061938",
+            "name": "TNK2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000065361",
+            "name": "ERBB3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000105639",
+            "name": "JAK3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000110619",
+            "name": "CARS1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000141736",
+            "name": "ERBB2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000146648",
+            "name": "EGFR",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E43",
+          "E44",
+          "E45",
+          "E46",
+          "E47",
+          "E48",
+          "E49",
+          "E50",
+          "E51"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C12",
+        "candidate_id": "CHEMBL1382",
+        "name": "TOLTERODINE",
+        "targets": [
+          {
+            "id": "ENSG00000055118",
+            "name": "KCNH2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000133019",
+            "name": "CHRM3",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000168539",
+            "name": "CHRM1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000180720",
+            "name": "CHRM4",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000181072",
+            "name": "CHRM2",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000184984",
+            "name": "CHRM5",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E9",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E17"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C13",
+        "candidate_id": "CHEMBL639",
+        "name": "AZELASTINE",
+        "targets": [
+          {
+            "id": "ENSG00000055118",
+            "name": "KCNH2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000109084",
+            "name": "TMEM97",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000120907",
+            "name": "ADRA1A",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000170214",
+            "name": "ADRA1B",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000196639",
+            "name": "HRH1",
+            "mechanism": "ANTAGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E101",
+          "E102",
+          "E103",
+          "E104",
+          "E105",
+          "E106"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C14",
+        "candidate_id": "CHEMBL2109171",
+        "name": "DIBOTERMIN ALFA",
+        "targets": [
+          {
+            "id": "ENSG00000107779",
+            "name": "BMPR1A",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000114739",
+            "name": "ACVR2B",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000115170",
+            "name": "ACVR1",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000121989",
+            "name": "ACVR2A",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000138696",
+            "name": "BMPR1B",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000204217",
+            "name": "BMPR2",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E18",
+          "E19",
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C15",
+        "candidate_id": "CHEMBL4594287",
+        "name": "ENSIFENTRINE",
+        "targets": [
+          {
+            "id": "ENSG00000065989",
+            "name": "PDE4A",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000105650",
+            "name": "PDE4C",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000113448",
+            "name": "PDE4D",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000152270",
+            "name": "PDE3B",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000172572",
+            "name": "PDE3A",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000184588",
+            "name": "PDE4B",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E91",
+          "E92",
+          "E93"
+        ],
+        "safety_status": "unknown"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1142",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1142.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records CLONIDINE's mechanism as Adrenergic receptor alpha-2 agonist.",
+        "values": {}
+      },
+      {
+        "id": "E2",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1145",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1145.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records CLONIDINE's mechanism as Adrenergic receptor alpha-2 agonist.",
+        "values": {}
+      },
+      {
+        "id": "E3",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL134/CHEMBL1867",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL134&target_chembl_id=CHEMBL1867&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.575 across 22 human ADRA2A activities for CLONIDINE.",
+        "values": {
+          "median_pchembl": 7.575,
+          "n_activities": 22
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL134/CHEMBL1916",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL134&target_chembl_id=CHEMBL1916&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.25 across 10 human ADRA2C activities for CLONIDINE.",
+        "values": {
+          "median_pchembl": 7.25,
+          "n_activities": 10
+        }
+      },
+      {
+        "id": "E5",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL134/CHEMBL1942",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL134&target_chembl_id=CHEMBL1942&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.335 across 10 human ADRA2B activities for CLONIDINE.",
+        "values": {
+          "median_pchembl": 7.335,
+          "n_activities": 10
+        }
+      },
+      {
+        "id": "E6",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL134/CHEMBL3923",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL134&target_chembl_id=CHEMBL3923&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.26 across 3 human NISCH activities for CLONIDINE.",
+        "values": {
+          "median_pchembl": 7.26,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E7",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "00f30ef0-e65c-4b41-ad1b-afaab9bcfc7d",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00f30ef0-e65c-4b41-ad1b-afaab9bcfc7d",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E8",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "402",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ada02f1f-ae78-4435-879e-492ae862d504",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for CLONIDINE: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E9",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "21",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/21.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TOLTERODINE's mechanism as Muscarinic acetylcholine receptor M3 antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E10",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1515",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1515.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records TOLTERODINE's mechanism as Muscarinic acetylcholine receptor M2 antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E11",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL1821",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL1821&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.51 across 1 human CHRM4 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 8.51,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E12",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL2035",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL2035&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.425 across 2 human CHRM5 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 8.425,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E13",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL211",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL211&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.05 across 7 human CHRM2 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 8.05,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E14",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL216",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL216&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.29 across 3 human CHRM1 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 8.29,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E15",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL240",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL240&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.52 across 5 human KCNH2 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 7.52,
+          "n_activities": 5
+        }
+      },
+      {
+        "id": "E16",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1382/CHEMBL245",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1382&target_chembl_id=CHEMBL245&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.44 across 5 human CHRM3 activities for TOLTERODINE.",
+        "values": {
+          "median_pchembl": 8.44,
+          "n_activities": 5
+        }
+      },
+      {
+        "id": "E17",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "0565f75a-3f4f-436e-930e-c31c6fa2b1e7",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0565f75a-3f4f-436e-930e-c31c6fa2b1e7",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E18",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9669",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9669.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Bone morphogenetic protein receptor type-1A agonist.",
+        "values": {}
+      },
+      {
+        "id": "E19",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9671",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9671.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Activin receptor type-2B agonist.",
+        "values": {}
+      },
+      {
+        "id": "E20",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9672",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9672.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Bone morphogenetic protein receptor type-2 agonist.",
+        "values": {}
+      },
+      {
+        "id": "E21",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9677",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9677.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Bone morphogenetic protein receptor type-1B agonist.",
+        "values": {}
+      },
+      {
+        "id": "E22",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9678",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9678.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Activin receptor type-2A agonist.",
+        "values": {}
+      },
+      {
+        "id": "E23",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9680",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9680.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DIBOTERMIN ALFA's mechanism as Activin receptor type-1 agonist.",
+        "values": {}
+      },
+      {
+        "id": "E24",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/000408",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/inductos",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E25",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "484",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/484.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Thymidylate synthase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E26",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "850",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/850.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Dihydrofolate reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E27",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "963",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/963.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as GAR transformylase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E28",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9594",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9594.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Dihydrofolate reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E29",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9595",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9595.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as GAR transformylase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E30",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9635",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9635.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Dihydrofolate reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E31",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9637",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9637.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Thymidylate synthase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E32",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9666",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9666.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as GAR transformylase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E33",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9824",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9824.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as GAR transformylase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E34",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9825",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9825.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Dihydrofolate reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E35",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9826",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9826.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Thymidylate synthase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E36",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9932",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9932.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as GAR transformylase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E37",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9994",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9994.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEMETREXED's mechanism as Dihydrofolate reductase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E38",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL225072/CHEMBL1795188",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL225072&target_chembl_id=CHEMBL1795188&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.03 across 12 human SLC46A1 activities for PEMETREXED.",
+        "values": {
+          "median_pchembl": 7.03,
+          "n_activities": 12
+        }
+      },
+      {
+        "id": "E39",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL225072/CHEMBL2121",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL225072&target_chembl_id=CHEMBL2121&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.38 across 6 human FOLR1 activities for PEMETREXED.",
+        "values": {
+          "median_pchembl": 7.38,
+          "n_activities": 6
+        }
+      },
+      {
+        "id": "E40",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL225072/CHEMBL3972",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL225072&target_chembl_id=CHEMBL3972&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.19 across 9 human GART activities for PEMETREXED.",
+        "values": {
+          "median_pchembl": 7.19,
+          "n_activities": 9
+        }
+      },
+      {
+        "id": "E41",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL225072/CHEMBL4223",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL225072&target_chembl_id=CHEMBL4223&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.38 across 1 human FRK activities for PEMETREXED.",
+        "values": {
+          "median_pchembl": 7.38,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E42",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2004/021462lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2004/021462lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E43",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2424",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2424.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records OSIMERTINIB's mechanism as Epidermal growth factor receptor erbB1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E44",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5260",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5260.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records OSIMERTINIB's mechanism as Epidermal growth factor receptor erbB1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E45",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL1824",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL1824&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.32 across 3 human ERBB2 activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 8.32,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E46",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL203",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL203&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.855 across 288 human EGFR activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 7.855,
+          "n_activities": 288
+        }
+      },
+      {
+        "id": "E47",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL2148",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL2148&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.45 across 1 human JAK3 activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 7.45,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E48",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL4105937",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL4105937&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.92 across 1 human CARS1 activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 7.92,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E49",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL4599",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL4599&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.15 across 1 human TNK2 activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 7.15,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E50",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL5838",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL5838&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.68 across 1 human ERBB3 activities for OSIMERTINIB.",
+        "values": {
+          "median_pchembl": 8.68,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E51",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "5e81b4a7-b971-45e1-9c31-29cea8c87ce7",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e81b4a7-b971-45e1-9c31-29cea8c87ce7",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E52",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000122025/MONDO_0008383",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000122025/MONDO_0008383",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives FLT3 an evidence-only association score of 0.52144585 with rheumatoid arthritis.",
+        "values": {
+          "evidence_only_score": 0.52144585
+        }
+      },
+      {
+        "id": "E53",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4796",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4796.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Macrophage colony stimulating factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E54",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4797",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4797.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E55",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4798",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4798.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Stem cell growth factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E56",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7389",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7389.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Macrophage colony stimulating factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E57",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7426",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7426.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E58",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7427",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7427.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records PEXIDARTINIB's mechanism as Stem cell growth factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E59",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1844",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1844&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.89 across 40 human CSF1R activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 7.89,
+          "n_activities": 40
+        }
+      },
+      {
+        "id": "E60",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1913",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1913&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.44 across 3 human PDGFRB activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 7.44,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E61",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1936",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1936&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.57 across 13 human KIT activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 7.57,
+          "n_activities": 13
+        }
+      },
+      {
+        "id": "E62",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1974",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1974&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.96 across 17 human FLT3 activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 7.96,
+          "n_activities": 17
+        }
+      },
+      {
+        "id": "E63",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL2007",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL2007&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.02 across 4 human PDGFRA activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 8.02,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E64",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL3920",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL3920&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.22 across 1 human PRKCQ activities for PEXIDARTINIB.",
+        "values": {
+          "median_pchembl": 8.22,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E65",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2019/211810s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/211810s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E66",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1485",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24c5a6f1-b640-4d14-b44b-dd293ed002b1",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for PEXIDARTINIB: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E67",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "813",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/813.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records DEXAMETHASONE's mechanism as Glucocorticoid receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E68",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL1963",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL1963&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.9 across 2 human TSHR activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 7.9,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E69",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL1991",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL1991&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.3 across 1 human IKBKB activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 9.3,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E70",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL1994",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL1994&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.48 across 10 human NR3C2 activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 7.48,
+          "n_activities": 10
+        }
+      },
+      {
+        "id": "E71",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL2034",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL2034&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.52 across 116 human NR3C1 activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 8.52,
+          "n_activities": 116
+        }
+      },
+      {
+        "id": "E72",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL210",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL210&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.66 across 1 human ADRB2 activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 8.66,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E73",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL384467/CHEMBL3476",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL384467&target_chembl_id=CHEMBL3476&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.3 across 1 human CHUK activities for DEXAMETHASONE.",
+        "values": {
+          "median_pchembl": 9.3,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E74",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "01e58ae0-cdcf-4c1f-bfb9-9d0fc3ebd002",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=01e58ae0-cdcf-4c1f-bfb9-9d0fc3ebd002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E75",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7430",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7430.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records RITLECITINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E76",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7431",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7431.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records RITLECITINIB's mechanism as TEC family kinase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E77",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9653",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9653.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records RITLECITINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E78",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9701",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9701.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records RITLECITINIB's mechanism as TEC family kinase inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E79",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL4085457/CHEMBL2148",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL4085457&target_chembl_id=CHEMBL2148&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.48 across 26 human JAK3 activities for RITLECITINIB.",
+        "values": {
+          "median_pchembl": 7.48,
+          "n_activities": 26
+        }
+      },
+      {
+        "id": "E80",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2023/215830s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/215830s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E81",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5032",
+        "url": "https://platform.opentargets.org/drug/CHEMBL4085457",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for RITLECITINIB: cardiotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E82",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5050",
+        "url": "https://platform.opentargets.org/drug/CHEMBL4085457",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for RITLECITINIB: infectious disease.",
+        "values": {}
+      },
+      {
+        "id": "E83",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5052",
+        "url": "https://platform.opentargets.org/drug/CHEMBL4085457",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for RITLECITINIB: vascular toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E84",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5054",
+        "url": "https://platform.opentargets.org/drug/CHEMBL4085457",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for RITLECITINIB: carcinogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E85",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "403",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/403.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VILAZODONE's mechanism as Serotonin transporter inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E86",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "473",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/473.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VILAZODONE's mechanism as Serotonin 1a (5-HT1a) receptor partial agonist.",
+        "values": {}
+      },
+      {
+        "id": "E87",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL439849/CHEMBL214",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL439849&target_chembl_id=CHEMBL214&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.52 across 11 human HTR1A activities for VILAZODONE.",
+        "values": {
+          "median_pchembl": 9.52,
+          "n_activities": 11
+        }
+      },
+      {
+        "id": "E88",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL439849/CHEMBL228",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL439849&target_chembl_id=CHEMBL228&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.32 across 7 human SLC6A4 activities for VILAZODONE.",
+        "values": {
+          "median_pchembl": 9.32,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E89",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "4c55ccfb-c4cf-11df-851a-0800200c9a66",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c55ccfb-c4cf-11df-851a-0800200c9a66",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E90",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1982",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bfef9e19-d0f5-40fa-954c-b73c812eb242",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for VILAZODONE: psychiatric toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E91",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9523",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9523.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ENSIFENTRINE's mechanism as Phosphodiesterase 4 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E92",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9528",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9528.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records ENSIFENTRINE's mechanism as Phosphodiesterase 3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E93",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2024/217389s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217389s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E94",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2020",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2020.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records APOMORPHINE's mechanism as D2-like dopamine receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E95",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL1850",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL1850&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.27 across 2 human DRD5 activities for APOMORPHINE.",
+        "values": {
+          "median_pchembl": 7.27,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E96",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL217",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL217&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.55 across 39 human DRD2 activities for APOMORPHINE.",
+        "values": {
+          "median_pchembl": 7.55,
+          "n_activities": 39
+        }
+      },
+      {
+        "id": "E97",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL219",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL219&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.364999999999998 across 4 human DRD4 activities for APOMORPHINE.",
+        "values": {
+          "median_pchembl": 8.364999999999998,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E98",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL223",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL223&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.19 across 1 human ADRA1D activities for APOMORPHINE.",
+        "values": {
+          "median_pchembl": 7.19,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E99",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL234",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL234&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.0 across 7 human DRD3 activities for APOMORPHINE.",
+        "values": {
+          "median_pchembl": 8.0,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E100",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "3235535d-9ef9-4657-8b2a-176a807d091c",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3235535d-9ef9-4657-8b2a-176a807d091c",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E101",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "140",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/140.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records AZELASTINE's mechanism as Histamine H1 receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E102",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL639/CHEMBL229",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL639&target_chembl_id=CHEMBL229&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.3 across 5 human ADRA1A activities for AZELASTINE.",
+        "values": {
+          "median_pchembl": 7.3,
+          "n_activities": 5
+        }
+      },
+      {
+        "id": "E103",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL639/CHEMBL231",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL639&target_chembl_id=CHEMBL231&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.309999999999999 across 10 human HRH1 activities for AZELASTINE.",
+        "values": {
+          "median_pchembl": 9.309999999999999,
+          "n_activities": 10
+        }
+      },
+      {
+        "id": "E104",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL639/CHEMBL232",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL639&target_chembl_id=CHEMBL232&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.3 across 4 human ADRA1B activities for AZELASTINE.",
+        "values": {
+          "median_pchembl": 7.3,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E105",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL639/CHEMBL240",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL639&target_chembl_id=CHEMBL240&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.0 across 7 human KCNH2 activities for AZELASTINE.",
+        "values": {
+          "median_pchembl": 7.0,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E106",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "04e5eede-17ff-4765-af77-d46c139da703",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=04e5eede-17ff-4765-af77-d46c139da703",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E107",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "599",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/599.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records QUETIAPINE's mechanism as Serotonin 2a (5-HT2a) receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E108",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "622",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/622.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records QUETIAPINE's mechanism as Serotonin 2c (5-HT2c) receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E109",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2024",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2024.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records QUETIAPINE's mechanism as Dopamine D2 receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E110",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL716/CHEMBL223",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL716&target_chembl_id=CHEMBL223&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.165 across 2 human ADRA1D activities for QUETIAPINE.",
+        "values": {
+          "median_pchembl": 7.165,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E111",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL716/CHEMBL231",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL716&target_chembl_id=CHEMBL231&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.96 across 9 human HRH1 activities for QUETIAPINE.",
+        "values": {
+          "median_pchembl": 7.96,
+          "n_activities": 9
+        }
+      },
+      {
+        "id": "E112",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL716/CHEMBL232",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL716&target_chembl_id=CHEMBL232&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.0 across 1 human ADRA1B activities for QUETIAPINE.",
+        "values": {
+          "median_pchembl": 7.0,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E113",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "029acfa1-81f0-490c-ad46-ec6f19591293",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=029acfa1-81f0-490c-ad46-ec6f19591293",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E114",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1603",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bb5a14a3-0283-4eb2-88e4-8e53375394a2",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for QUETIAPINE: psychiatric toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E115",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1234",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1234.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records NAPHAZOLINE's mechanism as Adrenergic receptor alpha agonist.",
+        "values": {}
+      },
+      {
+        "id": "E116",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL761/CHEMBL1867",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL761&target_chembl_id=CHEMBL1867&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.515000000000001 across 4 human ADRA2A activities for NAPHAZOLINE.",
+        "values": {
+          "median_pchembl": 7.515000000000001,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E117",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL761/CHEMBL1916",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL761&target_chembl_id=CHEMBL1916&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.26 across 3 human ADRA2C activities for NAPHAZOLINE.",
+        "values": {
+          "median_pchembl": 7.26,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E118",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL761/CHEMBL229",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL761&target_chembl_id=CHEMBL229&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.025 across 4 human ADRA1A activities for NAPHAZOLINE.",
+        "values": {
+          "median_pchembl": 8.025,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E119",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "ac1410ce-ae7f-498d-b84c-a6d32e1c87a6",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ac1410ce-ae7f-498d-b84c-a6d32e1c87a6",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E120",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "121",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/121.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VORINOSTAT's mechanism as Histone deacetylase 1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E121",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "190",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/190.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VORINOSTAT's mechanism as Histone deacetylase 3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E122",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "307",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/307.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VORINOSTAT's mechanism as Histone deacetylase 6 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E123",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1489",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1489.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records VORINOSTAT's mechanism as Histone deacetylase 2 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E124",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL98/CHEMBL1163125",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL98&target_chembl_id=CHEMBL1163125&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.37 across 3 human BRD4 activities for VORINOSTAT.",
+        "values": {
+          "median_pchembl": 7.37,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E125",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL98/CHEMBL1829",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL98&target_chembl_id=CHEMBL1829&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.3 across 186 human HDAC3 activities for VORINOSTAT.",
+        "values": {
+          "median_pchembl": 7.3,
+          "n_activities": 186
+        }
+      },
+      {
+        "id": "E126",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL98/CHEMBL1865",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL98&target_chembl_id=CHEMBL1865&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.5 across 362 human HDAC6 activities for VORINOSTAT.",
+        "values": {
+          "median_pchembl": 7.5,
+          "n_activities": 362
+        }
+      },
+      {
+        "id": "E127",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL98/CHEMBL325",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL98&target_chembl_id=CHEMBL325&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.32 across 432 human HDAC1 activities for VORINOSTAT.",
+        "values": {
+          "median_pchembl": 7.32,
+          "n_activities": 432
+        }
+      },
+      {
+        "id": "E128",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL98/CHEMBL5103",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL98&target_chembl_id=CHEMBL5103&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.0 across 68 human HDAC10 activities for VORINOSTAT.",
+        "values": {
+          "median_pchembl": 7.0,
+          "n_activities": 68
+        }
+      },
+      {
+        "id": "E129",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "cd86ee78-2781-468b-930c-3c4677bcc092",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cd86ee78-2781-468b-930c-3c4677bcc092",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      }
+    ]
+  },
+  "raw_output": "{\"reviews\":[{\"label\":\"C7\",\"rationale\":\"PEXIDARTINIB inhibits FLT3, CSF1R and KIT, and FLT3 has a recorded Open Targets association with rheumatoid arthritis.\",\"objection\":\"The association score links FLT3 to the disease but does not show that inhibiting it helps, and a Black Box Warning is recorded.\",\"rank\":1,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"Evidence that FLT3 or CSF1R inhibition is beneficial in rheumatoid arthritis\",\"Disease-relevant functional or clinical data\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E66\"]}},{\"label\":\"C4\",\"rationale\":\"RITLECITINIB has recorded JAK3 and TEC family kinase inhibitor mechanisms with supporting bioactivity, but no rheumatoid arthritis evidence was supplied.\",\"objection\":\"No target-disease link or efficacy direction is supplied, and multiple Black Box Warnings are recorded.\",\"rank\":2,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target association of JAK3 or TEC kinases with rheumatoid arthritis\",\"Evidence that this inhibition is beneficial in the disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E81\",\"E82\",\"E83\",\"E84\"]}},{\"label\":\"C6\",\"rationale\":\"DEXAMETHASONE is recorded as a glucocorticoid receptor agonist with well-sampled NR3C1 bioactivity, but no disease-specific evidence was supplied.\",\"objection\":\"Nothing in the packet links NR3C1 agonism to rheumatoid arthritis outcomes.\",\"rank\":3,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"NR3C1 association with rheumatoid arthritis\",\"Evidence of benefit from glucocorticoid receptor agonism in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"PEMETREXED is recorded as an inhibitor of DHFR, TYMS and GART, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"The many mechanism records are duplicates and none establishes a disease link or a beneficial direction.\",\"rank\":4,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Association of DHFR, TYMS or GART with rheumatoid arthritis\",\"Evidence that antifolate inhibition helps this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C8\",\"rationale\":\"VORINOSTAT has recorded HDAC inhibitor mechanisms with extensive bioactivity, but no disease-specific evidence was supplied.\",\"objection\":\"No HDAC-rheumatoid arthritis link or direction of effect is shown.\",\"rank\":5,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"HDAC target association with rheumatoid arthritis\",\"Evidence that HDAC inhibition is beneficial in the disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C11\",\"rationale\":\"OSIMERTINIB is recorded as an EGFR inhibitor with off-target activity including JAK3, and no disease evidence was supplied.\",\"objection\":\"The off-target JAK3 activity rests on a single measurement and no rheumatoid arthritis link is given.\",\"rank\":6,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"EGFR or JAK3 association with rheumatoid arthritis\",\"Evidence of benefit from EGFR inhibition in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C15\",\"rationale\":\"ENSIFENTRINE is recorded as a PDE3 and PDE4 inhibitor, but no bioactivity or disease evidence was supplied.\",\"objection\":\"The evidence is limited to mechanism and approval records with no link to rheumatoid arthritis.\",\"rank\":7,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"PDE4 or PDE3 association with rheumatoid arthritis\",\"Bioactivity data\",\"Evidence of benefit in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C14\",\"rationale\":\"DIBOTERMIN ALFA is recorded as an agonist of BMP and activin receptors, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No target-disease association or direction evidence is supplied, and there is no bioactivity data.\",\"rank\":8,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"BMP receptor association with rheumatoid arthritis\",\"Evidence that agonism helps or harms in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C13\",\"rationale\":\"AZELASTINE is recorded as an HRH1 antagonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"Nothing links HRH1 antagonism to the disease.\",\"rank\":9,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"HRH1 association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"VILAZODONE is recorded as a serotonin transporter inhibitor and 5-HT1a partial agonist, with no disease evidence supplied.\",\"objection\":\"No link to rheumatoid arthritis is shown, and a Black Box Warning is recorded.\",\"rank\":10,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"SLC6A4 or HTR1A association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E90\"]}},{\"label\":\"C3\",\"rationale\":\"QUETIAPINE is recorded as a 5-HT2a, 5-HT2c and D2 antagonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No disease link is shown, and a Black Box Warning is recorded.\",\"rank\":11,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E114\"]}},{\"label\":\"C5\",\"rationale\":\"APOMORPHINE is recorded as a D2-like dopamine receptor agonist, with no disease evidence supplied.\",\"objection\":\"Nothing links dopamine agonism to rheumatoid arthritis.\",\"rank\":12,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Dopamine receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"NAPHAZOLINE is recorded as an alpha adrenergic agonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No target-disease link or direction is supplied.\",\"rank\":13,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Adrenergic receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C12\",\"rationale\":\"TOLTERODINE is recorded as a muscarinic M2 and M3 antagonist, with no disease evidence supplied.\",\"objection\":\"Nothing links muscarinic antagonism to rheumatoid arthritis, and off-target KCNH2 activity is recorded.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Muscarinic receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C10\",\"rationale\":\"CLONIDINE is recorded as an alpha-2 adrenergic agonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No disease link is shown, and a Black Box Warning is recorded.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"ADRA2 association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E8\"]}}]}",
+  "attempts": [
+    {
+      "attempt": 2,
+      "raw_output": "{\"reviews\":[{\"label\":\"C7\",\"rationale\":\"PEXIDARTINIB inhibits FLT3, CSF1R and KIT, and FLT3 has a recorded Open Targets association with rheumatoid arthritis.\",\"objection\":\"The association score links FLT3 to the disease but does not show that inhibiting it helps, and a Black Box Warning is recorded.\",\"rank\":1,\"decision\":\"investigate\",\"direction\":\"unknown\",\"missing_evidence\":[\"Evidence that FLT3 or CSF1R inhibition is beneficial in rheumatoid arthritis\",\"Disease-relevant functional or clinical data\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E66\"]}},{\"label\":\"C4\",\"rationale\":\"RITLECITINIB has recorded JAK3 and TEC family kinase inhibitor mechanisms with supporting bioactivity, but no rheumatoid arthritis evidence was supplied.\",\"objection\":\"No target-disease link or efficacy direction is supplied, and multiple Black Box Warnings are recorded.\",\"rank\":2,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target association of JAK3 or TEC kinases with rheumatoid arthritis\",\"Evidence that this inhibition is beneficial in the disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E81\",\"E82\",\"E83\",\"E84\"]}},{\"label\":\"C6\",\"rationale\":\"DEXAMETHASONE is recorded as a glucocorticoid receptor agonist with well-sampled NR3C1 bioactivity, but no disease-specific evidence was supplied.\",\"objection\":\"Nothing in the packet links NR3C1 agonism to rheumatoid arthritis outcomes.\",\"rank\":3,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"NR3C1 association with rheumatoid arthritis\",\"Evidence of benefit from glucocorticoid receptor agonism in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C9\",\"rationale\":\"PEMETREXED is recorded as an inhibitor of DHFR, TYMS and GART, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"The many mechanism records are duplicates and none establishes a disease link or a beneficial direction.\",\"rank\":4,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Association of DHFR, TYMS or GART with rheumatoid arthritis\",\"Evidence that antifolate inhibition helps this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C8\",\"rationale\":\"VORINOSTAT has recorded HDAC inhibitor mechanisms with extensive bioactivity, but no disease-specific evidence was supplied.\",\"objection\":\"No HDAC-rheumatoid arthritis link or direction of effect is shown.\",\"rank\":5,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"HDAC target association with rheumatoid arthritis\",\"Evidence that HDAC inhibition is beneficial in the disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C11\",\"rationale\":\"OSIMERTINIB is recorded as an EGFR inhibitor with off-target activity including JAK3, and no disease evidence was supplied.\",\"objection\":\"The off-target JAK3 activity rests on a single measurement and no rheumatoid arthritis link is given.\",\"rank\":6,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"EGFR or JAK3 association with rheumatoid arthritis\",\"Evidence of benefit from EGFR inhibition in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C15\",\"rationale\":\"ENSIFENTRINE is recorded as a PDE3 and PDE4 inhibitor, but no bioactivity or disease evidence was supplied.\",\"objection\":\"The evidence is limited to mechanism and approval records with no link to rheumatoid arthritis.\",\"rank\":7,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"PDE4 or PDE3 association with rheumatoid arthritis\",\"Bioactivity data\",\"Evidence of benefit in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C14\",\"rationale\":\"DIBOTERMIN ALFA is recorded as an agonist of BMP and activin receptors, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No target-disease association or direction evidence is supplied, and there is no bioactivity data.\",\"rank\":8,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"BMP receptor association with rheumatoid arthritis\",\"Evidence that agonism helps or harms in this disease\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C13\",\"rationale\":\"AZELASTINE is recorded as an HRH1 antagonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"Nothing links HRH1 antagonism to the disease.\",\"rank\":9,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"HRH1 association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C1\",\"rationale\":\"VILAZODONE is recorded as a serotonin transporter inhibitor and 5-HT1a partial agonist, with no disease evidence supplied.\",\"objection\":\"No link to rheumatoid arthritis is shown, and a Black Box Warning is recorded.\",\"rank\":10,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"SLC6A4 or HTR1A association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E90\"]}},{\"label\":\"C3\",\"rationale\":\"QUETIAPINE is recorded as a 5-HT2a, 5-HT2c and D2 antagonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No disease link is shown, and a Black Box Warning is recorded.\",\"rank\":11,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Target association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E114\"]}},{\"label\":\"C5\",\"rationale\":\"APOMORPHINE is recorded as a D2-like dopamine receptor agonist, with no disease evidence supplied.\",\"objection\":\"Nothing links dopamine agonism to rheumatoid arthritis.\",\"rank\":12,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Dopamine receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C2\",\"rationale\":\"NAPHAZOLINE is recorded as an alpha adrenergic agonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No target-disease link or direction is supplied.\",\"rank\":13,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Adrenergic receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C12\",\"rationale\":\"TOLTERODINE is recorded as a muscarinic M2 and M3 antagonist, with no disease evidence supplied.\",\"objection\":\"Nothing links muscarinic antagonism to rheumatoid arthritis, and off-target KCNH2 activity is recorded.\",\"rank\":14,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"Muscarinic receptor association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"unknown\",\"evidence_ids\":[]}},{\"label\":\"C10\",\"rationale\":\"CLONIDINE is recorded as an alpha-2 adrenergic agonist, with no rheumatoid arthritis evidence supplied.\",\"objection\":\"No disease link is shown, and a Black Box Warning is recorded.\",\"rank\":15,\"decision\":\"deprioritise\",\"direction\":\"unknown\",\"missing_evidence\":[\"ADRA2 association with rheumatoid arthritis\",\"Evidence of disease benefit\"],\"supporting_evidence_ids\":[],\"contradicting_evidence_ids\":[],\"safety\":{\"status\":\"warnings_recorded\",\"evidence_ids\":[\"E8\"]}}]}"
+    }
+  ]
+}

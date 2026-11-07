@@ -1,0 +1,117 @@
+{
+  "nodes": [
+    {
+      "id": "connect",
+      "x": 20,
+      "y": 20,
+      "w": 216,
+      "h": 300,
+      "title": "Connect biology",
+      "lines": [
+        "Shared Ensembl targets",
+        "Shortest STRING paths",
+        "Reactome \u00b7 Open Targets \u00b7 ChEMBL"
+      ],
+      "keyPoint": "Drug \u2194 disease links"
+    },
+    {
+      "id": "rank",
+      "x": 276,
+      "y": 20,
+      "w": 216,
+      "h": 300,
+      "title": "Rank medicines",
+      "lines": ["Random Walk with Restart", "Up to 15 candidates"],
+      "keyPoint": "10 network + 5 direct"
+    },
+    {
+      "id": "packet",
+      "x": 532,
+      "y": 20,
+      "w": 216,
+      "h": 300,
+      "title": "Trace evidence",
+      "lines": ["Statements + E-IDs", "Cited in each AI review"],
+      "keyPoint": "Exact wording + values"
+    },
+    {
+      "id": "cortex",
+      "x": 788,
+      "y": 20,
+      "w": 216,
+      "h": 300,
+      "title": "3 AI reviews",
+      "lines": ["Snowflake Cortex", "Check IDs + numbers"],
+      "keyPoint": "Independent reviews"
+    },
+    {
+      "id": "compare",
+      "x": 1044,
+      "y": 20,
+      "w": 216,
+      "h": 300,
+      "title": "Compare rankings",
+      "lines": ["Network + direct ranks", "Agreement + objections"],
+      "keyPoint": "Borda AI consensus"
+    },
+    {
+      "id": "tiger",
+      "x": 532,
+      "y": 382,
+      "w": 216,
+      "h": 106,
+      "title": "TigerData",
+      "lines": ["Saved in PostgreSQL"],
+      "keyPoint": "Evidence + reviews"
+    },
+    {
+      "id": "docking",
+      "x": 1044,
+      "y": 382,
+      "w": 216,
+      "h": 106,
+      "title": "Optional: 3D pose",
+      "lines": ["AutoDock Vina"],
+      "keyPoint": "Predicted pose"
+    }
+  ],
+  "routes": [
+    {
+      "from": "connect",
+      "to": "rank",
+      "d": "M 236 170 L 276 170"
+    },
+    {
+      "from": "rank",
+      "to": "packet",
+      "d": "M 492 170 L 532 170"
+    },
+    {
+      "from": "packet",
+      "to": "cortex",
+      "d": "M 748 170 L 788 170"
+    },
+    {
+      "from": "cortex",
+      "to": "compare",
+      "d": "M 1004 170 L 1044 170"
+    },
+    {
+      "from": "compare",
+      "to": "tiger",
+      "d": "M 1152 320 L 1152 340 Q 1152 348 1144 348 L 648 348 Q 640 348 640 356 L 640 382"
+    },
+    {
+      "from": "compare",
+      "to": "docking",
+      "d": "M 1152 320 L 1152 382",
+      "dashed": true
+    },
+    {
+      "from": "docking",
+      "to": "tiger",
+      "d": "M 1044 435 L 748 435",
+      "dashed": true
+    }
+  ]
+}

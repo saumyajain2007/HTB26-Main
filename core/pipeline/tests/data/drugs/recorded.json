@@ -1,0 +1,3589 @@
+{
+  "provenance": {
+    "recorded_at": "2026-10-24",
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "ot_source": "https://open-targets-public-data-releases.s3.eu-west-1.amazonaws.com/platform/26.09/output/",
+    "chembl_source": "https://www.ebi.ac.uk/chembl/api/data/",
+    "note": "Projected source fields; no invented potency values. Activities recorded for baricitinib only; empty inputs for other drugs test mechanism-only behavior."
+  },
+  "tables": {
+    "drug_molecule": [
+      {
+        "id": "CHEMBL1200863",
+        "name": "MELPHALAN HYDROCHLORIDE",
+        "drugType": "Small molecule",
+        "parentId": "CHEMBL852",
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL1201580",
+        "name": "ADALIMUMAB",
+        "drugType": "Antibody",
+        "parentId": null,
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL1789941",
+        "name": "RUXOLITINIB",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": [
+          "CHEMBL1795071",
+          "CHEMBL4594381",
+          "CHEMBL4594382"
+        ]
+      },
+      {
+        "id": "CHEMBL1795071",
+        "name": "RUXOLITINIB PHOSPHATE",
+        "drugType": "Small molecule",
+        "parentId": "CHEMBL1789941",
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL2105759",
+        "name": "BARICITINIB",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL3137309",
+        "name": "VENETOCLAX",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL443684",
+        "name": "NAVITOCLAX",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": [
+          "CHEMBL2105690"
+        ]
+      },
+      {
+        "id": "CHEMBL4594381",
+        "name": "DEURUXOLITINIB",
+        "drugType": "Small molecule",
+        "parentId": "CHEMBL1789941",
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL4594382",
+        "name": "DEURUXOLITINIB PHOSPHATE",
+        "drugType": "Small molecule",
+        "parentId": "CHEMBL1789941",
+        "childChemblIds": null
+      },
+      {
+        "id": "CHEMBL852",
+        "name": "MELPHALAN",
+        "drugType": "Small molecule",
+        "parentId": null,
+        "childChemblIds": [
+          "CHEMBL1200863"
+        ]
+      }
+    ],
+    "drug_mechanism_of_action": [
+      {
+        "chemblIds": [
+          "CHEMBL1201580"
+        ],
+        "targetName": "Tumor necrosis factor",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000232810"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL1795071",
+          "CHEMBL1789941",
+          "CHEMBL4594382"
+        ],
+        "targetName": "Tyrosine-protein kinase JAK1",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000162434"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL1795071",
+          "CHEMBL1789941",
+          "CHEMBL4594382"
+        ],
+        "targetName": "Tyrosine-protein kinase JAK2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000096968"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL2105759"
+        ],
+        "targetName": "Tyrosine-protein kinase JAK1",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000162434"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL2105759"
+        ],
+        "targetName": "Tyrosine-protein kinase JAK2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000096968"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL3137309"
+        ],
+        "targetName": "Apoptosis regulator Bcl-2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000171791"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL443684"
+        ],
+        "targetName": "Apoptosis regulator Bcl-2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000171791"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL443684"
+        ],
+        "targetName": "Bcl-2-like protein 1",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000171552"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL443684"
+        ],
+        "targetName": "Bcl-2-like protein 2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000129473",
+          "ENSG00000258643"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL4594382",
+          "CHEMBL1789941"
+        ],
+        "targetName": "Tyrosine-protein kinase JAK3",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000105639"
+        ],
+        "actionType": "INHIBITOR"
+      },
+      {
+        "chemblIds": [
+          "CHEMBL4594382",
+          "CHEMBL1789941"
+        ],
+        "targetName": "Non-receptor tyrosine-protein kinase TYK2",
+        "targetType": "single protein",
+        "targets": [
+          "ENSG00000105397"
+        ],
+        "actionType": "INHIBITOR"
+      }
+    ],
+    "target": [
+      {
+        "id": "ENSG00000138756",
+        "approvedSymbol": "BMP2K",
+        "proteinIds": [
+          {
+            "id": "Q9NSY1",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "H0Y9P1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K4DI97",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "O94791",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q4W5H2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8IYF2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8N2G7",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8NHG9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9NTG8",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000072062",
+        "approvedSymbol": "PRKACA",
+        "proteinIds": [
+          {
+            "id": "P17612",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V5J4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQ82",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TL59",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B7Z708",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EMV1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ENJ5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ERP6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q15136",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q32P54",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9H2Y0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9NRB4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9NRH9",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000178950",
+        "approvedSymbol": "GAK",
+        "proteinIds": [
+          {
+            "id": "O14976",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "D6RAQ7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6RAW3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6RC24",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6RE78",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6RF16",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y8H5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y9M4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YA39",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5U4P5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9BVY6",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000171552",
+        "approvedSymbol": "BCL2L1",
+        "proteinIds": [
+          {
+            "id": "Q07817",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0S2Z3C5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V597",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5QP56",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5QP59",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5TE63",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5TE64",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q9H1R6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E1P5L6",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5CZ89",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5TE65",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q92976",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000086232",
+        "approvedSymbol": "EIF2AK1",
+        "proteinIds": [
+          {
+            "id": "Q9BQI3",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "C9J7U7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F8WCM0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H7C033",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K2R2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q549K6",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8NBW3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9HC02",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9NYE0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9P0V6",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9P1J5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9P2H8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UHG4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000163932",
+        "approvedSymbol": "PRKCD",
+        "proteinIds": [
+          {
+            "id": "Q05655",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A494BZX2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A494C125",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A494C1T7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TMH8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9J9P1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9JZU8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9K0E3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B0KZ81",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B2R834",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q15144",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q86XJ6",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000148660",
+        "approvedSymbol": "CAMK2G",
+        "proteinIds": [
+          {
+            "id": "Q13555",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A2Q3DQE3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A804CJ50",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPN2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TQ60",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TQ77",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TQ82",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TQW6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TR68",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TR72",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y6G2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5SWX3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q8WU40",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0A0MS52",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "A0A0A0MT11",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O00561",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O15378",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13279",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13282",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13556",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5SQZ3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5SQZ4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5SWX4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q7KYX5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8N4I3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8NIA4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000184640",
+        "approvedSymbol": "SEPTIN9",
+        "proteinIds": [
+          {
+            "id": "Q9UHD8",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0S2Z5A5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A6Q8PHC2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EIE4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EJ51",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EJV0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EJZ2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EK18",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EKN4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EL40",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EMW8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EN52",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ENL0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ENQ5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EPY1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EQ08",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EQD7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ER14",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ER34",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ER52",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K2V3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B3KPM0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B4DTL9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B4E0N2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B4E274",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B7Z654",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96QF3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96QF4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96QF5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9HA04",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UG40",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9Y5W4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000105639",
+        "approvedSymbol": "JAK3",
+        "proteinIds": [
+          {
+            "id": "P52333",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0S2Z4R7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q13259",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13260",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13611",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8N1E8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q99699",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9Y6S2",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000065243",
+        "approvedSymbol": "PKN2",
+        "proteinIds": [
+          {
+            "id": "Q16513",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "B1AL79",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y429",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y5V5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B4DQ21",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B4DTP5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B4DVG1",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "D3DT24",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q08AF4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9H1W4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000134318",
+        "approvedSymbol": "ROCK2",
+        "proteinIds": [
+          {
+            "id": "O75116",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A2P9DU05",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TL82",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TL90",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9JFJ0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6REE7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PF63",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q53QZ0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q53SJ7",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UQN5",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000174292",
+        "approvedSymbol": "TNK1",
+        "proteinIds": [
+          {
+            "id": "Q13470",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "I3L334",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "U3KPR9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "O95364",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8IYI4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000133275",
+        "approvedSymbol": "CSNK1G2",
+        "proteinIds": [
+          {
+            "id": "P78368",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A087WWF5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A087WXD7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A087WZK4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EJC0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EP38",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ESB6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B5BU42",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O00704",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8WUB1",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000168610",
+        "approvedSymbol": "STAT3",
+        "proteinIds": [
+          {
+            "id": "P40763",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V2G1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V2T1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V395",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3V0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V444",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4C8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4F6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4R2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4R3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V552",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5N9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQD2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQI1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQR5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "G8JLH9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K7B8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "K7ENL3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O14916",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9BW54",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000129473",
+        "approvedSymbol": "BCL2L2",
+        "proteinIds": [
+          {
+            "id": "Q92843",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "G3V3B7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "G3V3G8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "G3V4B7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "G3V5A9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YJC7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K0F4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q2M3U0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5U0H4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000122966",
+        "approvedSymbol": "CIT",
+        "proteinIds": [
+          {
+            "id": "O14578",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V2G7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V365",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V426",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4A6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4H7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4I0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V692",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQJ8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F5H4K4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YGG8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H7BYJ3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q2M5E1",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q6XUH8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q86UQ9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UPZ7",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000165731",
+        "approvedSymbol": "RET",
+        "proteinIds": [
+          {
+            "id": "P07949",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A087WWB1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A1W2PPN7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A1W2PSA1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHB7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHR6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A804HIK7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A804HL71",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0AAQ5BH28",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9JYL6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K6Z2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q15250",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9BTB0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9H4A2",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000171791",
+        "approvedSymbol": "BCL2",
+        "proteinIds": [
+          {
+            "id": "P10415",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V3S7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4W1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5Q7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5Q9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "C9JHD5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "P10416",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q13842",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q16197",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000123143",
+        "approvedSymbol": "PKN1",
+        "proteinIds": [
+          {
+            "id": "Q16512",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "K7EKY9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EL10",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EM57",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EN76",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EPK3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7ES10",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K7W5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B2R9R4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "B3KVN3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q15143",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q504U4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8IUV5",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UD44",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000096968",
+        "approvedSymbol": "JAK2",
+        "proteinIds": [
+          {
+            "id": "O60674",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A1B0GTR9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A1B0GVR5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "O14636",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O75297",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000169118",
+        "approvedSymbol": "CSNK1G1",
+        "proteinIds": [
+          {
+            "id": "Q9HCP0",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0U1RQG9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQH9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQK2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQK6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQN5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQT7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQU4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RQY7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RR14",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RR31",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0U1RRH5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q8IXA3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "U3KQA5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "U3KQB3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5JPH1",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96AE9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9HCP1",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000075413",
+        "approvedSymbol": "MARK3",
+        "proteinIds": [
+          {
+            "id": "P27448",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V2E3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V2I9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V2J6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V2N8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V2U9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3B9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3C6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3I9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3K2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3P5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3Q1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3X7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V409",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V483",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4G7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4K8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4L1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4T2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V4T5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V549",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5G3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5H7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V5Z7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V602",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V639",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQ84",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQ91",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQF4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQF7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQJ7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YIY6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YJI9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YKP9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YNV4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "J3KNR0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A0A0MQR8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "A0A0A0MST9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "A0A0A0MT23",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "O60219",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q86TT8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8TB41",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8WX83",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96RG1",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UMY9",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UN34",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000105397",
+        "approvedSymbol": "TYK2",
+        "proteinIds": [
+          {
+            "id": "P29597",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A8V8TN50",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN55",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN89",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN95",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNM9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPH2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPJ0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPJ3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPX5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PM19",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PQE9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PQL2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YCT7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YE24",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0YE41",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EJR6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "K7EM33",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q6QB10",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96CH0",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000258643",
+        "approvedSymbol": "BCL2L2-PABPN1",
+        "proteinIds": [
+          {
+            "id": "Q92843",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A7I2V383",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8K0F4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q2M3U0",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5U0H4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000072518",
+        "approvedSymbol": "MARK2",
+        "proteinIds": [
+          {
+            "id": "Q7KZI7",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0A0MRU9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A140VJP1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A1B0GXH6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2V3R3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQF3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A7I2YQR3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0AA34QVG3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E7ETY4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PC69",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F5H4F6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F5H4J8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F5H6N2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q15449",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q15524",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q5XGA3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q68A18",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96HB3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96RG0",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000095015",
+        "approvedSymbol": "MAP3K1",
+        "proteinIds": [
+          {
+            "id": "Q13233",
+            "source": "uniprot_swissprot"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000154229",
+        "approvedSymbol": "PRKCA",
+        "proteinIds": [
+          {
+            "id": "P17252",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "J3KN97",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "J3KRN5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "L7RSM7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B5BU22",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q15137",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q32M72",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q96RE4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000115977",
+        "approvedSymbol": "AAK1",
+        "proteinIds": [
+          {
+            "id": "Q2M2I8",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A096LNZ0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A096LP25",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A096LP60",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PG46",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q4ZFZ3",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q53RX6",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UPV4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000177169",
+        "approvedSymbol": "ULK1",
+        "proteinIds": [
+          {
+            "id": "O75385",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "Q9UQ28",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000145349",
+        "approvedSymbol": "CAMK2D",
+        "proteinIds": [
+          {
+            "id": "Q13557",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A8V8TN60",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN65",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN88",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNA1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNA7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TND4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNN4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNN9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TNR6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPJ8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPK3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPM4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPY4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TQ10",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A994J516",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A994J5B0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A994J7X8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "D6R938",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PBG7",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "E9PF82",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y9C2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "H0Y9J2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A8MVS8",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q52PK4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q59G21",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8N553",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UGH6",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UQE9",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000013441",
+        "approvedSymbol": "CLK1",
+        "proteinIds": [
+          {
+            "id": "P49759",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "B8ZZR0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "F8WBF5",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B4DFW7",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q0P694",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q8N5V8",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000232810",
+        "approvedSymbol": "TNF",
+        "proteinIds": [
+          {
+            "id": "P01375",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A8V8TNL2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q5STB3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "O43647",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9P1Q2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UIV3",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000162434",
+        "approvedSymbol": "JAK1",
+        "proteinIds": [
+          {
+            "id": "P23458",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0A0N0M2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZH07",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZH73",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHI1",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHK2",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHN8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZHW0",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZI01",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A5F9ZI39",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TMY8",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN11",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TN56",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPG3",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "A0A8V8TPQ9",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "Q59GQ2",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q9UD26",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      },
+      {
+        "id": "ENSG00000067900",
+        "approvedSymbol": "ROCK1",
+        "proteinIds": [
+          {
+            "id": "Q13464",
+            "source": "uniprot_swissprot"
+          },
+          {
+            "id": "A0A0U1RQV4",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "J3KRH6",
+            "source": "uniprot_trembl"
+          },
+          {
+            "id": "B0YJ91",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q2KHM4",
+            "source": "uniprot_obsolete"
+          },
+          {
+            "id": "Q59GZ4",
+            "source": "uniprot_obsolete"
+          }
+        ]
+      }
+    ]
+  },
+  "chembl_molecules": [
+    {
+      "molecule_chembl_id": "CHEMBL852",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL852",
+        "molecule_chembl_id": "CHEMBL852",
+        "parent_chembl_id": "CHEMBL852"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL443684",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL443684",
+        "molecule_chembl_id": "CHEMBL443684",
+        "parent_chembl_id": "CHEMBL443684"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL1200863",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL852",
+        "molecule_chembl_id": "CHEMBL1200863",
+        "parent_chembl_id": "CHEMBL852"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL1201580",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1201580",
+        "molecule_chembl_id": "CHEMBL1201580",
+        "parent_chembl_id": "CHEMBL1201580"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL1789941",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL1789941",
+        "parent_chembl_id": "CHEMBL1789941"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL1795071",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL1795071",
+        "parent_chembl_id": "CHEMBL1789941"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL2105759",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL2105759",
+        "molecule_chembl_id": "CHEMBL2105759",
+        "parent_chembl_id": "CHEMBL2105759"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL3137309",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL3137309",
+        "molecule_chembl_id": "CHEMBL3137309",
+        "parent_chembl_id": "CHEMBL3137309"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL4594381",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL4594381",
+        "parent_chembl_id": "CHEMBL1789941"
+      }
+    },
+    {
+      "molecule_chembl_id": "CHEMBL4594382",
+      "molecule_hierarchy": {
+        "active_chembl_id": "CHEMBL1789941",
+        "molecule_chembl_id": "CHEMBL4594382",
+        "parent_chembl_id": "CHEMBL1789941"
+      }
+    }
+  ],
+  "mechanisms": [
+    {
+      "mec_id": 182,
+      "molecule_chembl_id": "CHEMBL1201580",
+      "parent_molecule_chembl_id": "CHEMBL1201580",
+      "target_chembl_id": "CHEMBL1825",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "TNF-alpha inhibitor"
+    },
+    {
+      "mec_id": 934,
+      "molecule_chembl_id": "CHEMBL1795071",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL2835",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor"
+    },
+    {
+      "mec_id": 936,
+      "molecule_chembl_id": "CHEMBL1795071",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL2971",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor"
+    },
+    {
+      "mec_id": 1858,
+      "molecule_chembl_id": "CHEMBL852",
+      "parent_molecule_chembl_id": "CHEMBL852",
+      "target_chembl_id": "CHEMBL2311221",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "DNA inhibitor"
+    },
+    {
+      "mec_id": 1866,
+      "molecule_chembl_id": "CHEMBL1200863",
+      "parent_molecule_chembl_id": "CHEMBL852",
+      "target_chembl_id": "CHEMBL2311221",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "DNA inhibitor"
+    },
+    {
+      "mec_id": 5293,
+      "molecule_chembl_id": "CHEMBL2105759",
+      "parent_molecule_chembl_id": "CHEMBL2105759",
+      "target_chembl_id": "CHEMBL2835",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor"
+    },
+    {
+      "mec_id": 5294,
+      "molecule_chembl_id": "CHEMBL2105759",
+      "parent_molecule_chembl_id": "CHEMBL2105759",
+      "target_chembl_id": "CHEMBL2971",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor"
+    },
+    {
+      "mec_id": 5516,
+      "molecule_chembl_id": "CHEMBL3137309",
+      "parent_molecule_chembl_id": "CHEMBL3137309",
+      "target_chembl_id": "CHEMBL4860",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Apoptosis regulator Bcl-2 inhibitor"
+    },
+    {
+      "mec_id": 5740,
+      "molecule_chembl_id": "CHEMBL443684",
+      "parent_molecule_chembl_id": "CHEMBL443684",
+      "target_chembl_id": "CHEMBL4860",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Apoptosis regulator Bcl-2 inhibitor"
+    },
+    {
+      "mec_id": 5850,
+      "molecule_chembl_id": "CHEMBL443684",
+      "parent_molecule_chembl_id": "CHEMBL443684",
+      "target_chembl_id": "CHEMBL4625",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Apoptosis regulator Bcl-X inhibitor"
+    },
+    {
+      "mec_id": 5851,
+      "molecule_chembl_id": "CHEMBL443684",
+      "parent_molecule_chembl_id": "CHEMBL443684",
+      "target_chembl_id": "CHEMBL4677",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Apoptosis regulator Bcl-W inhibitor"
+    },
+    {
+      "mec_id": 9864,
+      "molecule_chembl_id": "CHEMBL4594382",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL2148",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK3 inhibitor"
+    },
+    {
+      "mec_id": 9908,
+      "molecule_chembl_id": "CHEMBL4594382",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL2971",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK2 inhibitor"
+    },
+    {
+      "mec_id": 9931,
+      "molecule_chembl_id": "CHEMBL4594382",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL2835",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase JAK1 inhibitor"
+    },
+    {
+      "mec_id": 9953,
+      "molecule_chembl_id": "CHEMBL4594382",
+      "parent_molecule_chembl_id": "CHEMBL1789941",
+      "target_chembl_id": "CHEMBL3553",
+      "action_type": "INHIBITOR",
+      "mechanism_of_action": "Tyrosine-protein kinase TYK2 inhibitor"
+    }
+  ],
+  "chembl_targets": [
+    {
+      "target_chembl_id": "CHEMBL1825",
+      "pref_name": "Tumor necrosis factor",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P01375",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2426",
+      "pref_name": "Casein kinase I isoform gamma-1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9HCP0",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3231",
+      "pref_name": "Rho-associated protein kinase 1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13464",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3032",
+      "pref_name": "Serine/threonine-protein kinase N2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q16513",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2148",
+      "pref_name": "Tyrosine-protein kinase JAK3",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P52333",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2835",
+      "pref_name": "Tyrosine-protein kinase JAK1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2971",
+      "pref_name": "Tyrosine-protein kinase JAK2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O60674",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2973",
+      "pref_name": "Rho-associated protein kinase 2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O75116",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4026",
+      "pref_name": "Signal transducer and activator of transcription 3",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P40763",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2801",
+      "pref_name": "Calcium/calmodulin-dependent protein kinase type II subunit delta",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13557",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2543",
+      "pref_name": "Casein kinase I isoform gamma-2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P78368",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL299",
+      "pref_name": "Protein kinase C alpha type",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P17252",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3384",
+      "pref_name": "Serine/threonine-protein kinase N1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q16512",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4101",
+      "pref_name": "cAMP-dependent protein kinase catalytic subunit alpha",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P17612",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2996",
+      "pref_name": "Protein kinase C delta type",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q05655",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3956",
+      "pref_name": "Mitogen-activated protein kinase kinase kinase 1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13233",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3553",
+      "pref_name": "Non-receptor tyrosine-protein kinase TYK2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P29597",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4355",
+      "pref_name": "Cyclin-G-associated kinase",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O14976",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3830",
+      "pref_name": "AP2-associated protein kinase 1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q2M2I8",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3831",
+      "pref_name": "Serine/threonine-protein kinase MARK2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q7KZI7",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3829",
+      "pref_name": "Calcium/calmodulin-dependent protein kinase type II subunit gamma",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13555",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4224",
+      "pref_name": "Dual specificity protein kinase CLK1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P49759",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4522",
+      "pref_name": "BMP-2-inducible protein kinase",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9NSY1",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2041",
+      "pref_name": "Proto-oncogene tyrosine-protein kinase receptor Ret",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P07949",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL5600",
+      "pref_name": "MAP/microtubule affinity-regulating kinase 3",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P27448",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4625",
+      "pref_name": "Bcl-2-like protein 1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q07817",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4860",
+      "pref_name": "Apoptosis regulator Bcl-2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P10415",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4677",
+      "pref_name": "Bcl-2-like protein 2",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q92843",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL5334",
+      "pref_name": "Non-receptor tyrosine-protein kinase TNK1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q13470",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL5579",
+      "pref_name": "Citron Rho-interacting kinase",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O14578",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL6006",
+      "pref_name": "Serine/threonine-protein kinase ULK1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O75385",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL6029",
+      "pref_name": "Eukaryotic translation initiation factor 2-alpha kinase 1",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9BQI3",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL2311221",
+      "pref_name": "DNA",
+      "target_type": "NUCLEIC-ACID",
+      "organism": "Homo sapiens",
+      "target_components": []
+    },
+    {
+      "target_chembl_id": "CHEMBL3038491",
+      "pref_name": "JAK3/JAK1",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P52333",
+          "component_type": "PROTEIN"
+        },
+        {
+          "accession": "P23458",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3301390",
+      "pref_name": "JAK1/JAK2/TYK2",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458",
+          "component_type": "PROTEIN"
+        },
+        {
+          "accession": "O60674",
+          "component_type": "PROTEIN"
+        },
+        {
+          "accession": "P29597",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3301391",
+      "pref_name": "JAK1/TYK2",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "P23458",
+          "component_type": "PROTEIN"
+        },
+        {
+          "accession": "P29597",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL3301392",
+      "pref_name": "JAK2/TYK2",
+      "target_type": "PROTEIN COMPLEX",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "O60674",
+          "component_type": "PROTEIN"
+        },
+        {
+          "accession": "P29597",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4105891",
+      "pref_name": "Septin-9",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q9UHD8",
+          "component_type": "PROTEIN"
+        }
+      ]
+    },
+    {
+      "target_chembl_id": "CHEMBL4105933",
+      "pref_name": "Uncharacterized protein FLJ45252",
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens",
+      "target_components": [
+        {
+          "accession": "Q6ZSR9",
+          "component_type": "PROTEIN"
+        }
+      ]
+    }
+  ],
+  "activities": {
+    "CHEMBL2105759": [
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "8.18",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "6.6"
+      },
+      {
+        "pchembl_value": "7.68",
+        "target_chembl_id": "CHEMBL3301390",
+        "value": "21.1"
+      },
+      {
+        "pchembl_value": "7.54",
+        "target_chembl_id": "CHEMBL3301391",
+        "value": "28.7"
+      },
+      {
+        "pchembl_value": "7.21",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "61.0"
+      },
+      {
+        "pchembl_value": "7.09",
+        "target_chembl_id": "CHEMBL3301392",
+        "value": "81.9"
+      },
+      {
+        "pchembl_value": "7.06",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "87.8"
+      },
+      {
+        "pchembl_value": "6.83",
+        "target_chembl_id": "CHEMBL3301392",
+        "value": "149.0"
+      },
+      {
+        "pchembl_value": "6.59",
+        "target_chembl_id": "CHEMBL3038491",
+        "value": "259.0"
+      },
+      {
+        "pchembl_value": "6.10",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "787.0"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.22",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "6.0"
+      },
+      {
+        "pchembl_value": "8.22",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "6.0"
+      },
+      {
+        "pchembl_value": "9.10",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "0.8"
+      },
+      {
+        "pchembl_value": "9.00",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "0.99"
+      },
+      {
+        "pchembl_value": "8.06",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "8.7"
+      },
+      {
+        "pchembl_value": "6.54",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "290.0"
+      },
+      {
+        "pchembl_value": "7.17",
+        "target_chembl_id": "CHEMBL3038491",
+        "value": "67.0"
+      },
+      {
+        "pchembl_value": "7.80",
+        "target_chembl_id": "CHEMBL3301390",
+        "value": "16.0"
+      },
+      {
+        "pchembl_value": "7.82",
+        "target_chembl_id": "CHEMBL3301391",
+        "value": "15.0"
+      },
+      {
+        "pchembl_value": "6.70",
+        "target_chembl_id": "CHEMBL3301392",
+        "value": "200.0"
+      },
+      {
+        "pchembl_value": "7.60",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "25.0"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "8.15",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "7.0"
+      },
+      {
+        "pchembl_value": "6.10",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "787.0"
+      },
+      {
+        "pchembl_value": "7.34",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "46.0"
+      },
+      {
+        "pchembl_value": "6.67",
+        "target_chembl_id": "CHEMBL4522",
+        "value": "216.0"
+      },
+      {
+        "pchembl_value": "6.51",
+        "target_chembl_id": "CHEMBL2801",
+        "value": "312.0"
+      },
+      {
+        "pchembl_value": "6.61",
+        "target_chembl_id": "CHEMBL3829",
+        "value": "243.0"
+      },
+      {
+        "pchembl_value": "5.36",
+        "target_chembl_id": "CHEMBL5579",
+        "value": "4361.0"
+      },
+      {
+        "pchembl_value": "6.11",
+        "target_chembl_id": "CHEMBL4224",
+        "value": "778.0"
+      },
+      {
+        "pchembl_value": "5.76",
+        "target_chembl_id": "CHEMBL2426",
+        "value": "1753.0"
+      },
+      {
+        "pchembl_value": "6.58",
+        "target_chembl_id": "CHEMBL2543",
+        "value": "265.0"
+      },
+      {
+        "pchembl_value": "6.47",
+        "target_chembl_id": "CHEMBL6029",
+        "value": "335.0"
+      },
+      {
+        "pchembl_value": "5.31",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "4862.0"
+      },
+      {
+        "pchembl_value": "5.72",
+        "target_chembl_id": "CHEMBL3956",
+        "value": "1891.0"
+      },
+      {
+        "pchembl_value": "6.90",
+        "target_chembl_id": "CHEMBL3831",
+        "value": "125.0"
+      },
+      {
+        "pchembl_value": "6.98",
+        "target_chembl_id": "CHEMBL5600",
+        "value": "104.0"
+      },
+      {
+        "pchembl_value": "6.98",
+        "target_chembl_id": "CHEMBL3384",
+        "value": "104.0"
+      },
+      {
+        "pchembl_value": "6.57",
+        "target_chembl_id": "CHEMBL3032",
+        "value": "269.0"
+      },
+      {
+        "pchembl_value": "5.44",
+        "target_chembl_id": "CHEMBL4101",
+        "value": "3597.0"
+      },
+      {
+        "pchembl_value": "5.68",
+        "target_chembl_id": "CHEMBL299",
+        "value": "2071.0"
+      },
+      {
+        "pchembl_value": "5.97",
+        "target_chembl_id": "CHEMBL2996",
+        "value": "1075.0"
+      },
+      {
+        "pchembl_value": "7.11",
+        "target_chembl_id": "CHEMBL4105933",
+        "value": "78.0"
+      },
+      {
+        "pchembl_value": "6.01",
+        "target_chembl_id": "CHEMBL2041",
+        "value": "973.0"
+      },
+      {
+        "pchembl_value": "6.32",
+        "target_chembl_id": "CHEMBL3231",
+        "value": "482.0"
+      },
+      {
+        "pchembl_value": "6.12",
+        "target_chembl_id": "CHEMBL2973",
+        "value": "756.0"
+      },
+      {
+        "pchembl_value": "7.08",
+        "target_chembl_id": "CHEMBL4105891",
+        "value": "84.0"
+      },
+      {
+        "pchembl_value": "6.21",
+        "target_chembl_id": "CHEMBL5334",
+        "value": "622.0"
+      },
+      {
+        "pchembl_value": "6.09",
+        "target_chembl_id": "CHEMBL6006",
+        "value": "810.0"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "0.004"
+      },
+      {
+        "pchembl_value": "8.15",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "0.007"
+      },
+      {
+        "pchembl_value": "7.54",
+        "target_chembl_id": "CHEMBL3301391",
+        "value": "0.029"
+      },
+      {
+        "pchembl_value": "7.06",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "0.088"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "6.25",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "560.0"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "8.15",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "7.0"
+      },
+      {
+        "pchembl_value": "6.10",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "787.0"
+      },
+      {
+        "pchembl_value": "7.21",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "61.0"
+      },
+      {
+        "pchembl_value": "6.25",
+        "target_chembl_id": "CHEMBL3038491",
+        "value": "0.562"
+      },
+      {
+        "pchembl_value": "6.33",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "0.47"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "7.70",
+        "target_chembl_id": "CHEMBL4522",
+        "value": "20.0"
+      },
+      {
+        "pchembl_value": "6.92",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "120.0"
+      },
+      {
+        "pchembl_value": "6.87",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "136.0"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "7.77",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "17.0"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "6.92",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "120.0"
+      },
+      {
+        "pchembl_value": "6.92",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "120.0"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.18",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "6.6"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "7.70",
+        "target_chembl_id": "CHEMBL4522",
+        "value": "20.0"
+      },
+      {
+        "pchembl_value": "6.92",
+        "target_chembl_id": "CHEMBL4355",
+        "value": "120.0"
+      },
+      {
+        "pchembl_value": "7.36",
+        "target_chembl_id": "CHEMBL4026",
+        "value": "44.0"
+      },
+      {
+        "pchembl_value": "7.70",
+        "target_chembl_id": "CHEMBL4026",
+        "value": "20.0"
+      },
+      {
+        "pchembl_value": "8.62",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "2.4"
+      },
+      {
+        "pchembl_value": "8.54",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "2.9"
+      },
+      {
+        "pchembl_value": "6.75",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "178.0"
+      },
+      {
+        "pchembl_value": "7.64",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "23.0"
+      },
+      {
+        "pchembl_value": "8.30",
+        "target_chembl_id": "CHEMBL3038491",
+        "value": "5.0"
+      },
+      {
+        "pchembl_value": "7.89",
+        "target_chembl_id": "CHEMBL3301391",
+        "value": "13.0"
+      },
+      {
+        "pchembl_value": "7.46",
+        "target_chembl_id": "CHEMBL3038491",
+        "value": "35.0"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.8"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.09",
+        "target_chembl_id": "CHEMBL3830",
+        "value": "8.2"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "7.28",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "53.0"
+      },
+      {
+        "pchembl_value": "8.24",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.7"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "6.63",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "234.0"
+      },
+      {
+        "pchembl_value": "7.63",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "7.631"
+      },
+      {
+        "pchembl_value": "7.20",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "7.195"
+      },
+      {
+        "pchembl_value": "7.20",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "63.8"
+      },
+      {
+        "pchembl_value": "9.15",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "0.7"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "6.60",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "250.0"
+      },
+      {
+        "pchembl_value": "7.52",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "30.0"
+      },
+      {
+        "pchembl_value": "9.15",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "0.7"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "6.60",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "250.0"
+      },
+      {
+        "pchembl_value": "7.52",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "30.0"
+      },
+      {
+        "pchembl_value": "9.15",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "0.7"
+      },
+      {
+        "pchembl_value": "8.40",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "4.0"
+      },
+      {
+        "pchembl_value": "6.60",
+        "target_chembl_id": "CHEMBL2148",
+        "value": "250.0"
+      },
+      {
+        "pchembl_value": "7.52",
+        "target_chembl_id": "CHEMBL3553",
+        "value": "30.0"
+      },
+      {
+        "pchembl_value": "8.23",
+        "target_chembl_id": "CHEMBL2835",
+        "value": "5.9"
+      },
+      {
+        "pchembl_value": "8.26",
+        "target_chembl_id": "CHEMBL2971",
+        "value": "5.5"
+      }
+    ]
+  }
+}

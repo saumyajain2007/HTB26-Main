@@ -1,0 +1,128 @@
+{
+  "provenance": {
+    "release": "opentargets-26.09",
+    "source": "data/worker9/approval_audit.json; exact projection of pinned bulk rows"
+  },
+  "indications": [
+    {
+      "id": "35c9cbe2cc077f3efdcb3d105e0b73ccbe408ef627fd3abcacd94373ca543a4c",
+      "drugId": "CHEMBL2105759",
+      "diseaseId": "MONDO_0100096",
+      "maxClinicalStage": "PHASE_3",
+      "clinicalReportIds": [
+        "nct02735707",
+        "nct04381936",
+        "nct04401579",
+        "nct04421027",
+        "nct04640168",
+        "nct04832880",
+        "nct04890626",
+        "nct04970719",
+        "nct05056558",
+        "nct05074420",
+        "nct04320277",
+        "nct04340232",
+        "nct04358614",
+        "nct04891133",
+        "nct04321993",
+        "nct04373044",
+        "nct04362943",
+        "nct04438629",
+        "nct05082714",
+        "nct05279391",
+        "nct05302947",
+        "nct05638932"
+      ]
+    },
+    {
+      "id": "58789d610d92548e30d6237d7bebc950b0bced465ebd436cd03dee28b258826e",
+      "drugId": "CHEMBL1237022",
+      "diseaseId": "MONDO_0100096",
+      "maxClinicalStage": "PHASE_3",
+      "clinicalReportIds": [
+        "nct02735707",
+        "nct04320615",
+        "nct04330638",
+        "nct04345445",
+        "nct04356937",
+        "nct04361032",
+        "nct04372186",
+        "nct04381936",
+        "nct04403685",
+        "nct04409262",
+        "nct04412772",
+        "nct04423042",
+        "nct04577534",
+        "nct04678739",
+        "nct05002517",
+        "nct04317092",
+        "nct04321993",
+        "nct04331795",
+        "nct04332094",
+        "nct04335305",
+        "nct04346355",
+        "nct04363736",
+        "nct04363853",
+        "nct04370834",
+        "nct04377503",
+        "nct04412291",
+        "nct04435717",
+        "nct04560205",
+        "nct05164133",
+        "nct05925140",
+        "nct05118737",
+        "nct04306705",
+        "nct04382781",
+        "nct04486521",
+        "nct04492501",
+        "nct04519385",
+        "nct04734678",
+        "nct05082714",
+        "nct05279391",
+        "nct05302947",
+        "nct05638932",
+        "nct06233357"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "id": "emea/h/c/000955",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL",
+      "diseases": [
+        {
+          "diseaseFromSource": "covid-19 virus infection",
+          "diseaseId": null
+        },
+        {
+          "diseaseFromSource": "cytokine release syndrome",
+          "diseaseId": null
+        },
+        {
+          "diseaseFromSource": "arthritis, juvenile rheumatoid",
+          "diseaseId": "MONDO_0011429"
+        },
+        {
+          "diseaseFromSource": "arthritis, rheumatoid",
+          "diseaseId": "MONDO_0008383"
+        },
+        {
+          "diseaseFromSource": "giant cell arteritis",
+          "diseaseId": "MONDO_0008538"
+        }
+      ]
+    },
+    {
+      "id": "label/2018/207924s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL",
+      "diseases": [
+        {
+          "diseaseFromSource": "rheumatoid arthritis",
+          "diseaseId": "MONDO_0008383"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3123 @@
+{
+  "cases": [
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1096146",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1152",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1201231",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1201265",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201288",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201507",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201562",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201563",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201587",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1201605",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201607",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201610",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201836",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL131",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1447",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1504",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1619",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2107333",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2108041",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2108354",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL2108677",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2336071",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL284348",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL314854",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3707247",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL384467",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3989944",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL58",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL589586",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL635",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL650",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL701",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL866",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL973",
+          "overrides": []
+        }
+      ],
+      "disease_id": "EFO_0803536",
+      "known_candidate_ids": [
+        "CHEMBL1096146",
+        "CHEMBL1152",
+        "CHEMBL1201231",
+        "CHEMBL1201265",
+        "CHEMBL1201288",
+        "CHEMBL1201507",
+        "CHEMBL1201562",
+        "CHEMBL1201563",
+        "CHEMBL1201587",
+        "CHEMBL1201605",
+        "CHEMBL1201607",
+        "CHEMBL1201610",
+        "CHEMBL1201836",
+        "CHEMBL131",
+        "CHEMBL1447",
+        "CHEMBL1504",
+        "CHEMBL1619",
+        "CHEMBL2107333",
+        "CHEMBL2108041",
+        "CHEMBL2108354",
+        "CHEMBL2108677",
+        "CHEMBL2336071",
+        "CHEMBL284348",
+        "CHEMBL314854",
+        "CHEMBL3707247",
+        "CHEMBL384467",
+        "CHEMBL3989944",
+        "CHEMBL58",
+        "CHEMBL589586",
+        "CHEMBL635",
+        "CHEMBL650",
+        "CHEMBL701",
+        "CHEMBL866",
+        "CHEMBL973"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201302",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL131",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1535",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1650",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1789843",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2364653",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL384467",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL635",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0007915",
+      "known_candidate_ids": [
+        "CHEMBL1201302",
+        "CHEMBL131",
+        "CHEMBL1535",
+        "CHEMBL1650",
+        "CHEMBL1789843",
+        "CHEMBL2364653",
+        "CHEMBL384467",
+        "CHEMBL635"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1014",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1069",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1095097",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1148",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1168",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200574",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200692",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201593",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1237",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL13",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1393",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1491",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1519",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1560",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1592",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1751",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1755",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL189",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2107830",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL2107885",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2181927",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3039507",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL3039598",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL3137301",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL344159",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL4066936",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL429910",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL435",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL471737",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL53463",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL578",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL723",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL730",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005252",
+      "known_candidate_ids": [
+        "CHEMBL1014",
+        "CHEMBL1069",
+        "CHEMBL1095097",
+        "CHEMBL1148",
+        "CHEMBL1168",
+        "CHEMBL1200574",
+        "CHEMBL1200692",
+        "CHEMBL1201593",
+        "CHEMBL1237",
+        "CHEMBL13",
+        "CHEMBL1393",
+        "CHEMBL1491",
+        "CHEMBL1519",
+        "CHEMBL1560",
+        "CHEMBL1592",
+        "CHEMBL1751",
+        "CHEMBL1755",
+        "CHEMBL189",
+        "CHEMBL2107830",
+        "CHEMBL2107885",
+        "CHEMBL2181927",
+        "CHEMBL3039507",
+        "CHEMBL3039598",
+        "CHEMBL3137301",
+        "CHEMBL344159",
+        "CHEMBL4066936",
+        "CHEMBL429910",
+        "CHEMBL435",
+        "CHEMBL471737",
+        "CHEMBL53463",
+        "CHEMBL578",
+        "CHEMBL723",
+        "CHEMBL730"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL107",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1078685",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1164729",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201302",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201834",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1237025",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL131",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1467",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1504",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL154",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1650",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2105720",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL384467",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL4594446",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL6",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL635",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL897",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005393",
+      "known_candidate_ids": [
+        "CHEMBL107",
+        "CHEMBL1078685",
+        "CHEMBL1164729",
+        "CHEMBL1201302",
+        "CHEMBL1201834",
+        "CHEMBL1237025",
+        "CHEMBL131",
+        "CHEMBL1467",
+        "CHEMBL1504",
+        "CHEMBL154",
+        "CHEMBL1650",
+        "CHEMBL2105720",
+        "CHEMBL384467",
+        "CHEMBL4594446",
+        "CHEMBL6",
+        "CHEMBL635",
+        "CHEMBL897"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1162",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201146",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201309",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201864",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1208155",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1479",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1509",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL691",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL717",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005133",
+      "known_candidate_ids": [
+        "CHEMBL1162",
+        "CHEMBL1201146",
+        "CHEMBL1201309",
+        "CHEMBL1201864",
+        "CHEMBL1208155",
+        "CHEMBL1479",
+        "CHEMBL1509",
+        "CHEMBL691",
+        "CHEMBL717"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL105",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1051",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200799",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200963",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201222",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201237",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL19",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1963683",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL20",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL218490",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL220491",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3426621",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL4297666",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL499",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL550",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL679",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL839",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL844",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005041",
+      "known_candidate_ids": [
+        "CHEMBL105",
+        "CHEMBL1051",
+        "CHEMBL1200799",
+        "CHEMBL1200963",
+        "CHEMBL1201222",
+        "CHEMBL1201237",
+        "CHEMBL19",
+        "CHEMBL1963683",
+        "CHEMBL20",
+        "CHEMBL218490",
+        "CHEMBL220491",
+        "CHEMBL3426621",
+        "CHEMBL4297666",
+        "CHEMBL499",
+        "CHEMBL550",
+        "CHEMBL679",
+        "CHEMBL839",
+        "CHEMBL844"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1000",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1106",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1161",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1172",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1189432",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200500",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201191",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1201231",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1201302",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL131",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1370",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1473",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1504",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1590",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1626",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1676",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1742423",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2040682",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL384467",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL517712",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL594",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL635",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL639",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL657",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL679",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL787",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL855",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL914",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL998",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0011786",
+      "known_candidate_ids": [
+        "CHEMBL1000",
+        "CHEMBL1106",
+        "CHEMBL1161",
+        "CHEMBL1172",
+        "CHEMBL1189432",
+        "CHEMBL1200500",
+        "CHEMBL1201191",
+        "CHEMBL1201231",
+        "CHEMBL1201302",
+        "CHEMBL131",
+        "CHEMBL1370",
+        "CHEMBL1473",
+        "CHEMBL1504",
+        "CHEMBL1590",
+        "CHEMBL1626",
+        "CHEMBL1676",
+        "CHEMBL1742423",
+        "CHEMBL2040682",
+        "CHEMBL384467",
+        "CHEMBL517712",
+        "CHEMBL594",
+        "CHEMBL635",
+        "CHEMBL639",
+        "CHEMBL657",
+        "CHEMBL679",
+        "CHEMBL787",
+        "CHEMBL855",
+        "CHEMBL914",
+        "CHEMBL998"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201497",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1743078",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2104391",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3039507",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL4650274",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005147",
+      "known_candidate_ids": [
+        "CHEMBL1201497",
+        "CHEMBL1743078",
+        "CHEMBL2104391",
+        "CHEMBL3039507",
+        "CHEMBL4650274"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201182",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201583",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1289494",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1289601",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1289926",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1336",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1789844",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1908360",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2105717",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2108738",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3137343",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL4585668",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL477772",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL535",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005086",
+      "known_candidate_ids": [
+        "CHEMBL1201182",
+        "CHEMBL1201583",
+        "CHEMBL1289494",
+        "CHEMBL1289601",
+        "CHEMBL1289926",
+        "CHEMBL1336",
+        "CHEMBL1789844",
+        "CHEMBL1908360",
+        "CHEMBL2105717",
+        "CHEMBL2108738",
+        "CHEMBL3137343",
+        "CHEMBL4585668",
+        "CHEMBL477772",
+        "CHEMBL535"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL114",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL115",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL116",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1163",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201565",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201567",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201621",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201688",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1229211",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL129",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1323",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1380",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL141",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1460",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1538",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL161381",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL163",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1664",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1743029",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL175691",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL182",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL204656",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL2095208",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2107825",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL222559",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL223228",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2364608",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2403238",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL254316",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL256907",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL308954",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3301594",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3989866",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL444633",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL4594438",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL525076",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL529",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL57",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL584",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL64",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL729",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL885",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL991",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005109",
+      "known_candidate_ids": [
+        "CHEMBL114",
+        "CHEMBL115",
+        "CHEMBL116",
+        "CHEMBL1163",
+        "CHEMBL1201565",
+        "CHEMBL1201567",
+        "CHEMBL1201621",
+        "CHEMBL1201688",
+        "CHEMBL1229211",
+        "CHEMBL129",
+        "CHEMBL1323",
+        "CHEMBL1380",
+        "CHEMBL141",
+        "CHEMBL1460",
+        "CHEMBL1538",
+        "CHEMBL161381",
+        "CHEMBL163",
+        "CHEMBL1664",
+        "CHEMBL1743029",
+        "CHEMBL175691",
+        "CHEMBL182",
+        "CHEMBL204656",
+        "CHEMBL2095208",
+        "CHEMBL2107825",
+        "CHEMBL222559",
+        "CHEMBL223228",
+        "CHEMBL2364608",
+        "CHEMBL2403238",
+        "CHEMBL254316",
+        "CHEMBL256907",
+        "CHEMBL308954",
+        "CHEMBL3301594",
+        "CHEMBL3989866",
+        "CHEMBL444633",
+        "CHEMBL4594438",
+        "CHEMBL525076",
+        "CHEMBL529",
+        "CHEMBL57",
+        "CHEMBL584",
+        "CHEMBL64",
+        "CHEMBL729",
+        "CHEMBL885",
+        "CHEMBL991"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1111",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1139",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200689",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1207745",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1237119",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL1743073",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL192",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2103873",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2107834",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL238804",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL494",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL779",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL957",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0015924",
+      "known_candidate_ids": [
+        "CHEMBL1111",
+        "CHEMBL1139",
+        "CHEMBL1200689",
+        "CHEMBL1207745",
+        "CHEMBL1237119",
+        "CHEMBL1743073",
+        "CHEMBL192",
+        "CHEMBL2103873",
+        "CHEMBL2107834",
+        "CHEMBL238804",
+        "CHEMBL494",
+        "CHEMBL779",
+        "CHEMBL957"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL109",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL112",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL113",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL118",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1185",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1278",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1279",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL128",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL139",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1505",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1510",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL154",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1590",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1697841",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1732",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2178422",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL220492",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2364638",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2397415",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL25",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL27",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3039520",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3707328",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3833320",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3833329",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3991065",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL4297756",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL4297862",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL442",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL454",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL485",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL521",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL596",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL905",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0005277",
+      "known_candidate_ids": [
+        "CHEMBL109",
+        "CHEMBL112",
+        "CHEMBL113",
+        "CHEMBL118",
+        "CHEMBL1185",
+        "CHEMBL1278",
+        "CHEMBL1279",
+        "CHEMBL128",
+        "CHEMBL139",
+        "CHEMBL1505",
+        "CHEMBL1510",
+        "CHEMBL154",
+        "CHEMBL1590",
+        "CHEMBL1697841",
+        "CHEMBL1732",
+        "CHEMBL2178422",
+        "CHEMBL220492",
+        "CHEMBL2364638",
+        "CHEMBL2397415",
+        "CHEMBL25",
+        "CHEMBL27",
+        "CHEMBL3039520",
+        "CHEMBL3707328",
+        "CHEMBL3833320",
+        "CHEMBL3833329",
+        "CHEMBL3991065",
+        "CHEMBL4297756",
+        "CHEMBL4297862",
+        "CHEMBL442",
+        "CHEMBL454",
+        "CHEMBL485",
+        "CHEMBL521",
+        "CHEMBL596",
+        "CHEMBL905"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1043",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1140",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1200370",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1200934",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1201146",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1231574",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1265",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1433",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1434",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1509",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1622",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1657",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1753",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2103737",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL2364632",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3184512",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL3590187",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL3707313",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL38",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL3990047",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL4",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL424",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "FDA"
+          ],
+          "candidate_id": "CHEMBL455",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL532",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL573",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL691",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0011438",
+      "known_candidate_ids": [
+        "CHEMBL1043",
+        "CHEMBL1140",
+        "CHEMBL1200370",
+        "CHEMBL1200934",
+        "CHEMBL1201146",
+        "CHEMBL1231574",
+        "CHEMBL1265",
+        "CHEMBL1433",
+        "CHEMBL1434",
+        "CHEMBL1509",
+        "CHEMBL1622",
+        "CHEMBL1657",
+        "CHEMBL1753",
+        "CHEMBL2103737",
+        "CHEMBL2364632",
+        "CHEMBL3184512",
+        "CHEMBL3590187",
+        "CHEMBL3707313",
+        "CHEMBL38",
+        "CHEMBL3990047",
+        "CHEMBL4",
+        "CHEMBL424",
+        "CHEMBL455",
+        "CHEMBL532",
+        "CHEMBL573",
+        "CHEMBL691"
+      ]
+    },
+    {
+      "approved_drugs": [
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1201764",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1231",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL1346",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1382",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL1734",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed"
+          ],
+          "candidate_id": "CHEMBL1888176",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2095212",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs",
+            "FDA",
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL2107826",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "DailyMed",
+            "EMA Human Drugs"
+          ],
+          "candidate_id": "CHEMBL4297862",
+          "overrides": []
+        },
+        {
+          "approval_override": false,
+          "approval_sources": [
+            "PMDA"
+          ],
+          "candidate_id": "CHEMBL53366",
+          "overrides": []
+        }
+      ],
+      "disease_id": "MONDO_0006624",
+      "known_candidate_ids": [
+        "CHEMBL1201764",
+        "CHEMBL1231",
+        "CHEMBL1346",
+        "CHEMBL1382",
+        "CHEMBL1734",
+        "CHEMBL1888176",
+        "CHEMBL2095212",
+        "CHEMBL2107826",
+        "CHEMBL4297862",
+        "CHEMBL53366"
+      ]
+    }
+  ],
+  "definition": "Every pinned A2 drug with exact Disease membership in approval.disease_ids and an approval.sources entry among FDA, EMA Human Drugs, PMDA or DailyMed; existing FDA overrides included.",
+  "format_version": 1,
+  "limitations": [
+    "Exact approval.disease_ids membership in the pinned A2 release; no name, symbol, ontology expansion or new label curation.",
+    "Approval sources are aggregated at drug level in A2. This export does not independently establish a regulator report for each drug-Disease pair or clinical indication truth.",
+    "The published protocol evaluates fixed blind panels. This separate full-universe shortlist comparison is descriptive retrospective source-record recovery, not a newly preregistered confirmatory analysis.",
+    "Both FDA overrides concern MONDO_0100096, outside the frozen 14 Diseases; they remain in the unchanged drug release and override_inventory, and add zero cohort reference pairs.",
+    "Warnings were not transformed or interpreted; missing warnings remain unknown."
+  ],
+  "override_inventory": [
+    {
+      "candidate_id": "CHEMBL1237022",
+      "disease_id": "MONDO_0100096",
+      "in_cohort": false,
+      "regulator": "FDA",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/125276s138lbl.pdf"
+    },
+    {
+      "candidate_id": "CHEMBL2105759",
+      "disease_id": "MONDO_0100096",
+      "in_cohort": false,
+      "regulator": "FDA",
+      "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/207924s006lbl.pdf"
+    }
+  ],
+  "reference_release": "experiment-b-replication-a2-ot26.09-chembl37-v1",
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37"
+  ],
+  "source_files": [
+    {
+      "bytes": 3245375,
+      "matches_replication_freeze": true,
+      "path": "data/drug_targets.json",
+      "releases": [
+        "opentargets-26.09",
+        "chembl-37"
+      ],
+      "sha256": "bf133936221f124ec77877fdfb8a23dc26dd1b14aeb11735ee71540668cd7d24"
+    }
+  ],
+  "unmapped": [],
+  "unmapped_count": 0
+}

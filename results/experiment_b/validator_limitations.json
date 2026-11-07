@@ -1,0 +1,30 @@
+[
+  {
+    "disease_id": "MONDO_0005083",
+    "model": "claude-opus-5-5",
+    "attempt": 1,
+    "label": "C10",
+    "rationale": "Pan-JAK inhibitor whose TYK2 target is itself a strongly associated Disease Target, with IL-23 pathway overlap and recorded bioactivity.",
+    "unrecognized_numeric_tokens": [
+      "-23"
+    ],
+    "cited_pathway_statements": [
+      "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Interleukin-23 signaling' (R-HSA-9020933, 9 genes). Shared membership is not proof of effect."
+    ],
+    "assessment": "Frozen numeric check rejects the cytokine shorthand IL-23 although the cited pathway is Interleukin-23 signaling. This is a lexical-name failure, not evidence of a fabricated measured quantity. The invalid verdict and zero recovery are retained unchanged."
+  },
+  {
+    "disease_id": "MONDO_0005083",
+    "model": "claude-opus-5-5",
+    "attempt": 1,
+    "label": "C2",
+    "rationale": "JAK1/JAK2 inhibitor with TYK2 bioactivity and IL-23 pathway overlap.",
+    "unrecognized_numeric_tokens": [
+      "-23"
+    ],
+    "cited_pathway_statements": [
+      "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Interleukin-23 signaling' (R-HSA-9020933, 9 genes). Shared membership is not proof of effect."
+    ],
+    "assessment": "Frozen numeric check rejects the cytokine shorthand IL-23 although the cited pathway is Interleukin-23 signaling. This is a lexical-name failure, not evidence of a fabricated measured quantity. The invalid verdict and zero recovery are retained unchanged."
+  }
+]

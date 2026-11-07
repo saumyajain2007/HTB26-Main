@@ -1,0 +1,56 @@
+{
+  "fixture_note": "Fixture data. Structures and SMILES are real; every docking score and RMSD is fictional. The redock control's result files (docking_files/{job_id}/) hold the real 6WTO receptor and crystal ligand; its pose 1 is a copy of the crystal ligand, not a docking result. Real values are measured by the docking worker (docs/engineering/build-reference.md C6).",
+  "settings": {
+    "engine": "vina",
+    "engine_version": "1.2.7",
+    "exhaustiveness": 8,
+    "seed": 42,
+    "n_poses": 9,
+    "meeko_version": null,
+    "rdkit_version": null
+  },
+  "smiles": {
+    "CHEMBL2105759": "CCS(=O)(=O)N1CC(CC#N)(n2cc(-c3ncnc4[nH]ccc34)cn2)C1",
+    "CHEMBL1287853": "Cc1cnc(Nc2ccc(OCCN3CCCC3)cc2)nc1Nc1cccc(S(=O)(=O)NC(C)(C)C)c1",
+    "CHEMBL1789941": "N#CC[C@H](C1CCCC1)n1cc(-c2ncnc3[nH]ccc23)cn1",
+    "CHEMBL468": "O=C1CCC(N2C(=O)c3ccccc3C2=O)C(=O)N1",
+    "CHEMBL221959": "C[C@@H]1CCN(C(=O)CC#N)C[C@@H]1N(C)c1ncnc2[nH]ccc12",
+    "CHEMBL3622821": "CC[C@@H]1CN(C(=O)NCC(F)(F)F)C[C@@H]1c1cnc2cnc3[nH]ccc3n12",
+    "CHEMBL3137309": "CC1(C)CCC(CN2CCN(c3ccc(C(=O)NS(=O)(=O)c4ccc(NCC5CCOCC5)c([N+](=O)[O-])c4)c(Oc4cnc5[nH]ccc5c4)c3)CC2)=C(c2ccc(Cl)cc2)C1"
+  },
+  "controls": [
+    {
+      "id": "6f1d2c1e-0a4b-4c55-9d0e-5b7a3c9e0001",
+      "kind": "redock_control",
+      "structure_id": "6WTO_A",
+      "candidate_id": "CHEMBL2105759",
+      "control_rmsd": 0.74,
+      "scores": [
+        -10.2
+      ],
+      "result_files": true
+    }
+  ],
+  "top_scores": {
+    "6WTO_A": {
+      "CHEMBL2105759": -10.2,
+      "CHEMBL1789941": -9.4,
+      "CHEMBL221959": -8.9,
+      "CHEMBL3622821": -9.0,
+      "CHEMBL1287853": -8.6
+    },
+    "6WTN_A": {
+      "CHEMBL2105759": -9.7,
+      "CHEMBL1789941": -10.0,
+      "CHEMBL221959": -8.7,
+      "CHEMBL3622821": -8.8,
+      "CHEMBL1287853": -8.3
+    },
+    "7BQU_A": {
+      "CHEMBL468": -7.1
+    },
+    "6O0K_A": {
+      "CHEMBL3137309": -11.3
+    }
+  }
+}

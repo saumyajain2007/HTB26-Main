@@ -1,0 +1,853 @@
+{
+  "experiment_id": "265273a1-afa4-5b7f-847e-d3e49c8476ac",
+  "disease": {
+    "id": "MONDO_0100096",
+    "name": "COVID-19"
+  },
+  "universe_size": 1956,
+  "panel_size": 15,
+  "rank_scope": {
+    "network_rank": "eligible universe (scorable entries only)",
+    "direct_evidence_rank": "eligible universe; supplied top-50 Disease Targets only",
+    "panel_ranks_and_jury": "exact same frozen shortlist; missing ranks remain null"
+  },
+  "jurors": [
+    {
+      "model": "claude-opus-5-5",
+      "status": "valid",
+      "attempts": 1,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      }
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "status": "valid",
+      "attempts": 1,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      }
+    },
+    {
+      "model": "kimi-k3",
+      "status": "valid",
+      "attempts": 1,
+      "validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      }
+    }
+  ],
+  "kendalls_w": 0.8532,
+  "jurors_counted": 3,
+  "rows": [
+    {
+      "candidate_id": "CHEMBL221959",
+      "name": "TOFACITINIB",
+      "label": "C9",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 1,
+      "network_z": -4.899153637942578,
+      "direct_evidence_rank": 5,
+      "network_panel_rank": 1,
+      "direct_evidence_panel_rank": 5,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 3,
+      "borda_points": 33,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL3137308",
+      "name": "PEFICITINIB",
+      "label": "C4",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 2,
+      "network_z": -4.899153637942578,
+      "direct_evidence_rank": 6,
+      "network_panel_rank": 2,
+      "direct_evidence_panel_rank": 6,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 4,
+      "borda_points": 30,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL3301607",
+      "name": "FILGOTINIB",
+      "label": "C10",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 3,
+      "network_z": -4.899153637942578,
+      "direct_evidence_rank": 7,
+      "network_panel_rank": 3,
+      "direct_evidence_panel_rank": 7,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 10,
+      "borda_points": 18,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL3622821",
+      "name": "UPADACITINIB",
+      "label": "C6",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 4,
+      "network_z": -4.899153637942578,
+      "direct_evidence_rank": 8,
+      "network_panel_rank": 4,
+      "direct_evidence_panel_rank": 8,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 4,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 8,
+      "borda_points": 22,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4594381",
+      "name": "DEURUXOLITINIB",
+      "label": "C13",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 5,
+      "network_z": -4.899153637942578,
+      "direct_evidence_rank": 10,
+      "network_panel_rank": 5,
+      "direct_evidence_panel_rank": 10,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 10,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 11,
+      "borda_points": 13,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4297507",
+      "name": "DELGOCITINIB",
+      "label": "C11",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 6,
+      "network_z": -4.7902459104027475,
+      "direct_evidence_rank": 9,
+      "network_panel_rank": 6,
+      "direct_evidence_panel_rank": 9,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 8,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 6,
+      "borda_points": 27,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL1908919",
+      "name": "FLORBETAPIR",
+      "label": "C3",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 7,
+      "network_z": -4.786229472670084,
+      "direct_evidence_rank": 747,
+      "network_panel_rank": 7,
+      "direct_evidence_panel_rank": 14,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 15,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 15,
+      "borda_points": 0,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL1171837",
+      "name": "PONATINIB",
+      "label": "C8",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 8,
+      "network_z": -4.600870512507419,
+      "direct_evidence_rank": 132,
+      "network_panel_rank": 8,
+      "direct_evidence_panel_rank": 13,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 13,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 13,
+      "borda_points": 6,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL468",
+      "name": "THALIDOMIDE",
+      "label": "C14",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 9,
+      "network_z": -4.417798760928787,
+      "direct_evidence_rank": 1532,
+      "network_panel_rank": 9,
+      "direct_evidence_panel_rank": 15,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 14,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 14,
+      "borda_points": 3,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support"
+    },
+    {
+      "candidate_id": "CHEMBL1201557",
+      "name": "INTERFERON ALFACON-1",
+      "label": "C5",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 10,
+      "network_z": -4.126628893573041,
+      "direct_evidence_rank": 12,
+      "network_panel_rank": 10,
+      "direct_evidence_panel_rank": 12,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 12,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 12,
+      "borda_points": 12,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.5625778961540242,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL1078178",
+      "name": "MOMELOTINIB",
+      "label": "C2",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 119,
+      "network_z": -2.360974220008253,
+      "direct_evidence_rank": 1,
+      "network_panel_rank": 15,
+      "direct_evidence_panel_rank": 1,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 6,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 9,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 7,
+      "borda_points": 24,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL1789941",
+      "name": "RUXOLITINIB",
+      "label": "C12",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 30,
+      "network_z": -3.297436438090104,
+      "direct_evidence_rank": 2,
+      "network_panel_rank": 12,
+      "direct_evidence_panel_rank": 2,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 2,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 2,
+      "borda_points": 39,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL2035187",
+      "name": "PACRITINIB",
+      "label": "C1",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 83,
+      "network_z": -2.6378039421330146,
+      "direct_evidence_rank": 3,
+      "network_panel_rank": 14,
+      "direct_evidence_panel_rank": 3,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 7,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "deprioritise"
+        }
+      },
+      "borda_rank": 9,
+      "borda_points": 20,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL2105759",
+      "name": "BARICITINIB",
+      "label": "C15",
+      "in_shortlist": true,
+      "approved_reference": true,
+      "network_rank": 29,
+      "network_z": -3.313821001165598,
+      "direct_evidence_rank": 4,
+      "network_panel_rank": 11,
+      "direct_evidence_panel_rank": 4,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 1,
+      "borda_points": 40,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    },
+    {
+      "candidate_id": "CHEMBL4596392",
+      "name": "CRAVACITINIB",
+      "label": "C7",
+      "in_shortlist": true,
+      "approved_reference": false,
+      "network_rank": 49,
+      "network_z": -3.0254693155170185,
+      "direct_evidence_rank": 11,
+      "network_panel_rank": 13,
+      "direct_evidence_panel_rank": 11,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 11,
+          "decision": "watch"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 5,
+          "decision": "watch"
+        }
+      },
+      "borda_rank": 5,
+      "borda_points": 28,
+      "contested": true,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported"
+    }
+  ],
+  "approved_references": [
+    {
+      "candidate_id": "CHEMBL1237022",
+      "name": "TOCILIZUMAB",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": 755,
+      "network_z": -0.5968413005462341,
+      "direct_evidence_rank": 416,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": null,
+      "absence_reason": "outside_network_and_positive_evidence_shortlist_quotas",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0005100",
+          "MONDO_0008383",
+          "MONDO_0008538",
+          "MONDO_0011429",
+          "MONDO_0100096"
+        ],
+        "overrides": [
+          {
+            "disease_id": "MONDO_0100096",
+            "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/125276s138lbl.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL2105759",
+      "name": "BARICITINIB",
+      "label": "C15",
+      "in_shortlist": true,
+      "approved_reference": true,
+      "network_rank": 29,
+      "network_z": -3.313821001165598,
+      "direct_evidence_rank": 4,
+      "network_panel_rank": 11,
+      "direct_evidence_panel_rank": 4,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": 3,
+          "decision": "investigate"
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": 1,
+          "decision": "investigate"
+        }
+      },
+      "borda_rank": 1,
+      "borda_points": 40,
+      "contested": false,
+      "unscorable_reason": null,
+      "absence_reason": null,
+      "direct_evidence_score": 0.6037436223612329,
+      "direct_evidence_status": "supported",
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004980",
+          "MONDO_0008383",
+          "MONDO_0011429",
+          "MONDO_0100096"
+        ],
+        "overrides": [
+          {
+            "disease_id": "MONDO_0100096",
+            "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/207924s006lbl.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "candidate_id": "CHEMBL4065616",
+      "name": "REMDESIVIR",
+      "label": null,
+      "in_shortlist": false,
+      "approved_reference": true,
+      "network_rank": null,
+      "network_z": null,
+      "direct_evidence_rank": 1280,
+      "network_panel_rank": null,
+      "direct_evidence_panel_rank": null,
+      "jurors": {
+        "claude-opus-5-5": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "openai-gpt-5.4": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        },
+        "kimi-k3": {
+          "status": "valid",
+          "rank": null,
+          "decision": null
+        }
+      },
+      "borda_rank": null,
+      "borda_points": null,
+      "contested": null,
+      "unscorable_reason": "no_retained_drug_targets",
+      "absence_reason": "no_retained_drug_targets",
+      "direct_evidence_score": 0.0,
+      "direct_evidence_status": "no_supplied_support",
+      "approval": {
+        "sources": [
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0100096"
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Two worked examples, not the matched-decoy evaluation panels in plan §6.2.",
+    "Same-release retrospective comparison; no prospective or clinical validation.",
+    "Association does not establish beneficial direction of drug action.",
+    "Names and literature evidence may retain indirect known-answer leakage.",
+    "Approval IDs are display labels only and were withheld from the jury.",
+    "Citation/number validation does not establish that a claim is supported; audit pending.",
+    "Missing warnings mean unknown. Agreement measures consistency, not efficacy."
+  ],
+  "source_alias_revalidation": [
+    {
+      "model": "claude-opus-5-5",
+      "original_status": "invalid",
+      "original_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": [
+          "Attempt 1: C14: inline evidence must also appear in citation fields",
+          "Total jury call budget exhausted; no further retry"
+        ]
+      },
+      "replay_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "recovered": true,
+      "source_phrase_disambiguations": [
+        {
+          "label": "C14",
+          "field": "rationale",
+          "source_verified_phrase": "E3 [ubiquitin] ligase"
+        }
+      ]
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "original_status": "invalid",
+      "original_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": [
+          "Attempt 1: C14: inline evidence must also appear in citation fields",
+          "Total jury call budget exhausted; no further retry"
+        ]
+      },
+      "replay_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "recovered": true,
+      "source_phrase_disambiguations": [
+        {
+          "label": "C14",
+          "field": "rationale",
+          "source_verified_phrase": "E3 [ubiquitin] ligase"
+        }
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "original_status": "invalid",
+      "original_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": [
+          "Attempt 1: C14: inline evidence must also appear in citation fields",
+          "Total jury call budget exhausted; no further retry"
+        ]
+      },
+      "replay_validation": {
+        "schema": true,
+        "unique_ranks": true,
+        "evidence_ids_exist": true,
+        "numbers_match": true,
+        "errors": []
+      },
+      "recovered": true,
+      "source_phrase_disambiguations": [
+        {
+          "label": "C14",
+          "field": "rationale",
+          "source_verified_phrase": "E3 [ubiquitin] ligase"
+        }
+      ]
+    }
+  ]
+}

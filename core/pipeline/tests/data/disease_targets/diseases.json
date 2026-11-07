@@ -1,0 +1,25 @@
+{
+  "release": "opentargets-26.09",
+  "source": "https://open-targets-public-data-releases.s3.eu-west-1.amazonaws.com/platform/26.09/output/disease/00000000.parquet",
+  "recorded_at": "2026-10-24",
+  "rows": [
+    {
+      "id": "MONDO_0009693",
+      "name": "plasma cell myeloma",
+      "obsoleteTerms": [
+        "HP_0006775",
+        "EFO_0001378"
+      ]
+    },
+    {
+      "id": "MONDO_0100096",
+      "name": "COVID-19",
+      "obsoleteTerms": []
+    },
+    {
+      "id": "NCIT_C74532",
+      "name": "nervousness",
+      "obsoleteTerms": []
+    }
+  ]
+}

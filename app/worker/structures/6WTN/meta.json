@@ -1,0 +1,86 @@
+{
+  "id": "6WTN_A",
+  "pdb_id": "6WTN",
+  "chain": "A",
+  "uniprot": [
+    "O60674"
+  ],
+  "target_id": "ENSG00000096968",
+  "symbol": "JAK2",
+  "title": "Human JAK2 JH1 domain in complex with Ruxolitinib",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.83,
+  "ligand": {
+    "comp_id": "RXT",
+    "name": "ruxolitinib",
+    "candidate_id": "CHEMBL1789941",
+    "residue_number": "1204",
+    "heavy_atoms": 23
+  },
+  "box_center": [
+    20.837,
+    13.28,
+    9.233
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "c1c[nH]c2c1c(ncn2)c3cnn(c3)[C@H](CC#N)C4CCCC4",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 93,
+      "RXT": 1,
+      "EDO": 3
+    },
+    "modified_to_parent": [
+      "PTR A1007 -> TYR",
+      "PTR A1008 -> TYR"
+    ],
+    "truncated_side_chains": [
+      "GLU A845 -> ALA",
+      "LYS A850 -> ALA",
+      "TYR A868 -> ALA",
+      "GLN A872 -> ALA",
+      "ASP A873 -> ALA",
+      "ASN A874 -> ALA",
+      "LYS A883 -> ALA",
+      "SER A887 -> ALA",
+      "GLU A889 -> ALA",
+      "GLU A890 -> ALA",
+      "LYS A912 -> ALA",
+      "SER A919 -> ALA",
+      "ARG A922 -> ALA",
+      "ARG A923 -> ALA",
+      "GLN A942 -> ALA",
+      "LYS A943 -> ALA",
+      "GLN A1003 -> ALA",
+      "VAL A1010 -> ALA",
+      "GLU A1015 -> ALA",
+      "LYS A1069 -> ALA",
+      "GLN A1070 -> ALA",
+      "LYS A1083 -> ALA",
+      "GLU A1097 -> ALA",
+      "GLN A1125 -> ALA",
+      "SER A1134 -> ALA"
+    ],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 20.837 13.280 9.233 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/6WTN.pdb",
+    "entry_sha256": "24fffb759a56f3f957b9e0fb41884a059e09b457b144fe8f6dbe70f41cc609fc",
+    "ligand": "https://models.rcsb.org/v1/6WTN/ligand?auth_asym_id=A&label_comp_id=RXT&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/RXT"
+  },
+  "prepared_on": "2026-10-25",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.17",
+    "posebusters": "0.6.5"
+  }
+}

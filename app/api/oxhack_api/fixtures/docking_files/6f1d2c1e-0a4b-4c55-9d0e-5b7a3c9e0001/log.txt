@@ -1,0 +1,13 @@
+Fixture result. No docking program was run.
+
+Job 6f1d2c1e-0a4b-4c55-9d0e-5b7a3c9e0001 (redock_control): baricitinib (CHEMBL2105759) in 6WTO_A.
+Prepared on 2026-10-25 by api/scripts/prepare_docking_files.py from:
+  https://files.rcsb.org/download/6WTO.pdb
+    sha256 718737e30b34692abf81fec524fafaaccb72eb7166abc8966a862dd932e4b573
+  https://models.rcsb.org/v1/6WTO/ligand?auth_asym_id=A&label_comp_id=3JW&encoding=sdf
+
+receptor.pdb: chain A, 2147 ATOM and 32 HETATM records (PTR).
+  Left out: 26 3JW chain A, 8 EDO chain A, 11 alternate locations, 104 waters.
+crystal_ligand.sdf: 3JW 1203, 26 heavy atoms.
+poses.sdf: pose 1 is the crystal ligand, copied. It is not a Vina result.
+scores.json: made-up placeholder scores.

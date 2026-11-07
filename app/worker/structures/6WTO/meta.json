@@ -1,0 +1,95 @@
+{
+  "id": "6WTO_A",
+  "pdb_id": "6WTO",
+  "chain": "A",
+  "uniprot": [
+    "O60674"
+  ],
+  "target_id": "ENSG00000096968",
+  "symbol": "JAK2",
+  "title": "Human JAK2 JH1 domain in complex with Baricitinib",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.74,
+  "ligand": {
+    "comp_id": "3JW",
+    "name": "baricitinib",
+    "candidate_id": "CHEMBL2105759",
+    "residue_number": "1203",
+    "heavy_atoms": 26
+  },
+  "box_center": [
+    -20.7,
+    -13.864,
+    8.115
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "CCS(=O)(=O)N1CC(C1)(CC#N)n2cc(cn2)c3c4cc[nH]c4ncn3",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 104,
+      "3JW": 1,
+      "EDO": 2
+    },
+    "modified_to_parent": [
+      "PTR A1007 -> TYR",
+      "PTR A1008 -> TYR"
+    ],
+    "truncated_side_chains": [
+      "GLN A843 -> ALA",
+      "GLU A845 -> ALA",
+      "ARG A847 -> ALA",
+      "LYS A850 -> ALA",
+      "LEU A852 -> ALA",
+      "LYS A857 -> ALA",
+      "ASN A859 -> GLY",
+      "TYR A868 -> ALA",
+      "VAL A878 -> ALA",
+      "LYS A883 -> ALA",
+      "LEU A884 -> ALA",
+      "SER A887 -> ALA",
+      "THR A888 -> ALA",
+      "GLU A889 -> ALA",
+      "GLU A890 -> ALA",
+      "ARG A893 -> ALA",
+      "GLU A896 -> ALA",
+      "GLU A900 -> ALA",
+      "LYS A903 -> ALA",
+      "GLN A906 -> ALA",
+      "LYS A912 -> ALA",
+      "TYR A913 -> ALA",
+      "GLN A942 -> ALA",
+      "LYS A943 -> ALA",
+      "GLU A946 -> ALA",
+      "GLN A1003 -> ALA",
+      "LYS A1005 -> ALA",
+      "LYS A1011 -> ALA",
+      "LYS A1069 -> ALA",
+      "GLN A1070 -> GLY",
+      "GLN A1072 -> ALA",
+      "LYS A1083 -> ALA",
+      "GLU A1097 -> ALA",
+      "GLN A1125 -> ALA"
+    ],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center -20.700 -13.864 8.115 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/6WTO.pdb",
+    "entry_sha256": "718737e30b34692abf81fec524fafaaccb72eb7166abc8966a862dd932e4b573",
+    "ligand": "https://models.rcsb.org/v1/6WTO/ligand?auth_asym_id=A&label_comp_id=3JW&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/3JW"
+  },
+  "prepared_on": "2026-10-25",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.17",
+    "posebusters": "0.6.5"
+  }
+}

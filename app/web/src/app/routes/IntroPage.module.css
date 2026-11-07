@@ -1,0 +1,378 @@
+/* The introduction: headline and lab plate side by side, the method, then the Workflow map. */
+
+.page {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto auto auto;
+  column-gap: var(--space-32);
+  padding: var(--space-64) var(--page-gutter) 112px;
+}
+
+/* Restrained entrance: each block settles in turn, once. */
+.reveal {
+  animation: reveal 600ms var(--ease-out) both;
+  animation-delay: calc(var(--order, 0) * 90ms);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* The headline, its tape label and the lab plate. */
+
+.head {
+  grid-column: 1 / span 7;
+  grid-row: 1;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 6.4vw, 104px);
+  font-weight: var(--weight-regular);
+  font-variation-settings: "opsz" 60;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.tag {
+  margin-top: var(--space-24);
+}
+
+/* The plate keeps its shape and sits centred between the top of the headline and the foot of
+   Start exploring; the negative margin leaves its chapter buttons out of that centring. */
+.plate {
+  grid-column: 8 / span 5;
+  grid-row: 1 / span 2;
+  align-self: center;
+  margin-bottom: calc(-1 * (var(--space-16) + 28px));
+}
+
+/* The approach and the way in. */
+
+.solution {
+  grid-column: 1 / span 6;
+  grid-row: 2;
+  margin-top: var(--space-40);
+}
+
+.lede {
+  max-width: 30ch;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.action {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-24);
+  align-items: center;
+  margin-top: var(--space-32);
+}
+
+/* A glint crosses the button every few seconds; the arrow leans in on hover. */
+.start {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  gap: var(--space-12);
+  align-items: center;
+  height: 48px;
+  padding: 0 var(--space-24);
+  overflow: hidden;
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--color-paper);
+  white-space: nowrap;
+  text-decoration: none;
+  isolation: isolate;
+  transition: background var(--duration-quick) var(--ease-out);
+}
+
+.start:hover {
+  background: var(--color-ink-hover);
+}
+
+.start::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 22%) 50%, transparent 65%);
+  content: "";
+  transform: translateX(-120%);
+  animation: glint 5s var(--ease-out) 1.2s infinite;
+}
+
+@keyframes glint {
+  0% {
+    transform: translateX(-120%);
+  }
+  30%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.startArrow {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--duration-quick) var(--ease-out);
+}
+
+.start:hover .startArrow {
+  transform: translateX(4px);
+}
+
+.limit {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+/* The method: four steps, each over a detail of an illustration. */
+
+.method {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: 112px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--space-32);
+}
+
+.step {
+  position: relative;
+  padding-top: var(--space-24);
+}
+
+/* A short rule joins each picture to the next, level with the pictures' middles. */
+.step + .step::before {
+  position: absolute;
+  top: calc(var(--space-24) + 6.25vw);
+  left: calc(var(--space-32) * -1);
+  width: var(--space-32);
+  height: 1px;
+  background: var(--color-placeholder);
+  content: "";
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.thumb > [role="img"] {
+  position: absolute;
+  inset: 0;
+}
+
+/* The flat glyph rides on the illustration, on a paper tab. */
+.glyphTab {
+  position: absolute;
+  left: var(--space-8);
+  bottom: var(--space-8);
+  padding: 2px 4px 0;
+  border-radius: 3px;
+  background: rgb(255 255 255 / 92%);
+  box-shadow: 0 6px 16px -8px rgb(0 0 0 / 50%);
+}
+
+.stepTitle {
+  display: flex;
+  gap: var(--space-8);
+  align-items: baseline;
+  margin-top: var(--space-16);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+}
+
+.stepNo {
+  font-variant-numeric: tabular-nums;
+  color: var(--color-grey-2);
+}
+
+.stepText {
+  max-width: 30ch;
+  margin-top: var(--space-4);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+/* Method glyphs, drawn like the app's charts. */
+
+.glyph {
+  width: 76px;
+  height: auto;
+  margin-left: -10px;
+  overflow: visible;
+}
+
+.edges line,
+.edges {
+  stroke: var(--color-edge);
+  stroke-width: 1;
+  fill: none;
+}
+
+.node {
+  fill: var(--color-node);
+  stroke: var(--color-paper);
+  stroke-width: 1.5;
+}
+
+.node[data-role="disease"] {
+  fill: var(--color-disease);
+}
+
+.node[data-role="target"] {
+  fill: var(--color-drug);
+}
+
+.node[data-role="route"] {
+  fill: var(--color-route);
+}
+
+.route {
+  fill: none;
+  stroke: var(--color-route);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.glyphMarker {
+  fill: var(--color-paper);
+  stroke: var(--color-ink);
+  stroke-width: 1.3;
+}
+
+.glyphTile {
+  stroke: var(--color-ink);
+  stroke-width: 1.5;
+}
+
+.glyphTile[data-decision="investigate"] {
+  fill: var(--color-ink);
+}
+
+.glyphTile[data-decision="watch"] {
+  fill: var(--color-paper);
+}
+
+.glyphTile[data-decision="deprioritise"] {
+  fill: var(--color-rule);
+  stroke: var(--color-rule);
+}
+
+.glyphList text {
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  fill: var(--color-ink);
+}
+
+.glyphList line {
+  stroke: var(--color-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+/* The Workflow map. */
+
+.workflow {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  margin-top: 112px;
+}
+
+.workflowTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.4vw, 52px);
+  font-weight: var(--weight-regular);
+  font-variation-settings: "opsz" 60;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+}
+
+.workflowLede {
+  margin-top: 12px;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--color-grey-1);
+}
+
+.workflowMap {
+  margin-top: 40px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start::after {
+    animation: none;
+  }
+}
+
+/* Narrower windows: one column, in reading order. */
+
+@media (max-width: 1100px) {
+  .page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .plate {
+    margin-top: var(--space-40);
+    margin-bottom: 0;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--space-24);
+  }
+
+  .step::before {
+    display: none;
+  }
+
+  .workflow {
+    margin-top: var(--space-64);
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding-top: var(--space-40);
+    padding-bottom: 96px;
+  }
+
+  .solution {
+    margin-top: var(--space-40);
+  }
+
+  .lede {
+    font-size: 20px;
+  }
+
+  .method {
+    margin-top: var(--space-64);
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

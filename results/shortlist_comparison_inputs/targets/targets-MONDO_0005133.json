@@ -1,0 +1,316 @@
+{
+  "requested_id": "MONDO_0005133",
+  "disease_id": "MONDO_0005133",
+  "disease_name": "endometriosis",
+  "release": "opentargets-26.09",
+  "rule": {
+    "score": "evidence_only",
+    "top_n": 50,
+    "excluded_datasources": [
+      "clinical_precedence",
+      "cancer_biomarkers"
+    ]
+  },
+  "targets": [
+    {
+      "rank": 1,
+      "target_id": "ENSG00000128052",
+      "name": "KDR",
+      "evidence_only_score": 0.5671036180753605
+    },
+    {
+      "rank": 2,
+      "target_id": "ENSG00000131808",
+      "name": "FSHB",
+      "evidence_only_score": 0.5601956886617647
+    },
+    {
+      "rank": 3,
+      "target_id": "ENSG00000196208",
+      "name": "GREB1",
+      "evidence_only_score": 0.5436442449015103
+    },
+    {
+      "rank": 4,
+      "target_id": "ENSG00000152219",
+      "name": "ARL14EP",
+      "evidence_only_score": 0.5429587901348605
+    },
+    {
+      "rank": 5,
+      "target_id": "ENSG00000146374",
+      "name": "RSPO3",
+      "evidence_only_score": 0.5427637093485306
+    },
+    {
+      "rank": 6,
+      "target_id": "ENSG00000028203",
+      "name": "VEZT",
+      "evidence_only_score": 0.523128545631349
+    },
+    {
+      "rank": 7,
+      "target_id": "ENSG00000175164",
+      "name": "ABO",
+      "evidence_only_score": 0.4974286853297106
+    },
+    {
+      "rank": 8,
+      "target_id": "ENSG00000120262",
+      "name": "CCDC170",
+      "evidence_only_score": 0.49551972318616094
+    },
+    {
+      "rank": 9,
+      "target_id": "ENSG00000154240",
+      "name": "CEP112",
+      "evidence_only_score": 0.4830122583605622
+    },
+    {
+      "rank": 10,
+      "target_id": "ENSG00000104381",
+      "name": "GDAP1",
+      "evidence_only_score": 0.4828176153743246
+    },
+    {
+      "rank": 11,
+      "target_id": "ENSG00000115008",
+      "name": "IL1A",
+      "evidence_only_score": 0.4801739726397195
+    },
+    {
+      "rank": 12,
+      "target_id": "ENSG00000070831",
+      "name": "CDC42",
+      "evidence_only_score": 0.4793267937632346
+    },
+    {
+      "rank": 13,
+      "target_id": "ENSG00000091831",
+      "name": "ESR1",
+      "evidence_only_score": 0.47909269945937794
+    },
+    {
+      "rank": 14,
+      "target_id": "ENSG00000145819",
+      "name": "ARHGAP26",
+      "evidence_only_score": 0.4741533085594081
+    },
+    {
+      "rank": 15,
+      "target_id": "ENSG00000172201",
+      "name": "ID4",
+      "evidence_only_score": 0.47351957344286244
+    },
+    {
+      "rank": 16,
+      "target_id": "ENSG00000050344",
+      "name": "NFE2L3",
+      "evidence_only_score": 0.46581495844910953
+    },
+    {
+      "rank": 17,
+      "target_id": "ENSG00000162552",
+      "name": "WNT4",
+      "evidence_only_score": 0.46337154531255464
+    },
+    {
+      "rank": 18,
+      "target_id": "ENSG00000131018",
+      "name": "SYNE1",
+      "evidence_only_score": 0.45142522353180786
+    },
+    {
+      "rank": 19,
+      "target_id": "ENSG00000133392",
+      "name": "MYH11",
+      "evidence_only_score": 0.44904147772772685
+    },
+    {
+      "rank": 20,
+      "target_id": "ENSG00000166949",
+      "name": "SMAD3",
+      "evidence_only_score": 0.4475915270008887
+    },
+    {
+      "rank": 21,
+      "target_id": "ENSG00000078403",
+      "name": "MLLT10",
+      "evidence_only_score": 0.442985809687554
+    },
+    {
+      "rank": 22,
+      "target_id": "ENSG00000082175",
+      "name": "PGR",
+      "evidence_only_score": 0.43834210390415734
+    },
+    {
+      "rank": 23,
+      "target_id": "ENSG00000173531",
+      "name": "MST1",
+      "evidence_only_score": 0.43563981661042667
+    },
+    {
+      "rank": 24,
+      "target_id": "ENSG00000114861",
+      "name": "FOXP1",
+      "evidence_only_score": 0.4335824808093752
+    },
+    {
+      "rank": 25,
+      "target_id": "ENSG00000186047",
+      "name": "DLEU7",
+      "evidence_only_score": 0.43324866749923757
+    },
+    {
+      "rank": 26,
+      "target_id": "ENSG00000134259",
+      "name": "NGF",
+      "evidence_only_score": 0.42540532772985434
+    },
+    {
+      "rank": 27,
+      "target_id": "ENSG00000135111",
+      "name": "TBX3",
+      "evidence_only_score": 0.4236836999813938
+    },
+    {
+      "rank": 28,
+      "target_id": "ENSG00000139083",
+      "name": "ETV6",
+      "evidence_only_score": 0.4162802171513646
+    },
+    {
+      "rank": 29,
+      "target_id": "ENSG00000198553",
+      "name": "KCNRG",
+      "evidence_only_score": 0.4150204756258836
+    },
+    {
+      "rank": 30,
+      "target_id": "ENSG00000180263",
+      "name": "FGD6",
+      "evidence_only_score": 0.4136707597223835
+    },
+    {
+      "rank": 31,
+      "target_id": "ENSG00000116183",
+      "name": "PAPPA2",
+      "evidence_only_score": 0.41102595639597356
+    },
+    {
+      "rank": 32,
+      "target_id": "ENSG00000152422",
+      "name": "XRCC4",
+      "evidence_only_score": 0.40383894801809267
+    },
+    {
+      "rank": 33,
+      "target_id": "ENSG00000140319",
+      "name": "SRP14",
+      "evidence_only_score": 0.4030004886869604
+    },
+    {
+      "rank": 34,
+      "target_id": "ENSG00000159216",
+      "name": "RUNX1",
+      "evidence_only_score": 0.3986147434227755
+    },
+    {
+      "rank": 35,
+      "target_id": "ENSG00000134533",
+      "name": "RERG",
+      "evidence_only_score": 0.3900220563898195
+    },
+    {
+      "rank": 36,
+      "target_id": "ENSG00000115414",
+      "name": "FN1",
+      "evidence_only_score": 0.38713305607168813
+    },
+    {
+      "rank": 37,
+      "target_id": "ENSG00000168036",
+      "name": "CTNNB1",
+      "evidence_only_score": 0.385649473277717
+    },
+    {
+      "rank": 38,
+      "target_id": "ENSG00000197959",
+      "name": "DNM3",
+      "evidence_only_score": 0.38359302079852603
+    },
+    {
+      "rank": 39,
+      "target_id": "ENSG00000268480",
+      "name": "NFILZ",
+      "evidence_only_score": 0.37493141667416174
+    },
+    {
+      "rank": 40,
+      "target_id": "ENSG00000165061",
+      "name": "ZMAT4",
+      "evidence_only_score": 0.3730903734662673
+    },
+    {
+      "rank": 41,
+      "target_id": "ENSG00000108953",
+      "name": "YWHAE",
+      "evidence_only_score": 0.3695776079198396
+    },
+    {
+      "rank": 42,
+      "target_id": "ENSG00000188199",
+      "name": "NUTM2B",
+      "evidence_only_score": 0.3695776079198396
+    },
+    {
+      "rank": 43,
+      "target_id": "ENSG00000151490",
+      "name": "PTPRO",
+      "evidence_only_score": 0.3687154401278835
+    },
+    {
+      "rank": 44,
+      "target_id": "ENSG00000135547",
+      "name": "HEY2",
+      "evidence_only_score": 0.36600834258852527
+    },
+    {
+      "rank": 45,
+      "target_id": "ENSG00000136235",
+      "name": "GPNMB",
+      "evidence_only_score": 0.3642060369394269
+    },
+    {
+      "rank": 46,
+      "target_id": "ENSG00000184719",
+      "name": "RNLS",
+      "evidence_only_score": 0.3639604638766239
+    },
+    {
+      "rank": 47,
+      "target_id": "ENSG00000172260",
+      "name": "NEGR1",
+      "evidence_only_score": 0.35374775099007516
+    },
+    {
+      "rank": 48,
+      "target_id": "ENSG00000184937",
+      "name": "WT1",
+      "evidence_only_score": 0.3494260538247181
+    },
+    {
+      "rank": 49,
+      "target_id": "ENSG00000143971",
+      "name": "ETAA1",
+      "evidence_only_score": 0.3480574546019707
+    },
+    {
+      "rank": 50,
+      "target_id": "ENSG00000165694",
+      "name": "FRMD7",
+      "evidence_only_score": 0.34329963678854236
+    }
+  ]
+}

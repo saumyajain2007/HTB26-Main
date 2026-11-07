@@ -1,0 +1,3847 @@
+{
+  "release": "opentargets-26.09",
+  "source": "https://api.platform.opentargets.org/api/v4/graphql",
+  "recorded_at": "2026-10-24",
+  "search": {
+    "search": {
+      "total": 1,
+      "hits": [
+        {
+          "id": "MONDO_0009693",
+          "name": "plasma cell myeloma",
+          "entity": "disease",
+          "description": "A bone marrow-based plasma cell neoplasm characterized by a serum monoclonal protein and skeletal destruction with osteolytic lesions, pathological fractures, bone pain, hypercalcemia, and anemia. Clinical variants include non-secretory myeloma, smoldering myeloma, indolent myeloma, and plasma cell leukemia. (WHO, 2001)",
+          "score": 3958.977
+        }
+      ]
+    }
+  },
+  "associations": {
+    "disease": {
+      "associatedTargets": {
+        "count": 5341,
+        "rows": [
+          {
+            "target": {
+              "id": "ENSG00000113851",
+              "approvedSymbol": "CRBN"
+            },
+            "score": 0.7082678731170426,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.8530562364024649
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.9066612367713315
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "clinical",
+                "score": 0.9937675062687029
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9937675062687029
+              },
+              {
+                "id": "cancer_biomarkers",
+                "score": 0.9066612367713315
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.8530562364024649
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000048462",
+              "approvedSymbol": "TNFRSF17"
+            },
+            "score": 0.6801251120388997,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.9389934942443743
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical",
+                "score": 0.9839006186481513
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9839006186481513
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.9389934942443743
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000141510",
+              "approvedSymbol": "TP53"
+            },
+            "score": 0.6695017045305537,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.7728920876310014
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.547137717850459
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.7738710918576502
+              },
+              {
+                "id": "clinical",
+                "score": 0.1131426762221628
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.8274613634158176
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.7008091139133965
+              },
+              {
+                "id": "eva",
+                "score": 0.547137717850459
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.7728920876310014
+              },
+              {
+                "id": "clinical_precedence",
+                "score": 0.1131426762221628
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000174405",
+              "approvedSymbol": "LIG4"
+            },
+            "score": 0.6624989748520176,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.14706521472889128
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.8965140178930013
+              },
+              {
+                "id": "genetic_literature",
+                "score": 0.7599134970145264
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "eva",
+                "score": 0.8965140178930013
+              },
+              {
+                "id": "genomics_england",
+                "score": 0.7599134970145264
+              },
+              {
+                "id": "europepmc",
+                "score": 0.14706521472889128
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000133703",
+              "approvedSymbol": "KRAS"
+            },
+            "score": 0.6605032444140833,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.29496958494689623
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.4766177546037986
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.7738710918576502
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.8274613634158176
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.7008091139133965
+              },
+              {
+                "id": "crispr",
+                "score": 0.4766177546037986
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.29496958494689623
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000121966",
+              "approvedSymbol": "CXCR4"
+            },
+            "score": 0.6587779955236341,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5181775230534996
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.40721287352589997
+              },
+              {
+                "id": "clinical",
+                "score": 0.9395897610122786
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9395897610122786
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "intogen",
+                "score": 0.21227197479463675
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5181775230534996
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000068078",
+              "approvedSymbol": "FGFR3"
+            },
+            "score": 0.6448177838059391,
+            "datatypeScores": [
+              {
+                "id": "genetic_literature",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "clinical",
+                "score": 0.4953581450704324
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.8443483300161404
+              },
+              {
+                "id": "literature",
+                "score": 0.42621145448328696
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.6389454082372304
+              },
+              {
+                "id": "animal_model",
+                "score": 0.400038729188367
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "reactome",
+                "score": 0.7599134970145264
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.6839221473130737
+              },
+              {
+                "id": "intogen",
+                "score": 0.5403705897243085
+              },
+              {
+                "id": "clinical_precedence",
+                "score": 0.4953581450704324
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "cancer_biomarkers",
+                "score": 0.865457038266544
+              },
+              {
+                "id": "uniprot_literature",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "europepmc",
+                "score": 0.42621145448328696
+              },
+              {
+                "id": "impc",
+                "score": 0.400038729188367
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000213281",
+              "approvedSymbol": "NRAS"
+            },
+            "score": 0.6420103089212129,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.295268914942355
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.5858021202890732
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.7835552502549783
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.8274613634158176
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "crispr",
+                "score": 0.49728741099888163
+              },
+              {
+                "id": "cancer_biomarkers",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "europepmc",
+                "score": 0.295268914942355
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000082898",
+              "approvedSymbol": "XPO1"
+            },
+            "score": 0.6416274750025893,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.3874281684179133
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.016639851921199027
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical",
+                "score": 0.932623938059984
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.932623938059984
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.3874281684179133
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.016639851921199027
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000004468",
+              "approvedSymbol": "CD38"
+            },
+            "score": 0.6267710767820578,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.957146145216502
+              },
+              {
+                "id": "clinical",
+                "score": 0.9831335213737079
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9831335213737079
+              },
+              {
+                "id": "europepmc",
+                "score": 0.957146145216502
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000113580",
+              "approvedSymbol": "NR3C1"
+            },
+            "score": 0.621709587589703,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.7182550992012176
+              },
+              {
+                "id": "clinical",
+                "score": 0.9867523082876223
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9867523082876223
+              },
+              {
+                "id": "europepmc",
+                "score": 0.7182550992012176
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100387",
+              "approvedSymbol": "RBX1"
+            },
+            "score": 0.6208995882005991,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5513033897934093
+              },
+              {
+                "id": "clinical",
+                "score": 0.9937675062687029
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9937675062687029
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5513033897934093
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000204264",
+              "approvedSymbol": "PSMB8"
+            },
+            "score": 0.6176702716941215,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.4497036800268461
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.038818250022088906
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.4497036800268461
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.038818250022088906
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100567",
+              "approvedSymbol": "PSMA3"
+            },
+            "score": 0.6171963354476317,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.44484533945699534
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.014668005093064538
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.44484533945699534
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.014668005093064538
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000041357",
+              "approvedSymbol": "PSMA4"
+            },
+            "score": 0.6162960631328375,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.40731363439978613
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.032474759590251735
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.40731363439978613
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.032474759590251735
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000068024",
+              "approvedSymbol": "HDAC4"
+            },
+            "score": 0.6138968059994151,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.13571131654450913
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.13571131654450913
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000139842",
+              "approvedSymbol": "CUL4A"
+            },
+            "score": 0.6129418770496993,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.2895067780026141
+              },
+              {
+                "id": "clinical",
+                "score": 0.9937675062687029
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9937675062687029
+              },
+              {
+                "id": "europepmc",
+                "score": 0.2895067780026141
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000130706",
+              "approvedSymbol": "ADRM1"
+            },
+            "score": 0.611198839875974,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.25407587737562976
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.25407587737562976
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000159352",
+              "approvedSymbol": "PSMD4"
+            },
+            "score": 0.6092563595684403,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.18252351945832765
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.017207337983718027
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.18252351945832765
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.017207337983718027
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000115233",
+              "approvedSymbol": "PSMD14"
+            },
+            "score": 0.6087025753867789,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.16496996390704688
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.015710856201378447
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.16496996390704688
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.015710856201378447
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000240065",
+              "approvedSymbol": "PSMB9"
+            },
+            "score": 0.608437237136261,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.15262654276656248
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.023797974894965275
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.15262654276656248
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.023797974894965275
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100804",
+              "approvedSymbol": "PSMB5"
+            },
+            "score": 0.6082817786764401,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.14595827402406905
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.027294298277273005
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.14595827402406905
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.027294298277273005
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000159377",
+              "approvedSymbol": "PSMB4"
+            },
+            "score": 0.608124216962789,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.14404582510075356
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.01993434088843691
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.14404582510075356
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.01993434088843691
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000142507",
+              "approvedSymbol": "PSMB6"
+            },
+            "score": 0.6073502652169303,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.11814223016764705
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.020928296085790478
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.11814223016764705
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.020928296085790478
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000167986",
+              "approvedSymbol": "DDB1"
+            },
+            "score": 0.6070759772345187,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.09652758240252508
+              },
+              {
+                "id": "clinical",
+                "score": 0.9937675062687029
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9937675062687029
+              },
+              {
+                "id": "europepmc",
+                "score": 0.09652758240252508
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000173692",
+              "approvedSymbol": "PSMD1"
+            },
+            "score": 0.6066998801207165,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.10606693382703612
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.10606693382703612
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000136930",
+              "approvedSymbol": "PSMB7"
+            },
+            "score": 0.606562785704653,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.08256280936437682
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.04269151280611231
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.08256280936437682
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.04269151280611231
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100519",
+              "approvedSymbol": "PSMC6"
+            },
+            "score": 0.6063851753776323,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.0877075271287566
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.018013721807145895
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.0877075271287566
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.018013721807145895
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000008018",
+              "approvedSymbol": "PSMB1"
+            },
+            "score": 0.6062380006595174,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.09085188030973672
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.09085188030973672
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100902",
+              "approvedSymbol": "PSMA6"
+            },
+            "score": 0.6059383843245458,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.08099495790512827
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.08099495790512827
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000143106",
+              "approvedSymbol": "PSMA5"
+            },
+            "score": 0.6058395730439531,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.07774421683456613
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.07774421683456613
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000277791",
+              "approvedSymbol": "PSMB3"
+            },
+            "score": 0.6056976776864451,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.06383273374922022
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.020797517957455162
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.06383273374922022
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.020797517957455162
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000185627",
+              "approvedSymbol": "PSMD13"
+            },
+            "score": 0.6049864970810196,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.030396539880581056
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.0361896605905202
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.0361896605905202
+              },
+              {
+                "id": "europepmc",
+                "score": 0.030396539880581056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000106588",
+              "approvedSymbol": "PSMA2"
+            },
+            "score": 0.6045851574205107,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.03647584785669727
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.03647584785669727
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000163636",
+              "approvedSymbol": "PSMD6"
+            },
+            "score": 0.604524108605392,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.015198269940290528
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.027732568594325237
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.027732568594325237
+              },
+              {
+                "id": "europepmc",
+                "score": 0.015198269940290528
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000161057",
+              "approvedSymbol": "PSMC2"
+            },
+            "score": 0.6044395873383227,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.031706733907114724
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.031706733907114724
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000129084",
+              "approvedSymbol": "PSMA1"
+            },
+            "score": 0.6044003674931684,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.030396539880581056
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.030396539880581056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000099341",
+              "approvedSymbol": "PSMD8"
+            },
+            "score": 0.6041454645830069,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.022030541930286356
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.022030541930286356
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000087191",
+              "approvedSymbol": "PSMC5"
+            },
+            "score": 0.6041083100808311,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.020808215233836993
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.020808215233836993
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000165916",
+              "approvedSymbol": "PSMC3"
+            },
+            "score": 0.6040785903221175,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.019830480306428155
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.019830480306428155
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000101182",
+              "approvedSymbol": "PSMA7"
+            },
+            "score": 0.604033477520004,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.0183264169453465
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.0183264169453465
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000197170",
+              "approvedSymbol": "PSMD12"
+            },
+            "score": 0.6039070137468602,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.014185871547294542
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.014185871547294542
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000205220",
+              "approvedSymbol": "PSMB10"
+            },
+            "score": 0.6038459977111413,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.012158615952232422
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              },
+              {
+                "id": "europepmc",
+                "score": 0.012158615952232422
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000108344",
+              "approvedSymbol": "PSMD3"
+            },
+            "score": 0.6038453921913167,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.012158615952232422
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.012158615952232422
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000127922",
+              "approvedSymbol": "SEM1"
+            },
+            "score": 0.6038453921913167,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.012158615952232422
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.012158615952232422
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000103035",
+              "approvedSymbol": "PSMD7"
+            },
+            "score": 0.6038453921913167,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.012158615952232422
+              },
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              },
+              {
+                "id": "europepmc",
+                "score": 0.012158615952232422
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000126067",
+              "approvedSymbol": "PSMB2"
+            },
+            "score": 0.6034764178564567,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000222028",
+              "approvedSymbol": "PSMB11"
+            },
+            "score": 0.6034764178564567,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000154611",
+              "approvedSymbol": "PSMA8"
+            },
+            "score": 0.6034764178564567,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926728835376257
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926728835376257
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000108671",
+              "approvedSymbol": "PSMD11"
+            },
+            "score": 0.6034758123366321,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000013275",
+              "approvedSymbol": "PSMC4"
+            },
+            "score": 0.6034758123366321,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100764",
+              "approvedSymbol": "PSMC1"
+            },
+            "score": 0.6034758123366321,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000175166",
+              "approvedSymbol": "PSMD2"
+            },
+            "score": 0.6034758123366321,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9926718875034933
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9926718875034933
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000157764",
+              "approvedSymbol": "BRAF"
+            },
+            "score": 0.6016952091408869,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.4945542927384826
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.7056060938438401
+              },
+              {
+                "id": "clinical",
+                "score": 0.18973186951864068
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.7991377633654775
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "cancer_biomarkers",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "clinical_precedence",
+                "score": 0.18973186951864068
+              },
+              {
+                "id": "europepmc",
+                "score": 0.4945542927384826
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000160752",
+              "approvedSymbol": "FDPS"
+            },
+            "score": 0.5993194844452909,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.07549656158006318
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.01994404185312829
+              },
+              {
+                "id": "clinical",
+                "score": 0.981617014716033
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.981617014716033
+              },
+              {
+                "id": "europepmc",
+                "score": 0.07549656158006318
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.01994404185312829
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000026751",
+              "approvedSymbol": "SLAMF7"
+            },
+            "score": 0.5975998935175906,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.9043964057294881
+              },
+              {
+                "id": "clinical",
+                "score": 0.9377866269364372
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9377866269364372
+              },
+              {
+                "id": "europepmc",
+                "score": 0.9043964057294881
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000198851",
+              "approvedSymbol": "CD3E"
+            },
+            "score": 0.5968715548752664,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.06726738767133873
+              },
+              {
+                "id": "clinical",
+                "score": 0.9784450160777338
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9784450160777338
+              },
+              {
+                "id": "europepmc",
+                "score": 0.06726738767133873
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000167286",
+              "approvedSymbol": "CD3D"
+            },
+            "score": 0.5958894011254706,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.03495602086266821
+              },
+              {
+                "id": "clinical",
+                "score": 0.9784450160777338
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9784450160777338
+              },
+              {
+                "id": "europepmc",
+                "score": 0.03495602086266821
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000160654",
+              "approvedSymbol": "CD3G"
+            },
+            "score": 0.5957662078405758,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.03090314887859074
+              },
+              {
+                "id": "clinical",
+                "score": 0.9784450160777338
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9784450160777338
+              },
+              {
+                "id": "europepmc",
+                "score": 0.03090314887859074
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000131747",
+              "approvedSymbol": "TOP2A"
+            },
+            "score": 0.5939255174947516,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.08863807844525001
+              },
+              {
+                "id": "clinical",
+                "score": 0.9725304737498476
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9725304737498476
+              },
+              {
+                "id": "europepmc",
+                "score": 0.08863807844525001
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000123416",
+              "approvedSymbol": "TUBA1B"
+            },
+            "score": 0.5907872560673335,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.25321162068854036
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "europepmc",
+                "score": 0.25321162068854036
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000196230",
+              "approvedSymbol": "TUBB"
+            },
+            "score": 0.5868097719360884,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.1094275435700918
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.029094501722919823
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "europepmc",
+                "score": 0.1094275435700918
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.029094501722919823
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000258947",
+              "approvedSymbol": "TUBB3"
+            },
+            "score": 0.5847536082869289,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.0547137717850459
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "europepmc",
+                "score": 0.0547137717850459
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000101162",
+              "approvedSymbol": "TUBB1"
+            },
+            "score": 0.5840144485775595,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.030396539880581056
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "europepmc",
+                "score": 0.030396539880581056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000167553",
+              "approvedSymbol": "TUBA1C"
+            },
+            "score": 0.5840144485775595,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.030396539880581056
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "europepmc",
+                "score": 0.030396539880581056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000188229",
+              "approvedSymbol": "TUBB4B"
+            },
+            "score": 0.5837262962870443,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.020916767128579053
+              },
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.020916767128579053
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000127824",
+              "approvedSymbol": "TUBA4A"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000167552",
+              "approvedSymbol": "TUBA1A"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000137285",
+              "approvedSymbol": "TUBB2B"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000176014",
+              "approvedSymbol": "TUBB6"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000152086",
+              "approvedSymbol": "TUBA3E"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000104833",
+              "approvedSymbol": "TUBB4A"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000261456",
+              "approvedSymbol": "TUBB8"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000198033",
+              "approvedSymbol": "TUBA3C"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000137267",
+              "approvedSymbol": "TUBB2A"
+            },
+            "score": 0.5830904989408476,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.9591395948875044
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9591395948875044
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000240505",
+              "approvedSymbol": "TNFRSF13B"
+            },
+            "score": 0.5790642771915672,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5935060231190653
+              },
+              {
+                "id": "animal_model",
+                "score": 0.29399533372497993
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.9163082350391575
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.9163082350391575
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5935060231190653
+              },
+              {
+                "id": "impc",
+                "score": 0.29399533372497993
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000094631",
+              "approvedSymbol": "HDAC6"
+            },
+            "score": 0.5743259295049181,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5658933030657566
+              },
+              {
+                "id": "clinical",
+                "score": 0.9164278785330553
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9164278785330553
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5658933030657566
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000171720",
+              "approvedSymbol": "HDAC3"
+            },
+            "score": 0.5729638415594306,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5229855623537916
+              },
+              {
+                "id": "clinical",
+                "score": 0.9163327343258891
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9163327343258891
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5229855623537916
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000116478",
+              "approvedSymbol": "HDAC1"
+            },
+            "score": 0.5665893623181045,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.304675944816784
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.019347595148250164
+              },
+              {
+                "id": "clinical",
+                "score": 0.9163327343258891
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9163327343258891
+              },
+              {
+                "id": "europepmc",
+                "score": 0.304675944816784
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.019347595148250164
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000111291",
+              "approvedSymbol": "GPRC5D"
+            },
+            "score": 0.5665043851313765,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.2433592091514838
+              },
+              {
+                "id": "clinical",
+                "score": 0.9196887366484178
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9196887366484178
+              },
+              {
+                "id": "europepmc",
+                "score": 0.2433592091514838
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000048052",
+              "approvedSymbol": "HDAC9"
+            },
+            "score": 0.5618533991622342,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.47592488373001807
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.47592488373001807
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000137265",
+              "approvedSymbol": "IRF4"
+            },
+            "score": 0.5618344756981368,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.026224780271391405
+              },
+              {
+                "id": "genetic_literature",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.31928525768850974
+              },
+              {
+                "id": "literature",
+                "score": 0.9024623581390125
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.4716608081618034
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.6676269039855359
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.6825509305790146
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.4716608081618034
+              },
+              {
+                "id": "crispr",
+                "score": 0.31928525768850974
+              },
+              {
+                "id": "uniprot_literature",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "europepmc",
+                "score": 0.9024623581390125
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.026224780271391405
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000196591",
+              "approvedSymbol": "HDAC2"
+            },
+            "score": 0.5593295568748008,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.0744383020999993
+              },
+              {
+                "id": "clinical",
+                "score": 0.9163327343258891
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9163327343258891
+              },
+              {
+                "id": "europepmc",
+                "score": 0.0744383020999993
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000061273",
+              "approvedSymbol": "HDAC7"
+            },
+            "score": 0.5543576161574103,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.22932500643238374
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.22932500643238374
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000163517",
+              "approvedSymbol": "HDAC11"
+            },
+            "score": 0.5516370977826479,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.13982408345067285
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.13982408345067285
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000108840",
+              "approvedSymbol": "HDAC5"
+            },
+            "score": 0.5484032740541568,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.03343619386863916
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.03343619386863916
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100429",
+              "approvedSymbol": "HDAC10"
+            },
+            "score": 0.5483108790904856,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.030396539880581056
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.030396539880581056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000147099",
+              "approvedSymbol": "HDAC8"
+            },
+            "score": 0.5478489042721297,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.015198269940290528
+              },
+              {
+                "id": "clinical",
+                "score": 0.9004099341640429
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.9004099341640429
+              },
+              {
+                "id": "europepmc",
+                "score": 0.015198269940290528
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000147889",
+              "approvedSymbol": "CDKN2A"
+            },
+            "score": 0.5472407091408652,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.32753581797759984
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.7789038145672557
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.7789038145672557
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.32753581797759984
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000183508",
+              "approvedSymbol": "TENT5C"
+            },
+            "score": 0.5380099322269496,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.25717739902927933
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.7034163459509118
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.7272877330357346
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "europepmc",
+                "score": 0.25717739902927933
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000110092",
+              "approvedSymbol": "CCND1"
+            },
+            "score": 0.5369470000107317,
+            "datatypeScores": [
+              {
+                "id": "genetic_literature",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "clinical",
+                "score": 0.17964355069423402
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.45230052269933385
+              },
+              {
+                "id": "literature",
+                "score": 0.5287991330306262
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.48800597137518864
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5891741603474507
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "uniprot_literature",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.5613730004100561
+              },
+              {
+                "id": "intogen",
+                "score": 0.5141476112907695
+              },
+              {
+                "id": "crispr",
+                "score": 0.45230052269933385
+              },
+              {
+                "id": "eva",
+                "score": 0.19453785523571876
+              },
+              {
+                "id": "clinical_precedence",
+                "score": 0.17964355069423402
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5287991330306262
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000104687",
+              "approvedSymbol": "GSR"
+            },
+            "score": 0.536533891218029,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.021277577916406734
+              },
+              {
+                "id": "clinical",
+                "score": 0.881493631475279
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.881493631475279
+              },
+              {
+                "id": "europepmc",
+                "score": 0.021277577916406734
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000120659",
+              "approvedSymbol": "TNFSF11"
+            },
+            "score": 0.5132720101349224,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.8108419101174407
+              },
+              {
+                "id": "animal_model",
+                "score": 0.3290121476674093
+              },
+              {
+                "id": "clinical",
+                "score": 0.7964400057710246
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.7964400057710246
+              },
+              {
+                "id": "europepmc",
+                "score": 0.8108419101174407
+              },
+              {
+                "id": "impc",
+                "score": 0.3290121476674093
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000125952",
+              "approvedSymbol": "MAX"
+            },
+            "score": 0.5097942700850825,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.4700359409156056
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.6625020967186537
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.6761449214954118
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "europepmc",
+                "score": 0.4700359409156056
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000142166",
+              "approvedSymbol": "IFNAR1"
+            },
+            "score": 0.504205500494187,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.19027214141801604
+              },
+              {
+                "id": "clinical",
+                "score": 0.8198661553544611
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.8198661553544611
+              },
+              {
+                "id": "europepmc",
+                "score": 0.19027214141801604
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000159110",
+              "approvedSymbol": "IFNAR2"
+            },
+            "score": 0.5004083774783411,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.06535256074324927
+              },
+              {
+                "id": "clinical",
+                "score": 0.8198661553544611
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.8198661553544611
+              },
+              {
+                "id": "europepmc",
+                "score": 0.06535256074324927
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000164649",
+              "approvedSymbol": "CDCA7L"
+            },
+            "score": 0.49672279687869686,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.18320332325358207
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.8079111170000964
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.8079111170000964
+              },
+              {
+                "id": "europepmc",
+                "score": 0.18320332325358207
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000171791",
+              "approvedSymbol": "BCL2"
+            },
+            "score": 0.4957277168877347,
+            "datatypeScores": [
+              {
+                "id": "clinical",
+                "score": 0.6266117263704055
+              },
+              {
+                "id": "affected_pathway",
+                "score": 0.7599134970145264
+              },
+              {
+                "id": "literature",
+                "score": 0.6031938305358064
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.3968350628756009
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "animal_model",
+                "score": 0.3906124244320669
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6266117263704055
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.3968350628756009
+              },
+              {
+                "id": "cancer_biomarkers",
+                "score": 0.7599134970145264
+              },
+              {
+                "id": "europepmc",
+                "score": 0.6031938305358064
+              },
+              {
+                "id": "impc",
+                "score": 0.3906124244320669
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000083799",
+              "approvedSymbol": "CYLD"
+            },
+            "score": 0.49552121571289226,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.6318215911505448
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5930426964456221
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.6318215911505448
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000119535",
+              "approvedSymbol": "CSF3R"
+            },
+            "score": 0.4881782760175375,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.07660756889797728
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical",
+                "score": 0.6873267801860066
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6873267801860066
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.07660756889797728
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000128513",
+              "approvedSymbol": "POT1"
+            },
+            "score": 0.4593541650613438,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.07306389065169525
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.2949444048816539
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "genetic_literature",
+                "score": 0.607930797611621
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "genomics_england",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "gene_burden",
+                "score": 0.2949444048816539
+              },
+              {
+                "id": "europepmc",
+                "score": 0.07306389065169525
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000127528",
+              "approvedSymbol": "KLF2"
+            },
+            "score": 0.4585530898915721,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.14644349031353113
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.7469628389975236
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.7469628389975236
+              },
+              {
+                "id": "europepmc",
+                "score": 0.14644349031353113
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000179295",
+              "approvedSymbol": "PTPN11"
+            },
+            "score": 0.4483446336200554,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.6947760159639303
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.01084711368666467
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.57753425773104
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.6947760159639303
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.01084711368666467
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000079263",
+              "approvedSymbol": "SP140"
+            },
+            "score": 0.44767488310497466,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.07117856422036063
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.5075145835281821
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.607930797611621
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.5075145835281821
+              },
+              {
+                "id": "europepmc",
+                "score": 0.07117856422036063
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000104365",
+              "approvedSymbol": "IKBKB"
+            },
+            "score": 0.4444665752536262,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.19529262100795605
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.57753425773104
+              },
+              {
+                "id": "clinical",
+                "score": 0.06079307976116211
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical_precedence",
+                "score": 0.06079307976116211
+              },
+              {
+                "id": "europepmc",
+                "score": 0.19529262100795605
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000139687",
+              "approvedSymbol": "RB1"
+            },
+            "score": 0.44285994033408516,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.29489183805853475
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.57753425773104
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.29489183805853475
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000137693",
+              "approvedSymbol": "YAP1"
+            },
+            "score": 0.44120786171694104,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.5145634372163909
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5714549497549238
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.5145634372163909
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000062822",
+              "approvedSymbol": "POLD1"
+            },
+            "score": 0.44018128783051563,
+            "datatypeScores": [
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical",
+                "score": 0.6100777695984987
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6100777695984987
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000177084",
+              "approvedSymbol": "POLE"
+            },
+            "score": 0.44018128783051563,
+            "datatypeScores": [
+              {
+                "id": "somatic_mutation",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "clinical",
+                "score": 0.6100777695984987
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6100777695984987
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000147403",
+              "approvedSymbol": "RPL10"
+            },
+            "score": 0.43951572434954317,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.04734767695398508
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.57753425773104
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.04734767695398508
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000123080",
+              "approvedSymbol": "CDKN2C"
+            },
+            "score": 0.43936253960528915,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.3779697733477878
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5714549497549238
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "cancer_gene_census",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.3779697733477878
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000083520",
+              "approvedSymbol": "DIS3"
+            },
+            "score": 0.4383750446889011,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.30487383642199795
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5714549497549238
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "eva_somatic",
+                "score": 0.42555155832813474
+              },
+              {
+                "id": "europepmc",
+                "score": 0.30487383642199795
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000141905",
+              "approvedSymbol": "NFIC"
+            },
+            "score": 0.4278832755510562,
+            "datatypeScores": [
+              {
+                "id": "genetic_association",
+                "score": 0.7038354977771847
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.7038354977771847
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000088832",
+              "approvedSymbol": "FKBP1A"
+            },
+            "score": 0.4187995133676703,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.15232043873491172
+              },
+              {
+                "id": "clinical",
+                "score": 0.6812773768070074
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6812773768070074
+              },
+              {
+                "id": "europepmc",
+                "score": 0.15232043873491172
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000070756",
+              "approvedSymbol": "PABPC1"
+            },
+            "score": 0.4160853197325267,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.02279740491043579
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.547137717850459
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "intogen",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "europepmc",
+                "score": 0.02279740491043579
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000188389",
+              "approvedSymbol": "PDCD1"
+            },
+            "score": 0.4135878016401283,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.8636387448025189
+              },
+              {
+                "id": "clinical",
+                "score": 0.6371385914532575
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6371385914532575
+              },
+              {
+                "id": "europepmc",
+                "score": 0.8636387448025189
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000077097",
+              "approvedSymbol": "TOP2B"
+            },
+            "score": 0.40505475922456236,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.06079307976116211
+              },
+              {
+                "id": "clinical",
+                "score": 0.6632446678720973
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.6632446678720973
+              },
+              {
+                "id": "europepmc",
+                "score": 0.06079307976116211
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000080824",
+              "approvedSymbol": "HSP90AA1"
+            },
+            "score": 0.40419385973786226,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.4044323362509671
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "clinical",
+                "score": 0.579889472623828
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.579889472623828
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "europepmc",
+                "score": 0.4044323362509671
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000172845",
+              "approvedSymbol": "SP3"
+            },
+            "score": 0.40376984359995854,
+            "datatypeScores": [
+              {
+                "id": "rna_expression",
+                "score": 0.015267725555391912
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.6634073469475414
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.6634073469475414
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.015267725555391912
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000096384",
+              "approvedSymbol": "HSP90AB1"
+            },
+            "score": 0.40150942770389664,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.17722026006476832
+              },
+              {
+                "id": "rna_expression",
+                "score": 0.050677631196773425
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "clinical",
+                "score": 0.579889472623828
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "clinical_precedence",
+                "score": 0.579889472623828
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.3039653988058105
+              },
+              {
+                "id": "europepmc",
+                "score": 0.17722026006476832
+              },
+              {
+                "id": "expression_atlas",
+                "score": 0.050677631196773425
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000083857",
+              "approvedSymbol": "FAT1"
+            },
+            "score": 0.39406595731255367,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.10269470998654308
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5167411779698778
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "eva_somatic",
+                "score": 0.5319394479101685
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.10269470998654308
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000055609",
+              "approvedSymbol": "KMT2C"
+            },
+            "score": 0.3935694655608559,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.06594360457426057
+              },
+              {
+                "id": "somatic_mutation",
+                "score": 0.5167411779698778
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "eva_somatic",
+                "score": 0.5319394479101685
+              },
+              {
+                "id": "cancer_gene_census",
+                "score": 0.4559480982087158
+              },
+              {
+                "id": "europepmc",
+                "score": 0.06594360457426057
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000211896",
+              "approvedSymbol": "IGHG1"
+            },
+            "score": 0.39298657881473287,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.77004567697472
+              },
+              {
+                "id": "genetic_literature",
+                "score": 0.607930797611621
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "uniprot_literature",
+                "score": 0.607930797611621
+              },
+              {
+                "id": "europepmc",
+                "score": 0.77004567697472
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000163508",
+              "approvedSymbol": "EOMES"
+            },
+            "score": 0.3912572393438756,
+            "datatypeScores": [
+              {
+                "id": "genetic_association",
+                "score": 0.6435884493449068
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.6435884493449068
+              }
+            ]
+          },
+          {
+            "target": {
+              "id": "ENSG00000100307",
+              "approvedSymbol": "CBX7"
+            },
+            "score": 0.388889452107894,
+            "datatypeScores": [
+              {
+                "id": "literature",
+                "score": 0.632881290763598
+              },
+              {
+                "id": "genetic_association",
+                "score": 0.6080495545969663
+              }
+            ],
+            "datasourceScores": [
+              {
+                "id": "gwas_credible_sets",
+                "score": 0.6080495545969663
+              },
+              {
+                "id": "europepmc",
+                "score": 0.632881290763598
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

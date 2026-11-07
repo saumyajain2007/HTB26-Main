@@ -1,0 +1,338 @@
+{
+  "release": "opentargets-26.09",
+  "records": [
+    {
+      "id": "ENSG00000138756",
+      "proteinIds": [
+        {
+          "id": "Q9NSY1",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000072062",
+      "proteinIds": [
+        {
+          "id": "P17612",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000077782",
+      "proteinIds": [
+        {
+          "id": "P11362",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000178950",
+      "proteinIds": [
+        {
+          "id": "O14976",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000166501",
+      "proteinIds": [
+        {
+          "id": "P05771",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000086232",
+      "proteinIds": [
+        {
+          "id": "Q9BQI3",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000163932",
+      "proteinIds": [
+        {
+          "id": "Q05655",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000148660",
+      "proteinIds": [
+        {
+          "id": "Q13555",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000184640",
+      "proteinIds": [
+        {
+          "id": "Q9UHD8",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000105639",
+      "proteinIds": [
+        {
+          "id": "P52333",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000065243",
+      "proteinIds": [
+        {
+          "id": "Q16513",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000134318",
+      "proteinIds": [
+        {
+          "id": "O75116",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000174292",
+      "proteinIds": [
+        {
+          "id": "Q13470",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000133275",
+      "proteinIds": [
+        {
+          "id": "P78368",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000168610",
+      "proteinIds": [
+        {
+          "id": "P40763",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000122966",
+      "proteinIds": [
+        {
+          "id": "O14578",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000165731",
+      "proteinIds": [
+        {
+          "id": "P07949",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000171791",
+      "proteinIds": [
+        {
+          "id": "P10415",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000123143",
+      "proteinIds": [
+        {
+          "id": "Q16512",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000096968",
+      "proteinIds": [
+        {
+          "id": "O60674",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000066468",
+      "proteinIds": [
+        {
+          "id": "P21802",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000169118",
+      "proteinIds": [
+        {
+          "id": "Q9HCP0",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000075413",
+      "proteinIds": [
+        {
+          "id": "P27448",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000105397",
+      "proteinIds": [
+        {
+          "id": "P29597",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000072518",
+      "proteinIds": [
+        {
+          "id": "Q7KZI7",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000095015",
+      "proteinIds": [
+        {
+          "id": "Q13233",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000154229",
+      "proteinIds": [
+        {
+          "id": "P17252",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000160867",
+      "proteinIds": [
+        {
+          "id": "P22455",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000115977",
+      "proteinIds": [
+        {
+          "id": "Q2M2I8",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000177169",
+      "proteinIds": [
+        {
+          "id": "O75385",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000068078",
+      "proteinIds": [
+        {
+          "id": "P22607",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000145349",
+      "proteinIds": [
+        {
+          "id": "Q13557",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000013441",
+      "proteinIds": [
+        {
+          "id": "P49759",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000162434",
+      "proteinIds": [
+        {
+          "id": "P23458",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000067900",
+      "proteinIds": [
+        {
+          "id": "Q13464",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000105383",
+      "proteinIds": [
+        {
+          "id": "P20138",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    },
+    {
+      "id": "ENSG00000001626",
+      "proteinIds": [
+        {
+          "id": "P13569",
+          "source": "uniprot_swissprot"
+        }
+      ]
+    }
+  ]
+}

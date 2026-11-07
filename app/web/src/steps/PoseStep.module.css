@@ -1,0 +1,276 @@
+/* The pose panel's heading: the drug (also its picker), then the structure line, quietly. */
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-16);
+  align-items: baseline;
+}
+
+.structure {
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  color: var(--color-grey-1);
+}
+
+/* Where the 3D view sits, or will: ruled above and below, in the same box as the viewer's. */
+.stage {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.request {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  align-items: center;
+  max-width: 46ch;
+  text-align: center;
+}
+
+.headline {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.detail {
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+.show {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-24);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-paper);
+}
+
+.show:hover {
+  background: var(--color-ink-hover);
+}
+
+.show:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.retry {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.notice {
+  flex: none;
+  margin-bottom: var(--space-8);
+  font-size: var(--text-body);
+  color: var(--color-grey-1);
+}
+
+/* Progress: a turning ring while the pose is computed, an empty one while it waits. */
+.progress {
+  display: inline-flex;
+  gap: var(--space-12);
+  align-items: center;
+  font-size: var(--text-body-lg);
+}
+
+.ring {
+  position: relative;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-edge);
+  border-radius: 50%;
+}
+
+.progress[data-state="running"] .ring {
+  border-color: var(--color-ink);
+}
+
+.progress[data-state="running"] .ring::after {
+  position: absolute;
+  inset: -1.5px;
+  border: 1.5px solid transparent;
+  border-top-color: var(--color-paper);
+  border-radius: 50%;
+  animation: turn 1.4s linear infinite;
+  content: "";
+}
+
+@keyframes turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* The column beside the pose: how far to trust it. It scrolls when the window is too short for
+   it. */
+.column {
+  composes: scroll-fade from global;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  margin-right: calc(-1 * var(--space-8));
+  padding-right: var(--space-8);
+  overflow-y: auto;
+}
+
+/* How far to trust the pose: each number with its axis and its meaning, then the caveat. */
+.scores {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  max-width: 60ch;
+}
+
+.measure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.measureHead {
+  display: flex;
+  gap: var(--space-16);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.label {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.reading {
+  display: flex;
+  gap: var(--space-12);
+  align-items: baseline;
+}
+
+.value {
+  display: inline-flex;
+  gap: 2px;
+  align-items: baseline;
+  font-size: 24px;
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.value small {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-1);
+}
+
+/* A made-up value: a dotted underline points to the one line that says so. */
+.value[data-fixture] {
+  text-decoration: underline dotted var(--color-grey-2);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+.status {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-1);
+}
+
+.missing {
+  font-size: var(--text-body);
+  color: var(--color-grey-2);
+}
+
+.axis {
+  position: relative;
+  height: 34px;
+  margin: 0 var(--space-12);
+}
+
+.axis::before {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  left: 0;
+  border-top: 1px solid var(--color-ink);
+  content: "";
+}
+
+.dot {
+  position: absolute;
+  top: 1px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  transform: translateX(-50%);
+}
+
+.reference {
+  position: absolute;
+  top: -4px;
+  height: 20px;
+  border-left: 1px dashed var(--color-grey-1);
+}
+
+.tick {
+  position: absolute;
+  top: 14px;
+  font-size: var(--text-label-sm);
+  line-height: 1;
+  color: var(--color-grey-1);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.tick::before {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  height: 4px;
+  border-left: 1px solid var(--color-ink);
+  content: "";
+}
+
+.help {
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.fixture {
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.caveat {
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-rule);
+  font-family: var(--font-serif);
+  font-size: var(--text-intro);
+  font-style: italic;
+  line-height: var(--leading-body);
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .scores {
+    gap: var(--space-16);
+  }
+}

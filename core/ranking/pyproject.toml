@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oxhack-ranking"
+version = "0.3.0"
+description = "Protein network, Candidate ranking and retrospective evaluation for OxHack Stream B"
+requires-python = ">=3.11"
+dependencies = ["numpy==2.4.6", "scipy==1.17.1"]
+
+[project.optional-dependencies]
+benchmark = ["duckdb==2.0.0", "httpx==0.28.1"]
+
+[tool.setuptools]
+packages = ["ranking", "ranking.application"]
+package-dir = {ranking = "."}
+
+[tool.setuptools.package-data]
+ranking = ["cohort_protocol.json", "rwr_protocol.json"]

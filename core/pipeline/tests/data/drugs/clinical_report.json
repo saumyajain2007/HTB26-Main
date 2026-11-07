@@ -1,0 +1,5724 @@
+{
+  "provenance": {
+    "recorded_at": "2026-10-24",
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "ot_source": "https://open-targets-public-data-releases.s3.eu-west-1.amazonaws.com/platform/26.09/output/",
+    "chembl_source": "https://www.ebi.ac.uk/chembl/api/data/",
+    "note": "Projected source fields; no invented potency values. Activities recorded for baricitinib only; empty inputs for other drugs test mechanism-only behavior."
+  },
+  "rows": [
+    {
+      "id": "0196044d2a4e509993b1e3ac01d6ca33af52f08a373769e2d9f75a16b9420f91",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "024928933e7f7535dd8019e59b21c27a1cd696e95d01afcfbea454607dea1369",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "18cbb49bf16fef2c275810b11fd75fd33d8efaabcaf426e7a6c761deeb075dba",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "1dfdbcdf31981bf8b0214430988e2b9fb56553acc0d668665733e7e958d2ceb5",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "2c28b915356b208947aa2ee31d6278b3fff1967414c14d5471d66bcba7d5182e",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "34985b3d6bffac1bc1c446a0a26b3deb91b436be4a5fe07ce3da585e94efd1f0",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "459073f2fc747a11d1813078d13d5d9f9540177a2225ac6c80ca1c172d5e06aa",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "49d2becbc0e65cc2e57785a0c541f5bf1410142f214219b8fbbc461c1c948ce0",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "5c2f56c7553d54321682d23506cbbd0522b2cd382e0eb0d86d092f01a7c47dc4",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "608d4f0d-b19f-46d3-749a-7159aa5f933d",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "64d707d554f0169490fc1d44970d2ac43a0ebd8b21f7edb53c4f6257ecba0f5d",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "673cdbf188595ce093a7412b96a54cceeb7f2aa908a796affbd9c3d8ad778ab1",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "68c4e413354116eff62f0e5d7e8c4f3f5fd8761ae5a586dfd2f2a804712436af",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "6dda68dcbd4543c96a117043a553a74595dd43f0e02e0883edcf7b4df2754475",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "7c0a757f75af19db95ed211da084bfb36444ef9cd4f3562b0a91bcd9081a0a72",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "83c0f30238e227bed18e807e76723ad7adf7546a49c48e94c68f1f1fb72ae40e",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "866e9f35-9035-4581-a4b1-75a621ab55cf",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "86a96e9608f9cad1e8cf91487d79c1faee70ea07b972119b824c7b3540ec04c9",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "a55bc2270c5de7640fa6d2ba3b0438e1313277a1094db599a3a36ed7306ca289",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "a5d4168460ecefd83cc5ec0781f3c4ee8afc18a3284cbf2ab035d52a1b45bf32",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "a766b10cb111cb79a66ad7a967bab6ece104738bfa21c1cb17472b666332f38b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "aaf237ea43e9eee8770c5478a219b369bb2b54429c80698f9bfc09260a048bb0",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "acdfaa71-27ed-4717-8e7d-f1a5fe0d1fa6",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "b118a40d-6b56-cee3-10f6-ded821a97018",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "b1a6915dc654329b5e9ca3b20243d9bb66ad5030c336a917204989fcd5acb8e7",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "b45468d8f78de5b05a4c6fc0e5bdbffde92fb619fb0dc0d818b1cb1c7eb7c353",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "b7a5e08d20068ba44eba450d2655045bb88ddfed8accf0e00b304916c4203636",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "be14ff522cfc3b436bce6857baf75c2ba2dd94fab5ce615e6ade77a58fa95d18",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "bfe246a4e3e1e68a3cdbbd94237833794728fde7030dc4328d7371b1ddd362c5",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "c41f61f71a76b4f70f13075d85a5a02e28a4d506bf67fa6dd5c631527e3ba6d8",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "c5b1b6619b233a66eddce9616cfbe28830a1b3067b0b85ff75992f16f652d93f",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "c5f7dc1ecd3813f74e8ec343036365016109f347aa36b87890ce77933dd33fd4",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "c7ece99352de06adf3eebd269c04256524636164555f81747c64690075b20ea1",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "cccb4828458bcf131277729760df1042c100d62a87f48a484925fa6e28518631",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "cd3226ae33c37557d1dc44259f640218a46ff579ef50fa1e146a6156f7bea70b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d00fgo/multiple myeloma",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d04lks/atopic dermatitis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "d04lks/essential thrombocythemia",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d04lks/vitiligo",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "d04lxb/multiple myeloma",
+      "source": "TTD",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "d06fmo/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PREAPPROVAL"
+    },
+    {
+      "id": "d06fmo/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d06ggl/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d06xes/ovarian cancer",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d085ba2258ee3b3dbdae0dc932766dd36395989909469e275fccae4e51c390ff",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d0d5fu/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d0d8kq/essential thrombocythemia",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d0k5ks/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d0kh8q/myelofibrosis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d0l8uq/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "IND"
+    },
+    {
+      "id": "d0mi8z/crohn disease",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "d0mi8z/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "d0mi8z/psoriasis vulgaris",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "d0mi8z/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "d0mi8z/ulcerative colitis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "d0s7jn/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d0s7jn/psoriatic arthritis",
+      "source": "TTD",
+      "clinicalStage": "PREAPPROVAL"
+    },
+    {
+      "id": "d0s7jn/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d0x5yn/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d0y7ic/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d0y8tz/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d0z4vx/rheumatoid arthritis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "d11ah09",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d51d6a0ff9c74ebc12e71f097884e9671aef2c8d30608c0f7292e49af05cdac9",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "d886ccb512254f14ed7baa56956f4d9396c78fec6933d41e83e65682ae3a069b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "deuruxolitinib phosphate",
+      "source": "USAN",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "di0cx8/plaque psoriasis",
+      "source": "TTD",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "eb22b8ea9e691996bf20a05942b5af61a98c40f5b4a356cbeae711f289e9c29f",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "ede60db1e58270137a40f17e7dc61f38bdb31a85c655c52290bcce375e4fe1bf",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/000481",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/000482",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "WITHDRAWAL"
+    },
+    {
+      "id": "emea/h/c/002464",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004085",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004106",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004212",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004279",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004319",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "WITHDRAWAL"
+    },
+    {
+      "id": "emea/h/c/004320",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004373",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "WITHDRAWAL"
+    },
+    {
+      "id": "emea/h/c/004429",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004475",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004865",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/004866",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "WITHDRAWAL"
+    },
+    {
+      "id": "emea/h/c/004879",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/005158",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "WITHDRAWAL"
+    },
+    {
+      "id": "emea/h/c/005173",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/005188",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/005253",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "emea/h/c/005548",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/005843",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "emea/h/c/005947",
+      "source": "EMA Human Drugs",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "f1c82580-87ae-11e0-bc84-0002a5d5c51b",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "f22a4b5d2c942351107edcd232881dceeaaed0b42a33273af57c762e5b624c5b",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "f7ab635f68c3daf0eeb27511ca8a932b9b8001b74ce5b7325ca77516fe4d5bc9",
+      "source": "PMDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "ff913271-0090-4832-a0fe-5154fe8f97b9",
+      "source": "DailyMed",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "l01aa03",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "l01ej01",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "l01xx52",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "l01xx78",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "l04ab04",
+      "source": "ATC",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "label/2016/208573s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "label/2018/207924s000lbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "label/2024/217900orig1s000correctedlbl.pdf",
+      "source": "FDA",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct00001335",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00002548",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002556",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002599",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002630",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00002653",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002678",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002730",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00002802",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002945",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00002982",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00002989",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00003007",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003080",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00003146",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003163",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003215",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00003397",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003399",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003401",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003402",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003578",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00003603",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00003631",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003661",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00003815",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00003954",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00003957",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00004056",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00004088",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00004158",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00004165",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00004188",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00004903",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00004921",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00005589",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00005792",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00005835",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00005978",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00006244",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00006695",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00007852",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00007995",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00008229",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00008268",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00012051",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00014339",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00014508",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00017225",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00017368",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00019097",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00024193",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00025064",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00025636",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00025649",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00028600",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00028886",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00030719",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00040937",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00045136",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00046852",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00048542",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00049751",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00054353",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00055497",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00055523",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00058292",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00060255",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00064337",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00067002",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00070187",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00070200",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00077779",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00080886",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00083551",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00083564",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00083915",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00085345",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00085644",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00089453",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00105300",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00112827",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00121186",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00135135",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00177047",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00185614",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00188136",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00195650",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00195663",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00195689",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00195702",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00195715",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00195819",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00202917",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00205751",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00205764",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00216177",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00217438",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00218855",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00232934",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00233558",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00233571",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00233987",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00234234",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00234845",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00234884",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00234897",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00234936",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00235820",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00235833",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00235859",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00235872",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00235885",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00237887",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00238433",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00244946",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00253435",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00265889",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00290628",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00298272",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00305812",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00307086",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00313625",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00317811",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00320476",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00325078",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00325416",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00334932",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00338650",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00338754",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00345865",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00348153",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00348283",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00349778",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00350818",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00357565",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00358020",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00365755",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00367185",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00385736",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00385788",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00388635",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00392691",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00396045",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00406978",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00408629",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00409617",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00409682",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00410631",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00417053",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00420927",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00421642",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00423514",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00423709",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00427362",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00427765",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00427921",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00439556",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00443235",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00445432",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00445939",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00448383",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00469209",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00477750",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00477815",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00477893",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00478660",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00480272",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00482846",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00497614",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00499577",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00504101",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00505895",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00507416",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00513370",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00514982",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00516191",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00525902",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00526318",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00536601",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00538902",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00539500",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00544466",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00544570",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00546988",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00550446",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00551928",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00564200",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00566098",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00566722",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00567567",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00571493",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00573391",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00573794",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00574249",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00574496",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00577668",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00580372",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00582933",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00583622",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00595413",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00602641",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00602706",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00603993",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00635024",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00637767",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00638898",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00641030",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00644306",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00644371",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00645814",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00645892",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00645905",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00646178",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00646191",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00646386",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00647270",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00647400",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00647491",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00647920",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00649545",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct00650026",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct00650156",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00650390",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct00651937",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00660647",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00661544",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00667355",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00670631",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00686374",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00690573",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00691704",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00695409",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00696059",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00724672",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00726232",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00726804",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00734149",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00734877",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00736983",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00743288",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00747877",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00761514",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00772811",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00775437",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00780793",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00783510",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00784823",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00789256",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00793572",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00793650",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00793845",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00796705",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00798148",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00799539",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00804947",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00808509",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00814866",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00827996",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00837434",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00843310",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00853099",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00853385",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00855608",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00869232",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00870467",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00871013",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00887757",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00891605",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00899847",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00902486",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00907036",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00907452",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00908180",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00911859",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00916058",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00918255",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00920153",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00925782",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00927069",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00929864",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00932113",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00934154",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00939003",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct00940862",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00943592",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00948922",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00961142",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00961467",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00963313",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct00968396",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct00972101",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00972218",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct00982566",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct00984828",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct00985907",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct00985959",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01008462",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01010217",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01021735",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01029613",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01035463",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01039025",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01054196",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01055301",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01060098",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01063179",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01063439",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01064856",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01070303",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01072058",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01078571",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01078610",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01083316",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01088165",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01093196",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01114880",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01116128",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01119859",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01124838",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01131169",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01138657",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01141712",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01142232",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01144156",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01148225",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01160107",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01162421",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01163357",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01164163",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01175356",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01178645",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01178658",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01185288",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01185301",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01185353",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01190787",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01197144",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01200329",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01208766",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01225393",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01231321",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01233583",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01235689",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01237249",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01237262",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01237951",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01241708",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01242267",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01243944",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01250808",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01251614",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01264770",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01265823",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01270035",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01270087",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01274403",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01279694",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01283971",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01295151",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01296256",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01317875",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01320293",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01328626",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01335685",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01339910",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01340651",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01341262",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01350258",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01369498",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01370434",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01375140",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01382160",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01385826",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct01387815",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01392443",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01405326",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01410344",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01413178",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01421173",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01445769",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01453088",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01453101",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01465438",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01468207",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01468233",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01468311",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01469013",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01476839",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01483599",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01493414",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01494857",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01500278",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01502423",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01518153",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01526096",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01526603",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01532856",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01548573",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01550965",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01554852",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01556672",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01561313",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01562951",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01572688",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01592292",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01605032",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01609205",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01617213",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01629628",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01632904",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01635764",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01644110",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01644396",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01646073",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01653418",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01657513",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01660633",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01671904",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01674413",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01682616",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01685892",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01690143",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01693601",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01702831",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01702961",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01704599",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01704716",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01706692",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01710358",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01711359",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01712178",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01716039",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01721044",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01721057",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01722214",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01724580",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct01729091",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01730248",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01732445",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01736189",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01745913",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01752855",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01758328",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01768858",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01769911",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01787487",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01787552",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01793519",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01795677",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01798004",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01810588",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01812954",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01818752",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01840566",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01842308",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01849783",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01866592",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct01870284",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01872546",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01875237",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01885078",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01889186",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01916252",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01921387",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct01923935",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01936090",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct01958827",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01969838",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01970475",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01970488",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct01971970",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct01981850",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct01986127",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02005471",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02015793",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02016105",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02016482",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02019472",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02035800",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02038036",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02043847",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02043860",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02056184",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02059239",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02061800",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02065557",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02065570",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02065622",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02072863",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02073526",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02076191",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02087059",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02091752",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02092467",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02097264",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02109861",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "EARLY_PHASE_1"
+    },
+    {
+      "id": "nct02112045",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02114502",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02114931",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02128230",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02130869",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02137226",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02141282",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02141997",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02148718",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02148913",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02150473",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02158858",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02163759",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02167139",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02171429",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02185014",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02187055",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02195479",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02197221",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02198651",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02206425",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02242942",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02251821",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02256462",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02260791",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02265705",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02265731",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02267278",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02278796",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02288741",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02292446",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02295722",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02296918",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02302495",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02322008",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02330380",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02332356",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02332590",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02333383",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02349451",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02353572",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02353780",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02370706",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02393378",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02401503",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02405780",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02415413",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02427451",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02436135",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02447055",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "EARLY_PHASE_1"
+    },
+    {
+      "id": "nct02450513",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02456363",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02469974",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02474563",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02480153",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02489227",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02489760",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02492217",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02493530",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02497469",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02499783",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02504359",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02506959",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02539849",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02557100",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02565810",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02572492",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02576938",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02577926",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02581007",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02587598",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02593760",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02598297",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02605421",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02629159",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02632175",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02636907",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02639910",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02640612",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02640833",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02653196",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "EARLY_PHASE_1"
+    },
+    {
+      "id": "nct02660580",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02668640",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02669615",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02674308",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02694523",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02706704",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02711137",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02714322",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02716805",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02718300",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02722044",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02727803",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02739828",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02742324",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02744755",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02745080",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02750800",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02756611",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02756897",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02758665",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02760407",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02762955",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02771197",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02772965",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02780609",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02784496",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02804204",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct02806375",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct02808975",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02809976",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02814175",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02833350",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02840175",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02846623",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02850965",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02858999",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02871635",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02878161",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02893254",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02897115",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct02904902",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02909036",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02910583",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02917096",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct02950051",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02961816",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02962388",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct02966353",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02966756",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct02980731",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct02997280",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03004287",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03011892",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03019640",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03042429",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03045328",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03052322",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03054896",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03061656",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03069326",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03099304",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03100253",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03100877",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03108326",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03112603",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03123588",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03125642",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03128879",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03144687",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03147742",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct03148743",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03151551",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03172325",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03187210",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03187223",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03210259",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03217734",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct03217812",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03218683",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03222609",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03226301",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03248531",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03259074",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03261102",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03306446",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03316781",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03331198",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03333187",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03334396",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03334422",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03334435",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03336333",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03343678",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03352765",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03358693",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03379051",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03385096",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct03386214",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03395340",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03406156",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03412565",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03412747",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03414502",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03422393",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03427866",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03428100",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03435081",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03455517",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03462719",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03464136",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03467867",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03505008",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03506802",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03513562",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03534323",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03559270",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03561649",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03570983",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03579927",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03580928",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03583424",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03602235",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03609593",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03616184",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03639324",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03662919",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03669965",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03674047",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03701282",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03701698",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03701789",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03708003",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03712826",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03733301",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03737981",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03739554",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03742297",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03745638",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03745651",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03755466",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03755947",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03766763",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03773965",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03774082",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03786783",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03787264",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03789292",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03792815",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03794167",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03795597",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03801525",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct03823391",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03824483",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03836261",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03849404",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03849651",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03873857",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03878199",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct03884972",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03886233",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03906136",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03915964",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03917303",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct03920852",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct03943342",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct03952559",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct03955861",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03959371",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct03986034",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04008888",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04010968",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04016116",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04028713",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04041050",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04045782",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04052425",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04057573",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04086745",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04097821",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04115423",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04116502",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04131322",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04132388",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04135508",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04154852",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04169737",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04171414",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04176198",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04194827",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04205240",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04217356",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04218071",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04221035",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04222920",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04224194",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04230213",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04255134",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04269811",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04269850",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04269902",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04279847",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04281498",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04282187",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04282811",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04285567",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04354727",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04397367",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04419389",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04419519",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04447768",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04449224",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04453137",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04454658",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04455841",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04466475",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04468984",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04472598",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04480086",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04483206",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04501939",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04512105",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04515238",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04523428",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04527380",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04530344",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04543279",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04551053",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04551066",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04553692",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04560322",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04562389",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04588818",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04588922",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04599634",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04603495",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04608318",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04610476",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04613622",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04616274",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04623541",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04639362",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04646187",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04692493",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04745637",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04752748",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04754035",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04758975",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04761770",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04790045",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct04808739",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04817007",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct04818788",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04839380",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04843904",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04870203",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04871607",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04882683",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct04895436",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04897139",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04909801",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04921969",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04941716",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct04965493",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct04981912",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct04985435",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05003310",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05013437",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "EARLY_PHASE_1"
+    },
+    {
+      "id": "nct05034822",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05037760",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05040464",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05052385",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05057494",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05069051",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05073315",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05084027",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05088356",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05090124",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05091424",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05095649",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05105347",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05105841",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05107856",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05112120",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05121142",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05127421",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05155592",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05164198",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05168930",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05172817",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct05180526",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05197192",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05209308",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05238896",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05240859",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05247489",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05269771",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05280509",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct05291039",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05303727",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05317936",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct05322473",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05336812",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05349747",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05371964",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05372939",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05379049",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05379322",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05388006",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05410470",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05413356",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05436561",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05447260",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05456529",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05457556",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05478512",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05503875",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05510063",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05524311",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05527444",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05530122",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05536349",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05542459",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05564390",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05566535",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05636787",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05637515",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05640245",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05650723",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05660655",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05663827",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05674539",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05677919",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05683626",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05696392",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05714072",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05722912",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "APPROVAL"
+    },
+    {
+      "id": "nct05750823",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05762874",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05781152",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05791409",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct05814627",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05817955",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05827497",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05863845",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05870475",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05870995",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05872477",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05874505",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05889338",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05906628",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05913817",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05928039",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05936359",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct05947851",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct05955066",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct05963074",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct05969730",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05986903",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct05991908",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06016517",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06034002",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06045754",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06133556",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06158828",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct06180382",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06195891",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06233110",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06238817",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06245629",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06247540",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06257875",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06258915",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06269185",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06287944",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06291987",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06313502",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06327100",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct06345495",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06370156",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06388564",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06397313",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06428019",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06440629",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06457425",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06457464",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06463717",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06466122",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06479135",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06520098",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06523699",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06524375",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06528431",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06548360",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06600009",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06602323",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06613035",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06619522",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06627335",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06640517",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06644183",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct06660355",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06664970",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06673654",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06679829",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06687551",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06695507",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06719024",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2_3"
+    },
+    {
+      "id": "nct06729463",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06742606",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "EARLY_PHASE_1"
+    },
+    {
+      "id": "nct06756061",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06773195",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct06804811",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06824103",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06829472",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06832618",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06833112",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct06846671",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06882148",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06896305",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct06909136",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct06913192",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct06923228",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06936566",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06943872",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct06958705",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct06967610",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07014917",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07024706",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07025824",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07070934",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07113834",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07128381",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct07128472",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07151937",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07153666",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07218510",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07228624",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07262983",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct07277231",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct07317700",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct07340138",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1"
+    },
+    {
+      "id": "nct07340723",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07357649",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct07357727",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct07396480",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    },
+    {
+      "id": "nct07398651",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07423533",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07448363",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07481669",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07495644",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07498205",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct07509749",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07510191",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct07520006",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_1_2"
+    },
+    {
+      "id": "nct07529925",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct07557056",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07564505",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_4"
+    },
+    {
+      "id": "nct07582159",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07582172",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_2"
+    },
+    {
+      "id": "nct07588360",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "UNKNOWN"
+    },
+    {
+      "id": "nct07595939",
+      "source": "ClinicalTrials.gov",
+      "clinicalStage": "PHASE_3"
+    }
+  ]
+}

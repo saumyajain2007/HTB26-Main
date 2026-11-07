@@ -1,0 +1,4431 @@
+{
+  "models": {
+    "claude-opus-5-5": {
+      "valid_runs": 4,
+      "attempts": 9,
+      "hits_at_5": 0.3333333333333333,
+      "mrr": 0.11396103896103897,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "status": "invalid_or_failed",
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "status": "valid",
+          "rank": 11,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.09090909090909091
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "status": "invalid_or_failed",
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "status": "valid",
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "disease_id": "HP_0000975",
+          "status": "valid",
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "status": "valid",
+          "rank": 5,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.2
+        }
+      ],
+      "rejections": {
+        "JSON decoding failed": 5
+      },
+      "input_tokens": 139011,
+      "output_tokens": 17222
+    },
+    "openai-gpt-5.4": {
+      "valid_runs": 6,
+      "attempts": 6,
+      "hits_at_5": 0.16666666666666666,
+      "mrr": 0.16448412698412698,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "status": "valid",
+          "rank": 10,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.1
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "status": "valid",
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "status": "valid",
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "status": "valid",
+          "rank": 3,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        {
+          "disease_id": "HP_0000975",
+          "status": "valid",
+          "rank": 8,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "status": "valid",
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285
+        }
+      ],
+      "rejections": {},
+      "input_tokens": 60280,
+      "output_tokens": 16927
+    },
+    "glm-5.3": {
+      "valid_runs": 6,
+      "attempts": 7,
+      "hits_at_5": 0.16666666666666666,
+      "mrr": 0.14629629629629629,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "status": "valid",
+          "rank": 10,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.1
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "status": "valid",
+          "rank": 8,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "status": "valid",
+          "rank": 9,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "status": "valid",
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "disease_id": "HP_0000975",
+          "status": "valid",
+          "rank": 8,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.125
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "status": "valid",
+          "rank": 6,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.16666666666666666
+        }
+      ],
+      "rejections": {
+        "Expected every Candidate once and unique ranks 1..n": 1
+      },
+      "input_tokens": 72214,
+      "output_tokens": 20160
+    },
+    "kimi-k3": {
+      "valid_runs": 6,
+      "attempts": 6,
+      "hits_at_5": 0.5,
+      "mrr": 0.23677248677248677,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "status": "valid",
+          "rank": 9,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "status": "valid",
+          "rank": 6,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.16666666666666666
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "status": "valid",
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "status": "valid",
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25
+        },
+        {
+          "disease_id": "HP_0000975",
+          "status": "valid",
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "status": "valid",
+          "rank": 2,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.5
+        }
+      ],
+      "rejections": {},
+      "input_tokens": 61975,
+      "output_tokens": 24700
+    }
+  },
+  "juries": {
+    "opus_gpt_glm": {
+      "models": [
+        "claude-opus-5-5",
+        "openai-gpt-5.4",
+        "glm-5.3"
+      ],
+      "complete_panels": 4,
+      "hits_at_5": 0.16666666666666666,
+      "mrr": 0.12797619047619047,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "complete": false,
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 2,
+            "ranking": [
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1444",
+                "borda_points": 24,
+                "rank": 1
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1200989",
+                "borda_points": 24,
+                "rank": 1
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL1200386",
+                "borda_points": 24,
+                "rank": 1
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1399",
+                "borda_points": 21,
+                "rank": 4
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL5095183",
+                "borda_points": 20,
+                "rank": 5
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1200878",
+                "borda_points": 19,
+                "rank": 6
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL1200538",
+                "borda_points": 19,
+                "rank": 6
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL1200374",
+                "borda_points": 17,
+                "rank": 8
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL5314341",
+                "borda_points": 12,
+                "rank": 9
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL291657",
+                "borda_points": 10,
+                "rank": 10
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL1201497",
+                "borda_points": 8,
+                "rank": 11
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL2364612",
+                "borda_points": 6,
+                "rank": 12
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL5095275",
+                "borda_points": 3,
+                "rank": 13
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL2108611",
+                "borda_points": 2,
+                "rank": 14
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL607400",
+                "borda_points": 1,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": null,
+            "contested": [
+              "C9",
+              "C10",
+              "C13",
+              "C14"
+            ]
+          }
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "complete": true,
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL1201835",
+                "borda_points": 41,
+                "rank": 1
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1201823",
+                "borda_points": 40,
+                "rank": 2
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL1742990",
+                "borda_points": 36,
+                "rank": 3
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL1238",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL389621",
+                "borda_points": 30,
+                "rank": 5
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1743070",
+                "borda_points": 29,
+                "rank": 6
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL230158",
+                "borda_points": 19,
+                "rank": 7
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL3137343",
+                "borda_points": 19,
+                "rank": 7
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL672",
+                "borda_points": 18,
+                "rank": 9
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL294199",
+                "borda_points": 17,
+                "rank": 10
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1200799",
+                "borda_points": 14,
+                "rank": 11
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1519",
+                "borda_points": 7,
+                "rank": 12
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL600",
+                "borda_points": 6,
+                "rank": 13
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL2108286",
+                "borda_points": 5,
+                "rank": 14
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1773",
+                "borda_points": 3,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.9183,
+            "contested": [
+              "C2",
+              "C3",
+              "C7",
+              "C10",
+              "C12",
+              "C13",
+              "C14",
+              "C15"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "complete": false,
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 2,
+            "ranking": [
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL945",
+                "borda_points": 28,
+                "rank": 1
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL585",
+                "borda_points": 26,
+                "rank": 2
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1131",
+                "borda_points": 23,
+                "rank": 3
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL103",
+                "borda_points": 20,
+                "rank": 4
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1766",
+                "borda_points": 20,
+                "rank": 4
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL38",
+                "borda_points": 19,
+                "rank": 6
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL4594287",
+                "borda_points": 14,
+                "rank": 7
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL53",
+                "borda_points": 13,
+                "rank": 8
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL3353410",
+                "borda_points": 12,
+                "rank": 9
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL2111112",
+                "borda_points": 9,
+                "rank": 10
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL3813873",
+                "borda_points": 7,
+                "rank": 11
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL2104993",
+                "borda_points": 7,
+                "rank": 11
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL2403108",
+                "borda_points": 5,
+                "rank": 13
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL439849",
+                "borda_points": 5,
+                "rank": 13
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL386630",
+                "borda_points": 2,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": null,
+            "contested": [
+              "C2",
+              "C3",
+              "C5",
+              "C12",
+              "C13",
+              "C14"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "complete": true,
+          "rank": 3,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.3333333333333333,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1201237",
+                "borda_points": 41,
+                "rank": 1
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL839",
+                "borda_points": 40,
+                "rank": 2
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL2165326",
+                "borda_points": 34,
+                "rank": 3
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1742466",
+                "borda_points": 29,
+                "rank": 4
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL817",
+                "borda_points": 26,
+                "rank": 5
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL1095777",
+                "borda_points": 25,
+                "rank": 6
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1389",
+                "borda_points": 23,
+                "rank": 7
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL471",
+                "borda_points": 21,
+                "rank": 8
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL714",
+                "borda_points": 16,
+                "rank": 9
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL4594379",
+                "borda_points": 15,
+                "rank": 10
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL953",
+                "borda_points": 12,
+                "rank": 11
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL4297756",
+                "borda_points": 11,
+                "rank": 12
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1404",
+                "borda_points": 10,
+                "rank": 13
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1201338",
+                "borda_points": 9,
+                "rank": 14
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1614701",
+                "borda_points": 3,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.7421,
+            "contested": [
+              "C1",
+              "C2",
+              "C4",
+              "C5",
+              "C8",
+              "C9",
+              "C10",
+              "C12",
+              "C15"
+            ]
+          }
+        },
+        {
+          "disease_id": "HP_0000975",
+          "complete": true,
+          "rank": 8,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.125,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL517712",
+                "borda_points": 40,
+                "rank": 1
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1621597",
+                "borda_points": 39,
+                "rank": 2
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL1900528",
+                "borda_points": 38,
+                "rank": 3
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1888176",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL1194325",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL1200604",
+                "borda_points": 28,
+                "rank": 6
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL569713",
+                "borda_points": 23,
+                "rank": 7
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL3707224",
+                "borda_points": 22,
+                "rank": 8
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL2",
+                "borda_points": 14,
+                "rank": 9
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1680",
+                "borda_points": 12,
+                "rank": 10
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL190461",
+                "borda_points": 11,
+                "rank": 11
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1484",
+                "borda_points": 11,
+                "rank": 11
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL4650215",
+                "borda_points": 8,
+                "rank": 13
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL3137320",
+                "borda_points": 7,
+                "rank": 14
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL848",
+                "borda_points": 0,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.9381,
+            "contested": [
+              "C2",
+              "C4",
+              "C6",
+              "C13",
+              "C14"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "complete": true,
+          "rank": 6,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.16666666666666666,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL4297522",
+                "borda_points": 40,
+                "rank": 1
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL3301612",
+                "borda_points": 40,
+                "rank": 1
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL3686884",
+                "borda_points": 37,
+                "rank": 3
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL3889654",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1173655",
+                "borda_points": 30,
+                "rank": 5
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL3348923",
+                "borda_points": 27,
+                "rank": 6
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL2110732",
+                "borda_points": 26,
+                "rank": 7
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL34259",
+                "borda_points": 21,
+                "rank": 8
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL2103830",
+                "borda_points": 16,
+                "rank": 9
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1648",
+                "borda_points": 15,
+                "rank": 10
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL1726",
+                "borda_points": 14,
+                "rank": 11
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL17860",
+                "borda_points": 9,
+                "rank": 12
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL605846",
+                "borda_points": 6,
+                "rank": 13
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1201284",
+                "borda_points": 2,
+                "rank": 14
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL476960",
+                "borda_points": 1,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.9762,
+            "contested": [
+              "C3",
+              "C6",
+              "C8",
+              "C13",
+              "C15"
+            ]
+          }
+        }
+      ]
+    },
+    "opus_gpt_kimi": {
+      "models": [
+        "claude-opus-5-5",
+        "openai-gpt-5.4",
+        "kimi-k3"
+      ],
+      "complete_panels": 4,
+      "hits_at_5": 0.3333333333333333,
+      "mrr": 0.14484126984126985,
+      "per_panel": [
+        {
+          "disease_id": "MONDO_0018479",
+          "complete": false,
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 2,
+            "ranking": [
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1200989",
+                "borda_points": 27,
+                "rank": 1
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL1200386",
+                "borda_points": 27,
+                "rank": 1
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL1200538",
+                "borda_points": 24,
+                "rank": 3
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1200878",
+                "borda_points": 22,
+                "rank": 4
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1444",
+                "borda_points": 19,
+                "rank": 5
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1399",
+                "borda_points": 17,
+                "rank": 6
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL5095183",
+                "borda_points": 17,
+                "rank": 6
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL1200374",
+                "borda_points": 15,
+                "rank": 8
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL5314341",
+                "borda_points": 11,
+                "rank": 9
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL291657",
+                "borda_points": 11,
+                "rank": 9
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL1201497",
+                "borda_points": 8,
+                "rank": 11
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL2364612",
+                "borda_points": 6,
+                "rank": 12
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL5095275",
+                "borda_points": 3,
+                "rank": 13
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL2108611",
+                "borda_points": 2,
+                "rank": 14
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL607400",
+                "borda_points": 1,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": null,
+            "contested": [
+              "C2",
+              "C4",
+              "C6",
+              "C7",
+              "C10"
+            ]
+          }
+        },
+        {
+          "disease_id": "EFO_0004267",
+          "complete": true,
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL1201835",
+                "borda_points": 42,
+                "rank": 1
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1201823",
+                "borda_points": 39,
+                "rank": 2
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL389621",
+                "borda_points": 32,
+                "rank": 3
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL1238",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1743070",
+                "borda_points": 30,
+                "rank": 5
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL1742990",
+                "borda_points": 29,
+                "rank": 6
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL230158",
+                "borda_points": 21,
+                "rank": 7
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL672",
+                "borda_points": 20,
+                "rank": 8
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL3137343",
+                "borda_points": 18,
+                "rank": 9
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL294199",
+                "borda_points": 16,
+                "rank": 10
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1200799",
+                "borda_points": 15,
+                "rank": 11
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1519",
+                "borda_points": 10,
+                "rank": 12
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL600",
+                "borda_points": 5,
+                "rank": 13
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL2108286",
+                "borda_points": 4,
+                "rank": 14
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1773",
+                "borda_points": 3,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.8698,
+            "contested": [
+              "C1",
+              "C2",
+              "C3",
+              "C6",
+              "C10",
+              "C12",
+              "C13",
+              "C14",
+              "C15"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0005002",
+          "complete": false,
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 2,
+            "ranking": [
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL945",
+                "borda_points": 28,
+                "rank": 1
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL585",
+                "borda_points": 26,
+                "rank": 2
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1766",
+                "borda_points": 22,
+                "rank": 3
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL4594287",
+                "borda_points": 19,
+                "rank": 4
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL38",
+                "borda_points": 19,
+                "rank": 4
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1131",
+                "borda_points": 19,
+                "rank": 4
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL53",
+                "borda_points": 14,
+                "rank": 7
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL3353410",
+                "borda_points": 13,
+                "rank": 8
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL103",
+                "borda_points": 12,
+                "rank": 9
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL3813873",
+                "borda_points": 10,
+                "rank": 10
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL2403108",
+                "borda_points": 10,
+                "rank": 10
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL2111112",
+                "borda_points": 10,
+                "rank": 10
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL2104993",
+                "borda_points": 5,
+                "rank": 13
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL439849",
+                "borda_points": 3,
+                "rank": 14
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL386630",
+                "borda_points": 0,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": null,
+            "contested": [
+              "C1",
+              "C4",
+              "C5",
+              "C7",
+              "C10",
+              "C15"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0005044",
+          "complete": true,
+          "rank": 3,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.3333333333333333,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1201237",
+                "borda_points": 41,
+                "rank": 1
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL839",
+                "borda_points": 40,
+                "rank": 2
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL2165326",
+                "borda_points": 34,
+                "rank": 3
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1742466",
+                "borda_points": 29,
+                "rank": 4
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL471",
+                "borda_points": 29,
+                "rank": 4
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL817",
+                "borda_points": 26,
+                "rank": 6
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL1389",
+                "borda_points": 23,
+                "rank": 7
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL1095777",
+                "borda_points": 19,
+                "rank": 8
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL714",
+                "borda_points": 15,
+                "rank": 9
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL4594379",
+                "borda_points": 14,
+                "rank": 10
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1404",
+                "borda_points": 12,
+                "rank": 11
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL953",
+                "borda_points": 12,
+                "rank": 11
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL4297756",
+                "borda_points": 11,
+                "rank": 13
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1614701",
+                "borda_points": 5,
+                "rank": 14
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL1201338",
+                "borda_points": 5,
+                "rank": 14
+              }
+            ],
+            "kendalls_w": 0.7738,
+            "contested": [
+              "C2",
+              "C4",
+              "C5",
+              "C8",
+              "C9",
+              "C10",
+              "C14"
+            ]
+          }
+        },
+        {
+          "disease_id": "HP_0000975",
+          "complete": true,
+          "rank": 7,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.14285714285714285,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL517712",
+                "borda_points": 40,
+                "rank": 1
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL1621597",
+                "borda_points": 39,
+                "rank": 2
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL1900528",
+                "borda_points": 38,
+                "rank": 3
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1888176",
+                "borda_points": 32,
+                "rank": 4
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL1194325",
+                "borda_points": 31,
+                "rank": 5
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL1200604",
+                "borda_points": 27,
+                "rank": 6
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL3707224",
+                "borda_points": 23,
+                "rank": 7
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL569713",
+                "borda_points": 22,
+                "rank": 8
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL1484",
+                "borda_points": 14,
+                "rank": 9
+              },
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL2",
+                "borda_points": 14,
+                "rank": 9
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL1680",
+                "borda_points": 12,
+                "rank": 11
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL4650215",
+                "borda_points": 9,
+                "rank": 12
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL190461",
+                "borda_points": 8,
+                "rank": 13
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL3137320",
+                "borda_points": 6,
+                "rank": 14
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL848",
+                "borda_points": 0,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.95,
+            "contested": [
+              "C2",
+              "C4",
+              "C6",
+              "C13",
+              "C14"
+            ]
+          }
+        },
+        {
+          "disease_id": "MONDO_0021637",
+          "complete": true,
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25,
+          "consensus": {
+            "method": "borda",
+            "jurors_counted": 3,
+            "ranking": [
+              {
+                "label": "C14",
+                "candidate_id": "CHEMBL3301612",
+                "borda_points": 40,
+                "rank": 1
+              },
+              {
+                "label": "C5",
+                "candidate_id": "CHEMBL4297522",
+                "borda_points": 39,
+                "rank": 2
+              },
+              {
+                "label": "C12",
+                "candidate_id": "CHEMBL3686884",
+                "borda_points": 36,
+                "rank": 3
+              },
+              {
+                "label": "C15",
+                "candidate_id": "CHEMBL3348923",
+                "borda_points": 31,
+                "rank": 4
+              },
+              {
+                "label": "C3",
+                "candidate_id": "CHEMBL1173655",
+                "borda_points": 30,
+                "rank": 5
+              },
+              {
+                "label": "C7",
+                "candidate_id": "CHEMBL3889654",
+                "borda_points": 28,
+                "rank": 6
+              },
+              {
+                "label": "C6",
+                "candidate_id": "CHEMBL2110732",
+                "borda_points": 27,
+                "rank": 7
+              },
+              {
+                "label": "C1",
+                "candidate_id": "CHEMBL34259",
+                "borda_points": 20,
+                "rank": 8
+              },
+              {
+                "label": "C11",
+                "candidate_id": "CHEMBL2103830",
+                "borda_points": 19,
+                "rank": 9
+              },
+              {
+                "label": "C13",
+                "candidate_id": "CHEMBL1726",
+                "borda_points": 14,
+                "rank": 10
+              },
+              {
+                "label": "C8",
+                "candidate_id": "CHEMBL1648",
+                "borda_points": 13,
+                "rank": 11
+              },
+              {
+                "label": "C9",
+                "candidate_id": "CHEMBL17860",
+                "borda_points": 9,
+                "rank": 12
+              },
+              {
+                "label": "C4",
+                "candidate_id": "CHEMBL605846",
+                "borda_points": 6,
+                "rank": 13
+              },
+              {
+                "label": "C2",
+                "candidate_id": "CHEMBL1201284",
+                "borda_points": 3,
+                "rank": 14
+              },
+              {
+                "label": "C10",
+                "candidate_id": "CHEMBL476960",
+                "borda_points": 0,
+                "rank": 15
+              }
+            ],
+            "kendalls_w": 0.9635,
+            "contested": [
+              "C3",
+              "C6",
+              "C8",
+              "C13",
+              "C15"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "chance": {
+    "hits_at_5": 0.3333333333333333,
+    "mrr": 0.22121526621526622
+  },
+  "path_citations": {
+    "claude-opus-5-5": {
+      "MONDO_0018479": {
+        "reviews_citing_paths": 0,
+        "unique_path_items": 0,
+        "rows": []
+      },
+      "EFO_0004267": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 19,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201835",
+            "label": "C5",
+            "path_ids": [
+              "E58",
+              "E59",
+              "E60"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201823",
+            "label": "C8",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742990",
+            "label": "C1",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL389621",
+            "label": "C13",
+            "path_ids": [
+              "E61",
+              "E70",
+              "E71"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1238",
+            "label": "C12",
+            "path_ids": [
+              "E61",
+              "E62"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1743070",
+            "label": "C15",
+            "path_ids": [
+              "E64"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL294199",
+            "label": "C6",
+            "path_ids": [
+              "E68"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137343",
+            "label": "C11",
+            "path_ids": [
+              "E69"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1519",
+            "label": "C3",
+            "path_ids": [
+              "E63"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL672",
+            "label": "C14",
+            "path_ids": [
+              "E73"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL230158",
+            "label": "C10",
+            "path_ids": [
+              "E67"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200799",
+            "label": "C2",
+            "path_ids": [
+              "E55"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1773",
+            "label": "C9",
+            "path_ids": [
+              "E65"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108286",
+            "label": "C4",
+            "path_ids": [
+              "E66"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL600",
+            "label": "C7",
+            "path_ids": [
+              "E72"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005002": {
+        "reviews_citing_paths": 0,
+        "unique_path_items": 0,
+        "rows": []
+      },
+      "MONDO_0005044": {
+        "reviews_citing_paths": 14,
+        "unique_path_items": 18,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL839",
+            "label": "C7",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201237",
+            "label": "C6",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742466",
+            "label": "C8",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2165326",
+            "label": "C5",
+            "path_ids": [
+              "E85",
+              "E86"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL471",
+            "label": "C9",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E88"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL817",
+            "label": "C13",
+            "path_ids": [
+              "E89",
+              "E90"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1389",
+            "label": "C11",
+            "path_ids": [
+              "E79",
+              "E80"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1095777",
+            "label": "C14",
+            "path_ids": [
+              "E76",
+              "E77",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594379",
+            "label": "C10",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL714",
+            "label": "C2",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL953",
+            "label": "C12",
+            "path_ids": [
+              "E92",
+              "E93"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1404",
+            "label": "C4",
+            "path_ids": [
+              "E81",
+              "E82"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297756",
+            "label": "C1",
+            "path_ids": [
+              "E87"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1614701",
+            "label": "C3",
+            "path_ids": [
+              "E83",
+              "E84"
+            ]
+          }
+        ]
+      },
+      "HP_0000975": {
+        "reviews_citing_paths": 8,
+        "unique_path_items": 12,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL517712",
+            "label": "C12",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1484",
+            "label": "C4",
+            "path_ids": [
+              "E94",
+              "E95"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1680",
+            "label": "C6",
+            "path_ids": [
+              "E96"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL190461",
+            "label": "C3",
+            "path_ids": [
+              "E101",
+              "E99"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2",
+            "label": "C14",
+            "path_ids": [
+              "E102",
+              "E103"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137320",
+            "label": "C15",
+            "path_ids": [
+              "E105"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4650215",
+            "label": "C13",
+            "path_ids": [
+              "E108"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL848",
+            "label": "C11",
+            "path_ids": [
+              "E111",
+              "E112"
+            ]
+          }
+        ]
+      },
+      "MONDO_0021637": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 35,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL3301612",
+            "label": "C14",
+            "path_ids": [
+              "E152",
+              "E153",
+              "E154"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297522",
+            "label": "C5",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E166"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3686884",
+            "label": "C12",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E162"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3889654",
+            "label": "C7",
+            "path_ids": [
+              "E163",
+              "E164",
+              "E165"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3348923",
+            "label": "C15",
+            "path_ids": [
+              "E155",
+              "E156",
+              "E157"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1173655",
+            "label": "C3",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E139"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2110732",
+            "label": "C6",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E151"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL34259",
+            "label": "C1",
+            "path_ids": [
+              "E158",
+              "E159"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2103830",
+            "label": "C11",
+            "path_ids": [
+              "E148",
+              "E149",
+              "E150"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1648",
+            "label": "C8",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1726",
+            "label": "C13",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL17860",
+            "label": "C9",
+            "path_ids": [
+              "E145",
+              "E146",
+              "E147"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL605846",
+            "label": "C4",
+            "path_ids": [
+              "E146",
+              "E170",
+              "E171"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201284",
+            "label": "C2",
+            "path_ids": [
+              "E140",
+              "E141"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL476960",
+            "label": "C10",
+            "path_ids": [
+              "E167",
+              "E168",
+              "E169"
+            ]
+          }
+        ]
+      }
+    },
+    "openai-gpt-5.4": {
+      "MONDO_0018479": {
+        "reviews_citing_paths": 11,
+        "unique_path_items": 8,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1200386",
+            "label": "C12",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200989",
+            "label": "C11",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200538",
+            "label": "C14",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200878",
+            "label": "C9",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5095183",
+            "label": "C13",
+            "path_ids": [
+              "E48"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5314341",
+            "label": "C2",
+            "path_ids": [
+              "E50"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL291657",
+            "label": "C5",
+            "path_ids": [
+              "E47"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201497",
+            "label": "C7",
+            "path_ids": [
+              "E44"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2364612",
+            "label": "C15",
+            "path_ids": [
+              "E46"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108611",
+            "label": "C1",
+            "path_ids": [
+              "E45"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5095275",
+            "label": "C3",
+            "path_ids": [
+              "E49"
+            ]
+          }
+        ]
+      },
+      "EFO_0004267": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 19,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201835",
+            "label": "C5",
+            "path_ids": [
+              "E58",
+              "E59",
+              "E60"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201823",
+            "label": "C8",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742990",
+            "label": "C1",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1238",
+            "label": "C12",
+            "path_ids": [
+              "E61",
+              "E62"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL389621",
+            "label": "C13",
+            "path_ids": [
+              "E61",
+              "E70",
+              "E71"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1743070",
+            "label": "C15",
+            "path_ids": [
+              "E64"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL230158",
+            "label": "C10",
+            "path_ids": [
+              "E67"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL672",
+            "label": "C14",
+            "path_ids": [
+              "E73"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200799",
+            "label": "C2",
+            "path_ids": [
+              "E55"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL294199",
+            "label": "C6",
+            "path_ids": [
+              "E68"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137343",
+            "label": "C11",
+            "path_ids": [
+              "E69"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL600",
+            "label": "C7",
+            "path_ids": [
+              "E72"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108286",
+            "label": "C4",
+            "path_ids": [
+              "E66"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1773",
+            "label": "C9",
+            "path_ids": [
+              "E65"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1519",
+            "label": "C3",
+            "path_ids": [
+              "E63"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005002": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 39,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL945",
+            "label": "C8",
+            "path_ids": [
+              "E208",
+              "E209",
+              "E210"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL585",
+            "label": "C6",
+            "path_ids": [
+              "E178",
+              "E208",
+              "E209"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL38",
+            "label": "C10",
+            "path_ids": [
+              "E175",
+              "E191",
+              "E192"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1131",
+            "label": "C15",
+            "path_ids": [
+              "E175",
+              "E176",
+              "E177"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1766",
+            "label": "C11",
+            "path_ids": [
+              "E172",
+              "E174",
+              "E178"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL103",
+            "label": "C7",
+            "path_ids": [
+              "E172",
+              "E173",
+              "E174"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594287",
+            "label": "C4",
+            "path_ids": [
+              "E202",
+              "E203",
+              "E204"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3353410",
+            "label": "C9",
+            "path_ids": [
+              "E188",
+              "E189",
+              "E190"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3813873",
+            "label": "C1",
+            "path_ids": [
+              "E193",
+              "E194",
+              "E195"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2403108",
+            "label": "C2",
+            "path_ids": [
+              "E185",
+              "E186",
+              "E187"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL53",
+            "label": "C14",
+            "path_ids": [
+              "E205",
+              "E206",
+              "E207"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2104993",
+            "label": "C13",
+            "path_ids": [
+              "E179",
+              "E180",
+              "E181"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL439849",
+            "label": "C12",
+            "path_ids": [
+              "E199",
+              "E200",
+              "E201"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2111112",
+            "label": "C5",
+            "path_ids": [
+              "E182",
+              "E183",
+              "E184"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL386630",
+            "label": "C3",
+            "path_ids": [
+              "E196",
+              "E197",
+              "E198"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005044": {
+        "reviews_citing_paths": 14,
+        "unique_path_items": 18,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201237",
+            "label": "C6",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL839",
+            "label": "C7",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2165326",
+            "label": "C5",
+            "path_ids": [
+              "E85",
+              "E86"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL471",
+            "label": "C9",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E88"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1095777",
+            "label": "C14",
+            "path_ids": [
+              "E76",
+              "E77",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL714",
+            "label": "C2",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594379",
+            "label": "C10",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL817",
+            "label": "C13",
+            "path_ids": [
+              "E89",
+              "E90"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1389",
+            "label": "C11",
+            "path_ids": [
+              "E79",
+              "E80"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742466",
+            "label": "C8",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL953",
+            "label": "C12",
+            "path_ids": [
+              "E92",
+              "E93"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297756",
+            "label": "C1",
+            "path_ids": [
+              "E87"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1404",
+            "label": "C4",
+            "path_ids": [
+              "E81",
+              "E82"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1614701",
+            "label": "C3",
+            "path_ids": [
+              "E83",
+              "E84"
+            ]
+          }
+        ]
+      },
+      "HP_0000975": {
+        "reviews_citing_paths": 12,
+        "unique_path_items": 23,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL517712",
+            "label": "C12",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1621597",
+            "label": "C9",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200604",
+            "label": "C5",
+            "path_ids": [
+              "E91",
+              "E92"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL569713",
+            "label": "C7",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3707224",
+            "label": "C8",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1680",
+            "label": "C6",
+            "path_ids": [
+              "E96",
+              "E97",
+              "E98"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2",
+            "label": "C14",
+            "path_ids": [
+              "E102",
+              "E103",
+              "E104"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4650215",
+            "label": "C13",
+            "path_ids": [
+              "E108",
+              "E109",
+              "E110"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1484",
+            "label": "C4",
+            "path_ids": [
+              "E93",
+              "E94",
+              "E95"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL190461",
+            "label": "C3",
+            "path_ids": [
+              "E100",
+              "E101",
+              "E99"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137320",
+            "label": "C15",
+            "path_ids": [
+              "E105",
+              "E106",
+              "E107"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL848",
+            "label": "C11",
+            "path_ids": [
+              "E111",
+              "E112",
+              "E113"
+            ]
+          }
+        ]
+      },
+      "MONDO_0021637": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 35,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL4297522",
+            "label": "C5",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E166"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3686884",
+            "label": "C12",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E162"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3301612",
+            "label": "C14",
+            "path_ids": [
+              "E152",
+              "E153",
+              "E154"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1173655",
+            "label": "C3",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E139"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2110732",
+            "label": "C6",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E151"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3889654",
+            "label": "C7",
+            "path_ids": [
+              "E163",
+              "E164",
+              "E165"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3348923",
+            "label": "C15",
+            "path_ids": [
+              "E155",
+              "E156",
+              "E157"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL34259",
+            "label": "C1",
+            "path_ids": [
+              "E158",
+              "E159"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2103830",
+            "label": "C11",
+            "path_ids": [
+              "E148",
+              "E149",
+              "E150"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1726",
+            "label": "C13",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1648",
+            "label": "C8",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL17860",
+            "label": "C9",
+            "path_ids": [
+              "E145",
+              "E146",
+              "E147"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL605846",
+            "label": "C4",
+            "path_ids": [
+              "E146",
+              "E170",
+              "E171"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201284",
+            "label": "C2",
+            "path_ids": [
+              "E140",
+              "E141"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL476960",
+            "label": "C10",
+            "path_ids": [
+              "E167",
+              "E168",
+              "E169"
+            ]
+          }
+        ]
+      }
+    },
+    "glm-5.3": {
+      "MONDO_0018479": {
+        "reviews_citing_paths": 11,
+        "unique_path_items": 8,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL5095183",
+            "label": "C13",
+            "path_ids": [
+              "E48"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200989",
+            "label": "C11",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200386",
+            "label": "C12",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200878",
+            "label": "C9",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200538",
+            "label": "C14",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5314341",
+            "label": "C2",
+            "path_ids": [
+              "E50"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL291657",
+            "label": "C5",
+            "path_ids": [
+              "E47"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201497",
+            "label": "C7",
+            "path_ids": [
+              "E44"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2364612",
+            "label": "C15",
+            "path_ids": [
+              "E46"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5095275",
+            "label": "C3",
+            "path_ids": [
+              "E49"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108611",
+            "label": "C1",
+            "path_ids": [
+              "E45"
+            ]
+          }
+        ]
+      },
+      "EFO_0004267": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 19,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201823",
+            "label": "C8",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201835",
+            "label": "C5",
+            "path_ids": [
+              "E58",
+              "E59",
+              "E60"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742990",
+            "label": "C1",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1743070",
+            "label": "C15",
+            "path_ids": [
+              "E64"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1238",
+            "label": "C12",
+            "path_ids": [
+              "E61",
+              "E62"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL389621",
+            "label": "C13",
+            "path_ids": [
+              "E61",
+              "E70",
+              "E71"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137343",
+            "label": "C11",
+            "path_ids": [
+              "E69"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL230158",
+            "label": "C10",
+            "path_ids": [
+              "E67"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL672",
+            "label": "C14",
+            "path_ids": [
+              "E73"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200799",
+            "label": "C2",
+            "path_ids": [
+              "E55"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL294199",
+            "label": "C6",
+            "path_ids": [
+              "E68"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL600",
+            "label": "C7",
+            "path_ids": [
+              "E72"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108286",
+            "label": "C4",
+            "path_ids": [
+              "E66"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1519",
+            "label": "C3",
+            "path_ids": [
+              "E63"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1773",
+            "label": "C9",
+            "path_ids": [
+              "E65"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005002": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 37,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL103",
+            "label": "C7",
+            "path_ids": [
+              "E172",
+              "E173",
+              "E174"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL945",
+            "label": "C8",
+            "path_ids": [
+              "E208",
+              "E209",
+              "E210"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1131",
+            "label": "C15",
+            "path_ids": [
+              "E175",
+              "E176",
+              "E177"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3813873",
+            "label": "C1",
+            "path_ids": [
+              "E193",
+              "E194",
+              "E195"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1766",
+            "label": "C11",
+            "path_ids": [
+              "E172",
+              "E174",
+              "E178"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2104993",
+            "label": "C13",
+            "path_ids": [
+              "E179",
+              "E180",
+              "E181"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL386630",
+            "label": "C3",
+            "path_ids": [
+              "E196"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3353410",
+            "label": "C9",
+            "path_ids": [
+              "E188",
+              "E189",
+              "E190"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL53",
+            "label": "C14",
+            "path_ids": [
+              "E205",
+              "E206",
+              "E207"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594287",
+            "label": "C4",
+            "path_ids": [
+              "E202",
+              "E203",
+              "E204"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL585",
+            "label": "C6",
+            "path_ids": [
+              "E178",
+              "E208",
+              "E209"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL439849",
+            "label": "C12",
+            "path_ids": [
+              "E199",
+              "E200",
+              "E201"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2111112",
+            "label": "C5",
+            "path_ids": [
+              "E182",
+              "E183",
+              "E184"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL38",
+            "label": "C10",
+            "path_ids": [
+              "E175",
+              "E191",
+              "E192"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2403108",
+            "label": "C2",
+            "path_ids": [
+              "E185",
+              "E186",
+              "E187"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005044": {
+        "reviews_citing_paths": 14,
+        "unique_path_items": 18,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201237",
+            "label": "C6",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL839",
+            "label": "C7",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742466",
+            "label": "C8",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2165326",
+            "label": "C5",
+            "path_ids": [
+              "E85",
+              "E86"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL817",
+            "label": "C13",
+            "path_ids": [
+              "E89",
+              "E90"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1389",
+            "label": "C11",
+            "path_ids": [
+              "E79",
+              "E80"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1095777",
+            "label": "C14",
+            "path_ids": [
+              "E76",
+              "E77",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297756",
+            "label": "C1",
+            "path_ids": [
+              "E87"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1404",
+            "label": "C4",
+            "path_ids": [
+              "E81",
+              "E82"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL953",
+            "label": "C12",
+            "path_ids": [
+              "E92",
+              "E93"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1614701",
+            "label": "C3",
+            "path_ids": [
+              "E83",
+              "E84"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL714",
+            "label": "C2",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594379",
+            "label": "C10",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL471",
+            "label": "C9",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E88"
+            ]
+          }
+        ]
+      },
+      "HP_0000975": {
+        "reviews_citing_paths": 11,
+        "unique_path_items": 23,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1200604",
+            "label": "C5",
+            "path_ids": [
+              "E91",
+              "E92"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1888176",
+            "label": "C2",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL569713",
+            "label": "C7",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3707224",
+            "label": "C8",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2",
+            "label": "C14",
+            "path_ids": [
+              "E102",
+              "E103",
+              "E104"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL190461",
+            "label": "C3",
+            "path_ids": [
+              "E100",
+              "E101",
+              "E99"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137320",
+            "label": "C15",
+            "path_ids": [
+              "E105",
+              "E106",
+              "E107"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4650215",
+            "label": "C13",
+            "path_ids": [
+              "E108",
+              "E109",
+              "E110"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1484",
+            "label": "C4",
+            "path_ids": [
+              "E93",
+              "E94",
+              "E95"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1680",
+            "label": "C6",
+            "path_ids": [
+              "E96",
+              "E97",
+              "E98"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL848",
+            "label": "C11",
+            "path_ids": [
+              "E111",
+              "E112",
+              "E113"
+            ]
+          }
+        ]
+      },
+      "MONDO_0021637": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 32,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL3301612",
+            "label": "C14",
+            "path_ids": [
+              "E152"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297522",
+            "label": "C5",
+            "path_ids": [
+              "E160",
+              "E161"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3686884",
+            "label": "C12",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E162"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3889654",
+            "label": "C7",
+            "path_ids": [
+              "E163",
+              "E164",
+              "E165"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1173655",
+            "label": "C3",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E139"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3348923",
+            "label": "C15",
+            "path_ids": [
+              "E155",
+              "E156",
+              "E157"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2110732",
+            "label": "C6",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E151"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL34259",
+            "label": "C1",
+            "path_ids": [
+              "E158",
+              "E159"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1648",
+            "label": "C8",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1726",
+            "label": "C13",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2103830",
+            "label": "C11",
+            "path_ids": [
+              "E148",
+              "E149",
+              "E150"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL17860",
+            "label": "C9",
+            "path_ids": [
+              "E145",
+              "E146",
+              "E147"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL605846",
+            "label": "C4",
+            "path_ids": [
+              "E146",
+              "E170",
+              "E171"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL476960",
+            "label": "C10",
+            "path_ids": [
+              "E167",
+              "E168",
+              "E169"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201284",
+            "label": "C2",
+            "path_ids": [
+              "E140",
+              "E141"
+            ]
+          }
+        ]
+      }
+    },
+    "kimi-k3": {
+      "MONDO_0018479": {
+        "reviews_citing_paths": 11,
+        "unique_path_items": 8,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1200989",
+            "label": "C11",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200386",
+            "label": "C12",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200538",
+            "label": "C14",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200878",
+            "label": "C9",
+            "path_ids": [
+              "E43"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5095183",
+            "label": "C13",
+            "path_ids": [
+              "E48"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL291657",
+            "label": "C5",
+            "path_ids": [
+              "E47"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5314341",
+            "label": "C2",
+            "path_ids": [
+              "E50"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201497",
+            "label": "C7",
+            "path_ids": [
+              "E44"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2364612",
+            "label": "C15",
+            "path_ids": [
+              "E46"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL5095275",
+            "label": "C3",
+            "path_ids": [
+              "E49"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108611",
+            "label": "C1",
+            "path_ids": [
+              "E45"
+            ]
+          }
+        ]
+      },
+      "EFO_0004267": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 19,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201835",
+            "label": "C5",
+            "path_ids": [
+              "E58",
+              "E59",
+              "E60"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201823",
+            "label": "C8",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1743070",
+            "label": "C15",
+            "path_ids": [
+              "E64"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL389621",
+            "label": "C13",
+            "path_ids": [
+              "E61",
+              "E70",
+              "E71"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1238",
+            "label": "C12",
+            "path_ids": [
+              "E61",
+              "E62"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL230158",
+            "label": "C10",
+            "path_ids": [
+              "E67"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL672",
+            "label": "C14",
+            "path_ids": [
+              "E73"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137343",
+            "label": "C11",
+            "path_ids": [
+              "E69"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200799",
+            "label": "C2",
+            "path_ids": [
+              "E55"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742990",
+            "label": "C1",
+            "path_ids": [
+              "E56",
+              "E57"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1519",
+            "label": "C3",
+            "path_ids": [
+              "E63"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL294199",
+            "label": "C6",
+            "path_ids": [
+              "E68"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL600",
+            "label": "C7",
+            "path_ids": [
+              "E72"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2108286",
+            "label": "C4",
+            "path_ids": [
+              "E66"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1773",
+            "label": "C9",
+            "path_ids": [
+              "E65"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005002": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 39,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL945",
+            "label": "C8",
+            "path_ids": [
+              "E208",
+              "E209",
+              "E210"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL585",
+            "label": "C6",
+            "path_ids": [
+              "E178",
+              "E208",
+              "E209"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1766",
+            "label": "C11",
+            "path_ids": [
+              "E172",
+              "E174",
+              "E178"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594287",
+            "label": "C4",
+            "path_ids": [
+              "E202",
+              "E203",
+              "E204"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL53",
+            "label": "C14",
+            "path_ids": [
+              "E205",
+              "E206",
+              "E207"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2111112",
+            "label": "C5",
+            "path_ids": [
+              "E182",
+              "E183",
+              "E184"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1131",
+            "label": "C15",
+            "path_ids": [
+              "E175",
+              "E176",
+              "E177"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL38",
+            "label": "C10",
+            "path_ids": [
+              "E175",
+              "E191",
+              "E192"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3353410",
+            "label": "C9",
+            "path_ids": [
+              "E188",
+              "E189",
+              "E190"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2403108",
+            "label": "C2",
+            "path_ids": [
+              "E185",
+              "E186",
+              "E187"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3813873",
+            "label": "C1",
+            "path_ids": [
+              "E193",
+              "E194",
+              "E195"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL103",
+            "label": "C7",
+            "path_ids": [
+              "E172",
+              "E173",
+              "E174"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2104993",
+            "label": "C13",
+            "path_ids": [
+              "E179",
+              "E180",
+              "E181"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL439849",
+            "label": "C12",
+            "path_ids": [
+              "E199",
+              "E200",
+              "E201"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL386630",
+            "label": "C3",
+            "path_ids": [
+              "E196",
+              "E197",
+              "E198"
+            ]
+          }
+        ]
+      },
+      "MONDO_0005044": {
+        "reviews_citing_paths": 14,
+        "unique_path_items": 18,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1201237",
+            "label": "C6",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL839",
+            "label": "C7",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1742466",
+            "label": "C8",
+            "path_ids": [
+              "E76"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2165326",
+            "label": "C5",
+            "path_ids": [
+              "E85",
+              "E86"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL817",
+            "label": "C13",
+            "path_ids": [
+              "E89",
+              "E90"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1389",
+            "label": "C11",
+            "path_ids": [
+              "E79",
+              "E80"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL471",
+            "label": "C9",
+            "path_ids": [
+              "E76",
+              "E78",
+              "E88"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1404",
+            "label": "C4",
+            "path_ids": [
+              "E81",
+              "E82"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297756",
+            "label": "C1",
+            "path_ids": [
+              "E87"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1614701",
+            "label": "C3",
+            "path_ids": [
+              "E83",
+              "E84"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL953",
+            "label": "C12",
+            "path_ids": [
+              "E92",
+              "E93"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1095777",
+            "label": "C14",
+            "path_ids": [
+              "E76",
+              "E77",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL714",
+            "label": "C2",
+            "path_ids": [
+              "E76",
+              "E78"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4594379",
+            "label": "C10",
+            "path_ids": [
+              "E76"
+            ]
+          }
+        ]
+      },
+      "HP_0000975": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 23,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL1900528",
+            "label": "C1",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1621597",
+            "label": "C9",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL517712",
+            "label": "C12",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1194325",
+            "label": "C10",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1888176",
+            "label": "C2",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1200604",
+            "label": "C5",
+            "path_ids": [
+              "E91",
+              "E92"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3707224",
+            "label": "C8",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL569713",
+            "label": "C7",
+            "path_ids": [
+              "E91"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2",
+            "label": "C14",
+            "path_ids": [
+              "E102",
+              "E103",
+              "E104"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1484",
+            "label": "C4",
+            "path_ids": [
+              "E93",
+              "E94",
+              "E95"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4650215",
+            "label": "C13",
+            "path_ids": [
+              "E108",
+              "E109",
+              "E110"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3137320",
+            "label": "C15",
+            "path_ids": [
+              "E105",
+              "E106",
+              "E107"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL190461",
+            "label": "C3",
+            "path_ids": [
+              "E100",
+              "E101",
+              "E99"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1680",
+            "label": "C6",
+            "path_ids": [
+              "E96",
+              "E97",
+              "E98"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL848",
+            "label": "C11",
+            "path_ids": [
+              "E111",
+              "E112",
+              "E113"
+            ]
+          }
+        ]
+      },
+      "MONDO_0021637": {
+        "reviews_citing_paths": 15,
+        "unique_path_items": 32,
+        "rows": [
+          {
+            "candidate_id": "CHEMBL3301612",
+            "label": "C14",
+            "path_ids": [
+              "E152"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3348923",
+            "label": "C15",
+            "path_ids": [
+              "E155",
+              "E156",
+              "E157"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL4297522",
+            "label": "C5",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E166"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3686884",
+            "label": "C12",
+            "path_ids": [
+              "E160",
+              "E161",
+              "E162"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1173655",
+            "label": "C3",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E139"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2110732",
+            "label": "C6",
+            "path_ids": [
+              "E137",
+              "E138",
+              "E151"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL3889654",
+            "label": "C7",
+            "path_ids": [
+              "E163",
+              "E164",
+              "E165"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL2103830",
+            "label": "C11",
+            "path_ids": [
+              "E148",
+              "E149",
+              "E150"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL34259",
+            "label": "C1",
+            "path_ids": [
+              "E158"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1726",
+            "label": "C13",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1648",
+            "label": "C8",
+            "path_ids": [
+              "E142",
+              "E143",
+              "E144"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL17860",
+            "label": "C9",
+            "path_ids": [
+              "E145",
+              "E146",
+              "E147"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL605846",
+            "label": "C4",
+            "path_ids": [
+              "E146",
+              "E170",
+              "E171"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL1201284",
+            "label": "C2",
+            "path_ids": [
+              "E140",
+              "E141"
+            ]
+          },
+          {
+            "candidate_id": "CHEMBL476960",
+            "label": "C10",
+            "path_ids": [
+              "E167",
+              "E168",
+              "E169"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "path_coverage": [
+    {
+      "disease_id": "MONDO_0018479",
+      "candidates_with_paths": 11,
+      "true_drug_has_path": true,
+      "unavailable": [
+        {
+          "candidate_id": "CHEMBL1444",
+          "targets": [
+            {
+              "drug_target_id": "ENSG00000137869",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            }
+          ]
+        },
+        {
+          "candidate_id": "CHEMBL1399",
+          "targets": [
+            {
+              "drug_target_id": "ENSG00000137869",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            }
+          ]
+        },
+        {
+          "candidate_id": "CHEMBL607400",
+          "targets": [
+            {
+              "drug_target_id": "ENSG00000159164",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            }
+          ]
+        },
+        {
+          "candidate_id": "CHEMBL1200374",
+          "targets": [
+            {
+              "drug_target_id": "ENSG00000137869",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "disease_id": "EFO_0004267",
+      "candidates_with_paths": 15,
+      "true_drug_has_path": true,
+      "unavailable": []
+    },
+    {
+      "disease_id": "MONDO_0005002",
+      "candidates_with_paths": 15,
+      "true_drug_has_path": true,
+      "unavailable": []
+    },
+    {
+      "disease_id": "MONDO_0005044",
+      "candidates_with_paths": 14,
+      "true_drug_has_path": true,
+      "unavailable": [
+        {
+          "candidate_id": "CHEMBL1201338",
+          "targets": [
+            {
+              "drug_target_id": "ENSG00000133019",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            },
+            {
+              "drug_target_id": "ENSG00000168539",
+              "disease_target_id": null,
+              "target_ids": [],
+              "hops": null,
+              "graph_version": "string-12.5",
+              "status": "unavailable",
+              "reason": "outside_largest_component"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "disease_id": "HP_0000975",
+      "candidates_with_paths": 15,
+      "true_drug_has_path": true,
+      "unavailable": []
+    },
+    {
+      "disease_id": "MONDO_0021637",
+      "candidates_with_paths": 15,
+      "true_drug_has_path": true,
+      "unavailable": []
+    }
+  ],
+  "total_calls": 40,
+  "pilot_calls": 28,
+  "blind_output_alias_flags": [
+    {
+      "model": "claude-opus-5-5",
+      "disease_id": "EFO_0004267",
+      "attempt": 1,
+      "aliases": [
+        "glucocorticoid"
+      ]
+    },
+    {
+      "model": "claude-opus-5-5",
+      "disease_id": "HP_0000975",
+      "attempt": 2,
+      "aliases": [
+        "Somatostatin"
+      ]
+    },
+    {
+      "model": "openai-gpt-5.4",
+      "disease_id": "MONDO_0005002",
+      "attempt": 1,
+      "aliases": [
+        "androgen"
+      ]
+    },
+    {
+      "model": "glm-5.3",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "aliases": [
+        "Somatostatin"
+      ]
+    },
+    {
+      "model": "glm-5.3",
+      "disease_id": "HP_0000975",
+      "attempt": 2,
+      "aliases": [
+        "Somatostatin",
+        "somatostatin"
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "disease_id": "MONDO_0005002",
+      "attempt": 1,
+      "aliases": [
+        "androgen"
+      ]
+    },
+    {
+      "model": "kimi-k3",
+      "disease_id": "HP_0000975",
+      "attempt": 1,
+      "aliases": [
+        "Somatostatin"
+      ]
+    }
+  ],
+  "old_scores_sha256": "d1e08a7eac5f56e5a06f03d93e3204f02d43b2ebd9468958f413b5010c17e9c4",
+  "both_valid_comparison": {
+    "claude-opus-5-5": {
+      "both_valid_panels": 4,
+      "old_hits": 0.25,
+      "path_hits": 0.5,
+      "old_mrr": 0.16517857142857142,
+      "path_mrr": 0.17094155844155845
+    },
+    "openai-gpt-5.4": {
+      "both_valid_panels": 6,
+      "old_hits": 0.3333333333333333,
+      "path_hits": 0.16666666666666666,
+      "old_mrr": 0.19093915343915344,
+      "path_mrr": 0.16448412698412698
+    },
+    "glm-5.3": {
+      "both_valid_panels": 6,
+      "old_hits": 0.16666666666666666,
+      "path_hits": 0.16666666666666666,
+      "old_mrr": 0.18564814814814815,
+      "path_mrr": 0.14629629629629629
+    },
+    "kimi-k3": {
+      "both_valid_panels": 6,
+      "old_hits": 0.3333333333333333,
+      "path_hits": 0.5,
+      "old_mrr": 0.1974206349206349,
+      "path_mrr": 0.23677248677248677
+    },
+    "opus_gpt_glm": {
+      "both_valid_panels": 4,
+      "old_hits": 0.25,
+      "path_hits": 0.25,
+      "old_mrr": 0.18154761904761904,
+      "path_mrr": 0.1919642857142857
+    },
+    "opus_gpt_kimi": {
+      "both_valid_panels": 4,
+      "old_hits": 0.25,
+      "path_hits": 0.5,
+      "old_mrr": 0.18601190476190477,
+      "path_mrr": 0.21726190476190477
+    }
+  },
+  "report_correction": {
+    "correction": "The frozen limitations prose mistakenly says earlier GLM used provider default. The earlier v2 preregistration actually records low effort for both GLM and Kimi, matching this run.",
+    "evidence_file": "data/pilot/v2/preregistered.json",
+    "earlier_reasoning_effort": {
+      "kimi-k3": "low",
+      "glm-5.3": "low"
+    },
+    "impact": "Report prose only. No packet, prompt, model setting, presented order, validation rule, job, budget or scoring change."
+  },
+  "retry_amendment": {
+    "created_utc": "2026-10-25T01:05:05.403015+00:00",
+    "prior_calls": 37,
+    "additional_calls": 3,
+    "maximum_calls": 40,
+    "reason": "COVID-19 has no valid jurors after two attempts each; use the last three authorised slots for one corrective attempt per model. Selection is based on invalidity, not ranks.",
+    "changes": "Validation-error feedback and concise response request. Use the existing CortexModel transport: Opus max output 15360 for 15 Candidates (original A6 allowance), rather than pilot call_model 12000. All packets, IDs, checks, model IDs, effort settings and scoring stay fixed. No further retries.",
+    "jobs": [
+      {
+        "model": "claude-opus-5-5",
+        "prompt_sha256": "4d2c8efa67e87cd359c113c453e61601d79f7f278ec47da0dce1af038ad5bed8"
+      },
+      {
+        "model": "openai-gpt-5.4",
+        "prompt_sha256": "c8d90d71236be830526f75f447075a732e4c9dd14ffa060e20ddc166dba1a6b9"
+      },
+      {
+        "model": "kimi-k3",
+        "prompt_sha256": "2eaa67e6338ff0ce9a1f23f1b00a2eca5d956a1690542f0fe033768dd099826b"
+      }
+    ]
+  }
+}

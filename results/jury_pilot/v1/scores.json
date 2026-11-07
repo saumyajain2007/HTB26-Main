@@ -1,0 +1,1248 @@
+{
+  "models": {
+    "claude-opus-5-5": {
+      "validation_counts": {
+        "schema": {
+          "true": 4,
+          "false": 0,
+          "none": 0
+        },
+        "unique_ranks": {
+          "true": 4,
+          "false": 0,
+          "none": 0
+        },
+        "evidence_ids_exist": {
+          "true": 4,
+          "false": 0,
+          "none": 0
+        },
+        "numbers_match": {
+          "true": 4,
+          "false": 0,
+          "none": 0
+        }
+      },
+      "rejection_reasons": {},
+      "receipt_rejection_reasons": {
+        "unsupported or unparseable number in rationale": 1
+      },
+      "valid_runs": 3,
+      "runs": 3,
+      "valid_reply_rate": 1.0,
+      "valid_attempt_rate": 1.0,
+      "attempts": 4,
+      "per_disease": [
+        {
+          "disease_id": "MONDO_0008383",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005148",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005180",
+          "rank": 4,
+          "hits_at_5": 1,
+          "reciprocal_rank": 0.25
+        }
+      ],
+      "hits_at_5": 1.0,
+      "mrr": 0.75,
+      "conditional_mrr": 0.75,
+      "direction": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 45
+      },
+      "direction_all_attempts": {
+        "unknown": 60
+      },
+      "median_latency_ms": 37332,
+      "median_first_attempt_latency_ms": 37332,
+      "first_attempt_input_tokens": 27913,
+      "first_attempt_output_tokens": 9641,
+      "input_tokens": 42436,
+      "output_tokens": 13532,
+      "missing_usage_attempts": 0
+    },
+    "claude-sonnet-5": {
+      "validation_counts": {
+        "schema": {
+          "true": 3,
+          "false": 2,
+          "none": 0
+        },
+        "unique_ranks": {
+          "true": 3,
+          "false": 0,
+          "none": 2
+        },
+        "evidence_ids_exist": {
+          "true": 3,
+          "false": 0,
+          "none": 2
+        },
+        "numbers_match": {
+          "true": 3,
+          "false": 0,
+          "none": 2
+        }
+      },
+      "rejection_reasons": {
+        "JSON decoding failed": 2
+      },
+      "receipt_rejection_reasons": {
+        "JSON decoding failed": 2,
+        "unsupported or unparseable number in rationale": 2,
+        "unsupported or unparseable number in objection": 1
+      },
+      "valid_runs": 2,
+      "runs": 3,
+      "valid_reply_rate": 0.6666666666666666,
+      "valid_attempt_rate": 0.6,
+      "attempts": 5,
+      "per_disease": [
+        {
+          "disease_id": "MONDO_0008383",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005148",
+          "rank": null,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0
+        },
+        {
+          "disease_id": "MONDO_0005180",
+          "rank": 9,
+          "hits_at_5": 0,
+          "reciprocal_rank": 0.1111111111111111
+        }
+      ],
+      "hits_at_5": 0.3333333333333333,
+      "mrr": 0.3703703703703704,
+      "conditional_mrr": 0.5555555555555556,
+      "direction": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 30
+      },
+      "direction_all_attempts": {
+        "unknown": 45
+      },
+      "median_latency_ms": 193226,
+      "median_first_attempt_latency_ms": 103955,
+      "first_attempt_input_tokens": 27907,
+      "first_attempt_output_tokens": 30525,
+      "input_tokens": 41293,
+      "output_tokens": 53188,
+      "missing_usage_attempts": 0
+    },
+    "openai-gpt-5.4": {
+      "validation_counts": {
+        "schema": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "unique_ranks": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "evidence_ids_exist": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "numbers_match": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        }
+      },
+      "rejection_reasons": {},
+      "receipt_rejection_reasons": {},
+      "valid_runs": 3,
+      "runs": 3,
+      "valid_reply_rate": 1.0,
+      "valid_attempt_rate": 1.0,
+      "attempts": 3,
+      "per_disease": [
+        {
+          "disease_id": "MONDO_0008383",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005148",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005180",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        }
+      ],
+      "hits_at_5": 1.0,
+      "mrr": 1.0,
+      "conditional_mrr": 1.0,
+      "direction": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 45
+      },
+      "direction_all_attempts": {
+        "unknown": 45
+      },
+      "median_latency_ms": 20882,
+      "median_first_attempt_latency_ms": 20882,
+      "first_attempt_input_tokens": 17812,
+      "first_attempt_output_tokens": 6666,
+      "input_tokens": 17812,
+      "output_tokens": 6666,
+      "missing_usage_attempts": 0
+    },
+    "glm-5.3": {
+      "validation_counts": {
+        "schema": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "unique_ranks": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "evidence_ids_exist": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "numbers_match": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        }
+      },
+      "rejection_reasons": {},
+      "receipt_rejection_reasons": {},
+      "valid_runs": 3,
+      "runs": 3,
+      "valid_reply_rate": 1.0,
+      "valid_attempt_rate": 1.0,
+      "attempts": 3,
+      "per_disease": [
+        {
+          "disease_id": "MONDO_0008383",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005148",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005180",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        }
+      ],
+      "hits_at_5": 1.0,
+      "mrr": 1.0,
+      "conditional_mrr": 1.0,
+      "direction": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 45
+      },
+      "direction_all_attempts": {
+        "unknown": 45
+      },
+      "median_latency_ms": 13229,
+      "median_first_attempt_latency_ms": 13229,
+      "first_attempt_input_tokens": 18262,
+      "first_attempt_output_tokens": 7605,
+      "input_tokens": 18262,
+      "output_tokens": 7605,
+      "missing_usage_attempts": 0
+    },
+    "kimi-k3": {
+      "validation_counts": {
+        "schema": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "unique_ranks": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "evidence_ids_exist": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        },
+        "numbers_match": {
+          "true": 3,
+          "false": 0,
+          "none": 0
+        }
+      },
+      "rejection_reasons": {},
+      "receipt_rejection_reasons": {},
+      "valid_runs": 3,
+      "runs": 3,
+      "valid_reply_rate": 1.0,
+      "valid_attempt_rate": 1.0,
+      "attempts": 3,
+      "per_disease": [
+        {
+          "disease_id": "MONDO_0008383",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005148",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        },
+        {
+          "disease_id": "MONDO_0005180",
+          "rank": 1,
+          "hits_at_5": 1,
+          "reciprocal_rank": 1.0
+        }
+      ],
+      "hits_at_5": 1.0,
+      "mrr": 1.0,
+      "conditional_mrr": 1.0,
+      "direction": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 45
+      },
+      "direction_all_attempts": {
+        "unknown": 45
+      },
+      "median_latency_ms": 14065,
+      "median_first_attempt_latency_ms": 14065,
+      "first_attempt_input_tokens": 18676,
+      "first_attempt_output_tokens": 6126,
+      "input_tokens": 18676,
+      "output_tokens": 6126,
+      "missing_usage_attempts": 0
+    }
+  },
+  "jury": {
+    "models": [
+      "claude-opus-5-5",
+      "openai-gpt-5.4",
+      "glm-5.3"
+    ],
+    "complete_panels": 3,
+    "hits_at_5": 1.0,
+    "mrr": 1.0,
+    "per_disease": [
+      {
+        "disease_id": "MONDO_0008383",
+        "complete": true,
+        "rank": 1,
+        "hits_at_5": 1,
+        "reciprocal_rank": 1.0,
+        "consensus": {
+          "method": "borda",
+          "jurors_counted": 3,
+          "ranking": [
+            {
+              "label": "C6",
+              "candidate_id": "CHEMBL384467",
+              "borda_points": 42,
+              "rank": 1
+            },
+            {
+              "label": "C8",
+              "candidate_id": "CHEMBL98",
+              "borda_points": 38,
+              "rank": 2
+            },
+            {
+              "label": "C9",
+              "candidate_id": "CHEMBL225072",
+              "borda_points": 36,
+              "rank": 3
+            },
+            {
+              "label": "C7",
+              "candidate_id": "CHEMBL3353410",
+              "borda_points": 30,
+              "rank": 4
+            },
+            {
+              "label": "C15",
+              "candidate_id": "CHEMBL4594287",
+              "borda_points": 29,
+              "rank": 5
+            },
+            {
+              "label": "C12",
+              "candidate_id": "CHEMBL1382",
+              "borda_points": 25,
+              "rank": 6
+            },
+            {
+              "label": "C11",
+              "candidate_id": "CHEMBL2338329",
+              "borda_points": 22,
+              "rank": 7
+            },
+            {
+              "label": "C14",
+              "candidate_id": "CHEMBL2109171",
+              "borda_points": 17,
+              "rank": 8
+            },
+            {
+              "label": "C5",
+              "candidate_id": "CHEMBL53",
+              "borda_points": 16,
+              "rank": 9
+            },
+            {
+              "label": "C13",
+              "candidate_id": "CHEMBL639",
+              "borda_points": 15,
+              "rank": 10
+            },
+            {
+              "label": "C4",
+              "candidate_id": "CHEMBL406",
+              "borda_points": 13,
+              "rank": 11
+            },
+            {
+              "label": "C1",
+              "candidate_id": "CHEMBL439849",
+              "borda_points": 12,
+              "rank": 12
+            },
+            {
+              "label": "C10",
+              "candidate_id": "CHEMBL134",
+              "borda_points": 10,
+              "rank": 13
+            },
+            {
+              "label": "C2",
+              "candidate_id": "CHEMBL761",
+              "borda_points": 7,
+              "rank": 14
+            },
+            {
+              "label": "C3",
+              "candidate_id": "CHEMBL716",
+              "borda_points": 3,
+              "rank": 15
+            }
+          ],
+          "kendalls_w": 0.7857,
+          "contested": [
+            "C1",
+            "C5",
+            "C6",
+            "C7",
+            "C8",
+            "C9",
+            "C10",
+            "C12",
+            "C14",
+            "C15"
+          ]
+        }
+      },
+      {
+        "disease_id": "MONDO_0005148",
+        "complete": true,
+        "rank": 1,
+        "hits_at_5": 1,
+        "reciprocal_rank": 1.0,
+        "consensus": {
+          "method": "borda",
+          "jurors_counted": 3,
+          "ranking": [
+            {
+              "label": "C1",
+              "candidate_id": "CHEMBL2048484",
+              "borda_points": 42,
+              "rank": 1
+            },
+            {
+              "label": "C15",
+              "candidate_id": "CHEMBL206253",
+              "borda_points": 38,
+              "rank": 2
+            },
+            {
+              "label": "C4",
+              "candidate_id": "CHEMBL2010601",
+              "borda_points": 37,
+              "rank": 3
+            },
+            {
+              "label": "C8",
+              "candidate_id": "CHEMBL638",
+              "borda_points": 32,
+              "rank": 4
+            },
+            {
+              "label": "C3",
+              "candidate_id": "CHEMBL3707229",
+              "borda_points": 26,
+              "rank": 5
+            },
+            {
+              "label": "C10",
+              "candidate_id": "CHEMBL1201182",
+              "borda_points": 26,
+              "rank": 5
+            },
+            {
+              "label": "C12",
+              "candidate_id": "CHEMBL1201549",
+              "borda_points": 21,
+              "rank": 7
+            },
+            {
+              "label": "C7",
+              "candidate_id": "CHEMBL1684",
+              "borda_points": 20,
+              "rank": 8
+            },
+            {
+              "label": "C5",
+              "candidate_id": "CHEMBL2105720",
+              "borda_points": 19,
+              "rank": 9
+            },
+            {
+              "label": "C9",
+              "candidate_id": "CHEMBL1201821",
+              "borda_points": 16,
+              "rank": 10
+            },
+            {
+              "label": "C14",
+              "candidate_id": "CHEMBL1201593",
+              "borda_points": 14,
+              "rank": 11
+            },
+            {
+              "label": "C6",
+              "candidate_id": "CHEMBL1756",
+              "borda_points": 12,
+              "rank": 12
+            },
+            {
+              "label": "C2",
+              "candidate_id": "CHEMBL5095451",
+              "borda_points": 6,
+              "rank": 13
+            },
+            {
+              "label": "C13",
+              "candidate_id": "CHEMBL2108286",
+              "borda_points": 6,
+              "rank": 13
+            },
+            {
+              "label": "C11",
+              "candidate_id": "CHEMBL1213351",
+              "borda_points": 0,
+              "rank": 15
+            }
+          ],
+          "kendalls_w": 0.8762,
+          "contested": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "C8",
+            "C9",
+            "C10",
+            "C12",
+            "C13",
+            "C14",
+            "C15"
+          ]
+        }
+      },
+      {
+        "disease_id": "MONDO_0005180",
+        "complete": true,
+        "rank": 1,
+        "hits_at_5": 1,
+        "reciprocal_rank": 1.0,
+        "consensus": {
+          "method": "borda",
+          "jurors_counted": 3,
+          "ranking": [
+            {
+              "label": "C10",
+              "candidate_id": "CHEMBL1009",
+              "borda_points": 39,
+              "rank": 1
+            },
+            {
+              "label": "C4",
+              "candidate_id": "CHEMBL2110731",
+              "borda_points": 38,
+              "rank": 2
+            },
+            {
+              "label": "C5",
+              "candidate_id": "CHEMBL3668014",
+              "borda_points": 38,
+              "rank": 2
+            },
+            {
+              "label": "C14",
+              "candidate_id": "CHEMBL1201199",
+              "borda_points": 29,
+              "rank": 4
+            },
+            {
+              "label": "C8",
+              "candidate_id": "CHEMBL838",
+              "borda_points": 28,
+              "rank": 5
+            },
+            {
+              "label": "C7",
+              "candidate_id": "CHEMBL204656",
+              "borda_points": 21,
+              "rank": 6
+            },
+            {
+              "label": "C9",
+              "candidate_id": "CHEMBL1201593",
+              "borda_points": 17,
+              "rank": 7
+            },
+            {
+              "label": "C1",
+              "candidate_id": "CHEMBL3544914",
+              "borda_points": 16,
+              "rank": 8
+            },
+            {
+              "label": "C3",
+              "candidate_id": "CHEMBL4594214",
+              "borda_points": 16,
+              "rank": 8
+            },
+            {
+              "label": "C6",
+              "candidate_id": "CHEMBL2109093",
+              "borda_points": 15,
+              "rank": 10
+            },
+            {
+              "label": "C11",
+              "candidate_id": "CHEMBL1619",
+              "borda_points": 15,
+              "rank": 10
+            },
+            {
+              "label": "C15",
+              "candidate_id": "CHEMBL3545313",
+              "borda_points": 15,
+              "rank": 10
+            },
+            {
+              "label": "C2",
+              "candidate_id": "CHEMBL4594550",
+              "borda_points": 12,
+              "rank": 13
+            },
+            {
+              "label": "C12",
+              "candidate_id": "CHEMBL1024",
+              "borda_points": 10,
+              "rank": 14
+            },
+            {
+              "label": "C13",
+              "candidate_id": "CHEMBL4297573",
+              "borda_points": 6,
+              "rank": 15
+            }
+          ],
+          "kendalls_w": 0.6413,
+          "contested": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "C8",
+            "C9",
+            "C10",
+            "C11",
+            "C12",
+            "C13",
+            "C14",
+            "C15"
+          ]
+        }
+      }
+    ]
+  },
+  "chance": {
+    "hits_at_5": 0.3333333333333333,
+    "mrr": 0.22121526621526622
+  },
+  "total_attempts": 18,
+  "leakage": {
+    "all_attempt_rationales_with_mentions": 6,
+    "valid_final_rationales_with_mentions": 0,
+    "all_attempt_sentence_matches": 6,
+    "valid_final_sentence_matches": 0,
+    "matches": [
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C2",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved PD-1 antagonist mechanism is documented but unrelated disease context limits interpretation."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C10",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved D3 receptor agonist mechanism is documented, but no outcome data for Parkinson disease is supplied in this packet."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C14",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved GnRH receptor agonist with a confirmed mechanism, but no Parkinson disease evidence is present."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C15",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved ACLY inhibitor mechanism is documented but lacks any Parkinson disease evidence."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C13",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved EEF2 inhibitor mechanism is documented, but no Parkinson disease evidence is provided."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C8",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved ACE inhibitor with strong target binding, but no Parkinson disease data exists."
+      }
+    ]
+  },
+  "manual_citation_audit": "pending Jessica; structural validation does not establish scientific support",
+  "selection_status": "not frozen: manual citation audit and credit-cost check required",
+  "audit_rows": 30,
+  "audit_uncited_rows": 0,
+  "audit_shortfalls": {
+    "claude-opus-5-5": 0,
+    "claude-sonnet-5": 0,
+    "openai-gpt-5.4": 0,
+    "glm-5.3": 0,
+    "kimi-k3": 0
+  },
+  "protocol_amendment": null,
+  "decoy_record_audit": {
+    "release": "opentargets-26.09",
+    "checks": [
+      {
+        "disease_id": "MONDO_0008383",
+        "decoys_with_clinical_records": 0,
+        "decoys": [
+          {
+            "drug_id": "CHEMBL98",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1382",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL2109171",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL639",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL3353410",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL225072",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL716",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL439849",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL4594287",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL761",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL53",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL134",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL406",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL2338329",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          }
+        ]
+      },
+      {
+        "disease_id": "MONDO_0005148",
+        "decoys_with_clinical_records": 0,
+        "decoys": [
+          {
+            "drug_id": "CHEMBL2108286",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL638",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL2105720",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1684",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1213351",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL3707229",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL5095451",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201821",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201549",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1756",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201182",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL2010601",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201593",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL206253",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          }
+        ]
+      },
+      {
+        "disease_id": "MONDO_0005180",
+        "decoys_with_clinical_records": 0,
+        "decoys": [
+          {
+            "drug_id": "CHEMBL2110731",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL4594550",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL4297573",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL204656",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1619",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL3545313",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL3668014",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1024",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201593",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL2109093",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL3544914",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL1201199",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL4594214",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          },
+          {
+            "drug_id": "CHEMBL838",
+            "clinical_records": [],
+            "regulator_approval_report_count": 0
+          }
+        ]
+      }
+    ]
+  },
+  "credit_cost": null,
+  "validator_amendment": {
+    "recorded_at": "2026-10-24T21:43:04.531148+00:00",
+    "reason": "Complete source-grounded recognition of name digits, including evidence-text receptor families (5-HT2), shared-prefix notation (PDE3/4), and source synonyms (PD-1). Preserve strict numeric checks for scientific notation and attached measurement units. This implements the frozen name-versus-measurement rule without changing packets, prompts, model outputs or scoring criteria.",
+    "initial_validator_sha256": "d44b046170a5118d92c6dcb2360b356c37b60b3844d377fad263000e6df61f2d",
+    "final_validator_sha256": "fdf9884fc4af70806233f6c2c92b503115313ed4f51e348ce4d7df5d4ec9d5ce",
+    "application": "Revalidate every received rerun output uniformly under the final validator; retain validation_at_receipt and all attempts, and choose the earliest valid ballot. Retain extra retries in attempt/token/latency totals and report first-attempt latency separately.",
+    "source_alias_scope": "All 101 panel Target IDs, using all numeric Open Targets 26.09 symbolSynonyms (91 Targets have numeric aliases), plus source-derived families. Canonical IDs only; aliases classify text as names, never join biological records.",
+    "source_aliases_sha256": "b737119e63b425ebbb81d0ea37d37593ba5d5d3103bf0c37eb6c984d7a9377fa",
+    "finalized_at": "2026-10-24T21:58:04.603959+00:00"
+  },
+  "leakage_review": {
+    "reviewer": "Codex inspection, not the pending manual citation audit",
+    "screened_flags": 6,
+    "affirmative_approved_use_assertions_in_flags": 0,
+    "reviews": [
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C2",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved PD-1 antagonist mechanism is documented but unrelated disease context limits interpretation.",
+        "approved_use_for_panel_disease": false,
+        "reason": "PD is a protein-alias fragment in PD-1, not a Disease mention."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C10",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved D3 receptor agonist mechanism is documented, but no outcome data for Parkinson disease is supplied in this packet.",
+        "approved_use_for_panel_disease": false,
+        "reason": "Generic approval plus an explicit absence of Disease evidence/outcomes; no approval for Parkinson disease is asserted."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C14",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved GnRH receptor agonist with a confirmed mechanism, but no Parkinson disease evidence is present.",
+        "approved_use_for_panel_disease": false,
+        "reason": "Generic approval plus an explicit absence of Disease evidence/outcomes; no approval for Parkinson disease is asserted."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C15",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved ACLY inhibitor mechanism is documented but lacks any Parkinson disease evidence.",
+        "approved_use_for_panel_disease": false,
+        "reason": "Generic approval plus an explicit absence of Disease evidence/outcomes; no approval for Parkinson disease is asserted."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C13",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved EEF2 inhibitor mechanism is documented, but no Parkinson disease evidence is provided.",
+        "approved_use_for_panel_disease": false,
+        "reason": "Generic approval plus an explicit absence of Disease evidence/outcomes; no approval for Parkinson disease is asserted."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005180",
+        "label": "C8",
+        "attempt": 2,
+        "valid_final": false,
+        "sentence": "Approved ACE inhibitor with strong target binding, but no Parkinson disease data exists.",
+        "approved_use_for_panel_disease": false,
+        "reason": "Generic approval plus an explicit absence of Disease evidence/outcomes; no approval for Parkinson disease is asserted."
+      }
+    ],
+    "malformed_reply_inspection": [
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005148",
+        "attempt": 1,
+        "complete_rationale_strings": [
+          "Its mechanism as a sodium/glucose cotransporter 2 inhibitor directly involves glucose handling, giving plausible relevance to glycaemic control even without T2DM-specific outcome data.",
+          "Evidence only documents CFTR modulation activity and an unrelated regulatory approval, with no connection to glycaemic disease.",
+          "Evidence shows only TACR1 antagonism and an antiemetic-related approval, unrelated to diabetes."
+        ],
+        "output_tokens": 12000,
+        "unparsed_tail": true
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005148",
+        "attempt": 2,
+        "complete_rationale_strings": [
+          "SLC5A2 inhibition mechanism, bioactivity and approval evidence make this candidate the most plausible target-mechanism fit for type 2 diabetes mellitus among those reviewed.",
+          "Mechanism evidence shows F9 exogenous protein replacement, unrelated to glucose metabolism pathways implicated in type 2 diabetes mellitus.",
+          "TSLP inhibition evidence pertains to allergic/airway biology, not glucose regulation relevant to type 2 diabetes mellitus.",
+          "CFTR modulation evidence is specific to cystic fibrosis channel function, not glucose regulation pathways in type 2 diabetes mellitus.",
+          "SLC22A12 inhibition evidence relates to urate transport, not glucose regulation implicated in type 2 diabetes mellitus.",
+          "Estrogen receptor beta modulation evidence pertains to oncology use, not glucose metabolism in type 2 diabetes mellitus.",
+          "Thiazide-sensitive cotransporter inhibition evidence relates to renal sodium handling, not glucose regulation pathways in type 2 diabetes mellitus.",
+          "CYP46A1 bioactivity evidence relates to cholesterol hydroxylation, not glucose regulation pathways in type 2 diabetes mellitus.",
+          "FGFR2 agonism evidence pertains to epithelial growth factor signaling, not glucose regulation in type 2 diabetes mellitus."
+        ],
+        "output_tokens": 12000,
+        "unparsed_tail": true
+      }
+    ],
+    "limitations": "Incomplete sentence tails cannot be fully assessed. Implicit model knowledge and literature leakage remain unmeasured.",
+    "unprovided_clinical_context_examples": [
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005148",
+        "attempt": 1,
+        "label": "C15",
+        "candidate_id": "CHEMBL206253",
+        "rationale": "Evidence shows only TACR1 antagonism and an antiemetic-related approval, unrelated to diabetes.",
+        "unprovided_context_terms": [
+          "antiemetic"
+        ],
+        "assessment": "Clinical context not present in any supplied statement; consistent with model knowledge. Not an assertion of approval for the panel Disease."
+      },
+      {
+        "model": "claude-sonnet-5",
+        "disease_id": "MONDO_0005148",
+        "attempt": 2,
+        "label": "C6",
+        "candidate_id": "CHEMBL1756",
+        "rationale": "Estrogen receptor beta modulation evidence pertains to oncology use, not glucose metabolism in type 2 diabetes mellitus.",
+        "unprovided_context_terms": [
+          "oncology"
+        ],
+        "assessment": "Clinical context not present in any supplied statement; consistent with model knowledge. Not an assertion of approval for the panel Disease."
+      }
+    ],
+    "panel_disease_approved_use_assertions_detected": 0
+  },
+  "rejection_tally": {
+    "claude-opus-5-5": {
+      "before": {
+        "call: BadRequestError": 1,
+        "unsupported or unparseable number in rationale": 3
+      },
+      "after_replay": {
+        "call: BadRequestError": 1
+      },
+      "invalid_before": 1,
+      "invalid_after_replay": 0,
+      "attempts": 4,
+      "rerun": {},
+      "rerun_at_receipt": {
+        "unsupported or unparseable number in rationale": 1
+      }
+    },
+    "claude-sonnet-5": {
+      "before": {
+        "unsupported or unparseable number in rationale": 27,
+        "unsupported or unparseable number in objection": 13,
+        "call: BadRequestError": 1
+      },
+      "after_replay": {
+        "call: BadRequestError": 1
+      },
+      "invalid_before": 2,
+      "invalid_after_replay": 0,
+      "attempts": 5,
+      "rerun": {
+        "JSON decoding failed": 2
+      },
+      "rerun_at_receipt": {
+        "JSON decoding failed": 2,
+        "unsupported or unparseable number in rationale": 2,
+        "unsupported or unparseable number in objection": 1
+      }
+    },
+    "glm-5.3": {
+      "before": {
+        "unsupported or unparseable number in objection": 20,
+        "unsupported or unparseable number in rationale": 13,
+        "call: InterruptedRequest": 1
+      },
+      "after_replay": {
+        "call: InterruptedRequest": 1
+      },
+      "invalid_before": 3,
+      "invalid_after_replay": 0,
+      "attempts": 5,
+      "rerun": {},
+      "rerun_at_receipt": {}
+    },
+    "kimi-k3": {
+      "before": {
+        "unsupported or unparseable number in rationale": 14,
+        "unsupported or unparseable number in objection": 18
+      },
+      "after_replay": {},
+      "invalid_before": 4,
+      "invalid_after_replay": 0,
+      "attempts": 5,
+      "rerun": {},
+      "rerun_at_receipt": {}
+    },
+    "openai-gpt-5.4": {
+      "before": {
+        "unsupported or unparseable number in rationale": 17,
+        "unsupported or unparseable number in objection": 15
+      },
+      "after_replay": {},
+      "invalid_before": 4,
+      "invalid_after_replay": 0,
+      "attempts": 5,
+      "rerun": {},
+      "rerun_at_receipt": {}
+    }
+  }
+}

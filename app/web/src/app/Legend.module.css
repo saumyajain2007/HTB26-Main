@@ -1,0 +1,52 @@
+/* Under the network, at its right: the key is read after the figure, as in a printed plate. */
+.legend {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-4) var(--space-24);
+  padding-top: var(--space-8);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.legend li {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  white-space: nowrap;
+}
+
+.swatch {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--color-ink);
+  border-radius: 50%;
+  background: var(--color-node);
+}
+
+.swatch[data-key="disease"] {
+  background: var(--color-disease);
+}
+
+.swatch[data-key="drug"] {
+  background: var(--color-drug);
+}
+
+.swatch[data-key="both"] {
+  background: linear-gradient(
+    180deg,
+    var(--color-disease) 0 46%,
+    var(--color-ink) 46% 54%,
+    var(--color-drug) 54% 100%
+  );
+}
+
+.swatch[data-key="path"] {
+  width: 20px;
+  height: 3px;
+  border: 0;
+  border-radius: 0;
+  background: var(--color-route);
+}

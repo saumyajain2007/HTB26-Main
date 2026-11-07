@@ -1,0 +1,20 @@
+# The evidence pipeline and the Model jury, one package because each imports the
+# other. core/ranking/ is its own package (core/ranking/pyproject.toml).
+[project]
+name = "oxhack-drug-repurposing"
+version = "0.1.0"
+description = "Evidence pipeline and Model jury for Half Life"
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb>=1.1",
+  "httpx>=0.27",
+  "openai>=1.50",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pipeline", "jury"]
+exclude = ["*/tests"]

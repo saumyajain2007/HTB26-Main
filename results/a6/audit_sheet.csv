@@ -1,0 +1,144 @@
+model,Disease,Candidate,claim,cited E IDs,the cited statements,supported_by_citation (yes/no),note
+claude-opus-5-5,MONDO_0009693,CHEMBL34259 (METHOTREXATE),"Methotrexate has TP53 bioactivity (E179), and TP53 is associated with plasma cell myeloma (E176).",E176; E179,"E176: Open Targets 26.09 gives TP53 an evidence-only association score of 0.66758701 with plasma cell myeloma.
+E179: ChEMBL 37 records a median pChEMBL of 7.0 across 2 human TP53 activities for METHOTREXATE.",,
+claude-opus-5-5,MONDO_0009693,CHEMBL4535757 (SOTORASIB),"Sotorasib is recorded as a KRAS inhibitor (E204) with human KRAS bioactivity (E205), and KRAS is associated with plasma cell myeloma (E171).",E171; E204; E205,"E171: Open Targets 26.09 gives KRAS an evidence-only association score of 0.66049923 with plasma cell myeloma.
+E204: ChEMBL 37 records SOTORASIB's mechanism as GTPase KRas inhibitor.
+E205: ChEMBL 37 records a median pChEMBL of 7.52 across 5 human KRAS activities for SOTORASIB.",,
+claude-opus-5-5,MONDO_0009693,CHEMBL608533 (MIDOSTAURIN),"Midostaurin is recorded as a PKC and FLT3 inhibitor (E397, E400).",E397; E400,"E397: ChEMBL 37 records MIDOSTAURIN's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.
+E400: ChEMBL 37 records MIDOSTAURIN's mechanism as Protein kinase C (PKC) inhibitor.",,
+claude-opus-5-5,MONDO_0009693,CHEMBL2105717 (CABOZANTINIB),"Cabozantinib is recorded as an inhibitor of KDR and MET (E123, E124).",E123; E124,"E123: ChEMBL 37 records CABOZANTINIB's mechanism as Vascular endothelial growth factor receptor 2 inhibitor.
+E124: ChEMBL 37 records CABOZANTINIB's mechanism as Hepatocyte growth factor receptor inhibitor.",,
+claude-opus-5-5,MONDO_0009693,CHEMBL502835 (NINTEDANIB),"Nintedanib is recorded as a fibroblast growth factor receptor inhibitor (E220) with measured human FGFR3 activity (E226), and FGFR3 carries a disease association with plasma cell myeloma (E1). This is the most direct drug-target-disease chain among the kinase candidates.",E1; E220; E226,"E1: Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.62956398 with plasma cell myeloma.
+E220: ChEMBL 37 records NINTEDANIB's mechanism as Fibroblast growth factor receptor inhibitor.
+E226: ChEMBL 37 records a median pChEMBL of 7.0 across 10 human FGFR3 activities for NINTEDANIB.",,
+kimi-k3,MONDO_0009693,CHEMBL1421 (DASATINIB ANHYDROUS),"DASATINIB ANHYDROUS is a multi-kinase inhibitor with recorded mechanisms including ABL, PDGFRB, KIT, EPHA2 and SRC inhibition (E64, E65, E66, E67, E68) and a regulator-backed approval (E122), with extensive human bioactivity such as SRC (E119).",E64; E65; E66; E67; E68; E119; E122,"E64: ChEMBL 37 records DASATINIB ANHYDROUS's mechanism as Tyrosine-protein kinase ABL inhibitor.
+E65: ChEMBL 37 records DASATINIB ANHYDROUS's mechanism as Platelet-derived growth factor receptor beta inhibitor.
+E66: ChEMBL 37 records DASATINIB ANHYDROUS's mechanism as Stem cell growth factor receptor inhibitor.
+E67: ChEMBL 37 records DASATINIB ANHYDROUS's mechanism as Ephrin type-A receptor 2 inhibitor.
+E68: ChEMBL 37 records DASATINIB ANHYDROUS's mechanism as SRC inhibitor.
+E119: ChEMBL 37 records a median pChEMBL of 9.1 across 38 human SRC activities for DASATINIB ANHYDROUS.
+E122: Open Targets 26.09 records a regulator-backed approval from DailyMed.",,
+kimi-k3,MONDO_0009693,CHEMBL502835 (NINTEDANIB),"NINTEDANIB inhibits FGFR3 among other receptor tyrosine kinases (E218, E219, E220) with human FGFR3 bioactivity (E226) and a regulator-backed approval (E285); FGFR3 has an evidence-only association with plasma cell myeloma (E1).",E1; E218; E219; E220; E226; E285,"E1: Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.62956398 with plasma cell myeloma.
+E218: ChEMBL 37 records NINTEDANIB's mechanism as Platelet-derived growth factor receptor inhibitor.
+E219: ChEMBL 37 records NINTEDANIB's mechanism as Vascular endothelial growth factor receptor inhibitor.
+E220: ChEMBL 37 records NINTEDANIB's mechanism as Fibroblast growth factor receptor inhibitor.
+E226: ChEMBL 37 records a median pChEMBL of 7.0 across 10 human FGFR3 activities for NINTEDANIB.
+E285: Open Targets 26.09 records a regulator-backed approval from DailyMed.",,
+kimi-k3,MONDO_0009693,CHEMBL4594350 (ADAGRASIB),ADAGRASIB is a KRAS inhibitor (E207) with human KRAS bioactivity (E208) and a regulator-backed approval (E209); KRAS has an evidence-only association with plasma cell myeloma (E171).,E171; E207; E208; E209,"E171: Open Targets 26.09 gives KRAS an evidence-only association score of 0.66049923 with plasma cell myeloma.
+E207: ChEMBL 37 records ADAGRASIB's mechanism as GTPase KRas inhibitor.
+E208: ChEMBL 37 records a median pChEMBL of 8.0 across 9 human KRAS activities for ADAGRASIB.
+E209: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+kimi-k3,MONDO_0009693,CHEMBL1171837 (PONATINIB),PONATINIB is a Bcr/Abl inhibitor (E2) with human FGFR3 bioactivity (E7) and a regulator-backed approval (E44); FGFR3 has an evidence-only association with plasma cell myeloma (E1).,E1; E2; E7; E44,"E1: Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.62956398 with plasma cell myeloma.
+E2: ChEMBL 37 records PONATINIB's mechanism as Bcr/Abl fusion protein inhibitor.
+E7: ChEMBL 37 records a median pChEMBL of 7.89 across 2 human FGFR3 activities for PONATINIB.
+E44: Open Targets 26.09 records a regulator-backed approval from DailyMed.",,
+kimi-k3,MONDO_0009693,CHEMBL4650215 (INAVOLISIB),INAVOLISIB is a PI3-kinase p110-alpha inhibitor (E211) with human PIK3CA bioactivity (E215) and a regulator-backed approval (E217); PIK3R2 has an evidence-only association with plasma cell myeloma (E210).,E210; E211; E215; E217,"E210: Open Targets 26.09 gives PIK3R2 an evidence-only association score of 0.37335551 with plasma cell myeloma.
+E211: ChEMBL 37 records INAVOLISIB's mechanism as PI3-kinase p110-alpha subunit inhibitor.
+E215: ChEMBL 37 records a median pChEMBL of 10.47 across 3 human PIK3CA activities for INAVOLISIB.
+E217: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+openai-gpt-5.4,MONDO_0009693,CHEMBL1289601 (LENVATINIB),"This candidate has a disease-linked target through FGFR3, which has an evidence-only association score of 0.62956398 with plasma cell myeloma, and it engages several angiogenic kinases with measurable activity, including FLT4 at 8.28 across 5 activities, KDR at 8.4 across 12 activities, and FGFR3 at 7.57 across 1 activity. That supports some research interest, but the packet does not show that inhibiting these targets is beneficial in plasma cell myeloma, so direction is unknown.",E1; E49; E50; E52; E56,"E1: Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.62956398 with plasma cell myeloma.
+E49: ChEMBL 37 records LENVATINIB's mechanism as Vascular endothelial growth factor receptor inhibitor.
+E50: ChEMBL 37 records a median pChEMBL of 8.28 across 5 human FLT4 activities for LENVATINIB.
+E52: ChEMBL 37 records a median pChEMBL of 7.57 across 1 human FGFR3 activities for LENVATINIB.
+E56: ChEMBL 37 records a median pChEMBL of 8.4 across 12 human KDR activities for LENVATINIB.",,
+openai-gpt-5.4,MONDO_0009693,CHEMBL34259 (METHOTREXATE),"This candidate has a disease-associated target in the packet, TP53, with an evidence-only association score of 0.66758701, and strong biochemical activity on its stated inhibitory target DHFR at 8.05 across 87 human activities. That supports biological plausibility for further scrutiny, but the packet does not show that DHFR inhibition or TP53 modulation is beneficial in plasma cell myeloma, so direction is unknown.",E176; E177; E182,"E176: Open Targets 26.09 gives TP53 an evidence-only association score of 0.66758701 with plasma cell myeloma.
+E177: ChEMBL 37 records METHOTREXATE's mechanism as Dihydrofolate reductase inhibitor.
+E182: ChEMBL 37 records a median pChEMBL of 8.05 across 87 human DHFR activities for METHOTREXATE.",,
+openai-gpt-5.4,MONDO_0009693,CHEMBL790 (CHLORHEXIDINE),"This candidate is linked only indirectly to the disease through TP53, which has an evidence-only association score of 0.66758701 with plasma cell myeloma, and it shows TP53 bioactivity at 8.1 across 1 human activity. That is enough to keep minimal awareness, but the packet provides no mechanism showing a therapeutically relevant action on TP53 in plasma cell myeloma, so direction is unknown.",E176; E437,"E176: Open Targets 26.09 gives TP53 an evidence-only association score of 0.66758701 with plasma cell myeloma.
+E437: ChEMBL 37 records a median pChEMBL of 8.1 across 1 human TP53 activities for CHLORHEXIDINE.",,
+openai-gpt-5.4,MONDO_0009693,CHEMBL535 (SUNITINIB),"This multikinase inhibitor has one explicit disease-linked target in the packet, IRAK1, with an evidence-only association score of 0.36957761, and shows biochemical activity on IRAK1 at 7.85 across 2 human activities. It also engages several receptor tyrosine kinases strongly, including FLT1 at 8.74, FLT3 at 8.37, and PDGFRB at 8.41. These data justify monitoring, but the packet does not show that inhibiting IRAK1 or the other targets is beneficial in plasma cell myeloma, so direction is unknown.",E286; E287; E289; E291; E320; E328; E332; E367,"E286: Open Targets 26.09 gives IRAK1 an evidence-only association score of 0.36957761 with plasma cell myeloma.
+E287: ChEMBL 37 records SUNITINIB's mechanism as Macrophage colony stimulating factor receptor inhibitor.
+E289: ChEMBL 37 records SUNITINIB's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.
+E291: ChEMBL 37 records SUNITINIB's mechanism as Vascular endothelial growth factor receptor inhibitor.
+E320: ChEMBL 37 records a median pChEMBL of 8.74 across 7 human FLT1 activities for SUNITINIB.
+E328: ChEMBL 37 records a median pChEMBL of 8.41 across 17 human PDGFRB activities for SUNITINIB.
+E332: ChEMBL 37 records a median pChEMBL of 8.37 across 61 human FLT3 activities for SUNITINIB.
+E367: ChEMBL 37 records a median pChEMBL of 7.85 across 2 human IRAK1 activities for SUNITINIB.",,
+openai-gpt-5.4,MONDO_0009693,CHEMBL502835 (NINTEDANIB),"This multikinase inhibitor has broad, well-documented target engagement, including FGFR3, which is associated with plasma cell myeloma with an evidence-only association score of 0.62956398. It shows measurable activity across several disease-relevant receptor tyrosine kinases, including FGFR3 at 7.0 across 10 activities, FLT3 at 8.42 across 11 activities, KDR at 8.375 across 16 activities, and PDGFRB at 8.1 across 15 activities. This breadth supports research follow-up, but the packet does not show that inhibiting any of these targets is beneficial in plasma cell myeloma, so direction is unknown.",E1; E220; E226; E242; E247; E251,"E1: Open Targets 26.09 gives FGFR3 an evidence-only association score of 0.62956398 with plasma cell myeloma.
+E220: ChEMBL 37 records NINTEDANIB's mechanism as Fibroblast growth factor receptor inhibitor.
+E226: ChEMBL 37 records a median pChEMBL of 7.0 across 10 human FGFR3 activities for NINTEDANIB.
+E242: ChEMBL 37 records a median pChEMBL of 8.1 across 15 human PDGFRB activities for NINTEDANIB.
+E247: ChEMBL 37 records a median pChEMBL of 8.42 across 11 human FLT3 activities for NINTEDANIB.
+E251: ChEMBL 37 records a median pChEMBL of 8.375 across 16 human KDR activities for NINTEDANIB.",,
+claude-opus-5-5,MONDO_0100096,CHEMBL2035187 (PACRITINIB),Pacritinib inhibits JAK2 (E84) and has a median pChEMBL of 7.3 across 8 human TYK2 activities (E94). It also inhibits IRAK1 (E90). TYK2 is associated with COVID-19 at 0.60374362 (E1). It has an FDA approval (E103).,E1; E84; E90; E94; E103,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E84: ChEMBL 37 records PACRITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E90: ChEMBL 37 records PACRITINIB's mechanism as Interleukin-1 receptor-associated kinase 1 inhibitor.
+E94: ChEMBL 37 records a median pChEMBL of 7.3 across 8 human TYK2 activities for PACRITINIB.
+E103: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+claude-opus-5-5,MONDO_0100096,CHEMBL468 (THALIDOMIDE),Thalidomide is a CRL4(CRBN) E3 ligase inhibitor (E170) with a regulator-backed approval (E171).,E170; E171,"E170: ChEMBL 37 records THALIDOMIDE's mechanism as CRL4(CRBN) E3 ubiquitin ligase inhibitor.
+E171: Open Targets 26.09 records a regulator-backed approval from DailyMed.",,
+claude-opus-5-5,MONDO_0100096,CHEMBL1078178 (MOMELOTINIB),"Momelotinib inhibits JAK1 and JAK2 (E2, E3) and has a median pChEMBL of 7.52 across 6 human TYK2 activities (E9). TYK2 is associated with COVID-19 at 0.60374362 (E1). It has an FDA approval (E15).",E1; E2; E3; E9; E15,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E2: ChEMBL 37 records MOMELOTINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E3: ChEMBL 37 records MOMELOTINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E9: ChEMBL 37 records a median pChEMBL of 7.52 across 6 human TYK2 activities for MOMELOTINIB.
+E15: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+claude-opus-5-5,MONDO_0100096,CHEMBL2105759 (BARICITINIB),"Baricitinib inhibits JAK1 and JAK2 (E104, E105) and has a median pChEMBL of 7.28 across 13 human TYK2 activities (E107). It also shows activity at AAK1 (E108) and BMP2K (E109). TYK2 is associated with COVID-19 at 0.60374362 (E1). It has an FDA approval (E113).",E1; E104; E105; E107; E108; E109; E113,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E104: ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E105: ChEMBL 37 records BARICITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E107: ChEMBL 37 records a median pChEMBL of 7.28 across 13 human TYK2 activities for BARICITINIB.
+E108: ChEMBL 37 records a median pChEMBL of 8.09 across 9 human AAK1 activities for BARICITINIB.
+E109: ChEMBL 37 records a median pChEMBL of 7.7 across 3 human BMP2K activities for BARICITINIB.
+E113: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+claude-opus-5-5,MONDO_0100096,CHEMBL1201557 (INTERFERON ALFACON-1),Interferon alfacon-1 is an interferon alpha/beta receptor agonist (E64). IFNAR2 has an evidence-only association score of 0.5625779 with COVID-19 (E63).,E63; E64,"E63: Open Targets 26.09 gives IFNAR2 an evidence-only association score of 0.5625779 with COVID-19.
+E64: ChEMBL 37 records INTERFERON ALFACON-1's mechanism as Interferon alpha/beta receptor agonist.",,
+kimi-k3,MONDO_0100096,CHEMBL4596392 (CRAVACITINIB),"CRAVACITINIB has the supplied TYK2 association E1, a TYK2 negative allosteric modulator mechanism E166, human TYK2 bioactivity E167 and approval E169, giving a focused TYK2 rationale for research while leaving COVID-19 benefit unproven.",E1; E166; E167; E169,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E166: ChEMBL 37 records CRAVACITINIB's mechanism as Tyrosine-protein kinase TYK2 negative allosteric modulator.
+E167: ChEMBL 37 records a median pChEMBL of 8.504999999999999 across 32 human TYK2 activities for CRAVACITINIB.
+E169: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+kimi-k3,MONDO_0100096,CHEMBL3301607 (FILGOTINIB),"FILGOTINIB has the supplied TYK2 association E1, multiple JAK-family inhibitor mechanisms E134 through E141, human JAK1/JAK2 bioactivity E142 and E143, and EMA approval E144, but no supplied item proves benefit in COVID-19.",E1; E134; E141; E142; E143; E144,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E134: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E141: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E142: ChEMBL 37 records a median pChEMBL of 7.13 across 35 human JAK2 activities for FILGOTINIB.
+E143: ChEMBL 37 records a median pChEMBL of 7.3 across 37 human JAK1 activities for FILGOTINIB.
+E144: Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",,
+kimi-k3,MONDO_0100096,CHEMBL468 (THALIDOMIDE),"THALIDOMIDE has a CRL4(CRBN) E3 ubiquitin ligase inhibitor mechanism E170 and approval E171, but the assigned evidence contains no COVID-19 target association, antiviral rationale, or outcome evidence.",E170; E171,"E170: ChEMBL 37 records THALIDOMIDE's mechanism as CRL4(CRBN) E3 ubiquitin ligase inhibitor.
+E171: Open Targets 26.09 records a regulator-backed approval from DailyMed.",,
+kimi-k3,MONDO_0100096,CHEMBL3137308 (PEFICITINIB),"PEFICITINIB has the supplied TYK2 association E1, a JAK inhibitor mechanism E128, human JAK-family bioactivity E129, E130, E131 and E132, and PMDA approval E133; this is plausible for follow-up but not directional for COVID-19.",E1; E128; E129; E130; E131; E132; E133,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E128: ChEMBL 37 records PEFICITINIB's mechanism as Janus Kinase (JAK) inhibitor.
+E129: ChEMBL 37 records a median pChEMBL of 8.3 across 5 human JAK2 activities for PEFICITINIB.
+E130: ChEMBL 37 records a median pChEMBL of 8.32 across 5 human TYK2 activities for PEFICITINIB.
+E131: ChEMBL 37 records a median pChEMBL of 9.15 across 5 human JAK3 activities for PEFICITINIB.
+E132: ChEMBL 37 records a median pChEMBL of 8.41 across 5 human JAK1 activities for PEFICITINIB.
+E133: Open Targets 26.09 records a regulator-backed approval from PMDA.",,
+kimi-k3,MONDO_0100096,CHEMBL3622821 (UPADACITINIB),"UPADACITINIB is supported by the supplied TYK2 association E1, JAK/TYK2 inhibitor mechanisms E145, E146, E147 and E148, human JAK1/JAK3 bioactivity E149 and E150, and approval E151, but the evidence remains mechanistic rather than disease-proving.",E1; E145; E146; E147; E148; E149; E150; E151,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E145: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase TYK2 inhibitor.
+E146: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.
+E147: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E148: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E149: ChEMBL 37 records a median pChEMBL of 7.11 across 27 human JAK3 activities for UPADACITINIB.
+E150: ChEMBL 37 records a median pChEMBL of 7.37 across 40 human JAK1 activities for UPADACITINIB.
+E151: Open Targets 26.09 records a regulator-backed approval from FDA.",,
+openai-gpt-5.4,MONDO_0100096,CHEMBL3301607 (FILGOTINIB),"This candidate has explicit mechanisms for JAK1, JAK2, JAK3, and TYK2 inhibition, and measurable activity on JAK1 and JAK2, with median pChEMBL 7.3 across 37 human JAK1 activities and 7.13 across 35 human JAK2 activities. TYK2 is associated with COVID-19 with an evidence-only score of 0.60374362. These data support some mechanistic interest.",E1; E134; E135; E136; E137; E142; E143,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E134: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E135: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E136: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase TYK2 inhibitor.
+E137: ChEMBL 37 records FILGOTINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.
+E142: ChEMBL 37 records a median pChEMBL of 7.13 across 35 human JAK2 activities for FILGOTINIB.
+E143: ChEMBL 37 records a median pChEMBL of 7.3 across 37 human JAK1 activities for FILGOTINIB.",,
+openai-gpt-5.4,MONDO_0100096,CHEMBL3622821 (UPADACITINIB),"This candidate has explicit mechanisms for JAK1, JAK2, JAK3, and TYK2 inhibition, with measurable activity including median pChEMBL 7.37 across 40 human JAK1 activities and 7.11 across 27 human JAK3 activities. TYK2 is associated with COVID-19 with an evidence-only score of 0.60374362. That gives a mechanistic basis for continued observation.",E1; E145; E146; E147; E148; E149; E150,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E145: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase TYK2 inhibitor.
+E146: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK3 inhibitor.
+E147: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E148: ChEMBL 37 records UPADACITINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E149: ChEMBL 37 records a median pChEMBL of 7.11 across 27 human JAK3 activities for UPADACITINIB.
+E150: ChEMBL 37 records a median pChEMBL of 7.37 across 40 human JAK1 activities for UPADACITINIB.",,
+openai-gpt-5.4,MONDO_0100096,CHEMBL1078178 (MOMELOTINIB),"This candidate has explicit JAK1 and JAK2 inhibitor mechanisms and measurable activity on COVID-19-associated TYK2, with median pChEMBL 7.96 across 16 human JAK1 activities, 7.75 across 18 human JAK2 activities, and 7.52 across 6 human TYK2 activities. TYK2 has an evidence-only association score of 0.60374362 with COVID-19. That supports mechanistic interest for follow-up.",E1; E2; E3; E8; E9; E10; E11; E14,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E2: ChEMBL 37 records MOMELOTINIB's mechanism as Tyrosine-protein kinase JAK1 inhibitor.
+E3: ChEMBL 37 records MOMELOTINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E8: ChEMBL 37 records a median pChEMBL of 7.75 across 18 human JAK2 activities for MOMELOTINIB.
+E9: ChEMBL 37 records a median pChEMBL of 7.52 across 6 human TYK2 activities for MOMELOTINIB.
+E10: ChEMBL 37 records a median pChEMBL of 7.85 across 2 human ACVR1 activities for MOMELOTINIB.
+E11: ChEMBL 37 records a median pChEMBL of 8.4 across 1 human AAK1 activities for MOMELOTINIB.
+E14: ChEMBL 37 records a median pChEMBL of 7.96 across 16 human JAK1 activities for MOMELOTINIB.",,
+openai-gpt-5.4,MONDO_0100096,CHEMBL3137308 (PEFICITINIB),"This candidate has strong pan-JAK biochemical support, with median pChEMBL 8.41 across 5 human JAK1 activities, 8.3 across 5 human JAK2 activities, 9.15 across 5 human JAK3 activities, and 8.32 across 5 human TYK2 activities. TYK2 is associated with COVID-19 with an evidence-only score of 0.60374362. These data support mechanistic follow-up despite the absence of disease-specific evidence.",E1; E128; E129; E130; E131; E132,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E128: ChEMBL 37 records PEFICITINIB's mechanism as Janus Kinase (JAK) inhibitor.
+E129: ChEMBL 37 records a median pChEMBL of 8.3 across 5 human JAK2 activities for PEFICITINIB.
+E130: ChEMBL 37 records a median pChEMBL of 8.32 across 5 human TYK2 activities for PEFICITINIB.
+E131: ChEMBL 37 records a median pChEMBL of 9.15 across 5 human JAK3 activities for PEFICITINIB.
+E132: ChEMBL 37 records a median pChEMBL of 8.41 across 5 human JAK1 activities for PEFICITINIB.",,
+openai-gpt-5.4,MONDO_0100096,CHEMBL2035187 (PACRITINIB),"This candidate has a plausible mechanistic basis through JAK2 inhibition and measurable TYK2 activity, with median pChEMBL 7.64 across 18 human JAK2 activities and 7.3 across 8 human TYK2 activities; TYK2 is associated with COVID-19 with an evidence-only score of 0.60374362. Additional recorded mechanisms include ACVR1 and IRAK1 inhibition, which may justify exploratory follow-up.",E1; E84; E89; E90; E93; E94,"E1: Open Targets 26.09 gives TYK2 an evidence-only association score of 0.60374362 with COVID-19.
+E84: ChEMBL 37 records PACRITINIB's mechanism as Tyrosine-protein kinase JAK2 inhibitor.
+E89: ChEMBL 37 records PACRITINIB's mechanism as Activin receptor type-1 inhibitor.
+E90: ChEMBL 37 records PACRITINIB's mechanism as Interleukin-1 receptor-associated kinase 1 inhibitor.
+E93: ChEMBL 37 records a median pChEMBL of 7.64 across 18 human JAK2 activities for PACRITINIB.
+E94: ChEMBL 37 records a median pChEMBL of 7.3 across 8 human TYK2 activities for PACRITINIB.",,

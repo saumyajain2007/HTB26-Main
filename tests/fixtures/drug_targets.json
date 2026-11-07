@@ -1,0 +1,266 @@
+{
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37"
+  ],
+  "rules": {
+    "approval_sources": [
+      "FDA",
+      "EMA Human Drugs",
+      "PMDA",
+      "DailyMed"
+    ],
+    "bioactivity": {
+      "min_median_pchembl": 7,
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens"
+    }
+  },
+  "coverage": {
+    "drugs": 5,
+    "drugs_with_targets": 4,
+    "unmapped_items": 1,
+    "unmapped_by_reason": {
+      "non_protein_target": 1
+    }
+  },
+  "drugs": [
+    {
+      "drug_id": "CHEMBL3545376",
+      "name": "ERDAFITINIB",
+      "source_chembl_ids": [
+        "CHEMBL3545376",
+        "CHEMBL3918638",
+        "CHEMBL3919709",
+        "CHEMBL3948043",
+        "CHEMBL3975791"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004992",
+          "MONDO_0040679"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000068078",
+          "name": "FGFR3",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        },
+        {
+          "target_id": "ENSG00000077782",
+          "name": "FGFR1",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        },
+        {
+          "target_id": "ENSG00000160867",
+          "name": "FGFR4",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        },
+        {
+          "target_id": "ENSG00000066468",
+          "name": "FGFR2",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    },
+    {
+      "drug_id": "CHEMBL2105759",
+      "name": "BARICITINIB",
+      "source_chembl_ids": [
+        "CHEMBL2105759"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004980",
+          "MONDO_0008383",
+          "MONDO_0011429"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000162434",
+          "name": "JAK1",
+          "support": [
+            "mechanism",
+            "bioactivity"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": 7.5,
+          "n_activities": 10
+        },
+        {
+          "target_id": "ENSG00000096968",
+          "name": "JAK2",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        },
+        {
+          "target_id": "ENSG00000105397",
+          "name": "TYK2",
+          "support": [
+            "bioactivity"
+          ],
+          "action_type": null,
+          "target_type": "single protein",
+          "median_pchembl": 7.5,
+          "n_activities": 10
+        }
+      ],
+      "unmapped": []
+    },
+    {
+      "drug_id": "CHEMBL1789941",
+      "name": "RUXOLITINIB",
+      "source_chembl_ids": [
+        "CHEMBL1789941",
+        "CHEMBL1795071"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "EFO_0004251",
+          "MONDO_0008661",
+          "MONDO_0009692",
+          "MONDO_0009891",
+          "MONDO_0013730",
+          "MONDO_0044903"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000162434",
+          "name": "JAK1",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        },
+        {
+          "target_id": "ENSG00000096968",
+          "name": "JAK2",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    },
+    {
+      "drug_id": "CHEMBL852",
+      "name": "MELPHALAN",
+      "source_chembl_ids": [
+        "CHEMBL852",
+        "CHEMBL1200863"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0004952",
+          "MONDO_0004993",
+          "MONDO_0005072",
+          "MONDO_0009693",
+          "MONDO_0018874",
+          "MONDO_0018908",
+          "MONDO_0021068"
+        ]
+      },
+      "targets": [],
+      "unmapped": [
+        {
+          "source": "mechanism",
+          "item": "DNA",
+          "reason": "non_protein_target"
+        }
+      ]
+    },
+    {
+      "drug_id": "CHEMBL3137309",
+      "name": "VENETOCLAX",
+      "source_chembl_ids": [
+        "CHEMBL3137309"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA",
+          "PMDA"
+        ],
+        "disease_ids": [
+          "MONDO_0004948"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000171791",
+          "name": "BCL2",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "INHIBITOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    }
+  ]
+}

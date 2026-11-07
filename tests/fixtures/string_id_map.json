@@ -1,0 +1,82 @@
+{
+  "releases": [
+    "string-12.5",
+    "opentargets-26.09"
+  ],
+  "coverage": {
+    "string_proteins": 11,
+    "mapped": 10,
+    "unmapped": 1,
+    "ambiguous": 0,
+    "genes": 10,
+    "genes_with_several_string_proteins": 0
+  },
+  "mappings": [
+    {
+      "string_id": "9606.ENSP00000339824",
+      "target_id": "ENSG00000068078",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000393312",
+      "target_id": "ENSG00000077782",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000292408",
+      "target_id": "ENSG00000160867",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000410294",
+      "target_id": "ENSG00000066468",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000499900",
+      "target_id": "ENSG00000162434",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000371067",
+      "target_id": "ENSG00000096968",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000431885",
+      "target_id": "ENSG00000105397",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000381185",
+      "target_id": "ENSG00000171791",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000269305",
+      "target_id": "ENSG00000141510",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000227507",
+      "target_id": "ENSG00000110092",
+      "status": "mapped",
+      "reason": null
+    },
+    {
+      "string_id": "9606.ENSP00000053469",
+      "target_id": null,
+      "status": "unmapped",
+      "reason": "No matching ensembl_PRO ID in the complete Open Targets 26.09 target dataset."
+    }
+  ]
+}

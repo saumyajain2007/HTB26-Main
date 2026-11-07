@@ -1,0 +1,322 @@
+[
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0011438",
+    "candidate_id": "CHEMBL1166",
+    "label": "C12",
+    "rationale": "Thrombin inhibitor; F2 is a Disease Target, with measured F2 bioactivity and approval.",
+    "objection": "The F2 association lacks direction, and the shared pathways are coagulation-related.",
+    "source_statements": {
+      "E1": "Open Targets 26.09 gives F2 an evidence-only association score of 0.22183845 with acne.",
+      "E2": "ChEMBL 37 records Agent C12's mechanism as Thrombin inhibitor.",
+      "E3": "ChEMBL 37 records a median pChEMBL of 7.72 across 25 human F2 activities for Agent C12.",
+      "E4": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+      "E50": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), F2 connects to the Disease Target F2 in 0 steps: F2. This is a network association, not a proven mechanism.",
+      "E59": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Defective factor XII causes hereditary angioedema' (R-HSA-9657688, 3 genes). Shared membership is not proof of effect.",
+      "E60": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Defective F8 cleavage by thrombin' (R-HSA-9672391, 3 genes). Shared membership is not proof of effect.",
+      "E61": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Transport of gamma-carboxylated protein precursors from the endoplasmic reticulum to the Golgi apparatus' (R-HSA-159763, 9 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0007915",
+    "candidate_id": "CHEMBL2104993",
+    "label": "C2",
+    "rationale": "Serotonergic agent with indirect links via PTGS2 (E70, E187).",
+    "objection": "Primary mechanisms lack Disease relevance.",
+    "source_statements": {
+      "E70": "Open Targets 26.09 gives PTGS2 an evidence-only association score of 0.093645536 with systemic lupus erythematosus.",
+      "E187": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), PTGS2 connects to the Disease Target CD44 in 2 steps: PTGS2 – TP53 – CD44. This is a network association, not a proven mechanism."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0005133",
+    "candidate_id": "CHEMBL612",
+    "label": "C7",
+    "rationale": "Monoamine transporter agent with only distant network links.",
+    "objection": "No target association and multiple black box warnings.",
+    "source_statements": {
+      "E126": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SLC6A2 connects to the Disease Target PGR in 3 steps: SLC6A2 – SNCA – HSP90AA1 – PGR. This is a network association, not a proven mechanism."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0005133",
+    "candidate_id": "CHEMBL426084",
+    "label": "C14",
+    "rationale": "Potent opioid receptor activity with weakly associated targets.",
+    "objection": "Only indirect network and pathway links; no benefit evidence.",
+    "source_statements": {
+      "E29": "Open Targets 26.09 gives OPRK1 an evidence-only association score of 0.011826483 with endometriosis.",
+      "E30": "Open Targets 26.09 gives OPRM1 an evidence-only association score of 0.018587322 with endometriosis.",
+      "E40": "ChEMBL 37 records Agent C14's mechanism as Mu opioid receptor antagonist.",
+      "E113": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), OPRM1 connects to the Disease Target FSHB in 2 steps: OPRM1 – GNB1 – FSHB. This is a network association, not a proven mechanism."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0011438",
+    "candidate_id": "CHEMBL4297723",
+    "label": "C3",
+    "rationale": "PD-1 inhibitor with an indirect network path and pathway overlap.",
+    "objection": "No disease association is supplied for PDCD1.",
+    "source_statements": {
+      "E28": "ChEMBL 37 records Agent C3's mechanism as Programmed cell death protein 1 inhibitor.",
+      "E29": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+      "E55": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), PDCD1 connects to the Disease Target DLG1 in 3 steps: PDCD1 – PTPN11 – ERBB4 – DLG1. This is a network association, not a proven mechanism.",
+      "E62": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'PD-L1(CD274) glycosylation and translocation to plasma membrane' (R-HSA-9931295, 23 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "claude-opus-5-5",
+    "disease_id": "MONDO_0005041",
+    "candidate_id": "CHEMBL1946170",
+    "label": "C12",
+    "rationale": "Multikinase inhibitor including TIE-2, with TEK a zero-hop Disease Target and DDR2 association.",
+    "objection": "Inhibiting TEK may not be beneficial; no directional evidence supplied.",
+    "source_statements": {
+      "E28": "Open Targets 26.09 gives TEK an evidence-only association score of 0.73404476 with glaucoma.",
+      "E284": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), TEK connects to the Disease Target TEK in 0 steps: TEK. This is a network association, not a proven mechanism.",
+      "E73": "ChEMBL 37 records Agent C12's mechanism as Tyrosine-protein kinase TIE-2 inhibitor.",
+      "E83": "ChEMBL 37 records a median pChEMBL of 7.665 across 2 human TEK activities for Agent C12.",
+      "E62": "Open Targets 26.09 gives DDR2 an evidence-only association score of 0.25056293 with glaucoma."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0005277",
+    "candidate_id": "CHEMBL1077896",
+    "label": "C12",
+    "rationale": "Its sodium-channel blocker mechanism aligns with several migraine-associated sodium-channel targets and direct or short network links.",
+    "objection": "The packet still lacks disease-specific evidence that sodium-channel blockade improves migraine disorder rather than merely intersecting associated targets.",
+    "source_statements": {
+      "E1": "Open Targets 26.09 gives SCN4A an evidence-only association score of 0.054589129 with migraine disorder.",
+      "E2": "Open Targets 26.09 gives SCN2A an evidence-only association score of 0.031349426 with migraine disorder.",
+      "E3": "Open Targets 26.09 gives SCN7A an evidence-only association score of 0.019349325 with migraine disorder.",
+      "E4": "Open Targets 26.09 gives SCN1A an evidence-only association score of 0.83063601 with migraine disorder.",
+      "E5": "Open Targets 26.09 gives SCN3A an evidence-only association score of 0.0049765678 with migraine disorder.",
+      "E6": "Open Targets 26.09 gives SCN11A an evidence-only association score of 0.038173558 with migraine disorder.",
+      "E7": "Open Targets 26.09 gives SCN9A an evidence-only association score of 0.0099656447 with migraine disorder.",
+      "E8": "Open Targets 26.09 gives SCN5A an evidence-only association score of 0.1195187 with migraine disorder.",
+      "E9": "Open Targets 26.09 gives SCN10A an evidence-only association score of 0.043991095 with migraine disorder.",
+      "E10": "Open Targets 26.09 gives SCN8A an evidence-only association score of 0.088239838 with migraine disorder.",
+      "E11": "ChEMBL 37 records Agent C12's mechanism as Sodium channel alpha subunit blocker.",
+      "E110": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SCN1A connects to the Disease Target SCN1A in 0 steps: SCN1A. This is a network association, not a proven mechanism.",
+      "E111": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SCN3A connects to the Disease Target SCN1A in 1 step: SCN3A – SCN1A. This is a network association, not a proven mechanism.",
+      "E112": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SCN8A connects to the Disease Target SCN1A in 2 steps: SCN8A – SCN4A – SCN1A. This is a network association, not a proven mechanism.",
+      "E140": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Interaction between L1 and Ankyrins' (R-HSA-445095, 32 genes). Shared membership is not proof of effect.",
+      "E141": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Phase 0 - rapid depolarisation' (R-HSA-5576892, 34 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0005252",
+    "candidate_id": "CHEMBL5315087",
+    "label": "C2",
+    "rationale": "PROC is directly linked to heart failure and sits on a zero-hop disease-target connection, making this a reasonable but still uncertain follow-up option.",
+    "objection": "The packet provides no evidence that supplying PROC is beneficial in heart failure rather than simply disease-linked.",
+    "source_statements": {
+      "E37": "Open Targets 26.09 gives PROC an evidence-only association score of 0.4378726 with heart failure.",
+      "E38": "ChEMBL 37 records Agent C2's mechanism as PROC exogenous protein.",
+      "E66": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), PROC connects to the Disease Target PROC in 0 steps: PROC. This is a network association, not a proven mechanism.",
+      "E76": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Defective cleavage of FV variant at a.a.534 ' (R-HSA-9930449, 3 genes). Shared membership is not proof of effect.",
+      "E77": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Defective cleavage of FV variant at R334' (R-HSA-9930479, 3 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0015924",
+    "candidate_id": "CHEMBL1201010",
+    "label": "C13",
+    "rationale": "This candidate has modest disease associations for NR3C1 and NR3C2, a recorded NR3C2 agonist mechanism, supporting network and pathway links, and regulatory approval.",
+    "objection": "The packet offers association, network, and pathway context but does not show that agonism at these receptors helps pulmonary arterial hypertension.",
+    "source_statements": {
+      "E1": "Open Targets 26.09 gives NR3C1 an evidence-only association score of 0.094433379 with pulmonary arterial hypertension.",
+      "E2": "Open Targets 26.09 gives NR3C2 an evidence-only association score of 0.096530465 with pulmonary arterial hypertension.",
+      "E3": "ChEMBL 37 records Agent C13's mechanism as Mineralocorticoid receptor agonist.",
+      "E4": "ChEMBL 37 records a median pChEMBL of 7.7 across 3 human NR3C1 activities for Agent C13.",
+      "E5": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+      "E59": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), NR3C1 connects to the Disease Target PPARGC1A in 1 step: NR3C1 – PPARGC1A. This is a network association, not a proven mechanism.",
+      "E60": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), NR3C2 connects to the Disease Target PPARGC1A in 2 steps: NR3C2 – NCOA1 – PPARGC1A. This is a network association, not a proven mechanism.",
+      "E75": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'FOXO-mediated transcription of oxidative stress, metabolic and neuronal genes' (R-HSA-9615017, 30 genes). Shared membership is not proof of effect.",
+      "E76": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Regulation of RUNX2 expression and activity' (R-HSA-8939902, 61 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0005109",
+    "candidate_id": "CHEMBL1364144",
+    "label": "C7",
+    "rationale": "NR3C1 shows a reported HIV association and Agent C7 has a defined approved agonist mechanism.",
+    "objection": "The packet does not show that activating NR3C1 is helpful in HIV, and the network path is only associative.",
+    "source_statements": {
+      "E7": "Open Targets 26.09 gives NR3C1 an evidence-only association score of 0.042409061 with HIV infectious disease.",
+      "E8": "ChEMBL 37 records Agent C7's mechanism as Glucocorticoid receptor agonist.",
+      "E87": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), NR3C1 connects to the Disease Target POLR2J in 2 steps: NR3C1 – MED1 – POLR2J. This is a network association, not a proven mechanism.",
+      "E9": "Open Targets 26.09 records a regulator-backed approval from DailyMed."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0005109",
+    "candidate_id": "CHEMBL3301574",
+    "label": "C14",
+    "rationale": "CD19 has a reported HIV association and Agent C14 has a defined binding mechanism with a short network link.",
+    "objection": "No supplied evidence shows that binding CD19 improves HIV outcomes rather than only marking disease relevance.",
+    "source_statements": {
+      "E35": "Open Targets 26.09 gives CD19 an evidence-only association score of 0.040021625 with HIV infectious disease.",
+      "E36": "ChEMBL 37 records Agent C14's mechanism as B-lymphocyte antigen CD19 binding agent.",
+      "E94": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), CD19 connects to the Disease Target POLR2J in 2 steps: CD19 – POLR2M – POLR2J. This is a network association, not a proven mechanism.",
+      "E37": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "openai-gpt-5.4",
+    "disease_id": "MONDO_0011438",
+    "candidate_id": "CHEMBL4297723",
+    "label": "C3",
+    "rationale": "Only indirect network and pathway context link this PDCD1 inhibitor to acne-related biology.",
+    "objection": "The supplied packet does not provide direct acne target association or directional evidence for PDCD1 inhibition.",
+    "source_statements": {
+      "E28": "ChEMBL 37 records Agent C3's mechanism as Programmed cell death protein 1 inhibitor.",
+      "E29": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+      "E55": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), PDCD1 connects to the Disease Target DLG1 in 3 steps: PDCD1 – PTPN11 – ERBB4 – DLG1. This is a network association, not a proven mechanism.",
+      "E62": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'PD-L1(CD274) glycosylation and translocation to plasma membrane' (R-HSA-9931295, 23 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0005393",
+    "candidate_id": "CHEMBL4594311",
+    "label": "C12",
+    "rationale": "HBB is a zero-hop gout-associated target (E40, E63) and Agent C12 is an approved HBB exogenous gene therapy (E48).",
+    "objection": "There is no evidence that introducing exogenous HBB affects gout, making the rationale speculative.",
+    "source_statements": {
+      "E40": "Open Targets 26.09 gives HBB an evidence-only association score of 0.48472159 with gout.",
+      "E48": "ChEMBL 37 records Agent C12's mechanism as Hemoglobin beta chain exogenous gene.",
+      "E63": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), HBB connects to the Disease Target HBB in 0 steps: HBB. This is a network association, not a proven mechanism.",
+      "E74": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Heme assimilation' (R-HSA-9927020, 3 genes). Shared membership is not proof of effect.",
+      "E75": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Erythrocytes take up oxygen and release carbon dioxide' (R-HSA-1247673, 9 genes). Shared membership is not proof of effect.",
+      "E76": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Erythrocytes take up carbon dioxide and release oxygen' (R-HSA-1237044, 13 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0005277",
+    "candidate_id": "CHEMBL3301607",
+    "label": "C2",
+    "rationale": "Agent C2 has JAK-family inhibitor mechanisms, human JAK bioactivities, approval and network/pathway proximity to migraine targets (E65, E66, E67, E68, E69, E74, E75, E76, E131, E132, E133, E150, E155).",
+    "objection": "The JAK2 association is weak and the cited network/pathway items are non-causal, so inhibition direction remains unproven (E65, E67, E131).",
+    "source_statements": {
+      "E65": "Open Targets 26.09 gives JAK2 an evidence-only association score of 0.0073915522 with migraine disorder.",
+      "E66": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+      "E67": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+      "E68": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase TYK2 inhibitor.",
+      "E69": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK3 inhibitor.",
+      "E70": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK1 inhibitor.",
+      "E71": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK3 inhibitor.",
+      "E72": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase TYK2 inhibitor.",
+      "E73": "ChEMBL 37 records Agent C2's mechanism as Tyrosine-protein kinase JAK2 inhibitor.",
+      "E74": "ChEMBL 37 records a median pChEMBL of 7.13 across 35 human JAK2 activities for Agent C2.",
+      "E75": "ChEMBL 37 records a median pChEMBL of 7.3 across 37 human JAK1 activities for Agent C2.",
+      "E76": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+      "E131": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), JAK2 connects to the Disease Target ITGB5 in 2 steps: JAK2 – PTK2 – ITGB5. This is a network association, not a proven mechanism.",
+      "E132": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), TYK2 connects to the Disease Target TGFBR2 in 2 steps: TYK2 – CBL – TGFBR2. This is a network association, not a proven mechanism.",
+      "E133": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), JAK1 connects to the Disease Target LRP1 in 2 steps: JAK1 – EGFR – LRP1. This is a network association, not a proven mechanism.",
+      "E150": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Potential therapeutics for SARS' (R-HSA-9679191, 194 genes). Shared membership is not proof of effect.",
+      "E155": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Signaling by ALK fusions and activated point mutants' (R-HSA-9725370, 62 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0005133",
+    "candidate_id": "CHEMBL612",
+    "label": "C7",
+    "rationale": "Monoamine transporter releasing activity has no target association with endometriosis and only long indirect network paths.",
+    "objection": "No disease association for its targets and multiple black box warnings including misuse and neurotoxicity.",
+    "source_statements": {
+      "E71": "ChEMBL 37 records Agent C7's mechanism as Dopamine transporter releasing agent.",
+      "E75": "ChEMBL 37 records Agent C7's mechanism as Norepinephrine transporter releasing agent.",
+      "E79": "ChEMBL 37 records Agent C7's mechanism as Synaptic vesicular amine transporter inhibitor.",
+      "E83": "ChEMBL 37 records a median pChEMBL of 7.0 across 3 human SLC6A2 activities for Agent C7.",
+      "E84": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+      "E125": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SLC6A3 connects to the Disease Target YWHAE in 2 steps: SLC6A3 – NEDD4 – YWHAE. This is a network association, not a proven mechanism.",
+      "E126": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), SLC6A2 connects to the Disease Target PGR in 3 steps: SLC6A2 – SNCA – HSP90AA1 – PGR. This is a network association, not a proven mechanism."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0005133",
+    "candidate_id": "CHEMBL426084",
+    "label": "C14",
+    "rationale": "Opioid receptor associations with endometriosis are weak but the agent has potent opioid receptor bioactivity and network paths to disease targets.",
+    "objection": "OPRK1 and OPRM1 associations are very weak and mixed agonist/antagonist action gives no clear direction.",
+    "source_statements": {
+      "E29": "Open Targets 26.09 gives OPRK1 an evidence-only association score of 0.011826483 with endometriosis.",
+      "E30": "Open Targets 26.09 gives OPRM1 an evidence-only association score of 0.018587322 with endometriosis.",
+      "E40": "ChEMBL 37 records Agent C14's mechanism as Mu opioid receptor antagonist.",
+      "E41": "ChEMBL 37 records Agent C14's mechanism as Kappa opioid receptor partial agonist.",
+      "E42": "ChEMBL 37 records Agent C14's mechanism as Delta opioid receptor partial agonist.",
+      "E44": "ChEMBL 37 records a median pChEMBL of 9.64 across 1 human OPRK1 activities for Agent C14.",
+      "E45": "ChEMBL 37 records a median pChEMBL of 10.28 across 1 human OPRM1 activities for Agent C14.",
+      "E46": "ChEMBL 37 records a median pChEMBL of 8.59 across 1 human OPRD1 activities for Agent C14.",
+      "E47": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+      "E113": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), OPRM1 connects to the Disease Target FSHB in 2 steps: OPRM1 – GNB1 – FSHB. This is a network association, not a proven mechanism.",
+      "E114": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), OPRD1 connects to the Disease Target FSHB in 2 steps: OPRD1 – GNB1 – FSHB. This is a network association, not a proven mechanism."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0011786",
+    "candidate_id": "CHEMBL118",
+    "label": "C3",
+    "rationale": "COX-2 inhibition with ALOX15 zero-hop overlap and specialized pro-resolving mediator pathway membership is biologically pertinent to inflammation research.",
+    "objection": "Multiple black-box warnings and absence of rhinitis-specific benefit keep it below cleaner immune-targeted candidates.",
+    "source_statements": {
+      "E25": "Open Targets 26.09 gives ALOX15 an evidence-only association score of 0.43405738 with allergic rhinitis.",
+      "E27": "ChEMBL 37 records Agent C3's mechanism as Cyclooxygenase-2 inhibitor.",
+      "E36": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+      "E176": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), ALOX15 connects to the Disease Target ALOX15 in 0 steps: ALOX15. This is a network association, not a proven mechanism.",
+      "E213": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Biosynthesis of DPAn-6 SPMs' (R-HSA-9025106, 2 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  },
+  {
+    "model": "kimi-k3",
+    "disease_id": "MONDO_0015924",
+    "candidate_id": "CHEMBL1201010",
+    "label": "C13",
+    "rationale": "NR3C1/NR3C2 have modest disease associations, recorded agonist mechanism, bioactivity, approval and network or pathway proximity.",
+    "objection": "Agonism of mineralocorticoid or glucocorticoid receptors has no supplied beneficial direction in pulmonary arterial hypertension and could be harmful.",
+    "source_statements": {
+      "E1": "Open Targets 26.09 gives NR3C1 an evidence-only association score of 0.094433379 with pulmonary arterial hypertension.",
+      "E2": "Open Targets 26.09 gives NR3C2 an evidence-only association score of 0.096530465 with pulmonary arterial hypertension.",
+      "E3": "ChEMBL 37 records Agent C13's mechanism as Mineralocorticoid receptor agonist.",
+      "E4": "ChEMBL 37 records a median pChEMBL of 7.7 across 3 human NR3C1 activities for Agent C13.",
+      "E5": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+      "E59": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), NR3C1 connects to the Disease Target PPARGC1A in 1 step: NR3C1 – PPARGC1A. This is a network association, not a proven mechanism.",
+      "E60": "In the filtered STRING 12.5 physical network (combined score ≥ 700, direct experiments ≥ 400), NR3C2 connects to the Disease Target PPARGC1A in 2 steps: NR3C2 – NCOA1 – PPARGC1A. This is a network association, not a proven mechanism.",
+      "E75": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'FOXO-mediated transcription of oxidative stress, metabolic and neuronal genes' (R-HSA-9615017, 30 genes). Shared membership is not proof of effect.",
+      "E76": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Regulation of RUNX2 expression and activity' (R-HSA-8939902, 61 genes). Shared membership is not proof of effect.",
+      "E77": "In Reactome, at least one of this Candidate's Targets and at least one of the selected Disease Targets belong to 'Potential therapeutics for SARS' (R-HSA-9679191, 194 genes). Shared membership is not proof of effect."
+    },
+    "manual_entailment": "not_reviewed"
+  }
+]

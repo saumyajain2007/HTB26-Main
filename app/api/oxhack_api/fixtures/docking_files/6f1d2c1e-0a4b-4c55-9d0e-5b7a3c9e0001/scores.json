@@ -1,0 +1,13 @@
+{
+  "fixture": true,
+  "note": "Fixture result. No docking program was run: pose 1 is the crystal ligand and every score is a made-up placeholder, not a Vina score.",
+  "job_id": "6f1d2c1e-0a4b-4c55-9d0e-5b7a3c9e0001",
+  "structure_id": "6WTO_A",
+  "candidate_id": "CHEMBL2105759",
+  "scores": [
+    {
+      "pose": 1,
+      "score": -10.2
+    }
+  ]
+}

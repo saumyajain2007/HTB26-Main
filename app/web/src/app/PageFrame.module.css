@@ -1,0 +1,123 @@
+.page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: max(100dvh, 680px);
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+}
+
+.page[data-flow="document"] {
+  height: auto;
+  min-height: 100dvh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+  min-width: 0;
+  min-height: var(--header-height);
+  padding: 0 var(--page-gutter);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.product {
+  display: inline-flex;
+  flex: none;
+  gap: var(--space-8);
+  align-items: center;
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.productMark {
+  width: 24px;
+  height: 24px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  /* Panels hinge up in 3D on entry; their projection must never widen the page. */
+  overflow-x: clip;
+}
+
+/* Page head: the screen title, said once, and its intro. */
+
+.head {
+  padding: var(--space-32) var(--page-gutter);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: var(--text-title);
+  font-weight: var(--weight-semibold);
+  font-variation-settings: "opsz" 60;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: var(--measure);
+  margin-top: var(--space-8);
+  font-family: var(--font-serif);
+  font-size: var(--text-intro);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+/* The figure: each screen composes at most three panels here. */
+
+.figure {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 var(--page-gutter);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--footer-gap) var(--page-gutter) var(--space-24);
+}
+
+@media (max-width: 1360px) {
+  .header {
+    gap: var(--space-16);
+  }
+
+  .product {
+    font-size: var(--text-body);
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    height: auto;
+    min-height: 100dvh;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    flex-wrap: wrap;
+    column-gap: var(--space-16);
+  }
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  .head {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .intro {
+    margin-top: var(--space-4);
+  }
+}

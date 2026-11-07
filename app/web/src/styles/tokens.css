@@ -1,0 +1,293 @@
+/*
+ * Design tokens from docs/engineering/design.md, plus a small reset. Components use CSS Modules and read
+ * only these custom properties; no raw hex values or font sizes outside this file.
+ */
+
+:root {
+  /* Colour. Each role colour keeps one meaning on every step (Okabe-Ito); never decorate with one. */
+  --color-paper: #ffffff;
+  --color-ink: #000000;
+  --color-grey-1: #4d535a;
+  --color-grey-2: #6f757c;
+  --color-rule: #e1e4e8;
+  --color-placeholder: #a9aeb4;
+  --color-disease: #d55e00;
+  --color-drug: #0072b2;
+  --color-route: #009e73;
+  --color-contested: #e69f00;
+  --color-redock: #cc79a7;
+  /* 3D plates: neutral proteins and their links, drawn like the charts' greys. */
+  --color-node: #c7cbd0;
+  --color-edge: #a7acb2;
+  /* The binding pose: the target protein's backbone in a pale drug-target blue, so the drug in
+     ink stands out; the drug's other elements in muted standard chemistry colours. */
+  --color-backbone: #9fc2e2;
+  --color-element-n: #2a62c9;
+  --color-element-o: #d0352b;
+  --color-element-s: #d4a800;
+  --color-element-halogen: #3d8a4f;
+  /* Interaction states derived from ink and paper. */
+  --color-hover: #f1f2f4;
+  --color-ink-hover: #2a2d31;
+  /* A pale neutral ground that sets one band apart from the paper. */
+  --color-wash: #f5f6f7;
+
+  /* Type. Faces load locally from @fontsource (see src/main.tsx). */
+  --font-sans: "Instrument Sans Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+
+  /* Type scale at 1440 wide. */
+  --text-title: 44px; /* Step title, serif display */
+  --text-intro: 18px; /* Step intro, serif */
+  --text-body-lg: 17px; /* Panel titles, product name */
+  --text-body: 16px; /* Body */
+  --text-body-sm: 15px; /* Interface: nav, buttons, secondary body */
+  --text-label: 14px; /* Chart labels and axes, quiet notes */
+  --text-label-sm: 13px; /* Smallest chart labels */
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.3;
+  --leading-body: 1.5;
+
+  --weight-regular: 400;
+  --weight-medium: 550;
+  --weight-semibold: 600;
+  --weight-bold: 650;
+
+  /* Space: a 4/8px rhythm. */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-64: 64px;
+
+  /* Layout. */
+  --page-gutter: var(--space-48);
+  --page-max-width: 1920px;
+  --header-height: 64px;
+  --control-height: 40px;
+  /* The space above a step's Back and Next in the footer. */
+  --footer-gap: var(--space-16);
+  --radius-control: 2px;
+  --measure: 68ch;
+
+  /* Motion. */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-quick: 200ms;
+  --duration-step: 350ms;
+
+  /* The homepage story (Jessica's Half Life illustrations): night-lab navy, ice-blue ink. */
+  --story-night: #07172b;
+  --story-deep: #061328;
+  --story-ink: #f2f6fc;
+  --story-body: #d4e1f2;
+  --story-muted: #b7c9dc;
+  --story-accent: #b4d8ff;
+  --story-chip: #d4e8ff;
+  --story-chip-ink: #10233c;
+  --story-line: rgb(163 191 223 / 27%);
+  --story-ring: rgb(142 175 211 / 60%);
+  --story-mint: #9de2cf;
+  --story-amber: #ffcf8a;
+  --story-tape: #ecd3a2;
+  --story-tape-ink: #3b2b14;
+  /* Jessica's illustration palette on paper: indigo and violet over pale lavender. */
+  --story-navy-ink: #161a46;
+  --story-indigo: #3f46c8;
+  --story-violet: #6b54d6;
+  --story-periwinkle: #98aaea;
+  --story-lilac: #c3c8f2;
+  --story-lilac-rule: #dfe2f8;
+  --story-lavender: #f6f6fe;
+  --story-slate: #565b80;
+  --story-amber-deep: #e0912f;
+  --font-story: "Half Life Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ease-camera: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-settle: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 1360px) {
+  :root {
+    --page-gutter: 36px;
+  }
+}
+
+@media (min-width: 1700px) {
+  :root {
+    --page-gutter: var(--space-64);
+    --text-title: 52px;
+    --text-intro: 19px;
+  }
+}
+
+@media (max-height: 820px) and (min-width: 721px) {
+  :root {
+    --header-height: 56px;
+    --control-height: 36px;
+    --text-title: 36px;
+    --text-intro: 17px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page-gutter: var(--space-16);
+    --text-title: 32px;
+    --text-intro: 17px;
+  }
+}
+
+/* Reset. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ol,
+ul,
+dl,
+dd,
+figure,
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-grey-2);
+}
+
+a:hover {
+  text-decoration-color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+/*
+ * Panels that scroll show no scroll bar, so a bar never cuts into the figure: they still scroll
+ * by wheel, trackpad, touch and keyboard, and a row cut at the panel's edge (or its fade) says
+ * there is more. The page's own scroll bar, on the root, stays.
+ */
+body * {
+  scrollbar-width: none;
+}
+
+body *::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+ * The quiet cue in place of the bar: a panel that scrolls fades at its foot while there is more
+ * below, and the fade lifts as the end comes into view. A panel whose content fits never fades.
+ * Compose it into a scrolling panel's class: `composes: scroll-fade from global;`. Where scroll
+ * timelines aren't supported, the panel simply doesn't fade.
+ */
+@property --scroll-fade {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.scroll-fade {
+  mask-image: linear-gradient(
+    to bottom,
+    var(--color-ink) calc(100% - var(--scroll-fade)),
+    transparent
+  );
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-fade {
+    animation: scroll-fade linear both;
+    animation-timeline: scroll(self);
+  }
+}
+
+@keyframes scroll-fade {
+  0%,
+  90% {
+    --scroll-fade: var(--space-32);
+  }
+
+  100% {
+    --scroll-fade: 0px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

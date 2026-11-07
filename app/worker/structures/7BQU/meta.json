@@ -1,0 +1,57 @@
+{
+  "id": "7BQU_A",
+  "pdb_id": "7BQU",
+  "chain": "A",
+  "uniprot": [
+    "Q96SW2"
+  ],
+  "target_id": "ENSG00000113851",
+  "symbol": "CRBN",
+  "title": "Cereblon in complex with SALL4 and (S)-thalidomide",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.9,
+  "ligand": {
+    "comp_id": "EF2",
+    "name": "(S)-thalidomide",
+    "candidate_id": "CHEMBL426123",
+    "residue_number": "501",
+    "heavy_atoms": 19
+  },
+  "box_center": [
+    25.158,
+    17.655,
+    13.36
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "c1ccc2c(c1)C(=O)N(C2=O)[C@H]3CCC(=O)NC3=O",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 42,
+      "ZN": 1,
+      "EF2": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 25.158 17.655 13.360 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/7BQU.pdb",
+    "entry_sha256": "49cb005a2dfc158a0d0965a2a9e98da14197feaed3efd151b7420f8116bc2143",
+    "ligand": "https://models.rcsb.org/v1/7BQU/ligand?auth_asym_id=A&label_comp_id=EF2&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/EF2"
+  },
+  "prepared_on": "2026-10-25",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.17",
+    "posebusters": "0.6.5"
+  }
+}

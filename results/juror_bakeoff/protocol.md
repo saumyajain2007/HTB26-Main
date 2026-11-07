@@ -1,0 +1,13 @@
+# Pilot juror bake-off protocol
+
+Selection data only: the exact six panels in data/pilot/v2/panels.json, fifteen Candidates per panel. No new Diseases or Candidate selection. Reuse blinded v2_paths evidence and saved Zaid PathReconstructor exports; verify graph artifact hashes. Add Reactome 97 through pipeline.packets.add_pathways, exactly as Experiment B does. All joins remain stable IDs. Missing mappings are counted, never guessed. No new source download is needed.
+
+Run openai-gpt-5.5, openai-gpt-5.4, glm-5.3, kimi-k3 and grok-4.7 separately on every panel using jury-v7, production CortexModel and the current strict validator, including refusal handling. GPT, GLM and Kimi use low reasoning effort. Grok omits reasoning_effort (provider default); there is no extra capability probe. Settings and prompt hashes freeze before dispatch. Preserve every attempt's raw output, status, errors, usage and latency. Secrets come only from the environment and are never recorded.
+
+Thirty initial jobs, then at most ten retries, at most two attempts per job, using the seeded v2 job order. Retry uses Experiment B's validation-error feedback. No SDK retries. Experiment B's journal reserves a slot before dispatch; interruptions consume a slot. One lock owns the journal. Maximum forty live calls, including retries and any failed requests. Do not call availability probes.
+
+Report per-model valid ballots out of six, first-attempt validity, attempts, refusals, all other failures, blind Hits@5, MRR, median per-attempt latency, input and output tokens across all attempts. Missing usage remains unknown. Failed/invalid jobs are misses in all-six metrics. Chance references: 5/15 = 33.3% and H_15/15 = 0.221. These are uniform individual-ranking expectations, not significance tests or exact nulls for tied juries.
+
+Score six juries with no additional calls: each GPT crossed with GLM+Kimi, Kimi+Grok and GLM+Grok. Use current consensus unchanged: every valid juror, at least two; Borda competition ranks. Below two valid jurors there is no consensus and recovery is zero. Select a three-company jury by panels with consensus, then total valid constituent ballots, then Hits@5, then MRR. An exact tie retains the declared jury order. Attempts, latency and tokens remain descriptive.
+
+Report per-panel ranks and failures. Six reused selection panels support a practical choice, not a general performance or clinical claim. Earlier named-versus-blind comparisons showed a knowledge-leakage gap; known-alias prompt scans do not rule out recognition from Target/mechanism fingerprints. No manual entailment audit or new named-condition run is planned. Do not modify historical sealed results.

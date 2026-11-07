@@ -1,0 +1,271 @@
+/* The evaluation: a results table with dot-and-range marks, then what was tested beside it. */
+
+/* The way into the steps: the header's one button, styled like Next. */
+.start {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  margin-left: auto;
+  padding: 0 var(--space-16);
+  border-radius: var(--radius-control);
+  background: var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-paper);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.start:hover {
+  background: var(--color-ink-hover);
+}
+
+.results,
+.tested {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-height: 0;
+}
+
+.example {
+  align-self: flex-start;
+  padding: var(--space-4) var(--space-8);
+  border-left: 2px solid var(--color-contested);
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+/* All approved drugs / drugs every ranking can place: plain tabs, the chosen one underlined. */
+.toggle {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-24);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.tab {
+  margin-bottom: -1px;
+  padding: 0 0 var(--space-8);
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-2);
+}
+
+.tab:hover {
+  color: var(--color-ink);
+}
+
+.tab[aria-pressed="true"] {
+  border-bottom-color: var(--color-ink);
+  color: var(--color-ink);
+}
+
+/* Sideways only, on narrow screens; the page itself scrolls down. */
+.scroll {
+  position: relative; /* Holds the hidden range text, so it can't widen the page. */
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: var(--space-12) var(--space-16) var(--space-12) 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  padding-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  vertical-align: bottom;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.methodHead {
+  width: 30%;
+}
+
+.method {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+}
+
+.ours {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--text-label);
+  font-weight: var(--weight-regular);
+  color: var(--color-grey-2);
+}
+
+/* The random baseline: what chance alone finds, drawn quieter. */
+tr[data-baseline] .method,
+tr[data-baseline] .value {
+  color: var(--color-grey-2);
+}
+
+.cell {
+  min-width: 7.5em;
+}
+
+.value {
+  display: block;
+  font-size: var(--text-body);
+}
+
+.missing {
+  font-size: var(--text-label);
+  color: var(--color-placeholder);
+}
+
+/* A 0 to 1 track under each value: the dot is the value, the line its likely range. */
+.track {
+  position: relative;
+  display: block;
+  height: 12px;
+  margin-top: var(--space-4);
+}
+
+.track::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--color-rule);
+  content: "";
+}
+
+.whisker {
+  position: absolute;
+  top: calc(50% - 1px);
+  height: 2px;
+  background: var(--color-grey-2);
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  transform: translate(-50%, -50%);
+}
+
+tr[data-ours] .dot {
+  background: var(--color-route);
+}
+
+tr[data-baseline] .dot {
+  background: var(--color-grey-2);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--measure);
+  font-size: var(--text-label);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+.diseases {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-ink);
+}
+
+.disease {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.diseaseName {
+  font-size: var(--text-body);
+  font-weight: var(--weight-medium);
+}
+
+.diseaseMeta {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.disease:not([data-status="evaluated"]) .diseaseName {
+  color: var(--color-grey-2);
+}
+
+.limits ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-left: 1.1em;
+  list-style: disc;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+.limitsTitle {
+  margin-bottom: var(--space-8);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.record {
+  margin-top: auto;
+  font-size: var(--text-label-sm);
+  line-height: var(--leading-body);
+  color: var(--color-grey-2);
+  overflow-wrap: anywhere;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Phones: numbers only, and the table scrolls sideways under a fixed column of names. */
+@media (max-width: 720px) {
+  .track,
+  .rangeNote {
+    display: none;
+  }
+
+  .cell {
+    min-width: 5em;
+  }
+
+  .method {
+    position: sticky;
+    left: 0;
+    min-width: 9em;
+    background: var(--color-paper);
+  }
+}

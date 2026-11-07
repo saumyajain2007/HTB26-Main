@@ -1,0 +1,3701 @@
+{
+  "packet": {
+    "experiment_id": "4a50b3d1-8910-5e1c-a3c0-97e91f018b62",
+    "disease": {
+      "id": "MONDO_0005002",
+      "name": "chronic obstructive pulmonary disease"
+    },
+    "releases": [
+      "opentargets-26.09",
+      "chembl-37"
+    ],
+    "candidates": [
+      {
+        "label": "C1",
+        "candidate_id": "CHEMBL3813873",
+        "name": "Agent C1",
+        "targets": [
+          {
+            "id": "ENSG00000065675",
+            "name": "PRKCQ",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000113721",
+            "name": "PDGFRB",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000122025",
+            "name": "FLT3",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000134853",
+            "name": "PDGFRA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000157404",
+            "name": "KIT",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000182578",
+            "name": "CSF1R",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E100",
+          "E101",
+          "E102",
+          "E103",
+          "E104",
+          "E105",
+          "E106",
+          "E107",
+          "E108",
+          "E109",
+          "E110",
+          "E111",
+          "E112",
+          "E113",
+          "E114",
+          "E115",
+          "E116",
+          "E117",
+          "E118",
+          "E119"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C2",
+        "candidate_id": "CHEMBL2403108",
+        "name": "Agent C2",
+        "targets": [
+          {
+            "id": "ENSG00000047936",
+            "name": "ROS1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000085563",
+            "name": "ABCB1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000140443",
+            "name": "IGF1R",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000171094",
+            "name": "ALK",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000174292",
+            "name": "TNK1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000212122",
+            "name": "TSSK1B",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E61",
+          "E62",
+          "E63",
+          "E64",
+          "E65",
+          "E66",
+          "E67",
+          "E68",
+          "E69",
+          "E70",
+          "E71",
+          "E72",
+          "E73"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C3",
+        "candidate_id": "CHEMBL386630",
+        "name": "Agent C3",
+        "targets": [
+          {
+            "id": "ENSG00000082175",
+            "name": "PGR",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000129214",
+            "name": "SHBG",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000151067",
+            "name": "CACNA1C",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000160868",
+            "name": "CYP3A4",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000165409",
+            "name": "TSHR",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000169083",
+            "name": "AR",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E120",
+          "E121",
+          "E122",
+          "E123",
+          "E4",
+          "E124",
+          "E125",
+          "E126",
+          "E127",
+          "E128",
+          "E129",
+          "E130",
+          "E131",
+          "E132"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C4",
+        "candidate_id": "CHEMBL4594287",
+        "name": "Agent C4",
+        "targets": [
+          {
+            "id": "ENSG00000065989",
+            "name": "PDE4A",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000105650",
+            "name": "PDE4C",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000113448",
+            "name": "PDE4D",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000152270",
+            "name": "PDE3B",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000172572",
+            "name": "PDE3A",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000184588",
+            "name": "PDE4B",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E142",
+          "E143",
+          "E144",
+          "E145",
+          "E146",
+          "E147",
+          "E148",
+          "E149",
+          "E150"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C5",
+        "candidate_id": "CHEMBL2111112",
+        "name": "Agent C5",
+        "targets": [
+          {
+            "id": "ENSG00000055118",
+            "name": "KCNH2",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000120457",
+            "name": "KCNJ5",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000130037",
+            "name": "KCNA5",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000162989",
+            "name": "KCNJ3",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000171385",
+            "name": "KCND3",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000183873",
+            "name": "SCN5A",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E49",
+          "E50",
+          "E51",
+          "E52",
+          "E53",
+          "E54",
+          "E55",
+          "E56",
+          "E57",
+          "E58",
+          "E59",
+          "E60"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C6",
+        "candidate_id": "CHEMBL585",
+        "name": "Agent C6",
+        "targets": [
+          {
+            "id": "ENSG00000100030",
+            "name": "MAPK1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000111319",
+            "name": "SCNN1A",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000166828",
+            "name": "SCNN1G",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000168447",
+            "name": "SCNN1B",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E160",
+          "E161",
+          "E26",
+          "E162",
+          "E163",
+          "E164",
+          "E165",
+          "E166",
+          "E167"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C7",
+        "candidate_id": "CHEMBL103",
+        "name": "Agent C7",
+        "targets": [
+          {
+            "id": "ENSG00000082175",
+            "name": "PGR",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000113580",
+            "name": "NR3C1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000151623",
+            "name": "NR3C2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000169083",
+            "name": "AR",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000170099",
+            "name": "SERPINA6",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8",
+          "E9",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E17"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C8",
+        "candidate_id": "CHEMBL945",
+        "name": "Agent C8",
+        "targets": [
+          {
+            "id": "ENSG00000111319",
+            "name": "SCNN1A",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000166828",
+            "name": "SCNN1G",
+            "mechanism": "BLOCKER"
+          },
+          {
+            "id": "ENSG00000168447",
+            "name": "SCNN1B",
+            "mechanism": "BLOCKER"
+          }
+        ],
+        "evidence_ids": [
+          "E161",
+          "E162",
+          "E163",
+          "E168",
+          "E169",
+          "E170",
+          "E171"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C9",
+        "candidate_id": "CHEMBL3353410",
+        "name": "Agent C9",
+        "targets": [
+          {
+            "id": "ENSG00000061938",
+            "name": "TNK2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000065361",
+            "name": "ERBB3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000105639",
+            "name": "JAK3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000110619",
+            "name": "CARS1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000141736",
+            "name": "ERBB2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000146648",
+            "name": "EGFR",
+            "mechanism": "INHIBITOR"
+          }
+        ],
+        "evidence_ids": [
+          "E74",
+          "E75",
+          "E76",
+          "E77",
+          "E78",
+          "E79",
+          "E80",
+          "E81",
+          "E82",
+          "E83",
+          "E84",
+          "E85",
+          "E86",
+          "E87",
+          "E88"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C10",
+        "candidate_id": "CHEMBL38",
+        "name": "Agent C10",
+        "targets": [
+          {
+            "id": "ENSG00000077092",
+            "name": "RARB",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000131759",
+            "name": "RARA",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000172819",
+            "name": "RARG",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000197299",
+            "name": "BLM",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E18",
+          "E89",
+          "E19",
+          "E90",
+          "E91",
+          "E92",
+          "E93",
+          "E94",
+          "E95",
+          "E96",
+          "E97",
+          "E98",
+          "E99"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C11",
+        "candidate_id": "CHEMBL1766",
+        "name": "Agent C11",
+        "targets": [
+          {
+            "id": "ENSG00000082175",
+            "name": "PGR",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000100644",
+            "name": "HIF1A",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000113580",
+            "name": "NR3C1",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000160789",
+            "name": "LMNA",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E1",
+          "E25",
+          "E2",
+          "E26",
+          "E27",
+          "E28",
+          "E29",
+          "E30",
+          "E31",
+          "E32"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C12",
+        "candidate_id": "CHEMBL439849",
+        "name": "Agent C12",
+        "targets": [
+          {
+            "id": "ENSG00000103546",
+            "name": "SLC6A2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000108576",
+            "name": "SLC6A4",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000135914",
+            "name": "HTR2B",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000142319",
+            "name": "SLC6A3",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000147955",
+            "name": "SIGMAR1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000178394",
+            "name": "HTR1A",
+            "mechanism": "PARTIAL AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E35",
+          "E133",
+          "E134",
+          "E135",
+          "E37",
+          "E136",
+          "E137",
+          "E138",
+          "E139",
+          "E140",
+          "E141"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C13",
+        "candidate_id": "CHEMBL2104993",
+        "name": "Agent C13",
+        "targets": [
+          {
+            "id": "ENSG00000073756",
+            "name": "PTGS2",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000095303",
+            "name": "PTGS1",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000108576",
+            "name": "SLC6A4",
+            "mechanism": "INHIBITOR"
+          },
+          {
+            "id": "ENSG00000148680",
+            "name": "HTR7",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000166736",
+            "name": "HTR3A",
+            "mechanism": "ANTAGONIST"
+          },
+          {
+            "id": "ENSG00000178394",
+            "name": "HTR1A",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E33",
+          "E34",
+          "E35",
+          "E36",
+          "E37",
+          "E38",
+          "E39",
+          "E40",
+          "E41",
+          "E42",
+          "E43",
+          "E44",
+          "E45",
+          "E46",
+          "E47",
+          "E48"
+        ],
+        "safety_status": "warnings_recorded"
+      },
+      {
+        "label": "C14",
+        "candidate_id": "CHEMBL53",
+        "name": "Agent C14",
+        "targets": [
+          {
+            "id": "ENSG00000069696",
+            "name": "DRD4",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000072506",
+            "name": "HSD17B10",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000149295",
+            "name": "DRD2",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000151577",
+            "name": "DRD3",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000169676",
+            "name": "DRD5",
+            "mechanism": null
+          },
+          {
+            "id": "ENSG00000171873",
+            "name": "ADRA1D",
+            "mechanism": null
+          }
+        ],
+        "evidence_ids": [
+          "E151",
+          "E152",
+          "E153",
+          "E154",
+          "E155",
+          "E156",
+          "E157",
+          "E158",
+          "E159"
+        ],
+        "safety_status": "unknown"
+      },
+      {
+        "label": "C15",
+        "candidate_id": "CHEMBL1131",
+        "name": "Agent C15",
+        "targets": [
+          {
+            "id": "ENSG00000077092",
+            "name": "RARB",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000143171",
+            "name": "RXRG",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000172819",
+            "name": "RARG",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000186350",
+            "name": "RXRA",
+            "mechanism": "AGONIST"
+          },
+          {
+            "id": "ENSG00000204231",
+            "name": "RXRB",
+            "mechanism": "AGONIST"
+          }
+        ],
+        "evidence_ids": [
+          "E18",
+          "E19",
+          "E20",
+          "E21",
+          "E22",
+          "E23",
+          "E24"
+        ],
+        "safety_status": "warnings_recorded"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "E1",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000082175/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000082175/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PGR an evidence-only association score of 0.021985342 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.021985342
+        }
+      },
+      {
+        "id": "E2",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000113580/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000113580/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives NR3C1 an evidence-only association score of 0.40888569 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.40888569
+        }
+      },
+      {
+        "id": "E3",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000151623/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000151623/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives NR3C2 an evidence-only association score of 0.19035238 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.19035238
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000169083/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000169083/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives AR an evidence-only association score of 0.027168794 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.027168794
+        }
+      },
+      {
+        "id": "E5",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000170099/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000170099/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SERPINA6 an evidence-only association score of 0.13680118 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.13680118
+        }
+      },
+      {
+        "id": "E6",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1018",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1018.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C7's mechanism as PGR agonist.",
+        "values": {}
+      },
+      {
+        "id": "E7",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL103/CHEMBL1871",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL103&target_chembl_id=CHEMBL1871&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.865 across 14 human AR activities for Agent C7.",
+        "values": {
+          "median_pchembl": 7.865,
+          "n_activities": 14
+        }
+      },
+      {
+        "id": "E8",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL103/CHEMBL1994",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL103&target_chembl_id=CHEMBL1994&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.85 across 6 human NR3C2 activities for Agent C7.",
+        "values": {
+          "median_pchembl": 7.85,
+          "n_activities": 6
+        }
+      },
+      {
+        "id": "E9",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL103/CHEMBL2034",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL103&target_chembl_id=CHEMBL2034&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.52 across 10 human NR3C1 activities for Agent C7.",
+        "values": {
+          "median_pchembl": 7.52,
+          "n_activities": 10
+        }
+      },
+      {
+        "id": "E10",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL103/CHEMBL208",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL103&target_chembl_id=CHEMBL208&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.54 across 43 human PGR activities for Agent C7.",
+        "values": {
+          "median_pchembl": 8.54,
+          "n_activities": 43
+        }
+      },
+      {
+        "id": "E11",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL103/CHEMBL2421",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL103&target_chembl_id=CHEMBL2421&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.38 across 1 human SERPINA6 activities for Agent C7.",
+        "values": {
+          "median_pchembl": 7.38,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E12",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "0224b5a6-25a3-44c9-b94f-90e2e064c164",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0224b5a6-25a3-44c9-b94f-90e2e064c164",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E13",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1578",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=904c4dad-00c9-4c7a-810e-edcd9e535a56",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C7: cardiotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E14",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1579",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=904c4dad-00c9-4c7a-810e-edcd9e535a56",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C7: vascular toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E15",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1580",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=904c4dad-00c9-4c7a-810e-edcd9e535a56",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C7: neurotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E16",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2681",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d9e6ec7d-85ea-41a7-88ec-88cac22d5b7d",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C7: respiratory toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E17",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2682",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d9e6ec7d-85ea-41a7-88ec-88cac22d5b7d",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C7: carcinogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E18",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000077092/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000077092/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives RARB an evidence-only association score of 0.44330599 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.44330599
+        }
+      },
+      {
+        "id": "E19",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000172819/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000172819/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives RARG an evidence-only association score of 0.036214388 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.036214388
+        }
+      },
+      {
+        "id": "E20",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000186350/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000186350/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives RXRA an evidence-only association score of 0.019360939 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.019360939
+        }
+      },
+      {
+        "id": "E21",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1578",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1578.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C15's mechanism as Retinoid receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E22",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "993a5325-cd10-4450-b5ea-1c0a90510df6",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=993a5325-cd10-4450-b5ea-1c0a90510df6",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E23",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "26",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6af396c2-af3e-436d-ba9a-583637495910",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C15: teratogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E24",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "27",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6af396c2-af3e-436d-ba9a-583637495910",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C15: hepatotoxicity.",
+        "values": {}
+      },
+      {
+        "id": "E25",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000100644/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000100644/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives HIF1A an evidence-only association score of 0.11687934 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.11687934
+        }
+      },
+      {
+        "id": "E26",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000160789/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000160789/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives LMNA an evidence-only association score of 0.008179646 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.008179646
+        }
+      },
+      {
+        "id": "E27",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "794",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/794.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C11's mechanism as Glucocorticoid receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E28",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1766/CHEMBL1293235",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1766&target_chembl_id=CHEMBL1293235&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.6 across 1 human LMNA activities for Agent C11.",
+        "values": {
+          "median_pchembl": 8.6,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E29",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1766/CHEMBL2034",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1766&target_chembl_id=CHEMBL2034&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.76 across 2 human NR3C1 activities for Agent C11.",
+        "values": {
+          "median_pchembl": 8.76,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E30",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1766/CHEMBL208",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1766&target_chembl_id=CHEMBL208&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.48 across 1 human PGR activities for Agent C11.",
+        "values": {
+          "median_pchembl": 7.48,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E31",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL1766/CHEMBL4261",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL1766&target_chembl_id=CHEMBL4261&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.3 across 2 human HIF1A activities for Agent C11.",
+        "values": {
+          "median_pchembl": 8.3,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E32",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "612e53ec-720c-47ba-97bc-5db85064e33b",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=612e53ec-720c-47ba-97bc-5db85064e33b",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E33",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000073756/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000073756/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PTGS2 an evidence-only association score of 0.094863618 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.094863618
+        }
+      },
+      {
+        "id": "E34",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000095303/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000095303/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PTGS1 an evidence-only association score of 0.0071862313 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0071862313
+        }
+      },
+      {
+        "id": "E35",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000108576/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000108576/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SLC6A4 an evidence-only association score of 0.047200439 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.047200439
+        }
+      },
+      {
+        "id": "E36",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000166736/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000166736/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives HTR3A an evidence-only association score of 0.0029360888 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0029360888
+        }
+      },
+      {
+        "id": "E37",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000178394/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000178394/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives HTR1A an evidence-only association score of 0.0040653537 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0040653537
+        }
+      },
+      {
+        "id": "E38",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2236",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2236.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C13's mechanism as Serotonin 1a (5-HT1a) receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E39",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2237",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2237.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C13's mechanism as Serotonin transporter inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E40",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2238",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2238.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C13's mechanism as Serotonin 3a (5-HT3a) receptor antagonist.",
+        "values": {}
+      },
+      {
+        "id": "E41",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL1899",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL1899&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.43 across 1 human HTR3A activities for Agent C13.",
+        "values": {
+          "median_pchembl": 8.43,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E42",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL214",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL214&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.02 across 5 human HTR1A activities for Agent C13.",
+        "values": {
+          "median_pchembl": 8.02,
+          "n_activities": 5
+        }
+      },
+      {
+        "id": "E43",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL221",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL221&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.29 across 1 human PTGS1 activities for Agent C13.",
+        "values": {
+          "median_pchembl": 8.29,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E44",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL228",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL228&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.535 across 2 human SLC6A4 activities for Agent C13.",
+        "values": {
+          "median_pchembl": 8.535,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E45",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL230",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL230&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.51 across 1 human PTGS2 activities for Agent C13.",
+        "values": {
+          "median_pchembl": 8.51,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E46",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2104993/CHEMBL3155",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2104993&target_chembl_id=CHEMBL3155&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.58 across 5 human HTR7 activities for Agent C13.",
+        "values": {
+          "median_pchembl": 7.58,
+          "n_activities": 5
+        }
+      },
+      {
+        "id": "E47",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "1a5b68e2-14d0-419d-9ec6-1ca97145e838",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a5b68e2-14d0-419d-9ec6-1ca97145e838",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E48",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1992",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1a5b68e2-14d0-419d-9ec6-1ca97145e838",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C13: psychiatric toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E49",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000055118/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000055118/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNH2 an evidence-only association score of 0.19219357 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.19219357
+        }
+      },
+      {
+        "id": "E50",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000120457/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000120457/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNJ5 an evidence-only association score of 0.29910522 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.29910522
+        }
+      },
+      {
+        "id": "E51",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000130037/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000130037/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNA5 an evidence-only association score of 0.0052165879 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0052165879
+        }
+      },
+      {
+        "id": "E52",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000162989/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000162989/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCNJ3 an evidence-only association score of 0.0029566209 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0029566209
+        }
+      },
+      {
+        "id": "E53",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000171385/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000171385/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KCND3 an evidence-only association score of 0.3474798 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.3474798
+        }
+      },
+      {
+        "id": "E54",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000183873/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000183873/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCN5A an evidence-only association score of 0.48754094 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.48754094
+        }
+      },
+      {
+        "id": "E55",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7678",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7678.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as Kir3.1/Kir3.4 blocker.",
+        "values": {}
+      },
+      {
+        "id": "E56",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7679",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7679.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as Voltage-gated potassium channel subunit Kv1.5 blocker.",
+        "values": {}
+      },
+      {
+        "id": "E57",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7680",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7680.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as HERG blocker.",
+        "values": {}
+      },
+      {
+        "id": "E58",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7710",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7710.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as Voltage-gated potassium channel subunit Kv4.3 blocker.",
+        "values": {}
+      },
+      {
+        "id": "E59",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7711",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7711.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C5's mechanism as Sodium channel protein type V alpha subunit blocker.",
+        "values": {}
+      },
+      {
+        "id": "E60",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "emea/h/c/001215",
+        "url": "https://www.ema.europa.eu/en/medicines/human/EPAR/brinavess",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from EMA Human Drugs.",
+        "values": {}
+      },
+      {
+        "id": "E61",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000047936/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000047936/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ROS1 an evidence-only association score of 0.0425147 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0425147
+        }
+      },
+      {
+        "id": "E62",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000085563/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000085563/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ABCB1 an evidence-only association score of 0.081073366 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.081073366
+        }
+      },
+      {
+        "id": "E63",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000140443/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000140443/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives IGF1R an evidence-only association score of 0.049979852 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.049979852
+        }
+      },
+      {
+        "id": "E64",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000171094/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000171094/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ALK an evidence-only association score of 0.065164984 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.065164984
+        }
+      },
+      {
+        "id": "E65",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2293",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2293.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C2's mechanism as ALK tyrosine kinase receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E66",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "8636",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8636.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C2's mechanism as EML4-ALK inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E67",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "8638",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/8638.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C2's mechanism as NPM/ALK (Nucleophosmin/ALK tyrosine kinase receptor) inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E68",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2403108/CHEMBL4247",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2403108&target_chembl_id=CHEMBL4247&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.02 across 81 human ALK activities for Agent C2.",
+        "values": {
+          "median_pchembl": 8.02,
+          "n_activities": 81
+        }
+      },
+      {
+        "id": "E69",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2403108/CHEMBL4302",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2403108&target_chembl_id=CHEMBL4302&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.05 across 1 human ABCB1 activities for Agent C2.",
+        "values": {
+          "median_pchembl": 7.05,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E70",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2403108/CHEMBL5334",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2403108&target_chembl_id=CHEMBL5334&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.57 across 1 human TNK1 activities for Agent C2.",
+        "values": {
+          "median_pchembl": 7.57,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E71",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2403108/CHEMBL5568",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2403108&target_chembl_id=CHEMBL5568&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.66 across 15 human ROS1 activities for Agent C2.",
+        "values": {
+          "median_pchembl": 8.66,
+          "n_activities": 15
+        }
+      },
+      {
+        "id": "E72",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL2403108/CHEMBL6003",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL2403108&target_chembl_id=CHEMBL6003&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.64 across 1 human TSSK1B activities for Agent C2.",
+        "values": {
+          "median_pchembl": 7.64,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E73",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "fff5d805-4ffd-4e8e-8e63-6f129697563e",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fff5d805-4ffd-4e8e-8e63-6f129697563e",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E74",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000061938/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000061938/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives TNK2 an evidence-only association score of 0.013304794 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.013304794
+        }
+      },
+      {
+        "id": "E75",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000065361/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000065361/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ERBB3 an evidence-only association score of 0.20224635 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.20224635
+        }
+      },
+      {
+        "id": "E76",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000105639/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000105639/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives JAK3 an evidence-only association score of 0.012375555 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.012375555
+        }
+      },
+      {
+        "id": "E77",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000110619/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000110619/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CARS1 an evidence-only association score of 0.0036957761 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0036957761
+        }
+      },
+      {
+        "id": "E78",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000141736/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000141736/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives ERBB2 an evidence-only association score of 0.029905581 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.029905581
+        }
+      },
+      {
+        "id": "E79",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000146648/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000146648/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives EGFR an evidence-only association score of 0.12532791 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.12532791
+        }
+      },
+      {
+        "id": "E80",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2424",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2424.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C9's mechanism as Epidermal growth factor receptor erbB1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E81",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "5260",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/5260.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C9's mechanism as Epidermal growth factor receptor erbB1 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E82",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL1824",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL1824&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.32 across 3 human ERBB2 activities for Agent C9.",
+        "values": {
+          "median_pchembl": 8.32,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E83",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL203",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL203&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.855 across 288 human EGFR activities for Agent C9.",
+        "values": {
+          "median_pchembl": 7.855,
+          "n_activities": 288
+        }
+      },
+      {
+        "id": "E84",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL2148",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL2148&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.45 across 1 human JAK3 activities for Agent C9.",
+        "values": {
+          "median_pchembl": 7.45,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E85",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL4105937",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL4105937&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.92 across 1 human CARS1 activities for Agent C9.",
+        "values": {
+          "median_pchembl": 7.92,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E86",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL4599",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL4599&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.15 across 1 human TNK2 activities for Agent C9.",
+        "values": {
+          "median_pchembl": 7.15,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E87",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3353410/CHEMBL5838",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3353410&target_chembl_id=CHEMBL5838&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.68 across 1 human ERBB3 activities for Agent C9.",
+        "values": {
+          "median_pchembl": 8.68,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E88",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "5e81b4a7-b971-45e1-9c31-29cea8c87ce7",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e81b4a7-b971-45e1-9c31-29cea8c87ce7",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E89",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000131759/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000131759/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives RARA an evidence-only association score of 0.024104878 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.024104878
+        }
+      },
+      {
+        "id": "E90",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000197299/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000197299/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives BLM an evidence-only association score of 0.001847888 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.001847888
+        }
+      },
+      {
+        "id": "E91",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1575",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1575.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C10's mechanism as RARB/RARA/RARG agonist.",
+        "values": {}
+      },
+      {
+        "id": "E92",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL38/CHEMBL1293237",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL38&target_chembl_id=CHEMBL1293237&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.65 across 2 human BLM activities for Agent C10.",
+        "values": {
+          "median_pchembl": 7.65,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E93",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL38/CHEMBL2003",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL38&target_chembl_id=CHEMBL2003&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.0 across 45 human RARG activities for Agent C10.",
+        "values": {
+          "median_pchembl": 8.0,
+          "n_activities": 45
+        }
+      },
+      {
+        "id": "E94",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL38/CHEMBL2008",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL38&target_chembl_id=CHEMBL2008&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.89 across 47 human RARB activities for Agent C10.",
+        "values": {
+          "median_pchembl": 7.89,
+          "n_activities": 47
+        }
+      },
+      {
+        "id": "E95",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL38/CHEMBL2055",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL38&target_chembl_id=CHEMBL2055&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.82 across 45 human RARA activities for Agent C10.",
+        "values": {
+          "median_pchembl": 7.82,
+          "n_activities": 45
+        }
+      },
+      {
+        "id": "E96",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "074541c2-a89c-44b1-87dd-2327518c222e",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=074541c2-a89c-44b1-87dd-2327518c222e",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E97",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1921",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b22d5a07-623a-4645-b87d-a151b86da8d5",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C10: hematological toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E98",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1922",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9c4ae9d9-c2a0-4995-a27a-e3f0f0284db9",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C10: teratogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E99",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5054",
+        "url": "https://platform.opentargets.org/drug/CHEMBL38",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C10: carcinogenicity.",
+        "values": {}
+      },
+      {
+        "id": "E100",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000065675/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000065675/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PRKCQ an evidence-only association score of 0.0036957761 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0036957761
+        }
+      },
+      {
+        "id": "E101",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000113721/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000113721/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDGFRB an evidence-only association score of 0.077112483 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.077112483
+        }
+      },
+      {
+        "id": "E102",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000122025/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000122025/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives FLT3 an evidence-only association score of 0.0040653537 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0040653537
+        }
+      },
+      {
+        "id": "E103",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000134853/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000134853/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDGFRA an evidence-only association score of 0.056173894 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.056173894
+        }
+      },
+      {
+        "id": "E104",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000157404/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000157404/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives KIT an evidence-only association score of 0.060361599 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.060361599
+        }
+      },
+      {
+        "id": "E105",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000182578/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000182578/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CSF1R an evidence-only association score of 0.080782363 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.080782363
+        }
+      },
+      {
+        "id": "E106",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4796",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4796.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Macrophage colony stimulating factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E107",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4797",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4797.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E108",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "4798",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/4798.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Stem cell growth factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E109",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7389",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7389.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Macrophage colony stimulating factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E110",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7426",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7426.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Tyrosine-protein kinase receptor FLT3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E111",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "7427",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/7427.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C1's mechanism as Stem cell growth factor receptor inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E112",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1844",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1844&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.89 across 40 human CSF1R activities for Agent C1.",
+        "values": {
+          "median_pchembl": 7.89,
+          "n_activities": 40
+        }
+      },
+      {
+        "id": "E113",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1913",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1913&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.44 across 3 human PDGFRB activities for Agent C1.",
+        "values": {
+          "median_pchembl": 7.44,
+          "n_activities": 3
+        }
+      },
+      {
+        "id": "E114",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1936",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1936&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.57 across 13 human KIT activities for Agent C1.",
+        "values": {
+          "median_pchembl": 7.57,
+          "n_activities": 13
+        }
+      },
+      {
+        "id": "E115",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL1974",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL1974&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.96 across 17 human FLT3 activities for Agent C1.",
+        "values": {
+          "median_pchembl": 7.96,
+          "n_activities": 17
+        }
+      },
+      {
+        "id": "E116",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL2007",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL2007&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.02 across 4 human PDGFRA activities for Agent C1.",
+        "values": {
+          "median_pchembl": 8.02,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E117",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL3813873/CHEMBL3920",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL3813873&target_chembl_id=CHEMBL3920&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.22 across 1 human PRKCQ activities for Agent C1.",
+        "values": {
+          "median_pchembl": 8.22,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E118",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2019/211810s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/211810s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E119",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1485",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24c5a6f1-b640-4d14-b44b-dd293ed002b1",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C1: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E120",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000129214/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000129214/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SHBG an evidence-only association score of 0.015051376 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.015051376
+        }
+      },
+      {
+        "id": "E121",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000151067/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000151067/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CACNA1C an evidence-only association score of 0.015525879 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.015525879
+        }
+      },
+      {
+        "id": "E122",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000160868/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000160868/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives CYP3A4 an evidence-only association score of 0.031098907 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.031098907
+        }
+      },
+      {
+        "id": "E123",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000165409/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000165409/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives TSHR an evidence-only association score of 0.0077611298 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0077611298
+        }
+      },
+      {
+        "id": "E124",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1329",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1329.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C3's mechanism as AR agonist.",
+        "values": {}
+      },
+      {
+        "id": "E125",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL1871",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL1871&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.5 across 13 human AR activities for Agent C3.",
+        "values": {
+          "median_pchembl": 8.5,
+          "n_activities": 13
+        }
+      },
+      {
+        "id": "E126",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL1940",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL1940&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.445 across 2 human CACNA1C activities for Agent C3.",
+        "values": {
+          "median_pchembl": 7.445,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E127",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL1963",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL1963&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.5 across 2 human TSHR activities for Agent C3.",
+        "values": {
+          "median_pchembl": 7.5,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E128",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL208",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL208&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.04 across 1 human PGR activities for Agent C3.",
+        "values": {
+          "median_pchembl": 7.04,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E129",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL3305",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL3305&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.524999999999999 across 2 human SHBG activities for Agent C3.",
+        "values": {
+          "median_pchembl": 8.524999999999999,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E130",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL386630/CHEMBL340",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL386630&target_chembl_id=CHEMBL340&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.33 across 6 human CYP3A4 activities for Agent C3.",
+        "values": {
+          "median_pchembl": 7.33,
+          "n_activities": 6
+        }
+      },
+      {
+        "id": "E131",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "03b9c0b1-5884-11e4-8ed6-0800200c9a66",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=03b9c0b1-5884-11e4-8ed6-0800200c9a66",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E132",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2762",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=54fcdcb9-fb0e-4164-9e51-f2a5feae3217",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C3: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E133",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000135914/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000135914/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives HTR2B an evidence-only association score of 0.018365954 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.018365954
+        }
+      },
+      {
+        "id": "E134",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000142319/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000142319/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SLC6A3 an evidence-only association score of 0.0036957761 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0036957761
+        }
+      },
+      {
+        "id": "E135",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000147955/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000147955/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SIGMAR1 an evidence-only association score of 0.0022174656 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0022174656
+        }
+      },
+      {
+        "id": "E136",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "403",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/403.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C12's mechanism as Serotonin transporter inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E137",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "473",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/473.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C12's mechanism as Serotonin 1a (5-HT1a) receptor partial agonist.",
+        "values": {}
+      },
+      {
+        "id": "E138",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL439849/CHEMBL214",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL439849&target_chembl_id=CHEMBL214&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.52 across 11 human HTR1A activities for Agent C12.",
+        "values": {
+          "median_pchembl": 9.52,
+          "n_activities": 11
+        }
+      },
+      {
+        "id": "E139",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL439849/CHEMBL228",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL439849&target_chembl_id=CHEMBL228&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 9.32 across 7 human SLC6A4 activities for Agent C12.",
+        "values": {
+          "median_pchembl": 9.32,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E140",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "4c55ccfb-c4cf-11df-851a-0800200c9a66",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c55ccfb-c4cf-11df-851a-0800200c9a66",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E141",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "1982",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=bfef9e19-d0f5-40fa-954c-b73c812eb242",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C12: psychiatric toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E142",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000065989/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000065989/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE4A an evidence-only association score of 0.074451951 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.074451951
+        }
+      },
+      {
+        "id": "E143",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000105650/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000105650/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE4C an evidence-only association score of 0.012935216 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.012935216
+        }
+      },
+      {
+        "id": "E144",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000113448/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000113448/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE4D an evidence-only association score of 0.037090771 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.037090771
+        }
+      },
+      {
+        "id": "E145",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000152270/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000152270/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE3B an evidence-only association score of 0.0050003725 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.0050003725
+        }
+      },
+      {
+        "id": "E146",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000172572/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000172572/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE3A an evidence-only association score of 0.009583558 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.009583558
+        }
+      },
+      {
+        "id": "E147",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000184588/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000184588/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives PDE4B an evidence-only association score of 0.019419115 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.019419115
+        }
+      },
+      {
+        "id": "E148",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9523",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9523.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C4's mechanism as Phosphodiesterase 4 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E149",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "9528",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/9528.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C4's mechanism as Phosphodiesterase 3 inhibitor.",
+        "values": {}
+      },
+      {
+        "id": "E150",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "label/2024/217389s000lbl.pdf",
+        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/217389s000lbl.pdf",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from FDA.",
+        "values": {}
+      },
+      {
+        "id": "E151",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000069696/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000069696/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives DRD4 an evidence-only association score of 0.018663669 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.018663669
+        }
+      },
+      {
+        "id": "E152",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000149295/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000149295/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives DRD2 an evidence-only association score of 0.35312549 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.35312549
+        }
+      },
+      {
+        "id": "E153",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "2020",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/2020.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C14's mechanism as D2-like dopamine receptor agonist.",
+        "values": {}
+      },
+      {
+        "id": "E154",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL1850",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL1850&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.27 across 2 human DRD5 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.27,
+          "n_activities": 2
+        }
+      },
+      {
+        "id": "E155",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL217",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL217&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.55 across 39 human DRD2 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.55,
+          "n_activities": 39
+        }
+      },
+      {
+        "id": "E156",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL219",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL219&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.364999999999998 across 4 human DRD4 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 8.364999999999998,
+          "n_activities": 4
+        }
+      },
+      {
+        "id": "E157",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL223",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL223&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.19 across 1 human ADRA1D activities for Agent C14.",
+        "values": {
+          "median_pchembl": 7.19,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E158",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL53/CHEMBL234",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL53&target_chembl_id=CHEMBL234&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 8.0 across 7 human DRD3 activities for Agent C14.",
+        "values": {
+          "median_pchembl": 8.0,
+          "n_activities": 7
+        }
+      },
+      {
+        "id": "E159",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "3235535d-9ef9-4657-8b2a-176a807d091c",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3235535d-9ef9-4657-8b2a-176a807d091c",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E160",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000100030/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000100030/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives MAPK1 an evidence-only association score of 0.073073888 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.073073888
+        }
+      },
+      {
+        "id": "E161",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000111319/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000111319/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCNN1A an evidence-only association score of 0.7896495 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.7896495
+        }
+      },
+      {
+        "id": "E162",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000166828/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000166828/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCNN1G an evidence-only association score of 0.7560782 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.7560782
+        }
+      },
+      {
+        "id": "E163",
+        "kind": "target_association",
+        "source": "open_targets",
+        "source_id": "ENSG00000168447/MONDO_0005002",
+        "url": "https://platform.opentargets.org/evidence/ENSG00000168447/MONDO_0005002",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 gives SCNN1B an evidence-only association score of 0.80326854 with chronic obstructive pulmonary disease.",
+        "values": {
+          "evidence_only_score": 0.80326854
+        }
+      },
+      {
+        "id": "E164",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1255",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1255.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C6's mechanism as SCNN1A/SCNN1G/SCNN1B blocker.",
+        "values": {}
+      },
+      {
+        "id": "E165",
+        "kind": "bioactivity",
+        "source": "chembl",
+        "source_id": "CHEMBL585/CHEMBL4040",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?molecule_chembl_id=CHEMBL585&target_chembl_id=CHEMBL4040&pchembl_value__isnull=false",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records a median pChEMBL of 7.6 across 1 human MAPK1 activities for Agent C6.",
+        "values": {
+          "median_pchembl": 7.6,
+          "n_activities": 1
+        }
+      },
+      {
+        "id": "E166",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "011c3f7c-e864-4adc-b430-13b4e07d02b0",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=011c3f7c-e864-4adc-b430-13b4e07d02b0",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E167",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2789",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a09c2212-1dd5-4fbe-ad09-2a57aeabcaea",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C6: metabolic toxicity.",
+        "values": {}
+      },
+      {
+        "id": "E168",
+        "kind": "mechanism",
+        "source": "chembl",
+        "source_id": "1256",
+        "url": "https://www.ebi.ac.uk/chembl/api/data/mechanism/1256.json",
+        "release": "chembl-37",
+        "statement": "ChEMBL 37 records Agent C8's mechanism as SCNN1A/SCNN1G/SCNN1B blocker.",
+        "values": {}
+      },
+      {
+        "id": "E169",
+        "kind": "approval",
+        "source": "open_targets",
+        "source_id": "0d1c0095-8dde-ab90-757b-d031b232e622",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0d1c0095-8dde-ab90-757b-d031b232e622",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a regulator-backed approval from DailyMed.",
+        "values": {}
+      },
+      {
+        "id": "E170",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "5",
+        "url": "https://platform.opentargets.org/drug/CHEMBL945",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C8: toxicity class unspecified.",
+        "values": {}
+      },
+      {
+        "id": "E171",
+        "kind": "warning",
+        "source": "open_targets",
+        "source_id": "2304",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2b70cf0c-45be-428f-b396-5001ed4e30fc",
+        "release": "opentargets-26.09",
+        "statement": "Open Targets 26.09 records a Black Box Warning for Agent C8: metabolic toxicity.",
+        "values": {}
+      }
+    ]
+  },
+  "name_aliases": [
+    "1,4-cineole 2-exo-monooxygenase",
+    "1,8-cineole 2-exo-monooxygenase",
+    "13-cis retinoic acid",
+    "13-cis-retinoic acid",
+    "17-beta-estradiol 17-dehydrogenase",
+    "17b-HSD10",
+    "2-methyl-3-hydroxybutyryl-CoA dehydrogenase",
+    "3',5'-cyclic-AMP phosphodiesterase 4A",
+    "3',5'-cyclic-AMP phosphodiesterase 4B",
+    "3',5'-cyclic-AMP phosphodiesterase 4C",
+    "3',5'-cyclic-AMP phosphodiesterase 4D",
+    "3-alpha-(17-beta)-hydroxysteroid dehydrogenase (NAD(+))",
+    "3-hydroxy-2-methylbutyryl-CoA dehydrogenase",
+    "3-hydroxyacyl-CoA dehydrogenase type II",
+    "3-hydroxyacyl-CoA dehydrogenase type-2",
+    "3alpha(or 20beta)-hydroxysteroid dehydrogenase",
+    "4MK",
+    "5-HT 2B receptor",
+    "5-HT(2B)",
+    "5-HT-1A",
+    "5-HT-2B",
+    "5-HT-3",
+    "5-HT-7",
+    "5-HT-X",
+    "5-HT1A",
+    "5-HT1a receptor",
+    "5-HT2B",
+    "5-HT3-A",
+    "5-HT3A",
+    "5-HT3R",
+    "5-HT7",
+    "5-HTT",
+    "5-HTTLPR",
+    "5-hydroxytryptamine (serotonin) receptor 1A, G protein-coupled",
+    "5-hydroxytryptamine (serotonin) receptor 2B, G protein-coupled",
+    "5-hydroxytryptamine (serotonin) receptor 3A, ionotropic",
+    "5-hydroxytryptamine (serotonin) receptor 7 (adenylate cyclase-coupled)",
+    "5-hydroxytryptamine (serotonin) transporter",
+    "5-hydroxytryptamine 2B receptor",
+    "5-hydroxytryptamine receptor 1A",
+    "5-hydroxytryptamine receptor 2B",
+    "5-hydroxytryptamine receptor 3",
+    "5-hydroxytryptamine receptor 3A",
+    "5-hydroxytryptamine receptor 7",
+    "5HT transporter",
+    "5HT1a",
+    "5HT3 receptor",
+    "5HT3 serotonin receptor",
+    "5HT3R",
+    "5HTT",
+    "6a.beta.-aporphine-10,11-diol",
+    "7-alpha-hydroxysteroid dehydrogenase",
+    "70 kDa lamin",
+    "9 cis retinoic acid",
+    "A-41-304",
+    "A-41304",
+    "A-type voltage-gated potassium channel KCND3",
+    "AAG8",
+    "ABC20",
+    "ABCB1",
+    "ACK-1",
+    "ACK1",
+    "ACRDYS2",
+    "ADRA1",
+    "ADRA1A",
+    "ADRA1D",
+    "ADRA1R",
+    "ADRB2RL1",
+    "ADRBRL1",
+    "ALK1",
+    "ALPHA1",
+    "ALS16",
+    "APL-130277",
+    "AR8",
+    "ATFB7",
+    "ATP binding cassette subfamily B member 1",
+    "ATP-binding cassette sub-family B member 1",
+    "ATP-binding cassette, sub-family B (MDR/TAP), member 1",
+    "ATP-dependent translocase ABCB1",
+    "AZD-9291",
+    "AZD-9291 FREE BASE",
+    "AZD-9291 MESYLATE",
+    "AZD9291",
+    "AZD9291 mesylate",
+    "Activated CDC42 kinase 1",
+    "Aging-associated gene 8 protein",
+    "Alpha-1A adrenergic receptor",
+    "Alpha-1D adrenergic receptor",
+    "Alpha-1D adrenoceptor",
+    "Alpha-1D adrenoreceptor",
+    "Alpha-adrenergic receptor 1a",
+    "Amilospare 5",
+    "Androgel 1%",
+    "Azd-9291",
+    "BESC1",
+    "BESC2",
+    "BESC3",
+    "BHLHE78",
+    "BRGDA9",
+    "Basic-helix-loop-helix-PAS protein MOP1",
+    "CACH2",
+    "CACN2",
+    "CACNA1C",
+    "CACNA1C intronic transcript 2",
+    "CACNA1C intronic transcript 2 (non-protein coding)",
+    "CACNA1C-IT2",
+    "CACNL1A1",
+    "CARS1",
+    "CCHL1A1",
+    "CD115",
+    "CD115 antigen",
+    "CD117",
+    "CD135",
+    "CD135 antigen",
+    "CD140 antigen-like family member A",
+    "CD140 antigen-like family member B",
+    "CD140A",
+    "CD140B",
+    "CD140a",
+    "CD140a antigen",
+    "CD140b",
+    "CD221",
+    "CD243",
+    "CD246",
+    "CD246 antigen",
+    "CD340",
+    "CD38 negative kinase 1",
+    "CDCD1",
+    "CDCD2",
+    "CERITINIB (LDK378)",
+    "CGIP1",
+    "CGIPDE1",
+    "CHEMBL103",
+    "CHEMBL1131",
+    "CHEMBL1398126",
+    "CHEMBL1615374",
+    "CHEMBL1766",
+    "CHEMBL2104993",
+    "CHEMBL2107383",
+    "CHEMBL2107387",
+    "CHEMBL2111112",
+    "CHEMBL2403108",
+    "CHEMBL3187985",
+    "CHEMBL3353410",
+    "CHEMBL3545063",
+    "CHEMBL38",
+    "CHEMBL3813873",
+    "CHEMBL386630",
+    "CHEMBL3989973",
+    "CHEMBL439849",
+    "CHEMBL4594287",
+    "CHEMBL53",
+    "CHEMBL5314578",
+    "CHEMBL585",
+    "CHEMBL6068008",
+    "CHEMBL945",
+    "CHNG1",
+    "CMD1A",
+    "CMD1E",
+    "CML-261",
+    "CMPD2",
+    "CMT2B1",
+    "COX-1",
+    "COX-2",
+    "COX1",
+    "COX2",
+    "COX3",
+    "CP33",
+    "CP34",
+    "CPD 15",
+    "CSF-1 receptor",
+    "CSF-1-R",
+    "CSF-1R",
+    "CSF1R",
+    "CYP3A",
+    "CYP3A3",
+    "CYP3A4",
+    "CYPIIIA3",
+    "CYPIIIA4",
+    "CaV1.2",
+    "Calcium channel, L type, alpha-1 polypeptide, isoform 1, cardiac muscle",
+    "Cav1.2",
+    "Cholesterol 25-hydroxylase",
+    "Class E basic helix-loop-helix protein 78",
+    "Cyclooxygenase-1",
+    "Cyclooxygenase-2",
+    "Cytochrome P450",
+    "Cytochrome P450 3A3",
+    "Cytochrome P450 3A4",
+    "Cytochrome P450 HLp",
+    "Cytochrome P450 NF-25",
+    "Cytochrome P450 family 3",
+    "Cytochrome P450 family 3A",
+    "Cytochrome P450-PCN1",
+    "D(1B) dopamine receptor",
+    "D(2) dopamine receptor",
+    "D(2C) dopamine receptor",
+    "D(3) dopamine receptor",
+    "D(4) dopamine receptor",
+    "D(5) dopamine receptor",
+    "D1beta dopamine receptor",
+    "D2DR",
+    "D2R",
+    "D3DR",
+    "D4DR",
+    "DAT1",
+    "DAUDI6",
+    "DHPR, alpha-1 subunit",
+    "DNA 3'-5' helicase BLM",
+    "DNA helicase, RecQ-like type 2",
+    "DPDE1",
+    "DPDE2",
+    "DPDE3",
+    "DPDE4",
+    "DRD1B",
+    "DRD1L2",
+    "DRD2",
+    "DRD3",
+    "DRD4",
+    "DRD5",
+    "DSMA2",
+    "DUPXp11.22",
+    "Dopamine D2 receptor",
+    "Dopamine D3 receptor",
+    "Dopamine D4 receptor",
+    "Dopamine D5 receptor",
+    "Dopamine receptor D2",
+    "Dopamine receptor D3",
+    "Dopamine receptor D4",
+    "Dopamine receptor D5",
+    "EMD 515259",
+    "EMD 68 843",
+    "EMD 68843 BASE",
+    "EMD-515259",
+    "EMD-68-843",
+    "EMD-68843",
+    "EMD2",
+    "ERBB1",
+    "ERBB2",
+    "ERBB3",
+    "ERG-1",
+    "ERG1",
+    "ERK-2",
+    "ERK2",
+    "ERT1",
+    "ETM1",
+    "Eag-related protein 1",
+    "Emd-68843 base",
+    "ErbB-3",
+    "Ether-a-go-go-related gene potassium channel 1",
+    "Ether-a-go-go-related protein 1",
+    "Extracellular signal-regulated kinase 2",
+    "FET1",
+    "FIM2",
+    "FKSG81",
+    "FLK-2",
+    "FLK2",
+    "FLT-3",
+    "FLT3",
+    "FP-113",
+    "FPLD2",
+    "Fetal liver kinase-2",
+    "Fms-like tyrosine kinase 3",
+    "G protein-activated inward rectifier potassium channel 1",
+    "G protein-activated inward rectifier potassium channel 4",
+    "G-21",
+    "GAS9",
+    "GIRK-1",
+    "GIRK-4",
+    "GIRK1",
+    "GIRK4",
+    "GP170",
+    "H-2RIIBP",
+    "HADH2",
+    "HB1",
+    "HB2",
+    "HCD2",
+    "HCK1",
+    "HDLS1",
+    "HER-2",
+    "HER-2/neu",
+    "HER1",
+    "HER2",
+    "HER3",
+    "HERG1",
+    "HH1",
+    "HIF-1-alpha",
+    "HIF-1A",
+    "HIF-1alpha",
+    "HIF1",
+    "HIF1-ALPHA",
+    "HIF1-alpha",
+    "HIF1A",
+    "HK2",
+    "HMNR2",
+    "HOE 304",
+    "HOE-304",
+    "HPCN1",
+    "HPCX3",
+    "HSD10MD",
+    "HSD17B10",
+    "HSPDE4D",
+    "HTR1A",
+    "HTR2B",
+    "HTR3",
+    "HTR3A",
+    "HTR7",
+    "HYSP1",
+    "HcGIP1",
+    "Hypoxia-inducible factor 1-alpha",
+    "IBGC4",
+    "IGF1R",
+    "IMF1",
+    "IRK-4",
+    "Insulin-like growth factor 1 receptor",
+    "Insulin-like growth factor 1 receptor alpha chain",
+    "Insulin-like growth factor 1 receptor beta chain",
+    "Inward rectifier K(+) channel Kir3.1",
+    "Inward rectifier K(+) channel Kir3.4",
+    "J83.644C",
+    "JAK-3",
+    "JAK3",
+    "JAK3_HUMAN",
+    "JTK12",
+    "JTK13",
+    "Janus kinase 3",
+    "Janus kinase 3 (a protein tyrosine kinase, leukocyte)",
+    "KATP-1",
+    "KATP1",
+    "KCNA5",
+    "KCND3",
+    "KCND3L",
+    "KCND3S",
+    "KCNH2",
+    "KCNJ3",
+    "KCNJ5",
+    "KIR3.1",
+    "KIR3.4",
+    "KOS1",
+    "KV1.5",
+    "KV4.3",
+    "Kir3.1",
+    "Kir3.4",
+    "Kv1.5",
+    "Kv11.1",
+    "Kv4.3",
+    "Kw-6500",
+    "LCCS2",
+    "LDK 378",
+    "LDK-378",
+    "LDK378",
+    "LDLS2",
+    "LDP1",
+    "LGMD1B",
+    "LGR3",
+    "LIDLS1",
+    "LIDLS3",
+    "LMN1",
+    "LMNL1",
+    "LQT13",
+    "LQT2",
+    "LQT3",
+    "LQT8",
+    "LU AA 21004 HYDROBROMIDE",
+    "LU AA21004",
+    "LU-AA21004",
+    "LU-AA21004 HBR",
+    "LUAA21004",
+    "Ls-193,855",
+    "Ls-193855",
+    "Lu AA21004 (HBr)",
+    "Lu aa21004 hbr",
+    "Lu-aa21004 hydrobromide",
+    "MAP kinase 1",
+    "MAP kinase 2",
+    "MAP kinase isoform p42",
+    "MAPK 1",
+    "MAPK 2",
+    "MAPK1",
+    "MAPK2",
+    "MCF3",
+    "MCOPS12",
+    "MDA-BF-1",
+    "MDR1",
+    "MGC126834",
+    "MGC138391",
+    "MGC18216",
+    "MGC:11246",
+    "MGRISCE1",
+    "MLN 19",
+    "MLN-19",
+    "MLN19",
+    "MOP1",
+    "MRPP2",
+    "MRX17",
+    "MRX31",
+    "MRXS10",
+    "Macrophage colony-stimulating factor 1 receptor",
+    "Member of PAS protein 1",
+    "Metastatic lymph node gene 19 protein",
+    "Mitochondrial RNase P protein 2",
+    "Mitochondrial ribonuclease P protein 2",
+    "Mitogen-activated protein kinase 1",
+    "Mitogen-activated protein kinase 2",
+    "Multidrug resistance protein 1",
+    "NAT1",
+    "NBLST3",
+    "NET1",
+    "NF-25",
+    "NISBD2",
+    "NR1B1",
+    "NR1B2",
+    "NR1B3",
+    "NR2B1",
+    "NR2B2",
+    "NR2B3",
+    "NR3C1",
+    "NR3C2",
+    "NR3C2VIT",
+    "NR3C3",
+    "NR3C4",
+    "NS13",
+    "NSC-122758",
+    "NSC-639359",
+    "NSC-64377",
+    "NSC-755847",
+    "NSC-755875",
+    "NSC-759189",
+    "NSC-77625",
+    "NSC-9700",
+    "NSC-9704",
+    "NVP-LDK-378-NX",
+    "NVP-LDK378-NX",
+    "Nav1.5",
+    "Non-receptor tyrosine-protein kinase TNK1",
+    "Nonvoltage-gated sodium channel 1 subunit alpha",
+    "Nonvoltage-gated sodium channel 1 subunit beta",
+    "Nonvoltage-gated sodium channel 1 subunit gamma",
+    "Nuclear hormone receptor subfamily 1",
+    "Nuclear hormone receptor subfamily 1 group B",
+    "Nuclear hormone receptor subfamily 1 group B member 1",
+    "Nuclear hormone receptor subfamily 1 group B member 2",
+    "Nuclear hormone receptor subfamily 1 group B member 3",
+    "Nuclear hormone receptor subfamily 2",
+    "Nuclear hormone receptor subfamily 2 group B",
+    "Nuclear hormone receptor subfamily 2 group B member 1",
+    "Nuclear hormone receptor subfamily 2 group B member 2",
+    "Nuclear hormone receptor subfamily 2 group B member 3",
+    "Nuclear hormone receptor subfamily 3",
+    "Nuclear hormone receptor subfamily 3 group C",
+    "Nuclear hormone receptor subfamily 3 group C member 1",
+    "Nuclear hormone receptor subfamily 3 group C member 2",
+    "Nuclear hormone receptor subfamily 3 group C member 3",
+    "Nuclear hormone receptor subfamily 3 group C member 4",
+    "Nuclear receptor subfamily 1 group B member 1",
+    "Nuclear receptor subfamily 1 group B member 2",
+    "Nuclear receptor subfamily 1 group B member 3",
+    "Nuclear receptor subfamily 2 group B member 1",
+    "Nuclear receptor subfamily 2 group B member 2",
+    "Nuclear receptor subfamily 2 group B member 3",
+    "Nuclear receptor subfamily 3 group C member 1",
+    "Nuclear receptor subfamily 3 group C member 2",
+    "Nuclear receptor subfamily 3 group C member 3",
+    "Nuclear receptor subfamily 3 group C member 4",
+    "OCD1",
+    "OPRS1",
+    "Osimertinib-d3",
+    "P-glycoprotein 1",
+    "P42MAPK",
+    "P450-III, steroid inducible",
+    "P450C3",
+    "P450PCN1",
+    "PAS domain-containing protein 8",
+    "PASD8",
+    "PCN1",
+    "PCOX1",
+    "PDE21",
+    "PDE32",
+    "PDE3A",
+    "PDE3B",
+    "PDE4",
+    "PDE43",
+    "PDE46",
+    "PDE4A",
+    "PDE4B",
+    "PDE4C",
+    "PDE4D",
+    "PDE4DN2",
+    "PDGFR-1",
+    "PDGFR-2",
+    "PDGFR1",
+    "PDGFR2",
+    "PES-1",
+    "PEXIDARTINIB (PLX3397)",
+    "PEXIDARTINIBPLX-3397",
+    "PFHB1",
+    "PGH synthase 1",
+    "PGH synthase 2",
+    "PGHS-1",
+    "PGHS-2",
+    "PGHS1",
+    "PGY1",
+    "PHA1",
+    "PHA1B1",
+    "PHA1B2",
+    "PHA1B3",
+    "PHS 1",
+    "PHS-2",
+    "PHS1",
+    "PIG61",
+    "PKDYS1",
+    "PLX-3397",
+    "PLX-3397 HCL",
+    "PLX-3397 HYDROCHLORIDE",
+    "PLX3397",
+    "PLX3397 HCl",
+    "PLX3397 HYDROCHLORIDE",
+    "PML-DDX5-RARA fusion",
+    "PML-DDX5-RARA fusion protein",
+    "PRKM1",
+    "PRKM2",
+    "PRO1",
+    "PTGS1",
+    "PTGS2",
+    "Phosphodiesterase 3",
+    "Phosphodiesterase 3A",
+    "Phosphodiesterase 3B",
+    "Phosphodiesterase 4",
+    "Phosphodiesterase 4A",
+    "Phosphodiesterase 4B",
+    "Phosphodiesterase 4C",
+    "Phosphodiesterase 4D",
+    "Phospholipid transporter ABCB1",
+    "Platelet-derived growth factor receptor 1",
+    "Platelet-derived growth factor receptor 2",
+    "Plx-3397",
+    "Potassium channel, inwardly rectifying subfamily J member 3",
+    "Potassium channel, inwardly rectifying subfamily J member 5",
+    "Potassium voltage-gated channel subfamily A member 5",
+    "Potassium voltage-gated channel subfamily D member 3",
+    "Potassium voltage-gated channel subfamily H member 2",
+    "Prostaglandin G/H synthase 1",
+    "Prostaglandin G/H synthase 2",
+    "Prostaglandin H2 synthase 1",
+    "Prostaglandin H2 synthase 2",
+    "Prostaglandin-endoperoxide synthase 1",
+    "Prostaglandin-endoperoxide synthase 2",
+    "Proto-oncogene c-ErbB-1",
+    "Proto-oncogene c-ErbB-2",
+    "Proto-oncogene c-Ros-1",
+    "Proto-oncogene-like protein c-ErbB-3",
+    "Quinine 3-monooxygenase",
+    "R 2113",
+    "R-2113",
+    "RARbeta1",
+    "RCoR-1",
+    "RECQ2",
+    "RECQL2",
+    "RECQL3",
+    "RO 10-1670",
+    "RO 10-1670/000",
+    "RO-10-1670/000",
+    "RO-101670000",
+    "ROS proto-oncogene 1 , receptor tyrosine kinase",
+    "ROS proto-oncogene 1, receptor tyrosine kinase",
+    "ROS1",
+    "RPL-554",
+    "RPL554",
+    "RRB2",
+    "RSD-1235",
+    "RSD1235",
+    "RecQ protein-like 3",
+    "RecQ2",
+    "Receptor tyrosine kinase c-ros oncogene 1",
+    "Receptor tyrosine-protein kinase erbB-1",
+    "Receptor tyrosine-protein kinase erbB-2",
+    "Receptor tyrosine-protein kinase erbB-3",
+    "Receptor-type tyrosine-protein kinase FLT3",
+    "Renal carcinoma antigen NY-REN-32",
+    "Ro-10-1670-000",
+    "SB-659746-A",
+    "SB659746-A",
+    "SCA19",
+    "SCA22",
+    "SCN5A",
+    "SCNN1",
+    "SCNN1A",
+    "SCNN1B",
+    "SCNN1G",
+    "SDR5C1",
+    "SERPINA6",
+    "SERT1",
+    "SF-001",
+    "SF001",
+    "SIG-1R",
+    "SIGMA1R",
+    "SIGMAR1",
+    "SK&F 8542",
+    "SK&F-8542",
+    "SK-8542",
+    "SLC06 neurotransmitter transporter family",
+    "SLC6A2",
+    "SLC6A3",
+    "SLC6A4",
+    "SLC6A5",
+    "SMAX1",
+    "SPOGA1",
+    "SPOGA4",
+    "SQT1",
+    "SR-BP1",
+    "SR31747 binding protein 1",
+    "SR31747-binding protein",
+    "SSS1",
+    "STK-1",
+    "STK1",
+    "STK22A",
+    "STK22D",
+    "STRK1",
+    "Serine/threonine-protein kinase 22A",
+    "Serotonin receptor 1A",
+    "Serotonin receptor 2B",
+    "Serotonin receptor 3A",
+    "Serotonin receptor 7",
+    "Serpin A6",
+    "Short chain dehydrogenase/reductase family 5C member 1",
+    "Short-chain type dehydrogenase/reductase XH98G2",
+    "Sigma 1-type opioid receptor",
+    "Sigma non-opioid intracellular receptor 1",
+    "Sigma1-receptor",
+    "Sigma1R",
+    "Sodium channel epithelial 1 subunit alpha",
+    "Sodium channel epithelial 1 subunit gamma",
+    "Sodium channel protein type 5 subunit alpha",
+    "Solute carrier family 6 member 2",
+    "Solute carrier family 6 member 3",
+    "Solute carrier family 6 member 4",
+    "Stem cell tyrosine kinase 1",
+    "TKL protein kinase STKR Type 1 subfamily",
+    "TKR1",
+    "TNK1",
+    "TNK2",
+    "TS. LQT8",
+    "TSK-1",
+    "TSK1",
+    "TSSK-1",
+    "TSSK1",
+    "TSSK1B",
+    "Testim 1%",
+    "Testis-specific kinase 1",
+    "Testis-specific serine/threonine-protein kinase 1",
+    "Tyrosine kinase non-receptor protein 2",
+    "Tyrosine kinase-type cell surface receptor HER2",
+    "Tyrosine kinase-type cell surface receptor HER3",
+    "Tyrosine-protein kinase JAK3",
+    "U 3672",
+    "VDDR3",
+    "VF1",
+    "VR-040",
+    "VR040",
+    "VSCN1",
+    "VSCN2",
+    "Voltage-dependent L-type calcium channel subunit alpha-1C",
+    "Voltage-gated calcium channel subunit alpha Cav1.2",
+    "Voltage-gated inwardly rectifying potassium channel KCNH2",
+    "Voltage-gated potassium channel HK2",
+    "Voltage-gated potassium channel subunit Kv1.5",
+    "Voltage-gated potassium channel subunit Kv11.1",
+    "Voltage-gated potassium channel subunit Kv4.3",
+    "Voltage-gated sodium channel subunit alpha Nav1.5",
+    "XH98G2",
+    "activated CDC42 kinase 1",
+    "activated Cdc42-associated kinase 1",
+    "activated p21cdc42Hs kinase",
+    "adrenergic, alpha -1D-, receptor",
+    "adrenergic, alpha-1A-, receptor",
+    "adrenoceptor alpha 1D",
+    "aging-associated gene 8 protein",
+    "alpha ENaC-2",
+    "alpha-1A adrenergic receptor",
+    "alpha-1D adrenergic receptor",
+    "alpha-1D adrenoceptor",
+    "alpha-1D adrenoreceptor",
+    "alpha-adrenergic receptor 1a",
+    "amiloride-sensitive sodium channel subunit alpha 2",
+    "amiloride-sensitive sodium channel subunit beta 1",
+    "az-009",
+    "bHLHe78",
+    "basic-helix-loop-helix-PAS protein MOP1",
+    "c-ERB-2",
+    "c-ERB2",
+    "c-erb B2/neu protein",
+    "c-erbB-3",
+    "c-erbB3",
+    "c-ros oncogene 1 , receptor tyrosine kinase",
+    "c-ros-1",
+    "cAMP-specific 3',5'-cyclic phosphodiesterase 4A",
+    "cAMP-specific 3',5'-cyclic phosphodiesterase 4B",
+    "cAMP-specific 3',5'-cyclic phosphodiesterase 4C",
+    "cAMP-specific 3',5'-cyclic phosphodiesterase 4D",
+    "cAMP-specific phosphodiesterase 4A",
+    "cAMP-specific phosphodiesterase 4B",
+    "cAMP-specific phosphodiesterase 4C",
+    "cAMP-specific phosphodiesterase 4D",
+    "cAMP-specific phosphodiesterase PDE4D6",
+    "cGIPDE1",
+    "cGMP-inhibited 3',5'-cyclic phosphodiesterase 3A",
+    "cGMP-inhibited 3',5'-cyclic phosphodiesterase 3B",
+    "cGMP-inhibited 3',5'-cyclic phosphodiesterase A",
+    "cGMP-inhibited 3',5'-cyclic phosphodiesterase B",
+    "calcium channel, cardic dihydropyridine-sensitive, alpha-1 subunit",
+    "calcium channel, voltage-dependent, L type, alpha 1C subunit",
+    "calcium voltage-gated channel subunit alpha1 C",
+    "cell growth inhibiting protein 40",
+    "cell proliferation-inducing protein 61",
+    "cholesterol 25-hydroxylase",
+    "class E basic helix-loop-helix protein 78",
+    "colony stimulating factor 1 receptor",
+    "cyclogest 400 mg",
+    "cyclogest 400mg",
+    "cyclooxygenase 2",
+    "cyclooxygenase 2b",
+    "cyclooxygenase-1",
+    "cysteine tRNA ligase 1, cytoplasmic",
+    "cysteinyl-tRNA synthetase 1",
+    "cytochrome P450 3A3",
+    "cytochrome P450 3A4",
+    "cytochrome P450 HLp",
+    "cytochrome P450 NF-25",
+    "cytochrome P450 family 3 subfamily A member 4",
+    "cytochrome P450, family 3, subfamily A, polypeptide 4",
+    "cytochrome P450, subfamily IIIA (niphedipine oxidase), polypeptide 3",
+    "cytochrome P450, subfamily IIIA (niphedipine oxidase), polypeptide 4",
+    "cytochrome P450-PCN1",
+    "d(5) dopamine receptor",
+    "dJ779E11.2",
+    "dopamine D2 receptor",
+    "dopamine D4 receptor",
+    "dopamine D5 receptor",
+    "dopamine receptor D1B",
+    "dopamine receptor D2",
+    "dopamine receptor D3",
+    "dopamine receptor D4",
+    "dopamine receptor D5",
+    "dopamine transporter 1",
+    "dunce-like phosphodiesterase E1",
+    "dunce-like phosphodiesterase E4",
+    "eag-related protein 1",
+    "epithelial sodium channel beta-2 subunit",
+    "epithelial sodium channel beta-3 subunit",
+    "erb-b2 receptor tyrosine kinase 1",
+    "erb-b2 receptor tyrosine kinase 2",
+    "erb-b2 receptor tyrosine kinase 3",
+    "erbB3-S",
+    "erg1",
+    "essential tremor 1",
+    "ether-a-go-go-related gene potassium channel 1",
+    "ether-a-go-go-related protein 1",
+    "extracellular signal-regulated kinase 2",
+    "fe 999303",
+    "fetal liver kinase 2",
+    "fms related receptor tyrosine kinase 3",
+    "fms related tyrosine kinase 3",
+    "fms-like tyrosine kinase 3",
+    "glucocorticoid-inducible P450",
+    "hCox-2",
+    "hERG-1",
+    "hERG1",
+    "hH1",
+    "hSigmaR1",
+    "hf1k16",
+    "human epidermal growth factor receptor 2",
+    "human epidermal growth factor receptor 3",
+    "hydroxysteroid 17-beta dehydrogenase 10",
+    "hypoxia inducible factor 1 alpha subunit",
+    "hypoxia inducible factor 1 subunit alpha",
+    "hypoxia inducible factor 1, alpha subunit (basic helix-loop-helix transcription factor)",
+    "hypoxia-inducible factor 1-alpha",
+    "hypoxia-inducible factor1alpha",
+    "idp-121 lotion",
+    "insulin like growth factor 1 receptor",
+    "insulin-like growth factor 1 receptor",
+    "inward rectifier K(+) channel Kir3.1",
+    "inward rectifier K+ channel KIR3.1",
+    "inward rectifier K+ channel KIR3.4",
+    "lamin A/C-like 1",
+    "long QT syndrome 3",
+    "long QT syndrome type 2",
+    "lutinus 100 mg vaginal tablet",
+    "macrophage colony-stimulating factor 1 receptor",
+    "member of PAS protein 1",
+    "member of PAS superfamily 1",
+    "metastatic lymph node gene 19",
+    "metastatic lymph node gene 19 protein",
+    "mineralocorticoid receptor 1",
+    "mineralocorticoid receptor 2",
+    "mitochondrial RNase P subunit 2",
+    "mitochondrial ribonuclease P protein 2",
+    "mitogen-activated protein kinase 1",
+    "mitogen-activated protein kinase 2",
+    "multidrug resistance protein 1",
+    "mutant sodium channel epithelial 1 beta subunit",
+    "non-receptor tyrosine-protein kinase TNK1",
+    "nonvoltage-gated sodium channel 1 subunit alpha",
+    "nonvoltage-gated sodium channel 1 subunit beta",
+    "nonvoltage-gated sodium channel 1 subunit gamma",
+    "nuclear receptor subfamily 1 group B member 1",
+    "nuclear receptor subfamily 1 group B member 2",
+    "nuclear receptor subfamily 1 group B member 3",
+    "nuclear receptor subfamily 2 group B member 1",
+    "nuclear receptor subfamily 2 group B member 2",
+    "nuclear receptor subfamily 2 group B member 3",
+    "nuclear receptor subfamily 3 group C member 1",
+    "nuclear receptor subfamily 3 group C member 1 variant hGR-B(54)",
+    "nuclear receptor subfamily 3 group C member 1 variant hGR-B(77)",
+    "nuclear receptor subfamily 3 group C member 1 variant hGR-B(93)",
+    "nuclear receptor subfamily 3 group C member 2",
+    "nuclear receptor subfamily 3 group C member 3",
+    "nuclear receptor subfamily 3 group C member 4",
+    "nuclear receptor subfamily 3, group C, member 1 (glucocorticoid receptor)",
+    "p-170",
+    "p145 c-kit",
+    "p180-ErbB3",
+    "p185(erbB2)",
+    "p185erbB2",
+    "p21cdc42Hs",
+    "p38",
+    "p4",
+    "p40",
+    "p41",
+    "p41mapk",
+    "p42-MAPK",
+    "p45-sErbB3",
+    "p85-sErbB3",
+    "phosphodiesterase 3A",
+    "phosphodiesterase 3A, cGMP-inhibited",
+    "phosphodiesterase 3B",
+    "phosphodiesterase 3B, cGMP-inhibited",
+    "phosphodiesterase 4A",
+    "phosphodiesterase 4A, cAMP-specific (dunce",
+    "phosphodiesterase 4B",
+    "phosphodiesterase 4B, cAMP-specific (phosphodiesterase E4 dunce homolog, Drosophila)",
+    "phosphodiesterase 4C",
+    "phosphodiesterase 4C, cAMP-specific (phosphodiesterase E1 dunce homolog, Drosophila)",
+    "phosphodiesterase 4D",
+    "phosphodiesterase 4D, cAMP-specific (phosphodiesterase E3 dunce homolog, Drosophila)",
+    "phosphodiesterase E1 dunce homolog (Drosophila)",
+    "phosphodiesterase E2 dunce homolog (Drosophila)",
+    "phosphodiesterase E2 dunce homolog, Drosophila",
+    "phosphodiesterase E3 dunce homolog (Drosophila)",
+    "phosphodiesterase E4 dunce homolog (Drosophila)",
+    "phosphodiesterase isozyme 4",
+    "phospholipid transporter ABCB1",
+    "platelet-derived growth factor receptor 1",
+    "platelet-derived growth factor receptor 2",
+    "potassium channel 1",
+    "potassium channel, inwardly rectifying subfamily J member 3",
+    "potassium channel, inwardly rectifying subfamily J, member 5",
+    "potassium channel, voltage gated Shal related subfamily D, member 3",
+    "potassium channel, voltage gated eag related subfamily H, member 2",
+    "potassium channel, voltage gated shaker related subfamily A, member 5",
+    "potassium inwardly rectifying channel subfamily J member 3",
+    "potassium inwardly rectifying channel subfamily J member 5",
+    "potassium ionic channel Kv4.3",
+    "potassium voltage-gated channel subfamily A member 5",
+    "potassium voltage-gated channel subfamily D member 3",
+    "potassium voltage-gated channel subfamily H member 2",
+    "potassium voltage-gated channel subfamily J member 3",
+    "potassium voltage-gated channel subfamily J member 5",
+    "potassium voltage-gated channel, Shal-related subfamily, member 3",
+    "potassium voltage-gated channel, shaker-related subfamily, member 5",
+    "potassium voltage-gated channel, subfamily H (eag-related), member 2",
+    "progesterone 200 mg soft capsule (jsc \"farmak\", ukraine)",
+    "prostaglandin G/H synthase 1",
+    "prostaglandin G/H synthase 2",
+    "prostaglandin H2 synthase 1",
+    "prostaglandin H2 synthase 2",
+    "prostaglandin-endoperoxide synthase 1",
+    "prostaglandin-endoperoxide synthase 1 (prostaglandin G/H synthase and cyclooxygenase)",
+    "prostaglandin-endoperoxide synthase 2",
+    "prostaglandin-endoperoxide synthase 2 (prostaglandin G/H synthase and cyclooxygenase)",
+    "protein tyrosine kinase ERK2",
+    "proto-oncogene c-ErbB-1",
+    "proto-oncogene c-ErbB-2",
+    "proto-oncogene c-Ros-1",
+    "proto-oncogene-like protein c-ErbB-3",
+    "quinine 3-monooxygenase",
+    "recQ protein-like 3",
+    "receptor tyrosine-protein kinase erbB-1",
+    "receptor tyrosine-protein kinase erbB-2",
+    "receptor tyrosine-protein kinase erbB-3",
+    "receptor-type tyrosine-protein kinase FLT3",
+    "renal carcinoma antigen NY-REN-32",
+    "serine (or cysteine) proteinase inhibitor, clade A (alpha-1 antiproteinase, antitrypsin), member 6",
+    "serine/threonine kinase 22D (spermiogenesis associated)",
+    "serine/threonine kinase FKSG81",
+    "serine/threonine-protein kinase 22A",
+    "serotonin receptor 2B",
+    "serotonin receptor 3A",
+    "serotonin transporter 1",
+    "serpin A6",
+    "serpin family A member 6",
+    "serpin peptidase inhibitor, clade A (alpha-1 antiproteinase, antitrypsin), member 6",
+    "sha1-related potassium channel Kv4.3",
+    "short chain L-3-hydroxyacyl-CoA dehydrogenase type 2",
+    "short chain dehydrogenase/reductase family 5C, member 1",
+    "short chain type dehydrogenase/reductase XH98G2",
+    "sigma 1-type opioid receptor",
+    "sigma non-opioid intracellular receptor 1",
+    "sigma-1 receptor",
+    "sigma1R",
+    "sodium channe epithelial 1 gamma subunit",
+    "sodium channel epithelial 1 alpha subunit",
+    "sodium channel epithelial 1 beta subunit",
+    "sodium channel epithelial 1 gamma subunit",
+    "sodium channel epithelial 1 subunit alpha",
+    "sodium channel epithelial 1 subunit beta",
+    "sodium channel epithelial 1 subunit gamma",
+    "sodium channel protein type 5 subunit alpha",
+    "sodium channel, non voltage gated 1 alpha subunit",
+    "sodium channel, non-voltage-gated 1 alpha",
+    "sodium channel, non-voltage-gated 1, beta subunit",
+    "sodium channel, non-voltage-gated 1, gamma subunit",
+    "sodium channel, nonvoltage-gated 1 alpha",
+    "sodium channel, nonvoltage-gated 1, gamma",
+    "sodium voltage-gated channel alpha subunit 5",
+    "solute carrier family 6 (neurotransmitter transporter), member 2",
+    "solute carrier family 6 (neurotransmitter transporter), member 3",
+    "solute carrier family 6 (neurotransmitter transporter), member 4",
+    "solute carrier family 6 (neurotransmitter transporter, dopamine), member 3",
+    "solute carrier family 6 (neurotransmitter transporter, noradrenalin), member 2",
+    "solute carrier family 6 (neurotransmitter transporter, serotonin), member 4",
+    "solute carrier family 6 member 2",
+    "solute carrier family 6 member 3",
+    "solute carrier family 6 member 4",
+    "solute carrier family 6 member 5",
+    "spermiogenesis associated 4",
+    "stem cell tyrosine kinase 1",
+    "sustanon 250",
+    "taurochenodeoxycholate 6-alpha-hydroxylase",
+    "tbs-1",
+    "tbs-2",
+    "testicular tissue protein Li 136",
+    "testis specific serine kinase 1B",
+    "testis tissue sperm-binding protein Li 55e",
+    "testis-specific kinase 1",
+    "testis-specific serine kinase 1",
+    "testis-specific serine/threonine-protein kinase 1",
+    "tsx-002",
+    "type 10 17b-HSD",
+    "type 10 17beta-hydroxysteroid dehydrogenase",
+    "tyrosine kinase non receptor 1",
+    "tyrosine kinase non receptor 2",
+    "tyrosine kinase non-receptor protein 2",
+    "tyrosine kinase-type cell surface receptor HER2",
+    "tyrosine kinase-type cell surface receptor HER3",
+    "tyrosine-protein kinase JAK3",
+    "v-erb-b2 avian erythroblastic leukemia viral oncogene homolog 2",
+    "v-erb-b2 avian erythroblastic leukemia viral oncogene homolog 3",
+    "v-erb-b2 avian erythroblastic leukemia viral oncoprotein 2",
+    "v-erb-b2 erythroblastic leukemia viral oncogene homolog 2, neuro/glioblastoma derived oncogene homolog",
+    "v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog",
+    "v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene-like protein",
+    "v-ros avian UR2 sarcoma virus oncogene homolog 1",
+    "voltage-dependent L-type Ca2+ channel alpha 1 subunit",
+    "voltage-dependent L-type calcium channel subunit alpha-1C",
+    "voltage-gated inwardly rectifying potassium channel KCNH2",
+    "voltage-gated potassium channel HK2",
+    "voltage-gated potassium channel protein Kv1.5",
+    "voltage-gated potassium channel subunit Kv1.5",
+    "voltage-gated potassium channel subunit Kv11.1",
+    "voltage-gated potassium channel subunit Kv4.3",
+    "voltage-gated sodium channel subunit alpha Nav1.5"
+  ],
+  "raw_output": "{\"reviews\": [{\"label\": \"C8\", \"rationale\": \"Agent C8 blocks all three SCNN1 subunits, each of which has the strongest target associations with COPD in the packet, and it carries a regulator-backed approval.\", \"objection\": \"No cited item shows that blocking these channels benefits COPD, and the agent carries multiple Black Box Warnings.\", \"rank\": 1, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that blocking SCNN1A/SCNN1B/SCNN1G improves COPD outcomes\", \"Clinical trial data in COPD populations\"], \"supporting_evidence_ids\": [\"E161\", \"E162\", \"E163\", \"E168\", \"E169\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E170\", \"E171\"]}}, {\"label\": \"C6\", \"rationale\": \"Agent C6 blocks the same highly associated SCNN1 subunits as the top-ranked candidate and is regulator-approved.\", \"objection\": \"The packet contains no evidence that channel blockade helps COPD, and a Black Box Warning for metabolic toxicity is recorded.\", \"rank\": 2, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that SCNN1 blockade benefits COPD\", \"Data on the relevance of the additional MAPK1 and LMNA targets\"], \"supporting_evidence_ids\": [\"E161\", \"E162\", \"E163\", \"E164\", \"E166\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E167\"]}}, {\"label\": \"C5\", \"rationale\": \"Agent C5 blocks multiple ion channels whose targets show moderate-to-strong COPD associations, with an EMA-backed approval.\", \"objection\": \"No cited item demonstrates that blocking these channels benefits COPD, and several target associations are very weak.\", \"rank\": 3, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that blocking SCN5A, KCND3 or KCNJ5 helps COPD\", \"Respiratory outcome data for this agent\"], \"supporting_evidence_ids\": [\"E49\", \"E50\", \"E53\", \"E54\", \"E55\", \"E56\", \"E57\", \"E58\", \"E59\", \"E60\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C15\", \"rationale\": \"Agent C15 is a retinoid receptor agonist whose RARB target shows one of the higher COPD associations, and it is regulator-approved.\", \"objection\": \"The packet does not show that retinoid receptor agonism benefits COPD, and other retinoid targets have only weak associations.\", \"rank\": 4, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that RARB or RXR agonism improves COPD\", \"Data distinguishing benefit across the retinoid receptor family\"], \"supporting_evidence_ids\": [\"E18\", \"E19\", \"E20\", \"E21\", \"E22\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E23\", \"E24\"]}}, {\"label\": \"C14\", \"rationale\": \"Agent C14 is a dopamine receptor agonist whose DRD2 target shows a moderately strong COPD association, with an approval record.\", \"objection\": \"No cited item shows that dopamine agonism helps COPD, and the remaining dopamine targets have only weak associations.\", \"rank\": 5, \"decision\": \"investigate\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that DRD2 agonism benefits COPD\", \"Safety data, as no safety status is recorded\"], \"supporting_evidence_ids\": [\"E152\", \"E153\", \"E155\", \"E159\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C7\", \"rationale\": \"Agent C7 is a PGR agonist whose NR3C1 target shows a moderately strong COPD association, with an approval record.\", \"objection\": \"The primary PGR agonist target has only a weak COPD association, and the agent carries five Black Box Warnings including respiratory toxicity.\", \"rank\": 6, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that PGR agonism or NR3C1 modulation benefits COPD\", \"Data addressing the multiple Black Box Warnings\"], \"supporting_evidence_ids\": [\"E2\", \"E3\", \"E6\", \"E10\", \"E12\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E13\", \"E14\", \"E15\", \"E16\", \"E17\"]}}, {\"label\": \"C11\", \"rationale\": \"Agent C11 is a glucocorticoid receptor agonist and NR3C1 shows a moderately strong COPD association, with an approval record.\", \"objection\": \"No cited item shows that NR3C1 agonism benefits COPD, and the agent's other targets have weak or negligible associations.\", \"rank\": 7, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that glucocorticoid receptor agonism improves COPD outcomes\", \"Safety data, as no safety status is recorded\"], \"supporting_evidence_ids\": [\"E2\", \"E25\", \"E27\", \"E29\", \"E32\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C10\", \"rationale\": \"Agent C10 is a retinoid receptor agonist whose RARB target shows a moderately strong COPD association, with an approval record.\", \"objection\": \"Its RARA and RARG targets have only weak associations, and the agent carries three Black Box Warnings.\", \"rank\": 8, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that RARB/RARG agonism benefits COPD\", \"Data addressing hematological, teratogenic and carcinogenic warnings\"], \"supporting_evidence_ids\": [\"E18\", \"E19\", \"E89\", \"E91\", \"E94\", \"E96\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E97\", \"E98\", \"E99\"]}}, {\"label\": \"C4\", \"rationale\": \"Agent C4 is a phosphodiesterase 3 and 4 inhibitor whose PDE4 family targets show modest COPD associations, with an FDA approval.\", \"objection\": \"No cited item demonstrates that PDE inhibition benefits COPD, and several of its targets have very weak associations.\", \"rank\": 9, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that PDE4 or PDE3 inhibition improves COPD outcomes\", \"Safety data, as no safety status is recorded\"], \"supporting_evidence_ids\": [\"E142\", \"E144\", \"E147\", \"E148\", \"E149\", \"E150\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C9\", \"rationale\": \"Agent C9 is an EGFR inhibitor whose EGFR and ERBB3 targets show modest COPD associations, with an approval record.\", \"objection\": \"No cited item shows that EGFR inhibition benefits COPD, and most of its other targets have very weak associations.\", \"rank\": 10, \"decision\": \"watch\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that EGFR inhibition improves COPD\", \"Safety data, as no safety status is recorded\"], \"supporting_evidence_ids\": [\"E75\", \"E79\", \"E80\", \"E81\", \"E83\", \"E88\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}, {\"label\": \"C1\", \"rationale\": \"Agent C1 inhibits several kinases whose COPD associations are uniformly weak, despite an FDA approval record.\", \"objection\": \"No cited item shows that inhibiting FLT3, KIT or CSF1R benefits COPD, and the agent carries a Black Box Warning.\", \"rank\": 11, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that any of its kinase targets is beneficial to inhibit in COPD\", \"Rationale for multi-kinase inhibition in a pulmonary disease\"], \"supporting_evidence_ids\": [\"E101\", \"E105\", \"E106\", \"E107\", \"E112\", \"E118\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E119\"]}}, {\"label\": \"C13\", \"rationale\": \"Agent C13 acts on serotonin and prostaglandin targets whose COPD associations are weak, though it is regulator-approved.\", \"objection\": \"No cited item shows that any of its mechanisms benefits COPD, and it carries a psychiatric toxicity Black Box Warning.\", \"rank\": 12, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that serotonergic or PTGS mechanisms improve COPD\", \"Data linking its strongest bioactivities to respiratory outcomes\"], \"supporting_evidence_ids\": [\"E33\", \"E35\", \"E38\", \"E39\", \"E40\", \"E47\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E48\"]}}, {\"label\": \"C12\", \"rationale\": \"Agent C12 is a serotonin transporter inhibitor and partial 5-HT1a agonist, but its relevant targets have only weak COPD associations.\", \"objection\": \"No cited item shows that these mechanisms benefit COPD, and it carries a psychiatric toxicity Black Box Warning.\", \"rank\": 13, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that SLC6A4 inhibition or HTR1A partial agonism helps COPD\", \"Any respiratory-specific outcome data\"], \"supporting_evidence_ids\": [\"E35\", \"E37\", \"E136\", \"E137\", \"E140\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E141\"]}}, {\"label\": \"C3\", \"rationale\": \"Agent C3 is an AR agonist, but its AR target has only a weak COPD association, despite an approval record.\", \"objection\": \"No cited item shows that androgen receptor agonism benefits COPD, and the agent carries a Black Box Warning.\", \"rank\": 14, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that AR agonism improves COPD\", \"Explanation for the weak association of its primary target\"], \"supporting_evidence_ids\": [\"E4\", \"E124\", \"E125\", \"E131\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"warnings_recorded\", \"evidence_ids\": [\"E132\"]}}, {\"label\": \"C2\", \"rationale\": \"Agent C2 is an ALK inhibitor whose ALK target has only a weak COPD association, though it is regulator-approved.\", \"objection\": \"No cited item shows that ALK inhibition benefits COPD, and its remaining targets have weak or negligible associations.\", \"rank\": 15, \"decision\": \"deprioritise\", \"direction\": \"unknown\", \"missing_evidence\": [\"Evidence that ALK inhibition improves COPD\", \"Any pulmonary disease data for this agent\"], \"supporting_evidence_ids\": [\"E64\", \"E65\", \"E68\", \"E73\"], \"contradicting_evidence_ids\": [], \"safety\": {\"status\": \"unknown\", \"evidence_ids\": []}}]}"
+}

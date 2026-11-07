@@ -1,0 +1,119 @@
+{
+  "releases": [
+    "opentargets-26.09",
+    "chembl-37"
+  ],
+  "rules": {
+    "approval_sources": [
+      "FDA",
+      "EMA Human Drugs",
+      "PMDA",
+      "DailyMed"
+    ],
+    "bioactivity": {
+      "min_median_pchembl": 7,
+      "target_type": "SINGLE PROTEIN",
+      "organism": "Homo sapiens"
+    }
+  },
+  "coverage": {
+    "drugs": 3,
+    "drugs_with_targets": 3,
+    "unmapped_items": 0,
+    "unmapped_by_reason": {}
+  },
+  "drugs": [
+    {
+      "drug_id": "CHEMBL2010601",
+      "name": "IVACAFTOR",
+      "source_chembl_ids": [
+        "CHEMBL2010601"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009061"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000001626",
+          "name": "CFTR",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "ACTIVATOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    },
+    {
+      "drug_id": "CHEMBL3544914",
+      "name": "TEZACAFTOR",
+      "source_chembl_ids": [
+        "CHEMBL3544914"
+      ],
+      "approval": {
+        "sources": [
+          "EMA Human Drugs",
+          "FDA"
+        ],
+        "disease_ids": [
+          "MONDO_0009061"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000001626",
+          "name": "CFTR",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "POSITIVE MODULATOR",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    },
+    {
+      "drug_id": "CHEMBL1201506",
+      "name": "GEMTUZUMAB OZOGAMICIN",
+      "source_chembl_ids": [
+        "CHEMBL1201506"
+      ],
+      "approval": {
+        "sources": [
+          "DailyMed",
+          "EMA Human Drugs"
+        ],
+        "disease_ids": [
+          "MONDO_0004643",
+          "MONDO_0018874"
+        ]
+      },
+      "targets": [
+        {
+          "target_id": "ENSG00000105383",
+          "name": "CD33",
+          "support": [
+            "mechanism"
+          ],
+          "action_type": "BINDING AGENT",
+          "target_type": "single protein",
+          "median_pchembl": null,
+          "n_activities": null
+        }
+      ],
+      "unmapped": []
+    }
+  ]
+}

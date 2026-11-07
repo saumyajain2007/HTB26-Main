@@ -1,0 +1,225 @@
+/*
+ * The Workflow map (after Jessica's round-three technical overview) in the app's ink-on-paper
+ * style: paper nodes with thin rules, grey routes with arrowheads, and small route-green signals
+ * that travel between them. Below the map's comfortable width, the map scrolls inside its own
+ * box instead of widening the page.
+ */
+
+.root {
+  /* Never let the map's intrinsic width widen the page grid around it. */
+  min-width: 0;
+  contain: inline-size;
+
+  /* The map, and the small pictures inside it, take the illustrations' palette: indigo and
+     violet on pale lavender, with amber kept for the disease as in Jessica's scenes. */
+  --color-ink: var(--story-navy-ink);
+  --color-grey-1: var(--story-slate);
+  --color-grey-2: #7d82a6;
+  --color-rule: var(--story-lilac-rule);
+  --color-edge: var(--story-lilac);
+  --color-node: var(--story-lilac);
+  --color-route: var(--story-violet);
+  --color-drug: var(--story-indigo);
+  --color-disease: var(--story-amber-deep);
+  --color-backbone: var(--story-periwinkle);
+  --color-placeholder: var(--story-lilac);
+}
+
+.scroller {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.canvas {
+  position: relative;
+  min-width: 1180px;
+  aspect-ratio: 1280 / 520;
+}
+
+/* Routes. */
+
+.routes {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  overflow: visible;
+}
+
+.route {
+  fill: none;
+  stroke: var(--color-edge);
+  stroke-width: 1.5;
+}
+
+.route[data-dashed="true"] {
+  stroke-dasharray: 4 6;
+}
+
+.arrowhead {
+  fill: none;
+  stroke: var(--color-edge);
+  stroke-width: 1.5;
+}
+
+/* Nodes. */
+
+.nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-12) var(--space-16);
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--color-paper) 0%, var(--story-lavender) 100%);
+  box-shadow: 0 10px 28px -20px rgb(63 70 200 / 35%);
+  transition:
+    border-color var(--duration-step) var(--ease-out),
+    box-shadow var(--duration-step) var(--ease-out);
+}
+
+.node[data-active="true"] {
+  border-color: var(--story-violet);
+  box-shadow:
+    0 0 0 3px rgb(107 84 214 / 12%),
+    0 16px 36px -14px rgb(107 84 214 / 40%);
+}
+
+.title {
+  margin-bottom: var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.keyPoint {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-route);
+}
+
+.copy {
+  font-size: var(--text-label);
+  line-height: var(--leading-snug);
+  color: var(--color-grey-1);
+}
+
+.copy span {
+  display: block;
+}
+
+/* The two short boxes below: their picture sits small at the bottom right, beside the copy. */
+.node:is([data-node="tiger"], [data-node="docking"]) > svg[data-kind] {
+  position: absolute;
+  right: var(--space-12);
+  bottom: var(--space-8);
+  width: 52px;
+  height: auto;
+  margin: 0;
+}
+
+.node:is([data-node="tiger"], [data-node="docking"]) .copy {
+  max-width: calc(100% - 60px);
+}
+
+/* Signals: they move in map coordinates on a plane scaled to the drawn map. */
+
+.plane {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 1280px;
+  height: 520px;
+  pointer-events: none;
+  transform-origin: 0 0;
+}
+
+.signal {
+  position: absolute;
+  left: -4px;
+  top: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-route);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--color-route) 18%, transparent),
+    0 0 10px 2px color-mix(in srgb, var(--color-route) 45%, transparent);
+  opacity: 0;
+}
+
+.signal:nth-child(2) {
+  left: -3px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+}
+
+.signal:nth-child(3) {
+  left: -2px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+}
+
+/* Controls: the app's quiet buttons. */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  height: var(--control-height);
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+  transition:
+    background var(--duration-quick) var(--ease-out),
+    color var(--duration-quick) var(--ease-out),
+    border-color var(--duration-quick) var(--ease-out);
+}
+
+.controls button:hover:not(:disabled) {
+  border-color: var(--story-violet);
+  color: var(--story-indigo);
+}
+
+.controls button:disabled {
+  color: var(--color-placeholder);
+  cursor: default;
+}
+
+.glyph {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node {
+    transition: none;
+  }
+}

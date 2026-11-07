@@ -1,0 +1,331 @@
+/* Jessica's animated laboratory, ported from round three's laboratory.css and problem-story.css. */
+
+/* DM Sans, the face of her monitor's labels. */
+@font-face {
+  font-family: "Half Life Sans";
+  src: url("./assets/dm-sans-latin-normal.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+.lab {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--story-night);
+}
+
+.projection,
+.camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1672px;
+  height: 941px;
+  transform-origin: 0 0;
+}
+
+.projection {
+  pointer-events: none;
+}
+
+.camera {
+  contain: layout style;
+}
+
+.scene {
+  display: block;
+  width: 1672px;
+  height: 941px;
+  overflow: visible;
+}
+
+/* The illustration's own loops hold while paused or while the camera travels. */
+.lab[data-playing="false"] [data-motion-target],
+.lab[data-camera-moving="true"] [data-motion-target] {
+  animation-play-state: paused !important;
+}
+
+.arm {
+  transform-origin: 465px 605px;
+  animation: pipette 4.4s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.drop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dispense 4.4s cubic-bezier(0.55, 0.05, 0.8, 0.65) infinite;
+}
+
+.ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ripple 4.4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+}
+
+.monitorSignal {
+  animation: monitor-signal 3.4s linear infinite;
+}
+
+.proteinSignal {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: protein-signal 2.5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.focusLight {
+  animation: focus-light 4.4s ease infinite;
+}
+
+@keyframes pipette {
+  0%,
+  12%,
+  100% {
+    transform: rotate(-2deg) translateY(-5px);
+  }
+  35%,
+  58% {
+    transform: rotate(2deg) translateY(8px);
+  }
+  78% {
+    transform: rotate(-1deg) translateY(-2px);
+  }
+}
+
+@keyframes dispense {
+  0%,
+  32% {
+    opacity: 0;
+    transform: translate(0, -4px) scale(0.7);
+  }
+  37% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.7);
+  }
+  53% {
+    opacity: 1;
+    transform: translate(0, 110px) scale(0.7);
+  }
+  56%,
+  100% {
+    opacity: 0;
+    transform: translate(0, 110px) scale(0.7);
+  }
+}
+
+@keyframes ripple {
+  0%,
+  51% {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+  55% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+@keyframes monitor-signal {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translate(42px, -27px);
+    opacity: 1;
+  }
+  45% {
+    transform: translate(67px, -15px);
+    opacity: 1;
+  }
+  67% {
+    transform: translate(107px, -68px);
+    opacity: 1;
+  }
+  85% {
+    transform: translate(139px, -42px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(230px, -33px);
+    opacity: 0.35;
+  }
+}
+
+@keyframes protein-signal {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.65);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes focus-light {
+  0%,
+  30%,
+  90%,
+  100% {
+    opacity: 0.3;
+  }
+  55%,
+  75% {
+    opacity: 0.85;
+  }
+}
+
+/* The monitor. */
+
+.monitor[data-chapter="0"] {
+  visibility: hidden;
+}
+
+.monitor text {
+  fill: #dcebf6;
+  font-family: var(--font-story);
+}
+
+.monitorTitle {
+  font-size: 16px;
+  font-weight: 550;
+}
+
+.monitor .monitorYears {
+  font-size: 34px;
+  font-weight: 550;
+  fill: #ffcf8a;
+  letter-spacing: -0.5px;
+}
+
+.monitor .monitorNote {
+  font-size: 10px;
+  fill: #9db9d0;
+}
+
+.monitor .yearLabel {
+  font-size: 11px;
+  fill: #b7cedf;
+}
+
+.stageLabel {
+  font-size: 11px;
+}
+
+.sectionLabel {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.traveller {
+  animation: development-years 7s linear infinite;
+}
+
+@keyframes development-years {
+  to {
+    transform: translateX(438px);
+  }
+}
+
+.compound0 {
+  color: #9de2cf;
+}
+
+.compound1 {
+  color: #b6a8e7;
+}
+
+.compound2 {
+  color: #ffcf8a;
+}
+
+.flight {
+  animation-duration: 7.8s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-iteration-count: infinite;
+  animation-delay: var(--compound-delay);
+}
+
+.pass {
+  animation-name: compound-select;
+}
+
+.setAside {
+  animation-name: compound-hold;
+}
+
+.monitor[data-chapter="0"] .flight,
+.monitor[data-chapter="1"] .flight {
+  animation-play-state: paused;
+}
+
+@keyframes compound-select {
+  0%,
+  15% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  65%,
+  82% {
+    transform: translate(var(--compound-x), var(--compound-y));
+    opacity: 1;
+  }
+  95%,
+  100% {
+    transform: translate(var(--compound-x), var(--compound-y));
+    opacity: 0;
+  }
+}
+
+@keyframes compound-hold {
+  0%,
+  15% {
+    transform: translate(0, 0);
+    opacity: 0.8;
+  }
+  55% {
+    transform: translate(105px, 0);
+    opacity: 0.8;
+  }
+  80%,
+  100% {
+    transform: translate(110px, 35px);
+    opacity: 0.15;
+  }
+}
+
+.question {
+  display: none;
+}
+
+.question[data-current="true"] {
+  display: block;
+}
+
+.monitor[data-chapter="3"] .compoundsLabel,
+.monitor[data-chapter="3"] .flight,
+.monitor[data-chapter="3"] .focus {
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab [data-motion-target] {
+    animation: none !important;
+  }
+  .drop,
+  .ripple {
+    opacity: 0;
+  }
+  .flight {
+    opacity: 0.8;
+  }
+}
