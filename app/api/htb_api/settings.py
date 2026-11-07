@@ -69,12 +69,14 @@ class Settings(BaseSettings):
             "ranking. A relative path is relative to the repository root."
         ),
     )
-    jury: Literal["fixture", "mock", "cortex"] = Field(
+    jury: Literal["fixture", "mock", "cortex", "providers"] = Field(
         default="fixture",
         description=(
             "The Model jury. fixture: replays fixtures_dir/<disease_id>/jury.json. mock: "
             "stream A's labelled practice reviewer, no model called. cortex: the models in "
-            "SNOWFLAKE_MODELS through Snowflake Cortex (SNOWFLAKE_ACCOUNT, SNOWFLAKE_PAT)."
+            "SNOWFLAKE_MODELS through Snowflake Cortex (SNOWFLAKE_ACCOUNT, SNOWFLAKE_PAT). "
+            "providers: the models in JURY_MODELS, each prefixed gemini:, vultr: or cortex: "
+            "(GEMINI_API_KEY, VULTR_INFERENCE_API_KEY)."
         ),
     )
     fixtures_dir: Path = Field(
@@ -228,7 +230,7 @@ class Settings(BaseSettings):
     def _live_needs_a_live_jury(self) -> Settings:
         if self.source == "live" and self.jury == "fixture":
             raise ValueError(
-                "HTB_SOURCE=live needs HTB_JURY=mock or cortex: the fixture jury only "
+                "HTB_SOURCE=live needs HTB_JURY=mock, cortex or providers: the fixture jury only "
                 "reviews the saved fixture shortlists"
             )
         return self
@@ -303,3 +305,68 @@ class SnowflakeSettings(BaseSettings):
                 "HTB_JURY=cortex needs SNOWFLAKE_MODELS: a JSON array of three distinct "
                 "model IDs, one per model family"
             )
+
+
+class ProviderJurySettings(BaseSettings):
+    """The multi-provider jury's settings (`HTB_JURY=providers`).
+
+    `JURY_MODELS` is a JSON array of three distinct model IDs, each prefixed with
+    its provider: `gemini:` (needs GEMINI_API_KEY), `vultr:` (VULTR_INFERENCE_API_KEY)
+    or `cortex:` (the SNOWFLAKE_* variables).
+    """
+
+    model_config = SettingsConfigDict(env_prefix="", extra="ignore")
+
+    jury_models: Annotated[list[str], NoDecode] = Field(default_factory=list[str])
+    jury_reasoning_effort: Annotated[dict[str, str | None], NoDecode] = Field(
+        default_factory=dict[str, str | None],
+        description="JSON object of reasoning effort by prefixed model ID; cortex: models only.",
+    )
+    gemini_api_key: SecretStr | None = None
+    vultr_inference_api_key: SecretStr | None = None
+    snowflake_account: str | None = None
+    snowflake_pat: SecretStr | None = None
+
+    @field_validator("jury_models", "jury_reasoning_effort", mode="before")
+    @classmethod
+    def _parse_json(cls, value: object, info: ValidationInfo) -> object:
+        if not isinstance(value, str):
+            return value
+        if not value.strip():
+            return [] if info.field_name == "jury_models" else {}
+        name = (info.field_name or "").upper()
+        try:
+            return json.loads(value)
+        except json.JSONDecodeError:
+            raise ValueError(
+                f"{name} is not valid JSON ({value!r}). In a .env file, wrap the JSON in "
+                """single quotes, e.g. '["gemini:gemini-2.5-pro","vultr:model","cortex:model"]'."""
+            ) from None
+
+    def require_complete(self) -> None:
+        """Raise ValueError unless a jury can run: three distinct prefixed models, and the
+        credentials of every provider they name."""
+        if len(self.jury_models) != 3 or len(set(self.jury_models)) != 3:
+            raise ValueError(
+                "HTB_JURY=providers needs JURY_MODELS: a JSON array of three distinct model "
+                'IDs such as ["gemini:gemini-2.5-pro","vultr:<model>","cortex:<model>"]'
+            )
+        credentials = {
+            "gemini": {"GEMINI_API_KEY": self.gemini_api_key},
+            "vultr": {"VULTR_INFERENCE_API_KEY": self.vultr_inference_api_key},
+            "cortex": {
+                "SNOWFLAKE_ACCOUNT": self.snowflake_account,
+                "SNOWFLAKE_PAT": self.snowflake_pat,
+            },
+        }
+        missing: list[str] = []
+        for model in self.jury_models:
+            provider, _, name = model.partition(":")
+            if provider not in credentials or not name:
+                raise ValueError(
+                    f"JURY_MODELS entry {model!r} needs a provider prefix: "
+                    "gemini:, vultr: or cortex:"
+                )
+            missing += [var for var, value in credentials[provider].items() if not value]
+        if missing:
+            raise ValueError(f"HTB_JURY=providers needs {' and '.join(dict.fromkeys(missing))}")

@@ -112,7 +112,7 @@ ExperimentStatus = TypeAliasType(
 BuildStage = TypeAliasType("BuildStage", Literal["targets", "ranking", "evidence", "saving"])
 RankingMethod = TypeAliasType("RankingMethod", Literal["network", "evidence_only"])
 ShortlistMethod = TypeAliasType("ShortlistMethod", Literal["physical_rwr", "zscore"])
-JuryMode = TypeAliasType("JuryMode", Literal["fixture", "mock", "cortex"])
+JuryMode = TypeAliasType("JuryMode", Literal["fixture", "mock", "cortex", "providers"])
 CandidateStatus = TypeAliasType(
     "CandidateStatus", Literal["scored", "distance_only", "not_scorable"]
 )
@@ -345,7 +345,8 @@ class JuryConfig(Model):
         description=(
             "fixture: a recorded review with made-up votes. mock: a practice review; no model "
             "is called and every vote is a placeholder with no scientific meaning. cortex: "
-            "real models through Snowflake Cortex."
+            "real models through Snowflake Cortex. providers: real models through Gemini, Vultr "
+            "Inference and Snowflake Cortex, each model ID prefixed with its provider."
         )
     )
     models: list[JuryModel] = Field(

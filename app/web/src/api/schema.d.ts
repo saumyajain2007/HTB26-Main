@@ -1807,7 +1807,7 @@ export interface components {
        * @description Tries per juror before its review counts as invalid.
        */
       max_attempts: number;
-      /** @description fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex. */
+      /** @description fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex. providers: real models through Gemini, Vultr Inference and Snowflake Cortex, each model ID prefixed with its provider. */
       mode: components["schemas"]["JuryMode"];
       /**
        * Models
@@ -1838,7 +1838,7 @@ export interface components {
       temperature: number;
     };
     /** @enum {string} */
-    JuryMode: "fixture" | "mock" | "cortex";
+    JuryMode: "fixture" | "mock" | "cortex" | "providers";
     /** JuryModel */
     JuryModel: {
       /**

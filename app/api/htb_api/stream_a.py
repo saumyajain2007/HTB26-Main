@@ -29,6 +29,7 @@ from typing import Any, Protocol, cast
 import duckdb
 import httpx
 from jury import client as _jury
+from jury import providers as _providers
 from pipeline import disease_targets as _a1
 from pipeline import drugs as _a2
 from pipeline import experiment as _experiment
@@ -480,3 +481,16 @@ def cortex_model(reasoning_effort: dict[str, str]) -> CortexModel:
     """Stream A's Snowflake Cortex client. Reads SNOWFLAKE_ACCOUNT and SNOWFLAKE_PAT."""
     factory = cast(Callable[..., CortexModel], _jury.CortexModel)
     return factory(reasoning_effort=reasoning_effort)
+
+
+def provider_model(reasoning_effort: dict[str, str]) -> CortexModel:
+    """Stream A's multi-provider client: Gemini, Vultr Inference and Snowflake Cortex,
+    chosen by each model ID's prefix. Reads GEMINI_API_KEY, VULTR_INFERENCE_API_KEY and
+    the SNOWFLAKE_* variables, only for the providers the jury's models name."""
+    factory = cast(Callable[..., CortexModel], _providers.ProviderModel)
+    return factory(reasoning_effort=reasoning_effort)
+
+
+def split_model_id(model: str) -> tuple[str, str]:
+    """`gemini:gemini-2.5-pro` -> (`gemini`, `gemini-2.5-pro`); ValueError without a provider."""
+    return cast(tuple[str, str], _providers.split_model_id(model))
