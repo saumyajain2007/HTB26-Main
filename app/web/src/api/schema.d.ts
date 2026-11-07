@@ -2296,8 +2296,8 @@ export interface components {
        */
       top_targets: number;
     };
-    /** @constant */
-    ResistanceEvidenceSource: "card";
+    /** @enum {string} */
+    ResistanceEvidenceSource: "card" | "curated";
     /**
      * ResistanceProfile
      * @description What an isolate is expected to resist, and why (docs/contracts.md).
