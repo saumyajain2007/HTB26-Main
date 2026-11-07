@@ -9,6 +9,7 @@ import { RESISTANCE_PATH } from "../steps";
 
 const PATHOGEN = copy.resistanceSteps[0];
 const MAP = copy.resistanceSteps[1];
+const CANDIDATES = copy.resistanceSteps[2];
 const SPECIES = "Staphylococcus aureus";
 
 /** The step the navigation marks as current, and nothing else marked with it. */
@@ -31,6 +32,7 @@ describe("the resistance flow", () => {
     const nav = screen.getByRole("navigation", { name: copy.stepsLabel });
     expect(within(nav).getAllByRole("link")).toHaveLength(1);
     expect(within(nav).getByText(MAP.title)).toHaveAttribute("aria-disabled", "true");
+    expect(within(nav).getByText(CANDIDATES.title)).toHaveAttribute("aria-disabled", "true");
     expect(screen.getByRole("button", { name: copy.back })).toBeDisabled();
     expect(screen.getByRole("button", { name: copy.next })).toBeDisabled();
   });
@@ -64,6 +66,14 @@ describe("the resistance flow", () => {
     await user.click(screen.getByRole("button", { name: copy.next }));
     expectOnStep(MAP.title);
     expect(router.state.location.pathname).toBe(`${RESISTANCE_PATH}/${PROFILE_ID}/map`);
+
+    await user.click(screen.getByRole("button", { name: copy.next }));
+    expectOnStep(CANDIDATES.title);
+    expect(router.state.location.pathname).toBe(`${RESISTANCE_PATH}/${PROFILE_ID}/candidates`);
+    expect(screen.getByRole("button", { name: copy.next })).toBeDisabled();
+
+    await user.click(screen.getByRole("button", { name: copy.back }));
+    expectOnStep(MAP.title);
 
     await user.click(screen.getByRole("button", { name: copy.back }));
     expectOnStep(PATHOGEN.title);
