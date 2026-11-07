@@ -1,0 +1,54 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W3SV94XPSFK5T8XTEPYGNQ",
+  "strategy": "manual-commit",
+  "branch": "ranking-activity-certs-limits",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "app/api/htb_api/fixtures/resistance/antibiotic_candidates.json",
+    "app/api/htb_api/fixtures/resistance/certificate.json",
+    "core/ranking/antibiotic/__main__.py",
+    "core/ranking/antibiotic/rank.py",
+    "core/ranking/pyproject.toml",
+    "core/ranking/tests/test_antibiotic_ranking.py",
+    "core/verify/htb_verify/__init__.py",
+    "core/verify/htb_verify/calibrate.py",
+    "core/verify/htb_verify/certify.py",
+    "core/verify/htb_verify/rules.py",
+    "core/verify/lean/HtbVerify/Rules.lean",
+    "core/verify/tests/test_certify.py",
+    "tasks.md",
+    "tests/fixtures/antibiotic_candidates.json",
+    "tests/fixtures/certificate.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 3,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
