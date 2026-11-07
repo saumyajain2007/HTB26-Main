@@ -1,0 +1,56 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W4VW07ZTSY75ZFFF7BYC3N",
+  "session_id": "0a68668a-d9c2-40af-add0-5f20f12785db",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-07T23:18:00.364195Z",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "README.md",
+    "app/web/e2e/intro.spec.ts",
+    "app/web/index.html",
+    "app/web/src/app/BrandMark.tsx",
+    "app/web/src/copy/en.ts",
+    "app/web/src/intro/LaboratoryScene.tsx",
+    "app/web/src/intro/WorkflowMap.tsx",
+    "app/web/src/intro/content.ts",
+    "app/web/src/intro/laboratory.module.css",
+    "app/web/src/styles/tokens.css",
+    "app/worker/htb_worker/sandbox.py",
+    "core/pipeline/README.md",
+    "core/pyproject.toml",
+    "deploy/vercel/index.py",
+    "scope.md",
+    "tasks.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "ff1f7f7d24e3",
+  "checkpoint_transcript_start": 277,
+  "transcript_lines_at_start": 277,
+  "compact_transcript_start": 34,
+  "token_usage": {
+    "input_tokens": 16,
+    "cache_creation_tokens": 4343,
+    "cache_read_tokens": 538186,
+    "output_tokens": 2634,
+    "api_call_count": 7
+  },
+  "redaction": {
+    "replacements": 5,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 5,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 3
+  }
+}
