@@ -36,7 +36,7 @@ const decisions = {
  */
 
 export const copy = {
-  product: "Half Life",
+  product: "HTB26",
   back: "Back",
   next: "Next",
   stepsLabel: "Steps",
@@ -94,9 +94,9 @@ export const copy = {
   /** The introduction at `/`: the approach, its four steps, and the way into the app. */
   intro: {
     title: "Repurposing existing drugs for diseases",
-    tagline: "A second life for existing medicines",
+    tagline: "Resistance-aware antibiotic candidates",
     solution:
-      "Half Life integrates biological network analysis and AI evidence review to prioritise existing drugs for further research.",
+      "HTB26 profiles why a bacterium is resistant, then ranks drugs predicted to evade those mechanisms, with the evidence behind each pick.",
     start: "Start exploring",
     limit: "Research hypotheses, not proven treatments.",
     method: [

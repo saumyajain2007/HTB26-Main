@@ -1,4 +1,4 @@
-/** The Half Life mark (Jessica's logo): four proteins and the links between them. */
+/** The product mark (Jessica's logo): four proteins and the links between them. */
 export function BrandMark({ className }: { className?: string | undefined }) {
   return (
     <svg className={className} viewBox="0 0 32 32" aria-hidden="true" fill="none">

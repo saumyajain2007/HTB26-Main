@@ -20,7 +20,7 @@ Sizes: **S** under 2 h, **M** 2–6 h, **L** 6–12 h (single person, relative).
 
 **Things the plan must respect**
 
-1. **The reusable part is the plumbing, not the science.** Half Life's ranking (random walk on the human STRING network, Open Targets) does not apply to bacteria. WS4 is new code. What carries over: jury and validators, the frozen-protocol and bootstrap-CI evaluation pattern, docking worker, DB and jobs, 3D viewer, deploy.
+1. **The reusable part is the plumbing, not the science.** The earlier project's ranking (random walk on the human STRING network, Open Targets) does not apply to bacteria. WS4 is new code. What carries over: jury and validators, the frozen-protocol and bootstrap-CI evaluation pattern, docking worker, DB and jobs, 3D viewer, deploy.
 2. **The app pivot touches the API schema, so it is the main merge-conflict risk.** Freeze the data contracts first (Phase 0) so data, ranking and UI work can proceed in parallel against fixtures.
 3. **Validation is what scores on HRT.** A polished UI over an unvalidated ranking will not. Build the retrospective test as soon as a ranking exists.
 4. **Keep the offline fixture path working at all times.** The demo must not depend on a network.
@@ -169,7 +169,7 @@ Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 - [ ] Two to three minute demo script. `M`, all
 - [ ] Sponsor mapping: how the project meets HRT (prediction and decision), G-Research (making the invisible visible), plus the integrations used (Gemini, Vultr, Tiger Data, Entire). Confirm judging criteria with the sponsors. `S`, C
 - [ ] Update [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for new reused code and data licences (CARD, ChEMBL). `S`, whoever adds the source
-- [ ] Clean stray legacy-name and "Half Life" references; refresh the README pipeline diagram and "Tasks" section. `S`, C
+- [x] Clean stray legacy-name references; refresh the README pipeline diagram and "Tasks" section. `S`, C
 - [ ] Enable Entire in the repo if it is being claimed as a sponsor integration (`entire enable`). `S`
 
 ---
