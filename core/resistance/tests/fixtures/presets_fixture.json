@@ -1,0 +1,21 @@
+{
+  "_comment": "Fixture presets for the WS2 tests. TEST-prefixed names only; never real CARD data.",
+  "presets": {
+    "Test species": {
+      "status": "draft_unverified",
+      "ncbi_taxid": 9999999,
+      "aliases": ["T. species"],
+      "note": "fixture only",
+      "genes": [
+        "TESTBLA-1",
+        "TESTGYR S83L",
+        "NOTINCARD-9",
+        "TESTBLA-1"
+      ]
+    },
+    "Test empty": {
+      "status": "draft_unverified",
+      "genes": []
+    }
+  }
+}

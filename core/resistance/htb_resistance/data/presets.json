@@ -1,0 +1,32 @@
+{
+  "_comment": "DRAFT species presets for input kind species_preset. Each gene list is a placeholder, chosen as a plausible typical profile for a resistant isolate, NOT derived from a cited source. Every profile built from a preset is confidence 'low' and carries a caveat saying so. Replacing these with CARD-derived, cited lists is a separate Lane A task; run them through typecheck.check_term and check_taxon before treating them as frozen.",
+  "_schema": {
+    "status": "draft_unverified until a cited source replaces the list",
+    "ncbi_taxid": "NCBI taxid, rank species; the three here are the type-checked ids from typecheck.PATHOGENS",
+    "genes": "CARD gene names, optionally 'gene MUTATION'; anything that does not resolve is reported, not dropped",
+    "aliases": "other spellings the species may be typed as"
+  },
+  "presets": {
+    "Acinetobacter baumannii": {
+      "status": "draft_unverified",
+      "ncbi_taxid": 470,
+      "aliases": ["A. baumannii", "abaumannii", "acinetobacter"],
+      "note": "Placeholder list for the carbapenem-resistant lineage used as the validation species. Replace with a CARD-derived, cited profile.",
+      "genes": ["OXA-23", "OXA-51", "ADC-25", "adeB", "adeJ"]
+    },
+    "Klebsiella pneumoniae": {
+      "status": "draft_unverified",
+      "ncbi_taxid": 573,
+      "aliases": ["K. pneumoniae", "kpneumoniae", "klebsiella"],
+      "note": "Placeholder list for a carbapenemase-producing isolate. Replace with a CARD-derived, cited profile.",
+      "genes": ["KPC-2", "CTX-M-15", "SHV-1", "OXA-1", "oqxA", "oqxB", "fosA"]
+    },
+    "Staphylococcus aureus": {
+      "status": "draft_unverified",
+      "ncbi_taxid": 1280,
+      "aliases": ["S. aureus", "saureus", "MRSA", "staphylococcus"],
+      "note": "Placeholder list for MRSA. Gram-positive, so the outer-membrane permeability assumptions behind the Gram-negative targets do not apply. Replace with a CARD-derived, cited profile.",
+      "genes": ["mecA", "blaZ", "tet(K)", "msr(A)"]
+    }
+  }
+}
