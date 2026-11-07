@@ -1,0 +1,2 @@
+set up the uv, and run the core. we will not be using vercel for now.
+https://github.com/potatoesandfrenchfries/ai-expo-2026-code should contain setup fro rdkit
