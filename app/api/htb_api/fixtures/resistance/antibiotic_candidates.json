@@ -1,0 +1,640 @@
+{
+  "contract_version": "1",
+  "result_id": "00000000-0000-4000-8000-0000000000b1",
+  "profile_id": "00000000-0000-4000-8000-0000000000a1",
+  "pathogen": {
+    "name": "Staphylococcus aureus",
+    "ncbi_taxid": 1280
+  },
+  "releases": [
+    "card-4.0.2",
+    "chembl-37"
+  ],
+  "ranking": {
+    "method": "ordered_rule_v0",
+    "order": [
+      "evasion",
+      "activity",
+      "safety"
+    ],
+    "weights": null,
+    "note": "Ordered rule, no blended score. Fixture values are illustrative."
+  },
+  "candidates": [
+    {
+      "candidate_id": "CHEMBL126",
+      "name": "LINEZOLID",
+      "source": "approved",
+      "smiles": "CC(=O)NC[C@H]1CN(c2ccc(N3CCOCC3)c(F)c2)C(=O)O1",
+      "inchikey": "TYZROVQLWOKYKF-ZDUSSCGKSA-N",
+      "drug_class": {
+        "aro_id": "ARO:3000079",
+        "name": "oxazolidinone antibiotic"
+      },
+      "mechanism_of_action": "Binds the 50S ribosomal subunit and blocks initiation of protein synthesis.",
+      "target": {
+        "name": "50S ribosomal subunit",
+        "gene_aro_ids": []
+      },
+      "rank": 1,
+      "evasion": {
+        "status": "unaffected",
+        "defeated_by": [],
+        "profile_evidence_ids": [
+          "P1",
+          "P2"
+        ],
+        "rationale": "No gene in the profile is linked to this class in CARD."
+      },
+      "features": {
+        "activity": {
+          "available": true,
+          "value": 2.0,
+          "unit": "mg/L (median MIC, fictional)",
+          "evidence_ids": [
+            "E1"
+          ]
+        },
+        "target_hit": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "docking": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "safety": {
+          "available": true,
+          "value": "alerts_recorded",
+          "unit": null,
+          "evidence_ids": [
+            "E2"
+          ]
+        }
+      },
+      "explanation": {
+        "summary": "Ranked first: its class is not linked to either resistance mechanism in the profile, and it has activity data against S. aureus.",
+        "mechanisms_evaded": [
+          "antibiotic target replacement",
+          "antibiotic target alteration"
+        ],
+        "missing": [
+          "No docking result.",
+          "Class has no CARD drug-class ARO ID in this fixture."
+        ],
+        "caveats": [
+          "Evasion here means no known link in CARD. It is not a measured result."
+        ]
+      },
+      "smoke_test": {
+        "rule_set": "antibiotic_relaxed",
+        "valid": true,
+        "passed": true,
+        "strict_alerts": false,
+        "descriptors": {
+          "mw": 337.14,
+          "logp": 1.12,
+          "hbd": 1,
+          "hba": 5,
+          "rot_bonds": 4,
+          "psa": 71.11,
+          "heavy_atoms": 24
+        },
+        "violations": [],
+        "alerts": [
+          "anil_di_alk_A(478)"
+        ],
+        "sa_score": 2.76
+      },
+      "certificate_status": "certified",
+      "certificate": {
+        "inchikey": "TYZROVQLWOKYKF-ZDUSSCGKSA-N",
+        "rule_set": "antibiotic_relaxed",
+        "ran": true,
+        "certified": true,
+        "rules": [
+          {
+            "rule": "mw",
+            "passed": true,
+            "value": 337.14,
+            "limit": 1200.0,
+            "margin": -862.86
+          },
+          {
+            "rule": "logp",
+            "passed": true,
+            "value": 1.12,
+            "limit": 5.0,
+            "margin": -3.88
+          },
+          {
+            "rule": "hbd",
+            "passed": true,
+            "value": 1,
+            "limit": 12,
+            "margin": -11
+          },
+          {
+            "rule": "hba",
+            "passed": true,
+            "value": 5,
+            "limit": 20,
+            "margin": -15
+          },
+          {
+            "rule": "rot_bonds",
+            "passed": true,
+            "value": 4,
+            "limit": 15,
+            "margin": -11
+          },
+          {
+            "rule": "psa",
+            "passed": true,
+            "value": 71.11,
+            "limit": 250.0,
+            "margin": -178.89
+          }
+        ],
+        "failed_rules": [],
+        "lean_version": "4.35.0",
+        "seconds": 1.31,
+        "detail": null
+      },
+      "generated": null,
+      "evidence": [
+        {
+          "id": "E1",
+          "kind": "activity",
+          "source": "chembl",
+          "release": "chembl-37",
+          "source_id": "CHEMBL126",
+          "statement": "Median MIC across records against S. aureus (value fictional)."
+        },
+        {
+          "id": "E2",
+          "kind": "smoke_test",
+          "source": "htb_verify",
+          "release": "antibiotic_relaxed",
+          "source_id": "CHEMBL126",
+          "statement": "Property rules and structural alerts from the Python smoke test."
+        }
+      ]
+    },
+    {
+      "candidate_id": "CHEMBL262777",
+      "name": "VANCOMYCIN",
+      "source": "approved",
+      "smiles": "CC1C(C(CC(O1)OC2C(C(C(OC2OC3=C4C=C5C=C3OC6=C(C=C(C=C6)C(C(C(=O)NC(C(=O)NC5C(=O)NC7C8=CC(=C(C=C8)O)C9=C(C=C(C=C9O)O)C(NC(=O)C(C(C1=CC(=C(O4)C=C1)Cl)O)NC7=O)C(=O)O)CC(=O)N)NC(=O)C(CC(C)C)NC)O)Cl)CO)O)O)(C)N)O",
+      "inchikey": "MYPYJXKWCTUITO-UHFFFAOYSA-N",
+      "drug_class": {
+        "aro_id": "ARO:3000081",
+        "name": "glycopeptide antibiotic"
+      },
+      "mechanism_of_action": "Binds the D-Ala-D-Ala terminus of peptidoglycan precursors and blocks cell-wall synthesis.",
+      "target": {
+        "name": "peptidoglycan precursor D-Ala-D-Ala",
+        "gene_aro_ids": []
+      },
+      "rank": 2,
+      "evasion": {
+        "status": "unaffected",
+        "defeated_by": [],
+        "profile_evidence_ids": [
+          "P1",
+          "P2"
+        ],
+        "rationale": "No gene in the profile is linked to this class in CARD."
+      },
+      "features": {
+        "activity": {
+          "available": true,
+          "value": 1.0,
+          "unit": "mg/L (median MIC, fictional)",
+          "evidence_ids": [
+            "E3"
+          ]
+        },
+        "target_hit": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "docking": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "safety": {
+          "available": true,
+          "value": "rules_failed",
+          "unit": null,
+          "evidence_ids": [
+            "E4"
+          ]
+        }
+      },
+      "explanation": {
+        "summary": "Ranked below linezolid only because it fails the placeholder property rules. Its class is not linked to the profile's mechanisms.",
+        "mechanisms_evaded": [
+          "antibiotic target replacement",
+          "antibiotic target alteration"
+        ],
+        "missing": [
+          "No docking result."
+        ],
+        "caveats": [
+          "The antibiotic_relaxed limits are placeholders, so the rule failure says little about this real drug."
+        ]
+      },
+      "smoke_test": {
+        "rule_set": "antibiotic_relaxed",
+        "valid": true,
+        "passed": false,
+        "strict_alerts": false,
+        "descriptors": {
+          "mw": 1447.43,
+          "logp": 0.11,
+          "hbd": 19,
+          "hba": 25,
+          "rot_bonds": 13,
+          "psa": 530.49,
+          "heavy_atoms": 101
+        },
+        "violations": [
+          {
+            "rule": "mw",
+            "value": 1447.4,
+            "limit": 1200.0,
+            "margin": 247.4
+          },
+          {
+            "rule": "hbd",
+            "value": 19.0,
+            "limit": 12.0,
+            "margin": 7.0
+          },
+          {
+            "rule": "hba",
+            "value": 25.0,
+            "limit": 20.0,
+            "margin": 5.0
+          },
+          {
+            "rule": "psa",
+            "value": 530.5,
+            "limit": 250.0,
+            "margin": 280.5
+          }
+        ],
+        "alerts": [],
+        "sa_score": 8.21
+      },
+      "certificate_status": "failed",
+      "certificate": {
+        "inchikey": "MYPYJXKWCTUITO-UHFFFAOYSA-N",
+        "rule_set": "antibiotic_relaxed",
+        "ran": true,
+        "certified": false,
+        "rules": [
+          {
+            "rule": "mw",
+            "passed": false,
+            "value": 1447.43,
+            "limit": 1200.0,
+            "margin": 247.43
+          },
+          {
+            "rule": "logp",
+            "passed": true,
+            "value": 0.11,
+            "limit": 5.0,
+            "margin": -4.89
+          },
+          {
+            "rule": "hbd",
+            "passed": false,
+            "value": 19,
+            "limit": 12,
+            "margin": 7
+          },
+          {
+            "rule": "hba",
+            "passed": false,
+            "value": 25,
+            "limit": 20,
+            "margin": 5
+          },
+          {
+            "rule": "rot_bonds",
+            "passed": true,
+            "value": 13,
+            "limit": 15,
+            "margin": -2
+          },
+          {
+            "rule": "psa",
+            "passed": false,
+            "value": 530.49,
+            "limit": 250.0,
+            "margin": 280.49
+          }
+        ],
+        "failed_rules": [
+          "mw",
+          "hbd",
+          "hba",
+          "psa"
+        ],
+        "lean_version": "4.35.0",
+        "seconds": 0.16,
+        "detail": null
+      },
+      "generated": null,
+      "evidence": [
+        {
+          "id": "E3",
+          "kind": "activity",
+          "source": "chembl",
+          "release": "chembl-37",
+          "source_id": "CHEMBL262777",
+          "statement": "Median MIC across records against S. aureus (value fictional)."
+        },
+        {
+          "id": "E4",
+          "kind": "smoke_test",
+          "source": "htb_verify",
+          "release": "antibiotic_relaxed",
+          "source_id": "CHEMBL262777",
+          "statement": "Property rules and structural alerts from the Python smoke test."
+        }
+      ]
+    },
+    {
+      "candidate_id": "CHEMBL819",
+      "name": "OXACILLIN",
+      "source": "approved",
+      "smiles": "Cc1onc(-c2ccccc2)c1C(=O)N[C@@H]1C(=O)N2[C@@H](C(=O)O)C(C)(C)S[C@H]12",
+      "inchikey": "UWYHMGVUTGAWSP-JKIFEVAISA-N",
+      "drug_class": {
+        "aro_id": "ARO:3000008",
+        "name": "penicillin beta-lactam"
+      },
+      "mechanism_of_action": "Binds penicillin-binding proteins and blocks cell-wall cross-linking.",
+      "target": {
+        "name": "penicillin-binding proteins",
+        "gene_aro_ids": [
+          "ARO:3000617"
+        ]
+      },
+      "rank": 3,
+      "evasion": {
+        "status": "defeated",
+        "defeated_by": [
+          {
+            "gene_aro_id": "ARO:3000617",
+            "mechanism_aro_id": "ARO:0001002"
+          }
+        ],
+        "profile_evidence_ids": [
+          "P1"
+        ],
+        "rationale": "mecA replaces the target with PBP2a, and CARD links mecA to this drug class."
+      },
+      "features": {
+        "activity": {
+          "available": true,
+          "value": 0.25,
+          "unit": "mg/L (median MIC, fictional)",
+          "evidence_ids": [
+            "E5"
+          ]
+        },
+        "target_hit": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "docking": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "safety": {
+          "available": true,
+          "value": "alerts_recorded",
+          "unit": null,
+          "evidence_ids": [
+            "E6"
+          ]
+        }
+      },
+      "explanation": {
+        "summary": "Ranked last: its class is defeated by mecA, so activity data from susceptible strains does not apply.",
+        "mechanisms_evaded": [],
+        "missing": [
+          "No docking result."
+        ],
+        "caveats": [
+          "The activity number comes from records that may include methicillin-susceptible strains."
+        ]
+      },
+      "smoke_test": {
+        "rule_set": "antibiotic_relaxed",
+        "valid": true,
+        "passed": true,
+        "strict_alerts": false,
+        "descriptors": {
+          "mw": 401.1,
+          "logp": 1.9,
+          "hbd": 2,
+          "hba": 6,
+          "rot_bonds": 4,
+          "psa": 112.74,
+          "heavy_atoms": 28
+        },
+        "violations": [],
+        "alerts": [],
+        "sa_score": 3.47
+      },
+      "certificate_status": "certified",
+      "certificate": {
+        "inchikey": "UWYHMGVUTGAWSP-JKIFEVAISA-N",
+        "rule_set": "antibiotic_relaxed",
+        "ran": true,
+        "certified": true,
+        "rules": [
+          {
+            "rule": "mw",
+            "passed": true,
+            "value": 401.1,
+            "limit": 1200.0,
+            "margin": -798.9
+          },
+          {
+            "rule": "logp",
+            "passed": true,
+            "value": 1.9,
+            "limit": 5.0,
+            "margin": -3.1
+          },
+          {
+            "rule": "hbd",
+            "passed": true,
+            "value": 2,
+            "limit": 12,
+            "margin": -10
+          },
+          {
+            "rule": "hba",
+            "passed": true,
+            "value": 6,
+            "limit": 20,
+            "margin": -14
+          },
+          {
+            "rule": "rot_bonds",
+            "passed": true,
+            "value": 4,
+            "limit": 15,
+            "margin": -11
+          },
+          {
+            "rule": "psa",
+            "passed": true,
+            "value": 112.74,
+            "limit": 250.0,
+            "margin": -137.26
+          }
+        ],
+        "failed_rules": [],
+        "lean_version": "4.35.0",
+        "seconds": 0.16,
+        "detail": null
+      },
+      "generated": null,
+      "evidence": [
+        {
+          "id": "E5",
+          "kind": "activity",
+          "source": "chembl",
+          "release": "chembl-37",
+          "source_id": "CHEMBL819",
+          "statement": "Median MIC across records against S. aureus (value fictional)."
+        },
+        {
+          "id": "E6",
+          "kind": "smoke_test",
+          "source": "htb_verify",
+          "release": "antibiotic_relaxed",
+          "source_id": "CHEMBL819",
+          "statement": "Property rules and structural alerts from the Python smoke test."
+        }
+      ]
+    },
+    {
+      "candidate_id": "GEN-0001",
+      "name": "Generated example 1",
+      "source": "generated",
+      "smiles": "CC(=O)NC[C@H]1CN(c2ccc(N3CCOCC3)c(Cl)c2)C(=O)O1",
+      "inchikey": "BJAMGMKJQLOUBR-ZDUSSCGKSA-N",
+      "drug_class": null,
+      "mechanism_of_action": null,
+      "target": null,
+      "rank": null,
+      "evasion": {
+        "status": "unknown",
+        "defeated_by": [],
+        "profile_evidence_ids": [],
+        "rationale": "A generated molecule has no drug class, so CARD cannot say whether a mechanism defeats it."
+      },
+      "features": {
+        "activity": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "target_hit": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "docking": {
+          "available": false,
+          "value": null,
+          "unit": null,
+          "evidence_ids": []
+        },
+        "safety": {
+          "available": true,
+          "value": "alerts_recorded",
+          "unit": null,
+          "evidence_ids": [
+            "E7"
+          ]
+        }
+      },
+      "explanation": {
+        "summary": "Not ranked with approved drugs. Shown separately as a hypothesis.",
+        "mechanisms_evaded": [],
+        "missing": [
+          "No activity prediction.",
+          "No docking result.",
+          "No drug class."
+        ],
+        "caveats": [
+          "Generated molecules are hypotheses only. This one is a fictional example."
+        ]
+      },
+      "smoke_test": {
+        "rule_set": "antibiotic_relaxed",
+        "valid": true,
+        "passed": true,
+        "strict_alerts": false,
+        "descriptors": {
+          "mw": 353.11,
+          "logp": 1.64,
+          "hbd": 1,
+          "hba": 5,
+          "rot_bonds": 4,
+          "psa": 71.11,
+          "heavy_atoms": 24
+        },
+        "violations": [],
+        "alerts": [
+          "anil_di_alk_A(478)"
+        ],
+        "sa_score": 2.77
+      },
+      "certificate_status": "not_run",
+      "certificate": null,
+      "generated": {
+        "model": "example-generator (fictional)",
+        "model_version": "0",
+        "seed": 0,
+        "pocket_pdb_id": null,
+        "parent_candidate_id": "CHEMBL126"
+      },
+      "evidence": [
+        {
+          "id": "E7",
+          "kind": "smoke_test",
+          "source": "htb_verify",
+          "release": "antibiotic_relaxed",
+          "source_id": "GEN-0001",
+          "statement": "Property rules and structural alerts from the Python smoke test."
+        }
+      ]
+    }
+  ]
+}

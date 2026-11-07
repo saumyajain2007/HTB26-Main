@@ -29,6 +29,7 @@ from .services.live import LiveSource
 from .services.live_jury import StreamAJury
 from .services.molecules import FixtureMolecules, MoleculeSource, PubChemMolecules
 from .services.ranking import EvidenceRanking, NetworkRanking, RankingBackend
+from .services.resistance import FixtureResistance, ResistanceSource
 from .services.source import ExperimentSource, FixtureSource
 from .settings import Settings, SnowflakeSettings
 
@@ -52,6 +53,7 @@ def build_components(
     docking: DockingBackend | None = None,
     evaluation: EvaluationSource | None = None,
     molecules: MoleculeSource | None = None,
+    resistance: ResistanceSource | None = None,
     runner: Runner | None = None,
 ) -> Components:
     """Fixture-mode pieces by default; any piece can be replaced. Opens the database
@@ -83,6 +85,7 @@ def build_components(
         docking=docking,
         evaluation=evaluation or FixtureEvaluation(fixtures),
         molecules=molecules or open_molecules(settings),
+        resistance=resistance or FixtureResistance(fixtures),
         runner=runner,
         jobs=jobs,
     )

@@ -207,6 +207,37 @@ fails validation gets FastAPI's `{"detail": [...]}` list.
 | `GET /dock/{id}` | Job status, scores and failures. A done job with files lists them in `files`: each one's URL and SHA-256 |
 | `GET /files/{job_id}/{name}` | One result file of a done docking job (see below) |
 | `GET /evaluation` | Frozen evaluation metrics |
+| `GET /resistance/pathogens` | The pathogens a profile can be built for. `profile_id` is null where none is built yet |
+| `GET /resistance/profiles` | Every resistance profile this API holds |
+| `GET /resistance/profiles/{id}` | One profile: determinants, mechanisms, defeated drug classes, affected targets, evidence, confidence and caveats |
+| `GET /resistance/profiles/{id}/candidates` | The antibiotics ranked against that profile. 404 with a different message when the profile exists but nothing has been ranked against it |
+| `GET /resistance/certificates` | Every Lean certificate this API holds |
+
+## Resistance routes
+
+The antibiotic flow of [docs/contracts.md](../../docs/contracts.md): pick a
+pathogen, read its `ResistanceProfile`, then read the `AntibioticCandidate`
+result ranked against it. `htb_api/schemas.py` mirrors those three frozen
+contracts field for field, so the reference fixtures parse unchanged.
+
+These routes are **fixture-backed**: `services/resistance.py` serves
+`fixtures/resistance/`, which holds copies of the reference fixtures in
+`tests/fixtures/`. `tests/test_resistance.py` fails if the two drift, so a
+contract change cannot land on one side only. `ResistanceSource` is the seam the
+real pipeline plugs into: Lane A's profiling (#16) and Lane B's ranking (#23)
+replace `FixtureResistance` without the web app changing.
+
+Only the pathogen the fixture covers (*S. aureus*) has a profile. The other two
+presets carry `profile_id: null` and a note, so the app shows them as not yet
+available rather than inventing data. The candidate result carries a
+`fixture_note` saying its scores, MICs and ranks are made up.
+
+What the routes do **not** claim: `evasion.status: unaffected` means no link in
+CARD, not a measured result, and `unknown` means CARD cannot say, which is not
+the same thing. `defeated_classes` is class-level, so it rules drugs out rather
+than in. A certificate confirms the encoded property rules hold; it does not
+show a molecule is safe, selective or active, and the `antibiotic_relaxed`
+limits are placeholders until #26 calibrates them.
 
 ## Docking result files
 

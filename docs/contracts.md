@@ -7,6 +7,8 @@ CARD tables ─► ResistanceProfile ─► AntibioticCandidate result ─► ap
  (Lane A)        (Lane A)             (Lane B, uses Certificate)   (Lane C)
 ```
 
+The API speaks these contracts as Pydantic models in [app/api/htb_api/schemas.py](../app/api/htb_api/schemas.py) (`ResistanceProfile`, `AntibioticCandidateResult`, `Certificate`), serves them from the routes listed in [app/api/README.md](../app/api/README.md#resistance-routes), and generates `openapi.json` and the web app's TypeScript types from them. The fixtures here are copied into `app/api/htb_api/fixtures/resistance/`; `app/api/tests/test_resistance.py` fails if the copies drift, so change both in one PR.
+
 Conventions: every object carries `contract_version: "1"` at its top level. Optional values are `null` or `[]`, never missing. Releases are `source-version` strings such as `card-4.0.2`. Fixture scores, MICs and ranks are fictional. Descriptors, rule outcomes and Lean results in the fixtures are real output of `core/verify`.
 
 ## ResistanceProfile
