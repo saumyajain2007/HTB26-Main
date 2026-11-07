@@ -45,7 +45,7 @@
       ],
       "variants": [],
       "affected_target": {
-        "name": "penicillin-binding protein (replaced by PBP2a)",
+        "name": "beta-lactam sensitive penicillin-binding protein",
         "pdb_ids": []
       },
       "evidence_ids": [
@@ -79,7 +79,7 @@
         }
       ],
       "affected_target": {
-        "name": "DNA gyrase subunit A",
+        "name": "antibiotic sensitive DNA topoisomerase subunit gyrA",
         "pdb_ids": []
       },
       "evidence_ids": [
@@ -147,14 +147,14 @@
   ],
   "affected_targets": [
     {
-      "name": "DNA gyrase subunit A",
+      "name": "antibiotic sensitive DNA topoisomerase subunit gyrA",
       "gene_aro_ids": [
         "ARO:3003296"
       ],
       "pdb_ids": []
     },
     {
-      "name": "penicillin-binding protein (replaced by PBP2a)",
+      "name": "beta-lactam sensitive penicillin-binding protein",
       "gene_aro_ids": [
         "ARO:3000617"
       ],
@@ -174,7 +174,7 @@
       "source": "card",
       "release": "card-4.0.2",
       "aro_id": "ARO:3003296",
-      "statement": "CARD lists S84L among the resistance variants of the S. aureus gyrA model and links the model to fluoroquinolone resistance."
+      "statement": "CARD links Staphylococcus aureus gyrA conferring resistance to fluoroquinolones to the fluoroquinolone antibiotic and nybomycin-like antibiotic drug classes and to antibiotic target alteration. CARD lists S84L among the resistance variants of this model."
     }
   ],
   "confidence": {
@@ -184,6 +184,7 @@
   "caveats": [
     "A gene in CARD can confer resistance. It does not show the gene is expressed in this isolate.",
     "Drug classes are CARD's vocabulary, not ATC.",
-    "One input name could not be resolved and is excluded from the profile."
+    "Defeated classes are class-level. Some drugs in a class may still work against a given gene, so use them to rule drugs out, not to rule them in.",
+    "Input names that could not be resolved are excluded from the profile. See unresolved_inputs."
   ]
 }
