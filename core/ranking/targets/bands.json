@@ -1,0 +1,20 @@
+{
+  "rule_version": "1",
+  "_comment": "Thresholds for the ordinal escape-risk band. Separated from the code so the rule is inspectable and can be pinned by eval/protocol.py when this is eventually wired in. Changing a number here changes every band, so it is a reviewable diff.",
+  "escape_route_bands": [
+    {"band": "low", "min_positions": 1, "max_positions": 2},
+    {"band": "moderate", "min_positions": 3, "max_positions": 6},
+    {"band": "high", "min_positions": 7, "max_positions": null}
+  ],
+  "counted_mechanisms": ["antibiotic target alteration"],
+  "recorded_not_counted_mechanisms": [
+    "antibiotic target replacement",
+    "antibiotic target protection",
+    "antibiotic target overexpression"
+  ],
+  "downgrade_one_band_when": {
+    "multi_copy_target": "A resistance SNP in a multi-copy target is recessive: wild-type copies still produce drug-sensitive product, so a single mutation event is not enough."
+  },
+  "cross_class_breadth_note_at": 3,
+  "min_sources_before_single_source_caveat": 2
+}
