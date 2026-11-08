@@ -108,6 +108,21 @@ Keep generated bundles under either ignored artifact directory.
 
 Resistance-aware ranking of approved antibiotics (WS4). Everything above this section is the earlier human-disease network method and is unrelated.
 
+To build fresh WS2 profiles and rank **all three chosen pathogens** in one run:
+
+```sh
+uv run python -m ranking.antibiotic.pathogens --out results/pathogens
+```
+
+This uses the shipped species presets, full CARD release (including the curated
+supplement), approved antibiotic catalogue and ChEMBL MIC data. It refuses
+unresolved preset inputs or mismatched releases. Unlike the single-profile CLI,
+missing activity data is an error unless `--no-activity` is explicit. `--lean`
+requests certificates; without it their status remains `not_run`. Each run saves
+the exact profiles, rankings, exclusion/activity logs, source manifests, preset
+and supplement snapshots, and a checksummed summary. Use a new output directory
+for each run. See [the integration proof](../../docs/pathogen-integration.md).
+
 ```
 uv run python -m ranking.antibiotic tests/fixtures/resistance_profile.json --lean --out result.json
 uv run pytest core/ranking/tests/test_antibiotic_ranking.py core/ranking/tests/test_antibiotic_activity.py
