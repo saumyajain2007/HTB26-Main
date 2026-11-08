@@ -1,0 +1,217 @@
+{
+  "audits": {
+    "cluster_split": {
+      "compounds": 16362,
+      "groups": {
+        "groups": 1471,
+        "largest": [
+          3238,
+          1788,
+          555,
+          250,
+          183
+        ],
+        "largest_share": 0.1979,
+        "singletons": 798
+      },
+      "reading": "A scaffold split leaves test compounds with close training analogues. The similarity-group split guarantees none at or above the threshold, and asserts it. Retrain on this file to get an estimate for new chemistry.",
+      "split_actives": {
+        "calibration": 502,
+        "test": 959,
+        "train": 3341
+      },
+      "split_sizes": {
+        "calibration": 1654,
+        "test": 3266,
+        "train": 11442
+      },
+      "status": "pass",
+      "test_share_with_training_neighbour": {
+        "scaffold_split": 0.756,
+        "similarity_group_split": 0.0
+      },
+      "threshold": 0.5,
+      "written": "results/leakage_audit/splits_cluster.tsv"
+    },
+    "ensemble": {
+      "far_band_roc_auc": {
+        "ci95": [
+          0.5331,
+          0.7707
+        ],
+        "value": 0.6706
+      },
+      "median_nearest": 0.6706,
+      "performance": {
+        "all": {
+          "actives": 960,
+          "baseline_prevalence": 0.2936,
+          "n": 3270,
+          "pr_auc": {
+            "ci95": [
+              0.6311,
+              0.8285
+            ],
+            "value": 0.7614
+          },
+          "roc_auc": {
+            "ci95": [
+              0.8219,
+              0.8889
+            ],
+            "value": 0.8633
+          }
+        },
+        "bands": [
+          {
+            "actives": 74,
+            "baseline_prevalence": 0.1588,
+            "high": 0.4,
+            "low": 0.0,
+            "n": 466,
+            "pr_auc": {
+              "ci95": [
+                0.1324,
+                0.4671
+              ],
+              "value": 0.2816
+            },
+            "roc_auc": {
+              "ci95": [
+                0.5331,
+                0.7707
+              ],
+              "value": 0.6706
+            }
+          },
+          {
+            "actives": 31,
+            "baseline_prevalence": 0.0934,
+            "high": 0.5,
+            "low": 0.4,
+            "n": 332,
+            "pr_auc": {
+              "ci95": [
+                0.1265,
+                0.4906
+              ],
+              "value": 0.2836
+            },
+            "roc_auc": {
+              "ci95": [
+                0.6056,
+                0.8558
+              ],
+              "value": 0.7454
+            }
+          },
+          {
+            "actives": 248,
+            "baseline_prevalence": 0.2364,
+            "high": 0.7,
+            "low": 0.5,
+            "n": 1049,
+            "pr_auc": {
+              "ci95": [
+                0.5046,
+                0.7521
+              ],
+              "value": 0.6667
+            },
+            "roc_auc": {
+              "ci95": [
+                0.7778,
+                0.8784
+              ],
+              "value": 0.8366
+            }
+          },
+          {
+            "actives": 607,
+            "baseline_prevalence": 0.4266,
+            "high": 1.0,
+            "low": 0.7,
+            "n": 1423,
+            "pr_auc": {
+              "ci95": [
+                0.7575,
+                0.9023
+              ],
+              "value": 0.8582
+            },
+            "roc_auc": {
+              "ci95": [
+                0.8467,
+                0.9134
+              ],
+              "value": 0.8857
+            }
+          }
+        ]
+      },
+      "problems": [],
+      "reading": "The overall figure includes compounds that have a close training analogue. The 0.0-0.4 band is the estimate for new chemistry.",
+      "share_with_training_neighbour_ge_0.5": 0.756,
+      "status": "warn",
+      "test_compounds": 3270,
+      "test_group_sizes": {
+        "groups": 649,
+        "largest": [
+          284,
+          193,
+          138,
+          56,
+          49
+        ],
+        "largest_share": 0.0869,
+        "singletons": 335
+      }
+    },
+    "generated": {
+      "generated_molecules": 2670,
+      "held_out": [
+        "RS-102895",
+        "SU3327"
+      ],
+      "leaks": [],
+      "reading": "Checked after generation; the same assertion also runs before it on the guide model's inputs.",
+      "status": "pass"
+    },
+    "ground_truth": {
+      "chembl_documents_matched": 0,
+      "dois": 2,
+      "mic_records_in_those_documents": 0,
+      "pmids": 1,
+      "reading": "No cited source is a ChEMBL document with MIC records, so the activity feature does not contain the ground-truth sources' own measurements. The guidelines themselves summarise MIC and clinical evidence, so activity and ground truth are not independent in substance.",
+      "sources_checked": 4,
+      "status": "pass"
+    },
+    "phenotype": {
+      "by_species": {
+        "acinetobacter": {
+          "bioprojects": 32,
+          "dev": 921,
+          "test": 221
+        },
+        "klebsiella": {
+          "bioprojects": 227,
+          "dev": 983,
+          "test": 1420
+        },
+        "staphylococcus": {
+          "bioprojects": 30,
+          "dev": 425,
+          "test": 1097
+        }
+      },
+      "isolates": 5067,
+      "lopsided_species": [
+        "acinetobacter"
+      ],
+      "reading": "Isolates from one bioproject are never on both sides. A species dominated by one bioproject cannot be split evenly by study; use dev/test only for anything tuned after the frozen run.",
+      "status": "warn"
+    }
+  },
+  "run_at": "2026-11-08T07:41:50+00:00",
+  "schema": 1
+}
