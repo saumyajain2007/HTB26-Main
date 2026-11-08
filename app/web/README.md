@@ -29,6 +29,53 @@ npm run dev        # http://localhost:5173, with /api proxied to FastAPI on 127.
 `HTB_API_ORIGIN` points the dev and preview proxies at an API other than
 `http://127.0.0.1:8000`.
 
+## Sign in with Auth0
+
+The official `@auth0/auth0-react` 2.x SDK is configured for the project's SPA:
+`dev-kt7rl83e2qb1qb6t.us.auth0.com`, client ID `IQjKLlPrAbcbA6emWspXyMXArwBFFPmM`.
+These are public identifiers. To use another application, copy `.env.example`
+to `.env.local` and change `VITE_AUTH0_DOMAIN` and `VITE_AUTH0_CLIENT_ID`.
+Never put a client secret in the frontend.
+
+Before testing a real login, open that application's **Settings** in the
+[Auth0 dashboard](https://manage.auth0.com/) and save these values:
+
+| Application setting                  | Local value             |
+| ------------------------------------ | ----------------------- |
+| Application type                     | Single Page Application |
+| Token Endpoint Authentication Method | None                    |
+| Allowed Callback URLs                | `http://localhost:5173` |
+| Allowed Logout URLs                  | `http://localhost:5173` |
+| Allowed Web Origins                  | `http://localhost:5173` |
+
+`npm run dev` fixes port 5173 with `--strictPort`; it fails instead of silently
+choosing another port and breaking the callback. Open **http://localhost:5173**,
+not the IP-address origin. For a deployed build, add its exact HTTPS origin to
+all three URL lists as well. A preview on port 4173 needs its own entries.
+
+The header opens `/login`; sign-in and account creation redirect to Auth0 Universal
+Login. Passwords, reset-password screens and any enabled social connections are
+handled there. The SDK processes the callback at the app's origin and restores
+the requested local route. External return URLs and login loops are rejected.
+`/account` displays name, email and verification status, and signs out through
+the SDK back to the app's origin. Tokens use the SDK's default in-memory cache.
+Loading, callback errors and rejected sign-in/sign-out calls have explicit UI states.
+
+This change adds client-side account login, as in the supplied quickstart. The
+public guest research flow remains available. It does **not** change FastAPI's
+anonymous browser-session ownership or make experiments account-synced across
+devices. Protecting API data with Auth0 would also require an API audience and
+server-side access-token validation; an ID token must not be used as an API token.
+
+Tests mock the SDK context, not OAuth. `npm test` covers sign-in, sign-up, logout,
+loading/errors, guest access, account details and safe return locations. To check
+a real round trip after saving the dashboard settings: sign in from a research
+page, confirm that it returns there, visit Your account, then sign out. Real
+credentials are deliberately not part of the automated tests.
+
+References: [Auth0 React quickstart](https://auth0.com/docs/quickstart/spa/react)
+and [official React SDK](https://auth0.github.io/auth0-react/).
+
 ### The two flows
 
 The default app is the antibiotic resistance flow. The earlier human-disease flow
