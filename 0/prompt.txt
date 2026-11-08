@@ -1,0 +1,5 @@
+remove scope.md, tasks.md, and remove specific information regarding the codebase and sponsors in the readme. make sure it reads like a professional hackathon pitch (not too long, retain the graph, and add any supplementary factual news that might support the need for such an application
+
+---
+
+stash the changes, and commit directly into main now
