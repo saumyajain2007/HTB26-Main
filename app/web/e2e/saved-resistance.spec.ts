@@ -27,7 +27,7 @@ test("all three saved real rankings open without external requests", async ({ pa
     ).toBeVisible();
     await expect(page.getByRole("heading", { name: "Cited evidence" })).toBeVisible();
     await expect(
-      page.getByText("Lean 4 did not run for this molecule; Python smoke test only."),
+      page.getByText("Lean 4 checked and confirmed all 6 rule theorems.").first(),
     ).toBeVisible();
     await expect(
       page.getByText(/Fixture data\. The scores, MICs and ranks are made up/),

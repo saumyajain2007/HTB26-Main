@@ -61,7 +61,7 @@
   height: 2px;
   background: var(--color-ink);
   transform: scaleX(0);
-  transition: transform var(--duration-step) var(--ease-out);
+  transition: transform var(--duration-quick) var(--ease-out);
   content: "";
 }
 
@@ -95,6 +95,21 @@ a.navLink:hover,
   display: flex;
   flex: none;
   gap: var(--space-8);
+  align-items: center;
+}
+
+/* The arrow keys move between steps: said once, quietly, and only where there is a keyboard. */
+.keysHint {
+  margin-right: var(--space-8);
+  font-size: var(--text-label);
+  color: var(--color-grey-2);
+  white-space: nowrap;
+}
+
+@media (hover: none) {
+  .keysHint {
+    display: none;
+  }
 }
 
 .button {
