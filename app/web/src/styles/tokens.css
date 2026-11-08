@@ -80,6 +80,8 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --duration-quick: 200ms;
   --duration-step: 350ms;
+  /* A panel entering the page: quick enough to stay out of the way. */
+  --duration-enter: 220ms;
 
   /* The homepage story (Jessica's illustrations): night-lab navy, ice-blue ink. */
   --story-night: #07172b;

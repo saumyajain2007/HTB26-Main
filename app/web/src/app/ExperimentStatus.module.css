@@ -119,3 +119,43 @@
 .retry:hover {
   background: var(--color-hover);
 }
+
+/* Pale placeholder rows under the loading sentence; they shimmer unless motion is reduced. */
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.bar {
+  display: block;
+  height: var(--space-16);
+  border-radius: var(--radius-control);
+  background: linear-gradient(
+    90deg,
+    var(--color-hover) 25%,
+    var(--color-wash) 50%,
+    var(--color-hover) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+.bar:nth-child(2) {
+  width: 85%;
+}
+
+.bar:nth-child(3) {
+  width: 92%;
+}
+
+.bar:nth-child(4) {
+  width: 60%;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}

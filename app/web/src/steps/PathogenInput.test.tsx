@@ -56,16 +56,32 @@ describe("the pathogen input", () => {
     renderApp(RESISTANCE_PATH);
 
     const field = screen.getByLabelText(PATHOGEN.genesLabel);
-    expect(field).toHaveAccessibleDescription(`${PATHOGEN.genesHint} ${PATHOGEN.genesHelp}`);
+    expect(field).toHaveAccessibleDescription(PATHOGEN.genesHint);
     // Nothing to profile yet, so the one action is out of use rather than hidden.
     expect(screen.getByRole("button", { name: PATHOGEN.genesSubmit })).toBeDisabled();
 
     await user.type(field, "mecA, mecA{enter}  gyrA  S84L ,");
 
     expect(screen.getByText(PATHOGEN.genesRead(2))).toBeInTheDocument();
-    expect(screen.getByText("mecA")).toBeInTheDocument();
-    expect(screen.getByText("gyrA S84L")).toBeInTheDocument();
+    // Each name shows twice: once as an example chip, once in the list that was read (and the
+    // repeated mecA is read once, not twice).
+    expect(screen.getAllByText("mecA")).toHaveLength(2);
+    expect(screen.getAllByText("gyrA S84L")).toHaveLength(2);
     expect(screen.getByText(PATHOGEN.genesRepeated(["mecA"]))).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: PATHOGEN.genesSubmit })).toBeEnabled();
+  });
+
+  it("adds an example chip to the field on its own line, and never decides it is known", async () => {
+    const user = userEvent.setup();
+    renderApp(RESISTANCE_PATH);
+    const field = screen.getByLabelText(PATHOGEN.genesLabel);
+
+    await user.click(screen.getByRole("button", { name: "mecA" }));
+    expect(field).toHaveValue("mecA");
+
+    await user.click(screen.getByRole("button", { name: "gyrA S84L" }));
+    expect(field).toHaveValue("mecA\ngyrA S84L");
+    // The chip only types for the reader: the profile still has to be built, and CARD still judges.
     expect(screen.getByRole("button", { name: PATHOGEN.genesSubmit })).toBeEnabled();
   });
 

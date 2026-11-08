@@ -76,8 +76,7 @@
   flex-direction: column;
   min-width: 0;
   min-height: 0;
-  transform-origin: 50% 100%;
-  animation: hinge 820ms var(--ease-out) 120ms backwards;
+  animation: rise var(--duration-enter) var(--ease-settle) backwards;
 }
 
 .panel[hidden] {
@@ -144,20 +143,16 @@
   grid-area: main;
 }
 
-/* New panels are plates turned up from the table: they hinge on their bottom edge. */
-@keyframes hinge {
+/* A new panel settles into place: a short fade with a small rise, never a flourish. */
+@keyframes rise {
   from {
     opacity: 0;
-    transform: perspective(2400px) rotateX(-80deg);
-  }
-
-  30% {
-    opacity: 1;
+    transform: translateY(8px);
   }
 
   to {
     opacity: 1;
-    transform: perspective(2400px) rotateX(0deg);
+    transform: translateY(0);
   }
 }
 

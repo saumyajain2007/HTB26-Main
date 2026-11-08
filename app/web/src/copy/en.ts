@@ -1,6 +1,6 @@
 import type { components } from "../api/schema";
 import type { FailedCheck } from "../lib/jury";
-import { listOf } from "../lib/format";
+import { listOf, signed } from "../lib/format";
 
 type BuildStage = components["schemas"]["BuildStage"];
 type Decision = components["schemas"]["Decision"];
@@ -40,6 +40,8 @@ export const copy = {
   back: "Back",
   next: "Next",
   stepsLabel: "Steps",
+  /** Beside Back and Next; the arrow keys do the same (`useStepKeys`). */
+  stepKeysHint: "Or press ↑ ↓",
   retry: "Try again",
 
   /**
@@ -135,13 +137,12 @@ export const copy = {
       genesLabel: "Resistance gene names",
       genesHint:
         "One per line, or separated by commas. A name can carry a point mutation, like gyrA S84L, or be a CARD term such as ARO:3000617.",
+      genesExamplesLabel: "Add an example:",
+      /** Forms the field takes (a gene, a gene with a point mutation, a CARD term), not advice. */
+      genesExamples: ["mecA", "gyrA S84L", "ARO:3000617"],
       genesRead: (count: number) =>
         count === 0 ? "No names read" : `${String(count)} ${count === 1 ? "name" : "names"} read`,
       genesRepeated: (names: readonly string[]) => `Repeated, so read once: ${listOf(names)}.`,
-      /** Only the server holds CARD’s vocabulary, so it alone can say which names it knows. */
-      genesHelp:
-        "The server looks each name up in CARD. Anything it doesn’t recognise is listed back, " +
-        "not dropped.",
       genesSubmit: "Build the profile",
       genesBuilding: "Looking the names up in CARD…",
       /** The API has no CARD release: nothing was looked up, so say that and not “unknown name”. */
@@ -273,6 +274,12 @@ export const copy = {
       empty: "No candidates were returned for this resistance profile.",
       approvedTitle: "Approved antibiotics",
       approvedTableLabel: "Approved antibiotics in rank order",
+      filterLabel: "Which approved antibiotics to list",
+      filterEvading: (count: number, ceiling: number) =>
+        `Evade the resistance genes, MIC up to ${String(ceiling)} mg/L (${String(count)})`,
+      filterAll: (count: number) => `All approved antibiotics (${String(count)})`,
+      filterNote: (hidden: number, ceiling: number) =>
+        `${String(hidden)} drugs are not listed: CARD links them to a gene in this profile, or they have no recorded MIC at or below ${String(ceiling)} mg/L. The MIC is a species-level median from the literature, not a clinical breakpoint, and no MIC data is not evidence of failure.`,
       generatedTitle: "Generated proposals (not ranked)",
       generatedNote:
         "Hypotheses from a generative model, kept separate from approved drugs and never ranked with them.",
@@ -284,7 +291,7 @@ export const copy = {
       evasionHead: "Standing",
       activityHead: "Activity",
       verifyHead: "Property check",
-      notMeasured: "Not measured",
+      notMeasured: "No MIC in ChEMBL",
       noClass: "No CARD drug class",
       proposalBadge: "Proposal",
       readingLabel: (name: string) => `Details for ${name}`,
@@ -358,6 +365,21 @@ export const copy = {
         not_run: "Lean 4 proof not run",
         unavailable: "Lean 4 unavailable",
       },
+      /** The table's last column: what was checked and how many limits it met, not a bare "proved". */
+      tableProperty: {
+        certified: (total: number) => `All ${String(total)} limits met · Lean 4 proved`,
+        failed: (over: string) => `Over limit: ${over} · Lean 4 refuted`,
+        smokePassed: (total: number) => `All ${String(total)} limits met · Python check only`,
+        smokeFailed: (over: string) => `Over limit: ${over} · Python check only`,
+      },
+      ruleShort: {
+        mw: "weight",
+        logp: "logP",
+        hbd: "H-bond donors",
+        hba: "H-bond acceptors",
+        rot_bonds: "rotatable bonds",
+        psa: "polar surface",
+      },
       leanProvenance: (version: string, seconds: number) =>
         `Lean ${version} (${String(seconds)} s)`,
       leanRanLabel: "Proof check",
@@ -384,8 +406,6 @@ export const copy = {
       poseTitle: "Reference crystal structures",
       poseMatchedSummary: (pdbId: string, symbol: string, targetId: string) =>
         `Related prepared crystal structure ${pdbId} (${symbol}, UniProt ${targetId}). This reference does not establish a candidate binding pose or a species-specific match.`,
-      poseNoTargetStructure: (targetName: string) =>
-        `No specific prepared structure match is recorded for ${targetName}. You can explore the reference structures for DNA gyrase B (gyrB) and LpxC below.`,
       poseNoTargetRecorded:
         "No target protein is recorded for this molecule; prepared bacterial structures are listed below.",
       poseNoStructures: "No prepared bacterial structures are loaded.",
@@ -395,16 +415,21 @@ export const copy = {
       poseTargetAccessionLabel: "Target accession",
       poseCrystalLigandLabel: "Co-crystal ligand",
       poseCrystalLigandValue: (name: string, compId: string) => `${name} (${compId})`,
-      poseShow: "Show reference structure",
-      poseHide: "Hide reference structure",
+      poseContactsTitle: "Closest polar contacts",
+      poseContactsLead: (ligand: string) =>
+        `Where ${ligand}, the crystal’s own drug, sits within 3.5 Å of the protein.`,
+      poseContact: (residue: string, proteinAtom: string, ligandAtom: string, angstrom: string) =>
+        `${residue} (${proteinAtom}) to drug atom ${ligandAtom}, ${angstrom} Å`,
+      poseContactsNone: "No polar contacts within 3.5 Å in this structure.",
+      poseContactsCaveat:
+        "Distances only, not angles, so these are possible hydrogen bonds, not confirmed ones. They describe the crystal’s own drug, not the selected candidate.",
       posePreviewCaveat:
         "This preview shows the named co-crystal ligand in its reference protein, not a computed pose of the selected candidate. A related target or generation pocket does not establish binding or antibiotic activity.",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
       juryPending:
         "The model jury has not reviewed this shortlist yet. Rebuilding evidence packets for antibiotic resistance is tracked in issue #33.",
-      caveatsTitle: "Caveats and missing data",
-      missingLabel: "Missing",
+      caveatsTitle: "Caveats",
     },
   },
 
@@ -716,8 +741,19 @@ export const copy = {
     controls: {
       surface: "Pocket surface",
       overlay: "Crystal position",
+      interactions: "Interactions",
       spin: "Spin",
       reset: "Reset view",
+      replay: "Replay binding",
+    },
+    /** The tick or cross after the animation: the best docking score against the threshold. */
+    verdict: {
+      binds: "Predicted to bind",
+      does_not_bind: "Predicted not to bind",
+      basis: (score: number, threshold: number, demo: boolean) =>
+        `Docking score ${signed(score)} against a threshold of ${signed(threshold)}. A rough fit estimate, not a measured binding strength.${demo ? " Demo data: the score is made up." : ""}`,
+      illustration:
+        "The animation illustrates this result. It is not a simulation of the drug’s path.",
     },
     legend: { protein: "Protein", drug: "Drug" },
   },
