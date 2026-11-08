@@ -197,8 +197,8 @@ Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 - [ ] Record a fallback demo video as soon as the offline path works, then re-record at the end. `S`, C
 - [ ] Devpost writeup following the two reference writeups, results with intervals. `M`, C with A for numbers
 - [ ] Two to three minute demo script. `M`, all
-- [ ] Sponsor mapping: how the project meets HRT (prediction and decision), G-Research (making the invisible visible), plus the integrations used (Gemini, Vultr, Tiger Data, Entire). Confirm judging criteria with the sponsors. `S`, C
-- [ ] Update [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for new reused code and data licences (CARD, ChEMBL). `S`, whoever adds the source
+- [x] Sponsor mapping: how the project meets HRT (prediction and decision), G-Research (making the invisible visible), plus the integrations used (Gemini, Vultr, Tiger Data, Entire). Confirm judging criteria with the sponsors. `S`, C. Written in [docs/sponsor-mapping.md](docs/sponsor-mapping.md). The public site has no scored rubric, and the sponsors have not confirmed one.
+- [x] Update [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for new reused code and data licences (CARD, ChEMBL). `S`, whoever adds the source. CARD, ChEMBL, the PDB entries, the disease-pipeline sources, and the scientific toolchain are listed there.
 - [x] Clean stray legacy-name references; refresh the README pipeline diagram and "Tasks" section. `S`, C
 - [ ] Enable Entire in the repo if it is being claimed as a sponsor integration (`entire enable`). `S`
 

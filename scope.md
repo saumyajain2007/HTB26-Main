@@ -71,13 +71,13 @@ Details are in WS5.
 
 ## 9. Track fit
 
-Prizes and challenge names are read from the sponsor slide. Judging criteria still need confirming with the sponsors.
+Prizes and challenge names are read from the sponsor slide. What the project can claim against those names, and the fact that the sponsors have not confirmed a scoring rubric, is in [docs/sponsor-mapping.md](docs/sponsor-mapping.md).
 
 | Sponsor | Challenge | Fit | Why |
 | --- | --- | --- | --- |
-| **HRT** | Best Use of Data for Predictions & Decision Making | **Strong. Primary.** | A ranking and decision tool built on data. The retrospective test, confidence intervals and a resistance-forecasting view all speak to "predictions and decision making". |
-| **G-Research** | Make the invisible visible | **Good. Secondary.** | Resistance mechanisms, protein networks and binding poses are invisible to non-experts. A visual layer (resistance map, network paths, 3D pose, constraint certificates) fits the brief. |
-| **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **Possible, risky.** | An agent could browse CARD, NCBI and PDB to gather evidence. It only counts if the browser use is central and complex. Decide early. |
+| **HRT** | Best Use of Data for Predictions & Decision Making | **Primary, unproven as a prediction.** | The ranking is a decision aid over CARD and ChEMBL. There is no retrospective result and no confidence interval yet. See [docs/sponsor-mapping.md](docs/sponsor-mapping.md). |
+| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map, explanations and certificate panel are on screen, on fixtures. Bacterial poses are computed and not shown (#41). |
+| **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **In, not built.** | #7 is in. The browser agent is #95 and does not exist yet, so the project cannot claim this track. |
 | **JetBrains** | Help the Developer | Poor | Not a developer tool. |
 | **Instalily** | Coding agent that adapts to its user | Poor | Different problem. |
 | **Bank of Scotland** | Smart Cost of Living | Poor | No natural link. |
@@ -86,7 +86,7 @@ Prizes and challenge names are read from the sponsor slide. Judging criteria sti
 ### Recommendation
 
 - **Aim for HRT first, G-Research second.** One build serves both: a ranking engine plus a visual explanation layer.
-- Treat Wordsmith as an optional add-on, only if an agentic data-gathering step is needed anyway.
+- Wordsmith is in (#7). Do not describe the project as a browser agent until #95 exists.
 - Ignore the other four.
 
 ## 10. Current status
@@ -269,7 +269,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Limits statement | One page: what the tool does, does not claim, and known weaknesses. | S |
 | Devpost writeup | Hook, problem, what it does, how it was built, challenges, results with intervals, what is next. Use the format of the two reference writeups. | M |
 | Demo script | A two to three minute path, with a fallback recording. | M |
-| Sponsor mapping | State plainly how the project meets HRT and G-Research. | S |
+| Sponsor mapping | State plainly how the project meets HRT and G-Research. Written in [docs/sponsor-mapping.md](docs/sponsor-mapping.md). | S |
 | Notices | Keep [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) current for any new reused code, and data licences (CARD, ChEMBL). | S |
 | Rename leftovers | Package and brand names are now `htb`; clean up any stray references. | S |
 
