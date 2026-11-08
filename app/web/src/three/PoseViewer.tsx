@@ -20,6 +20,12 @@ interface PoseViewerProps {
    * not) follows. `basis` is the plain-words reason shown beside it.
    */
   verdict?: { outcome: BindingVerdict; basis: string } | null;
+  /**
+   * Plays the drug gliding in to the pose the files hold, with a Replay button, and says nothing
+   * about whether it binds: no tick or cross. For a real docking pose, which is a fit and not a
+   * verdict. Ignored when a `verdict` is given.
+   */
+  animate?: boolean;
 }
 
 interface ToggleProps {
@@ -52,7 +58,15 @@ function Toggle({ pressed, onToggle, swatch, children }: ToggleProps) {
  * framed clear of the bar. On phones the bar sits above the view instead. The view starts
  * still; spin is the reader's choice. The viewer and its WebGL context are released on unmount.
  */
-export function PoseViewer({ files, label, onContacts, verdict = null }: PoseViewerProps) {
+export function PoseViewer({
+  files,
+  label,
+  onContacts,
+  verdict = null,
+  animate = false,
+}: PoseViewerProps) {
+  // What to play: the verdict's motion, else a plain glide in for a pose with no verdict.
+  const motion: BindingVerdict | null = verdict?.outcome ?? (animate ? "binds" : null);
   const [receptor, poses, crystal] = useQueries({
     queries: [
       dockFileQuery(files.receptor),
@@ -73,7 +87,7 @@ export function PoseViewer({ files, label, onContacts, verdict = null }: PoseVie
   // The controls' latest values, for a scene that is built after they changed.
   const controlsRef = useRef({ surface, overlay, spin, interactions });
   const onContactsRef = useRef(onContacts);
-  const verdictRef = useRef(verdict);
+  const motionRef = useRef(motion);
   // The verdict whose animation has finished: the tick or cross waits for the drug to arrive.
   const [arrived, setArrived] = useState<BindingVerdict | null>(null);
   const webgl = canUseWebGL();
@@ -106,7 +120,7 @@ export function PoseViewer({ files, label, onContacts, verdict = null }: PoseVie
     scene.setSpin(controls.spin);
     scene.setInteractions(controls.interactions);
     onContactsRef.current?.(scene.contacts);
-    playDock(scene, verdictRef.current, setArrived);
+    playDock(scene, motionRef.current, setArrived);
     return () => {
       onContactsRef.current?.([]);
       scene.dispose();
@@ -133,8 +147,8 @@ export function PoseViewer({ files, label, onContacts, verdict = null }: PoseVie
   }, [onContacts]);
 
   useEffect(() => {
-    verdictRef.current = verdict;
-  }, [verdict]);
+    motionRef.current = motion;
+  }, [motion]);
 
   useEffect(() => {
     controlsRef.current.interactions = interactions;
@@ -214,15 +228,15 @@ export function PoseViewer({ files, label, onContacts, verdict = null }: PoseVie
         >
           {copy.pose.controls.reset}
         </button>
-        {verdict !== null && (
+        {motion !== null && (
           <button
             type="button"
             className={styles.reset}
             onClick={() => {
-              if (sceneRef.current) playDock(sceneRef.current, verdict, setArrived);
+              if (sceneRef.current) playDock(sceneRef.current, motion, setArrived);
             }}
           >
-            {copy.pose.controls.replay}
+            {verdict !== null ? copy.pose.controls.replay : copy.pose.controls.replayPose}
           </button>
         )}
         <ul className={styles.legend}>
@@ -278,21 +292,21 @@ function showSurface(host: HTMLElement, scene: PoseScene, on: boolean) {
   });
 }
 
-/** Plays the drug coming in, and reports the verdict once it has arrived. */
+/** Plays the drug coming in, and reports how it ended once it has arrived. */
 function playDock(
   scene: PoseScene,
-  verdict: PoseViewerProps["verdict"],
+  motion: BindingVerdict | null,
   arrived: (outcome: BindingVerdict | null) => void,
 ) {
   arrived(null);
-  if (verdict === null || verdict === undefined) return;
+  if (motion === null) return;
   const still =
     typeof window.matchMedia === "function" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  scene.playDock(verdict.outcome, {
+  scene.playDock(motion, {
     still,
     onDone: () => {
-      arrived(verdict.outcome);
+      arrived(motion);
     },
   });
 }

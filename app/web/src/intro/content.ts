@@ -19,7 +19,7 @@ export const labChapters: readonly LabChapter[] = [
   { short: "In the lab", duration: 5200, note: "One researcher. Many disconnected clues." },
   { short: "Years of testing", duration: 7200, note: "10–15 years from discovery to market" },
   { short: "Many compounds", duration: 7800, note: "Thousands screened. Few go further." },
-  { short: "A different start", duration: 7200, note: "Could an existing medicine help?" },
+  { short: "A different start", duration: 7200, note: "Could an existing antibiotic still work?" },
 ];
 
 /**
@@ -38,21 +38,21 @@ export interface StoryCrop {
 export const crops = {
   diseaseProtein: {
     image: story2,
-    alt: "Inside a cell, a protein linked to the disease glows orange among its neighbours.",
+    alt: "Inside a cell, one protein glows orange among its neighbours.",
     zoom: 230,
     x: 82,
     y: 38,
   },
   network: {
     image: story1,
-    alt: "A monitor traces a path from a disease, through proteins, to an existing medicine.",
+    alt: "A monitor traces a path through a network of proteins to an existing medicine.",
     zoom: 185,
     x: 100,
     y: 30,
   },
   review: {
     image: story3,
-    alt: "Three lamps light an open evidence book: three independent AI reviews.",
+    alt: "Three lamps light an open evidence book.",
     zoom: 240,
     x: 57,
     y: 20,

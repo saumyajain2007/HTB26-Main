@@ -23,6 +23,10 @@ uv sync
 uv run uvicorn htb_api.app:app --reload     # http://127.0.0.1:8000/docs
 ```
 
+The default serves the made-up MRSA fixture, so only MRSA can be opened on the resistance pages.
+To use the real saved profiles and rankings for all three pathogens, start it with
+`HTB_RESISTANCE=saved uv run uvicorn htb_api.app:app --reload` (see "Saved antibiotic rankings").
+
 | Variable | Default | Meaning |
 |---|---|---|
 | `HTB_SOURCE` | `fixture` | `fixture` or `live` (see "Live mode"). |
@@ -364,5 +368,7 @@ Set `HTB_RESISTANCE=saved` to serve the checked #34 profiles and real rankings f
 all three pathogens, with no source downloads. `HTB_RESISTANCE_RESULTS_DIR` defaults
 to the repository's `results/pathogen-integration`. The default `fixture` setting
 retains the saved MRSA demonstration. Missing/corrupt bundles fail startup. Saved
-rankings are integration evidence, not efficacy validation; Lean was not run.
+rankings are integration evidence, not efficacy validation. Every molecule carries a Lean 4
+certificate of the encoded property rules (certified, or failed with the broken rules named);
+that confirms the limits, not safety or activity.
 See [the offline walkthrough](../../docs/offline-demo.md).

@@ -3,19 +3,18 @@ import { Link } from "react-router";
 import { copy } from "../../copy/en";
 import { crops } from "../../intro/content";
 import { Backdrop, CropImage, LabPlate, Sticker } from "../../intro/Showpieces";
-import { WorkflowMap } from "../../intro/WorkflowMap";
 import { PageFrame } from "../PageFrame";
-import { EXPLORE_PATH } from "../steps";
+import { RESISTANCE_PATH } from "../steps";
 import styles from "./IntroPage.module.css";
 
 /*
  * The introduction at `/`: a large serif headline beside Jessica's animated lab, the way into the
- * app, the four steps of the method over details of her story illustrations, and her Workflow
- * map. Asymmetric, with generous whitespace.
+ * app, the four steps of the method over details of her story illustrations, and the three
+ * pathogens the tool is set up for. Asymmetric, with generous whitespace.
  */
 
 /** One detail of Jessica's illustrations per method step, in the steps' order. */
-const METHOD_CROPS = [crops.diseaseProtein, crops.network, crops.review, crops.shortlist];
+const METHOD_CROPS = [crops.diseaseProtein, crops.network, crops.shortlist, crops.review];
 
 export function IntroPage() {
   return (
@@ -64,12 +63,21 @@ export function IntroPage() {
           </figure>
         </Reveal>
         <Reveal order={4} className={styles.workflow}>
-          <section aria-labelledby="intro-workflow">
-            <h2 id="intro-workflow" className={styles.workflowTitle}>
-              {copy.intro.workflow.title}
+          <section aria-labelledby="intro-pathogens">
+            <h2 id="intro-pathogens" className={styles.workflowTitle}>
+              {copy.intro.pathogens.title}
             </h2>
-            <p className={styles.workflowLede}>{copy.intro.workflow.lede}</p>
-            <WorkflowMap className={styles.workflowMap} />
+            <p className={styles.workflowLede}>{copy.intro.pathogens.lede}</p>
+            <ul className={styles.pathogens}>
+              {copy.intro.pathogens.items.map((item) => (
+                <li key={item.name}>
+                  <Link to={RESISTANCE_PATH} className={styles.pathogen}>
+                    <span className={styles.pathogenName}>{item.name}</span>
+                    <span className={styles.pathogenNote}>{item.note}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </section>
         </Reveal>
       </div>
@@ -80,7 +88,7 @@ export function IntroPage() {
 /** The way into the app: an ink button with an arrow that leans in and a passing glint. */
 function Start() {
   return (
-    <Link to={EXPLORE_PATH} className={styles.start}>
+    <Link to={RESISTANCE_PATH} className={styles.start}>
       {copy.intro.start}
       <svg className={styles.startArrow} viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 12h15M13 5l7 7-7 7" />
@@ -109,11 +117,14 @@ function Reveal({
   );
 }
 
-/** Glyphs for the four method steps: small, flat, drawn like the app's charts. */
+/**
+ * Glyphs for the four method steps: small, flat, drawn like the app's charts. In order: a pathogen
+ * and its resistance genes, the map from genes to drug classes, ranked drugs, and checks ticked.
+ */
 function MethodGlyph({ index }: { index: number }) {
   const glyphs = [
-    // Disease proteins: a small module.
-    <g key="disease">
+    // Pick a pathogen: a small cluster of resistance genes.
+    <g key="pathogen">
       <g className={styles.edges}>
         <line x1={34} y1={22} x2={52} y2={34} />
         <line x1={52} y1={34} x2={40} y2={50} />
@@ -125,8 +136,8 @@ function MethodGlyph({ index }: { index: number }) {
       <circle className={styles.node} data-role="disease" cx={40} cy={50} r={5} />
       <circle className={styles.node} data-role="disease" cx={72} cy={26} r={5} />
     </g>,
-    // Network ranking: a target, a route, the module.
-    <g key="network">
+    // Resistance map: a route from a gene through a mechanism to the classes it defeats.
+    <g key="map">
       <g className={styles.edges}>
         <line x1={12} y1={40} x2={32} y2={24} />
         <line x1={32} y1={24} x2={50} y2={44} />
@@ -142,48 +153,23 @@ function MethodGlyph({ index }: { index: number }) {
       <circle className={styles.node} data-role="disease" cx={72} cy={30} r={5} />
       <circle className={styles.node} data-role="disease" cx={86} cy={48} r={5} />
     </g>,
-    // Evidence review: three models, three calls.
-    <g key="jury">
-      {[0, 1, 2].map((model) => (
-        <g key={model} transform={`translate(${String(14 + model * 26)} 14)`}>
-          <g className={styles.glyphMarker} transform="translate(5 0)">
-            {
-              [
-                <circle key="c" cx={6} cy={6} r={4.6} />,
-                <rect key="s" x={1.6} y={1.6} width={8.8} height={8.8} />,
-                <path key="t" d="M6 1.2L10.9 10.2H1.1Z" />,
-              ][model]
-            }
-          </g>
-          <rect
-            className={styles.glyphTile}
-            data-decision={(["investigate", "investigate", "watch"] as const)[model]}
-            x={0}
-            y={22}
-            width={22}
-            height={14}
-            rx={2}
-          />
-          <rect
-            className={styles.glyphTile}
-            data-decision={(["watch", "deprioritise", "deprioritise"] as const)[model]}
-            x={0}
-            y={40}
-            width={22}
-            height={14}
-            rx={2}
-          />
-        </g>
-      ))}
-    </g>,
-    // Shortlist: ranked lines.
-    <g key="shortlist" className={styles.glyphList}>
+    // Ranked antibiotics: ranked lines.
+    <g key="ranked" className={styles.glyphList}>
       {[0, 1, 2].map((row) => (
         <g key={row} transform={`translate(14 ${String(16 + row * 16)})`}>
           <text x={0} y={4}>
             {row + 1}
           </text>
           <line x1={14} y1={0} x2={78 - row * 14} y2={0} />
+        </g>
+      ))}
+    </g>,
+    // Evidence and checks: three limits, each ticked.
+    <g key="checks" className={styles.glyphList}>
+      {[0, 1, 2].map((row) => (
+        <g key={row} transform={`translate(14 ${String(16 + row * 16)})`}>
+          <path d="M0 0L3 3L8 -4" fill="none" />
+          <line x1={14} y1={0} x2={78 - row * 10} y2={0} />
         </g>
       ))}
     </g>,

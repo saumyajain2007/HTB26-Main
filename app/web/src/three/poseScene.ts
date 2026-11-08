@@ -269,9 +269,10 @@ export class PoseScene {
     const residues = new Set(pocketAtoms.map(residue));
     this.pocket = { model: this.receptor, predicate: (atom) => residues.has(residue(atom)) };
 
-    // A thin trace, not a ribbon: omitting `style` would draw a full cartoon.
+    // A full cartoon: helices as spiral ribbons, strands as arrows, loops as tubes. Slightly
+    // see-through, so the pocket's side chains and the drug read through it.
     const backbone = {
-      cartoon: { style: "trace", color: tokenColor("--color-backbone"), thickness: 0.14 },
+      cartoon: { color: tokenColor("--color-backbone"), opacity: 0.85 },
     };
     this.receptor.setStyle({}, backbone);
     viewer.setStyle(this.pocket, {

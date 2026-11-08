@@ -425,6 +425,16 @@ export const copy = {
         "Distances only, not angles, so these are possible hydrogen bonds, not confirmed ones. They describe the crystal’s own drug, not the selected candidate.",
       posePreviewCaveat:
         "This preview shows the named co-crystal ligand in its reference protein, not a computed pose of the selected candidate. A related target or generation pocket does not establish binding or antibiotic activity.",
+      dockedLine: (drug: string, pdbId: string, score: string) =>
+        `${drug} docked into ${pdbId} with AutoDock Vina: best pose ${score} kcal/mol.`,
+      dockedCaveat:
+        "A real AutoDock Vina pose, but in a reference pocket this drug is not known to bind. It shows how the molecule fits that pocket, not its own binding mode, and the score is not a prediction of antibacterial activity. The motion is an illustration of the pose; it is not a simulated trajectory.",
+      dockedFailed: (drug: string) =>
+        `AutoDock Vina was tried on ${drug} in this structure and produced no pose: the docking process was killed, most likely out of memory on a molecule this large. The crystal ligand is shown instead.`,
+      dockedContactsLead: (drug: string) =>
+        `Where ${drug}, as docked, sits within 3.5 Å of the protein.`,
+      dockedContactsCaveat:
+        "Distances only, not angles, so these are possible hydrogen bonds, not confirmed ones. They describe the docked pose, which is a prediction in a reference pocket.",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
       juryPending:
@@ -435,7 +445,7 @@ export const copy = {
 
   /** The introduction at `/`: the approach, its four steps, and the way into the app. */
   intro: {
-    title: "Repurposing existing drugs for diseases",
+    title: "Antibiotics that resistance doesn’t rule out",
     tagline: "Resistance-aware antibiotic candidates",
     solution:
       "HTB26 profiles why a bacterium is resistant, then ranks drugs predicted to evade those mechanisms, with the evidence behind each pick.",
@@ -443,25 +453,30 @@ export const copy = {
     limit: "Research hypotheses, not proven treatments.",
     method: [
       {
-        title: "Disease proteins",
-        text: "Proteins linked to the disease, from published genetic and clinical evidence.",
+        title: "Pick a pathogen",
+        text: "Start from one of three bacteria, or type the resistance genes you have.",
       },
       {
-        title: "Network ranking",
-        text: "Approved drugs ranked by how closely their targets connect to those proteins.",
+        title: "Resistance map",
+        text: "CARD links each gene to a mechanism, and each mechanism to the drug classes it defeats.",
       },
       {
-        title: "Evidence review",
-        text: "Three AI models weigh the evidence for each candidate, independently.",
+        title: "Ranked antibiotics",
+        text: "Approved drugs not known to be defeated, ranked by evasion, activity and safety.",
       },
       {
-        title: "Shortlist",
-        text: "Drugs worth further research, each with the reasons behind it.",
+        title: "Evidence and checks",
+        text: "Each pick comes with its reasons, its property check and its caveats.",
       },
     ],
-    workflow: {
-      title: "Workflow",
-      lede: "Find existing medicines worth investigating.",
+    pathogens: {
+      title: "Three pathogens",
+      lede: "Drug-resistant bacteria the tool is set up for.",
+      items: [
+        { name: "Staphylococcus aureus", note: "MRSA" },
+        { name: "Klebsiella pneumoniae", note: "ESBL / KPC" },
+        { name: "Acinetobacter baumannii", note: "Carbapenem-resistant" },
+      ],
     },
   },
 
@@ -745,6 +760,7 @@ export const copy = {
       spin: "Spin",
       reset: "Reset view",
       replay: "Replay binding",
+      replayPose: "Replay pose",
     },
     /** The tick or cross after the animation: the best docking score against the threshold. */
     verdict: {
