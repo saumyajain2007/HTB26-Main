@@ -34,6 +34,7 @@ from ..schemas import (
 from ..services.docking import FILE_MEDIA_TYPES
 from ..services.molecules import MoleculesUnavailable
 from ..services.resistance import ProfilingRefused, ProfilingUnavailable
+from ..services.resistance_jury import run_jury_on_shortlist
 
 router = APIRouter(prefix="/api")
 
@@ -352,6 +353,33 @@ def get_antibiotic_candidates(
             raise NotFound(f"No resistance profile {profile_id}.")
         raise NotFound(f"No antibiotics have been ranked against profile {profile_id} yet.")
     return result
+
+
+@router.post(
+    "/resistance/profiles/{profile_id}/jury",
+    tags=["resistance"],
+    summary="Ask the Model jury to review the antibiotics ranked against a profile",
+    responses=responses(404, 422, 503),
+)
+def review_resistance_shortlist(
+    profile_id: UUID, components: ComponentsDep, resistance: ResistanceDep
+) -> JuryRun:
+    """The panel never sees our ranking: the packet withholds the rank, the evasion
+    status and the explanation, so its verdict is its own reading of the evidence.
+
+    A ballot that fails our checks is recorded as invalid and a refusal as a refusal;
+    neither is filled in. 503 when this API's jury only replays a recorded review, or
+    when too few jurors answered for a combined ranking.
+    """
+    profile = resistance.profile(profile_id)
+    if profile is None:
+        raise NotFound(f"No resistance profile {profile_id}.")
+    result = resistance.candidates(profile_id)
+    if result is None:
+        raise NotFound(f"No antibiotics have been ranked against profile {profile_id} yet.")
+    return run_jury_on_shortlist(
+        components.jury, profile.model_dump(mode="json"), result.model_dump(mode="json")
+    )
 
 
 @router.get(
