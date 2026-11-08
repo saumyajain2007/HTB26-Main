@@ -137,7 +137,7 @@ Short, blocks everything. Do together, then split.
 | Ground-truth table of resistance profile to known effective drug, cited and checked for label errors | A | M |
 | Run the retrospective test: hits@k, MRR, bootstrap CI against baselines; failure analysis including negative results; put the result in `results/` and the README | A | M |
 | Wire the smoke test into every candidate, run Lean on survivors only, cache by InChIKey, batch it | B | S |
-| Antibiotic-specific rules (Gram-negative accumulation hint, resistance-substrate SMARTS, each cited) and a toxicity step beyond PAINS/Brenk with stated accuracy | B | M |
+| [x] Antibiotic-specific 2D accumulation hint, profile-scoped resistance SMARTS and curated toxicity alerts (accuracy: not measured); tests and evidence in [WS8 chemistry evidence](docs/ws8-chemistry-evidence.md). | B | M |
 | Certificate view and per-candidate smoke-test panel in the app | C | M |
 | 3D pose view for docked candidates (reuse the 3Dmol viewer) | C | S |
 | Jury runs on the shortlist; invalid replies recorded, never filled in | C | S |
