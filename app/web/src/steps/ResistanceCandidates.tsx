@@ -16,6 +16,7 @@ import {
   structureForAntibiotic,
   structuresForAntibiotic,
 } from "../lib/docking";
+import { dockedPose, dockingFailed } from "../lib/antibioticDocking";
 import { capitalise, listOf } from "../lib/format";
 import type { AntibioticCandidateResult, Certificate, ResistanceProfile } from "../lib/resistance";
 import {
@@ -710,6 +711,11 @@ function CandidatePosePanel({
 
   const activeMatch =
     activeStructure !== undefined && matched.some((s) => s.id === activeStructure.id);
+  // A real Vina pose of this drug in the structure on show, when the saved docking run has one.
+  const docked =
+    activeStructure === undefined ? undefined : dockedPose(entry.id, activeStructure.pdb_id);
+  const failedToDock =
+    activeStructure !== undefined && dockingFailed(entry.id, activeStructure.pdb_id);
   return (
     <div className={styles.posePanel}>
       {(activeMatch || entry.target === null) && (
@@ -775,20 +781,44 @@ function CandidatePosePanel({
             </dd>
           </dl>
 
+          {docked !== undefined && (
+            <p className={styles.rationale}>
+              {text.dockedLine(
+                capitalise(entry.name),
+                activeStructure.pdb_id,
+                docked.score.toFixed(2),
+              )}
+            </p>
+          )}
+          {docked === undefined && failedToDock && (
+            <p className={styles.rationale}>{text.dockedFailed(capitalise(entry.name))}</p>
+          )}
+
           <div className={styles.poseStage}>
             <Suspense fallback={<p className={styles.rationale}>{copy.pose.loading}</p>}>
               <PoseViewer
-                files={dockFilesForStructure(activeStructure)}
+                files={
+                  docked === undefined
+                    ? dockFilesForStructure(activeStructure)
+                    : { ...dockFilesForStructure(activeStructure), poses: { url: docked.url } }
+                }
                 label={copy.pose.viewerLabel(
-                  activeStructure.ligand.name,
+                  docked === undefined ? activeStructure.ligand.name : capitalise(entry.name),
                   activeStructure.target_symbol,
                 )}
                 onContacts={setContacts}
+                animate={docked !== undefined}
               />
             </Suspense>
           </div>
-          <ContactList ligand={activeStructure.ligand.name} contacts={contacts} />
-          <p className={styles.rationale}>{text.posePreviewCaveat}</p>
+          <ContactList
+            ligand={docked === undefined ? activeStructure.ligand.name : capitalise(entry.name)}
+            contacts={contacts}
+            docked={docked !== undefined}
+          />
+          <p className={styles.rationale}>
+            {docked === undefined ? text.posePreviewCaveat : text.dockedCaveat}
+          </p>
         </div>
       )}
     </div>
@@ -796,7 +826,16 @@ function CandidatePosePanel({
 }
 
 /** The drug's closest polar contacts, as text beside the picture, with what they do and don't show. */
-function ContactList({ ligand, contacts }: { ligand: string; contacts: readonly Contact[] }) {
+function ContactList({
+  ligand,
+  contacts,
+  docked = false,
+}: {
+  ligand: string;
+  contacts: readonly Contact[];
+  /** True when the pose is a docking result for this drug, not the crystal's own ligand. */
+  docked?: boolean;
+}) {
   // Each residue once, at its closest contact; the picture draws them all.
   const seen = new Set<string>();
   const rows = contacts.filter((contact) => {
@@ -808,7 +847,9 @@ function ContactList({ ligand, contacts }: { ligand: string; contacts: readonly 
   return (
     <section className={styles.contacts} aria-label={text.poseContactsTitle}>
       <h4 className={styles.contactsTitle}>{text.poseContactsTitle}</h4>
-      <p className={styles.rationale}>{text.poseContactsLead(ligand)}</p>
+      <p className={styles.rationale}>
+        {docked ? text.dockedContactsLead(ligand) : text.poseContactsLead(ligand)}
+      </p>
       {rows.length === 0 ? (
         <p className={styles.rationale}>{text.poseContactsNone}</p>
       ) : (
@@ -825,7 +866,9 @@ function ContactList({ ligand, contacts }: { ligand: string; contacts: readonly 
           ))}
         </ul>
       )}
-      <p className={styles.rationale}>{text.poseContactsCaveat}</p>
+      <p className={styles.rationale}>
+        {docked ? text.dockedContactsCaveat : text.poseContactsCaveat}
+      </p>
     </section>
   );
 }
