@@ -1,7 +1,7 @@
 {
   "model": "boltz2",
-  "count": 48,
-  "scope": "Species-reference complexes and explicitly labeled exploratory PBP constructs; no efficacy claim",
+  "count": 84,
+  "scope": "Species-reference complexes and explicitly labeled exploratory PBP and target-fragment proxies; no efficacy claim",
   "predictions": [
     {
       "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
@@ -359,8 +359,296 @@
       "confidence_score": 0.8552271127700806,
       "prediction_scope": "exploratory",
       "directory": "fc8da1032e31f94c7a173ce1b1e8e0a38597cee097cb592fd6b629ea56457438"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL29",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8753010630607605,
+      "directory": "e9225d99a9cd5c35efa39f014465888bf72fc6391b266494c0a70a203d6bc473",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL501122",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.2864498496055603,
+      "directory": "a7b25427e456079dde0cb5fced5c512601d67059a1d22646acee86a48974179c",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL65794",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.3325705826282501,
+      "directory": "cfcf8c72358fcc989272e0b40e86b7332046a8c4af88cb28d6054ff72a655dbe",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL891",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8573488593101501,
+      "directory": "0bd4c67d97723586fee5003230e7cbef19aba939dcaf6192e75bc81751db0d9d",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL491571",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.31760597229003906,
+      "directory": "81791b198ddbd8bbd2c402dfb2298b830dfb629c7717034dd4b3daa3351b31b5",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL29",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.35138487815856934,
+      "directory": "ad69ce587a4ae0696b9f8dea25279383ea18ab85269b9548e64b6098cfbb9fcd",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1013",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8769344687461853,
+      "directory": "24a29c27acafdc19608713595706a3f332db1f408d45e7d603490d66f286a9e4",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1214",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.3134278357028961,
+      "directory": "128e2c74f44a35239f1e55b98a4e4ba57885e5795fdc20b828dbdaf1fafaee43",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL44354",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.3622940182685852,
+      "directory": "322f28aca66e58781d4e3a41410f42cea0d8447a20ded50d6375bab08baef00a",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL507674",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.854782223701477,
+      "directory": "3da3dbf9c2000d1c584fdf1a3b297d720f7d817894adae72d8de6d3fb5b7ae48",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1359",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.2933034598827362,
+      "directory": "5a7cf9840412aae1ddb49a9bbc1d5f955d4b3838700fe16df72c4697404fbbdc",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL575",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.3351456820964813,
+      "directory": "a5a5670b196f052b02ff32a317a11120d0e35469b59395cadd1dcdc0f0c7b8b5",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL680",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8896387219429016,
+      "directory": "66c6e1e83590f54dcee9e310bbd6751be2e5af3a4817cbbd6a473abe50e25366",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL127",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.3148297965526581,
+      "directory": "d21393087a22a7e1997e8ae9615456c6ddccfd0ecc1ca0898020ab9eb994b08a",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL617",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.3441731333732605,
+      "directory": "6026eb298cf852ecf5523b2cea182cf4c740a977a8fc7da70c2afda8a2bb698d",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1730",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8653987050056458,
+      "directory": "326fe046ec82d40cb51d813ea8285e88be7733091216f0bac2568d8afad0dfbb",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL74632",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.2851702868938446,
+      "directory": "1efc97475c87ca399f239f97e96b9face126e80fe686ef521e0f9873c734d389",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL174",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.37926027178764343,
+      "directory": "b9cee9e75e78e3844e2178f6b858af42f5848256e98e3b0b72947fe224085fe4",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL528",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8713601231575012,
+      "directory": "a49d877a7ee564d82f86b4ef8d080228cb5e58c294ece5276a904224d48c9c9e",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1727",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.3215971887111664,
+      "directory": "e10ca40bad0d6fd0ca5d6d1a6564ee733b73aedb7795a340196ed7c3153f8f8b",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL680",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.35218167304992676,
+      "directory": "716a7354d8b52fb6e5c227ffcafaac2987c59dc940c8d4df0931493d21b24579",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL215303",
+      "target": "Exploratory target fragment: S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+      "confidence_score": 0.8369023203849792,
+      "directory": "730f52f6f02a401192ef8c003785c7429e642a561523c1a288cbf88e21ff4a11",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL3301669",
+      "target": "Exploratory target fragment: Synthetic Lys-D-Ala-D-Ala peptide proxy; not peptidoglycan or lipid II, no membrane context; free termini and unmodified Lys",
+      "confidence_score": 0.6195465922355652,
+      "directory": "788b2b66260310c3b5585510124b1dcb558f1770ab15404f27f82135bf55416d",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL850",
+      "target": "Exploratory target fragment: S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+      "confidence_score": 0.8230497241020203,
+      "directory": "4a48449f11c84512ceff7c5946a2371ecfae0b2640d5078e7e174296cc6b5f32",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL430",
+      "target": "Exploratory target fragment: S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+      "confidence_score": 0.8353492617607117,
+      "directory": "94c75e98d6e549d63b796bcbce2179a5b88c310cfbfa16cefdc3e62275de49c4",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL376140",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1000-1100 proxy; different species, isolated fragment, missing remaining binding-site components",
+      "confidence_score": 0.5166049599647522,
+      "directory": "10bf0d0e21eb6951096674468fdfdc2775115d15f83bc7897d8c98232fcdfd77",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1650559",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.9237533807754517,
+      "directory": "41aa5184b7a75d9819203281db290f79ae763737bdc9832b16058307eadc2f1c",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1572",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.9046832323074341,
+      "directory": "6bd6a68c1d20cd7a57a776894890a84546c947e39f5df63a773a4bb5b81bff05",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL529",
+      "target": "Exploratory target fragment: E. coli 23S rRNA residues 2050-2110 proxy; different species, isolated fragment, missing remaining exit-tunnel components",
+      "confidence_score": 0.5217448472976685,
+      "directory": "fe5691c79dd13be30745d9cc97fea821a7a922880f999219bcf9ac39f19a29ef",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL177",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.895805835723877,
+      "directory": "1bbf0875176059280192824e9003f73a088cf46d36829f2db73c30729f5615cd",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL372795",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 480-560 proxy; different species, isolated fragment, missing S12 and remaining ribosome",
+      "confidence_score": 0.5752731561660767,
+      "directory": "23d1c90c69b2334eee7442e1bdad03aa063cab1a3026caed1e794510d489f84a",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1384",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.8987162709236145,
+      "directory": "77f0162558b2caf778593afe99f05d769dbd346e903dc7640b9279ddfd9b0f12",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1650559",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.9244988560676575,
+      "directory": "54271c668f6e3cfa89edd2641cf300f692f9fe28ecd16dbeaadd8a846ee008a6",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1747",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.8973645567893982,
+      "directory": "062a2739ef54a3314d22fd5f41581be646acac97a83ea8b360a68ebe577200d6",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL374975",
+      "target": "Exploratory target fragment: E. coli EF-G proxy residues 1-500; different species, truncated factor, no ribosome or nucleotide",
+      "confidence_score": 0.42732998728752136,
+      "directory": "b2e045dae517a847eb0cf02b9da7ddee757b8fce9c40051859f2c740ff4ea21a",
+      "prediction_scope": "exploratory"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1572",
+      "target": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+      "confidence_score": 0.907921314239502,
+      "directory": "05deb934f1e3cfe3a58b40f8e7f528c4cb5e5b240e7cdb10c1b7fb1fc0b53374",
+      "prediction_scope": "exploratory"
     }
   ],
   "reference_count": 27,
-  "exploratory_count": 21
+  "exploratory_count": 57
 }

@@ -1,6 +1,7 @@
 # Precomputed Boltz-2 complexes
 
-48 real predictions: 27 reference-protein complexes plus 21 exploratory PBP constructs.
+84 real predictions: 27 reference-protein complexes, 42 exploratory PBP constructs,
+and 15 exploratory target-fragment predictions covering the top five candidates per pathogen.
 
 The reference set contains trimethoprim against DHFR and eight sulfonamides against DHPS,
 for the saved *S. aureus*, *K. pneumoniae* and *A. baumannii* profiles. Each hashed directory
@@ -9,7 +10,7 @@ input protein sequence and provenance. The root manifest maps directories to can
 
 These use species-reference sequences, not isolate-specific resistance variants. Boltz
 confidence is a model score, not measured affinity, susceptibility or antibiotic activity.
-The 21 exploratory results assume a PBP isoform and use a C-terminal construct. Covalent
+The 42 exploratory results assume a PBP isoform and use a C-terminal construct. Covalent
 chemistry and metabolism are omitted. Their limitations and coordinate QC warnings are recorded
 in metadata and shown in the app. Poor confidence or inconsistent stereochemistry must not be
 read as biological evidence. Other ranking rows remain uncomputed.
@@ -23,3 +24,9 @@ The original *S. aureus*–trimethoprim example used the default MSA cap (8192);
 batches used 512 sequences. Exploratory batches use 256 sequences, two recycling steps and
 100 sampling steps. Individual provenance files identify the protein source and run.
 See [the integration guide](../../docs/boltz.md) for generation and validation details.
+
+
+The top-five results use isolated RNA fragments, truncated proteins or a synthetic peptide
+proxy. Several use *E. coli* receptors for a different pathogen. These are explicitly marked
+exploratory and omit important parts of the native binding site. See the [target assumptions
+and coverage table](../../docs/boltz.md#top-five-exploratory-target-fragments).

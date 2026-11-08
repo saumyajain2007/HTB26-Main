@@ -686,3 +686,42 @@
 .filterButton[aria-pressed="true"] {
   border-color: var(--color-ink);
 }
+
+.confidence {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--space-12) 0;
+  border-top: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.confidenceHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-12);
+  font-size: var(--text-body-sm);
+}
+
+.confidenceValue {
+  color: var(--color-grey-1);
+  font-variant-numeric: tabular-nums;
+}
+
+.confidenceValue strong {
+  color: var(--color-ink);
+  font-size: var(--text-body);
+}
+
+.confidenceTrack {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--color-rule);
+}
+
+.confidenceTrack > span {
+  display: block;
+  height: 100%;
+  background: var(--color-ink);
+}

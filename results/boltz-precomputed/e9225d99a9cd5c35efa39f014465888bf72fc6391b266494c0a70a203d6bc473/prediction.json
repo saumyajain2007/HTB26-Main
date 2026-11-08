@@ -1,0 +1,23 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL29",
+  "smiles": "CC1(C)S[C@@H]2[C@H](NC(=O)Cc3ccccc3)C(=O)N2[C@H]1C(=O)O",
+  "target_name": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+  "protein_sequence_sha256": "fcb58d30fafe49f6286a5f5c7200a3e8f3e6c5109b5148ffd8d7802c78551004",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8753010630607605,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "cd73ac0bfaf50b3203ffd18afd5198891010b765d24a4b44f63d7f3ae80316ea"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "5d61643aa11441b3db7696a683eb76ad884ef3bcefef24d88305f53d99b1d178"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
+    "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
+    "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled."
+  ]
+}

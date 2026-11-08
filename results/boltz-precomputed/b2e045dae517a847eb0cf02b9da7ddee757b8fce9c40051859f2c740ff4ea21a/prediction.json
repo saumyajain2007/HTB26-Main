@@ -1,0 +1,22 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL374975",
+  "smiles": "CC(=O)O[C@H]1C[C@@]2(C)[C@@H](C[C@@H](O)[C@H]3[C@@]4(C)CC[C@@H](O)[C@@H](C)[C@@H]4CC[C@@]32C)/C1=C(\\CCC=C(C)C)C(=O)O",
+  "target_name": "Exploratory target fragment: E. coli EF-G proxy residues 1-500; different species, truncated factor, no ribosome or nucleotide",
+  "protein_sequence_sha256": "96e1af8a2fde2e8b6eb4cd8e592a50a2512ffe9a06d3e196ab4ebfb66425bc99",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.42732998728752136,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "ce0abbeb46fffd286a0e96f629a81eec1476a0c823d5b98309c92986bbf51b19"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "2ff4591e36005d798a6b0c66b840b9c5d75b4115afec4dbb3d9c4dc65034b574"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "E. coli EF-G proxy residues 1-500; different species, truncated factor, no ribosome or nucleotide",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}
