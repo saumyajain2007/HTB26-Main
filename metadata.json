@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6X5NCCCP6AS7S6GABKPWAWV",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 22,
+  "checkpoints_count": 25,
   "files_touched": [
     "app/web/e2e/saved-resistance.spec.ts",
     "app/web/src/app/ExperimentStatus.module.css",
@@ -82,6 +82,13 @@
       "compact_transcript": "/6/transcript.jsonl",
       "content_hash": "/6/content_hash.txt",
       "prompt": "/6/prompt.txt"
+    },
+    {
+      "metadata": "/7/metadata.json",
+      "transcript": "/7/full.jsonl",
+      "compact_transcript": "/7/transcript.jsonl",
+      "content_hash": "/7/content_hash.txt",
+      "prompt": "/7/prompt.txt"
     }
   ],
   "token_usage": {
@@ -92,7 +99,7 @@
     "api_call_count": 189
   },
   "redaction": {
-    "replacements": 83,
+    "replacements": 85,
     "layers": {
       "betterleaks": 2,
       "connection_string": 0,
@@ -100,7 +107,7 @@
       "credential_value": 18,
       "credentialed_uri": 2,
       "entropy": 2,
-      "key_context": 61,
+      "key_context": 63,
       "provider_token": 0,
       "shell_stdin": 0
     }

@@ -1,0 +1,14 @@
+How could I improve the UI of the application? Checkout the codebase.
+
+---
+
+What did the treehacks project do better than whatever this is?
+
+---
+
+For 1, check the issue regarding pubmed data, and see whether we could make it into a converational rag system that uses something like asta+ the abovementioned data. 
+For 2, what can be done? Say I provide an API key, and what does this application do?
+For 3, how did the treehacks project handle the docking sim, and is it possible to implement something similar here
+For 4, what are alternate additions that could be made to the existing system
+For 5, being able to export it in a form bioinformatics and biostatisticians can use is interesting (say python library representation of the drug)
+For 6, go ahead with the implementation of the upgrades
