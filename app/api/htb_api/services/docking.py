@@ -44,7 +44,7 @@ from ..schemas import (
     Structure,
     StructureControl,
     StructureId,
-    TargetId,
+    StructureTargetId,
 )
 from .ligands import LigandSource
 
@@ -317,7 +317,7 @@ class _Prepared(BaseModel):
     id: StructureId
     pdb_id: str
     chain: str
-    target_id: TargetId
+    target_id: StructureTargetId
     symbol: str
     title: str
     method: str

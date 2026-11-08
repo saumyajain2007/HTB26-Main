@@ -12,6 +12,9 @@ data/
   chembl_37_sqlite.tar.gz                  ChEMBL 37 download (5.8 GB), kept as downloaded
   chembl_extract/                          the .db extracted from it (30 GB), only for local queries
   antibiotics/releases/<chembl release>_card-<version>/   antibiotic catalogue (WS1, core/resistance)
+  liu2023_abaucin/raw/                     Liu et al. 2023 supplementary data SD1 and SD2 (whole-cell data)
+  repurposing_hub/raw/                     Broad Drug Repurposing Hub samples file
+  wholecell/releases/<release>/            whole-cell tables, splits and manifest (core/wholecell, docs/whole-cell-data.md)
   docking/                                 docking jobs and caches (app/worker)
 ```
 
@@ -22,6 +25,8 @@ data/
 | Check a release against its manifest | `uv run python -m htb_resistance verify data/card/releases/<version>` |
 | Build the antibiotic catalogue from ChEMBL and CARD | `uv run python -m htb_resistance catalogue` |
 | Check a catalogue release | `uv run python -m htb_resistance verify-catalogue data/antibiotics/releases/<release>` |
+| Build the whole-cell tables and splits | `uv run python -m htb_wholecell build` |
+| Check a whole-cell release | `uv run python -m htb_wholecell verify data/wholecell/releases/<release>` |
 
 `verify` re-hashes every table, compares row counts, and re-hashes the raw archives named in the manifest when they are on disk (a release can be kept without its downloads). The same archives always give the same table checksums, so a mismatch means a file changed.
 

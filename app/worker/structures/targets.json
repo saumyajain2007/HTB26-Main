@@ -1,0 +1,238 @@
+{
+  "_comment": "WS3 target registry. Every target must state whether a resistance-mutant structure exists; htb_worker.targets rejects a registry where any target is silent, and rejects a mutant PDB id that does not name the mutations it carries. Nothing here is a PDB id written from memory: a structure is only recorded once a source has been read, and the source is named in source_check. Unresolved rows say not_determined rather than guessing. See docs/mutant-structures.md.",
+  "schema_version": "1",
+  "statuses": {
+    "exists": "a PDB entry was found and read; for a mutant it must name the mutations it carries",
+    "none_known": "searched and none found; the reason records where and when",
+    "not_determined": "not yet searched or verified; the reason records what query would settle it",
+    "not_applicable": "the question does not apply to this determinant, with the reason why"
+  },
+  "mutant_relevance_rule": "A resistance mutant is the right concept only where resistance works by altering an existing target (CARD 'antibiotic target alteration'). Where resistance works by acquiring a new protein (CARD 'antibiotic target replacement'), the acquired protein is itself the thing to dock, and there is no resistance mutant of the native target to look for. The mechanism comes from the ResistanceProfile, not from guesswork.",
+  "targets": [
+    {
+      "id": "pbp2a-saureus",
+      "name": "PBP2a",
+      "organism": "Staphylococcus aureus",
+      "ncbi_taxid": 1280,
+      "card_determinant": "mecA",
+      "card_mechanism": "antibiotic target replacement",
+      "why": "The MRSA beta-lactam target. mecA is in the frozen profile fixture, so a profile naming it already points here.",
+      "essentiality_evidence": null,
+      "wild_type": {
+        "status": "exists",
+        "pdb_id": "3ZG5",
+        "title": "Crystal structure of PBP2a from MRSA in complex with peptidoglycan analogue at allosteric site",
+        "resolution_angstrom": 2.55,
+        "method": "X-RAY DIFFRACTION",
+        "ligand_comp_id": "AMV",
+        "has_cocrystallised_ligand": true,
+        "reason": null
+      },
+      "mutant": {
+        "status": "not_applicable",
+        "pdb_id": null,
+        "mutations": [],
+        "reason": "Resistance here is target replacement, not target alteration: S. aureus acquires PBP2a, which has low beta-lactam affinity, rather than mutating its native PBPs. PBP2a is therefore itself the structure to dock, and a 'resistance mutant of PBP2a' is not the object of interest. Docking a wild-type native PBP would model the susceptible organism, not the resistant one."
+      },
+      "source_check": "3ZG5 read from its RCSB entry page on 2026-11-07: title, 2.55 A, X-ray at ESRF ID29, ligand code AMV, no point mutation recorded. Organism is stated as MRSA in the title; the explicit source-organism field was not shown on that page and is left for the RCSB check to confirm."
+    },
+    {
+      "id": "gyrase-saureus",
+      "name": "DNA gyrase subunit A",
+      "organism": "Staphylococcus aureus",
+      "ncbi_taxid": 1280,
+      "card_determinant": "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones",
+      "card_mechanism": "antibiotic target alteration",
+      "why": "The fluoroquinolone target, and the one case in the frozen profile fixture that carries a point mutation (S84L). This is where a mutant structure genuinely matters.",
+      "essentiality_evidence": null,
+      "wild_type": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "reason": "Not searched from this environment. Settle it with: python -m htb_worker.targets --search 'Staphylococcus aureus DNA gyrase' and require a co-crystallised ligand so the redocking control can run."
+      },
+      "mutant": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "mutations": [],
+        "reason": "Not searched. The mutation to look for is whichever CARD lists for this determinant; run --mutations against a built CARD release to get the list, then search RCSB for a S. aureus gyrase entry carrying one. If none carries one, record none_known rather than docking the wild type and calling it the mutant."
+      },
+      "source_check": "Determinant name and the S84L variant come from tests/fixtures/resistance_profile.json, type-checked in docs/ontology-check.md. No structure has been verified."
+    },
+    {
+      "id": "gyrase-b",
+      "name": "DNA gyrase subunit B",
+      "organism": "Staphylococcus aureus",
+      "ncbi_taxid": 1280,
+      "candidate_organisms": ["Acinetobacter baumannii", "Klebsiella pneumoniae", "Staphylococcus aureus"],
+      "card_determinant": null,
+      "card_mechanism": "antibiotic target alteration",
+      "why": "Named in scope.md WS3 as a candidate target. The ATPase subunit is the aminocoumarin and novel-inhibitor site, distinct from the fluoroquinolone site on subunit A.",
+      "essentiality_evidence": "Literature, not the Database of Essential Genes (DEG was not queried): Collin, Karkare and Maxwell 2011, Appl Microbiol Biotechnol 92:479 (PMID 21904817), a review of gyrase as an essential drug target; Chaudhuri et al. 2009, BMC Genomics 10:291 (PMID 19570206), a genome-wide screen. The references exist; the gene-level entries were not checked (docs/targets.md).",
+      "wild_type": {
+        "status": "exists",
+        "pdb_id": "3G7B",
+        "title": "Staphylococcus aureus Gyrase B co-complex with METHYL ({5-[4-(4-HYDROXYPIPERIDIN-1-YL)-2-PHENYL-1,3-THIAZOL-5-YL]-1H-PYRAZOL-3-YL}METHYL)CARBAMATE inhibitor",
+        "resolution_angstrom": 2.3,
+        "method": "X-RAY DIFFRACTION",
+        "ligand_comp_id": "B47",
+        "has_cocrystallised_ligand": true,
+        "reason": null,
+        "organism": "Staphylococcus aureus",
+        "construct_differences": ["UniProt residues 105 to 127 are absent in both chains (RCSB SEQADV: DELETION). Whether the missing stretch touches the pocket was not assessed."],
+        "redocking": {"top_pose_rmsd_angstrom": 1.60, "threshold_angstrom": 2.0, "result": "passed"},
+        "selection_rule": "Of the entries that passed the redocking control, the one with the lowest top-pose RMSD. The others are in also_passing.",
+        "also_passing": [
+          {"pdb_id": "3U2K", "ligand_comp_id": "087", "resolution_angstrom": 1.64, "top_pose_rmsd_angstrom": 1.72,
+           "construct_differences": ["An initiating methionine is added at position 13 (RCSB SEQADV)."]}
+        ]
+      },
+      "mutant": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "mutations": [],
+        "reason": "S. aureus is now chosen, but no CARD determinant has been mapped to GyrB and no resistance-mutant structure has been searched for. docs/targets.md records only that none is in the committed set."
+      },
+      "source_check": "The two wild-type entries were prepared by htb_worker.prepare and their committed meta.json files read on 2026-11-08 (title, resolution, ligand, UniProt P0A0K8). Redocking numbers are from docs/targets.md (measured 7 and 8 November 2026) and were not re-run here. Organism, the named ligands and the construct differences were checked against RCSB on 2026-11-08 (`HTB_CHECK_RCSB=1`)."
+    },
+    {
+      "id": "lpxc",
+      "name": "LpxC (UDP-3-O-acyl-N-acetylglucosamine deacetylase)",
+      "organism": null,
+      "candidate_organisms": ["Acinetobacter baumannii", "Klebsiella pneumoniae"],
+      "card_determinant": null,
+      "card_mechanism": null,
+      "why": "Named in scope.md WS3. A lipid A biosynthesis enzyme, so it is a Gram-negative-only target: it does not apply to S. aureus. Relevant to the validation species.",
+      "essentiality_evidence": "Literature, not the Database of Essential Genes (DEG was not queried): Mdluli et al. 2006, Antimicrob Agents Chemother 50:2178 (PMID 16723580), molecular validation of LpxC as a drug target in Pseudomonas aeruginosa; Jacobs et al. 2003, PNAS 100:14339 (PMID 14617778), a genome-wide screen. The references exist; the gene-level entries were not checked (docs/targets.md).",
+      "wild_type": {
+        "status": "exists",
+        "pdb_id": "3P3E",
+        "title": "Crystal Structure of the PSEUDOMONAS AERUGINOSA LpxC/LPC-009 complex",
+        "resolution_angstrom": 1.28,
+        "method": "X-RAY DIFFRACTION",
+        "ligand_comp_id": "3P3",
+        "has_cocrystallised_ligand": true,
+        "reason": null,
+        "organism": "Pseudomonas aeruginosa",
+        "construct_differences": ["Cys40 is replaced by Ser (RCSB SEQADV: ENGINEERED MUTATION). Not a resistance mutation. Why it was made, and whether it affects the active site, were not checked."],
+        "note": "P. aeruginosa is not one of the candidate organisms listed above (A. baumannii, K. pneumoniae). These are the LpxC structures that passed the redocking control; whether they stand in for the LpxC of the candidate organisms has not been assessed. The zinc in the active site is removed by the prepare step, so a passed control does not show that zinc binding was modelled (docs/targets.md).",
+        "redocking": {"top_pose_rmsd_angstrom": 0.68, "threshold_angstrom": 2.0, "result": "passed"},
+        "selection_rule": "Of the entries that passed the redocking control, the one with the lowest top-pose RMSD. The others are in also_passing.",
+        "also_passing": [
+          {"pdb_id": "2VES", "ligand_comp_id": "GVR", "resolution_angstrom": 1.9, "top_pose_rmsd_angstrom": 0.92,
+           "construct_differences": ["Cys40 is replaced by Ser, the same change as 3P3E (RCSB SEQADV labels it CONFLICT)."]}
+        ]
+      },
+      "mutant": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "mutations": [],
+        "reason": "No CARD determinant has been mapped to this target, so there is no known resistance mutation to look for yet. Map the determinant first; if resistance to LpxC inhibitors is not represented in the profile, this becomes not_applicable rather than none_known."
+      },
+      "source_check": "Listed as a candidate in scope.md WS3 'Choose targets'. The Gram-negative-only note follows from LpxC's role in lipid A biosynthesis; Structures: the two P. aeruginosa entries were prepared by htb_worker.prepare and their committed meta.json files read on 2026-11-08 (UniProt P47205); redocking numbers are from docs/targets.md and were not re-run here. Organism, the named ligands and the construct differences were checked against RCSB on 2026-11-08 (`HTB_CHECK_RCSB=1`)."
+    },
+    {
+      "id": "fabi",
+      "name": "FabI (enoyl-ACP reductase)",
+      "organism": null,
+      "candidate_organisms": ["Acinetobacter baumannii", "Klebsiella pneumoniae", "Staphylococcus aureus"],
+      "card_determinant": null,
+      "card_mechanism": null,
+      "why": "Named in scope.md WS3. A fatty acid synthesis enzyme and the triclosan target.",
+      "essentiality_evidence": null,
+      "wild_type": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "reason": "Organism not chosen and no entry searched."
+      },
+      "mutant": {
+        "status": "not_determined",
+        "pdb_id": null,
+        "mutations": [],
+        "reason": "No CARD determinant mapped yet, so no mutation to look for."
+      },
+      "source_check": "Listed as a candidate in scope.md WS3 'Choose targets'. Nothing else verified."
+    }
+  ],
+  "reviewed_entries": [
+    {
+      "pdb_id": "6O0K",
+      "symbol": "BCL2",
+      "organism": "Homo sapiens",
+      "uniprot": ["P10415", "Q07817"],
+      "ligand": "venetoclax",
+      "verdict": "drop",
+      "reason": "Human apoptosis regulator with a human Ensembl target id, from the oncology flow this project is pivoting away from. Not a bacterial target.",
+      "source_check": "Read from the committed app/worker/structures/6O0K/meta.json on 2026-11-07: uniprot P10415/Q07817, target_id ENSG00000171791, title 'crystal structure of BCL-2 with venetoclax'."
+    },
+    {
+      "pdb_id": "6WTN",
+      "symbol": "JAK2",
+      "organism": "Homo sapiens",
+      "uniprot": ["O60674"],
+      "ligand": "ruxolitinib",
+      "verdict": "drop",
+      "reason": "Human kinase. Not a bacterial target.",
+      "source_check": "Read from the committed meta.json: uniprot O60674, target_id ENSG00000096968, title 'Human JAK2 JH1 domain in complex with Ruxolitinib'."
+    },
+    {
+      "pdb_id": "6WTO",
+      "symbol": "JAK2",
+      "organism": "Homo sapiens",
+      "uniprot": ["O60674"],
+      "ligand": "baricitinib",
+      "verdict": "drop",
+      "reason": "Human kinase, the same protein as 6WTN with a different ligand. Not a bacterial target.",
+      "source_check": "Read from the committed meta.json: uniprot O60674, target_id ENSG00000096968, title 'Human JAK2 JH1 domain in complex with Baricitinib'."
+    },
+    {
+      "pdb_id": "7BQU",
+      "symbol": "CRBN",
+      "organism": "Homo sapiens",
+      "uniprot": ["Q96SW2"],
+      "ligand": "(S)-thalidomide",
+      "verdict": "drop",
+      "reason": "Human cereblon. Not a bacterial target.",
+      "source_check": "Read from the committed meta.json: uniprot Q96SW2, target_id ENSG00000113851, title 'Cereblon in complex with SALL4 and (S)-thalidomide'."
+    },
+    {
+      "pdb_id": "3G7B",
+      "symbol": "gyrB",
+      "organism": "Staphylococcus aureus",
+      "uniprot": ["P0A0K8"],
+      "ligand": "pyrazolylthiazole inhibitor B47",
+      "verdict": "keep",
+      "reason": "S. aureus DNA gyrase subunit B with a co-crystallised inhibitor. Passed the redocking control (top pose 1.60 A, threshold 2.0 A), a narrow margin.",
+      "source_check": "Read from the committed meta.json on 2026-11-08: uniprot P0A0K8, target_id P0A0K8, 2.3 A, ligand B47. Redocking from docs/targets.md, not re-run here."
+    },
+    {
+      "pdb_id": "3U2K",
+      "symbol": "gyrB",
+      "organism": "Staphylococcus aureus",
+      "uniprot": ["P0A0K8"],
+      "ligand": "pyrrolamide inhibitor 087",
+      "verdict": "keep",
+      "reason": "S. aureus GyrB ATPase domain with a co-crystallised inhibitor. Passed the redocking control (top pose 1.72 A, threshold 2.0 A). Same protein and species as 3G7B, so not an independent test.",
+      "source_check": "Read from the committed meta.json on 2026-11-08: uniprot P0A0K8, target_id P0A0K8, 1.64 A, ligand 087. Redocking from docs/targets.md, not re-run here."
+    },
+    {
+      "pdb_id": "2VES",
+      "symbol": "lpxC",
+      "organism": "Pseudomonas aeruginosa",
+      "uniprot": ["P47205"],
+      "ligand": "BB-78485",
+      "verdict": "keep",
+      "reason": "P. aeruginosa LpxC with a co-crystallised hydroxamate inhibitor. Passed the redocking control (top pose 0.92 A). The zinc is removed by prepare, so zinc binding was not modelled.",
+      "source_check": "Read from the committed meta.json on 2026-11-08: uniprot P47205, target_id P47205, 1.9 A, ligand GVR. Redocking from docs/targets.md, not re-run here."
+    },
+    {
+      "pdb_id": "3P3E",
+      "symbol": "lpxC",
+      "organism": "Pseudomonas aeruginosa",
+      "uniprot": ["P47205"],
+      "ligand": "LPC-009",
+      "verdict": "keep",
+      "reason": "P. aeruginosa LpxC with a co-crystallised hydroxamate inhibitor. Passed the redocking control (top pose 0.68 A). Same protein and species as 2VES, so not an independent test; the same zinc caveat applies.",
+      "source_check": "Read from the committed meta.json on 2026-11-08: uniprot P47205, target_id P47205, 1.28 A, ligand 3P3. Redocking from docs/targets.md, not re-run here."
+    }
+  ]
+}

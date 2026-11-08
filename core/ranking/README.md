@@ -108,6 +108,21 @@ Keep generated bundles under either ignored artifact directory.
 
 Resistance-aware ranking of approved antibiotics (WS4). Everything above this section is the earlier human-disease network method and is unrelated.
 
+To build fresh WS2 profiles and rank **all three chosen pathogens** in one run:
+
+```sh
+uv run python -m ranking.antibiotic.pathogens --out results/pathogens
+```
+
+This uses the shipped species presets, full CARD release (including the curated
+supplement), approved antibiotic catalogue and ChEMBL MIC data. It refuses
+unresolved preset inputs or mismatched releases. Unlike the single-profile CLI,
+missing activity data is an error unless `--no-activity` is explicit. `--lean`
+requests certificates; without it their status remains `not_run`. Each run saves
+the exact profiles, rankings, exclusion/activity logs, source manifests, preset
+and supplement snapshots, and a checksummed summary. Use a new output directory
+for each run. See [the integration proof](../../docs/pathogen-integration.md).
+
 ```
 uv run python -m ranking.antibiotic tests/fixtures/resistance_profile.json --lean --out result.json
 uv run pytest core/ranking/tests/test_antibiotic_ranking.py core/ranking/tests/test_antibiotic_activity.py
@@ -122,5 +137,9 @@ Needs the built CARD release, the antibiotic catalogue and (for activity) the ex
 | `activity.py` | Median MIC per drug against the pathogen from ChEMBL, species-level, with censored values counted and disclosed |
 | `rank.py` | The ordered rule (evasion, then activity, then the property smoke test), explanations, Lean certificates on smoke-test survivors |
 | `baselines.py` | Random, class-not-defeated and activity-only orders for the retrospective test |
+
+`--max-mic MG_L` (off by default) leaves out drugs whose measured median MIC against the pathogen is above the value and logs each one. Evasion comes first in the order, so without it a drug CARD does not link to the profile can outrank drugs that work, even if it has never been active against the species (vancomycin against *A. baumannii*, median MIC 64 mg/L). The value is a working assumption, not a clinical breakpoint, and it is a candidate ablation for the WS5 protocol.
+
+`ablation.py` is the WS5 harness: a draft protocol ([protocol_v1.json](antibiotic/protocol_v1.json)) that declares the variants, the floor values, the metrics, the tie handling and the bootstrap in advance, a `freeze` step that hashes them with the cases and the data releases, and a `run` step that refuses to start if anything changed. It needs cited cases from Lane A and has none yet, so it reports nothing. See [docs/retrospective-protocol.md](../../docs/retrospective-protocol.md); what the ranking did on real profiles is in [docs/ranking-observations.md](../../docs/ranking-observations.md).
 
 The order is a rule, not a score: there are no weights. Drugs that tie on all three keys are listed alphabetically and the explanation says that order is not a finding. Limits: the MIC is a species-level median across papers, with no breakpoint, so it is evidence that a drug was measured against the species and not a susceptibility call; "unaffected" means no link in CARD, not a measured result; the property limits describe approved antibiotics ([docs/antibiotic-limits.md](../../docs/antibiotic-limits.md)) and say nothing about safety.

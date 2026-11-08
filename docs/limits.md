@@ -24,7 +24,7 @@ The short version: **this tool proposes which antibiotics are not known to be de
 
 ### The big one: there is no validation result yet
 
-`results/` contains only the earlier project's disease-era experiments. **No retrospective test of the antibiotic ranking has been run or published.** The metrics and the three baselines exist in code ([baselines.py](../core/ranking/antibiotic/baselines.py), `retrieval_metrics`), and the ground-truth table (#36), the frozen protocol (#35) and the run itself (#37) are all still open.
+**No retrospective test of the antibiotic ranking has been run or published.** The pieces are now in place — a cited ground-truth table (#36, [ground-truth.md](ground-truth.md)), a prepared protocol ([results/ws5_retrospective/protocol.md](../results/ws5_retrospective/protocol.md), #35) that records a SHA-256 of itself and of every input, and the three baselines in code ([baselines.py](../core/ranking/antibiotic/baselines.py)) — but `results/ws5_retrospective/` holds the protocol and no result. The run is #37.
 
 Until #37 is published, every ordering this tool produces is **unvalidated**. It should be described that way, with no hits@k or MRR figure quoted, because none exists.
 
@@ -59,7 +59,7 @@ The redocking controls are defined but their results are measured by the docking
 
 ### The app shows fixture rankings
 
-A profile built from typed gene names is **real**. The ranking shown beside it is **not**: the API serves a fixture result and never calls the ranking code (#34). The candidate result carries a `fixture_note` saying its scores, MICs and ranks are made up, and the interface shows it — but a demo must not describe that shortlist as computed from the profile on screen.
+A profile built from typed gene names is **real**. The ranking shown beside it is **not**: the API serves a fixture result and never imports the ranking package. Real rankings for all three pathogens do exist, from the #34 runner ([pathogen-integration.md](pathogen-integration.md)), but they are produced from the command line and are not what the app shows. The candidate result carries a `fixture_note` saying its scores, MICs and ranks are made up, and the interface shows it — but a demo must not describe that shortlist as computed from the profile on screen.
 
 ### The model jury
 
@@ -75,8 +75,8 @@ Three ESKAPE species (*S. aureus*, *K. pneumoniae*, *A. baumannii*), one pinned 
 
 | Weakness | Closed by |
 |---|---|
-| No validation result | #36 ground truth, #35 frozen protocol, #37 the run |
-| App shows fixture rankings | #34 |
+| No validation result | #37: freeze the protocol on the evaluation machine, then run and publish |
+| App shows fixture rankings | Calling the ranking from the API; #34 produced the rankings but not that wiring |
 | No docking evidence | A docking step in the antibiotic ranking (no issue covers this yet); recording each structure's redocking control result |
 | No toxicity model | #39 |
 | Unverified presets | A cited, CARD-derived profile per pathogen |

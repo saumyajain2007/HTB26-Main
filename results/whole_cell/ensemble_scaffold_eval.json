@@ -1,0 +1,174 @@
+{
+  "split": "scaffold",
+  "release": "liu2023_hub20200324_chembl-37",
+  "chemprop_version": "2.2.4",
+  "n_members": 5,
+  "tuned": false,
+  "training_seconds_total": 332.8,
+  "test_to_train_nearest_neighbour": {
+    "n": 1526,
+    "median_nearest": 0.5208,
+    "fraction_above_threshold": 0.5164,
+    "threshold": 0.5
+  },
+  "ensemble_mean": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.7019,
+      "ci95": [
+        0.5784,
+        0.8168
+      ]
+    },
+    "pr_auc": {
+      "value": 0.1179,
+      "ci95": [
+        0.0312,
+        0.3029
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 3.82
+  },
+  "members": [
+    {
+      "n": 1526,
+      "actives": 21,
+      "baseline_prevalence": 0.01376,
+      "roc_auc": {
+        "value": 0.6998,
+        "ci95": [
+          0.5612,
+          0.8287
+        ]
+      },
+      "pr_auc": {
+        "value": 0.1127,
+        "ci95": [
+          0.0329,
+          0.2904
+        ]
+      },
+      "enrichment_top_1pct": 19.38,
+      "enrichment_top_5pct": 5.74,
+      "member": 0
+    },
+    {
+      "n": 1526,
+      "actives": 21,
+      "baseline_prevalence": 0.01376,
+      "roc_auc": {
+        "value": 0.7016,
+        "ci95": [
+          0.5779,
+          0.8235
+        ]
+      },
+      "pr_auc": {
+        "value": 0.1209,
+        "ci95": [
+          0.0331,
+          0.3052
+        ]
+      },
+      "enrichment_top_1pct": 19.38,
+      "enrichment_top_5pct": 3.82,
+      "member": 1
+    },
+    {
+      "n": 1526,
+      "actives": 21,
+      "baseline_prevalence": 0.01376,
+      "roc_auc": {
+        "value": 0.6532,
+        "ci95": [
+          0.5159,
+          0.7809
+        ]
+      },
+      "pr_auc": {
+        "value": 0.1101,
+        "ci95": [
+          0.026,
+          0.2855
+        ]
+      },
+      "enrichment_top_1pct": 19.38,
+      "enrichment_top_5pct": 3.82,
+      "member": 2
+    },
+    {
+      "n": 1526,
+      "actives": 21,
+      "baseline_prevalence": 0.01376,
+      "roc_auc": {
+        "value": 0.6685,
+        "ci95": [
+          0.536,
+          0.7948
+        ]
+      },
+      "pr_auc": {
+        "value": 0.0833,
+        "ci95": [
+          0.0241,
+          0.2399
+        ]
+      },
+      "enrichment_top_1pct": 14.53,
+      "enrichment_top_5pct": 3.82,
+      "member": 3
+    },
+    {
+      "n": 1526,
+      "actives": 21,
+      "baseline_prevalence": 0.01376,
+      "roc_auc": {
+        "value": 0.7294,
+        "ci95": [
+          0.6044,
+          0.8435
+        ]
+      },
+      "pr_auc": {
+        "value": 0.1049,
+        "ci95": [
+          0.03,
+          0.2773
+        ]
+      },
+      "enrichment_top_1pct": 14.53,
+      "enrichment_top_5pct": 3.82,
+      "member": 4
+    }
+  ],
+  "nearest_active_tanimoto_baseline": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.6068,
+      "ci95": [
+        0.4572,
+        0.7465
+      ]
+    },
+    "pr_auc": {
+      "value": 0.1863,
+      "ci95": [
+        0.0402,
+        0.3685
+      ]
+    },
+    "enrichment_top_1pct": 24.22,
+    "enrichment_top_5pct": 5.74
+  },
+  "disagreement_std": {
+    "actives_median": 0.0384,
+    "inactives_median": 0.0194
+  },
+  "calibration_rows": 764,
+  "calibration_actives": 12
+}

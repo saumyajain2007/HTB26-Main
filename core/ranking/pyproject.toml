@@ -17,4 +17,4 @@ packages = ["ranking", "ranking.application", "ranking.antibiotic"]
 package-dir = {ranking = "."}
 
 [tool.setuptools.package-data]
-ranking = ["cohort_protocol.json", "rwr_protocol.json"]
+ranking = ["cohort_protocol.json", "rwr_protocol.json", "antibiotic/protocol_v1.json"]

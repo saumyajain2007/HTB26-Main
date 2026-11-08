@@ -30,6 +30,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--chembl", type=Path, default=CHEMBL, help="extracted ChEMBL SQLite database (activity data)")
     ap.add_argument("--no-activity", action="store_true", help="skip the ChEMBL MIC lookup")
     ap.add_argument("--lean", action="store_true", help="run Lean 4 certificates on drugs that pass the smoke test")
+    ap.add_argument("--max-mic", type=float, metavar="MG_L", help="leave out drugs whose measured median MIC "
+                    "against the pathogen exceeds this (off by default; a working assumption, not a breakpoint)")
     ap.add_argument("--out", type=Path, help="write the result here (default: print a summary)")
     args = ap.parse_args(argv)
 
@@ -46,7 +48,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"activity: {len(activity)} of {len(drugs)} drugs have enough MIC records", file=sys.stderr)
     result, unranked = rank_candidates(
         profile, drugs, DrugLinks.from_card(args.card), catalogue_release=catalogue_release(args.catalogue),
-        activity=activity, certifier=certify_batch if args.lean else None)
+        activity=activity, certifier=certify_batch if args.lean else None,
+        max_median_mic=args.max_mic)
     if args.out:
         args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     counts: dict[str, int] = {}

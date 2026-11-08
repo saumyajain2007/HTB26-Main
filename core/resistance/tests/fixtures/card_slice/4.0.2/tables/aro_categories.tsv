@@ -1,0 +1,41 @@
+category_class	aro_accession	name
+AMR Gene Family	ARO:0010002	major facilitator superfamily (MFS) antibiotic efflux pump
+AMR Gene Family	ARO:0010004	resistance-nodulation-cell division (RND) antibiotic efflux pump
+AMR Gene Family	ARO:3000015	SHV beta-lactamase
+AMR Gene Family	ARO:3000016	CTX-M beta-lactamase
+AMR Gene Family	ARO:3000059	KPC beta-lactamase
+AMR Gene Family	ARO:3000133	fosfomycin thiol transferase
+AMR Gene Family	ARO:3003292	fluoroquinolone resistant gyrA
+AMR Gene Family	ARO:3003846	ADC beta-lactamase without carbapenemase activity
+AMR Gene Family	ARO:3004197	BlaZ beta-lactamase
+AMR Gene Family	ARO:3004471	msr-type ABC-F protein
+AMR Gene Family	ARO:3007696	OXA-1-like beta-lactamase
+AMR Gene Family	ARO:3007710	OXA-23-like beta-lactamase
+AMR Gene Family	ARO:3007725	OXA-51-like beta-lactamase
+AMR Gene Family	ARO:3009312	PBP2-like beta-lactam resistant peptidoglycan transpeptidase
+Drug Class	ARO:0000000	macrolide antibiotic
+Drug Class	ARO:0000001	fluoroquinolone antibiotic
+Drug Class	ARO:0000004	monobactam
+Drug Class	ARO:0000016	aminoglycoside antibiotic
+Drug Class	ARO:0000017	lincosamide antibiotic
+Drug Class	ARO:0000020	carbapenem
+Drug Class	ARO:0000026	streptogramin antibiotic
+Drug Class	ARO:0000032	cephalosporin
+Drug Class	ARO:0000042	glycylcycline
+Drug Class	ARO:3000008	penicillin beta-lactam
+Drug Class	ARO:3000050	tetracycline antibiotic
+Drug Class	ARO:3000079	oxazolidinone antibiotic
+Drug Class	ARO:3000081	glycopeptide antibiotic
+Drug Class	ARO:3000157	rifamycin antibiotic
+Drug Class	ARO:3000171	diaminopyrimidine antibiotic
+Drug Class	ARO:3000387	phenicol antibiotic
+Drug Class	ARO:3004116	nitrofuran antibiotic
+Drug Class	ARO:3007149	phosphonic acid antibiotic
+Drug Class	ARO:3007157	nybomycin-like antibiotic
+Drug Class	ARO:3007495	azole antibiotic
+Drug Class	ARO:3007500	imidazole antibiotic
+Resistance Mechanism	ARO:0001001	antibiotic target alteration
+Resistance Mechanism	ARO:0001002	antibiotic target replacement
+Resistance Mechanism	ARO:0001003	antibiotic target protection
+Resistance Mechanism	ARO:0001004	antibiotic inactivation
+Resistance Mechanism	ARO:0010000	antibiotic efflux

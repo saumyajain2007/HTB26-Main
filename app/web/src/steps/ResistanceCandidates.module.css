@@ -331,6 +331,148 @@
   color: var(--color-grey-2);
 }
 
+/* Smoke-test panel and Lean 4 certificate view (issue #40) */
+.verifyPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.smokeSummary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ruleTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-body-sm);
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+.ruleTable th,
+.ruleTable td {
+  padding: var(--space-8) var(--space-12);
+  vertical-align: baseline;
+}
+
+.ruleTable thead th {
+  padding-top: 0;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-ink);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  color: var(--color-grey-1);
+}
+
+.ruleRow {
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.ruleRow[data-passed="false"] {
+  background: var(--color-wash);
+  box-shadow: inset 3px 0 0 var(--color-disease);
+}
+
+.ruleNameCell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-8);
+  align-items: baseline;
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.ruleLabel {
+  color: var(--color-ink);
+}
+
+.ruleCode {
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-regular);
+  color: var(--color-grey-1);
+}
+
+.ruleNumCell {
+  white-space: nowrap;
+  color: var(--color-ink);
+}
+
+.ruleMarginCell {
+  white-space: nowrap;
+  color: var(--color-grey-1);
+}
+
+.ruleMarginCell[data-passed="false"] {
+  font-weight: var(--weight-semibold);
+  color: var(--color-disease);
+}
+
+.ruleStatusCell {
+  white-space: nowrap;
+}
+
+.ruleStatus {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  color: var(--color-ink);
+}
+
+.ruleStatus[data-passed="false"] {
+  font-weight: var(--weight-semibold);
+  color: var(--color-disease);
+}
+
+.ruleMark {
+  flex: none;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px dotted var(--color-grey-2);
+  background: var(--color-paper);
+}
+
+.ruleMark[data-passed="true"] {
+  border: 2px solid var(--color-route);
+  border-radius: 50%;
+}
+
+.ruleMark[data-passed="false"] {
+  border: 1px solid var(--color-ink);
+  background: var(--color-disease);
+}
+
+.certificateCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-12);
+  border: 1px solid var(--color-rule);
+  background: var(--color-wash);
+}
+
+.certificateCard[data-status="certified"] {
+  box-shadow: inset 3px 0 0 var(--color-route);
+}
+
+.certificateCard[data-status="failed"] {
+  box-shadow: inset 3px 0 0 var(--color-disease);
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  word-break: break-all;
+}
+
+.certDetail {
+  font-size: var(--text-label-sm);
+  color: var(--color-grey-1);
+  word-break: break-word;
+}
+
 .cite {
   margin-right: var(--space-8);
   font-size: var(--text-label-sm);

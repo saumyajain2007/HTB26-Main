@@ -1,0 +1,57 @@
+{
+  "id": "3U2K_A",
+  "pdb_id": "3U2K",
+  "chain": "A",
+  "uniprot": [
+    "P0A0K8"
+  ],
+  "target_id": "P0A0K8",
+  "symbol": "gyrB",
+  "title": "S. aureus GyrB ATPase domain in complex with a small molecule inhibitor",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.64,
+  "ligand": {
+    "comp_id": "087",
+    "name": "pyrrolamide inhibitor 087",
+    "candidate_id": "CHEMBL1923431",
+    "residue_number": "1",
+    "heavy_atoms": 27
+  },
+  "box_center": [
+    0.155,
+    2.433,
+    24.55
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "Cc1c(c(c([nH]1)C(=O)NC2CCN(CC2)c3cc(cc(n3)Cl)C(=O)N)Cl)Cl",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 237,
+      "MG": 3,
+      "087": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 0.155 2.433 24.550 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/3U2K.pdb",
+    "entry_sha256": "73dff00b050fcf72fa8336e65bf30aaa89efa7c5b15885baff24e14ceabc55d4",
+    "ligand": "https://models.rcsb.org/v1/3U2K/ligand?auth_asym_id=A&label_comp_id=087&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/087"
+  },
+  "prepared_on": "2026-11-08",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  }
+}
