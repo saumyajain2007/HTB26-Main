@@ -1,0 +1,41 @@
+{
+  "source": "https://www.rcsb.org/ligand/DAL",
+  "construct_start": 1,
+  "construct_end": 3,
+  "recorded_candidate_target": "Peptidoglycan",
+  "receptor_kind": "protein",
+  "proxy_assumed": true,
+  "modifications": [
+    {
+      "position": 2,
+      "ccd": "DAL"
+    },
+    {
+      "position": 3,
+      "ccd": "DAL"
+    }
+  ],
+  "generator_atom_name_patch": {
+    "package": "boltz==2.2.1",
+    "file": "boltz/data/parse/schema.py",
+    "old": "atom_name = atom.GetSymbol().upper() + str(can_idx + 1)",
+    "new": "atom_name = atom.GetSymbol().upper() + (format(can_idx + 1, \"X\") if len(atom.GetSymbol()) == 2 else str(can_idx + 1))",
+    "reason": "Two-letter elements plus three-digit canonical indices exceed four-character PDB atom-name limit; alias only, no chemistry changes."
+  },
+  "seed": 42,
+  "max_msa_seqs": 256,
+  "recycling_steps": 2,
+  "sampling_steps": 100,
+  "qc": {
+    "connectivity_matches_input": true,
+    "stereochemistry_matches_input": false
+  },
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Synthetic Lys-D-Ala-D-Ala peptide proxy; not peptidoglycan or lipid II, no membrane context; free termini and unmodified Lys",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Boltz 2.2.1 atom-name compatibility fix: two-letter element atom IDs use hexadecimal canonical indices to fit PDB width; chemistry unchanged.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}

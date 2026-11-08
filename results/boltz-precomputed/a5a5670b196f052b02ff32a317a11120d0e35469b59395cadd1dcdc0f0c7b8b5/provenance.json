@@ -1,0 +1,21 @@
+{
+  "source": "https://rest.uniprot.org/uniprotkb/D0C8Z9.json",
+  "construct_start": 280,
+  "construct_end": 672,
+  "recorded_candidate_target": "Penicillin-binding protein",
+  "isoform_assumed": true,
+  "seed": 42,
+  "max_msa_seqs": 256,
+  "recycling_steps": 2,
+  "sampling_steps": 100,
+  "qc": {
+    "connectivity_matches_input": true,
+    "stereochemistry_matches_input": true
+  },
+  "limitations": [
+    "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
+    "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
+    "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ]
+}

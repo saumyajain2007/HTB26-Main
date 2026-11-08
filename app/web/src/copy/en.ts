@@ -771,7 +771,7 @@ export const copy = {
       illustration:
         "The animation illustrates this result. It is not a simulation of the drug’s path.",
     },
-    legend: { protein: "Protein", drug: "Drug" },
+    legend: { protein: "Receptor", drug: "Drug" },
   },
 
   history: {
