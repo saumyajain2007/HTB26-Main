@@ -1,0 +1,41 @@
+{
+  "baselines": {
+    "docking_score_alone": "NOT RUN. The spec lists it as mandatory. Vina publishes Linux x86_64 wheels only and the docking structures are for S. aureus GyrB and P. aeruginosa LpxC, not A. baumannii; docking about 8,000 molecules at 2 to 4 s each is also outside the time budget. It is a gap in this test, reported as one.",
+    "molecular_weight": "rank by molecular weight, direction chosen from the training rows only: lightest first if the training ROC-AUC of weight is below 0.5, else heaviest first",
+    "nearest_known_active_tanimoto": "highest Tanimoto (Morgan radius 2, 2048 bits) to any training-split active",
+    "random": "a random ranker: a hidden compound's percentile is uniform, so the expected percentile is 50 and the chance of the top p percent is p percent. Reported as these exact expectations"
+  },
+  "compute": "the measured wall-clock seconds each ranker spent scoring the pool, from the cost ledger",
+  "hidden_compounds": {
+    "eligibility": "A compound is eligible only if assert_no_leakage passes for it over all four sets: the training split rows, the calibration split rows, the generator's seed fragments (the guide model's training rows and the 139,493 SyntheMol building blocks) and the nearest-neighbour baseline's reference set (training actives), at Tanimoto > 0.5 (Morgan radius 2, 2048 bits) or an identical InChIKey. Ineligible compounds are excluded and counted, never silently kept.",
+    "named_by_the_spec": [
+      "RS-102895",
+      "SU3327"
+    ],
+    "selection_rule": "Drug Repurposing Hub compounds whose non-conflicting ChEMBL 37 A. baumannii MIC is <= 8 ug/mL (chembl_mic label 1), that are not in liu_train (not already screened), and that pass the leakage assertion below. The rule uses no model output."
+  },
+  "input_checksums": {
+    "building_blocks.csv": "c0d6174ac84e3d7987257915b5c62f2761e0ba9660c9cfec773d84e353537b51",
+    "chembl_mic.tsv": "ad35162b8b157f1ccb815c233e57be1643fbe33a23eae0ea82014b48bf38bec3",
+    "chemprop_run.json": "d0d1cc1187c9292a00d227e35f95c5324d931cd65590d50ca9868cbcc8645abc",
+    "generated_survivors.tsv": "0b7284159d913940b84ff182f2c0938c256213b8387c9317d6bf3cb9186f67e8",
+    "hub_pool.tsv": "37d3b950bf77dabe98181e471306666355c8bf92399aba9bb1581f446262ad58",
+    "liu_train.tsv": "43da273629db1317a74365eb7577f1d79a64f55bd9cdfe98a5b981e82c1cb9f9",
+    "splits.tsv": "c135b7d3ae2fa48b4289779a1f71d6b8f7a4c761d3ec97b8262510287c5006f1"
+  },
+  "metric": "percentile = 100 * rank / pool size, rank 1 best, ties counted against the ranker. Reported per compound and per ranker, with the count of hidden compounds in the top 1, 5, 10 and 20 percent.",
+  "name": "test-1",
+  "pool": {
+    "generated": "the survivors of the filter cascade from SyntheMol batch run1, minus any molecule identical to or above 0.5 Tanimoto of a hidden compound. The cascade is applied to generated molecules only, never to library compounds.",
+    "library": "hub_pool compounds whose InChIKey is not in liu_train (any split), because those were already screened and their labels are known to the models. Hidden compounds stay in the pool, and so do the other hidden compounds, which compete with each other."
+  },
+  "question": "Given a pool of library compounds plus generated candidates, how high does each ranker place compounds that are known to be active against A. baumannii but were hidden from training?",
+  "rankers": {
+    "chemprop_ensemble": "the five-member Chemprop ensemble from #85, mean probability; not retrained",
+    "primary_pipeline": "rank-average of the two rankers above, equal weights. Fixed in advance as the ranker the test is about",
+    "random_forest_morgan": "RandomForest, 500 trees, class_weight balanced_subsample, seed 0, on Morgan radius-2 2048-count features, trained here on the training rows"
+  },
+  "reporting": "Every hidden compound and every ranker is reported, whatever the outcome, including any case in which the nearest-active baseline matches or beats the primary pipeline.",
+  "statistics": "With five hidden compounds there are no confidence intervals and no significance claims. The comparison with the nearest-active baseline is the count of compounds on which each ranks the compound higher.",
+  "training_data": "liu_train rows with scaffold_split == train (the rows the Chemprop ensemble was trained on). Calibration and test rows are used by no ranker."
+}

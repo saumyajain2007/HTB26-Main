@@ -28,6 +28,14 @@ def main(argv: list[str] | None = None) -> int:
     f.add_argument("--entry", choices=("flag", "reject"), default="flag")
     f.add_argument("--jobs", type=int, default=0, help="processes to use; 0 (default) is every core")
     f.add_argument("--limit", type=int, default=None, help="only the first N rows (for a quick look)")
+    h = sub.add_parser("hidden-drug", help="freeze or run the hidden-drug retrieval test (#91, #92)")
+    h.add_argument("action", choices=("freeze", "run"))
+    h.add_argument("out", type=Path, help="results directory, e.g. results/test-1")
+    h.add_argument("--release", type=Path, required=True)
+    h.add_argument("--run-dir", type=Path, required=True, help="the trained Chemprop ensemble (scaffold)")
+    h.add_argument("--survivors", type=Path, required=True, help="cascade survivors of the generated batch")
+    h.add_argument("--blocks", type=Path, required=True, help="SyntheMol building blocks CSV (local, not committed)")
+    h.add_argument("--work", type=Path, default=Path("/tmp/htb-hidden-drug"))
     g = sub.add_parser("ledger", help="summarise an oracle cost ledger and verify its hash chain")
     g.add_argument("path", type=Path)
     e = sub.add_parser("evaluate", help="evaluate a trained ensemble (needs the model extra)")
@@ -55,6 +63,18 @@ def main(argv: list[str] | None = None) -> int:
         (args.out / "funnel.json").write_text(json.dumps(stats, indent=2) + "\n")
         (args.out / "funnel.svg").write_text(filters.funnel_svg(stats))
         print(json.dumps(stats, indent=2))
+        return 0
+    if args.cmd == "hidden-drug":
+        from . import hidden_drug
+        inputs = {"liu_train.tsv": args.release / "tables" / "liu_train.tsv", "splits.tsv": args.release / "tables" / "splits.tsv",
+                  "hub_pool.tsv": args.release / "tables" / "hub_pool.tsv", "chembl_mic.tsv": args.release / "tables" / "chembl_mic.tsv",
+                  "chemprop_run.json": args.run_dir / "run.json", "generated_survivors.tsv": args.survivors,
+                  "building_blocks.csv": args.blocks}
+        if args.action == "freeze":
+            print(json.dumps(hidden_drug.freeze(args.out, inputs)["input_checksums"], indent=2))
+        else:
+            print(json.dumps(hidden_drug.run(args.out, release=args.release, run_dir=args.run_dir, survivors_tsv=args.survivors,
+                                             blocks_csv=args.blocks, work=args.work, inputs=inputs)["summary"], indent=2))
         return 0
     if args.cmd == "ledger":
         from .oracles import Ledger

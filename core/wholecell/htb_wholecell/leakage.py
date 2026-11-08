@@ -61,14 +61,15 @@ def find_leaks(held_out: dict[str, str], sets: dict[str, list[str]],
     if missing:
         raise LeakageError(f"leakage check needs all four sets; missing: {', '.join(missing)}")
     leaks: list[Leak] = []
+    # Fingerprint every set member once, not once per held-out compound: the building blocks alone are 139,493.
+    prepared = {set_name: ([fingerprint(m) for m in members], [_key(m) for m in members], members)
+                for set_name, members in sets.items() if members}
     for name, smi in held_out.items():
         fp, key = fingerprint(smi), _key(smi)
-        for set_name, members in sets.items():
-            if not members:
-                continue
-            sims = DataStructs.BulkTanimotoSimilarity(fp, [fingerprint(m) for m in members])
-            for member, sim in zip(members, sims):
-                if sim > threshold or _key(member) == key:
+        for set_name, (fps, keys, members) in prepared.items():
+            sims = DataStructs.BulkTanimotoSimilarity(fp, fps)
+            for member, member_key, sim in zip(members, keys, sims):
+                if sim > threshold or member_key == key:
                     leaks.append(Leak(name, set_name, member, round(sim, 4)))
     return leaks
 
