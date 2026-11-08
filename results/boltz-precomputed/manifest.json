@@ -1,7 +1,7 @@
 {
   "model": "boltz2",
   "count": 84,
-  "scope": "Species-reference complexes and explicitly labeled exploratory PBP constructs; no efficacy claim",
+  "scope": "Species-reference complexes and explicitly labeled exploratory PBP and target-fragment proxies; no efficacy claim",
   "predictions": [
     {
       "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
