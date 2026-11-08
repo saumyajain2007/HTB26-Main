@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6XA1E8PX6Y7EWB0062SGZ51",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 8,
+  "checkpoints_count": 9,
   "files_touched": [
     "app/api/README.md",
     "app/api/tests/test_saved_resistance.py"
@@ -22,6 +22,13 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
@@ -32,7 +39,7 @@
     "api_call_count": 10
   },
   "redaction": {
-    "replacements": 37,
+    "replacements": 38,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
@@ -40,7 +47,7 @@
       "credential_value": 15,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 22,
+      "key_context": 23,
       "provider_token": 0,
       "shell_stdin": 0
     }
