@@ -1,0 +1,8 @@
+https://github.com/saumyajain2007/HTB26-Main/issues/49
+https://github.com/potatoesandfrenchfries/ai-expo-2026-code
+
+You could translate the code from this into lean for the purposes of the above issue
+
+---
+
+You can commit the stuff into a branch and merge into main
