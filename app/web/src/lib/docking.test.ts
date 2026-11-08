@@ -1,6 +1,18 @@
 import { describe, expect, it } from "vitest";
 import { covidExperiment, dockJob, structures } from "../test/fixtures";
-import { bestScore, defaultDockingChoice, dockingPairs, jobFor, structureFor } from "./docking";
+import {
+  bacterialStructures,
+  bestScore,
+  defaultDockingChoice,
+  dockFilesForStructure,
+  dockingPairs,
+  isBacterialStructure,
+  jobFor,
+  structureFor,
+  structureForAntibiotic,
+  structurePreviewId,
+  structuresForAntibiotic,
+} from "./docking";
 
 const { candidates } = covidExperiment();
 
@@ -71,5 +83,75 @@ describe("jobFor", () => {
     expect(jobFor([control], "CHEMBL2105759", "6WTO_A")).toBeUndefined();
     expect(bestScore(done)).toBe(-10.2);
     expect(bestScore(failed)).toBeNull();
+  });
+});
+
+describe("bacterial structures and antibiotic matching", () => {
+  it("lists the four bacterial crystal structures (3G7B, 3U2K, 2VES, 3P3E) from GET /api/structures", () => {
+    const bacterial = bacterialStructures(structures);
+    expect(bacterial.map((s) => s.id)).toEqual(["3G7B_A", "3U2K_A", "2VES_A", "3P3E_A"]);
+    expect(bacterial.every(isBacterialStructure)).toBe(true);
+    const human = structures[0];
+    if (human === undefined) throw new Error("No structures in fixture");
+    expect(isBacterialStructure(human)).toBe(false);
+  });
+
+  it("matches a Candidate carrying a bacterial UniProt target_id or gene symbol in structureFor", () => {
+    const gyrBCandidate = {
+      ...candidate("CHEMBL2105759"),
+      candidate_id: "CHEMBL1923431",
+      targets: [{ id: "P0A0K8", name: "gyrB", mechanism: null }],
+    };
+    expect(structureFor(gyrBCandidate, structures)?.id).toBe("3U2K_A");
+
+    const lpxCCandidate = {
+      ...candidate("CHEMBL2105759"),
+      candidate_id: "CHEMBL999999",
+      targets: [{ id: "P47205", name: "lpxC", mechanism: null }],
+    };
+    expect(structureFor(lpxCCandidate, structures)?.id).toBe("2VES_A");
+  });
+
+  it("matches an antibiotic candidate by generated pocket_pdb_id, co-crystal ligand, or bacterial target", () => {
+    expect(
+      structureForAntibiotic(
+        {
+          id: "GEN-0001",
+          generated: { pocketPdbId: "3P3E" },
+          target: null,
+        },
+        structures,
+      )?.id,
+    ).toBe("3P3E_A");
+
+    expect(
+      structureForAntibiotic(
+        {
+          id: "CHEMBL261713",
+          target: null,
+        },
+        structures,
+      )?.id,
+    ).toBe("2VES_A");
+
+    const gyrMatches = structuresForAntibiotic(
+      {
+        id: "CHEMBL-GYR",
+        target: { name: "DNA gyrase subunit B (gyrB)", geneLabels: [] },
+      },
+      structures,
+    );
+    expect(gyrMatches.map((s) => s.id)).toEqual(["3G7B_A", "3U2K_A"]);
+  });
+
+  it("builds deterministic preview file URLs when a structure has no control job_id", () => {
+    const gyrB = structures.find((s) => s.id === "3G7B_A");
+    if (gyrB === undefined) throw new Error("No 3G7B_A structure in fixture");
+    const previewId = structurePreviewId("3G7B_A");
+    expect(previewId).toBe("00000000-0000-4000-8000-334737425f41");
+    const files = dockFilesForStructure(gyrB);
+    expect(files.receptor.url).toBe(`/api/files/${previewId}/receptor.pdb`);
+    expect(files.poses.url).toBe(`/api/files/${previewId}/poses.sdf`);
+    expect(files.crystal_ligand.url).toBe(`/api/files/${previewId}/crystal_ligand.sdf`);
   });
 });

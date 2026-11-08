@@ -1,17 +1,19 @@
 # htb-api
 
-The FastAPI service behind the web app: Disease search, Experiments and their
-build progress, the Model jury, docking jobs, history (archive and restore) and
-the evaluation results. `htb_api/schemas.py` is the single source of truth
-for every request and response; `openapi.json` is generated from it and the
-web app's TypeScript types are generated from that.
+The FastAPI service for resistance profiles, antibiotic candidates and certificates,
+plus the earlier disease-experiment, model-jury and docking infrastructure.
+`htb_api/schemas.py` is the source of truth for request/response contracts;
+`openapi.json` and the web app's TypeScript types are generated from it.
 
-By default the API runs in **fixture mode**: Experiments, jury reviews,
-structures and docking results come from `htb_api/fixtures/`. They are kept
-in memory by default, or saved in Postgres with `HTB_REPO=postgres` (see
-below). **Live mode** (`HTB_SOURCE=live`, see "Live mode") builds
-Experiments for any Disease with stream A's pipeline and stream B's network
-ranking. The docking worker (phase 7) plugs into the same seams.
+The resistance app defaults to the labelled MRSA fixture; `HTB_RESISTANCE=saved`
+serves the committed real profiles and rankings for all three draft pathogen
+presets. Typed-gene profiling requires a prepared local CARD release and does
+not compute a new candidate ranking. See [the offline demo](../../docs/offline-demo.md).
+
+The `HTB_SOURCE=fixture|live` setting described below controls the older
+human-disease Experiments. Its live pipeline and historical evaluation results
+are separate from the antibiotic ranking. Memory storage is the default;
+Postgres is optional.
 
 ## Run
 
@@ -227,10 +229,12 @@ contract change cannot land on one side only. `ResistanceSource` is the seam the
 real pipeline plugs into: Lane A's profiling (#16) and Lane B's ranking (#23)
 replace `FixtureResistance` without the web app changing.
 
-Only the pathogen the fixture covers (*S. aureus*) has a profile. The other two
-presets carry `profile_id: null` and a note, so the app shows them as not yet
-available rather than inventing data. The candidate result carries a
-`fixture_note` saying its scores, MICs and ranks are made up.
+In the default fixture mode, only *S. aureus* has a profile. The other two
+presets carry `profile_id: null` and an availability note. The candidate result
+carries a `fixture_note` saying its scores, MICs and ranks are made up. In
+`HTB_RESISTANCE=saved` mode all three presets have real saved rankings, with no
+fixture certificate attached; these are replayed integration outputs, not
+validated efficacy predictions.
 
 What the routes do **not** claim: `evasion.status: unaffected` means no link in
 CARD, not a measured result, and `unknown` means CARD cannot say, which is not
@@ -353,3 +357,12 @@ Findings while checking:
 - 7BQU's ligand is (S)-thalidomide (`CHEMBL426123`), a different parent from
   thalidomide (`CHEMBL468`). 6O0K's chain is a BCL2 construct that RCSB also
   maps to BCL-XL (`Q07817`).
+
+## Saved antibiotic rankings
+
+Set `HTB_RESISTANCE=saved` to serve the checked #34 profiles and real rankings for
+all three pathogens, with no source downloads. `HTB_RESISTANCE_RESULTS_DIR` defaults
+to the repository's `results/pathogen-integration`. The default `fixture` setting
+retains the saved MRSA demonstration. Missing/corrupt bundles fail startup. Saved
+rankings are integration evidence, not efficacy validation; Lean was not run.
+See [the offline walkthrough](../../docs/offline-demo.md).
