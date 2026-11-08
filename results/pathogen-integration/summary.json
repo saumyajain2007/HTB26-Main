@@ -1,0 +1,107 @@
+{
+  "activity": {
+    "release": "ChEMBL_37",
+    "sha256": "4be13df3b68e25dcd0bff44bf094033b5aebe98f415acdc8c1cdf380e0c15142",
+    "status": "loaded"
+  },
+  "caveat": "Integration proof only. Presets are drafts, not measured isolates; no efficacy validation.",
+  "inputs": {
+    "card_manifest_sha256": "03a06b8f3a1c65efcb4c154a48b7f9950130a6c0a4116f2ace371357239f0bb0",
+    "card_version": "4.0.2",
+    "catalogue_manifest_sha256": "aebfc06ac23e5a8ec67ce33756dc1e40b88f0dfe183d09c8722b634c9b90529a",
+    "chembl_release": "ChEMBL_37",
+    "presets_sha256": "e4e9454a4df291bf046032e7d1ae05b25dc30274facdfbd7e214e049239fbbaa",
+    "supplement_sha256": "ec002cd336134d0a093e250563fa26d617139983e4fe7148fd371250d63bc87c"
+  },
+  "lean_requested": false,
+  "outputs": {
+    "acinetobacter-baumannii.logs.json": "774bc30d5d486983418b20ed3ffb9653a75e91c487d3bb7fb2d1ebb313d1b8f4",
+    "acinetobacter-baumannii.profile.json": "1f449c42e01cb2fd39cf96083f8676cecf13df3f5d90cbbe93f7804688dcaf8a",
+    "acinetobacter-baumannii.ranking.json": "1aca6e9b320a42928a3de8acf8384fb6fd02f4ae8b1c9ab49d1dc798ac7b8b43",
+    "card_manifest.json": "76127ca4979dec248d6e7d1791fe870d75c5a6fc19401e696be510953e8ccc1e",
+    "catalogue_manifest.json": "3c5ec9d83abd41ec9cfe1e3f86d909c0b6c3c772789194057e074cd769b1d5cc",
+    "klebsiella-pneumoniae.logs.json": "9549f507c12390dc5f53e7659f58f95feca10e3c8ef2748f11fcdba14e1de8a2",
+    "klebsiella-pneumoniae.profile.json": "e923816f8a40bdf1cd283f035ba40eee42007bb8bbaa0e2eada6c54033f3b987",
+    "klebsiella-pneumoniae.ranking.json": "23e0cbc08adea8eb085bf13c0ec7b715ae737fdf022f62e501160c6d0f9f7392",
+    "pool_log.json": "6daccdfa23ec157e9fd28ef711d7c80f3e63595d3f6aaee777ae876bcbe3479e",
+    "presets.json": "26875a55751c318d17e4e009e081254088d03229f782519781d173e62b18dfe5",
+    "staphylococcus-aureus.logs.json": "61f2ed0e4140eb0cba16c3b7f135032617613b117dbda0f145690b700a3097d4",
+    "staphylococcus-aureus.profile.json": "32f959d0c1fb71fc2fc35fd1f559c505b4b74dfb15e26ee09d4c9540ca97cdf7",
+    "staphylococcus-aureus.ranking.json": "c8353b5d95255b60f2a822ab1d77dee92ecc1ad98124defb4271dd9041e91f15",
+    "supplement.json": "2ac44783ea475db60b8ca6a3a392d7f8597273f7e0d06144277c6018ee7e3780"
+  },
+  "pathogens": [
+    {
+      "activity_available": 49,
+      "certificates": {
+        "not_run": 126
+      },
+      "curated_evidence": 0,
+      "defeated_classes": 12,
+      "evasion": {
+        "partly_affected": 93,
+        "unaffected": 30,
+        "unknown": 3
+      },
+      "genes": 5,
+      "ncbi_taxid": 470,
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "ranked": 126,
+      "ranking_log_entries": 0,
+      "result_id": "0d6c4359-9ed5-47c5-8df7-6f8e9c67886f",
+      "species": "Acinetobacter baumannii",
+      "unresolved": 0
+    },
+    {
+      "activity_available": 73,
+      "certificates": {
+        "not_run": 126
+      },
+      "curated_evidence": 0,
+      "defeated_classes": 12,
+      "evasion": {
+        "defeated": 8,
+        "partly_affected": 79,
+        "unaffected": 36,
+        "unknown": 3
+      },
+      "genes": 7,
+      "ncbi_taxid": 573,
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "ranked": 126,
+      "ranking_log_entries": 0,
+      "result_id": "d36d5a16-ec4a-475b-9246-b53f08c30440",
+      "species": "Klebsiella pneumoniae",
+      "unresolved": 0
+    },
+    {
+      "activity_available": 87,
+      "certificates": {
+        "not_run": 126
+      },
+      "curated_evidence": 1,
+      "defeated_classes": 6,
+      "evasion": {
+        "defeated": 4,
+        "partly_affected": 71,
+        "unaffected": 48,
+        "unknown": 3
+      },
+      "genes": 4,
+      "ncbi_taxid": 1280,
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "ranked": 126,
+      "ranking_log_entries": 0,
+      "result_id": "70cda5d2-7314-4a6f-b8d3-8c9d739f5756",
+      "species": "Staphylococcus aureus",
+      "unresolved": 0
+    }
+  ],
+  "pool_log_entries": 101,
+  "pool_size": 126,
+  "schema": 1,
+  "software": {
+    "python": "3.14.0",
+    "rdkit": "2026.9.1"
+  }
+}

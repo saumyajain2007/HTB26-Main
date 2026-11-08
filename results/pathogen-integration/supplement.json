@@ -1,0 +1,86 @@
+{
+  "about": "Drug classes that CARD's downloadable release omits but that published literature supports. Kept apart from CARD's own data so a rebuild from the downloads still reproduces CARD exactly, and every class added from here is marked as curated in the profile evidence. Issue #66; the gap was found by the spot check in docs/card-spot-check.md.",
+  "additions": [
+    {
+      "also_listed_by": {
+        "checked": "2026-11-07",
+        "note": "Lists carbapenem for the PBP2-like family and for mecA and mecC. The CARD 4.0.2 download does not.",
+        "source": "CARD website",
+        "url": "https://card.mcmaster.ca/ontology/48160"
+      },
+      "citations": [
+        {
+          "checked": "2026-11-07, abstract read on PubMed",
+          "citation": "Gajdacs M. The Continuing Threat of Methicillin-Resistant Staphylococcus aureus. Antibiotics (Basel). 2019;8(2):52.",
+          "doi": "10.3390/antibiotics8020052",
+          "pmid": "31052511",
+          "supports": "Abstract: MRSA strains \"are characterized by an altered penicillin-binding protein (PBP2a/c) and resistance to all penicillins, cephalosporins, and carbapenems\"."
+        }
+      ],
+      "drug_class": {
+        "aro_id": "ARO:0000020",
+        "name": "carbapenem"
+      },
+      "id": "mec-carbapenem",
+      "models": [
+        "ARO:3000617",
+        "ARO:3001209"
+      ],
+      "reason": "MRSA with an altered PBP2a (mecA) or PBP2c (mecC) is resistant to carbapenems as well as penicillins and cephalosporins."
+    },
+    {
+      "also_listed_by": {
+        "checked": "2026-11-07",
+        "note": "Lists cephalosporin for mecC. The CARD 4.0.2 download does not.",
+        "source": "CARD website",
+        "url": "https://card.mcmaster.ca/aro/3001209"
+      },
+      "citations": [
+        {
+          "checked": "2026-11-07, abstract read on PubMed",
+          "citation": "Gajdacs M. The Continuing Threat of Methicillin-Resistant Staphylococcus aureus. Antibiotics (Basel). 2019;8(2):52.",
+          "doi": "10.3390/antibiotics8020052",
+          "pmid": "31052511",
+          "supports": "Abstract: MRSA strains \"are characterized by an altered penicillin-binding protein (PBP2a/c) and resistance to all penicillins, cephalosporins, and carbapenems\"."
+        }
+      ],
+      "drug_class": {
+        "aro_id": "ARO:0000032",
+        "name": "cephalosporin"
+      },
+      "id": "mecC-cephalosporin",
+      "models": [
+        "ARO:3001209"
+      ],
+      "reason": "MRSA with an altered PBP2a/c is resistant to cephalosporins. CARD's download gives mecA this class but gives mecC only penicillin beta-lactam."
+    }
+  ],
+  "not_added": [
+    {
+      "drug_class": {
+        "aro_id": "ARO:0000004",
+        "name": "monobactam"
+      },
+      "models": [
+        "ARO:3000617",
+        "ARO:3001209",
+        "ARO:3003440",
+        "ARO:3004185"
+      ],
+      "reason": "The CARD website lists monobactam for the PBP2-like family. No source found that supports it, and monobactams have no activity against Gram-positive bacteria, so there is no resistance to attribute to the gene."
+    },
+    {
+      "drug_class": {
+        "aro_id": "ARO:0000020",
+        "name": "carbapenem"
+      },
+      "models": [
+        "ARO:3003440",
+        "ARO:3004185"
+      ],
+      "reason": "mecB and mecD (the CARD website lists carbapenem, cephalosporin and monobactam for both). No citation found for these rarer genes, so they are left as CARD's download has them."
+    }
+  ],
+  "release": "curated_supplement-1",
+  "schema": 1
+}
