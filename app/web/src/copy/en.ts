@@ -381,11 +381,11 @@ export const copy = {
         "Recorded as a warning, not a failure (reactive groups such as beta-lactams are common in antibiotics).",
       alertsStrictNote: "Strict alerts enabled: structural alerts count as a failure.",
       noAlerts: "No PAINS or Brenk structural alerts",
-      poseTitle: "Binding pose and target structures",
+      poseTitle: "Reference crystal structures",
       poseMatchedSummary: (pdbId: string, symbol: string, targetId: string) =>
-        `Matched to prepared bacterial crystal structure ${pdbId} (${symbol}, UniProt ${targetId}).`,
+        `Related prepared crystal structure ${pdbId} (${symbol}, UniProt ${targetId}). This reference does not establish a candidate binding pose or a species-specific match.`,
       poseNoTargetStructure: (targetName: string) =>
-        `No prepared crystal structure for ${targetName} passed the 2 Å redocking control; the prepared bacterial set covers DNA gyrase B (gyrB) and LpxC.`,
+        `No specific prepared structure match is recorded for ${targetName}. You can explore the reference structures for DNA gyrase B (gyrB) and LpxC below.`,
       poseNoTargetRecorded:
         "No target protein is recorded for this molecule; prepared bacterial structures are listed below.",
       poseNoStructures: "No prepared bacterial structures are loaded.",
@@ -395,8 +395,10 @@ export const copy = {
       poseTargetAccessionLabel: "Target accession",
       poseCrystalLigandLabel: "Co-crystal ligand",
       poseCrystalLigandValue: (name: string, compId: string) => `${name} (${compId})`,
-      poseShow: "Show binding pose",
-      poseHide: "Hide binding pose",
+      poseShow: "Show reference structure",
+      poseHide: "Hide reference structure",
+      posePreviewCaveat:
+        "This preview shows the named co-crystal ligand in its reference protein, not a computed pose of the selected candidate. A related target or generation pocket does not establish binding or antibiotic activity.",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
       juryPending:

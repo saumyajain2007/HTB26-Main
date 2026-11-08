@@ -1,4 +1,4 @@
-import type { Candidate, DockFiles, DockJob, Structure } from "../api/types";
+import type { Candidate, DockJob, PoseFiles, Structure } from "../api/types";
 
 /** Which drug can be docked into which prepared structure (plan.md §7). */
 
@@ -59,20 +59,22 @@ export interface AntibioticStructureCandidate {
 }
 
 const BACTERIAL_TARGET_ALIASES: Readonly<Record<string, readonly string[]>> = {
-  gyrb: ["gyrb", "dna gyrase", "gyrase b", "p0a0k8"],
+  gyrb: ["gyrb", "dna gyrase subunit b", "dna gyrase b", "gyrase b", "p0a0k8"],
   lpxc: ["lpxc", "udp-3-o-acyl-n-acetylglucosamine deacetylase", "p47205"],
 };
 
 function matchesTargetText(structure: Structure, text: string): boolean {
-  const lower = text.trim().toLowerCase();
-  if (lower.length === 0) return false;
-  const targetId = structure.target_id.toLowerCase();
+  // Match complete tokens/phrases: a generic gyrase label does not identify subunit B.
+  const normalize = (value: string) =>
+    value
+      .toLowerCase()
+      .match(/[a-z0-9]+/g)
+      ?.join(" ") ?? "";
+  const normalized = normalize(text);
+  if (normalized === "") return false;
   const symbol = structure.target_symbol.toLowerCase();
-  if (lower === targetId || lower === symbol || lower.includes(targetId)) {
-    return true;
-  }
-  const aliases = BACTERIAL_TARGET_ALIASES[symbol] ?? [symbol];
-  return aliases.some((alias) => lower === alias || lower.includes(alias));
+  const aliases = [structure.target_id, ...(BACTERIAL_TARGET_ALIASES[symbol] ?? [symbol])];
+  return aliases.some((alias) => ` ${normalized} `.includes(` ${normalize(alias)} `));
 }
 
 /**
@@ -84,6 +86,7 @@ export function structuresForAntibiotic(
   candidate: AntibioticStructureCandidate,
   structures: readonly Structure[],
 ): Structure[] {
+  const prepared = bacterialStructures(structures);
   const candidateId = candidate.candidate_id ?? candidate.id ?? "";
   const pocket = candidate.generated?.pocket_pdb_id ?? candidate.generated?.pocketPdbId ?? null;
   const matched: Structure[] = [];
@@ -97,23 +100,24 @@ export function structuresForAntibiotic(
 
   if (pocket !== null) {
     const upper = pocket.toUpperCase();
-    for (const structure of structures) {
+    for (const structure of prepared) {
       if (structure.pdb_id.toUpperCase() === upper || structure.id.toUpperCase() === upper) {
         push(structure);
       }
     }
   }
 
-  for (const structure of structures) {
+  for (const structure of prepared) {
     if (candidateId !== "" && structure.ligand.candidate_id === candidateId) {
       push(structure);
     }
   }
 
   for (const item of candidate.evidence ?? []) {
+    if (!["pdb", "htb_docking"].includes(item.source.toLowerCase())) continue;
     const sourceId = item.source_id?.toUpperCase();
     if (sourceId !== undefined) {
-      for (const structure of structures) {
+      for (const structure of prepared) {
         if (
           structure.pdb_id.toUpperCase() === sourceId ||
           structure.id.toUpperCase() === sourceId
@@ -130,7 +134,7 @@ export function structuresForAntibiotic(
       ...(candidate.target.gene_aro_ids ?? []),
       ...(candidate.target.geneLabels ?? []),
     ];
-    for (const structure of structures) {
+    for (const structure of prepared) {
       if (texts.some((text) => matchesTargetText(structure, text))) {
         push(structure);
       }
@@ -158,24 +162,14 @@ export function structurePreviewId(structureId: string): string {
   return `00000000-0000-4000-8000-${hex}`;
 }
 
-/** Result file URLs for viewing a prepared structure (or its redock control) in `PoseViewer`. */
-export function dockFilesForStructure(structure: Structure): DockFiles {
-  const jobId = structure.control.job_id ?? structurePreviewId(structure.id);
-  const tag = structure.id
-    .toLowerCase()
-    .replace(/[^0-9a-f]/g, "0")
-    .padEnd(8, "0")
-    .slice(0, 8);
-  const file = (name: string, digit: string) => ({
-    url: `/api/files/${jobId}/${name}`,
-    sha256: `${tag}${digit.repeat(56)}`,
-  });
+/** Local crystal coordinates, independent of any redocking-control or candidate job. */
+export function dockFilesForStructure(structure: Structure): PoseFiles {
+  const previewId = structurePreviewId(structure.id);
+  const file = (name: string) => ({ url: `/api/files/${previewId}/${name}` });
   return {
-    receptor: file("receptor.pdb", "a"),
-    poses: file("poses.sdf", "b"),
-    crystal_ligand: file("crystal_ligand.sdf", "c"),
-    scores: file("scores.json", "d"),
-    log: file("log.txt", "e"),
+    receptor: file("receptor.pdb"),
+    poses: file("poses.sdf"),
+    crystal_ligand: file("crystal_ligand.sdf"),
   };
 }
 

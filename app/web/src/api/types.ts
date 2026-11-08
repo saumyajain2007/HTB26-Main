@@ -47,3 +47,7 @@ export type ConfidenceInterval = Schema<"ConfidenceInterval">;
 export type EvaluationDisease = Schema<"EvaluationDisease">;
 export type EvaluationScope = Schema<"EvaluationScope">;
 export type EvaluationCaseStatus = Schema<"EvaluationCaseStatus">;
+
+/** Locally served reference coordinates have URLs but no docking-result digest. */
+export type CoordinateFile = Pick<DockFile, "url"> & Partial<Pick<DockFile, "sha256">>;
+export type PoseFiles = Record<"receptor" | "poses" | "crystal_ligand", CoordinateFile>;

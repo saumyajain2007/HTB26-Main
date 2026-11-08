@@ -23,7 +23,7 @@ proposals will be kept separate from approved drugs.
 | Area | Available now | Remaining work |
 | --- | --- | --- |
 | Resistance data and ranking | CARD-derived profiles and 126 ranked approved drugs per pathogen, with ChEMBL activity evidence, saved in [the integration bundle](docs/pathogen-integration.md) | Preset gene lists are drafts, not measured isolates; typed genes need a prepared CARD release and do not trigger a new ranking in the app |
-| Researcher app | Resistance map, explained shortlist, property checks and recorded certificate details; [offline fixture and saved-data modes](docs/offline-demo.md) | Browser evidence verification (#95); 3D candidate view is in PR #99 |
+| Researcher app | Resistance map, explained shortlist, reference crystal previews, property checks and recorded certificate details; [offline fixture and saved-data modes](docs/offline-demo.md) | Browser evidence verification (#95); candidate docking is not connected to these reference previews |
 | Property checks | RDKit smoke tests and Lean 4 certificate support | Lean was not run for the saved real rankings; property limits are descriptive, not a safety or activity test |
 | Retrospective evaluation | [Cited ground truth](docs/ground-truth.md) and [protocol preparation](results/ws5_retrospective/protocol.md) | Freeze on the evaluation machine before scoring, then run and publish results (#37); no antibiotic validation metrics are available |
 | Whole-cell discovery | Data and leakage-control implementation is in PR #101 (#83/#84) | Activity ensemble, generation, filters, cost ledger and hidden-drug evaluation; see the plan below |
