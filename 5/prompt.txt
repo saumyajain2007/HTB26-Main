@@ -1,0 +1,150 @@
+say hi.
+
+---
+
+Is it possible to create a ui with animation of the molecule coming in to bind eith the molecule, and if it is possible it binds properly and shows a tick and if not shows a cross?
+
+---
+
+Go ahead. A real score threshold would be nice, and that value should be available in a few hours
+
+---
+
+<task-notification>
+<task-id>bcrnwjnxm</task-id>
+<tool-use-id>toolu_01KR21EMkbGQJU1CChSzSRBU</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bcrnwjnxm.output</output-file>
+<status>completed</status>
+<summary>Background command "Re-run frame capture with scripted click" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bh98hjdg5</task-id>
+<tool-use-id>toolu_01Qz1nz2KjpKy1cmCFcLYatu</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bh98hjdg5.output</output-file>
+<status>completed</status>
+<summary>Monitor "Wait for frames or an error" stream ended</summary>
+<event>clicked
+fail STATUS [
+'Predicted not to bindDocking score −4.2 against a threshold of −7.0. A rough fit estimate, not a measured binding strength.The animation illustrates this result. It is not a simulation of the drug’s path.'
+]</event>
+</task-notification>
+
+---
+
+Are we using a docking software for simulation anywhere or is it all just mock
+
+---
+
+Can the actual docking software be used, and see how it compares? How long would that test take? If it is longer than 25 minutes, is it possible to create a folder in the repo containing the stuff I need to run docking tests on a laptop with gpu, or just testing it with vultr
+
+---
+
+<task-notification>
+<task-id>bfnywejon</task-id>
+<tool-use-id>toolu_01JS3omMyHkJmyW8Mg5288HF</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bfnywejon.output</output-file>
+<status>completed</status>
+<summary>Background command "Build the amd64 docking image" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bgkoz94ha</task-id>
+<tool-use-id>toolu_01Q69wDsVZu5B1yWAnt1icQo</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bgkoz94ha.output</output-file>
+<status>completed</status>
+<summary>Monitor "Report first jobs' timing after two minutes" stream ended</summary>
+<event>[1/34] candidate:CHEMBL468:7BQU_A: -9.405 (14s)</event>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bicmmfqjq</task-id>
+<tool-use-id>toolu_0193oQrkMCzmM3nYoRT2jn1H</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bicmmfqjq.output</output-file>
+<status>completed</status>
+<summary>Monitor "Report once 12 jobs are done" stream ended</summary>
+<event>[1/34] candidate:CHEMBL468:7BQU_A: -9.405 (14s)
+[2/34] redock_control:CHEMBL3137309:6O0K_A: -11.824 (153s)
+[3/34] redock_control:CHEMBL1789941:6WTN_A: -8.661 (17s)
+[4/34] candidate:CHEMBL1287853:6WTO_A: -8.828 (66s)
+[5/34] redock_control:CHEMBL426123:7BQU_A: -9.389 (10s)
+[6/34] candidate:CHEMBL3622821:6WTO_A: -8.77 (23s)
+[7/34] redock_control:CHEMBL2105759:6WTO_A: -9.028 (21s)
+[8/34] candidate:CHEMBL2105759:6WTO_A: -8.866 (23s)
+[9/34] candidate:CHEMBL1789941:6WTN_A: -8.996 (22s)
+[10/34] candidate:CHEMBL221959:6WTO_A: -7.11 (20s)
+[11/34] crystal-ligand:BB-78485:2VES: -9.838 (39s)
+[12/34] decoy:ibuprofen:2VES: -6.948 (13s)</event>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bt1c3f4o8</task-id>
+<tool-use-id>toolu_01H9w9pwuMyGocfiasrpq1p1</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/bt1c3f4o8.output</output-file>
+<status>completed</status>
+<summary>Background command "Run all docking test jobs in the container" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b50icf2d5</task-id>
+<tool-use-id>toolu_013eUsU8eiC6sqdi6G4T3mhZ</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/eccb633b-d3b3-4f64-817d-83ea91f4aae9/tasks/b50icf2d5.output</output-file>
+<status>completed</status>
+<summary>Monitor "Wait for the docking run to finish" stream ended</summary>
+<event>[6/34] candidate:CHEMBL3622821:6WTO_A: -8.77 (23s)
+[7/34] redock_control:CHEMBL2105759:6WTO_A: -9.028 (21s)
+[8/34] candidate:CHEMBL2105759:6WTO_A: -8.866 (23s)
+[9/34] candidate:CHEMBL1789941:6WTN_A: -8.996 (22s)
+[10/34] candidate:CHEMBL221959:6WTO_A: -7.11 (20s)
+[11/34] crystal-ligand:BB-78485:2VES: -9.838 (39s)
+[12/34] decoy:ibuprofen:2VES: -6.948 (13s)
+[13/34] decoy:caffeine:2VES: -5.33 (10s)
+[14/34] decoy:aspirin:2VES: -5.539 (9s)
+[15/34] decoy:glucose:2VES: -5.364 (9s)
+[16/34] decoy:paracetamol:2VES: -5.119 (7s)
+[17/34] crystal-ligand:pyrazolylthiazole inhibitor B47:3G7B: -7.645 (17s)
+[18/34] decoy:ibuprofen:3G7B: -6.956 (8s)
+[19/34] decoy:caffeine:3G7B: -5.593 (6s)
+[20/34] decoy:aspirin:3G7B: -5.995 (7s)
+[21/34] decoy:glucose:3G7B: -4.891 (8s)
+[22/34] decoy:paracetamol:3G7B: -5.22 (5s)
+[23/34] crystal-ligand:LPC-009:3P3E: -9.467 (19s)
+[24/34] decoy:ibuprofen:3P3E: -6.367 (9s)
+[25/34] decoy:caffeine:3P3E: -5.029 (6s)
+[26/34] decoy:aspirin:3P3E: -5.884 (7s)
+[27/34] decoy:glucose:3P3E: -5.436 (8s)
+[28/34] decoy:paracetamol:3P3E: -5.438 (6s)
+[29/34] crystal-ligand:pyrrolamide inhibitor 087:3U2K: -8.629 (12s)
+[30/34] decoy:ibuprofen:3U2K: -6.568 (7s)
+[31/34] decoy:caffeine:3U2K: -5.574 (5s)
+[32/34] decoy:aspirin:3U2K: -6.026 (7s)
+[33/34] decoy:glucose:3U2K: -5.657 (7s)
+[34/34] decoy:paracetamol:3U2K: -5.935 (6s)
+total 606s</event>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bbdxyaphi</task-id>
+<summary>Monitor event: "Wait for the full run to finish"</summary>
+<event>[Monitor expired after 25m with no events delivered. Re-arm it if you still need the watch — and widen the filter if silence was unexpected.]</event>
+</task-notification>
+
+---
+
+So what does the data present in the application actually prove, that the resistant features respond to molecules that we know dont target that feature? Isnt that like logically inconsistent
+
+---
+
+So is it safe to claim that it cuts down the search space by looking at similar candidate molecules based on a rag implemented with pubmed dats
