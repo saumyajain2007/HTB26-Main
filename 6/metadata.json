@@ -1,0 +1,50 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6XA1JATYD4DMFMWT3WN47NQ",
+  "session_id": "c02e4de8-c0bf-43fb-baa7-db3e61e3a904",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-08T10:07:43.590511Z",
+  "branch": "live-resistance-validation-leakage",
+  "checkpoints_count": 8,
+  "save_step_count": 1,
+  "files_touched": [
+    "core/wholecell/htb_wholecell/__main__.py",
+    "core/wholecell/htb_wholecell/build.py",
+    "core/wholecell/htb_wholecell/evaluate.py",
+    "core/wholecell/htb_wholecell/model.py",
+    "eval/ground_truth.py",
+    "eval/protocol.py",
+    "eval/retrospective.py",
+    "results/ws5_retrospective/protocol.md",
+    "tests/test_ground_truth.py",
+    "tests/test_retrospective.py"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "da82939103af",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "redaction": {
+    "replacements": 9,
+    "layers": {
+      "betterleaks": 2,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 2,
+      "entropy": 2,
+      "key_context": 5,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 8
+  }
+}

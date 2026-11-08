@@ -1,0 +1,45 @@
+In the application, Resistance gene names. The pathogens couldnt be loaded. THe server isnt answering
+
+---
+
+Instead of having show reference structure button to view the molecule, is there a better way to display the molecule protein interaction to the user
+
+https://github.com/jwohlwend/boltz
+
+You could use the above repo for better simulation of the proteins
+
+---
+
+Please implement the fix, and start with step 1 for now
+
+---
+
+if possible, can you set up boltz for the protein, so it looks prettier? And also, the ui has weird transitions. It could be more formal. Certain parts of the UI also have a lot of whitespace that the bottom, which is not ideal. It would be nice to explore possible approaches to handling better website building. If you do need skills for the same, you can use h-template for the skills and hackathon templates, but only use that for features of the UI, and not the entire website rewamp
+
+---
+
+Is MRSA the only model that we have defined the model for? What is the data/results that we have collected? What are the genome sequences that we have processed for this problem?
+
+---
+
+why is only mrsa selectable? Can it be allowed to use the actual values that we obtained? can it use the non-made up values (or at least the valid drugs that beat the resistance genes). Is it possible to run a training for the other bacteria too? you could use vultr for the purpose of the training, or even this laptop if that suffices
+
+---
+
+<task-notification>
+<task-id>bto6gc24p</task-id>
+<tool-use-id>toolu_017nzPx9sJRZjny6Pp672hVw</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/c02e4de8-c0bf-43fb-baa7-db3e61e3a904/tasks/bto6gc24p.output</output-file>
+<status>completed</status>
+<summary>Background command "S=/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/c02e4de8-c0bf-43fb-baa7-db3e61e3a904/scratchpad; until [ -n "$(find $S/boltz/out -name '*model_0.pdb' 2&gt;/dev/null)" ] || ! pgrep -f "boltz predict" &gt;/dev/null; do sleep 15; done; find $S/boltz/out -name "*model_0*" -o -name "affinity*.json" -o -name "confidence*.json" | head; tr '\r' '\n' &lt; $S/boltz/boltz-run.log | tail -3 | cut -c1-200" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>blsqvo9wy</task-id>
+<tool-use-id>toolu_013fCpDRne96vAt6yDrzXSww</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/c02e4de8-c0bf-43fb-baa7-db3e61e3a904/tasks/blsqvo9wy.output</output-file>
+<status>completed</status>
+<summary>Background command "S=/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/c02e4de8-c0bf-43fb-baa7-db3e61e3a904/scratchpad; until grep -q "taxon1280" $S/species-build.log || ! pgrep -f "htb_wholecell species" &gt;/dev/null; do sleep 10; done; cat $S/species-build.log | cut -c1-220 | head -80" completed (exit code 0)</summary>
+</task-notification>
