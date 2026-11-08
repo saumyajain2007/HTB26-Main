@@ -573,7 +573,8 @@
           "docking",
           "safety",
           "smoke_test",
-          "approval"
+          "approval",
+          "drug_class"
         ],
         "type": "string"
       },
@@ -583,7 +584,8 @@
           "card",
           "pdb",
           "htb_verify",
-          "htb_docking"
+          "htb_docking",
+          "htb_resistance"
         ],
         "type": "string"
       },
