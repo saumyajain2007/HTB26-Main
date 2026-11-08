@@ -1,0 +1,402 @@
+{
+  "approaches": {
+    "et_morgan_desc": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 1.89,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1717,
+            0.6122
+          ],
+          "value": 0.4917,
+          "width": 0.4405
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.5529,
+            0.7788
+          ],
+          "value": 0.734,
+          "width": 0.2259
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.58,
+      "cv_per_fold_roc_auc": [
+        0.504,
+        0.511,
+        0.654,
+        0.681,
+        0.552
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.53,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.3589,
+            0.6315
+          ],
+          "value": 0.5001,
+          "width": 0.2726
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5652,
+            0.7295
+          ],
+          "value": 0.6469,
+          "width": 0.1643
+        }
+      }
+    },
+    "hgb_morgan_desc": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 2.28,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1727,
+            0.6522
+          ],
+          "value": 0.5304,
+          "width": 0.4795
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.5607,
+            0.7645
+          ],
+          "value": 0.7286,
+          "width": 0.2038
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.605,
+      "cv_per_fold_roc_auc": [
+        0.53,
+        0.609,
+        0.665,
+        0.668,
+        0.551
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.26,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.2948,
+            0.5708
+          ],
+          "value": 0.4337,
+          "width": 0.276
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5161,
+            0.686
+          ],
+          "value": 0.5981,
+          "width": 0.1699
+        }
+      }
+    },
+    "logreg_morgan": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 2.17,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1286,
+            0.6223
+          ],
+          "value": 0.503,
+          "width": 0.4937
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.4537,
+            0.7531
+          ],
+          "value": 0.6976,
+          "width": 0.2994
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.524,
+      "cv_per_fold_roc_auc": [
+        0.48,
+        0.521,
+        0.548,
+        0.6,
+        0.469
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.01,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.3046,
+            0.5513
+          ],
+          "value": 0.4287,
+          "width": 0.2467
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5442,
+            0.6847
+          ],
+          "value": 0.6122,
+          "width": 0.1405
+        }
+      }
+    },
+    "nearest_active": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 1.35,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1424,
+            0.4883
+          ],
+          "value": 0.3369,
+          "width": 0.3459
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.4744,
+            0.5847
+          ],
+          "value": 0.56,
+          "width": 0.1103
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.514,
+      "cv_per_fold_roc_auc": [
+        0.492,
+        0.574,
+        0.47,
+        0.462,
+        0.572
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 1.67,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.2901,
+            0.4856
+          ],
+          "value": 0.3799,
+          "width": 0.1955
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.4918,
+            0.6586
+          ],
+          "value": 0.574,
+          "width": 0.1668
+        }
+      }
+    },
+    "rank_ensemble": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 1.92,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1785,
+            0.6277
+          ],
+          "value": 0.5223,
+          "width": 0.4492
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.57,
+            0.7911
+          ],
+          "value": 0.7544,
+          "width": 0.2211
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.6,
+      "cv_per_fold_roc_auc": [
+        0.514,
+        0.596,
+        0.662,
+        0.683,
+        0.547
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.49,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.3445,
+            0.6266
+          ],
+          "value": 0.4886,
+          "width": 0.2821
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5588,
+            0.7265
+          ],
+          "value": 0.6444,
+          "width": 0.1677
+        }
+      }
+    },
+    "rf_descriptors": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 2.01,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1942,
+            0.6395
+          ],
+          "value": 0.4997,
+          "width": 0.4453
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.5409,
+            0.7739
+          ],
+          "value": 0.7162,
+          "width": 0.233
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.605,
+      "cv_per_fold_roc_auc": [
+        0.598,
+        0.453,
+        0.691,
+        0.671,
+        0.611
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.34,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.3324,
+            0.5682
+          ],
+          "value": 0.4468,
+          "width": 0.2358
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5465,
+            0.7027
+          ],
+          "value": 0.6278,
+          "width": 0.1562
+        }
+      }
+    },
+    "rf_morgan": {
+      "cv": {
+        "actives": 3843,
+        "enrichment_top_5pct": 1.81,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1628,
+            0.6023
+          ],
+          "value": 0.4509,
+          "width": 0.4395
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.5527,
+            0.7596
+          ],
+          "value": 0.7077,
+          "width": 0.2069
+        }
+      },
+      "cv_mean_fold_roc_auc": 0.577,
+      "cv_per_fold_roc_auc": [
+        0.512,
+        0.578,
+        0.596,
+        0.661,
+        0.536
+      ],
+      "final": {
+        "actives": 959,
+        "enrichment_top_5pct": 2.42,
+        "n": 3266,
+        "pr_auc": {
+          "ci95": [
+            0.3386,
+            0.6199
+          ],
+          "value": 0.4849,
+          "width": 0.2813
+        },
+        "prevalence": 0.2936,
+        "roc_auc": {
+          "ci95": [
+            0.5797,
+            0.7301
+          ],
+          "value": 0.6587,
+          "width": 0.1504
+        }
+      }
+    }
+  },
+  "compounds": 16362,
+  "dev": 13096,
+  "final_test": 3266,
+  "fold_prevalence": [
+    0.687,
+    0.202,
+    0.096,
+    0.245,
+    0.113
+  ],
+  "fold_sizes": [
+    3238,
+    2465,
+    2465,
+    2464,
+    2464
+  ],
+  "schema": 1,
+  "seed": 20261108,
+  "share_of_cv_held_out_with_analogue_ge_0.5": 0.0
+}
