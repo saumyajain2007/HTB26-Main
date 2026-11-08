@@ -47,7 +47,12 @@ def _subject(profile: dict[str, Any]) -> str:
     and the mechanisms it carries, which the juror needs, and no drug class, which
     would hand it our answer.
     """
-    species = profile["input"]["species"]["name"]
+    species_info = profile["input"].get("species")
+    species = (
+        species_info["name"]
+        if species_info and species_info.get("name")
+        else "Bacterial"
+    )
     mechanisms = sorted(m["name"] for m in profile["mechanisms"])
     if not mechanisms:
         return f"{species} isolate with no resolved resistance mechanism"
@@ -116,6 +121,15 @@ def _candidate_evidence(
             }
         )
 
+    drug_class = candidate.get("drug_class")
+    if drug_class and drug_class.get("name"):
+        add(
+            "drug_class",
+            f"{candidate['name']} belongs to the {drug_class['name']} drug class in CARD.",
+            {"recorded": 1},
+            "card",
+        )
+
     mechanism = candidate.get("mechanism_of_action")
     if mechanism:
         add(
@@ -132,6 +146,15 @@ def _candidate_evidence(
             _activity_statement(candidate, activity),
             {"activity_value": float(activity["value"])},
             "chembl",
+        )
+
+    missing = _missing(candidate)
+    if missing:
+        add(
+            "missing",
+            f"Missing for {candidate['name']}: {' '.join(missing)}",
+            {"missing_count": len(missing)},
+            "htb_resistance",
         )
 
     smoke = candidate["smoke_test"]

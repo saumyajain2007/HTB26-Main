@@ -122,7 +122,7 @@ Short, blocks everything. Do together, then split.
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
 - [x] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
 - [ ] Hide the COVID disease flow behind a flag rather than deleting it, so existing tests and the offline demo keep working until the new flow is complete. `M`
-- [ ] Rebuild evidence packets for resistance (mechanisms present, supporting and contradicting findings, safety, missing evidence); keep the existing validators and refusal handling. `M`
+- [x] Rebuild evidence packets for resistance (mechanisms present, supporting and contradicting findings, safety, missing evidence); keep the existing validators and refusal handling. `M`
 
 **Done when:** the new flow runs end to end in the browser on fixtures.
 

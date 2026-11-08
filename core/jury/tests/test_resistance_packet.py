@@ -152,6 +152,37 @@ def test_what_is_missing_is_stated(packet):
         any("docking" in line for line in candidate["missing"])
         for candidate in packet["candidates"]
     )
+    # And the missing items reach the juror through visible_packet's evidence list.
+    order = [c["label"] for c in packet["candidates"]]
+    visible = visible_packet(packet, order)
+    missing_items = [e for e in visible["evidence"] if e["kind"] == "missing"]
+    assert len(missing_items) == len(packet["candidates"])
+    assert all("No docking data." in e["statement"] for e in missing_items)
+
+
+def test_drug_class_reaches_the_juror_in_supplied_evidence(packet, result):
+    """The juror is told not to use outside knowledge, so each drug's CARD class must be in evidence."""
+    order = [c["label"] for c in packet["candidates"]]
+    visible = visible_packet(packet, order)
+    class_statements = [
+        e["statement"] for e in visible["evidence"] if e["kind"] == "drug_class"
+    ]
+    by_id = {c["candidate_id"]: c for c in result["candidates"]}
+    for candidate in packet["candidates"]:
+        cls = by_id[candidate["candidate_id"]]["drug_class"]
+        if cls and cls.get("name"):
+            assert any(cls["name"] in s for s in class_statements)
+
+
+def test_profile_without_species_still_builds_a_valid_packet(profile, result):
+    """gene_list and amrfinderplus profiles may have species=None."""
+    speciesless = {
+        **profile,
+        "input": {**profile["input"], "species": None},
+    }
+    pkt = build_resistance_packet(speciesless, result)
+    validate_packet(pkt)
+    assert pkt["disease"]["name"].startswith("Bacterial isolate carrying ")
 
 
 def test_the_juror_sees_only_the_allowlist(packet):
