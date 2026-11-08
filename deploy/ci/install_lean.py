@@ -46,19 +46,6 @@ def download_verified(url: str, target: Path, digest: str) -> None:
             partial.unlink(missing_ok=True)
 
 
-def fetch_release(request: urllib.request.Request) -> dict:
-    """Retry transient failures of the release metadata endpoint too."""
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(request, timeout=30) as response:
-                return json.load(response)
-        except (OSError, urllib.error.URLError):
-            if attempt == 2:
-                raise
-            time.sleep(2**attempt)
-    raise RuntimeError("Release metadata retries exhausted")
-
-
 def install() -> Path:
     if shutil.which("zstd") is None:
         raise RuntimeError("Install zstd before extracting the pinned Lean release")
@@ -70,12 +57,14 @@ def install() -> Path:
         raise ValueError(f"Unsupported pinned Lean toolchain: {toolchain}")
     version = match[1]
     name = f"lean-{version[1:]}-linux"
-    request = urllib.request.Request(
-        f"https://api.github.com/repos/leanprover/lean4/releases/tags/{version}",
-        headers={**HEADERS, "Accept": "application/vnd.github+json"},
-    )
-    release = fetch_release(request)
-    asset = next(a for a in release["assets"] if a["name"] == name + ".tar.zst")
+    pin = json.loads((REPO / "deploy/ci/lean-release.json").read_text())
+    if pin["toolchain"] != toolchain:
+        raise ValueError(
+            "Update lean-release.json from the official release when changing Lean"
+        )
+    asset = pin["asset"]
+    if asset["name"] != name + ".tar.zst":
+        raise ValueError("Pinned Lean asset does not match the toolchain")
     digest = asset.get("digest", "")
     if not re.fullmatch(r"sha256:[0-9a-f]{64}", digest):
         raise ValueError("The official Lean release has no SHA-256 asset digest")

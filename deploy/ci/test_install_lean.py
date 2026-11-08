@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from deploy.ci.install_lean import download_verified, fetch_release
+from deploy.ci.install_lean import download_verified
 
 
 def test_only_publish_verified_release_asset(
@@ -35,27 +35,3 @@ def test_reject_corruption_without_replacing_existing_archive(
         download_verified("https://api.github.com/test", target, "0" * 64)
     assert target.read_bytes() == b"previously verified"
     assert not target.with_suffix(".zst.partial").exists()
-
-
-def test_release_metadata_retries_gateway_failure(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    import urllib.error
-    import urllib.request
-
-    attempts = []
-
-    def open_release(*args, **kwargs):
-        attempts.append(1)
-        if len(attempts) < 3:
-            raise urllib.error.HTTPError(
-                "https://api.github.com/test", 504, "timeout", {}, None
-            )
-        return io.BytesIO(b'{"assets": []}')
-
-    monkeypatch.setattr("urllib.request.urlopen", open_release)
-    monkeypatch.setattr("time.sleep", lambda _: None)
-    assert fetch_release(urllib.request.Request("https://api.github.com/test")) == {
-        "assets": []
-    }
-    assert len(attempts) == 3

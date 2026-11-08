@@ -1,0 +1,9 @@
+{
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "release_url": "https://github.com/leanprover/lean4/releases/tag/v4.35.0",
+  "asset": {
+    "name": "lean-4.35.0-linux.tar.zst",
+    "url": "https://api.github.com/repos/leanprover/lean4/releases/assets/634574462",
+    "digest": "sha256:7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d"
+  }
+}
