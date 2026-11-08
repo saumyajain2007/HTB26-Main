@@ -49,9 +49,13 @@ The `antibiotic_relaxed` limits are the 95th percentile of 126 approved antibiot
 - Structural alerts (PAINS, Brenk) are recorded but do not change the rank, because reactive groups are normal in antibiotics. There is no toxicity model with a stated accuracy (#39).
 - Two citations in [antibiotic-limits.md](antibiotic-limits.md) were written from memory and have **not been re-read**. They must be checked before any writeup quotes them.
 
-### No docking
+### Structures exist; no candidate is docked
 
-Despite a working docking worker and viewer inherited from the earlier project, **no antibiotic candidate is docked**. The ranking emits "No docking result." for every drug, and `app/worker/structures/` still holds only the four COVID-era entries. Binding-pose evidence is absent, not weak.
+Four bacterial structures are prepared — `3G7B` and `3U2K` (DNA gyrase B), `2VES` and `3P3E` (LpxC) — each with its chain, resolution, co-crystal ligand, docking box and a `control_smiles` for a redocking control. A cited target registry ([targets.json](../app/worker/structures/targets.json)) records a wild-type and a mutant structure status per target, and refuses a PDB ID written from memory.
+
+What does **not** exist is a docked antibiotic. The ranking emits `"No docking result."` for every drug, and nothing computes a pose for a candidate, so **no binding-pose evidence is available for any molecule the tool proposes**. A viewer can show a target's crystal structure and the ligand that was crystallised with it; that is the pocket, not our candidate in it, and the two must not be presented as the same thing.
+
+The redocking controls are defined but their results are measured by the docking worker at runtime and are not recorded in the repository, so **whether each structure reproduces its crystal pose within 2 Å is not currently stated anywhere**. Until it is, the structures are prepared rather than validated.
 
 ### The app shows fixture rankings
 
@@ -73,7 +77,7 @@ Three ESKAPE species (*S. aureus*, *K. pneumoniae*, *A. baumannii*), one pinned 
 |---|---|
 | No validation result | #36 ground truth, #35 frozen protocol, #37 the run |
 | App shows fixture rankings | #34 |
-| No docking evidence | Bacterial target structures and a docking step in the ranking |
+| No docking evidence | A docking step in the antibiotic ranking (no issue covers this yet); recording each structure's redocking control result |
 | No toxicity model | #39 |
 | Unverified presets | A cited, CARD-derived profile per pathogen |
 | Unproven sponsor calls | #27 |
