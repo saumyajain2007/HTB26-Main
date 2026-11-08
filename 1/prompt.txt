@@ -1,0 +1,96 @@
+what is the confidence interval of the model that is being tested here? I think it is quite poor, but am I right about that
+
+---
+
+how well does this model handle the issue of antibiotic resistance, and whether there is any substance to that claim? And also, is the open model that can generate candidates based on an initial model exist in this repo?
+
+---
+
+How could I reasonably increase the scope of 1?
+
+---
+
+Try 1 and 2, and maybe 3 if time allows
+
+---
+
+<task-notification>
+<task-id>bea2riabr</task-id>
+<tool-use-id>toolu_012Qpn1odRftYTapkPcrDUnk</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/4c89f88b-6eea-4140-9d77-72b7e713fedc/tasks/bea2riabr.output</output-file>
+<status>completed</status>
+<summary>Background command "mkdir -p data/ast/ncbi-pathogen-20261108 &amp;&amp; cd data/ast/ncbi-pathogen-20261108 &amp;&amp; B=https://ftp.ncbi.nlm.nih.gov/pathogen/Results; (curl -sS --fail -o klebsiella.amr.metadata.tsv $B/Klebsiella/latest_snps/AMR/PDG000000012.2573.amr.metadata.tsv; curl -sS --fail -o acinetobacter.amr.metadata.tsv $B/Acinetobacter/latest_snps/AMR/PDG000000010.1996.amr.metadata.tsv; curl -sS --fail -o staphylococcus_aureus.amr.metadata.tsv $B/Staphylococcus_aureus/latest_snps/AMR/PDG000000073.1326.amr.metadata.tsv; echo done &gt; DONE) &gt; curl.log 2&gt;&amp;1 &amp;
+echo started" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+What would be the confidence interval of the newever gnn
+
+---
+
+Saved CARD/ChEMBL ranking of a draft preset, not a measured isolate. Integration evidence only; efficacy is unvalidated. Lean was not run.
+
+This could probably be removed from the demo
+
+---
+
+Where is the website running now after the mods
+
+---
+
+Do it
+
+---
+
+The server looks each name up in CARD. Anything it doesn’t recognise is listed back, not dropped.
+can be removed
+
+It says Lean4 proof not run. Use the lean tool, or at least change those occurrences to lean validated, or smoke test failed or something
+
+---
+
+This is not really convincing in a demo. is it possible to either run the lean stuff, check activity, or at least respresent the data in a meaningful manner
+
+---
+
+How to handle leakage
+
+---
+
+Create pipelines and test each of the same
+
+---
+
+Try a few approaches to increase confidence interval
+
+---
+
+<task-notification>
+<task-id>b5dpkbg8v</task-id>
+<tool-use-id>toolu_01MEVDdLwQQhXFrnrRSvjoAS</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/4c89f88b-6eea-4140-9d77-72b7e713fedc/tasks/b5dpkbg8v.output</output-file>
+<status>completed</status>
+<summary>Background command "mkdir -p results/ci_approaches &amp;&amp; nohup .venv/bin/python -m eval.ci_approaches &gt; results/ci_approaches/run.log 2&gt;&amp;1 &amp;
+sleep 45; tail -5 /Users/tomato/Developer/GitHub/HTB26-Main/results/ci_approaches/run.log" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Reference crystal structures
+No specific prepared structure match is recorded for Bacterial DNA gyrase; Topoisomerase IV. You can explore the reference structures for DNA gyrase B (gyrB) and LpxC below.
+Remove this expression
+
+Is it possible to find an open model that can generate candidates (I believe nvidia does, but take a look at that)
+
+---
+
+Can use vultr. the api key is available on .env. how can I improve the guide model, or possibly just jump to nvidia. it is open source
+
+---
+
+For now, stage the commits, and then commit a file with instructions regarding running vultr and genmol
+
+---
+
+stage and commit the frontend too
