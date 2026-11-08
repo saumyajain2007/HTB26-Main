@@ -14,6 +14,7 @@ import { capitalise, drugName } from "./format";
 import type {
   AntibioticCandidate,
   AntibioticCandidateResult,
+  Certificate,
   ResistanceProfile,
 } from "./resistance";
 import { geneLabel, mapStatus, releaseLabel, type MapStatus } from "./resistanceMap";
@@ -21,6 +22,62 @@ import { geneLabel, mapStatus, releaseLabel, type MapStatus } from "./resistance
 export type FeatureKey = "activity" | "target_hit" | "docking" | "safety";
 
 export const FEATURE_KEYS: readonly FeatureKey[] = ["activity", "target_hit", "docking", "safety"];
+
+export type PropertyRuleKey = "mw" | "logp" | "hbd" | "hba" | "rot_bonds" | "psa";
+
+export const PROPERTY_RULE_KEYS: readonly PropertyRuleKey[] = [
+  "mw",
+  "logp",
+  "hbd",
+  "hba",
+  "rot_bonds",
+  "psa",
+];
+
+/**
+ * Property rule limits from `core/verify/htb_verify/rules.py` and `lean/HtbVerify/Rules.lean`,
+ * used when a candidate's inline `certificate` is null so passed rules and margins are still shown.
+ */
+export const RULE_LIMITS: Readonly<
+  Record<string, Readonly<Record<PropertyRuleKey, number>> | undefined>
+> = {
+  oral_druglike: {
+    mw: 500,
+    logp: 5,
+    hbd: 5,
+    hba: 10,
+    rot_bonds: 10,
+    psa: 140,
+  },
+  antibiotic_relaxed: {
+    mw: 850,
+    logp: 5,
+    hbd: 13,
+    hba: 17,
+    rot_bonds: 13,
+    psa: 340,
+  },
+};
+
+/** Soft synthetic-accessibility ceiling (`sa_max_x10 / 10` in `core/verify/htb_verify/rules.py`). */
+export const SA_SOFT_LIMITS: Readonly<Record<string, number | undefined>> = {
+  oral_druglike: 6.0,
+  antibiotic_relaxed: 6.5,
+};
+
+/** One property rule check for the per-candidate smoke-test and certificate table. */
+export interface PropertyRuleRow {
+  rule: PropertyRuleKey;
+  passed: boolean;
+  value: number;
+  limit: number;
+  /** Signed margin (`value - limit`): negative or zero when passed, positive when failed. */
+  margin: number;
+  /** Formatted signed margin, e.g. `"-512.86"`, `"0"`, or `"+597.43"`. */
+  signedMargin: string;
+  /** True when a Lean 4 certificate ran and machine-checked this rule. */
+  leanChecked: boolean;
+}
 
 /** A determinant in the profile that rules out or partly affects a candidate, joined by ARO ID. */
 export interface DefeatingDeterminant {
@@ -84,6 +141,12 @@ export interface CandidateEntry {
   smokeTest: AntibioticCandidate["smoke_test"];
   certificateStatus: AntibioticCandidate["certificate_status"];
   certificate: AntibioticCandidate["certificate"];
+  /** All encoded property rules (passed and failed) with values, limits and signed margins. */
+  propertyRules: readonly PropertyRuleRow[];
+  passedRuleCount: number;
+  failedRuleCount: number;
+  saSoftLimit: number | null;
+  saExceedsSoftLimit: boolean;
   generated: GeneratedInfo | null;
   evidence: readonly CitedStatement[];
 }
@@ -93,6 +156,87 @@ const SAFETY_VALUES: Record<string, string> = {
   rules_failed: "Property rules failed",
   passed: "Passed property rules",
 };
+
+function isPropertyRuleKey(value: string): value is PropertyRuleKey {
+  return (PROPERTY_RULE_KEYS as readonly string[]).includes(value);
+}
+
+/** Formats a signed margin from a threshold (`+597.43`, `0`, `-512.86`). */
+export function formatSignedMargin(margin: number): string {
+  const rounded = Number(margin.toFixed(2));
+  if (rounded === 0) return "0";
+  return rounded > 0 ? `+${String(rounded)}` : String(rounded);
+}
+
+/**
+ * Builds the full 6-rule property check table (`mw`, `logp`, `hbd`, `hba`, `rot_bonds`, `psa`)
+ * from a candidate's `certificate` when available, or from `smokeTest.descriptors`,
+ * `smokeTest.violations` and `RULE_LIMITS` when Lean did not run.
+ */
+export function buildPropertyRules(
+  smokeTest: AntibioticCandidate["smoke_test"],
+  certificate: Certificate | null,
+): PropertyRuleRow[] {
+  if (certificate !== null && certificate.rules.length > 0) {
+    return certificate.rules
+      .filter((item): item is Certificate["rules"][number] & { rule: PropertyRuleKey } =>
+        isPropertyRuleKey(item.rule),
+      )
+      .map((item) => ({
+        rule: item.rule,
+        passed: item.passed,
+        value: item.value,
+        limit: item.limit,
+        margin: item.margin,
+        signedMargin: formatSignedMargin(item.margin),
+        leanChecked: certificate.ran,
+      }));
+  }
+
+  const violationsByRule = new Map(smokeTest.violations.map((v) => [v.rule, v]));
+  const descriptors = smokeTest.descriptors;
+  const limits = RULE_LIMITS[smokeTest.rule_set];
+
+  if (descriptors !== null) {
+    const rows: PropertyRuleRow[] = [];
+    for (const key of PROPERTY_RULE_KEYS) {
+      const violation = violationsByRule.get(key);
+      const limit = violation?.limit ?? limits?.[key];
+      if (limit === undefined) continue;
+      const value = descriptors[key];
+      const passed = violation === undefined && value <= limit;
+      const margin = Number((value - limit).toFixed(2));
+      rows.push({
+        rule: key,
+        passed,
+        value,
+        limit,
+        margin,
+        signedMargin: formatSignedMargin(margin),
+        leanChecked: false,
+      });
+    }
+    return rows;
+  }
+
+  return smokeTest.violations
+    .filter(
+      (
+        v,
+      ): v is AntibioticCandidate["smoke_test"]["violations"][number] & {
+        rule: PropertyRuleKey;
+      } => isPropertyRuleKey(v.rule),
+    )
+    .map((v) => ({
+      rule: v.rule,
+      passed: false,
+      value: v.value,
+      limit: v.limit,
+      margin: v.margin,
+      signedMargin: formatSignedMargin(v.margin),
+      leanChecked: false,
+    }));
+}
 
 /** Formats a single feature value without blending or inventing zeros for missing data. */
 export function formatFeatureValue(
@@ -111,6 +255,7 @@ function buildEntry(
   candidate: AntibioticCandidate,
   profile: ResistanceProfile,
   allNames: ReadonlyMap<string, string>,
+  certificatesByKey: ReadonlyMap<string, Certificate>,
 ): CandidateEntry {
   const species = profile.input.species.name;
   const geneLabels = new Map(profile.genes.map((gene) => [gene.aro_id, geneLabel(gene, species)]));
@@ -165,6 +310,23 @@ function buildEntry(
   }));
 
   const parentId = candidate.generated?.parent_candidate_id ?? null;
+  const resolvedCertificate =
+    candidate.certificate ??
+    certificatesByKey.get(`${candidate.inchikey}::${candidate.smoke_test.rule_set}`) ??
+    certificatesByKey.get(candidate.inchikey) ??
+    null;
+
+  const propertyRules = buildPropertyRules(candidate.smoke_test, resolvedCertificate);
+  const passedRuleCount = propertyRules.filter((rule) => rule.passed).length;
+  const failedRuleCount =
+    propertyRules.length > 0
+      ? propertyRules.filter((rule) => !rule.passed).length
+      : candidate.smoke_test.violations.length;
+  const saSoftLimit = SA_SOFT_LIMITS[candidate.smoke_test.rule_set] ?? null;
+  const saExceedsSoftLimit =
+    candidate.smoke_test.sa_score !== null &&
+    saSoftLimit !== null &&
+    candidate.smoke_test.sa_score > saSoftLimit;
 
   return {
     id: candidate.candidate_id,
@@ -200,7 +362,12 @@ function buildEntry(
     },
     smokeTest: candidate.smoke_test,
     certificateStatus: candidate.certificate_status,
-    certificate: candidate.certificate,
+    certificate: resolvedCertificate,
+    propertyRules,
+    passedRuleCount,
+    failedRuleCount,
+    saSoftLimit,
+    saExceedsSoftLimit,
     generated:
       candidate.generated === null
         ? null
@@ -218,11 +385,12 @@ function buildEntry(
 
 /**
  * Splits a ranking result into approved drugs (in rank order `1..n`) and generated molecules
- * (`rank: null`, kept visibly apart).
+ * (`rank: null`, kept visibly apart), matching any standalone certificates by InChIKey and rule set.
  */
 export function splitCandidates(
   profile: ResistanceProfile,
   result: AntibioticCandidateResult,
+  certificates: readonly Certificate[] = [],
 ): {
   approved: CandidateEntry[];
   generated: CandidateEntry[];
@@ -230,14 +398,21 @@ export function splitCandidates(
   const allNames = new Map(
     result.candidates.map((candidate) => [candidate.candidate_id, drugName(candidate.name)]),
   );
+  const certificatesByKey = new Map<string, Certificate>();
+  for (const cert of certificates) {
+    certificatesByKey.set(`${cert.inchikey}::${cert.rule_set}`, cert);
+    if (!certificatesByKey.has(cert.inchikey)) {
+      certificatesByKey.set(cert.inchikey, cert);
+    }
+  }
   const approved = result.candidates
     .filter((candidate) => candidate.source === "approved")
     .sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity))
-    .map((candidate) => buildEntry(candidate, profile, allNames));
+    .map((candidate) => buildEntry(candidate, profile, allNames, certificatesByKey));
 
   const generated = result.candidates
     .filter((candidate) => candidate.source === "generated")
-    .map((candidate) => buildEntry(candidate, profile, allNames));
+    .map((candidate) => buildEntry(candidate, profile, allNames, certificatesByKey));
 
   return { approved, generated };
 }

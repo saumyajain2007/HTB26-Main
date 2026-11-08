@@ -313,11 +313,45 @@ export const copy = {
       featureUnavailable: "Not available",
       verifyTitle: "Property rules and certificate",
       ruleSetLabel: (ruleSet: string) => `Rule set: ${ruleSet}`,
+      ruleCounts: (passed: number, total: number) =>
+        `${String(passed)} of ${String(total)} rules passed`,
+      ruleSetDescriptions: {
+        antibiotic_relaxed:
+          "Calibrated at the 95th percentile of 126 approved antibiotics in ChEMBL 37, floored at the oral limits.",
+        oral_druglike: "Lipinski (2001) and Veber (2002) oral drug-likeness limits.",
+      } as Record<string, string | undefined>,
       smokePassed: "Passes all encoded property rules",
       smokeFailed: (count: number) =>
         count === 1
           ? "Fails 1 encoded property rule"
           : `Fails ${String(count)} encoded property rules`,
+      smokeInvalid: "Molecule structure could not be parsed by the smoke test",
+      rulesTableLabel: (name: string) => `Property rule checks for ${name}`,
+      ruleHead: "Rule",
+      valueHead: "Value",
+      limitHead: "Limit",
+      marginHead: "Margin",
+      statusHead: "Check",
+      ruleNames: {
+        mw: "Molecular weight",
+        logp: "Lipophilicity (Crippen logP)",
+        hbd: "H-bond donors",
+        hba: "H-bond acceptors",
+        rot_bonds: "Rotatable bonds",
+        psa: "Polar surface area",
+      },
+      ruleUnits: {
+        mw: "Da",
+        logp: "",
+        hbd: "",
+        hba: "",
+        rot_bonds: "",
+        psa: "Å²",
+      },
+      rulePassed: "Passed",
+      ruleConfirmed: "Passed · Lean 4",
+      ruleFailed: "Failed",
+      certificateTitle: "Lean 4 certificate",
       certificateStatus: {
         certified: "Lean 4 certificate proved",
         failed: "Lean 4 proof: rule failed",
@@ -326,8 +360,26 @@ export const copy = {
       },
       leanProvenance: (version: string, seconds: number) =>
         `Lean ${version} (${String(seconds)} s)`,
+      leanRanLabel: "Proof check",
+      leanRanCertified: (count: number) =>
+        `Lean 4 checked and confirmed all ${String(count)} rule theorems.`,
+      leanRanFailed: (rules: string) => `Lean 4 refuted failing rule theorems (${rules}).`,
+      leanNotRun: "Lean 4 did not run for this molecule; Python smoke test only.",
+      inchikeyLabel: "InChIKey",
+      leanFailedRulesLabel: "Failed rules",
+      leanDetailLabel: "Prover detail",
+      certificateScopeConfirmed:
+        "Property rules are checked by a Python smoke test, and the same rules are machine-checked in Lean 4, including proofs that the rule set is monotone and that the antibiotic limits are looser than the oral ones. A certificate confirms the encoded limits hold; it does not show a molecule is safe, selective or active.",
+      certificateScopeSmokeOnly:
+        "Property rules were checked by the Python smoke test only; Lean 4 did not run for this molecule. Passing the encoded limits does not show a molecule is safe, selective or active.",
       saScore: (score: number) => `Synthetic accessibility ${String(score)} (1 easy to 10 hard)`,
+      saAboveCeiling: (ceiling: number) =>
+        `above soft ceiling ${String(ceiling)} (reported, not a failure)`,
+      heavyAtoms: (count: number) => `Heavy atoms: ${String(count)}`,
       alertsLabel: (alerts: string) => `Structural alerts: ${alerts}`,
+      alertsWarningNote:
+        "Recorded as a warning, not a failure (reactive groups such as beta-lactams are common in antibiotics).",
+      alertsStrictNote: "Strict alerts enabled: structural alerts count as a failure.",
       noAlerts: "No PAINS or Brenk structural alerts",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
