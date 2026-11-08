@@ -40,8 +40,9 @@ def evaluate_run(release_dir: Path, run_dir: Path, n_boot: int = 2000) -> dict:
     release_dir, run_dir = Path(release_dir), Path(run_dir)
     record = json.loads((run_dir / "run.json").read_text())
     kind = record["split"]
-    rows = read_table(release_dir / "tables" / "liu_train.tsv")
-    by_key = {r["inchikey"]: r for r in read_table(release_dir / "tables" / "splits.tsv") if r["source"] == "liu_train"}
+    table = record.get("table", "liu_train")  # runs from before the table was recorded were liu_train
+    rows = read_table(release_dir / "tables" / f"{table}.tsv")
+    by_key = {r["inchikey"]: r for r in read_table(release_dir / "tables" / "splits.tsv") if r["source"] == table}
     assign = [by_key[r["inchikey"]][f"{kind}_split"] for r in rows]
     if kind == "scaffold":
         splitmod.assert_scaffold_disjoint([by_key[r["inchikey"]]["scaffold"] for r in rows], assign)
@@ -59,7 +60,7 @@ def evaluate_run(release_dir: Path, run_dir: Path, n_boot: int = 2000) -> dict:
     baseline = nn_baseline([r["smiles"] for r in test], train_actives)
     near = leakage.nearest_neighbour_report([r["smiles"] for r in test], [r["smiles"] for r in part["train"]])
     result = {
-        "split": kind, "release": record["release"], "chemprop_version": record["chemprop_version"],
+        "split": kind, "table": table, "release": record["release"], "chemprop_version": record["chemprop_version"],
         "n_members": record["n_members"], "tuned": record["tuned"],
         "training_seconds_total": record["total_seconds"],
         "test_to_train_nearest_neighbour": near,

@@ -14,12 +14,15 @@ mechanism is linked to.
 
 from __future__ import annotations
 
+import threading
+from collections import OrderedDict
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Protocol
 from uuid import UUID
 
 from ..schemas import (
     AntibioticCandidateResult,
+    Certificate,
     CertificateList,
     Pathogen,
     PathogenPreset,
@@ -138,6 +141,12 @@ class FixtureResistance:
         )
 
 
+def card_root(data_dir: Path) -> Path:
+    """Where CARD releases live: `data_dir/card` (where `htb_resistance build` writes them)."""
+    nested = data_dir / "card"
+    return nested if (nested / "releases").is_dir() else data_dir
+
+
 class CardResistance(FixtureResistance):
     """Profiles real input against a built CARD release, and serves the fixtures otherwise.
 
@@ -159,17 +168,38 @@ class CardResistance(FixtureResistance):
             from htb_resistance import Reference
             from htb_resistance.reference import latest_release
 
-            self._reference = Reference.from_release(latest_release(self._data_dir))
+            self._reference = Reference.from_release(latest_release(card_root(self._data_dir)))
         except Exception as exc:  # no release, or one that no longer matches its manifest
             raise ProfilingUnavailable(
                 f"No usable CARD release under {self._data_dir}: {exc}"
             ) from exc
         return self._reference
 
+    def _resolver(self, reference: object, species: object) -> Any:
+        """How names are resolved. CARD's own matching here; `LiveResistance` adds the bridge."""
+        return None
+
+    @staticmethod
+    def _species(text: str | None) -> Any:
+        """A supported pathogen from its name or an alias (`MRSA`), else None."""
+        import json
+
+        from htb_resistance import Species
+        from htb_resistance.cli import DEFAULT_PRESETS
+
+        wanted = (text or "").strip().lower()
+        if not wanted:
+            return None
+        presets = json.loads(DEFAULT_PRESETS.read_text(encoding="utf-8"))["presets"]
+        for name, entry in presets.items():
+            aliases = {a.lower() for a in entry.get("aliases", [])}
+            if wanted == name.lower() or wanted in aliases:
+                return Species(name, int(entry["ncbi_taxid"]))
+        return None
+
     def build(self, request: ProfileRequest) -> ResistanceProfile:
         from htb_resistance import (
             InputError,
-            Species,
             build_profile,
             parse_gene_text,
             parse_preset,
@@ -177,7 +207,16 @@ class CardResistance(FixtureResistance):
         from htb_resistance.cli import DEFAULT_PRESETS
 
         reference = self._load()
-        species = Species(request.species) if request.species else None
+        species = None
+        if request.kind == "gene_list":
+            # The response schema carries a taxid, so a typed list needs one of the known pathogens.
+            species = self._species(request.species)
+            if species is None:
+                raise ProfilingRefused(
+                    f"Name the species of the isolate: {request.species or 'none was given'} is not "
+                    "one of Staphylococcus aureus, Klebsiella pneumoniae or "
+                    "Acinetobacter baumannii."
+                )
         try:
             if request.kind == "species_preset":
                 assert request.species is not None  # the schema refuses a preset without one
@@ -185,7 +224,9 @@ class CardResistance(FixtureResistance):
             else:
                 assert request.genes is not None  # the schema refuses a gene list without them
                 parsed = parse_gene_text(request.genes, species=species)
-            profile = build_profile(parsed, reference)  # type: ignore[arg-type]
+            profile = build_profile(  # type: ignore[arg-type]
+                parsed, reference, resolver=self._resolver(reference, parsed.species)
+            )
         except InputError as exc:
             raise ProfilingRefused(str(exc)) from exc
         except (ValueError, OSError) as exc:
@@ -207,6 +248,8 @@ class SavedResistance(CardResistance):
 
         super().__init__(fixtures_dir, data_dir)
         summary = json.loads((results_dir / "summary.json").read_bytes())
+        # Recorded by the run that produced the bundle, so the wording follows the data.
+        self._lean_ran: bool = bool(summary.get("lean_requested"))
 
         def read(name: str) -> bytes:
             content = (results_dir / name).read_bytes()
@@ -235,7 +278,7 @@ class SavedResistance(CardResistance):
                     "caveats": [
                         *profile.caveats,
                         "Saved CARD/ChEMBL integration run, not a fresh ranking. "
-                        "Efficacy is unvalidated; Lean was not run.",
+                        f"Efficacy is unvalidated; {self._lean_note()}.",
                     ]
                 }
             )
@@ -249,10 +292,7 @@ class SavedResistance(CardResistance):
                 label=label,
                 pathogen=profile.input.species,
                 profile_id=profile.profile_id,
-                note=(
-                    "Saved CARD/ChEMBL ranking of a draft preset, not a measured isolate. "
-                    "Integration evidence only; efficacy is unvalidated. Lean was not run."
-                ),
+                note=None,
             )
             for preset_id, label, _, taxid in PRESETS
             for profile in self._profiles.values()
@@ -268,6 +308,203 @@ class SavedResistance(CardResistance):
     def candidates(self, profile_id: UUID) -> AntibioticCandidateResult | None:
         return self._rankings.get(profile_id)
 
+    def _lean_note(self) -> str:
+        if self._lean_ran:
+            return (
+                "Lean 4 checked the property rules for each molecule; "
+                "that confirms the encoded limits only"
+            )
+        return "Lean was not run"
+
     def certificates(self) -> CertificateList:
         # Never attach a fixture proof to a real result merely because InChIKeys match.
-        return CertificateList(contract_version="1", certificates=[])
+        # Only certificates Lean produced inside the saved run, for these exact molecules,
+        # are listed, once per molecule and rule set.
+        seen: dict[tuple[str, str], Certificate] = {}
+        for ranking in self._rankings.values():
+            for candidate in ranking.candidates:
+                cert = candidate.certificate
+                if cert is not None and cert.ran:
+                    seen.setdefault((cert.inchikey, cert.rule_set), cert)
+        return CertificateList(
+            contract_version="1", certificates=[seen[key] for key in sorted(seen)]
+        )
+
+
+LIVE_CAVEAT = (
+    "Computed live by the evasion rule from the determinants given. The rule has been compared "
+    "with measured susceptibility (results/ws5_phenotype_validation); it is not a susceptibility "
+    "test and no output should inform treatment of a patient."
+)
+LIVE_PROFILE_LIMIT = 256
+"""Profiles kept in memory. The oldest goes first; a rebuild restores one at the same id."""
+
+
+class LiveResistance(CardResistance):
+    """Profiles real input and ranks the approved antibiotics against it, on request.
+
+    Replaces the fixture ranking: a profile built here has a ranking computed from that profile by
+    `ranking.antibiotic.rank_candidates`, over the catalogue in `catalogue_dir`, with CARD's drug
+    links from the same release as the profile. Typed names go through the bridge, so AMRFinderPlus
+    spellings (`mph(A)`) and point mutations (`gyrA S84L` with a species) resolve where CARD's plain
+    name matching would not.
+
+    Nothing is stored beyond this process: profiles and rankings live in a bounded in-memory table
+    and are rebuilt from the same input to the same id. Lean checks each molecule's property rules
+    when `lean_cache` is given (a proof of the encoded limits, not of safety or activity), and
+    activity (ChEMBL MICs) is included only when `chembl_db` is given.
+    """
+
+    def __init__(
+        self,
+        fixtures_dir: Path,
+        data_dir: Path,
+        catalogue_dir: Path,
+        chembl_db: Path | None = None,
+        lean_cache: Path | None = None,
+    ) -> None:
+        super().__init__(fixtures_dir, data_dir)
+        self._catalogue_dir = catalogue_dir
+        self._chembl_db = chembl_db
+        self._lean_cache = lean_cache
+        self._lock = threading.Lock()
+        self._activity_by_taxon: dict[int, dict[str, Any]] = {}
+        self._rank_lock = threading.Lock()  # Lean's cache is per process; one batch at a time
+        self._bridge: Any = None
+        self._ranking_inputs: tuple[Any, Any, str] | None = None
+        self._profiles: OrderedDict[UUID, ResistanceProfile] = OrderedDict()
+        self._results: dict[UUID, AntibioticCandidateResult] = {}
+
+    def _resolver(self, reference: object, species: object) -> Any:
+        from htb_resistance import Bridge
+
+        with self._lock:
+            if self._bridge is None:
+                self._bridge = Bridge(reference)  # type: ignore[arg-type]
+            bridge = self._bridge
+        name = getattr(species, "name", None)
+        return bridge.resolver_for(name)
+
+    def _inputs(self) -> tuple[Any, Any, str]:
+        """The approved pool, CARD's drug links and the catalogue release, loaded once."""
+        with self._lock:
+            if self._ranking_inputs is None:
+                try:
+                    from htb_resistance.reference import latest_release
+                    from ranking.antibiotic import DrugLinks, catalogue_release, load_pool
+
+                    drugs, _ = load_pool(self._catalogue_dir)
+                    links = DrugLinks.from_card(latest_release(card_root(self._data_dir)))
+                    release = catalogue_release(self._catalogue_dir)
+                except Exception as exc:
+                    raise ProfilingUnavailable(
+                        f"No usable antibiotic catalogue under {self._catalogue_dir}: {exc}"
+                    ) from exc
+                if not drugs:
+                    raise ProfilingUnavailable(
+                        f"The catalogue under {self._catalogue_dir} holds no approved drugs."
+                    )
+                self._ranking_inputs = (drugs, links, release)
+            return self._ranking_inputs
+
+    def _certifier(self) -> Any:
+        """Lean's batch checker, or None when `lean_cache` is unset or Lean's package is missing.
+
+        A molecule's certificate depends on the molecule and the rule set, not on the profile, so
+        the first build pays for Lean and the rest read its cache. When Lean itself is not
+        installed the certificates come back `ran: false` and the candidates read `unavailable`.
+        """
+        if self._lean_cache is None:
+            return None
+        try:
+            from htb_verify import certify_batch
+        except ImportError:
+            return None
+        cache = self._lean_cache
+        return lambda smokes: certify_batch(smokes, cache_path=cache)
+
+    def _activity(self, profile: dict[str, Any], drugs: Any) -> dict[str, Any]:
+        species = profile["input"]["species"]
+        if self._chembl_db is None or not self._chembl_db.is_file():
+            return {}
+        if not species or species.get("ncbi_taxid") is None:
+            return {}
+        taxid = species["ncbi_taxid"]
+        with self._lock:
+            if taxid in self._activity_by_taxon:
+                return self._activity_by_taxon[taxid]
+        from ranking.antibiotic import load_activity
+
+        # Median MIC depends on the species and the pool, never on the genes, so it is read once.
+        activity, _ = load_activity(self._chembl_db, [d.chembl_id for d in drugs], species)
+        with self._lock:
+            self._activity_by_taxon[taxid] = activity
+        return activity
+
+    def build(self, request: ProfileRequest) -> ResistanceProfile:
+        from ranking.antibiotic import rank_candidates
+
+        profile = super().build(request)
+        drugs, links, release = self._inputs()
+        raw = profile.model_dump(mode="json")
+        with self._rank_lock:
+            result, _log = rank_candidates(
+                raw,
+                drugs,
+                links,
+                catalogue_release=release,
+                activity=self._activity(raw, drugs),
+                certifier=self._certifier(),
+            )
+        ranking = AntibioticCandidateResult.model_validate(result)
+        stored = profile.model_copy(update={"caveats": [*profile.caveats, LIVE_CAVEAT]})
+        with self._lock:
+            self._profiles[stored.profile_id] = stored
+            self._profiles.move_to_end(stored.profile_id)
+            self._results[stored.profile_id] = ranking
+            while len(self._profiles) > LIVE_PROFILE_LIMIT:
+                dropped, _ = self._profiles.popitem(last=False)
+                self._results.pop(dropped, None)
+        return stored
+
+    def presets(self) -> list[PathogenPreset]:
+        items: list[PathogenPreset] = []
+        for preset_id, label, name, taxid in PRESETS:
+            profile = self.build(ProfileRequest(kind="species_preset", species=name))
+            items.append(
+                PathogenPreset(
+                    id=preset_id,
+                    label=label,
+                    pathogen=Pathogen(name=name, ncbi_taxid=taxid),
+                    profile_id=profile.profile_id,
+                    note=None,
+                )
+            )
+        return items
+
+    def profiles(self) -> list[ResistanceProfile]:
+        with self._lock:
+            return list(self._profiles.values())
+
+    def profile(self, profile_id: UUID) -> ResistanceProfile | None:
+        with self._lock:
+            return self._profiles.get(profile_id)
+
+    def candidates(self, profile_id: UUID) -> AntibioticCandidateResult | None:
+        with self._lock:
+            return self._results.get(profile_id)
+
+    def certificates(self) -> CertificateList:
+        # Only certificates Lean produced for these results, once per molecule and rule set; a
+        # fixture proof is never attached because an InChIKey happens to match.
+        seen: dict[tuple[str, str], Certificate] = {}
+        with self._lock:
+            results = list(self._results.values())
+        for ranking in results:
+            for candidate in ranking.candidates:
+                cert = candidate.certificate
+                if cert is not None and cert.ran:
+                    seen.setdefault((cert.inchikey, cert.rule_set), cert)
+        return CertificateList(
+            contract_version="1", certificates=[seen[key] for key in sorted(seen)]
+        )

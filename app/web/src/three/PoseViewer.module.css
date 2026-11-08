@@ -161,6 +161,94 @@
   background: var(--color-ink);
 }
 
+/* The tick or cross, at the view's foot: shape as well as colour tells them apart. */
+.verdict {
+  position: absolute;
+  bottom: var(--space-12);
+  left: var(--space-12);
+  display: flex;
+  gap: var(--space-12);
+  align-items: center;
+  max-width: min(420px, calc(100% - 2 * var(--space-12)));
+  padding: var(--space-8) var(--space-16) var(--space-8) var(--space-8);
+  border: 1.5px solid var(--verdict-colour);
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, var(--color-paper) 94%, transparent);
+  pointer-events: none;
+}
+
+.verdict[data-outcome="binds"] {
+  --verdict-colour: var(--color-route);
+}
+
+.verdict[data-outcome="does_not_bind"] {
+  --verdict-colour: var(--color-disease);
+}
+
+.verdictIcon {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--verdict-colour);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.verdictIcon path {
+  stroke-width: 2.4;
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: draw 450ms ease-out 150ms forwards;
+}
+
+.verdictIcon circle {
+  transform-origin: center;
+  animation: pop 350ms ease-out;
+}
+
+.verdictText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: var(--text-body-sm);
+}
+
+.verdictText strong {
+  font-weight: var(--weight-medium);
+  color: var(--verdict-colour);
+}
+
+.verdictText small {
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verdictIcon path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .verdictIcon circle {
+    animation: none;
+  }
+}
+
 @media (max-width: 720px) {
   .toolbar {
     position: static;

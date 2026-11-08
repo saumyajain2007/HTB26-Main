@@ -1,0 +1,410 @@
+{
+ "drugs": {
+  "Imipenem-EDTA-PA": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "amikacin": {
+   "catalogue_name": "AMIKACIN",
+   "how": "name"
+  },
+  "amoxicillin": {
+   "catalogue_name": "AMOXICILLIN",
+   "how": "name"
+  },
+  "amoxicillin-clavulanic acid": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "ampicillin": {
+   "catalogue_name": "AMPICILLIN",
+   "how": "name"
+  },
+  "ampicillin-sulbactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "avilamycin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "azithromycin": {
+   "catalogue_name": "AZITHROMYCIN",
+   "how": "name"
+  },
+  "aztreonam": {
+   "catalogue_name": "AZTREONAM",
+   "how": "name"
+  },
+  "aztreonam-avibactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "benzylpenicillin": {
+   "catalogue_name": "PENICILLIN G",
+   "how": "alias"
+  },
+  "carbenicillin": {
+   "catalogue_name": "CARBENICILLIN",
+   "how": "name"
+  },
+  "cefalexin": {
+   "catalogue_name": "CEPHALEXIN ANHYDROUS",
+   "how": "alias"
+  },
+  "cefalotin": {
+   "catalogue_name": "CEPHALOTHIN",
+   "how": "alias"
+  },
+  "cefazolin": {
+   "catalogue_name": "CEFAZOLIN",
+   "how": "name"
+  },
+  "cefepime": {
+   "catalogue_name": "CEFEPIME",
+   "how": "name"
+  },
+  "cefiderocol": {
+   "catalogue_name": "CEFIDEROCOL",
+   "how": "name"
+  },
+  "cefixime": {
+   "catalogue_name": "CEFIXIME",
+   "how": "name"
+  },
+  "cefoperazone": {
+   "catalogue_name": "CEFOPERAZONE",
+   "how": "name"
+  },
+  "cefotaxime": {
+   "catalogue_name": "CEFOTAXIME",
+   "how": "name"
+  },
+  "cefotaxime-clavulanic acid": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "cefotetan": {
+   "catalogue_name": "CEFOTETAN",
+   "how": "name"
+  },
+  "cefovecin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "cefoxitin": {
+   "catalogue_name": "CEFOXITIN",
+   "how": "name"
+  },
+  "cefpodoxime": {
+   "catalogue_name": "CEFPODOXIME",
+   "how": "name"
+  },
+  "ceftaroline": {
+   "catalogue_name": "CEFTAROLINE FOSAMIL",
+   "how": "name"
+  },
+  "ceftazidime": {
+   "catalogue_name": "CEFTAZIDIME",
+   "how": "name"
+  },
+  "ceftazidime-avibactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "ceftazidime-clavulanic acid": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "ceftiofur": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "ceftolozane-tazobactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "ceftriaxone": {
+   "catalogue_name": "CEFTRIAXONE",
+   "how": "name"
+  },
+  "cefuroxime": {
+   "catalogue_name": "CEFUROXIME",
+   "how": "name"
+  },
+  "cephalexin": {
+   "catalogue_name": "CEPHALEXIN ANHYDROUS",
+   "how": "name"
+  },
+  "cephalothin": {
+   "catalogue_name": "CEPHALOTHIN",
+   "how": "name"
+  },
+  "chloramphenicol": {
+   "catalogue_name": "CHLORAMPHENICOL",
+   "how": "name"
+  },
+  "ciprofloxacin": {
+   "catalogue_name": "CIPROFLOXACIN",
+   "how": "name"
+  },
+  "clarithromycin": {
+   "catalogue_name": "CLARITHROMYCIN",
+   "how": "name"
+  },
+  "clindamycin": {
+   "catalogue_name": "CLINDAMYCIN",
+   "how": "name"
+  },
+  "colistin": {
+   "catalogue_name": "COLISTIN",
+   "how": "name"
+  },
+  "daptomycin": {
+   "catalogue_name": "DAPTOMYCIN",
+   "how": "name"
+  },
+  "delafloxacin": {
+   "catalogue_name": "DELAFLOXACIN",
+   "how": "name"
+  },
+  "dicloxacillin": {
+   "catalogue_name": "DICLOXACILLIN",
+   "how": "name"
+  },
+  "doripenem": {
+   "catalogue_name": "DORIPENEM",
+   "how": "name"
+  },
+  "doxycycline": {
+   "catalogue_name": "DOXYCYCLINE ANHYDROUS",
+   "how": "name"
+  },
+  "enrofloxacin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "ertapenem": {
+   "catalogue_name": "ERTAPENEM",
+   "how": "name"
+  },
+  "erythromycin": {
+   "catalogue_name": "ERYTHROMYCIN",
+   "how": "name"
+  },
+  "florfenicol": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "fosfomycin": {
+   "catalogue_name": "FOSFOMYCIN",
+   "how": "name"
+  },
+  "fusidic acid": {
+   "catalogue_name": "FUSIDIC ACID",
+   "how": "name"
+  },
+  "gatifloxacin": {
+   "catalogue_name": "GATIFLOXACIN",
+   "how": "name"
+  },
+  "gentamicin": {
+   "catalogue_name": "GENTAMICIN",
+   "how": "name"
+  },
+  "imipenem": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "imipenem-relebactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "kanamycin": {
+   "catalogue_name": "KANAMYCIN",
+   "how": "name"
+  },
+  "levofloxacin": {
+   "catalogue_name": "LEVOFLOXACIN ANHYDROUS",
+   "how": "name"
+  },
+  "linezolid": {
+   "catalogue_name": "LINEZOLID",
+   "how": "name"
+  },
+  "marbofloxacin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "meropenem": {
+   "catalogue_name": "MEROPENEM",
+   "how": "name"
+  },
+  "meropenem-vaborbactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "metronidazole": {
+   "catalogue_name": "METRONIDAZOLE",
+   "how": "name"
+  },
+  "minocycline": {
+   "catalogue_name": "MINOCYCLINE",
+   "how": "name"
+  },
+  "moxifloxacin": {
+   "catalogue_name": "MOXIFLOXACIN",
+   "how": "name"
+  },
+  "mupirocin": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "nafcillin": {
+   "catalogue_name": "NAFCILLIN",
+   "how": "name"
+  },
+  "nalidixic acid": {
+   "catalogue_name": "NALIDIXIC ACID",
+   "how": "name"
+  },
+  "neomycin": {
+   "catalogue_name": "NEOMYCIN",
+   "how": "name"
+  },
+  "netilmicin": {
+   "catalogue_name": "NETILMICIN",
+   "how": "name"
+  },
+  "nitrofurantoin": {
+   "catalogue_name": "NITROFURANTOIN",
+   "how": "name"
+  },
+  "norfloxacin": {
+   "catalogue_name": "NORFLOXACIN",
+   "how": "name"
+  },
+  "ofloxacin": {
+   "catalogue_name": "OFLOXACIN",
+   "how": "name"
+  },
+  "omadacycline": {
+   "catalogue_name": "OMADACYCLINE",
+   "how": "name"
+  },
+  "orbifloxacin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "oxacillin": {
+   "catalogue_name": "OXACILLIN",
+   "how": "name"
+  },
+  "penicillin": {
+   "catalogue_name": "PENICILLIN G",
+   "how": "alias"
+  },
+  "piperacillin": {
+   "catalogue_name": "PIPERACILLIN",
+   "how": "name"
+  },
+  "piperacillin-tazobactam": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "plazomicin": {
+   "catalogue_name": "PLAZOMICIN",
+   "how": "name"
+  },
+  "polymyxin": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "polymyxin B": {
+   "catalogue_name": "POLYMYXIN B",
+   "how": "name"
+  },
+  "pradofloxacin": {
+   "catalogue_name": null,
+   "reason": "veterinary agent, not in the catalogue"
+  },
+  "quinupristin": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "quinupristin-dalfopristin": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "rifampin": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "streptomycin": {
+   "catalogue_name": "STREPTOMYCIN",
+   "how": "name"
+  },
+  "sulbactam": {
+   "catalogue_name": "SULBACTAM",
+   "how": "name"
+  },
+  "sulfamethoxazole": {
+   "catalogue_name": "SULFAMETHOXAZOLE",
+   "how": "name"
+  },
+  "sulfisoxazole": {
+   "catalogue_name": "SULFISOXAZOLE",
+   "how": "name"
+  },
+  "synercid": {
+   "catalogue_name": null,
+   "reason": "not in the ChEMBL 37 / CARD 4.0.2 catalogue"
+  },
+  "tedizolid": {
+   "catalogue_name": "TEDIZOLID",
+   "how": "name"
+  },
+  "teicoplanin": {
+   "catalogue_name": "TEICOPLANIN",
+   "how": "name"
+  },
+  "temocillin": {
+   "catalogue_name": "TEMOCILLIN",
+   "how": "name"
+  },
+  "tetracycline": {
+   "catalogue_name": "TETRACYCLINE",
+   "how": "name"
+  },
+  "ticarcillin": {
+   "catalogue_name": "TICARCILLIN",
+   "how": "name"
+  },
+  "ticarcillin-clavulanic acid": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "tigecycline": {
+   "catalogue_name": "TIGECYCLINE",
+   "how": "name"
+  },
+  "tobramycin": {
+   "catalogue_name": "TOBRAMYCIN",
+   "how": "name"
+  },
+  "trimethoprim": {
+   "catalogue_name": "TRIMETHOPRIM",
+   "how": "name"
+  },
+  "trimethoprim-sulfamethoxazole": {
+   "catalogue_name": null,
+   "reason": "combination product; the catalogue holds single agents only"
+  },
+  "vancomycin": {
+   "catalogue_name": "VANCOMYCIN",
+   "how": "name"
+  }
+ },
+ "note": "AST drug name (as NCBI spells it) -> catalogue drug name. Written from names only, before any phenotype was compared with any prediction. Normalisation used for 'name' matches: lowercase, drop text after a comma, drop ' anhydrous', ' fosamil', ' medocarbil free acid', ' sulfate', ' hydrochloride'.",
+ "schema": 1
+}

@@ -95,9 +95,6 @@ describe("the candidate antibiotics view", () => {
       pane.getByText("Median MIC across records against S. aureus (value fictional)."),
     ).toBeInTheDocument();
     expect(pane.getByText(text.juryPending)).toBeInTheDocument();
-    expect(
-      pane.getByText("Evasion here means no known link in CARD. It is not a measured result."),
-    ).toBeInTheDocument();
   });
 
   it("shows passed rules, highlighted failing rules with margins, alerts, SA score and Lean 4 certificate details", async () => {
@@ -151,11 +148,6 @@ describe("the candidate antibiotics view", () => {
     const vancoPane = within(readingPane("Vancomycin"));
     expect(vancoPane.getByText(text.approvedKicker(2))).toBeInTheDocument();
     expect(vancoPane.getByText(/Fails 4 encoded property rules/)).toBeInTheDocument();
-    expect(
-      vancoPane.getByText(
-        "The antibiotic_relaxed limits mark where 95% of approved antibiotics sit, so failing them flags a large glycopeptide as an outlier. It does not make the drug unsafe or inactive.",
-      ),
-    ).toBeInTheDocument();
 
     await user.click(within(approvedTable()).getByRole("button", { name: /Oxacillin/i }));
     const oxaPane = within(readingPane("Oxacillin"));
@@ -258,12 +250,13 @@ describe("the candidate antibiotics view", () => {
 
     renderCandidates(data);
 
-    // Linezolid's target is the 50S ribosomal subunit, so it explains why no ribosome structure
-    // is in the prepared set while offering the four bacterial structures (3G7B, 3U2K, 2VES, 3P3E).
+    // Linezolid's target is the 50S ribosomal subunit, which has no structure in the prepared set. The
+    // pane says nothing about the missing match and still offers the four bacterial structures
+    // (3G7B, 3U2K, 2VES, 3P3E).
     const linezolidPane = within(readingPane("Linezolid"));
     expect(
-      linezolidPane.getByText(text.poseNoTargetStructure("50S ribosomal subunit")),
-    ).toBeInTheDocument();
+      linezolidPane.queryByText(/No specific prepared structure match/),
+    ).not.toBeInTheDocument();
     const picker = linezolidPane.getByRole("combobox", { name: text.posePickerLabel });
     const options = within(picker).getAllByRole("option");
     expect(options.map((opt) => (opt as HTMLOptionElement).value)).toEqual([
@@ -284,7 +277,8 @@ describe("the candidate antibiotics view", () => {
     ).toBeInTheDocument();
     expect(genPane.getByText("P0A0K8")).toBeInTheDocument();
 
-    await user.click(genPane.getByRole("button", { name: text.poseShow }));
+    // The structure opens on its own: there is no button to press.
+    expect(genPane.queryByRole("button", { name: /reference structure/i })).not.toBeInTheDocument();
     expect(
       await genPane.findByRole("img", {
         name: copy.pose.viewerLabel(
@@ -295,9 +289,15 @@ describe("the candidate antibiotics view", () => {
     ).toBeInTheDocument();
     expect(genPane.getByRole("button", { name: copy.pose.controls.surface })).toBeInTheDocument();
     expect(genPane.getByRole("button", { name: copy.pose.controls.overlay })).toBeInTheDocument();
+    expect(
+      genPane.getByRole("button", { name: copy.pose.controls.interactions }),
+    ).toBeInTheDocument();
+    expect(genPane.getByText(text.poseContactsTitle)).toBeInTheDocument();
+    expect(genPane.getByText(text.poseContactsCaveat)).toBeInTheDocument();
     expect(genPane.getByText(text.posePreviewCaveat)).toBeInTheDocument();
     expect(genPane.queryByText(copy.pose.score)).not.toBeInTheDocument();
+    // An approved drug with no recorded structure still gets the labelled reference structures.
     await user.click(within(approvedTable()).getByRole("button", { name: /Linezolid/i }));
-    expect(within(readingPane("Linezolid")).queryByRole("img")).not.toBeInTheDocument();
+    expect(within(readingPane("Linezolid")).getByText(text.poseContactsCaveat)).toBeInTheDocument();
   });
 });

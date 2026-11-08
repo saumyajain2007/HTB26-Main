@@ -1,0 +1,315 @@
+{
+ "jobs": [
+  {
+   "candidate_id": "CHEMBL215303",
+   "name": "GARENOXACIN",
+   "structure": "3G7B",
+   "ok": true,
+   "scores": [
+    -8.386,
+    -7.972,
+    -7.692,
+    -7.107,
+    -7.034,
+    -6.8,
+    -6.736,
+    -6.529,
+    -6.178
+   ],
+   "best": -8.386,
+   "engine": "1.2.7",
+   "wall_s": 10.9
+  },
+  {
+   "candidate_id": "CHEMBL215303",
+   "name": "GARENOXACIN",
+   "structure": "3U2K",
+   "ok": true,
+   "scores": [
+    -8.099,
+    -7.844,
+    -7.566,
+    -7.165,
+    -7.099,
+    -6.837,
+    -6.423,
+    -6.278,
+    -6.226
+   ],
+   "best": -8.099,
+   "engine": "1.2.7",
+   "wall_s": 9.5
+  },
+  {
+   "candidate_id": "CHEMBL215303",
+   "name": "GARENOXACIN",
+   "structure": "2VES",
+   "ok": true,
+   "scores": [
+    -7.671,
+    -7.503,
+    -7.329,
+    -7.291,
+    -7.263,
+    -7.079,
+    -6.769,
+    -6.734,
+    -6.691
+   ],
+   "best": -7.671,
+   "engine": "1.2.7",
+   "wall_s": 9.5
+  },
+  {
+   "candidate_id": "CHEMBL215303",
+   "name": "GARENOXACIN",
+   "structure": "3P3E",
+   "ok": true,
+   "scores": [
+    -7.49,
+    -6.782,
+    -6.715,
+    -6.698,
+    -6.44,
+    -6.4,
+    -6.19,
+    -5.948,
+    -5.887
+   ],
+   "best": -7.49,
+   "engine": "1.2.7",
+   "wall_s": 11.6
+  },
+  {
+   "candidate_id": "CHEMBL3301669",
+   "name": "DALBAVANCIN",
+   "structure": "3G7B",
+   "ok": false,
+   "error": "worker killed with no error output (exit 137 when reproduced by hand: most likely out of memory on a 128-heavy-atom molecule); a rerun hung for 10+ minutes and was stopped",
+   "wall_s": 23.3
+  },
+  {
+   "candidate_id": "CHEMBL3301669",
+   "name": "DALBAVANCIN",
+   "structure": "3U2K",
+   "ok": false,
+   "error": "worker killed with no error output (exit 137 when reproduced by hand: most likely out of memory on a 128-heavy-atom molecule); a rerun hung for 10+ minutes and was stopped",
+   "wall_s": 19.5
+  },
+  {
+   "candidate_id": "CHEMBL3301669",
+   "name": "DALBAVANCIN",
+   "structure": "2VES",
+   "ok": false,
+   "error": "worker killed with no error output (exit 137 when reproduced by hand: most likely out of memory on a 128-heavy-atom molecule); a rerun hung for 10+ minutes and was stopped",
+   "wall_s": 23.1
+  },
+  {
+   "candidate_id": "CHEMBL3301669",
+   "name": "DALBAVANCIN",
+   "structure": "3P3E",
+   "ok": false,
+   "error": "worker killed with no error output (exit 137 when reproduced by hand: most likely out of memory on a 128-heavy-atom molecule); a rerun hung for 10+ minutes and was stopped",
+   "wall_s": 120.4
+  },
+  {
+   "candidate_id": "CHEMBL850",
+   "name": "SPARFLOXACIN",
+   "structure": "3G7B",
+   "ok": true,
+   "scores": [
+    -8.208,
+    -8.078,
+    -7.932,
+    -7.909,
+    -7.866,
+    -7.683,
+    -7.447,
+    -7.436,
+    -7.163
+   ],
+   "best": -8.208,
+   "engine": "1.2.7",
+   "wall_s": 21.5
+  },
+  {
+   "candidate_id": "CHEMBL850",
+   "name": "SPARFLOXACIN",
+   "structure": "3U2K",
+   "ok": true,
+   "scores": [
+    -7.93,
+    -7.635,
+    -7.626,
+    -7.56,
+    -7.477,
+    -7.3,
+    -7.168,
+    -7.109,
+    -6.973
+   ],
+   "best": -7.93,
+   "engine": "1.2.7",
+   "wall_s": 23.0
+  },
+  {
+   "candidate_id": "CHEMBL850",
+   "name": "SPARFLOXACIN",
+   "structure": "2VES",
+   "ok": true,
+   "scores": [
+    -7.864,
+    -7.586,
+    -7.486,
+    -7.417,
+    -7.346,
+    -7.324,
+    -7.28,
+    -7.252,
+    -6.894
+   ],
+   "best": -7.864,
+   "engine": "1.2.7",
+   "wall_s": 14.4
+  },
+  {
+   "candidate_id": "CHEMBL850",
+   "name": "SPARFLOXACIN",
+   "structure": "3P3E",
+   "ok": true,
+   "scores": [
+    -5.96,
+    -5.788,
+    -5.542,
+    -5.333,
+    -5.26,
+    -5.173,
+    -5.063,
+    -5.053
+   ],
+   "best": -5.96,
+   "engine": "1.2.7",
+   "wall_s": 15.1
+  },
+  {
+   "candidate_id": "CHEMBL430",
+   "name": "GEMIFLOXACIN",
+   "structure": "3G7B",
+   "ok": true,
+   "scores": [
+    -7.826,
+    -7.629,
+    -7.193,
+    -6.958,
+    -6.934,
+    -6.624,
+    -6.556,
+    -6.423,
+    -6.416
+   ],
+   "best": -7.826,
+   "engine": "1.2.7",
+   "wall_s": 12.6
+  },
+  {
+   "candidate_id": "CHEMBL430",
+   "name": "GEMIFLOXACIN",
+   "structure": "3U2K",
+   "ok": true,
+   "scores": [
+    -7.33,
+    -7.269,
+    -7.262,
+    -6.939,
+    -6.784,
+    -6.676,
+    -6.59,
+    -6.574,
+    -6.516
+   ],
+   "best": -7.33,
+   "engine": "1.2.7",
+   "wall_s": 10.4
+  },
+  {
+   "candidate_id": "CHEMBL430",
+   "name": "GEMIFLOXACIN",
+   "structure": "2VES",
+   "ok": true,
+   "scores": [
+    -7.758,
+    -7.737,
+    -7.591,
+    -7.046,
+    -7.001,
+    -6.777,
+    -6.751,
+    -6.698,
+    -6.19
+   ],
+   "best": -7.758,
+   "engine": "1.2.7",
+   "wall_s": 11.3
+  },
+  {
+   "candidate_id": "CHEMBL430",
+   "name": "GEMIFLOXACIN",
+   "structure": "3P3E",
+   "ok": true,
+   "scores": [
+    -6.104,
+    -6.074,
+    -6.037,
+    -5.843,
+    -5.516,
+    -5.366,
+    -5.274,
+    -5.244,
+    -5.205
+   ],
+   "best": -6.104,
+   "engine": "1.2.7",
+   "wall_s": 13.7
+  }
+ ],
+ "pathogen": {
+  "name": "Staphylococcus aureus",
+  "ncbi_taxid": 1280
+ },
+ "source": "results/pathogen-integration/staphylococcus-aureus.ranking.json",
+ "compounds": [
+  {
+   "rank": 1,
+   "candidate_id": "CHEMBL215303",
+   "name": "GARENOXACIN",
+   "smiles": "C[C@H]1NCc2cc(-c3ccc4c(=O)c(C(=O)O)cn(C5CC5)c4c3OC(F)F)ccc21",
+   "drug_class": "fluoroquinolone antibiotic",
+   "known_target": "Bacterial DNA gyrase; Topoisomerase IV"
+  },
+  {
+   "rank": 2,
+   "candidate_id": "CHEMBL3301669",
+   "name": "DALBAVANCIN",
+   "smiles": "CN[C@H]1C(=O)N[C@@H]2Cc3ccc(cc3)Oc3cc4cc(c3O[C@@H]3O[C@H](C(=O)O)[C@@H](O)[C@H](O)[C@H]3NC(=O)CCCCCCCCC(C)C)Oc3ccc(cc3Cl)[C@@H](O)[C@@H]3NC(=O)[C@H](NC(=O)[C@@H]4NC(=O)[C@@H](NC2=O)c2cc(cc(O)c2Cl)Oc2cc1ccc2O)c1ccc(O)c(c1)-c1c(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]2O)cc(O)cc1[C@@H](C(=O)NCCCN(C)C)NC3=O",
+   "drug_class": "glycopeptide antibiotic",
+   "known_target": "Peptidoglycan"
+  },
+  {
+   "rank": 3,
+   "candidate_id": "CHEMBL850",
+   "name": "SPARFLOXACIN",
+   "smiles": "C[C@@H]1CN(c2c(F)c(N)c3c(=O)c(C(=O)O)cn(C4CC4)c3c2F)C[C@H](C)N1",
+   "drug_class": "fluoroquinolone antibiotic",
+   "known_target": "Bacterial DNA gyrase; Topoisomerase IV"
+  },
+  {
+   "rank": 4,
+   "candidate_id": "CHEMBL430",
+   "name": "GEMIFLOXACIN",
+   "smiles": "CO/N=C1\\CN(c2nc3c(cc2F)c(=O)c(C(=O)O)cn3C2CC2)CC1CN",
+   "drug_class": "fluoroquinolone antibiotic",
+   "known_target": "DNA gyrase; Topoisomerase IV"
+  }
+ ],
+ "note": "Real AutoDock Vina poses, but in reference pockets (GyrB, LpxC) that none of these drugs is known to bind. They show how the molecule fits that pocket, not its real binding mode."
+}

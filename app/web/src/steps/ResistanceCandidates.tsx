@@ -17,15 +17,19 @@ import {
   structureForAntibiotic,
   structuresForAntibiotic,
 } from "../lib/docking";
+import { dockedPose, dockingFailed } from "../lib/antibioticDocking";
 import { capitalise, listOf } from "../lib/format";
 import type { AntibioticCandidateResult, Certificate, ResistanceProfile } from "../lib/resistance";
 import {
+  evadesWithEvidence,
+  MIC_CEILING_MG_PER_L,
   PROPERTY_RULE_KEYS,
   splitCandidates,
   type CandidateEntry,
   type PropertyRuleKey,
 } from "../lib/resistanceCandidates";
 import { releaseLabel, type MapStatus } from "../lib/resistanceMap";
+import type { Contact } from "../three/interactions";
 import styles from "./ResistanceCandidates.module.css";
 
 // 3Dmol.js loads only once a pose is shown.
@@ -43,6 +47,9 @@ export interface ResistanceCandidatesProps {
 }
 
 const text = copy.resistance.candidates;
+
+/** A ranking longer than this opens on its filtered view. */
+const FILTER_FROM = 10;
 const mapText = copy.resistance.map;
 
 function isPropertyRuleKey(value: string): value is PropertyRuleKey {
@@ -88,6 +95,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
   onRetry,
 }) => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
   const buttonRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
   const approvedTitleId = useId();
   const generatedTitleId = useId();
@@ -108,9 +116,14 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
     );
   }
 
-  const { approved, generated } = splitCandidates(profile, candidates, certificates);
+  const { approved: ranked, generated } = splitCandidates(profile, candidates, certificates);
+  // A full ranking runs to a hundred drugs or more: it opens on the ones that evade the profile's
+  // resistance genes and have MIC evidence, and the whole list is one choice away.
+  const filterable = ranked.length > FILTER_FROM;
+  const qualifying = ranked.filter(evadesWithEvidence);
+  const approved = filterable && !showAll ? qualifying : ranked;
   const allEntries = [...approved, ...generated];
-  const [first] = allEntries;
+  const [first] = allEntries.length > 0 ? allEntries : [...ranked, ...generated];
   if (first === undefined) {
     return (
       <Panel area="main" label={text.figureLabel}>
@@ -120,6 +133,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
   }
 
   const current = allEntries.find((entry) => entry.id === selectedId) ?? first;
+  const hidden = ranked.length - approved.length;
 
   const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, currentId: string) => {
     const index = allEntries.findIndex((entry) => entry.id === currentId);
@@ -161,6 +175,33 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
                 {text.rankingRule(candidates.ranking.method, orderLabels)}
                 {candidates.ranking.note !== null ? ` ${candidates.ranking.note}` : ""}
               </p>
+              {filterable && (
+                <div className={styles.filter} role="group" aria-label={text.filterLabel}>
+                  <button
+                    type="button"
+                    className={styles.filterButton}
+                    aria-pressed={!showAll}
+                    onClick={() => {
+                      setShowAll(false);
+                    }}
+                  >
+                    {text.filterEvading(qualifying.length, MIC_CEILING_MG_PER_L)}
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.filterButton}
+                    aria-pressed={showAll}
+                    onClick={() => {
+                      setShowAll(true);
+                    }}
+                  >
+                    {text.filterAll(ranked.length)}
+                  </button>
+                </div>
+              )}
+              {filterable && hidden > 0 && (
+                <p className={styles.ruleNote}>{text.filterNote(hidden, MIC_CEILING_MG_PER_L)}</p>
+              )}
               <div className={styles.scroll}>
                 <table className={styles.table} aria-label={text.approvedTableLabel}>
                   <thead>
@@ -213,9 +254,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
                           <td className={styles.metaCell}>
                             {entry.activitySummary ?? text.notMeasured}
                           </td>
-                          <td className={styles.metaCell}>
-                            {text.certificateStatus[entry.certificateStatus]}
-                          </td>
+                          <td className={styles.metaCell}>{propertyCell(entry)}</td>
                         </tr>
                       );
                     })}
@@ -461,23 +500,33 @@ function CandidateReadingPane({
         <p className={styles.rationale}>{text.juryPending}</p>
       </div>
 
-      {(entry.explanation.caveats.length > 0 || entry.explanation.missing.length > 0) && (
+      {entry.generated !== null && entry.explanation.caveats.length > 0 && (
         <div className={styles.block}>
           <h3 className={styles.subhead}>{text.caveatsTitle}</h3>
           <ul className={styles.bulletList}>
             {entry.explanation.caveats.map((caveat) => (
               <li key={caveat}>{caveat}</li>
             ))}
-            {entry.explanation.missing.map((missing) => (
-              <li key={missing}>
-                <b>{text.missingLabel}:</b> {missing}
-              </li>
-            ))}
           </ul>
         </div>
       )}
     </section>
   );
+}
+
+/** The table's property-check cell: the limits met or exceeded, and what checked them. */
+function propertyCell(entry: CandidateEntry): string {
+  const total = entry.propertyRules.length;
+  const over = entry.propertyRules
+    .filter((rule) => !rule.passed)
+    .map((rule) => text.ruleShort[rule.rule])
+    .join(", ");
+  if (total === 0) return text.certificateStatus[entry.certificateStatus];
+  if (entry.certificateStatus === "certified") return text.tableProperty.certified(total);
+  if (entry.certificateStatus === "failed") return text.tableProperty.failed(over);
+  if (entry.certificateStatus === "unavailable") return text.certificateStatus.unavailable;
+  // Lean did not run for this molecule: say the Python check is all there is.
+  return over === "" ? text.tableProperty.smokePassed(total) : text.tableProperty.smokeFailed(over);
 }
 
 function SmokeAndCertificatePanel({ entry }: { entry: CandidateEntry }) {
@@ -670,27 +719,31 @@ function CandidatePosePanel({
   }
 
   const [pickedStructureId, setPickedStructureId] = useState<string | null>(null);
-  const [poseOpen, setPoseOpen] = useState(false);
+  const [contacts, setContacts] = useState<Contact[]>([]);
 
   const activeStructure =
     options.find((s) => s.id === pickedStructureId) ?? primaryMatch ?? options[0];
 
   const activeMatch =
     activeStructure !== undefined && matched.some((s) => s.id === activeStructure.id);
-
+  // A real Vina pose of this drug in the structure on show, when the saved docking run has one.
+  const docked =
+    activeStructure === undefined ? undefined : dockedPose(entry.id, activeStructure.pdb_id);
+  const failedToDock =
+    activeStructure !== undefined && dockingFailed(entry.id, activeStructure.pdb_id);
   return (
     <div className={styles.posePanel}>
-      <p className={styles.rationale}>
-        {activeMatch
-          ? text.poseMatchedSummary(
-              activeStructure.pdb_id,
-              activeStructure.target_symbol,
-              activeStructure.target_id,
-            )
-          : entry.target !== null
-            ? text.poseNoTargetStructure(entry.target.name)
+      {(activeMatch || entry.target === null) && (
+        <p className={styles.rationale}>
+          {activeMatch
+            ? text.poseMatchedSummary(
+                activeStructure.pdb_id,
+                activeStructure.target_symbol,
+                activeStructure.target_id,
+              )
             : text.poseNoTargetRecorded}
-      </p>
+        </p>
+      )}
 
       {activeStructure === undefined ? (
         <p className={styles.rationale}>{text.poseNoStructures}</p>
@@ -721,16 +774,6 @@ function CandidatePosePanel({
                 </select>
               </label>
             )}
-            <button
-              type="button"
-              className={styles.poseToggle}
-              aria-expanded={poseOpen}
-              onClick={() => {
-                setPoseOpen((open) => !open);
-              }}
-            >
-              {poseOpen ? text.poseHide : text.poseShow}
-            </button>
           </div>
 
           <p className={styles.poseStructureLine}>
@@ -753,24 +796,94 @@ function CandidatePosePanel({
             </dd>
           </dl>
 
-          {poseOpen && (
-            <>
-              <div className={styles.poseStage}>
-                <Suspense fallback={<p className={styles.rationale}>{copy.pose.loading}</p>}>
-                  <PoseViewer
-                    files={dockFilesForStructure(activeStructure)}
-                    label={copy.pose.viewerLabel(
-                      activeStructure.ligand.name,
-                      activeStructure.target_symbol,
-                    )}
-                  />
-                </Suspense>
-              </div>
-              <p className={styles.rationale}>{text.posePreviewCaveat}</p>
-            </>
+          {docked !== undefined && (
+            <p className={styles.rationale}>
+              {text.dockedLine(
+                capitalise(entry.name),
+                activeStructure.pdb_id,
+                docked.score.toFixed(2),
+              )}
+            </p>
           )}
+          {docked === undefined && failedToDock && (
+            <p className={styles.rationale}>{text.dockedFailed(capitalise(entry.name))}</p>
+          )}
+
+          <div className={styles.poseStage}>
+            <Suspense fallback={<p className={styles.rationale}>{copy.pose.loading}</p>}>
+              <PoseViewer
+                files={
+                  docked === undefined
+                    ? dockFilesForStructure(activeStructure)
+                    : { ...dockFilesForStructure(activeStructure), poses: { url: docked.url } }
+                }
+                label={copy.pose.viewerLabel(
+                  docked === undefined ? activeStructure.ligand.name : capitalise(entry.name),
+                  activeStructure.target_symbol,
+                )}
+                onContacts={setContacts}
+                animate={docked !== undefined}
+              />
+            </Suspense>
+          </div>
+          <ContactList
+            ligand={docked === undefined ? activeStructure.ligand.name : capitalise(entry.name)}
+            contacts={contacts}
+            docked={docked !== undefined}
+          />
+          <p className={styles.rationale}>
+            {docked === undefined ? text.posePreviewCaveat : text.dockedCaveat}
+          </p>
         </div>
       )}
     </div>
+  );
+}
+
+/** The drug's closest polar contacts, as text beside the picture, with what they do and don't show. */
+function ContactList({
+  ligand,
+  contacts,
+  docked = false,
+}: {
+  ligand: string;
+  contacts: readonly Contact[];
+  /** True when the pose is a docking result for this drug, not the crystal's own ligand. */
+  docked?: boolean;
+}) {
+  // Each residue once, at its closest contact; the picture draws them all.
+  const seen = new Set<string>();
+  const rows = contacts.filter((contact) => {
+    const key = `${contact.chain}:${contact.residue}:${contact.proteinAtom}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  return (
+    <section className={styles.contacts} aria-label={text.poseContactsTitle}>
+      <h4 className={styles.contactsTitle}>{text.poseContactsTitle}</h4>
+      <p className={styles.rationale}>
+        {docked ? text.dockedContactsLead(ligand) : text.poseContactsLead(ligand)}
+      </p>
+      {rows.length === 0 ? (
+        <p className={styles.rationale}>{text.poseContactsNone}</p>
+      ) : (
+        <ul className={styles.contactList}>
+          {rows.slice(0, 8).map((contact) => (
+            <li key={`${contact.chain}:${contact.residue}:${contact.proteinAtom}`}>
+              {text.poseContact(
+                contact.residue,
+                contact.proteinAtom,
+                contact.ligandAtom,
+                contact.distance.toFixed(1),
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
+      <p className={styles.rationale}>
+        {docked ? text.dockedContactsCaveat : text.poseContactsCaveat}
+      </p>
+    </section>
   );
 }

@@ -42,3 +42,6 @@ __pycache__/
 # Locally computed Boltz complexes and isolated inference environment.
 /results/boltz/
 /.venv-boltz/
+# Large intermediate files from the approach comparison (rebuilt by eval.ci_approaches)
+results/ci_approaches/*.npz
+results/ci_approaches/*.log

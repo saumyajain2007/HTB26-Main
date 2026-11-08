@@ -4,14 +4,13 @@
  * mark carries a shape as well as a colour, so the figure reads in greyscale too.
  */
 
+/* The page scrolls, not the sheet: it is as tall as what it holds. */
 .sheet {
-  composes: scroll-fade from global;
   display: flex;
-  flex: 1;
+  flex: none;
   flex-direction: column;
   gap: var(--space-32);
-  min-height: 0;
-  overflow-y: auto;
+  padding-bottom: var(--space-32);
 }
 
 /* The figure's one finding, over the matrix. */
@@ -27,6 +26,19 @@
 .scroll {
   flex: none;
   overflow-x: auto;
+  /* The global reset hides every scroll bar; a table cut at its edge needs one to say so. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-grey-2) transparent;
+}
+
+.scroll::-webkit-scrollbar {
+  display: block;
+  height: var(--space-8);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: var(--space-4);
+  background: var(--color-grey-2);
 }
 
 .grid {

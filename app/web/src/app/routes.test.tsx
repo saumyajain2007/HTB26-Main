@@ -44,11 +44,13 @@ describe("the disease flow's gate", () => {
     expect(paths).toContain("*");
   });
 
-  it("sends `/` to the resistance flow while the disease flow is off, and not while it is on", () => {
+  it("shows the introduction at `/` whether the disease flow is on or off", () => {
     const index = (routes: RouteObject[]) =>
       childrenOf(routes).find((route) => route.index === true);
-    expect(navigatesTo(index(createRoutes(false))?.element)).toBe(RESISTANCE_PATH);
-    expect(navigatesTo(index(createRoutes(true))?.element)).toBeUndefined();
+    for (const diseaseFlow of [true, false]) {
+      expect(navigatesTo(index(createRoutes(diseaseFlow))?.element)).toBeUndefined();
+      expect(index(createRoutes(diseaseFlow))?.element).toBeDefined();
+    }
   });
 
   it("mounts the resistance flow either way", () => {
@@ -61,7 +63,7 @@ describe("the disease flow's gate", () => {
 
   it("runs the resistance flow on its own while the disease flow is off", async () => {
     const offRoutes = createRoutes(false);
-    renderApp("/", offRoutes);
+    renderApp(RESISTANCE_PATH, offRoutes);
     expect(
       await screen.findByRole("heading", { level: 1, name: copy.resistanceSteps[0].title }),
     ).toBeInTheDocument();

@@ -177,6 +177,46 @@ def parse_preset(species: str, presets_path) -> Parsed:
     return parsed
 
 
+# Suffixes NCBI Pathogen Detection appends to an AMRFinderPlus symbol: "gyrA_S83L=POINT",
+# "blaOXA=MISTRANSLATION", "mecA=PARTIAL". No suffix means a complete match.
+_NCBI_POINT = re.compile(r"^(?P<gene>.+)_(?P<mutation>[A-Za-z*]\d+[A-Za-z*]+(?:[A-Za-z]+\d*)?)$")
+
+
+def parse_ncbi_genotypes(text: str, species: Species | None = None,
+                         exclude_methods: tuple = ()) -> Parsed:
+    """Input (c'): the ``AMR_genotypes_core`` string NCBI Pathogen Detection holds per isolate.
+
+    ``"gyrA_S83Y=POINT,blaSHV-12,mecA=PARTIAL"`` becomes one token each. A POINT symbol is split
+    into the gene and its mutation, the way ``parse_amrfinder`` splits a ``POINT`` row. Methods in
+    ``exclude_methods`` (for example ``PARTIAL``) are rejected with a reason rather than dropped.
+    """
+    parsed = Parsed(kind=AMRFINDERPLUS, species=species)
+    seen: set = set()
+    for item in (x.strip() for x in text.split(",")):
+        if not item or item.upper() == "NULL":
+            continue
+        raw = item
+        symbol, _, suffix = item.partition("=")
+        method = (suffix or "EXACT").upper()
+        parsed.requested.append(raw)
+        if raw in seen:
+            parsed.rejected.append(Rejected(raw, "genotype string", "listed twice"))
+            continue
+        seen.add(raw)
+        if method in exclude_methods:
+            parsed.rejected.append(Rejected(raw, "genotype string",
+                                            f"method {method} excluded by the caller"))
+            continue
+        lookup, mutation = symbol, None
+        if method.startswith("POINT"):
+            m = _NCBI_POINT.match(symbol)
+            if m:
+                lookup, mutation = m.group("gene"), m.group("mutation")
+        parsed.tokens.append(Token(raw=raw, lookup=lookup, origin="genotype string",
+                                   method=f"amrfinder:{method}", mutation=mutation))
+    return parsed
+
+
 def _first_present(header, names):
     return next((n for n in names if n in header), None)
 

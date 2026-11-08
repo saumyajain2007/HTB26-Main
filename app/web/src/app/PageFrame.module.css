@@ -11,6 +11,21 @@
   min-height: 100dvh;
 }
 
+/* A reading page with a footer (a step's Back and Next): the footer follows the content instead
+   of sitting at the window's foot with a gap above it, and stays within reach on a long page. */
+.page[data-flow="document"]:has(> .footer) {
+  grid-template-rows: auto auto auto;
+  align-content: start;
+}
+
+.page[data-flow="document"] > .footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  border-top: 1px solid var(--color-rule);
+  background: var(--color-paper);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -42,7 +57,7 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
-  /* Panels hinge up in 3D on entry; their projection must never widen the page. */
+  /* Panels rise into place on entry; nothing they do may widen the page. */
   overflow-x: clip;
 }
 

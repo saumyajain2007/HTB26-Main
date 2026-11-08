@@ -5,9 +5,14 @@ import {
   type AtomSelectionSpec,
   type AtomSpec,
   type GLModel,
+  type GLShape,
   type GLViewer,
+  type Label,
 } from "3dmol";
 import { Box3, Matrix4, Quaternion, Vector3 } from "three";
+import type { BindingVerdict } from "../lib/bindingVerdict";
+import { DOCK_DURATION_MS, dockEndFrame, dockFrame, type DockFrame } from "./dockAnimation";
+import { polarContacts, type Contact } from "./interactions";
 import { tokenColor } from "./plate";
 import { placementFrames } from "./placement";
 
@@ -35,6 +40,12 @@ const TILT = 24;
 /** How deep (Å) and how wide around the drug to look for protein in the way of the view. */
 const FRONT_DEPTH = 16;
 const FRONT_RADIUS = 7;
+
+/** How far (Å) from its docked pose the drug starts its approach. */
+const START_ANGSTROM = 16;
+/** The starting tumble, as an axis and an angle in degrees. */
+const TUMBLE_AXIS = new Vector3(0.6, 0.5, 0.62).normalize();
+const TUMBLE_DEGREES = 110;
 
 export interface PoseFiles {
   /** receptor.pdb: the protein chain the drug was docked into. */
@@ -182,11 +193,27 @@ export class PoseScene {
   private readonly surroundings: Vector3[];
   private surface: Promise<number> | null = null;
   private overlay: GLModel | null = null;
+  /** What the interactions toggle drew: dashed lines and residue labels. */
+  private contactShapes: GLShape[] = [];
+  private contactLabels: Label[] = [];
+  /** The drug's close polar contacts with the protein, closest first. */
+  readonly contacts: Contact[];
   private spinFrame = 0;
   private placementFrame = 0;
   private placementGeneration = 0;
   private placementStart: number | null = null;
   private disposed = false;
+  /** The drug's docked atoms, to move it from and back to; its style, to redraw it as it moves. */
+  private readonly ligandAtoms: AtomSpec[];
+  private readonly ligandHome: Vector3[];
+  private readonly ligandStyle: Parameters<GLModel["setStyle"]>[1];
+  /** Which way the drug comes in from, away from the protein, as a unit vector. */
+  private readonly approachDirection: Vector3;
+  private dockRequest = 0;
+  private dockTimer = 0;
+  /** True while the drug is anywhere but its docked pose. */
+  private ligandMoved = false;
+  private wantInteractions = false;
 
   /**
    * Draws `files` into a new layer inside `host`, or returns null when 3Dmol can't start.
@@ -242,26 +269,35 @@ export class PoseScene {
     this.ligand = viewer.addModel(firstMolecule(files.poses), files.posesFormat ?? "sdf");
     const drug = this.ligand.selectedAtoms({});
     const pocketAtoms = this.receptor.selectedAtoms({ predicate: near(drug, POCKET_ANGSTROM) });
+    this.contacts = polarContacts(drug, pocketAtoms);
     const residue = (atom: AtomSpec) => `${atom.chain ?? ""}:${String(atom.resi)}`;
     const residues = new Set(pocketAtoms.map(residue));
     this.pocket = { model: this.receptor, predicate: (atom) => residues.has(residue(atom)) };
 
-    // A thin trace, not a ribbon: omitting `style` would draw a full cartoon.
+    // A full cartoon: helices as spiral ribbons, strands as arrows, loops as tubes. Slightly
+    // see-through, so the pocket's side chains and the drug read through it.
     const backbone = {
-      cartoon: { style: "trace", color: tokenColor("--color-backbone"), thickness: 0.14 },
+      cartoon: { color: tokenColor("--color-backbone"), opacity: 0.85 },
     };
     this.receptor.setStyle({}, backbone);
     viewer.setStyle(this.pocket, {
       ...backbone,
       stick: { radius: 0.07, color: tokenColor("--color-edge") },
     });
-    this.ligand.setStyle(
-      {},
-      {
-        stick: { radius: 0.24, colorscheme: { prop: "elem", map: elements } },
-        sphere: { scale: 0.2, colorscheme: { prop: "elem", map: elements } },
-      },
-    );
+    this.ligandStyle = {
+      stick: { radius: 0.24, colorscheme: { prop: "elem", map: elements } },
+      sphere: { scale: 0.2, colorscheme: { prop: "elem", map: elements } },
+    };
+    this.ligand.setStyle({}, this.ligandStyle);
+    this.ligandAtoms = drug;
+    this.ligandHome = drug.map(toPoint);
+    const proteinMiddle = new Box3()
+      .setFromPoints(this.receptor.selectedAtoms({}).map(toPoint))
+      .getCenter(new Vector3());
+    const drugMiddle = new Box3().setFromPoints(this.ligandHome).getCenter(new Vector3());
+    this.approachDirection = drugMiddle.sub(proteinMiddle);
+    if (this.approachDirection.lengthSq() < 1e-6) this.approachDirection.set(1, 0, 0);
+    this.approachDirection.normalize();
     viewer.setViewStyle({ style: "outline", color: ink, width: 0.02 });
 
     viewer.setCameraParameters({ fov: FIELD_OF_VIEW });
@@ -322,6 +358,144 @@ export class PoseScene {
       this.overlay = null;
     }
     this.viewer.render();
+  }
+
+  /**
+   * Shows or hides the drug's close polar contacts: a dashed line from each drug atom to the
+   * protein atom it nears, and a label with the residue and the distance. Each residue is named
+   * once, at its closest contact, so a crowded pocket stays readable.
+   */
+  setInteractions(on: boolean): void {
+    this.wantInteractions = on;
+    // The lines belong to the docked pose; they stay off while the drug is elsewhere.
+    this.drawInteractions(on && !this.ligandMoved);
+  }
+
+  private drawInteractions(on: boolean): void {
+    if (this.disposed) return;
+    if (on && this.contactShapes.length === 0 && this.contacts.length > 0) {
+      const ink = tokenColor("--color-ink");
+      const point = ([x, y, z]: [number, number, number]) => ({ x, y, z });
+      for (const contact of this.contacts) {
+        this.contactShapes.push(
+          this.viewer.addCylinder({
+            start: point(contact.ligandPoint),
+            end: point(contact.proteinPoint),
+            radius: 0.05,
+            color: ink,
+            dashed: true,
+            dashLength: 0.2,
+            gapLength: 0.15,
+          }),
+        );
+      }
+      const named = new Set<string>();
+      for (const contact of this.contacts) {
+        const key = `${contact.chain}:${contact.residue}`;
+        if (named.has(key)) continue;
+        named.add(key);
+        this.contactLabels.push(
+          this.viewer.addLabel(`${contact.residue} · ${contact.distance.toFixed(1)} Å`, {
+            position: {
+              x: contact.proteinPoint[0],
+              y: contact.proteinPoint[1],
+              z: contact.proteinPoint[2],
+            },
+            fontSize: 12,
+            fontColor: ink,
+            backgroundColor: "white",
+            backgroundOpacity: 0.85,
+            borderThickness: 0,
+            inFront: true,
+          }),
+        );
+      }
+    } else if (!on) {
+      for (const shape of this.contactShapes) this.viewer.removeShape(shape);
+      for (const label of this.contactLabels) this.viewer.removeLabel(label);
+      this.contactShapes = [];
+      this.contactLabels = [];
+    }
+    this.viewer.render();
+  }
+
+  /** Puts the drug at `frame`: its docked pose moved back along the approach and turned. */
+  private placeLigand({ approach, tumble }: DockFrame): void {
+    const middle = new Box3().setFromPoints(this.ligandHome).getCenter(new Vector3());
+    const turn = new Quaternion().slerp(
+      new Quaternion().setFromAxisAngle(TUMBLE_AXIS, (TUMBLE_DEGREES * Math.PI) / 180),
+      tumble,
+    );
+    const shift = this.approachDirection.clone().multiplyScalar(START_ANGSTROM * (1 - approach));
+    this.ligandAtoms.forEach((atom, index) => {
+      const home = this.ligandHome[index];
+      if (home === undefined) return;
+      const placed = home.clone().sub(middle).applyQuaternion(turn).add(middle).add(shift);
+      atom.x = placed.x;
+      atom.y = placed.y;
+      atom.z = placed.z;
+    });
+    // 3Dmol redraws a model's geometry only after its style is set again.
+    this.ligand.setStyle({}, this.ligandStyle);
+    this.viewer.render();
+  }
+
+  /** Stops any animation and puts the drug back in its docked pose, with its contacts. */
+  restoreLigand(): void {
+    this.dockRequest++;
+    cancelAnimationFrame(this.dockTimer);
+    if (!this.ligandMoved || this.disposed) return;
+    this.placeLigand({ approach: 1, tumble: 0 });
+    this.ligandMoved = false;
+    this.drawInteractions(this.wantInteractions);
+  }
+
+  /**
+   * Plays the drug coming in to the pocket. For `binds` it settles in its docked pose and the
+   * contacts appear; for `does_not_bind` it is turned away and stays out until reset. This
+   * illustrates the verdict; it is not a simulated trajectory. `still` skips to the end for
+   * readers who prefer no motion. `onDone` is told when it has finished.
+   */
+  playDock(verdict: BindingVerdict, options: { still?: boolean; onDone?: () => void } = {}): void {
+    if (this.disposed) return;
+    this.dockRequest++;
+    const request = this.dockRequest;
+    cancelAnimationFrame(this.dockTimer);
+    this.drawInteractions(false);
+    this.ligandMoved = true;
+
+    const finish = () => {
+      if (verdict === "binds") {
+        this.ligandMoved = false;
+        this.drawInteractions(this.wantInteractions);
+      }
+      options.onDone?.();
+    };
+
+    // Keep the whole approach in view, not only the pocket.
+    const middle = new Box3().setFromPoints(this.ligandHome).getCenter(new Vector3());
+    this.reset([middle.clone().addScaledVector(this.approachDirection, START_ANGSTROM)]);
+
+    if (options.still === true) {
+      this.placeLigand(dockEndFrame(verdict));
+      finish();
+      return;
+    }
+    const duration = DOCK_DURATION_MS[verdict];
+    let start: number | null = null;
+    const step = (now: number) => {
+      if (request !== this.dockRequest || this.disposed) return;
+      start ??= now;
+      const elapsed = now - start;
+      this.placeLigand(dockFrame(verdict, elapsed));
+      if (elapsed >= duration) {
+        finish();
+        return;
+      }
+      this.dockTimer = requestAnimationFrame(step);
+    };
+    this.placeLigand(dockFrame(verdict, 0));
+    this.dockTimer = requestAnimationFrame(step);
   }
 
   /**
@@ -399,14 +573,19 @@ export class PoseScene {
    * Back to the opening view: the drug in the middle, its pocket around it clear of the controls,
    * framed anew for the view's current shape.
    */
-  reset(): void {
-    this.stopPlacement();
+  reset(extra: readonly Vector3[] = []): void {
+    // A plain reset also brings the drug back to its docked pose; the animation's own call, which
+    // passes extra points to keep in view, leaves it where it is.
+    if (extra.length === 0) {
+      this.stopPlacement();
+      this.restoreLigand();
+    }
     const height = Math.max(1, this.holder.clientHeight);
     const aspect = this.holder.clientWidth / height || 1;
     const inset = this.covered() / height;
     const { centre, distance } = frame(
       this.drugPoints,
-      this.surroundings,
+      [...this.surroundings, ...extra],
       this.turn,
       aspect,
       inset,
@@ -422,6 +601,8 @@ export class PoseScene {
     if (this.disposed) return;
     this.stopPlacement();
     this.disposed = true;
+    this.dockRequest++;
+    cancelAnimationFrame(this.dockTimer);
     this.setSpin(false);
     const internals = this.viewer as unknown as ViewerInternals;
     internals.divwatcher?.disconnect();

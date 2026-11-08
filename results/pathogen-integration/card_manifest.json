@@ -21,14 +21,14 @@
   "sources": {
     "data": {
       "bytes": 4366637,
-      "fetched_at": "2026-11-08T02:12:29+00:00",
+      "fetched_at": "2026-11-07T20:21:58+00:00",
       "file": "card-data.tar.bz2",
       "sha256": "94b89501fc26daafbe65e4151c17a8b007dc1272c4f8201737e44e44cdd4c065",
       "url": "https://card.mcmaster.ca/latest/data"
     },
     "ontology": {
       "bytes": 1159321,
-      "fetched_at": "2026-11-08T02:12:29+00:00",
+      "fetched_at": "2026-11-07T20:21:58+00:00",
       "file": "card-ontology.tar.bz2",
       "sha256": "b6c48b73d80dbe58eb9aefec9bf133b1c552a3993d363fd104aa161d45b294e2",
       "url": "https://card.mcmaster.ca/latest/ontology"
