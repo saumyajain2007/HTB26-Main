@@ -2,8 +2,8 @@
 
 **No result has been produced.** At the time of writing this file, the retrospective test
 has not been run, no metric has been computed, and no ranking has been scored against the
-ground truth. The candidate pool holds three drugs, so the primary metric cannot yet be
-computed at all (see Preconditions). This file and `preregistered.json` are committed before
+ground truth. The pool is the 126 approved antibiotics in the ChEMBL 37 / CARD 4.0.2
+catalogue, which holds single agents only (see Pool coverage). This file and `preregistered.json` are committed before
 any result exists, which is the only thing that makes the numbers that follow worth reading.
 
 Frozen by `python -m eval.protocol --freeze`, which records this file's sha256 and the
@@ -23,7 +23,7 @@ table it holds, so pinning the manifest pins the tables with it.
 | Input | What it fixes |
 | --- | --- |
 | `eval/ground_truth.json` | The rows, the effective and ineffective drug lists, and which rows are `partly_verified` |
-| `core/resistance/tests/fixtures/card_slice/4.0.2/manifest.json` | The CARD release the profiles are built from |
+| `data/card/releases/4.0.2/manifest.json` | The full CARD release the profiles are built from (gitignored data, so pinned on the evaluation machine) |
 | `core/resistance/htb_resistance/data/presets.json` | The gene list behind each pathogen's profile |
 | `core/ranking/antibiotic/protocol_v1.json` | The ranking method's own settings |
 | `data/antibiotics/releases/chembl-37_card-4.0.2/manifest.json` | The candidate pool |
@@ -60,7 +60,7 @@ Run on the same pool and the same rows as the method.
 
 Bootstrap over ground-truth rows, 2000 resamples, 95% interval, seed `20261108`.
 
-With six rows the interval will be very wide, and with two scorable rows it will be
+With three hit-eligible rows (see Pool coverage) the interval will be very wide and
 uninformative. That is the honest result for this sample size. It is not to be narrowed by
 adding rows after seeing it.
 
@@ -72,30 +72,46 @@ adding rows after seeing it.
 2. No row may be added, removed or re-labelled after the freeze. A row whose citation turns
    out to be wrong is recorded in [ERRATA.md](../ERRATA.md) and the result is reported both
    with and without it, never silently dropped.
-3. A row is **scorable** only when at least one of its effective or ineffective drugs is in
-   the candidate pool. Unscorable rows are counted and named in the result, not skipped
-   quietly.
-4. Every baseline runs on the same pool and rows as the method.
-5. Every attempt is reported, including runs that failed or were abandoned.
-6. A negative result stands. If the method does not beat the alphabetical baseline, that is
+3. **Each row is ranked from its own `profile_genes`**, by `python -m eval.build_row_results`,
+   never from a species preset. A gene that does not resolve in the pinned CARD release is an
+   error, not a smaller profile. (An earlier draft scored every row of a species against one
+   preset ranking; the K. pneumoniae preset carries KPC-2 and CTX-M-15 together, so that
+   ranking matched none of the ESBL, NDM or KPC rows. Corrected before the freeze.)
+4. A row is **hit-eligible** only when at least one of its *effective* drugs is in the pool.
+   The headline n and all four metrics are over hit-eligible rows. A row with only
+   ineffective drugs in the pool is a **demotion row**: hit@k and inversion are undefined, and
+   it is reported separately as the rank of the best-placed defeated drug out of the pool,
+   beside the baselines. Inversion is never credited when no effective drug is rankable (an
+   earlier scorer did, which would have charged the method for a gap in the pool). A row with
+   no drug in the pool is named as unscorable, not skipped quietly.
+5. Every baseline runs on the same pool and rows as the method.
+6. Every attempt is reported, including runs that failed or were abandoned.
+7. A negative result stands. If the method does not beat the alphabetical baseline, that is
    the finding and it is reported as the finding.
 
 ## Preconditions
 
-Both must hold before a number is computed. Neither holds today.
+1. At least one ground-truth row is hit-eligible, or nothing can be scored.
+2. The profiles are built from the full pinned CARD release, not a synthetic fixture slice.
 
-1. The candidate pool contains at least one effective and one ineffective drug for at least
-   one ground-truth row. The pool currently holds linezolid, vancomycin and oxacillin, which
-   makes only the two MRSA rows scorable, and makes `hit_at_1` over four of the six rows
-   impossible.
-2. The profiles are built from the pinned CARD release, not a synthetic fixture.
+## Pool coverage (checked by drug name only, before any ranking was read)
 
-## What would make this test worth running
+The pool holds 126 single agents. Against the six rows:
 
-The pool needs carbapenems and the beta-lactamase-inhibitor combinations before four of the
-six rows can be scored at all. Until then, running this protocol would produce a number over
-two rows, and a two-row hit rate is not a result. Recorded here so that the limitation is
-part of the pre-registration rather than a caveat added to the write-up afterwards.
+| Row | Effective drug in pool | Defeated drug in pool | Role |
+| --- | --- | --- | --- |
+| `mrsa-meca-bacteraemia` | vancomycin, daptomycin | oxacillin, cefazolin | headline |
+| `mrsa-meca-pneumonia` | vancomycin, linezolid | daptomycin, oxacillin | headline |
+| `esbl-ctx-m-non-urinary` | meropenem, ertapenem (imipenem absent) | ceftriaxone | headline |
+| `crab-oxa23-invasive` | none (sulbactam-durlobactam absent) | meropenem | demotion |
+| `ndm-enterobacterales` | none (aztreonam-avibactam absent) | meropenem | demotion |
+| `kpc-cre-non-urinary` | none (both combinations absent) | meropenem | demotion, and `partly_verified` |
+
+So the headline is **three rows**, and the intervals will say nothing separable. That is the
+honest size of this test with a single-agent pool, recorded here so it is part of the
+pre-registration and not a caveat added afterwards. Combination products were not added to the
+pool: doing so means mapping each to CARD drug classes, and a mapping written after seeing
+the pool would be tuning.
 
 ## Amendments
 
