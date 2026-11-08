@@ -15,4 +15,5 @@ model_id	aro_accession	name	model_type	short_name
 450	ARO:3001612	OXA-51	protein homolog model	OXA-51
 630	ARO:3000781	adeJ	protein homolog model	adeJ
 726	ARO:3000621	PC1 beta-lactamase (blaZ)	protein homolog model	PC1_blaZ
+810	ARO:3001209	mecC	protein homolog model	mecC
 866	ARO:3000775	adeB	protein homolog model	adeB

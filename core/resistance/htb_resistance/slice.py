@@ -57,7 +57,8 @@ def make_slice(release: Path | str, out: Path | str, determinants: list[str], ex
     is linked to them, so a test can check that a class a profile must *not* contain is a real one.
     """
     release, out = Path(release), Path(out)
-    reference = Reference.from_release(release)  # refuses a release that does not match its manifest
+    # Refuses a release that does not match its manifest. The supplement is off: slicing must not depend on it.
+    reference = Reference.from_release(release, supplement=None)
     keep: dict[str, str] = {}
     for text in determinants:
         found = reference.resolve(text)

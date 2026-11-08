@@ -94,24 +94,18 @@ Issue #16. `build_profile` turns resolved resistance determinants into the froze
 ([docs/contracts.md](../../docs/contracts.md)).
 
 ```python
-from htb_resistance import CardProfiler, Determinant, build_profile
+from htb_resistance import Reference, build_profile, parse_gene_text
 
-card = CardProfiler("data/card/releases/4.0.2")
-profile = build_profile(
-    card,
-    [Determinant("ARO:3000617", "mecA"), Determinant("ARO:3003296", "gyrA S84L", ("S84L",))],
-    kind="gene_list", species={"name": "Staphylococcus aureus", "ncbi_taxid": 1280},
-)
+reference = Reference.from_release("data/card/releases/4.0.2")
+profile = build_profile(parse_gene_text("mecA; ARO:3003296 S84L"), reference)
+profile.contract   # the frozen ResistanceProfile
 ```
 
-Input is determinants already resolved to CARD detection models. Turning typed names, species presets or
-AMRFinderPlus output into determinants is input handling (#15). A determinant that cannot become a gene row is
-added to `unresolved_inputs` with a reason, never dropped:
-
-- an ARO id that is a gene family or drug class, not a detection model;
-- a variant model (a gyrA or 23S rRNA mutant) with no mutation named, or a mutation CARD does not list for it;
-- a mutation named for a model that has none;
-- a model with no mechanism, or an id that is not in CARD.
+Typed names, species presets and AMRFinderPlus output are turned into determinants by the input handling in
+[PROFILES.md](PROFILES.md). A name that cannot become a gene row goes to `unresolved_inputs` with a reason, never
+dropped: an unknown or ambiguous name, an ARO id that is a gene family or drug class and not a detection model, a
+model with no mechanism, or a determinant given twice. A name containing spaces is read as a gene plus a mutation,
+so give a determinant with a mutation as `ARO:3003296 S84L`.
 
 Everything in a gene row is CARD's own record: mechanisms and defeated classes from the model's categories, and the
 affected target from the ontology (the sensitive form the resistant one derives from). The target is `null` for
@@ -125,5 +119,5 @@ mecA and mecC carbapenem, and the download does not, so a profile from the downl
 unaffected by an MRSA isolate. [supplement.json](htb_resistance/supplement.json) adds such classes, each with a
 PubMed citation, and `build_profile` marks them in the evidence (`source: curated`) so they are never mistaken for
 CARD's own links. It is checked against the CARD release on load and refuses to build if an entry is stale or has no
-citation; a class CARD already has is skipped. Pass `supplement=None` to `CardProfiler` to turn it off. What it
+citation; a class CARD already has is skipped. Pass `supplement=None` to `Reference.from_release` (or `--no-supplement` to the profile CLI) to turn it off. Its entries are tested in `tests/test_supplement.py`, and the known cases that depend on it in [docs/profiling-known-cases.md](../../docs/profiling-known-cases.md). What it
 adds, what it leaves out and why: [docs/card-spot-check.md](../../docs/card-spot-check.md).

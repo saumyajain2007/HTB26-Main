@@ -56,6 +56,7 @@ ARO:3000748		subunit of efflux pump conferring antibiotic resistance	Subunits of
 ARO:3000775	37155	adeB	AdeB is the multidrug transporter of the adeABC efflux system.	adeB	false
 ARO:3000781	37161	adeJ	AdeJ is a RND efflux protein that acts as the inner membrane transporter of the AdeIJK efflux complex. It has 57% identity with E. coli AcrB.	adeJ	false
 ARO:3001059	37439	SHV-1	SHV-1 is a broad-spectrum beta-lactamase found in Klebsiella spp., as well as Acinetobacter spp., E. coli., Raoultella terrigena, and Yersinia pestis.	SHV-1	false
+ARO:3001209	37590	mecC	mecC encodes an alternative PBP2a protein involved in bacterial cell wall formation. These proteins are acquired by lateral gene transfer and commonly associated with methicillin-resistant Staphylococcus aureus (MRSA). These proteins have lower affinity for penicillin-like antibiotics and therefore are able to perform peptidoglycan synthesis in the presence of beta-lactams.	mecC	false
 ARO:3001396	37796	OXA-1	OXA-1 is a beta-lactamase found in E. coli.	OXA-1	false
 ARO:3001418	37818	OXA-23	OXA-23 is a beta-lactamase found in A. baumannii.	OXA-23	false
 ARO:3001612	38012	OXA-51	OXA-51 is a beta-lactamase found in A. baumannii.	OXA-51	false

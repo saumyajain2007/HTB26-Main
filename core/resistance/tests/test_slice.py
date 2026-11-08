@@ -23,7 +23,8 @@ def test_a_smaller_slice_is_a_valid_release_with_the_same_answer(tmp_path):
     assert len(rows(tmp_path / "s", "models")) == 1
     assert sum(t["rows"] for t in manifest["tables"].values()) < sum(
         t["rows"] for t in json.loads((SOURCE / "manifest.json").read_text())["tables"].values())
-    small, big = Reference.from_release(tmp_path / "s"), Reference.from_release(SOURCE)
+    small, big = (Reference.from_release(tmp_path / "s", supplement=None),
+                  Reference.from_release(SOURCE, supplement=None))
     assert build_profile(parse_gene_text("mecA"), small).contract == build_profile(parse_gene_text("mecA"), big).contract
 
 

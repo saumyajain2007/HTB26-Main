@@ -112,7 +112,7 @@ def test_every_shipped_preset_has_a_case():
 
 
 def test_the_required_known_cases_exist():
-    assert {"ctx-m-15-producer", "mrsa-meca"} <= set(CASES)
+    assert {"ctx-m-15-producer", "mrsa-meca", "mrsa-mecc"} <= set(CASES)
 
 
 # ---------- what a profile must contain, and must not ----------
@@ -125,7 +125,7 @@ def test_the_expected_class_is_defeated(ref, case_id, term):
     present = term["aro_id"] in ids(profile["defeated_classes"])
     known = gap(case, f"class:{term['aro_id']}")
     if known:
-        pytest.skip("known gap, tested by test_known_gaps_still_hold")
+        pytest.skip("known gap, tested by test_known_gaps_still_hold")  # unreachable when there are none
     assert present, f"{term['name']} missing from the defeated classes of {case_id}: {sorted(c['name'] for c in profile['defeated_classes'])}"
 
 
@@ -168,15 +168,21 @@ def _gap_params():
     return out
 
 
-@pytest.mark.parametrize("case_id, known", _gap_params())
-def test_known_gaps_still_hold(ref, case_id, known):
-    """Asserts the *expected* behaviour. It fails today; when it starts passing, strict xfail fails
-    the build, which is the signal to move the entry from known_gaps into expect."""
-    profile = profile_of(CASES[case_id], ref)
-    if known["aro_id"] is None:
-        assert profile["unresolved_inputs"] == []
-    else:
-        assert known["aro_id"] in ids(profile["defeated_classes"])
+if _gap_params():  # none today; kept so the next gap can be recorded without new machinery
+    @pytest.mark.parametrize("case_id, known", _gap_params())
+    def test_known_gaps_still_hold(ref, case_id, known):
+        """Asserts the *expected* behaviour. It fails today; when it starts passing, strict xfail fails
+        the build, which is the signal to move the entry from known_gaps into expect."""
+        profile = profile_of(CASES[case_id], ref)
+        if known["aro_id"] is None:
+            assert profile["unresolved_inputs"] == []
+        else:
+            assert known["aro_id"] in ids(profile["defeated_classes"])
+
+
+def test_no_known_gap_is_left_unrecorded_as_a_skip():
+    """A skipped expectation would hide a gap. Every gap must be a strict xfail above, or not exist."""
+    assert all(g["reason"] and g["tracked"] for c in KNOWN["cases"] for g in c["known_gaps"])
 
 
 # ---------- the slice must not drift from CARD ----------
