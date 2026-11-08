@@ -17,7 +17,6 @@
   "prediction_scope": "exploratory",
   "limitations": [
     "E. coli 16S rRNA residues 480-560 proxy; different species, isolated fragment, missing S12 and remaining ribosome",
-    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
     "Coordinate QC: inferred stereochemistry differs from the input molecule."
   ]
 }

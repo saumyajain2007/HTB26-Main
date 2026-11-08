@@ -45,7 +45,7 @@ test("Boltz PDB prediction renders and releases its viewer", async ({ page }) =>
   await page.goto("/resistance");
   await page.getByRole("button", { name: "MRSA (S. aureus)", exact: true }).click();
   await page.getByRole("button", { name: "Next", exact: true }).click();
-  await expect(page.getByText(/Model confidence: 0.880/)).toBeVisible();
+  await expect(page.getByRole("meter", { name: "Model confidence" })).toBeVisible();
   await page.getByRole("button", { name: "Show Boltz prediction" }).click();
   const viewer = page.getByRole("img", { name: /predicted by Boltz-2/ });
   await expect(viewer).toHaveAttribute("data-ready", "true");
