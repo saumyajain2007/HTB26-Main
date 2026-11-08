@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { antibioticCandidates, certificates, resistanceProfile } from "../test/resistance";
-import { formatFeatureValue, formatSignedMargin, splitCandidates } from "./resistanceCandidates";
+import {
+  evadesWithEvidence,
+  formatFeatureValue,
+  formatSignedMargin,
+  MIC_CEILING_MG_PER_L,
+  splitCandidates,
+} from "./resistanceCandidates";
 
 describe("splitCandidates", () => {
   it("keeps approved drugs in rank order and generated molecules visibly separate", () => {
@@ -214,5 +220,31 @@ describe("formatFeatureValue", () => {
     expect(formatSignedMargin(597.43)).toBe("+597.43");
     expect(formatSignedMargin(0)).toBe("0");
     expect(formatSignedMargin(-512.86)).toBe("-512.86");
+  });
+});
+
+describe("evadesWithEvidence", () => {
+  const [linezolid, , oxacillin] = splitCandidates(
+    resistanceProfile(),
+    antibioticCandidates(),
+  ).approved;
+
+  it("keeps a drug with no known link and a MIC within the ceiling", () => {
+    if (linezolid === undefined) throw new Error("The fixture has no first drug.");
+    expect(linezolid.micMgPerL).toBe(2);
+    expect(evadesWithEvidence(linezolid)).toBe(true);
+  });
+
+  it("drops a drug that a gene in the profile rules out, however low its MIC", () => {
+    if (oxacillin === undefined) throw new Error("The fixture has no third drug.");
+    expect(oxacillin.evasionStatus).toBe("ruled_out");
+    expect(evadesWithEvidence(oxacillin)).toBe(false);
+  });
+
+  it("drops a drug with a MIC above the ceiling, and one with no MIC at all", () => {
+    if (linezolid === undefined) throw new Error("The fixture has no first drug.");
+    expect(evadesWithEvidence({ ...linezolid, micMgPerL: MIC_CEILING_MG_PER_L + 1 })).toBe(false);
+    expect(evadesWithEvidence({ ...linezolid, micMgPerL: MIC_CEILING_MG_PER_L })).toBe(true);
+    expect(evadesWithEvidence({ ...linezolid, micMgPerL: null })).toBe(false);
   });
 });

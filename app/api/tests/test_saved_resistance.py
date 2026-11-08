@@ -19,7 +19,8 @@ def test_saved_rankings_through_api() -> None:
     with TestClient(create_app(Settings(resistance="saved", fixture_delay_ms=0))) as client:
         presets = client.get("/api/resistance/pathogens").json()["items"]
         assert len(presets) == 3
-        assert client.get("/api/resistance/certificates").json()["certificates"] == []
+        certificates = client.get("/api/resistance/certificates").json()["certificates"]
+        assert certificates and all(c["ran"] and c["lean_version"] for c in certificates)
         for preset in presets:
             profile_id = preset["profile_id"]
             profile = client.get(f"/api/resistance/profiles/{profile_id}").json()
@@ -30,7 +31,12 @@ def test_saved_rankings_through_api() -> None:
             assert result["pathogen"] == profile["input"]["species"]
             assert result["fixture_note"] is None
             assert len(result["candidates"]) == 126
-            assert {c["certificate_status"] for c in result["candidates"]} == {"not_run"}
+            # Lean ran on every molecule; a molecule outside the limits is "failed", never silent.
+            assert {c["certificate_status"] for c in result["candidates"]} <= {"certified", "failed"}
+            assert all(
+                c["certificate"]["ran"] and c["certificate"]["inchikey"] == c["inchikey"]
+                for c in result["candidates"]
+            )
             assert any(
                 e["source"] == "htb_resistance" for c in result["candidates"] for e in c["evidence"]
             )

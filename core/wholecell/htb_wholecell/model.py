@@ -70,11 +70,13 @@ def _write_csv(path: Path, rows: list[dict], columns: list[str]) -> None:
 
 
 def train_ensemble(release_dir: Path, out_dir: Path, split_kind: str = "scaffold",
-                   n_members: int = ENSEMBLE_SIZE, epochs: int | None = None) -> dict:
-    """Train ``n_members`` members on ``liu_train`` under the named split; returns and saves the run record."""
+                   n_members: int = ENSEMBLE_SIZE, epochs: int | None = None,
+                   table: str = "liu_train") -> dict:
+    """Train ``n_members`` members on ``table`` (``liu_train``, or a species' ``mic_<taxon>``) under the
+    named split; returns and saves the run record."""
     release_dir, out_dir = Path(release_dir), Path(out_dir)
-    rows = read_table(release_dir / "tables" / "liu_train.tsv")
-    by_key = {r["inchikey"]: r for r in read_table(release_dir / "tables" / "splits.tsv") if r["source"] == "liu_train"}
+    rows = read_table(release_dir / "tables" / f"{table}.tsv")
+    by_key = {r["inchikey"]: r for r in read_table(release_dir / "tables" / "splits.tsv") if r["source"] == table}
     assign = [by_key[r["inchikey"]][f"{split_kind}_split"] for r in rows]
     out_dir.mkdir(parents=True, exist_ok=True)
     members, started = [], time.time()
@@ -97,7 +99,7 @@ def train_ensemble(release_dir: Path, out_dir: Path, split_kind: str = "scaffold
         members.append({"member": m, "checkpoint": str(ckpts[-1].relative_to(out_dir)),
                         "sha256": sha256_file(ckpts[-1]), "seconds": round(time.time() - t0, 1)})
     import chemprop
-    record = {"split": split_kind, "release": release_dir.name, "n_members": n_members,
+    record = {"split": split_kind, "table": table, "release": release_dir.name, "n_members": n_members,
               "chemprop_version": chemprop.__version__, "featurizer": FEATURIZER, "class_balance": True,
               "epochs": epochs if epochs is not None else "chemprop default", "tuned": False,
               "splits_table_sha256": sha256_file(release_dir / "tables" / "splits.tsv"),

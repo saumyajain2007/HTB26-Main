@@ -1,4 +1,4 @@
-import { Navigate, type RouteObject } from "react-router";
+import { type RouteObject } from "react-router";
 import { diseaseFlowEnabled } from "./flags";
 import { EvaluationPage } from "./routes/EvaluationPage";
 import { ExperimentLayout } from "./routes/ExperimentLayout";
@@ -30,7 +30,7 @@ const diseaseFlowRoutes: RouteObject[] = [
 
 /**
  * The antibiotic resistance flow. Always mounted, including while the disease flow is on, so the
- * two can be worked on and tested side by side; only the address of `/` depends on the flag.
+ * two can be worked on and tested side by side.
  */
 const resistanceFlowRoutes: RouteObject[] = [
   { path: RESISTANCE_PATH, element: <PathogenPage /> },
@@ -49,10 +49,10 @@ export function createRoutes(diseaseFlow: boolean): RouteObject[] {
       errorElement: <RouteErrorPage />,
       children: [
         {
+          // `/` is the introduction whether or not the disease flow is on: the problem, the
+          // approach, the three pathogens, and the way into the resistance flow.
           index: true,
-          // With the disease flow on, `/` is its introduction: the problem, the approach, and
-          // the way into the steps. Without it, `/` is the resistance flow's own first step.
-          element: diseaseFlow ? <IntroPage /> : <Navigate to={RESISTANCE_PATH} replace />,
+          element: <IntroPage />,
         },
         ...(diseaseFlow ? diseaseFlowRoutes : []),
         ...resistanceFlowRoutes,

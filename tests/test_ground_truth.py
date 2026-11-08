@@ -186,3 +186,14 @@ def test_scoring_a_ranking_with_nothing_relevant_says_so():
 def test_scoring_an_unknown_row_raises():
     with pytest.raises(GroundTruthError, match="no row"):
         score(GT, "not-a-row", ["vancomycin"])
+
+
+def test_no_effective_drug_in_the_ranking_is_not_an_inversion():
+    """A pool without the effective drug cannot be outranked, so the row is not a failure."""
+    out = score(GT, "crab-oxa23-invasive", ["meropenem", "amikacin"])
+    assert out["first_ineffective_rank"] == 1
+    assert not out["hit_eligible"] and not out["inverted"] and not out["hit_at_1"]
+
+
+def test_an_effective_drug_present_makes_the_row_eligible():
+    assert score(GT, "mrsa-meca-pneumonia", ["linezolid"])["hit_eligible"]

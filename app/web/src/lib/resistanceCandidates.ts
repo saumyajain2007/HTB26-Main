@@ -133,6 +133,8 @@ export interface CandidateEntry {
   defeatedBy: readonly DefeatingDeterminant[];
   features: readonly CandidateFeatureRow[];
   activitySummary: string | null;
+  /** The species-level median MIC in mg/L, or null when no MIC is recorded. */
+  micMgPerL: number | null;
   explanation: {
     summary: string;
     mechanismsEvaded: readonly string[];
@@ -252,6 +254,30 @@ export function formatFeatureValue(
   return feature.unit !== null && feature.unit !== "" ? `${raw} ${feature.unit}` : raw;
 }
 
+/** The activity feature's median MIC in mg/L, or null when it is missing or in another unit. */
+function medianMic(feature: AntibioticCandidate["features"]["activity"]): number | null {
+  if (!feature.available || typeof feature.value !== "number") return null;
+  return feature.unit?.startsWith("mg/L") === true ? feature.value : null;
+}
+
+/**
+ * The working MIC ceiling (mg/L) for "worth considering": the ranking's own assumption
+ * (docs/open-issues.md, OI-6), not a clinical breakpoint.
+ */
+export const MIC_CEILING_MG_PER_L = 16;
+
+/**
+ * Whether a drug evades the profile's resistance genes (no CARD link) and has a recorded median
+ * MIC at or below the ceiling. A drug with no MIC is not shown to work, so it does not qualify.
+ */
+export function evadesWithEvidence(entry: CandidateEntry): boolean {
+  return (
+    entry.evasionStatus === "no_known_link" &&
+    entry.micMgPerL !== null &&
+    entry.micMgPerL <= MIC_CEILING_MG_PER_L
+  );
+}
+
 function buildEntry(
   candidate: AntibioticCandidate,
   profile: ResistanceProfile,
@@ -356,6 +382,7 @@ function buildEntry(
     defeatedBy,
     features,
     activitySummary: formatFeatureValue("activity", candidate.features.activity),
+    micMgPerL: medianMic(candidate.features.activity),
     explanation: {
       summary: candidate.explanation.summary,
       mechanismsEvaded: candidate.explanation.mechanisms_evaded,

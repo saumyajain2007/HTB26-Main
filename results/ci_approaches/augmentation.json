@@ -1,0 +1,311 @@
+{
+  "auxiliary_rows_sampled": 60000,
+  "auxiliary_rows_used_final": 54001,
+  "auxiliary_rows_used_per_fold": [
+    53594,
+    53130,
+    55582,
+    54855,
+    53708
+  ],
+  "guard_highest_similarity_between_used_auxiliary_rows_and_held_out": 0.4951,
+  "models": {
+    "et_morgan_desc": {
+      "cv_mean_fold_difference": 0.082,
+      "final_roc_auc_difference": {
+        "ci95": [
+          -0.01,
+          0.0351
+        ],
+        "value": 0.0123
+      },
+      "with_aux": {
+        "cv_mean_fold_roc_auc": 0.659,
+        "cv_per_fold_roc_auc": [
+          0.605,
+          0.72,
+          0.664,
+          0.714,
+          0.592
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.72,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.357,
+              0.6198
+            ],
+            "value": 0.4934,
+            "width": 0.2628
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5693,
+              0.7309
+            ],
+            "value": 0.6555,
+            "width": 0.1616
+          }
+        }
+      },
+      "without_aux": {
+        "cv_mean_fold_roc_auc": 0.577,
+        "cv_per_fold_roc_auc": [
+          0.533,
+          0.503,
+          0.597,
+          0.676,
+          0.574
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.63,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3456,
+              0.6149
+            ],
+            "value": 0.4886,
+            "width": 0.2693
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5611,
+              0.7221
+            ],
+            "value": 0.6432,
+            "width": 0.161
+          }
+        }
+      }
+    },
+    "hgb_morgan_desc": {
+      "cv_mean_fold_difference": 0.054,
+      "final_roc_auc_difference": {
+        "ci95": [
+          -0.0057,
+          0.0847
+        ],
+        "value": 0.0433
+      },
+      "with_aux": {
+        "cv_mean_fold_roc_auc": 0.659,
+        "cv_per_fold_roc_auc": [
+          0.589,
+          0.705,
+          0.673,
+          0.714,
+          0.612
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.42,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3209,
+              0.6092
+            ],
+            "value": 0.4716,
+            "width": 0.2883
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5582,
+              0.7139
+            ],
+            "value": 0.6414,
+            "width": 0.1557
+          }
+        }
+      },
+      "without_aux": {
+        "cv_mean_fold_roc_auc": 0.605,
+        "cv_per_fold_roc_auc": [
+          0.53,
+          0.609,
+          0.665,
+          0.668,
+          0.551
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.26,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.2948,
+              0.5708
+            ],
+            "value": 0.4337,
+            "width": 0.276
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5161,
+              0.686
+            ],
+            "value": 0.5981,
+            "width": 0.1699
+          }
+        }
+      }
+    },
+    "rank_ensemble": {
+      "cv_mean_fold_difference": 0.084,
+      "final_roc_auc_difference": {
+        "ci95": [
+          -0.0061,
+          0.0396
+        ],
+        "value": 0.0186
+      },
+      "with_aux": {
+        "cv_mean_fold_roc_auc": 0.68,
+        "cv_per_fold_roc_auc": [
+          0.642,
+          0.762,
+          0.67,
+          0.721,
+          0.607
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.61,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3485,
+              0.6228
+            ],
+            "value": 0.4911,
+            "width": 0.2743
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5698,
+              0.7335
+            ],
+            "value": 0.6567,
+            "width": 0.1637
+          }
+        }
+      },
+      "without_aux": {
+        "cv_mean_fold_roc_auc": 0.596,
+        "cv_per_fold_roc_auc": [
+          0.514,
+          0.593,
+          0.627,
+          0.679,
+          0.564
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.55,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3362,
+              0.6163
+            ],
+            "value": 0.4822,
+            "width": 0.2801
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5541,
+              0.7214
+            ],
+            "value": 0.6381,
+            "width": 0.1673
+          }
+        }
+      }
+    },
+    "rf_morgan": {
+      "cv_mean_fold_difference": 0.095,
+      "final_roc_auc_difference": {
+        "ci95": [
+          -0.0205,
+          0.0302
+        ],
+        "value": 0.0048
+      },
+      "with_aux": {
+        "cv_mean_fold_roc_auc": 0.663,
+        "cv_per_fold_roc_auc": [
+          0.69,
+          0.716,
+          0.62,
+          0.694,
+          0.597
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.49,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3397,
+              0.6089
+            ],
+            "value": 0.4779,
+            "width": 0.2692
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5655,
+              0.7293
+            ],
+            "value": 0.6519,
+            "width": 0.1638
+          }
+        }
+      },
+      "without_aux": {
+        "cv_mean_fold_roc_auc": 0.568,
+        "cv_per_fold_roc_auc": [
+          0.481,
+          0.59,
+          0.566,
+          0.657,
+          0.548
+        ],
+        "final": {
+          "actives": 959,
+          "enrichment_top_5pct": 2.47,
+          "n": 3266,
+          "pr_auc": {
+            "ci95": [
+              0.3343,
+              0.6197
+            ],
+            "value": 0.4858,
+            "width": 0.2854
+          },
+          "prevalence": 0.2936,
+          "roc_auc": {
+            "ci95": [
+              0.5627,
+              0.7248
+            ],
+            "value": 0.6471,
+            "width": 0.1621
+          }
+        }
+      }
+    }
+  },
+  "schema": 1
+}

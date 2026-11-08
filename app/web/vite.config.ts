@@ -12,6 +12,11 @@ export default defineConfig({
     alias: {
       // The API's fixture files, read by the web tests so both sides share one copy of the data.
       "@api-fixtures": fileURLToPath(new URL("../api/htb_api/fixtures", import.meta.url)),
+      // Real Vina poses for the first antibiotics of a saved ranking (docking-test/antibiotic_poses.py),
+      // imported where they are rather than copied, so the results and the page can't drift apart.
+      "@antibiotic-docking": fileURLToPath(
+        new URL("../../results/antibiotic_docking", import.meta.url),
+      ),
     },
   },
   build: {
@@ -27,6 +32,8 @@ export default defineConfig({
     },
   },
   server: {
+    // The poses live in the repository's results/, outside this package.
+    fs: { allow: [fileURLToPath(new URL("../..", import.meta.url))] },
     proxy: {
       "/api": { target: API_ORIGIN, changeOrigin: false },
     },

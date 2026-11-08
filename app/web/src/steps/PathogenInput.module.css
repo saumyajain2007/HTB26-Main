@@ -127,6 +127,32 @@
   outline-offset: 1px;
 }
 
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  align-items: center;
+  margin-top: var(--space-8);
+}
+
+.examplesLabel {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.example {
+  padding: 2px var(--space-8);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+}
+
+.example:hover {
+  background: var(--color-hover);
+}
+
 .parsed {
   margin-top: var(--space-16);
 }

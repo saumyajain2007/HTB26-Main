@@ -38,3 +38,7 @@ __pycache__/
 
 # Claude Code agent worktrees, created per task; never part of the project.
 .claude/worktrees/
+
+# Large intermediate files from the approach comparison (rebuilt by eval.ci_approaches)
+results/ci_approaches/*.npz
+results/ci_approaches/*.log

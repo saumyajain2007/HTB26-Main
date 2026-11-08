@@ -47,7 +47,7 @@ RESULT_FILES = ("results.json", "results.md")
 # sha256 of every table it holds, so pinning the manifest pins the tables with it.
 INPUTS = (
     "eval/ground_truth.json",
-    "core/resistance/tests/fixtures/card_slice/4.0.2/manifest.json",
+    "data/card/releases/4.0.2/manifest.json",
     "core/resistance/htb_resistance/data/presets.json",
     "core/ranking/antibiotic/protocol_v1.json",
     "data/antibiotics/releases/chembl-37_card-4.0.2/manifest.json",
@@ -84,8 +84,14 @@ DECLARATION = {
         "No row may be added, removed or re-labelled after the freeze. A row whose citation "
         "turns out to be wrong is recorded as an erratum and the result is reported with and "
         "without it, never silently dropped.",
-        "A row is scorable only when at least one of its effective or ineffective drugs is in "
-        "the candidate pool. Unscorable rows are counted and named, not skipped quietly.",
+        "Each row is ranked from its own profile_genes, never from a species preset. A gene "
+        "that does not resolve in the pinned CARD release is an error, not a smaller profile.",
+        "A row is hit-eligible only when at least one of its effective drugs is in the "
+        "candidate pool. The headline n and all four metrics are over hit-eligible rows. A row "
+        "with only ineffective drugs in the pool is reported separately as a demotion row (the "
+        "rank of the best-placed defeated drug, beside the baselines); hit@k and inversion are "
+        "undefined for it, and inversion is never credited when no effective drug is rankable. "
+        "A row with no drug in the pool is named as unscorable, not skipped quietly.",
         "Every baseline is run on the same pool and the same rows as the method.",
         "The metric set above is complete. A metric not listed here may be reported as an "
         "observation but never as the headline.",
@@ -94,9 +100,9 @@ DECLARATION = {
         "that is the finding.",
     ],
     "preconditions": [
-        "The candidate pool contains at least one effective and one ineffective drug for at "
-        "least one ground-truth row, or nothing can be scored.",
-        "The profiles are built from the pinned CARD release, not from a synthetic fixture.",
+        "At least one ground-truth row is hit-eligible, or nothing can be scored.",
+        "The profiles are built from the full pinned CARD release (data/card/releases/4.0.2), "
+        "not from a synthetic fixture slice.",
     ],
 }
 

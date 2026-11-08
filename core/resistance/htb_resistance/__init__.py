@@ -8,10 +8,12 @@ from .card import (
     read_table,
     verify_release,
 )
-from .inputs import InputError, Parsed, Species, parse_amrfinder, parse_gene_text, parse_preset
+from .bridge import Bridge
+from .inputs import (InputError, Parsed, Species, parse_amrfinder, parse_gene_text,
+                     parse_ncbi_genotypes, parse_preset)
 from .profile import Profile, build_profile
 from .reference import Reference
 
 __all__ = ["ONTOLOGY_URL", "DATA_URL", "TABLES", "build", "read_table", "verify_release",
            "InputError", "Parsed", "Profile", "Reference", "Species", "build_profile", "parse_amrfinder",
-           "parse_gene_text", "parse_preset"]
+           "parse_gene_text", "parse_ncbi_genotypes", "parse_preset", "Bridge"]

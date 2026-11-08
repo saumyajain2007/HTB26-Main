@@ -1,16 +1,11 @@
 import { useQueries } from "@tanstack/react-query";
-import {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-  useSyncExternalStore,
-  type ReactNode,
-} from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { dockFileQuery } from "../api/queries";
 import type { PoseFiles } from "../api/types";
 import { copy } from "../copy/en";
+import type { BindingVerdict } from "../lib/bindingVerdict";
 import styles from "./PoseViewer.module.css";
+import type { Contact } from "./interactions";
 import { PoseScene } from "./poseScene";
 import { canUseWebGL } from "./webgl";
 
@@ -18,20 +13,19 @@ interface PoseViewerProps {
   files: PoseFiles;
   /** Accessible name of the 3D view: which drug in which protein. */
   label: string;
-}
-
-const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
-
-function subscribeToMotion(onChange: () => void) {
-  const query = window.matchMedia(REDUCED_MOTION);
-  query.addEventListener("change", onChange);
-  return () => {
-    query.removeEventListener("change", onChange);
-  };
-}
-
-function useReducedMotion(): boolean {
-  return useSyncExternalStore(subscribeToMotion, () => window.matchMedia(REDUCED_MOTION).matches);
+  /** Told the drug's close polar contacts once the scene is drawn, and `[]` when it is gone. */
+  onContacts?: (contacts: Contact[]) => void;
+  /**
+   * When given, the drug is animated coming in to the pocket and a tick (binds) or cross (does
+   * not) follows. `basis` is the plain-words reason shown beside it.
+   */
+  verdict?: { outcome: BindingVerdict; basis: string } | null;
+  /**
+   * Plays the drug gliding in to the pose the files hold, with a Replay button, and says nothing
+   * about whether it binds: no tick or cross. For a real docking pose, which is a fit and not a
+   * verdict. Ignored when a `verdict` is given.
+   */
+  animate?: boolean;
 }
 
 interface ToggleProps {
@@ -61,10 +55,18 @@ function Toggle({ pressed, onToggle, swatch, children }: ToggleProps) {
  * A docking result in 3D (3Dmol.js): the protein's backbone, the pocket and the drug's pose. Four
  * controls (the pocket surface, the drug's crystal position, spin and reset) and the key share a
  * quiet bar along the view's top edge, so the view takes the panel's whole height; the drug is
- * framed clear of the bar. On phones the bar sits above the view instead. Spin starts on unless
- * the reader asks for reduced motion. The viewer and its WebGL context are released on unmount.
+ * framed clear of the bar. On phones the bar sits above the view instead. The view starts
+ * still; spin is the reader's choice. The viewer and its WebGL context are released on unmount.
  */
-export function PoseViewer({ files, label }: PoseViewerProps) {
+export function PoseViewer({
+  files,
+  label,
+  onContacts,
+  verdict = null,
+  animate = false,
+}: PoseViewerProps) {
+  // What to play: the verdict's motion, else a plain glide in for a pose with no verdict.
+  const motion: BindingVerdict | null = verdict?.outcome ?? (animate ? "binds" : null);
   const [receptor, poses, crystal] = useQueries({
     queries: [
       dockFileQuery(files.receptor),
@@ -72,18 +74,22 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
       dockFileQuery(files.crystal_ligand),
     ],
   });
-  const reduced = useReducedMotion();
   const [surface, setSurface] = useState(true);
   const [overlay, setOverlay] = useState(false);
-  // No choice yet: spin unless motion is reduced. A click is the reader's own choice.
+  const [interactions, setInteractions] = useState(true);
+  // Still until the reader asks: a turning view makes labels hard to read.
   const [spinChoice, setSpinChoice] = useState<boolean | null>(null);
-  const spin = spinChoice ?? !reduced;
+  const spin = spinChoice ?? false;
 
   const hostRef = useRef<HTMLDivElement>(null);
   const toolbarRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<PoseScene | null>(null);
   // The controls' latest values, for a scene that is built after they changed.
-  const controlsRef = useRef({ surface, overlay, spin });
+  const controlsRef = useRef({ surface, overlay, spin, interactions });
+  const onContactsRef = useRef(onContacts);
+  const motionRef = useRef(motion);
+  // The verdict whose animation has finished: the tick or cross waits for the drug to arrive.
+  const [arrived, setArrived] = useState<BindingVerdict | null>(null);
   const webgl = canUseWebGL();
 
   const texts =
@@ -112,7 +118,11 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
     showSurface(host, scene, controls.surface);
     scene.setOverlay(controls.overlay);
     scene.setSpin(controls.spin);
+    scene.setInteractions(controls.interactions);
+    onContactsRef.current?.(scene.contacts);
+    playDock(scene, motionRef.current, setArrived);
     return () => {
+      onContactsRef.current?.([]);
       scene.dispose();
       sceneRef.current = null;
       delete host.dataset.ready;
@@ -131,6 +141,19 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
     controlsRef.current.overlay = overlay;
     sceneRef.current?.setOverlay(overlay);
   }, [overlay]);
+
+  useEffect(() => {
+    onContactsRef.current = onContacts;
+  }, [onContacts]);
+
+  useEffect(() => {
+    motionRef.current = motion;
+  }, [motion]);
+
+  useEffect(() => {
+    controlsRef.current.interactions = interactions;
+    sceneRef.current?.setInteractions(interactions);
+  }, [interactions]);
 
   useEffect(() => {
     controlsRef.current.spin = spin;
@@ -181,6 +204,14 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
           {copy.pose.controls.overlay}
         </Toggle>
         <Toggle
+          pressed={interactions}
+          onToggle={() => {
+            setInteractions(!interactions);
+          }}
+        >
+          {copy.pose.controls.interactions}
+        </Toggle>
+        <Toggle
           pressed={spin}
           onToggle={() => {
             setSpinChoice(!spin);
@@ -197,6 +228,17 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
         >
           {copy.pose.controls.reset}
         </button>
+        {motion !== null && (
+          <button
+            type="button"
+            className={styles.reset}
+            onClick={() => {
+              if (sceneRef.current) playDock(sceneRef.current, motion, setArrived);
+            }}
+          >
+            {verdict !== null ? copy.pose.controls.replay : copy.pose.controls.replayPose}
+          </button>
+        )}
         <ul className={styles.legend}>
           <li>
             <span className={styles.swatch} data-key="protein" aria-hidden="true" />
@@ -211,6 +253,23 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
       <div className={styles.stage}>
         <div ref={hostRef} className={styles.plate} role="img" aria-label={label} />
         {note !== null && <p className={styles.note}>{note}</p>}
+        {verdict !== null && arrived === verdict.outcome && (
+          <div className={styles.verdict} data-outcome={verdict.outcome} role="status">
+            <svg className={styles.verdictIcon} viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" />
+              {verdict.outcome === "binds" ? (
+                <path d="M6.5 12.5l3.6 3.6 7.4-7.7" />
+              ) : (
+                <path d="M8 8l8 8M16 8l-8 8" />
+              )}
+            </svg>
+            <span className={styles.verdictText}>
+              <strong>{copy.pose.verdict[verdict.outcome]}</strong>
+              <small>{verdict.basis}</small>
+              <small>{copy.pose.verdict.illustration}</small>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -230,5 +289,24 @@ function showSurface(host: HTMLElement, scene: PoseScene, on: boolean) {
     if (host.dataset.surface === (on ? "computing" : "removing")) {
       host.dataset.surface = on ? "on" : "off";
     }
+  });
+}
+
+/** Plays the drug coming in, and reports how it ended once it has arrived. */
+function playDock(
+  scene: PoseScene,
+  motion: BindingVerdict | null,
+  arrived: (outcome: BindingVerdict | null) => void,
+) {
+  arrived(null);
+  if (motion === null) return;
+  const still =
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  scene.playDock(motion, {
+    still,
+    onDone: () => {
+      arrived(motion);
+    },
   });
 }
