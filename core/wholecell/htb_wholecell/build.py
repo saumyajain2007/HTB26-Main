@@ -164,36 +164,89 @@ def build_hub(samples: Path, sd2: Path, drops: list[dict]) -> list[dict]:
     return sorted(out, key=lambda r: r["inchikey"])
 
 
+def _split_table(name: str, table: list[dict], with_year: bool) -> tuple[list[dict], dict]:
+    """Scaffold, random (and optionally year) assignments for one labelled table, and how leaky each is."""
+    scaffolds = [split.murcko_scaffold(r["smiles"]) for r in table]
+    labels = [int(r["label"]) for r in table]
+    years = [int(r["year_first"]) if str(r.get("year_first", "")).strip() else None for r in table] \
+        if with_year else [None] * len(table)
+    by_scaffold = split.scaffold_split(scaffolds, labels)
+    by_random = split.random_split(labels)
+    by_year = split.year_split(years) if with_year else [""] * len(table)
+    split.assert_scaffold_disjoint(scaffolds, by_scaffold)
+    rows = [{"source": name, "inchikey": r["inchikey"], "scaffold": sc,
+             "scaffold_split": a, "random_split": b, "year_split": c}
+            for r, sc, a, b, c in zip(table, scaffolds, by_scaffold, by_random, by_year)]
+    info = {"scaffold": split.describe(by_scaffold, labels), "random": split.describe(by_random, labels)}
+    if with_year:
+        info["year"] = split.describe(by_year, labels)
+        info["year_cutoff"] = split.YEAR_CUTOFF
+    # How close the test set still is to the training set under each split.
+    smiles = [r["smiles"] for r in table]
+    near = {}
+    for kind, assign in (("scaffold", by_scaffold), ("random", by_random)):
+        test = [s for s, a in zip(smiles, assign) if a == "test"]
+        train = [s for s, a in zip(smiles, assign) if a == "train"]
+        near[kind] = leakage.nearest_neighbour_report(test, train)
+    info["test_to_train_nearest_neighbour"] = near
+    return rows, info
+
+
 def build_splits(liu: list[dict], mic: list[dict]) -> tuple[list[dict], dict]:
     """Scaffold, random and year splits for both labelled tables, plus how leaky each one still is."""
     rows: list[dict] = []
     stats: dict = {}
     for name, table in (("liu_train", liu), ("chembl_mic", [r for r in mic if not r["conflict"]])):
-        scaffolds = [split.murcko_scaffold(r["smiles"]) for r in table]
-        labels = [int(r["label"]) for r in table]
-        years = [int(r["year_first"]) if str(r.get("year_first", "")).strip() else None for r in table] \
-            if name == "chembl_mic" else [None] * len(table)
-        by_scaffold = split.scaffold_split(scaffolds, labels)
-        by_random = split.random_split(labels)
-        by_year = split.year_split(years) if name == "chembl_mic" else [""] * len(table)
-        split.assert_scaffold_disjoint(scaffolds, by_scaffold)
-        for r, sc, a, b, c in zip(table, scaffolds, by_scaffold, by_random, by_year):
-            rows.append({"source": name, "inchikey": r["inchikey"], "scaffold": sc,
-                         "scaffold_split": a, "random_split": b, "year_split": c})
-        info = {"scaffold": split.describe(by_scaffold, labels), "random": split.describe(by_random, labels)}
-        if name == "chembl_mic":
-            info["year"] = split.describe(by_year, labels)
-            info["year_cutoff"] = split.YEAR_CUTOFF
-        # How close the test set still is to the training set under each split.
-        smiles = [r["smiles"] for r in table]
-        near = {}
-        for kind, assign in (("scaffold", by_scaffold), ("random", by_random)):
-            test = [s for s, a in zip(smiles, assign) if a == "test"]
-            train = [s for s, a in zip(smiles, assign) if a == "train"]
-            near[kind] = leakage.nearest_neighbour_report(test, train)
-        info["test_to_train_nearest_neighbour"] = near
-        stats[name] = info
+        table_rows, stats[name] = _split_table(name, table, with_year=name == "chembl_mic")
+        rows.extend(table_rows)
     return sorted(rows, key=lambda r: (r["source"], r["inchikey"])), stats
+
+
+def build_species_release(chembl_db: Path, taxon: int, organism: str, out_root: Path = DEFAULT_ROOT,
+                          chembl_release: str = "chembl-37") -> Path:
+    """A release of one organism's ChEMBL MIC table, with its splits, for training a ranker on it.
+
+    Additive to ``build_release``: that release is sealed and checksummed, so another organism gets
+    its own folder. The table is ``mic_<taxon>``, conflicts left out, labelled by the same
+    ``MIC_ACTIVE_MAX_UG_ML`` rule as the *A. baumannii* ``chembl_mic`` table. It is literature
+    data, so it is biased towards published analogue series (docs/whole-cell-data.md).
+    """
+    if not Path(chembl_db).exists():
+        raise FileNotFoundError(f"missing input: {chembl_db}")
+    drops: list[dict] = []
+    mic = build_mic(Path(chembl_db), drops, taxon)
+    usable = [r for r in mic if not r["conflict"]]
+    name = f"mic_{taxon}"
+    release = f"chembl{chembl_release.split('-')[-1]}_mic_taxon{taxon}"
+    release_dir = Path(out_root) / "releases" / release
+    tables_dir = release_dir / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+    _write(tables_dir / f"{name}.tsv", MIC_COLUMNS, usable)
+    drops.sort(key=lambda r: (r["source"], r["reason"], r["record"]))
+    _write(tables_dir / "drop_log.tsv", DROP_COLUMNS, drops)
+    split_rows, split_stats = _split_table(name, usable, with_year=True)
+    _write(tables_dir / "splits.tsv", SPLIT_COLUMNS, sorted(split_rows, key=lambda r: r["inchikey"]))
+    manifest = {
+        "release": release,
+        "organism": f"{organism} (NCBI taxon {taxon})",
+        "table": name,
+        "rule": f"active when majority of usable records are <= {MIC_ACTIVE_MAX_UG_ML} ug/mL; "
+                "molecules with conflicting records are left out",
+        "standardisation": "largest fragment, neutralised, keyed by InChIKey (RDKit)",
+        "source": {"chembl": {"release": chembl_release, "file": Path(chembl_db).name,
+                              "licence": "CC BY-SA 3.0 (ChEMBL)"}},
+        "statistics": {
+            name: {**_stats(usable), "conflicts_left_out": sum(r["conflict"] for r in mic)},
+            "splits": split_stats,
+            "drops_by_reason": dict(sorted(Counter(f"{d['source']}:{d['reason']}" for d in drops).items())),
+        },
+        "tables": {t.name: {"rows": len(read_table(t)), "sha256": sha256_file(t)}
+                   for t in sorted(tables_dir.glob("*.tsv"))},
+        "limits": "Literature MICs are mostly published analogue series, so a model that scores well may be "
+                  "recognising chemical series. Compare with the nearest-active baseline before trusting it.",
+    }
+    (release_dir / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return release_dir
 
 
 def _stats(rows: list[dict], label: str = "label") -> dict:

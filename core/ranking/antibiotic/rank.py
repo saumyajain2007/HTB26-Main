@@ -297,25 +297,31 @@ def rank_candidates(
         c["explanation"] = _explain(profile, c, rank, len(built), ties[_sort_key(c)] - 1, drug.class_route)
 
     if certifier is not None:
-        survivors = [(d, c) for d, c in built if c["smoke_test"]["passed"]]
-        if survivors:
+        # Every molecule with usable descriptors gets a certificate, including ones that fail the
+        # rules: Lean then names the broken rules instead of the website saying nothing ran.
+        checkable = [(d, c) for d, c in built if c["smoke_test"]["valid"] and c["smoke_test"]["descriptors"]]
+        if checkable:
             unique_smokes = []
             unique_keys: list[str] = []
             seen_keys: set[str] = set()
-            for d, _ in survivors:
+            for d, _ in checkable:
                 k = d.inchikey or d.smiles
                 if k not in seen_keys:
                     seen_keys.add(k)
                     unique_keys.append(k)
                     unique_smokes.append(raw[d.chembl_id])
             cert_by_key = dict(zip(unique_keys, certifier(unique_smokes)))
-            for drug, c in survivors:
+            for drug, c in checkable:
                 cert = cert_by_key[drug.inchikey or drug.smiles]
                 c["certificate_status"], c["certificate"] = _certificate(
                     {**c["smoke_test"], "inchikey": drug.inchikey}, cert)
-                if c["certificate_status"] == "failed":
+                if cert.ran and cert.certified != c["smoke_test"]["passed"]:
                     log.append({"chembl_id": drug.chembl_id, "name": drug.name,
-                                "reason": f"Lean and the Python smoke test disagree: Lean failed {cert.failed_rules}"})
+                                "reason": ("Lean and the Python smoke test disagree: "
+                                           f"smoke test {'passed' if c['smoke_test']['passed'] else 'failed'}, "
+                                           f"Lean failed {cert.failed_rules}" if not cert.certified else
+                                           "Lean and the Python smoke test disagree: "
+                                           "smoke test failed, Lean certified")})
 
     releases = list(dict.fromkeys([*profile["releases"], catalogue_release]))
     method = METHOD

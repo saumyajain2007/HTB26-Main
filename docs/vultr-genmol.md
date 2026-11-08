@@ -38,12 +38,13 @@ repo's rule is never to use pretrained generators there. So:
 
 ## 1. Get API access
 
-The key in `.env` is named `VULTR_INFERENCE_API_KEY`. On 8 November it returned HTTP 200 from Vultr's
-inference API but `401 Unauthorized IP address` from the cloud API (`/v2/account`), so it cannot create
-servers from the machine it was tried on. *Checked.*
+The key in `.env` is named `VULTR_INFERENCE_API_KEY`. On 8 November it first returned `401 Unauthorized IP
+address` from the cloud API, because the key's access control did not include this machine; after the
+IP was allowed, `GET /v2/account` returned 200 with full account permissions (`root`, `provisioning`,
+`billing` and others), a $100 credit and no instances, bare-metal servers or SSH keys. *Checked.*
 
-1. In the Vultr portal open Account, then API, and add the public IP of the machine that will call the API
-   to the key's access control (or allow all IPv4 for the lifetime of the task).
+1. If it returns 401 again, add the calling machine's public IP to the key's access control in the Vultr
+   portal (Account, then API).
 2. Test, printing only the status code, never the key:
 
    ```sh
@@ -51,36 +52,44 @@ servers from the machine it was tried on. *Checked.*
    curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer $KEY" https://api.vultr.com/v2/account
    ```
 
-3. If it still returns 401 after the IP is allowed, the inference key is not a cloud key: create a cloud API
-   key in the portal and store it as `VULTR_API_KEY` in `.env`. `.env` is gitignored; never commit it.
+3. The key can do anything on the account, including spend and delete. Treat it as a secret (`.env` is
+   gitignored; never commit it), and consider a key restricted to provisioning for this task.
+4. Check whose account and credit it is before spending from it.
 
-## 2. Cost and plan *(public plan list, checked)*
+## 2. Cost and plan *(checked 8 November 2026, with the key)*
 
-`GET https://api.vultr.com/v2/plans?type=vcg` (no key needed) listed three NVIDIA L40S plans:
+The L40S plans in Vultr's public list (`vcg-l40s-*`) were **not stocked in any region**. These GPU plans
+were (hourly is the monthly price divided by 730; billing is hourly, capped monthly):
 
-| Plan | GPU memory | vCPU | RAM | Price |
-| --- | --- | --- | --- | --- |
-| `vcg-l40s-16c-180g-48vram` | 48 GB | 16 | 180 GB | about $1.54 per hour |
-| `vcg-l40s-32c-375g-96vram` | 96 GB | 32 | 375 GB | about $3.08 per hour |
-| `vcg-l40s-64c-750g-192vram` | 192 GB | 64 | 750 GB | about $6.15 per hour |
+| Plan | GPU memory | vCPU | RAM | About | Regions with stock |
+| --- | --- | --- | --- | --- | --- |
+| `vcg-a16-6c-60g-16vram` | 16 GB | 6 | 60 GB | $0.47 per hour | atl, blr, ewr, fra, lhr, nrt, ord, sgp, sjc |
+| `vcg-a16-12c-120g-32vram` | 32 GB | 12 | 120 GB | $0.94 per hour | blr, ewr, fra, lhr, nrt, ord, sgp, sjc |
+| `vcg-a40-24c-120g-48vram` | 48 GB | 24 | 120 GB | $1.71 per hour | lax |
+| `vcg-a100-12c-120g-80vram` | 80 GB | 12 | 120 GB | $2.40 per hour | ewr |
 
-Use the smallest. The paper ran GenMol on one A100; an L40S should be enough but that is *unchecked*. The
-plan list returned no regions, so find where the plan is offered in the portal or with
-`GET /v2/regions/{region}/availability?type=vcg` *(unchecked)*. GPU plans may need access requested from
-Vultr first *(unchecked)*.
+GenMol is an 89M-parameter model, so memory is not the constraint; the paper ran it on one A100. The
+suggested plan is `vcg-a16-12c-120g-32vram` in `ewr` (the 12 vCPUs and 120 GB help the scoring oracle,
+and an A100 is in the same region if the A16 is too slow). Whether an A16 is fast enough is *unchecked*.
+Availability changes, so re-query before creating:
+
+```sh
+curl -s -H "Authorization: Bearer $KEY" "https://api.vultr.com/v2/regions/ewr/availability?type=vcg"
+```
 
 **Billing runs until the instance is destroyed, including while it is stopped.** A working session of a few
-hours costs under about $10. Section 7 is the teardown checklist.
+hours is a few dollars. Section 7 is the teardown checklist.
 
 ## 3. Create the instance
 
 In the portal (simplest), or with the API *(unchecked; confirm field names in Vultr's API reference)*:
 
 ```sh
-# os ids: curl -s https://api.vultr.com/v2/os | less    (pick Ubuntu 22.04 x64)
+# Ubuntu 22.04 LTS x64 is os_id 1743 (checked). No SSH key is registered on the account yet:
+# create one first with POST /v2/ssh-keys (name, ssh_key), or add one in the portal.
 curl -s -X POST https://api.vultr.com/v2/instances \
   -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
-  -d '{"region":"<region>","plan":"vcg-l40s-16c-180g-48vram","os_id":<ubuntu-22.04-id>,
+  -d '{"region":"ewr","plan":"vcg-a16-12c-120g-32vram","os_id":1743,
        "label":"htb-genmol","sshkey_id":["<your-ssh-key-id>"]}'
 ```
 
@@ -148,6 +157,6 @@ box without this machine: ship the fitted scikit-learn models and RDKit with it.
 
 ## Unchecked, to verify first
 
-Whether the L40S is enough, whether GPU plans need a quota request, which regions stock the plan, the
+Whether an A16 is fast enough, whether the create call needs a GPU quota request, the exact
 cloud-API request fields, NGC download steps, GenMol's pretraining data, whether CPU-only inference works
 (the docs do not say), and how the repo registers a custom oracle.
