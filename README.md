@@ -1,4 +1,4 @@
-# HTB26-Main
+# NovaBiotech
 
 Antibiotic resistance profiling and in-silico candidate prioritisation for Hack The Burgh 2026.
 
