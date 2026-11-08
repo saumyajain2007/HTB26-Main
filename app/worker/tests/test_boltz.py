@@ -115,3 +115,36 @@ def test_cli_runs_boltz_and_publishes_completed_output(tmp_path, monkeypatch):
     assert commands[0][commands[0].index("--model") + 1] == "boltz2"
     assert commands[0][commands[0].index("--output_format") + 1] == "pdb"
     assert load_prediction(tmp_path / "results", PROFILE, "CHEMBL1") is not None
+
+
+def test_exploratory_publication_requires_and_preserves_limitations(tmp_path):
+    model = tmp_path / "complex.pdb"
+    model.write_text(
+        "ATOM      1  CA  ALA A   1      11.000  12.000  13.000\n"
+        "HETATM    2  C1  LIG B   1      14.000  15.000  16.000\nEND\n"
+    )
+    confidence = tmp_path / "confidence.json"
+    confidence.write_text('{"confidence_score": 0.7}')
+
+    def attempt(notes=None):
+        return publish(
+            model=model,
+            confidence=confidence,
+            root=tmp_path / "results",
+            profile_id=PROFILE,
+            candidate_id="test",
+            smiles="C",
+            target_name="PBP construct",
+            sequence="ACDE",
+            version="test",
+            prediction_scope="exploratory",
+            limitations=notes,
+        )
+
+    with pytest.raises(ValueError, match="input assumptions"):
+        attempt()
+    attempt(["Truncated receptor; isoform assumed."])
+    result = load_prediction(tmp_path / "results", PROFILE, "test")
+    assert result is not None
+    assert result.prediction_scope == "exploratory"
+    assert result.limitations == ["Truncated receptor; isoform assumed."]

@@ -13,7 +13,7 @@ available.
 
 ## Included predictions
 
-[results/boltz-precomputed](../results/boltz-precomputed/README.md) contains 27 real complexes:
+[results/boltz-precomputed](../results/boltz-precomputed/README.md) contains 27 reference-protein complexes and 21 exploratory PBP constructs. The reference set covers
 trimethoprim–DHFR and eight sulfonamides–DHPS for each of *S. aureus*, *K. pneumoniae* and
 *A. baumannii*. They use accession-specific species-reference sequences, not isolate-specific
 resistance variants. Each directory includes coordinates, confidence, sequence and provenance.
@@ -105,3 +105,20 @@ assumptions and limitations rather than silent target substitution.
 
 See the [official Boltz repository](https://github.com/jwohlwend/boltz) and
 [prediction instructions](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md).
+
+
+## Exploratory PBP results
+
+The additional 21 complexes cover the seven highest-ranked remaining PBP candidates per species.
+They use assumed PBP isoforms and C-terminal constructs: P07944 residues 327–670 for *S. aureus*,
+A6T696 residues 280–633 for *K. pneumoniae*, and D0C8Z9 residues 280–672 for *A. baumannii*.
+Each construct includes the annotated catalytic serine, but the receptor truncation is an
+exploratory modeling assumption. Full-protein allostery, covalent beta-lactam acylation and
+prodrug metabolism are omitted. The fast preset uses one sample, seed 42, MSA cap 256,
+two recycling steps and 100 sampling steps.
+
+These files have `prediction_scope: exploratory` and explicit `limitations`, including any
+observed coordinate stereochemistry or connectivity warnings. The API requires a nonempty
+limitations list for exploratory results, and the viewer displays it before opening the pose.
+They are not promoted to the reference set or used to change the antibiotic ranking.
+The generation CLI supports `--exploratory` with repeated `--limitation` arguments.

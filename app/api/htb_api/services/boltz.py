@@ -4,9 +4,10 @@ from __future__ import annotations
 
 import hashlib
 from pathlib import Path
+from typing import Literal
 from uuid import UUID
 
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from ..schemas import DockFile, Model
 
@@ -21,6 +22,14 @@ class BoltzPrediction(Model):
     confidence_score: float = Field(ge=0, le=1)
     receptor: DockFile
     ligand: DockFile
+    prediction_scope: Literal["reference", "exploratory"] = "reference"
+    limitations: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def require_exploratory_limitations(self) -> BoltzPrediction:
+        if self.prediction_scope == "exploratory" and not self.limitations:
+            raise ValueError("Exploratory predictions must describe their input assumptions")
+        return self
 
 
 def prediction_key(profile_id: UUID, candidate_id: str) -> str:

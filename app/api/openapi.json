@@ -353,6 +353,22 @@
           "ligand": {
             "$ref": "#/components/schemas/DockFile"
           },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Limitations",
+            "type": "array"
+          },
+          "prediction_scope": {
+            "default": "reference",
+            "enum": [
+              "reference",
+              "exploratory"
+            ],
+            "title": "Prediction Scope",
+            "type": "string"
+          },
           "profile_id": {
             "format": "uuid",
             "title": "Profile Id",
