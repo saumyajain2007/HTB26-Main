@@ -1,0 +1,72 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6W9PW8P5TFT52ES5TK72B7Y",
+  "session_id": "53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-08T00:42:38.096115Z",
+  "branch": "ws3-bacterial-structures",
+  "checkpoints_count": 3,
+  "save_step_count": 8,
+  "files_touched": [
+    "app/api/htb_api/fixtures/structures.json",
+    "app/api/htb_api/repo/postgres.py",
+    "app/api/htb_api/schemas.py",
+    "app/api/htb_api/services/docking.py",
+    "app/api/openapi.json",
+    "app/api/tests/test_docking.py",
+    "app/api/tests/test_fixtures.py",
+    "app/web/src/api/schema.d.ts",
+    "app/worker/htb_worker/prepare.py",
+    "app/worker/structures/2VES/crystal_ligand.sdf",
+    "app/worker/structures/2VES/meta.json",
+    "app/worker/structures/2VES/receptor.pdb",
+    "app/worker/structures/2VES/receptor.pdbqt",
+    "app/worker/structures/3G7B/crystal_ligand.sdf",
+    "app/worker/structures/3G7B/meta.json",
+    "app/worker/structures/3G7B/receptor.pdb",
+    "app/worker/structures/3G7B/receptor.pdbqt",
+    "app/worker/structures/3P3E/crystal_ligand.sdf",
+    "app/worker/structures/3P3E/meta.json",
+    "app/worker/structures/3P3E/receptor.pdb",
+    "app/worker/structures/3P3E/receptor.pdbqt",
+    "app/worker/structures/3U2K/crystal_ligand.sdf",
+    "app/worker/structures/3U2K/meta.json",
+    "app/worker/structures/3U2K/receptor.pdb",
+    "app/worker/structures/3U2K/receptor.pdbqt",
+    "app/worker/tests/test_queue.py",
+    "deploy/db/migrations/0011_dock_bacterial_targets.sql",
+    "deploy/db/tests/test_migrations.py",
+    "docs/targets.md",
+    "tasks.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "ee22bd16f756",
+  "checkpoint_transcript_start": 1929,
+  "transcript_lines_at_start": 1929,
+  "compact_transcript_start": 229,
+  "token_usage": {
+    "input_tokens": 78,
+    "cache_creation_tokens": 74102,
+    "cache_read_tokens": 19125999,
+    "output_tokens": 44630,
+    "api_call_count": 36
+  },
+  "redaction": {
+    "replacements": 15,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 15,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 17
+  }
+}
