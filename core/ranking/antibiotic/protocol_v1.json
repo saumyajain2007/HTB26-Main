@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "experiment_id": "antibiotic-ablation-v1",
+  "status": "draft",
+  "status_note": "Becomes 'frozen' only when `ablation freeze` has recorded the hashes of this file, the cited cases and the data releases. Until cases exist, nothing here is a result.",
+  "question": "Does the ranking put known-effective approved drugs near the top for a resistance profile, and does an activity floor help or hurt?",
+  "variants": [
+    {"name": "evasion_first", "max_median_mic": null, "role": "reference: the order in the contract fixtures, evasion then activity then property check"},
+    {"name": "evasion_first_mic16", "max_median_mic": 16, "role": "primary test: drugs with a measured median MIC above 16 mg/L are left out"},
+    {"name": "evasion_first_mic8", "max_median_mic": 8, "role": "sensitivity: stricter floor"},
+    {"name": "evasion_first_mic32", "max_median_mic": 32, "role": "sensitivity: looser floor"}
+  ],
+  "baselines": ["random", "class_not_defeated", "activity_only"],
+  "reference_variant": "evasion_first",
+  "primary_comparison": ["evasion_first_mic16", "evasion_first"],
+  "floor_note": "16 mg/L is a working assumption, not a clinical breakpoint. It is declared here, before any result, so that it cannot be tuned afterwards. 8 and 32 are reported as sensitivity checks only; the primary claim uses 16.",
+  "metrics": {"hits_at_k": [1, 3, 5, 10], "mrr": true},
+  "ties": {"method": "random permutation within exact ties of the ranking key, metrics averaged over permutations", "permutations": 200, "seed": 0},
+  "missing_policy": "a known drug that a variant leaves out (the floor drops it) is never retrieved: it adds nothing to hits and MRR",
+  "bootstrap": {"samples": 2000, "seed": 0, "unit": "case", "interval": [2.5, 97.5], "paired": "the same resamples are used for every variant"},
+  "universe": "approved pool: ChEMBL max_phase 4, not withdrawn, with a structure",
+  "case_file": {
+    "contract_version": "1",
+    "cases": [
+      {
+        "case_id": "string, unique",
+        "profile": "a full ResistanceProfile (docs/contracts.md)",
+        "effective_drugs": [{"chembl_id": "CHEMBL...", "citation": "required: the source that says this drug is effective against this profile"}]
+      }
+    ]
+  },
+  "rules": [
+    "Cases and their labels are written and checked before any ranking is run, and hashed by `freeze`.",
+    "Check ontology types for every drug and class in a case first (docs/ontology-check.md); a mislabelled case is worse than a missing one.",
+    "Do not add, remove or relabel a case after the freeze. A change is a new experiment id.",
+    "Report every variant and baseline, including any in which the floor does worse. A negative result is a result.",
+    "Report the number of cases and the intervals with every figure. With fewer than 10 evaluable cases, make no claim of a difference.",
+    "A known drug outside the pool is reported, not dropped silently."
+  ],
+  "classification": "retrospective known-treatment recovery from literature labels; not a prospective or clinical test"
+}
