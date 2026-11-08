@@ -1471,6 +1471,46 @@ class PathogenPresets(Model):
     items: list[PathogenPreset] = Field(description="Every preset this API can profile.")
 
 
+class ProfileRequest(Model):
+    """Determinants to profile: either a species preset, or names as typed.
+
+    Resolving a name needs CARD's vocabulary, which only the server has, so this is
+    the only way the app can turn typed names into a `ResistanceProfile`.
+    """
+
+    kind: Literal["gene_list", "species_preset"] = Field(
+        description="species_preset: profile the preset for `species`. gene_list: profile `genes`."
+    )
+    species: str | None = Field(
+        default=None,
+        max_length=120,
+        description=(
+            "Species name or a known alias, e.g. Staphylococcus aureus. Required for a preset; "
+            "for a gene list it only records what was asked about."
+        ),
+        examples=["Staphylococcus aureus"],
+    )
+    genes: str | None = Field(
+        default=None,
+        max_length=4000,
+        description=(
+            "Determinants as typed, separated by commas, semicolons or line breaks. One item may "
+            "carry a point mutation, as in `gyrA S84L`, so items are never split on spaces. "
+            "Required for a gene list."
+        ),
+        examples=["mecA, gyrA S84L"],
+    )
+
+    @model_validator(mode="after")
+    def _check_kind(self) -> ProfileRequest:
+        if self.kind == "species_preset":
+            if not (self.species or "").strip():
+                raise ValueError("a species preset needs a species")
+        elif not (self.genes or "").strip():
+            raise ValueError("a gene list needs genes")
+        return self
+
+
 class ProfileList(Model):
     items: list[ResistanceProfile] = Field(description="Every profile this API holds.")
 

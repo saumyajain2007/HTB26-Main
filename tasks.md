@@ -96,7 +96,7 @@ Short, blocks everything. Do together, then split.
 - [ ] Curated combinations table, every row cited (for example beta-lactam plus inhibitor). `M`
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`
 - [x] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
-- [ ] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M`
+- [x] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M` Two known gaps are strict xfails; see [docs/profiling-known-cases.md](docs/profiling-known-cases.md). The expectations still need a microbiologist's review
 - [x] Spot check ten genes against CARD's web pages. Recorded in [docs/card-spot-check.md](docs/card-spot-check.md). `S`
 
 **Done when:** profiling each pathogen's typical resistant isolate yields class lists a microbiologist would recognise.
@@ -120,7 +120,7 @@ Short, blocks everything. Do together, then split.
 - [x] Regenerate API types for the new contracts (`gen:api`); add resistance-profile and candidate endpoints serving fixtures. `M` Routes and models in [app/api/README.md](app/api/README.md#resistance-routes); `ResistanceSource` is the seam the real profiling and ranking plug into.
 - [ ] Input screen: pick a pathogen or paste resistance genes. `M`
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
-- [ ] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
+- [x] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
 - [ ] Hide the COVID disease flow behind a flag rather than deleting it, so existing tests and the offline demo keep working until the new flow is complete. `M`
 - [ ] Rebuild evidence packets for resistance (mechanisms present, supporting and contradicting findings, safety, missing evidence); keep the existing validators and refusal handling. `M`
 

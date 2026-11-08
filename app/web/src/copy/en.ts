@@ -91,6 +91,253 @@ export const copy = {
     },
   ],
 
+  /**
+   * The antibiotic resistance flow's steps, in order. `slug` is the URL segment in
+   * `/resistance/:profileId/:step`. Intros never name the pathogen: the header shows it once.
+   */
+  resistanceSteps: [
+    {
+      slug: "pathogen",
+      title: "Choose a pathogen",
+      intro: "Start with the bacterium you are treating, or the resistance genes it carries.",
+    },
+    {
+      slug: "map",
+      title: "Resistance map",
+      intro: "Which resistance mechanisms the genes bring, and which drug classes they defeat.",
+    },
+    {
+      slug: "candidates",
+      title: "Candidate antibiotics",
+      intro:
+        "Approved drugs ranked by whether they evade the isolate’s resistance mechanisms, with generated proposals kept apart.",
+    },
+  ],
+
+  /** The antibiotic resistance flow: reading a profile, and the steps not yet built. */
+  resistance: {
+    loading: "Loading the resistance profile",
+    unavailable: "The resistance profile couldn’t be loaded. The server isn’t answering.",
+    notFound: {
+      title: "Resistance profile not found",
+      body: "There’s no resistance profile at this address.",
+      home: "Choose a pathogen",
+    },
+    /**
+     * Step 1: the pathogens on offer, the determinants an isolate carries, and what the profile
+     * already on screen was built from. A pathogen with no profile keeps its own note from the
+     * API, so the reason it cannot be opened is the API’s own words, not ours.
+     */
+    pathogen: {
+      presetsTitle: "Pathogens",
+      presetsLoading: "Loading the pathogens",
+      presetsUnavailable: "The pathogens couldn’t be loaded. The server isn’t answering.",
+      genesLabel: "Resistance gene names",
+      genesHint:
+        "One per line, or separated by commas. A name can carry a point mutation, like gyrA S84L, or be a CARD term such as ARO:3000617.",
+      genesRead: (count: number) =>
+        count === 0 ? "No names read" : `${String(count)} ${count === 1 ? "name" : "names"} read`,
+      genesRepeated: (names: readonly string[]) => `Repeated, so read once: ${listOf(names)}.`,
+      /** Only the server holds CARD’s vocabulary, so it alone can say which names it knows. */
+      genesHelp:
+        "The server looks each name up in CARD. Anything it doesn’t recognise is listed back, " +
+        "not dropped.",
+      genesSubmit: "Build the profile",
+      genesBuilding: "Looking the names up in CARD…",
+      /** The API has no CARD release: nothing was looked up, so say that and not “unknown name”. */
+      genesUnavailable:
+        "This copy of the API has no CARD release, so it can’t look names up. Pick a pathogen " +
+        "above instead.",
+      /** The parser read the input but refused it, with the server’s own reason. */
+      genesRefused: (reason: string) => `That input couldn’t be profiled: ${reason}`,
+      genesFailed: "The profile couldn’t be built. Please try again.",
+      profileTitle: "The profile on screen",
+      profileResolved: (resolved: number, requested: number) =>
+        `${String(resolved)} of ${String(requested)} ${requested === 1 ? "name" : "names"} asked for matched a term in CARD.`,
+      profileUnresolved: "Not recognised",
+    },
+    /**
+     * The resistance map: the mechanisms an isolate carries, the drug classes they rule out, and
+     * where the ranked drugs fall. Plain words lead and CARD’s own term follows, so a reader needs
+     * no ontology to read the map and a microbiologist still gets the term. Nothing here says a
+     * drug works: a class is *ruled out*, and the other side of the map is only the absence of a
+     * link in CARD.
+     */
+    map: {
+      figureLabel: "Resistance map: what this isolate defeats",
+      /** The one sentence a reader should take away, over the map. */
+      summary: (mechanisms: number, ruledOut: number, classes: number) => {
+        const subject =
+          mechanisms === 1
+            ? "One resistance mechanism"
+            : `${String(mechanisms)} resistance mechanisms`;
+        const verb = mechanisms === 1 ? "rules out" : "rule out";
+        const object =
+          ruledOut === classes
+            ? classes === 1
+              ? "the one drug class below"
+              : `all ${String(classes)} drug classes below`
+            : `${String(ruledOut)} of the ${String(classes)} drug classes below`;
+        return `${subject} in this isolate ${verb} ${object}.`;
+      },
+      /** The same sentence when the ranked drugs could not be loaded: classes only. */
+      summaryProfileOnly: (mechanisms: number, ruledOut: number) => {
+        const subject =
+          mechanisms === 1
+            ? "One resistance mechanism"
+            : `${String(mechanisms)} resistance mechanisms`;
+        const verb = mechanisms === 1 ? "rules out" : "rule out";
+        const object = ruledOut === 1 ? "one drug class" : `${String(ruledOut)} drug classes`;
+        return `${subject} in this isolate ${verb} ${object}.`;
+      },
+      caption:
+        "Drug classes run down the side, and the resistance mechanisms this isolate carries run " +
+        "across the top. A marked cell means a determinant CARD links to that class also carries " +
+        "that mechanism, so the class is ruled out. An unmarked cell means no determinant links " +
+        "that class to that mechanism.",
+      classHead: "Drug class",
+      mechanismsHead: "What this isolate can do to a drug",
+      drugsHead: "Drugs ranked here",
+      noDrugs: "None ranked",
+      /** CARD’s own term, after the plain words. */
+      cardTerm: (name: string) => `CARD: ${name}`,
+      /** An unmarked cell, for a reader who meets one cell at a time and not the whole row. */
+      noMark: "No link through this mechanism",
+      status: {
+        ruled_out: "Ruled out",
+        partly_affected: "Partly affected",
+        no_known_link: "No known link",
+        unknown: "CARD can’t say",
+      },
+      statusHelp: {
+        ruled_out:
+          "A determinant in this isolate is linked to this drug class in CARD, so the class is " +
+          "ruled out.",
+        partly_affected:
+          "Linked to only part of the class in CARD, so some drugs in it may still work.",
+        no_known_link:
+          "Nothing in this isolate is linked to this class in CARD. That is an absence of " +
+          "evidence, not a measured result, and never a prediction that a drug works.",
+        unknown: "CARD has nothing to say here, which is not the same as there being no link.",
+      },
+      keyTitle: "What the marks mean",
+      /** CARD’s mechanism vocabulary in plain words. Display text only: the data joins on ARO
+          IDs. A mechanism with no plain words here shows CARD’s term on its own. */
+      mechanismTerms: {
+        "antibiotic target alteration": "Changes what the drug binds",
+        "antibiotic target replacement": "Swaps in a target the drug can’t bind",
+        "antibiotic target protection": "Shields what the drug binds",
+        "antibiotic inactivation": "Breaks the drug apart",
+        "antibiotic efflux": "Pumps the drug back out",
+        "reduced permeability to antibiotic": "Keeps the drug outside the cell",
+        "resistance by absence": "Drops the target the drug needs",
+        "modification to cell morphology": "Changes the shape of the cell",
+      } as Record<string, string | undefined>,
+      determinantsTitle: "What the isolate carries",
+      /** A determinant’s provenance line: CARD’s term, its ID and the model that found it. */
+      determinantSource: (aroId: string, modelType: string) => `${aroId} · ${modelType}`,
+      affects: (target: string) => `Alters or replaces ${target}.`,
+      noTarget: "CARD names no sensitive target for this determinant.",
+      rulesOut: (classes: number) =>
+        classes === 1 ? "Rules out one drug class." : `Rules out ${String(classes)} drug classes.`,
+      readTitle: "How to read this map",
+      confidence: {
+        low: "Low confidence",
+        medium: "Medium confidence",
+        high: "High confidence",
+      },
+      unresolved: (text: string, reason: string) => `“${text}” isn’t in the profile: ${reason}.`,
+      built: (releases: string) => `Built from ${releases}.`,
+      unplaced:
+        "CARD gives these molecules no drug class, so the map can’t place them against a " +
+        "mechanism:",
+      proposed: "proposed molecule, not an approved drug",
+      /** The ranked drugs are missing: the profile alone still says what is ruled out. */
+      withoutCandidates:
+        "The drugs ranked against this profile couldn’t be loaded, so the map shows the classes " +
+        "ruled out and no drugs.",
+      /** Nothing resolved, so there is nothing to draw. */
+      nothingMapped:
+        "No resistance determinant in this isolate resolved to a CARD term, so there is nothing " +
+        "to map.",
+    },
+    /**
+     * Step 3: the ranked approved antibiotics and, visibly apart from them, any generated
+     * proposals, with a reading pane for the picked molecule’s explanation, separate features,
+     * property rules, cited evidence, jury status and caveats.
+     */
+    candidates: {
+      figureLabel: "Candidate antibiotics and generated proposals",
+      loading: "Loading the ranked candidates",
+      unavailable: "The ranked candidates couldn’t be loaded. The server isn’t answering.",
+      empty: "No candidates were returned for this resistance profile.",
+      approvedTitle: "Approved antibiotics",
+      approvedTableLabel: "Approved antibiotics in rank order",
+      generatedTitle: "Generated proposals (not ranked)",
+      generatedNote:
+        "Hypotheses from a generative model, kept separate from approved drugs and never ranked with them.",
+      generatedListLabel: "Generated molecule proposals",
+      rankingRule: (method: string, order: string) => `Ranked by ${order} (${method}).`,
+      rankHead: "#",
+      rankHeadLabel: "Rank",
+      drugHead: "Antibiotic",
+      evasionHead: "Standing",
+      activityHead: "Activity",
+      verifyHead: "Property check",
+      notMeasured: "Not measured",
+      noClass: "No CARD drug class",
+      proposalBadge: "Proposal",
+      readingLabel: (name: string) => `Details for ${name}`,
+      approvedKicker: (rank: number) => `Rank #${String(rank)} · Approved antibiotic`,
+      generatedKicker: "Unranked hypothesis · Generated molecule",
+      classLabel: "Drug class",
+      targetLabel: "Target",
+      targetAffectedBy: (genes: string) => `Affected in this isolate by ${genes}`,
+      mechanismLabel: "Mechanism of action",
+      provenanceTitle: "Generator provenance",
+      generatorModel: (model: string, version: string, seed: number) =>
+        `Model ${model} (v${version}), seed ${String(seed)}`,
+      derivedFrom: (parent: string) => `Derived from ${parent}`,
+      pocketUsed: (pdbId: string) => `Pocket structure ${pdbId}`,
+      whyTitle: "Why it sits here",
+      evadedTitle: "Mechanisms with no link in CARD",
+      defeatedByTitle: "Mechanisms linked in CARD",
+      featuresTitle: "Separate features",
+      featuresNote: "Kept separate, never blended into a single score.",
+      featureNames: {
+        activity: "Activity",
+        target_hit: "Target hit",
+        docking: "Docking",
+        safety: "Safety",
+      },
+      featureUnavailable: "Not available",
+      verifyTitle: "Property rules and certificate",
+      ruleSetLabel: (ruleSet: string) => `Rule set: ${ruleSet}`,
+      smokePassed: "Passes all encoded property rules",
+      smokeFailed: (count: number) =>
+        count === 1
+          ? "Fails 1 encoded property rule"
+          : `Fails ${String(count)} encoded property rules`,
+      certificateStatus: {
+        certified: "Lean 4 certificate proved",
+        failed: "Lean 4 proof: rule failed",
+        not_run: "Lean 4 proof not run",
+        unavailable: "Lean 4 unavailable",
+      },
+      leanProvenance: (version: string, seconds: number) =>
+        `Lean ${version} (${String(seconds)} s)`,
+      saScore: (score: number) => `Synthetic accessibility ${String(score)} (1 easy to 10 hard)`,
+      alertsLabel: (alerts: string) => `Structural alerts: ${alerts}`,
+      noAlerts: "No PAINS or Brenk structural alerts",
+      evidenceTitle: "Cited evidence",
+      juryTitle: "Model jury",
+      juryPending:
+        "The model jury has not reviewed this shortlist yet. Rebuilding evidence packets for antibiotic resistance is tracked in issue #33.",
+      caveatsTitle: "Caveats and missing data",
+      missingLabel: "Missing",
+    },
+  },
+
   /** The introduction at `/`: the approach, its four steps, and the way into the app. */
   intro: {
     title: "Repurposing existing drugs for diseases",
@@ -498,6 +745,27 @@ export const copy = {
 
 export type StepCopy = (typeof copy.steps)[number];
 export type StepSlug = StepCopy["slug"];
+
+export type ResistanceStepCopy = (typeof copy.resistanceSteps)[number];
+export type ResistanceStepSlug = ResistanceStepCopy["slug"];
+
+export const resistanceStepSlugs: readonly ResistanceStepSlug[] = copy.resistanceSteps.map(
+  (step) => step.slug,
+);
+
+export function isResistanceStepSlug(value: string | undefined): value is ResistanceStepSlug {
+  return value !== undefined && (resistanceStepSlugs as readonly string[]).includes(value);
+}
+
+export function resistanceStepIndex(slug: ResistanceStepSlug): number {
+  return resistanceStepSlugs.indexOf(slug);
+}
+
+export function resistanceStepCopy(slug: ResistanceStepSlug): ResistanceStepCopy {
+  const step = copy.resistanceSteps.find((candidate) => candidate.slug === slug);
+  if (step === undefined) throw new Error(`No copy for resistance step "${slug}"`);
+  return step;
+}
 
 export const stepSlugs: readonly StepSlug[] = copy.steps.map((step) => step.slug);
 

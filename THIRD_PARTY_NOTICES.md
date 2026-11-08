@@ -21,8 +21,11 @@ Each derived file carries a header comment naming the source. The full licence t
 ## CARD, the Comprehensive Antibiotic Resistance Database
 
 Resistance ontology and detection-model data from McMaster University, downloaded at build time
-and not committed to this repository (`data/card/` is gitignored). Code that reads it is in
-[core/resistance/](core/resistance/).
+and not committed to this repository (`data/card/` is gitignored), with one exception: a small excerpt of
+CARD 4.0.2 (18 determinants and the ontology terms they need, 389 rows) is committed under
+[core/resistance/tests/fixtures/card_slice/](core/resistance/tests/fixtures/card_slice/) so tests can run in CI. It is
+CARD's own rows, unedited, and its `manifest.json` says it is an excerpt. The licence and the caveat below apply to it too.
+Code that reads the data is in [core/resistance/](core/resistance/).
 
 - Licence: Creative Commons CC-BY 4.0, as stated on card.mcmaster.ca/download and in the ontology
   README. The README inside the data archive adds that use by any commercial organisation needs

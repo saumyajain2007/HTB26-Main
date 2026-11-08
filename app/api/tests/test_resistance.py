@@ -19,9 +19,15 @@ from htb_api.schemas import (
     PROPERTY_RULES,
     AntibioticCandidateResult,
     CertificateList,
+    ProfileRequest,
     ResistanceProfile,
 )
-from htb_api.services.resistance import PRESETS, FixtureResistance
+from htb_api.services.resistance import (
+    PRESETS,
+    FixtureResistance,
+    ProfilingRefused,
+    ProfilingUnavailable,
+)
 from htb_api.settings import FIXTURES_DIR
 
 CONTRACT_FIXTURES = Path(__file__).resolve().parents[3] / "tests" / "fixtures"
@@ -219,3 +225,87 @@ def test_a_profile_without_a_ranking_says_so(
     assert "ranked" in response.json()["detail"]
     # The profile itself is still served, so the app can show the map without a shortlist.
     assert client.get(f"/api/resistance/profiles/{profile_id}").status_code == 200
+
+
+# Building a profile from input (POST /resistance/profiles) -------------------
+#
+# Profiling resolves names against CARD, so it needs a built release. A process
+# without one answers 503 rather than inventing a verdict on a name.
+
+
+def test_fixture_source_cannot_profile(source: FixtureResistance) -> None:
+    with pytest.raises(ProfilingUnavailable):
+        source.build(ProfileRequest(kind="gene_list", genes="mecA"))
+
+
+def test_profiling_without_a_card_release_is_a_503(client: TestClient) -> None:
+    response = client.post(
+        "/api/resistance/profiles", json={"kind": "gene_list", "genes": "mecA, gyrA S84L"}
+    )
+    assert response.status_code == 503
+    assert "CARD" in response.json()["detail"]
+
+
+@pytest.mark.parametrize(
+    "body",
+    [
+        {"kind": "gene_list"},  # no genes
+        {"kind": "gene_list", "genes": "   "},
+        {"kind": "species_preset"},  # no species
+        {"kind": "nonsense", "genes": "mecA"},
+        {"kind": "gene_list", "genes": "mecA", "extra": 1},  # the contract forbids extras
+    ],
+)
+def test_a_request_that_cannot_be_read_is_a_422(
+    client: TestClient, body: dict[str, object]
+) -> None:
+    assert client.post("/api/resistance/profiles", json=body).status_code == 422
+
+
+class StubProfiling(FixtureResistance):
+    """Answers `build` with the fixture profile, standing in for a built CARD release."""
+
+    def __init__(self, fixtures_dir: Path) -> None:
+        super().__init__(fixtures_dir)
+        self.asked: list[ProfileRequest] = []
+
+    def build(self, request: ProfileRequest) -> ResistanceProfile:
+        self.asked.append(request)
+        return self._profile()
+
+
+def test_a_profiled_request_returns_the_contract(
+    make_client: Callable[..., TestClient], source: FixtureResistance
+) -> None:
+    stub = StubProfiling(FIXTURES_DIR)
+    client = make_client(resistance=stub)
+    response = client.post(
+        "/api/resistance/profiles",
+        json={"kind": "gene_list", "species": "Staphylococcus aureus", "genes": "mecA, gyrA S84L"},
+    )
+    assert response.status_code == 201, response.text
+    body = response.json()
+    # The wire shape is the frozen contract, and unresolved names are reported, not dropped.
+    profile = ResistanceProfile.model_validate(body)
+    assert profile.profile_id == source.profiles()[0].profile_id
+    assert body["unresolved_inputs"]
+    for item in body["unresolved_inputs"]:
+        assert item["text"] in body["input"]["requested"]
+        assert item["reason"]
+    # The request reached the backend as written, including the species asked about.
+    assert [(r.kind, r.species, r.genes) for r in stub.asked] == [
+        ("gene_list", "Staphylococcus aureus", "mecA, gyrA S84L")
+    ]
+
+
+def test_input_that_cannot_be_profiled_is_a_422(make_client: Callable[..., TestClient]) -> None:
+    class Refusing(FixtureResistance):
+        def build(self, request: ProfileRequest) -> ResistanceProfile:
+            raise ProfilingRefused("no preset for Escherichia coli")
+
+    client = make_client(resistance=Refusing(FIXTURES_DIR))
+    response = client.post(
+        "/api/resistance/profiles", json={"kind": "species_preset", "species": "Escherichia coli"}
+    )
+    assert response.status_code == 422
+    assert response.json()["detail"] == "no preset for Escherichia coli"
