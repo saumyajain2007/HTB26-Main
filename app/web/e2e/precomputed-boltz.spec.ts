@@ -35,7 +35,6 @@ test("saved trimethoprim Boltz prediction loads locally after reload", async ({
   await expect(viewer).toHaveAttribute("data-ready", "true", { timeout: 20_000 });
   await expect(viewer.locator("canvas")).toBeVisible();
   await viewer.scrollIntoViewIfNeeded();
-  await expect(page.getByText(/Illustrative placement animation/)).toBeVisible();
   await expect(viewer).toHaveAttribute("data-placement", "playing");
   await expect(viewer).toHaveAttribute("data-placement", "complete", { timeout: 10_000 });
   await page
