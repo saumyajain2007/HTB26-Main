@@ -23,7 +23,7 @@ from pathlib import Path
 from .card import DEFAULT_DIR
 from .inputs import (InputError, Species, parse_amrfinder, parse_gene_text, parse_preset)
 from .profile import build_profile
-from .reference import Reference, latest_release
+from .reference import SUPPLEMENT_PATH, Reference, latest_release
 from .typecheck import PATHOGENS
 
 DEFAULT_PRESETS = Path(__file__).resolve().parent / "data" / "presets.json"
@@ -90,6 +90,8 @@ def build_parser() -> argparse.ArgumentParser:
     ap.add_argument("--release-dir", type=Path,
                     help="a CARD release, data/card/releases/<version> "
                          "(default: the newest release under data/card)")
+    ap.add_argument("--no-supplement", action="store_true",
+                    help="leave out the curated supplement of drug classes CARD's download omits (supplement.json)")
     ap.add_argument("--strict", action="store_true",
                     help="fail if any entry cannot be resolved")
     ap.add_argument("--json", action="store_true",
@@ -117,7 +119,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
     try:
-        reference = Reference.from_release(args.release_dir or latest_release(DEFAULT_DIR))
+        reference = Reference.from_release(args.release_dir or latest_release(DEFAULT_DIR),
+                                       supplement=None if args.no_supplement else SUPPLEMENT_PATH)
         if args.mode == "genes":
             text = ", ".join(args.names)
             if args.file:
