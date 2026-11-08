@@ -3,8 +3,10 @@ import { ApiError } from "../../api/errors";
 import { copy, isResistanceStepSlug, type ResistanceStepSlug } from "../../copy/en";
 import {
   useAntibioticCandidates,
+  useCertificates,
   useResistanceProfile,
   type AntibioticCandidateResult,
+  type Certificate,
   type ResistanceProfile,
 } from "../../lib/resistance";
 import { Loading, Unavailable } from "../ExperimentStatus";
@@ -19,6 +21,8 @@ export interface ResistanceStepContext {
   profile: ResistanceProfile;
   /** The ranked candidates, or undefined while they load or if they could not be loaded. */
   candidates: AntibioticCandidateResult | undefined;
+  /** Standalone Lean 4 certificates from `/api/resistance/certificates`, matched by InChIKey. */
+  certificates: readonly Certificate[] | undefined;
   candidatesLoading: boolean;
   retryCandidates: () => void;
 }
@@ -37,6 +41,7 @@ export function ResistanceLayout() {
 function ResistanceScreen({ profileId, step }: { profileId: string; step: ResistanceStepSlug }) {
   const query = useResistanceProfile(profileId);
   const candidates = useAntibioticCandidates(profileId);
+  const certificates = useCertificates();
   const profile = query.data;
   const error = query.error;
 
@@ -64,8 +69,12 @@ function ResistanceScreen({ profileId, step }: { profileId: string; step: Resist
               {
                 profile,
                 candidates: candidates.data,
+                certificates: certificates.data,
                 candidatesLoading: candidates.isPending,
-                retryCandidates: () => void candidates.refetch(),
+                retryCandidates: () => {
+                  void candidates.refetch();
+                  void certificates.refetch();
+                },
               } satisfies ResistanceStepContext
             }
           />
