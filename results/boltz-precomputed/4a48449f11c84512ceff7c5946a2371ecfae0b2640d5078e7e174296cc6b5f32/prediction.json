@@ -1,0 +1,21 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL850",
+  "smiles": "C[C@@H]1CN(c2c(F)c(N)c3c(=O)c(C(=O)O)cn(C4CC4)c3c2F)C[C@H](C)N1",
+  "target_name": "Exploratory target fragment: S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+  "protein_sequence_sha256": "b53a4cbd6baa0471b4d082f01ab0694c4e2a2905318cfc360623da40e1bb98f3",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8230497241020203,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "f4af51838fe7e09e7f97c3db170c1f239d9dc376b1daf7e035150767e087a5fe"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "3d966b66b02352fedccb11f6663313b5c0b3ac59cdbacbcce7d7a10fd51145da"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit"
+  ]
+}

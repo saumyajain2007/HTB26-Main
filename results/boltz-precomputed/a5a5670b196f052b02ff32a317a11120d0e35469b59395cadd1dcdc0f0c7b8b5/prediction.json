@@ -1,0 +1,23 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL575",
+  "smiles": "COc1cccc(OC)c1C(=O)N[C@@H]1C(=O)N2[C@@H]1SC(C)(C)[C@@H]2C(=O)O",
+  "target_name": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+  "protein_sequence_sha256": "fd482819a219bf3edc5e742ac444e02820755ef60c03412823aa5dffeafe901e",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.3351456820964813,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "d0abe5940f7a887b96c881fc44f8e6c74a2732e62e983aef01ed741932b517f4"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "9b022f7153d01ebfaca3d726b700cf2728be92d53646b68b2ae14802350cd69e"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
+    "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
+    "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled."
+  ]
+}

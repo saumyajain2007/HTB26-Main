@@ -1,0 +1,21 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL1747",
+  "smiles": "NC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O[C@H]3O[C@H](CO)[C@@H](O)[C@H](N)[C@H]3O)[C@H](N)C[C@@H]2N)[C@H](N)C[C@@H]1O",
+  "target_name": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+  "protein_sequence_sha256": "9c0315cce0db1e04695a70b2598eb5376ce2740dd08799e79cc8d512d330e0e5",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8973645567893982,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "2ffeec3b486bcd8dc3a21b6cde2e651f682530f79f3dccf9fa4c8181f7f83e81"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "5ee2744b7bcc22299eb3ceca97a98eee5c25f8439f6c70bdff790547ec750069"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins"
+  ]
+}

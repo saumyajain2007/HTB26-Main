@@ -1,0 +1,29 @@
+{
+  "source": "https://data.rcsb.org/rest/v1/core/polymer_entity/4V53/1",
+  "construct_start": 1400,
+  "construct_end": 1510,
+  "recorded_candidate_target": "70S ribosome",
+  "receptor_kind": "rna",
+  "proxy_assumed": true,
+  "modifications": [],
+  "generator_atom_name_patch": null,
+  "seed": 42,
+  "max_msa_seqs": 256,
+  "recycling_steps": 2,
+  "sampling_steps": 100,
+  "qc": {
+    "connectivity_matches_input": true,
+    "stereochemistry_matches_input": true
+  },
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ],
+  "generation_notes": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target."
+  ]
+}

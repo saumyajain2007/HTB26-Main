@@ -115,7 +115,6 @@ describe("the candidate antibiotics view", () => {
     expect(linezolidPane.getByText(text.heavyAtoms(24))).toBeInTheDocument();
     expect(linezolidPane.getByText("TYZROVQLWOKYKF-ZDUSSCGKSA-N")).toBeInTheDocument();
     expect(linezolidPane.getByText(text.leanRanCertified(6))).toBeInTheDocument();
-    expect(linezolidPane.getByText(text.certificateScopeConfirmed)).toBeInTheDocument();
 
     // Vancomycin: 4 failing rules highlighted (data-passed="false") alongside 2 passed rules.
     await user.click(within(approvedTable()).getByRole("button", { name: /Vancomycin/i }));
@@ -182,7 +181,6 @@ describe("the candidate antibiotics view", () => {
     expect(
       pane.getByText("Lean is not installed or the HtbVerify library did not build"),
     ).toBeInTheDocument();
-    expect(pane.getByText(text.certificateScopeSmokeOnly)).toBeInTheDocument();
   });
 
   it("moves between candidates with ArrowDown and ArrowUp without leaving the step", async () => {

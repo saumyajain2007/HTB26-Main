@@ -75,12 +75,28 @@ export function BoltzPanel({
             </div>
           )}
           <p>
-            {candidateName} · {result.target_name} · Boltz {result.boltz_version}
+            {candidateName} · {result.target_name}
           </p>
-          <p>
-            Model confidence: {result.confidence_score.toFixed(3)} / 1. This is a predicted complex,
-            not measured binding affinity or antibiotic activity.
-          </p>
+          <div className={styles.confidence}>
+            <div className={styles.confidenceHeading}>
+              <span>Model confidence</span>
+              <span className={styles.confidenceValue}>
+                <strong>{result.confidence_score.toFixed(3)}</strong>
+                <span> / 1</span>
+              </span>
+            </div>
+            <div
+              className={styles.confidenceTrack}
+              role="meter"
+              aria-label="Model confidence"
+              aria-valuemin={0}
+              aria-valuemax={1}
+              aria-valuenow={result.confidence_score}
+              title="Confidence in the predicted structure, not measured affinity or antibiotic activity."
+            >
+              <span style={{ width: `${String(result.confidence_score * 100)}%` }} />
+            </div>
+          </div>
           <button
             type="button"
             className={styles.poseToggle}
@@ -91,12 +107,6 @@ export function BoltzPanel({
           >
             {open ? "Hide Boltz prediction" : "Show Boltz prediction"}
           </button>
-          {open && (
-            <p>
-              Illustrative placement animation—not a simulated binding trajectory. System
-              reduced-motion preferences disable placement motion.
-            </p>
-          )}
           {open && (
             <div className={styles.poseStage}>
               <Suspense fallback={<p>Loading predicted complex…</p>}>

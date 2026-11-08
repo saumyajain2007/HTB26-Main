@@ -64,7 +64,11 @@ it.each(["reference", "exploratory"] as const)(
     const create = vi.spyOn(PoseScene, "create");
     const play = vi.spyOn(PoseScene.prototype, "playPlacement");
     show();
-    expect(await screen.findByText(/Model confidence: 0.880/)).toBeVisible();
+    expect(await screen.findByRole("meter", { name: "Model confidence" })).toHaveAttribute(
+      "aria-valuenow",
+      "0.88",
+    );
+    expect(screen.getByText("0.880")).toBeVisible();
     if (scope === "exploratory") {
       expect(screen.getByRole("heading", { name: "Boltz-2 exploratory complex" })).toBeVisible();
       expect(screen.getByText("Assumed PBP isoform; covalent chemistry is omitted.")).toBeVisible();

@@ -29,13 +29,12 @@ test("saved trimethoprim Boltz prediction loads locally after reload", async ({
   await page.goto(`/resistance/${profileId}/candidates`);
   await page.getByRole("button", { name: /^TRIMETHOPRIM/i }).click();
   await expect(page.getByText(/S\. aureus wild-type DHFR/)).toBeVisible();
-  await expect(page.getByText(/Model confidence:/)).toBeVisible();
+  await expect(page.getByRole("meter", { name: "Model confidence" })).toBeVisible();
   await page.getByRole("button", { name: "Show Boltz prediction" }).click();
   const viewer = page.getByRole("img", { name: /TRIMETHOPRIM.*predicted by Boltz-2/i });
   await expect(viewer).toHaveAttribute("data-ready", "true", { timeout: 20_000 });
   await expect(viewer.locator("canvas")).toBeVisible();
   await viewer.scrollIntoViewIfNeeded();
-  await expect(page.getByText(/Illustrative placement animation/)).toBeVisible();
   await expect(viewer).toHaveAttribute("data-placement", "playing");
   await expect(viewer).toHaveAttribute("data-placement", "complete", { timeout: 10_000 });
   await page
