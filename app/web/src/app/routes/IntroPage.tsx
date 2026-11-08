@@ -35,7 +35,6 @@ export function IntroPage() {
           <p className={styles.lede}>{copy.intro.solution}</p>
           <div className={styles.action}>
             <Start />
-            <p className={styles.limit}>{copy.intro.limit}</p>
           </div>
         </Reveal>
         <Reveal order={3} className={styles.method}>

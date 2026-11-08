@@ -255,6 +255,9 @@ test("a hidden network cannot delay leaving a pose while native snapshot capture
 test("a student shows baricitinib's binding pose and checks it against the crystal", async ({
   page,
 }, testInfo) => {
+  // Two surface waits (20 s each) and context release (30 s) share this test's budget.
+  // Software WebGL on CI needs room for those waits plus navigation and controls.
+  test.setTimeout(90_000);
   await trackWebGLContexts(page);
   const id = await readyExperiment(page);
 

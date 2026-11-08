@@ -253,7 +253,18 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
                           <td className={styles.metaCell}>
                             {entry.activitySummary ?? text.notMeasured}
                           </td>
-                          <td className={styles.metaCell}>{propertyCell(entry)}</td>
+                          <td className={styles.metaCell}>
+                            <span className={styles.standing}>
+                              <RuleMark
+                                passed={
+                                  entry.propertyRules.length === 0
+                                    ? undefined
+                                    : entry.failedRuleCount === 0
+                                }
+                              />
+                              {propertyCell(entry)}
+                            </span>
+                          </td>
                         </tr>
                       );
                     })}
