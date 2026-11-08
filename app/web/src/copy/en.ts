@@ -381,6 +381,22 @@ export const copy = {
         "Recorded as a warning, not a failure (reactive groups such as beta-lactams are common in antibiotics).",
       alertsStrictNote: "Strict alerts enabled: structural alerts count as a failure.",
       noAlerts: "No PAINS or Brenk structural alerts",
+      poseTitle: "Binding pose and target structures",
+      poseMatchedSummary: (pdbId: string, symbol: string, targetId: string) =>
+        `Matched to prepared bacterial crystal structure ${pdbId} (${symbol}, UniProt ${targetId}).`,
+      poseNoTargetStructure: (targetName: string) =>
+        `No prepared crystal structure for ${targetName} passed the 2 Å redocking control; the prepared bacterial set covers DNA gyrase B (gyrB) and LpxC.`,
+      poseNoTargetRecorded:
+        "No target protein is recorded for this molecule; prepared bacterial structures are listed below.",
+      poseNoStructures: "No prepared bacterial structures are loaded.",
+      posePickerLabel: "Prepared bacterial structure",
+      poseStructureOption: (pdbId: string, symbol: string, resolution: number, ligand: string) =>
+        `${pdbId} · ${symbol} (${angstrom(resolution)}, ${ligand})`,
+      poseTargetAccessionLabel: "Target accession",
+      poseCrystalLigandLabel: "Co-crystal ligand",
+      poseCrystalLigandValue: (name: string, compId: string) => `${name} (${compId})`,
+      poseShow: "Show binding pose",
+      poseHide: "Hide binding pose",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
       juryPending:
