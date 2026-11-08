@@ -22,5 +22,10 @@
     "Single-sequence EF-G prediction without a multiple-sequence alignment, to bound preparation time.",
     "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
     "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ],
+  "generation_notes": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Single-sequence EF-G prediction without a multiple-sequence alignment, to bound preparation time.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
   ]
 }

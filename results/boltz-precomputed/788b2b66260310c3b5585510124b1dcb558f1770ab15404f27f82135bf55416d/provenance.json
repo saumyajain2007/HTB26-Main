@@ -37,5 +37,10 @@
     "Boltz 2.2.1 atom-name compatibility fix: two-letter element atom IDs use hexadecimal canonical indices to fit PDB width; chemistry unchanged.",
     "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
     "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ],
+  "generation_notes": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Boltz 2.2.1 atom-name compatibility fix: two-letter element atom IDs use hexadecimal canonical indices to fit PDB width; chemistry unchanged.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
   ]
 }

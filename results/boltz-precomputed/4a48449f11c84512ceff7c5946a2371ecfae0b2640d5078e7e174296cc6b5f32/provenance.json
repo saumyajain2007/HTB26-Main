@@ -20,5 +20,9 @@
     "S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
     "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
     "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ],
+  "generation_notes": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
   ]
 }

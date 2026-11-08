@@ -19,7 +19,6 @@
     "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
     "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
     "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled.",
-    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
     "Coordinate QC: inferred stereochemistry differs from the input molecule."
   ]
 }

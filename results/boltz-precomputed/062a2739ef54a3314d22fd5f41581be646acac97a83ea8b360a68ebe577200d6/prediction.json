@@ -16,9 +16,7 @@
   },
   "prediction_scope": "exploratory",
   "limitations": [
-    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
     "E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
-    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
-    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target."
   ]
 }

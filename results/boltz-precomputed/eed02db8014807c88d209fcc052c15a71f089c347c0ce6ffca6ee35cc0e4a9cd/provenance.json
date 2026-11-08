@@ -18,5 +18,8 @@
     "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled.",
     "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
     "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ],
+  "generation_notes": [
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
   ]
 }

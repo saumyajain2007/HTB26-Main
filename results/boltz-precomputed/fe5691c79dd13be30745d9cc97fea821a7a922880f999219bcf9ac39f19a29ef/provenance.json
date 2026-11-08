@@ -20,5 +20,9 @@
     "E. coli 23S rRNA residues 2050-2110 proxy; different species, isolated fragment, missing remaining exit-tunnel components",
     "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
     "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ],
+  "generation_notes": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
   ]
 }

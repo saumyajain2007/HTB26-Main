@@ -75,7 +75,7 @@ export function BoltzPanel({
             </div>
           )}
           <p>
-            {candidateName} · {result.target_name} · Boltz {result.boltz_version}
+            {candidateName} · {result.target_name}
           </p>
           <p>
             Model confidence: {result.confidence_score.toFixed(3)} / 1. This is a predicted complex,
@@ -92,10 +92,7 @@ export function BoltzPanel({
             {open ? "Hide Boltz prediction" : "Show Boltz prediction"}
           </button>
           {open && (
-            <p>
-              Illustrative placement animation—not a simulated binding trajectory. System
-              reduced-motion preferences disable placement motion.
-            </p>
+            <p>Illustrative placement animation—not a simulated binding trajectory.</p>
           )}
           {open && (
             <div className={styles.poseStage}>
