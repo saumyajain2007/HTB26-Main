@@ -1,5 +1,12 @@
-import { useQueries } from "@tanstack/react-query";
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useQuery } from "@tanstack/react-query";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { dockFileQuery } from "../api/queries";
 import type { PoseFiles } from "../api/types";
 import { copy } from "../copy/en";
@@ -13,6 +20,7 @@ interface PoseViewerProps {
   files: PoseFiles;
   /** Accessible name of the 3D view: which drug in which protein. */
   label: string;
+  predicted?: boolean;
   /** Told the drug's close polar contacts once the scene is drawn, and `[]` when it is gone. */
   onContacts?: (contacts: Contact[]) => void;
   /**
@@ -26,6 +34,18 @@ interface PoseViewerProps {
    * verdict. Ignored when a `verdict` is given.
    */
   animate?: boolean;
+}
+
+const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
+function subscribeToMotion(onChange: () => void) {
+  const query = window.matchMedia(REDUCED_MOTION);
+  query.addEventListener("change", onChange);
+  return () => {
+    query.removeEventListener("change", onChange);
+  };
+}
+function useReducedMotion(): boolean {
+  return useSyncExternalStore(subscribeToMotion, () => window.matchMedia(REDUCED_MOTION).matches);
 }
 
 interface ToggleProps {
@@ -64,16 +84,17 @@ export function PoseViewer({
   onContacts,
   verdict = null,
   animate = false,
+  predicted = false,
 }: PoseViewerProps) {
   // What to play: the verdict's motion, else a plain glide in for a pose with no verdict.
-  const motion: BindingVerdict | null = verdict?.outcome ?? (animate ? "binds" : null);
-  const [receptor, poses, crystal] = useQueries({
-    queries: [
-      dockFileQuery(files.receptor),
-      dockFileQuery(files.poses),
-      dockFileQuery(files.crystal_ligand),
-    ],
-  });
+  const motion: BindingVerdict | null = predicted
+    ? null
+    : (verdict?.outcome ?? (animate ? "binds" : null));
+  const receptor = useQuery(dockFileQuery(files.receptor));
+  const poses = useQuery(dockFileQuery(files.poses));
+  const crystal = useQuery({ ...dockFileQuery(files.crystal_ligand), enabled: !predicted });
+  const reduced = useReducedMotion();
+  const [placement, setPlacement] = useState<"idle" | "playing" | "complete">("idle");
   const [surface, setSurface] = useState(true);
   const [overlay, setOverlay] = useState(false);
   const [interactions, setInteractions] = useState(true);
@@ -93,8 +114,14 @@ export function PoseViewer({
   const webgl = canUseWebGL();
 
   const texts =
-    receptor.data !== undefined && poses.data !== undefined && crystal.data !== undefined
-      ? { receptor: receptor.data, poses: poses.data, crystal: crystal.data }
+    receptor.data !== undefined &&
+    poses.data !== undefined &&
+    (predicted || crystal.data !== undefined)
+      ? {
+          receptor: receptor.data,
+          poses: poses.data,
+          crystal: predicted ? "" : (crystal.data ?? ""),
+        }
       : null;
   const receptorText = texts?.receptor;
   const posesText = texts?.poses;
@@ -108,7 +135,12 @@ export function PoseViewer({
     const scene = PoseScene.create(
       host,
       styles.layer ?? "",
-      { receptor: receptorText, poses: posesText, crystal: crystalText },
+      {
+        receptor: receptorText,
+        poses: posesText,
+        crystal: crystalText,
+        posesFormat: predicted ? "pdb" : "sdf",
+      },
       () => coveredBy(toolbarRef.current, host),
     );
     if (scene === null) return;
@@ -116,19 +148,35 @@ export function PoseViewer({
     host.dataset.ready = "true";
     const controls = controlsRef.current;
     showSurface(host, scene, controls.surface);
-    scene.setOverlay(controls.overlay);
+    scene.setOverlay(!predicted && controls.overlay);
     scene.setSpin(controls.spin);
     scene.setInteractions(controls.interactions);
     onContactsRef.current?.(scene.contacts);
-    playDock(scene, motionRef.current, setArrived);
+    if (!predicted) playDock(scene, motionRef.current, setArrived);
+    const autoplayFrame = predicted
+      ? requestAnimationFrame(() => {
+          if (sceneRef.current !== scene) return;
+          if (reduced) {
+            setPlacement("idle");
+            return;
+          }
+          setSpinChoice(false);
+          scene.setSpin(false);
+          setPlacement("playing");
+          scene.playPlacement(() => {
+            setPlacement("complete");
+          });
+        })
+      : 0;
     return () => {
+      cancelAnimationFrame(autoplayFrame);
       onContactsRef.current?.([]);
       scene.dispose();
       sceneRef.current = null;
       delete host.dataset.ready;
       delete host.dataset.surface;
     };
-  }, [webgl, receptorText, posesText, crystalText]);
+  }, [webgl, receptorText, posesText, crystalText, predicted, reduced]);
 
   useEffect(() => {
     controlsRef.current.surface = surface;
@@ -139,8 +187,8 @@ export function PoseViewer({
 
   useEffect(() => {
     controlsRef.current.overlay = overlay;
-    sceneRef.current?.setOverlay(overlay);
-  }, [overlay]);
+    sceneRef.current?.setOverlay(!predicted && overlay);
+  }, [overlay, predicted]);
 
   useEffect(() => {
     onContactsRef.current = onContacts;
@@ -152,15 +200,17 @@ export function PoseViewer({
 
   useEffect(() => {
     controlsRef.current.interactions = interactions;
-    sceneRef.current?.setInteractions(interactions);
-  }, [interactions]);
+    sceneRef.current?.setInteractions(interactions && placement !== "playing");
+  }, [interactions, placement]);
 
   useEffect(() => {
     controlsRef.current.spin = spin;
     sceneRef.current?.setSpin(spin);
   }, [spin]);
 
-  const failed = [receptor, poses, crystal].filter((query) => query.isError);
+  const failed = [receptor, poses, ...(!predicted ? [crystal] : [])].filter(
+    (query) => query.isError,
+  );
   let note: ReactNode = null;
   if (!webgl) {
     note = copy.network.unavailable;
@@ -194,15 +244,17 @@ export function PoseViewer({
         >
           {copy.pose.controls.surface}
         </Toggle>
-        <Toggle
-          pressed={overlay}
-          swatch="overlay"
-          onToggle={() => {
-            setOverlay(!overlay);
-          }}
-        >
-          {copy.pose.controls.overlay}
-        </Toggle>
+        {!predicted && (
+          <Toggle
+            pressed={overlay}
+            swatch="overlay"
+            onToggle={() => {
+              setOverlay(!overlay);
+            }}
+          >
+            {copy.pose.controls.overlay}
+          </Toggle>
+        )}
         <Toggle
           pressed={interactions}
           onToggle={() => {
@@ -219,11 +271,35 @@ export function PoseViewer({
         >
           {copy.pose.controls.spin}
         </Toggle>
+        {predicted && (
+          <button
+            type="button"
+            className={styles.reset}
+            disabled={reduced || texts === null || !webgl}
+            onClick={() => {
+              const scene = sceneRef.current;
+              if (scene === null) return;
+              if (placement === "playing") {
+                scene.stopPlacement();
+                setPlacement("idle");
+              } else {
+                setSpinChoice(false);
+                setPlacement("playing");
+                scene.playPlacement(() => {
+                  setPlacement("complete");
+                });
+              }
+            }}
+          >
+            {placement === "playing" ? "Stop placement" : "Animate placement"}
+          </button>
+        )}
         <button
           type="button"
           className={styles.reset}
           onClick={() => {
             sceneRef.current?.reset();
+            setPlacement("idle");
           }}
         >
           {copy.pose.controls.reset}
@@ -251,7 +327,13 @@ export function PoseViewer({
         </ul>
       </div>
       <div className={styles.stage}>
-        <div ref={hostRef} className={styles.plate} role="img" aria-label={label} />
+        <div
+          ref={hostRef}
+          className={styles.plate}
+          role="img"
+          aria-label={label}
+          data-placement={predicted ? placement : undefined}
+        />
         {note !== null && <p className={styles.note}>{note}</p>}
         {verdict !== null && arrived === verdict.outcome && (
           <div className={styles.verdict} data-outcome={verdict.outcome} role="status">

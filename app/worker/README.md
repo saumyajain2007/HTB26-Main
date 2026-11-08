@@ -172,3 +172,9 @@ differently from its control.
 cd worker && uv run pytest -q            # no Vina needed; Postgres tests skip without initdb
 cd worker && uv run pytest -q -m docking # real Vina in $DOCKING_VENV
 ```
+
+## Boltz complexes
+
+For Boltz-2 protein–ligand prediction and the candidate 3D viewer, use the separate
+[Boltz setup guide](../../docs/boltz.md). Boltz runs in its own environment rather than
+the Vina queue environment.

@@ -40,6 +40,12 @@ vi.mock("three", async (importOriginal) => {
  */
 vi.mock("3dmol", () => {
   class FakeModel {
+    private frames = 1;
+    getNumFrames = () => this.frames;
+    addFrame = () => {
+      this.frames++;
+    };
+    setFrame = () => Promise.resolve();
     setStyle = noop;
     selectedAtoms = () => [{ x: 0, y: 0, z: 0, chain: "A", resi: 1 }];
   }

@@ -1,0 +1,10 @@
+{
+  "source": "https://rest.uniprot.org/uniprotkb/A0A098SJI9.json",
+  "seed": 42,
+  "max_msa_seqs": 512,
+  "single_sample": true,
+  "scope": "Species reference protein, not an isolate-specific resistance model",
+  "citation": "https://github.com/jwohlwend/boltz",
+  "boltz_version": "2.2.1",
+  "protein_sequence_sha256": "8d6cfec9a1c5a96834387293de85184d03e13ef2ce15224fa8a3b727dffbf115"
+}

@@ -145,3 +145,5 @@ entire status
 Session data goes to a separate `entire/checkpoints/v1` branch; `entire doctor` helps
 if something is stuck. Details: [github.com/entireio/cli](https://github.com/entireio/cli).
 Nothing is committed for it on this branch.
+
+For candidate-specific predicted 3D complexes, see the [Boltz-2 setup and visualization guide](docs/boltz.md).

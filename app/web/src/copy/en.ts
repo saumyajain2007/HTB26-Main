@@ -403,7 +403,7 @@ export const copy = {
         "Recorded as a warning, not a failure (reactive groups such as beta-lactams are common in antibiotics).",
       alertsStrictNote: "Strict alerts enabled: structural alerts count as a failure.",
       noAlerts: "No PAINS or Brenk structural alerts",
-      poseTitle: "Reference crystal structures",
+      poseTitle: "Binding structures",
       poseMatchedSummary: (pdbId: string, symbol: string, targetId: string) =>
         `Related prepared crystal structure ${pdbId} (${symbol}, UniProt ${targetId}). This reference does not establish a candidate binding pose or a species-specific match.`,
       poseNoTargetRecorded:

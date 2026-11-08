@@ -1,0 +1,10 @@
+{
+  "source": "https://rest.uniprot.org/uniprotkb/A0ABX6CIQ9.json",
+  "seed": 42,
+  "max_msa_seqs": 512,
+  "execution": "Vultr NVIDIA A16, PyTorch 2.6.0, no_kernels",
+  "scope": "Species reference protein, not an isolate-specific resistance model",
+  "citation": "https://github.com/jwohlwend/boltz",
+  "boltz_version": "2.2.1",
+  "protein_sequence_sha256": "da1a666fa629f73afac4f7cca08c31392df75845f7ee1bd857ab9294d3dbdcf9"
+}

@@ -1,0 +1,17 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL22",
+  "smiles": "COc1cc(Cc2cnc(N)nc2N)cc(OC)c1OC",
+  "target_name": "Dihydrofolate reductase (Acinetobacter baumannii; UniProt A0A098SJI9; reference protein, not isolate-specific)",
+  "protein_sequence_sha256": "8d6cfec9a1c5a96834387293de85184d03e13ef2ce15224fa8a3b727dffbf115",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9620427489280701,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "0146735c02c01b5a4d476818c9aca4e438c24a4910c7013b226a75e0c0a11853"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "1eda7512ebb907cc094b40d4278deef092d912c961b2a0eca1e3791bde6fcd3a"
+  }
+}

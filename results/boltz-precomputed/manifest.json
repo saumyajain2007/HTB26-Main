@@ -1,0 +1,366 @@
+{
+  "model": "boltz2",
+  "count": 48,
+  "scope": "Species-reference complexes and explicitly labeled exploratory PBP constructs; no efficacy claim",
+  "predictions": [
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1200359",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9309579730033875,
+      "directory": "1335015fbf46571c1a9a99f23e5ed60919e3e930d669ecb2d8fa90d3ca5f0810"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL21",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9371083378791809,
+      "directory": "22c1daed16521c3bff121ab018bc4b55989fb00e920ca3ebb025a5ed66836e18"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL700",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.9090818762779236,
+      "directory": "24212dabb82f6df4772d04f2960d62ee2423e6a6a05ce98b59a46353977606f7"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1200359",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.8964354395866394,
+      "directory": "3142a30aeb26394990d9135862794369f76b275d778d3375f225676067db377b"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL22",
+      "target": "Dihydrofolate reductase (Acinetobacter baumannii; UniProt A0A098SJI9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9620427489280701,
+      "directory": "31e98e7761068defed21c424f96f9555059dc91a2f4e957b8ce045ec87339f0d"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL443",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8205057978630066,
+      "directory": "34ffaa810a5cc6096c641b8f14bf6187b712168788ffd159e616ed998049d560"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1109",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.9192682504653931,
+      "directory": "362f6f4b0f6d37a47b8e1e16ca788a76c9308aaab35c435cb9c1190bc1fa8aa5"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL453",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9215652346611023,
+      "directory": "3b1fd091ff96bde08a1ca78f0db600ebb747123bf5d4967da25ec2b71e9de25b"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL22",
+      "target": "S. aureus wild-type DHFR (folA, UniProt P0A017; reference sequence)",
+      "confidence_score": 0.9842845797538757,
+      "directory": "3b59de88e7288a00b9a97e814b72f9fa91ceeaf1e76e91e6db93e47aa0bd5e50"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1109",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9100850224494934,
+      "directory": "40eae3f920b87e96242d1adab51d151612e412ad1486bacf76db28578ad2c2de"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1525826",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8114455342292786,
+      "directory": "45a8cc94dfe2d6508b581afccb14c65ae13506861e3861746290fc68b0fc5cd0"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL700",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.853825032711029,
+      "directory": "5419fb2933e6aee99f082fce0e13ccd5348b8731168bf2bffdee8241982af2f8"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1200359",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.827322781085968,
+      "directory": "6738b85e8b021bfc0f707117181fc4c1f835dab79514b17c38443c9a1b7ef6a6"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL700",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9188149571418762,
+      "directory": "706196a218dee64ccf7b51622505aa75d12793bdb47b30c7bbce3dec03ac9713"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL1525826",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.912344753742218,
+      "directory": "876f6eab930e735340e5a8534d0746ab4bf7b69c31761834d56dfd371e1ce7f1"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL439",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8204389810562134,
+      "directory": "8d301d4aaefbf8a9ca4f1f9d089ab9f545aa6f8fd9810a987b16d70b5fa4eb50"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL453",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.921792209148407,
+      "directory": "95e5ad29076866acb6b455d4229433d15bb937f1b4a5bd32fd299b8c88fab9ef"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL443",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.9265055060386658,
+      "directory": "9deebd420642ef59ff7c187740608562c9d112de38f71522c33fe9b3601913f6"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL453",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8487141728401184,
+      "directory": "b6c194056eeb7dc38393ff91c1b210a710aa0c68c68aefef98a6a442051e7a15"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL21",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.8915033340454102,
+      "directory": "b84f560b4336183a79d90cae637273ea78d26e23c367194a7e0196a5306407c0"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1109",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8311023116111755,
+      "directory": "baab0ab59f22b95b531553c319507d03445b52670719107778046df037f27dba"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL443",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9288738369941711,
+      "directory": "c6648ad014e5dccd0ea0c32a540d05bd62466a17a0ec6bc34e40d4b63d8e7f1e"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL439",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.9273964166641235,
+      "directory": "d248b196cf3d406d3c33cdd1fbd9bb5db507066f191b112dae9d2ed6bf1d0ba8"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL21",
+      "target": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+      "confidence_score": 0.8240829706192017,
+      "directory": "df008763cf16eeda2996d8b66e79f4c12e9858407830c7d38238dc92074260f9"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1525826",
+      "target": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+      "confidence_score": 0.9011906981468201,
+      "directory": "ed0d81b437ba01ebf760416ccb834764b68b39b9a62c9c7b221c0ef8a42a609d"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL22",
+      "target": "Dihydrofolate reductase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T4I4; reference protein, not isolate-specific)",
+      "confidence_score": 0.9493004083633423,
+      "directory": "edf2b1ef3cf2bf11e7d942b5ec2c49ebb573d7d51ed79a42e391428940b10666"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL439",
+      "target": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+      "confidence_score": 0.9202190637588501,
+      "directory": "fb118267bc0157456b82e2a29a0bf9e792e286cc27fa8684bc04841ea372168c"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL1201195",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.30421182513237,
+      "prediction_scope": "exploratory",
+      "directory": "06e0bcc3467d3cbf9d1d75970252e178d8e079c5c4430985a582854555e96fcc"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL158",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.33530768752098083,
+      "prediction_scope": "exploratory",
+      "directory": "09183d5fd5db336c21890dd203c7e5474d37006861e8682fa3209e09046f35f8"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL491571",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8382922410964966,
+      "prediction_scope": "exploratory",
+      "directory": "1108caee0ccee519bfd8576b1fe16830c2cba3582a3ed3cbb64973668452d8b8"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL3989974",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.3137683868408203,
+      "prediction_scope": "exploratory",
+      "directory": "1121e6cf31764edf7f9c5b92c5fa29f41fb3adef1b7d36c20f277febf219dc2b"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL491571",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.4102034568786621,
+      "prediction_scope": "exploratory",
+      "directory": "22e41f5461900502b60746e21c189ecc13ad6e6da3437651284599f68efa6a1c"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL3989974",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.28469574451446533,
+      "prediction_scope": "exploratory",
+      "directory": "27f487139cbb667b32825617e22ba629b1ab13643e8e343a750baf10eae09317"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL927",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8535866737365723,
+      "prediction_scope": "exploratory",
+      "directory": "332b61cf91fe1f6297cae84c26268f511f7c697b1b4de4d9957483ec1af429cb"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL127",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.40297815203666687,
+      "prediction_scope": "exploratory",
+      "directory": "4f0cb87c7923adfea815d8daad6aee74c7dfcf08c43d1b7820e86ca1e1a05200"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL161",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.32302555441856384,
+      "prediction_scope": "exploratory",
+      "directory": "51d7076990906ec38429c9b3507464b4b8182e76d68f3250d966fc8e21193737"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL186",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.33591118454933167,
+      "prediction_scope": "exploratory",
+      "directory": "5ca078e3bfe6862117e95472d5cfeb7614470d777ab0c235e054850650df1de4"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL65794",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.3181524872779846,
+      "prediction_scope": "exploratory",
+      "directory": "675e64b3b146904e6f182cce67f24d46b4803d9f39f6f775258b029e05b935df"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL927",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.3005381226539612,
+      "prediction_scope": "exploratory",
+      "directory": "77c613ed8288f7560a5063e4658363c100ed508e57a24775ccb3921fb46484f0"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL1146",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8570887446403503,
+      "prediction_scope": "exploratory",
+      "directory": "9d201a7a484f1928cdb97f1e8365bc44f201d3a2bb35519698ffa1e2b17a55ad"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL617",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8669352531433105,
+      "prediction_scope": "exploratory",
+      "directory": "b758640318c65dbf50595e82d1a71eb3c81b745e9c0e8f91009e4cba19f544c4"
+    },
+    {
+      "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+      "candidate_id": "CHEMBL996",
+      "target": "Exploratory PBP2/MrdA proxy (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt D0C8Z9, residues 280-672)",
+      "confidence_score": 0.35419079661369324,
+      "prediction_scope": "exploratory",
+      "directory": "ba5ac7efbb5a0250f90d2d4ca7b2cf1c135a8704f0eeb734f9c044660fcc5e72"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL528",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.30246391892433167,
+      "prediction_scope": "exploratory",
+      "directory": "c4bdaf379895857c1af121e625152113538006a1e83ed3e1db401c117039e563"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL474579",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.288267582654953,
+      "prediction_scope": "exploratory",
+      "directory": "eed02db8014807c88d209fcc052c15a71f089c347c0ce6ffca6ee35cc0e4a9cd"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL893",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8760075569152832,
+      "prediction_scope": "exploratory",
+      "directory": "f847b731956cf61a5c2a34746696b21141bf53da92ac95c9955038737b413134"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL65794",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8722112774848938,
+      "prediction_scope": "exploratory",
+      "directory": "fb700c8b68220c0da4b26d310e7d796e71fc7bf69caf45c25c0df52a1ea1580d"
+    },
+    {
+      "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+      "candidate_id": "CHEMBL680",
+      "target": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+      "confidence_score": 0.31373903155326843,
+      "prediction_scope": "exploratory",
+      "directory": "fbced88118e6eff6e957f0d047c98088823d2e44cd98f95498e4cb3e3b0e0a5e"
+    },
+    {
+      "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+      "candidate_id": "CHEMBL158",
+      "target": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+      "confidence_score": 0.8552271127700806,
+      "prediction_scope": "exploratory",
+      "directory": "fc8da1032e31f94c7a173ce1b1e8e0a38597cee097cb592fd6b629ea56457438"
+    }
+  ],
+  "reference_count": 27,
+  "exploratory_count": 21
+}
