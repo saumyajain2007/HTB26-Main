@@ -1,0 +1,65 @@
+<task-notification>
+<task-id>bo8yq44sl</task-id>
+<tool-use-id>toolu_01KGD8KA7bPSHD1bVUSf4R4B</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f/tasks/bo8yq44sl.output</output-file>
+<status>completed</status>
+<summary>Monitor "Wait for CI on the fix PR" stream ended</summary>
+<event>ci	pass	3s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128556685366
+end-to-end	pass	1m49s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128555807696
+lean certificates	pass	33s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128555807557
+python 3.11	pass	3m37s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128555807708
+python 3.12	pass	3m15s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128555807670
+web	pass	1m12s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42423176380/job/128555807685</event>
+</task-notification>
+
+---
+
+continue
+
+---
+
+Set that up, and add documentation on observations
+
+---
+
+Why is #17 still open
+
+---
+
+Start on it
+
+---
+
+go ahead. what are the lanes again?
+
+---
+
+whar are the lanes again??
+
+---
+
+fix the gaps, and the test
+
+---
+
+<task-notification>
+<task-id>bza36zrkp</task-id>
+<tool-use-id>toolu_01THTn9mKCnqbZ2gs4cK3bBj</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/53bcf86c-f8dd-42a1-b7b5-43bb57ccc55f/tasks/bza36zrkp.output</output-file>
+<status>completed</status>
+<summary>Monitor "Wait for CI on PR 76 to finish" stream ended</summary>
+<event>ci	pass	3s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128573418483
+end-to-end	pass	1m44s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128572532537
+lean certificates	pass	32s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128572532425
+python 3.11	pass	3m42s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128572532285
+python 3.12	pass	1m59s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128572532565
+web	pass	1m5s	https://github.com/saumyajain2007/HTB26-Main/actions/runs/42428697560/job/128572532392</event>
+</task-notification>
+
+---
+
+what is the fix for the latter going to be
+
+---
+
+Go ahead
