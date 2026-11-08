@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { splitCandidates } from "./resistanceCandidates";
+import { antibioticCandidates, resistanceProfile } from "../test/resistance";
 import { covidExperiment, dockJob, structures } from "../test/fixtures";
 import {
   bacterialStructures,
@@ -144,6 +146,56 @@ describe("bacterial structures and antibiotic matching", () => {
     expect(gyrMatches.map((s) => s.id)).toEqual(["3G7B_A", "3U2K_A"]);
   });
 
+  it("does not promote a legacy human pocket into a bacterial reference match", () => {
+    expect(structuresForAntibiotic({ generated: { pocketPdbId: "6WTO" } }, structures)).toEqual([]);
+  });
+
+  it("requires specific GyrB identifiers rather than generic gyrase or GyrA text", () => {
+    for (const name of [
+      "DNA gyrase",
+      "Bacterial DNA gyrase; Topoisomerase IV",
+      "DNA gyrase subunit A (gyrA)",
+      "gyrB2",
+      "XP0A0K8X",
+    ]) {
+      expect(structuresForAntibiotic({ target: { name } }, structures)).toEqual([]);
+    }
+    for (const name of ["gyrB", "DNA gyrase subunit B", "DNA gyrase B", "P0A0K8"]) {
+      expect(structuresForAntibiotic({ target: { name } }, structures).map((s) => s.id)).toEqual([
+        "3G7B_A",
+        "3U2K_A",
+      ]);
+    }
+  });
+
+  it("preserves PDB evidence through the candidate display mapping without accepting other sources", () => {
+    const data = antibioticCandidates();
+    const first = data.candidates[0];
+    if (first === undefined) throw new Error("No candidate in fixture");
+    first.target = null;
+    first.evidence.push({
+      id: "PDB1",
+      source: "pdb",
+      source_id: "3P3E",
+      kind: "docking",
+      release: "test",
+      statement: "Reference crystal structure",
+    });
+    const entry = splitCandidates(resistanceProfile(), data).approved[0];
+    if (entry === undefined) throw new Error("No display entry");
+    expect(structureForAntibiotic(entry, structures)?.id).toBe("3P3E_A");
+    expect(
+      structuresForAntibiotic(
+        {
+          evidence: [
+            { id: "E1", source: "chembl", source_id: "3P3E", statement: "Not a PDB citation" },
+          ],
+        },
+        structures,
+      ),
+    ).toEqual([]);
+  });
+
   it("builds deterministic preview file URLs when a structure has no control job_id", () => {
     const gyrB = structures.find((s) => s.id === "3G7B_A");
     if (gyrB === undefined) throw new Error("No 3G7B_A structure in fixture");
@@ -153,5 +205,11 @@ describe("bacterial structures and antibiotic matching", () => {
     expect(files.receptor.url).toBe(`/api/files/${previewId}/receptor.pdb`);
     expect(files.poses.url).toBe(`/api/files/${previewId}/poses.sdf`);
     expect(files.crystal_ligand.url).toBe(`/api/files/${previewId}/crystal_ligand.sdf`);
+    expect(files.receptor.sha256).toBeUndefined();
+    const withControl = {
+      ...gyrB,
+      control: { ...gyrB.control, job_id: "00000000-0000-4000-8000-000000000001" },
+    };
+    expect(dockFilesForStructure(withControl)).toEqual(files);
   });
 });

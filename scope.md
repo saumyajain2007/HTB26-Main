@@ -76,7 +76,7 @@ Prizes and challenge names are read from the sponsor slide. What the project can
 | Sponsor | Challenge | Fit | Why |
 | --- | --- | --- | --- |
 | **HRT** | Best Use of Data for Predictions & Decision Making | **Primary, unproven as a prediction.** | The ranking is a decision aid over CARD and ChEMBL. There is no retrospective result and no confidence interval yet. See [docs/sponsor-mapping.md](docs/sponsor-mapping.md). |
-| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map and explanations support fixtures and saved real rankings. Certificate details are shown where recorded; Lean was not run for the real saved bundle. The bacterial candidate 3D view awaits PR #99 (#41). |
+| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map and explanations support fixtures and saved real rankings. Certificate details are shown where recorded; Lean was not run for the real saved bundle. A reference crystal viewer is available; it does not show computed antibiotic poses. |
 | **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **In, not built.** | #7 is in. The browser agent is #95 and does not exist yet, so the project cannot claim this track. |
 | **JetBrains** | Help the Developer | Poor | Not a developer tool. |
 | **Instalily** | Coding agent that adapts to its user | Poor | Different problem. |
@@ -103,7 +103,8 @@ As of 8 November 2026:
 - Python smoke checks and Lean certificate support exist. The real saved run
   did not request Lean; its certificates are `not_run`.
 - Bacterial target/redocking work is recorded in [targets](docs/targets.md).
-  The candidate 3D view is awaiting merge in PR #99.
+  The resistance shortlist has a reference crystal viewer (#99), with the actual
+  co-crystal ligand labelled separately from the selected antibiotic.
 - Antibiotic ground truth and protocol tooling are committed. Freeze the
   protocol on the evaluation machine before scoring; #37 has no published result.
 - The separate whole-cell data/leakage work is in PR #101; the discovery pipeline

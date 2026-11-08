@@ -15,7 +15,7 @@ rankings for all three draft presets offline; efficacy remains unvalidated.
 | Jury and reply validators | Multi-provider support built; live sponsor integrations still need proof (#27) |
 | Evaluation | Cited antibiotic ground truth and protocol tooling exist; freeze before scoring, then publish #37. Earlier human-disease results are separate |
 | `core/verify` | Python smoke tests and Lean 4 support built; saved real rankings have `not_run` certificates |
-| Bacterial structures | Four structures for GyrB/LpxC pass redocking; see [targets](docs/targets.md). Candidate 3D UI is in PR #99 |
+| Bacterial structures | Four structures for GyrB/LpxC pass redocking; see [targets](docs/targets.md). Reference crystal viewer available (#99); no computed antibiotic poses |
 | Resistance profiling and evasion ranking | Built and integrated for all three pathogens; committed outputs contain 126 ranked drugs each |
 | App flow | Resistance flow is the default. Fixture MRSA and real saved-data modes both have offline browser checks; typed genes do not compute a new shortlist |
 | Whole-cell discovery | #83/#84 implementation is in PR #101; ensemble, generation and downstream evaluation remain planned |

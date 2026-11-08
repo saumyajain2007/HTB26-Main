@@ -659,18 +659,18 @@ function CandidatePosePanel({
 
   const activeStructure =
     options.find((s) => s.id === pickedStructureId) ?? primaryMatch ?? options[0];
-  const isMatched =
+
+  const activeMatch =
     activeStructure !== undefined && matched.some((s) => s.id === activeStructure.id);
-  const dockingFeature = entry.features.find((f) => f.key === "docking");
 
   return (
     <div className={styles.posePanel}>
       <p className={styles.rationale}>
-        {primaryMatch !== undefined
+        {activeMatch
           ? text.poseMatchedSummary(
-              primaryMatch.pdb_id,
-              primaryMatch.target_symbol,
-              primaryMatch.target_id,
+              activeStructure.pdb_id,
+              activeStructure.target_symbol,
+              activeStructure.target_id,
             )
           : entry.target !== null
             ? text.poseNoTargetStructure(entry.target.name)
@@ -736,14 +736,6 @@ function CandidatePosePanel({
                 activeStructure.ligand.comp_id,
               )}
             </dd>
-            {isMatched &&
-              dockingFeature?.available === true &&
-              dockingFeature.displayValue !== null && (
-                <>
-                  <dt>{copy.pose.score}</dt>
-                  <dd className={styles.mono}>{dockingFeature.displayValue}</dd>
-                </>
-              )}
           </dl>
 
           {poseOpen && (
@@ -753,13 +745,13 @@ function CandidatePosePanel({
                   <PoseViewer
                     files={dockFilesForStructure(activeStructure)}
                     label={copy.pose.viewerLabel(
-                      isMatched ? entry.name : activeStructure.ligand.name,
+                      activeStructure.ligand.name,
                       activeStructure.target_symbol,
                     )}
                   />
                 </Suspense>
               </div>
-              <p className={styles.rationale}>{copy.pose.caveat}</p>
+              <p className={styles.rationale}>{text.posePreviewCaveat}</p>
             </>
           )}
         </div>

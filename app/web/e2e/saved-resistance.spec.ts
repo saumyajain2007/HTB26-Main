@@ -1,4 +1,5 @@
 import { expect, test } from "./console";
+import { checkReferencePreview } from "./reference-preview";
 
 test("all three saved real rankings open without external requests", async ({ page, baseURL }) => {
   test.skip(process.env.E2E_RESISTANCE !== "saved", "Run with E2E_RESISTANCE=saved");
@@ -35,6 +36,7 @@ test("all three saved real rankings open without external requests", async ({ pa
     await expect(
       page.getByRole("heading", { name: "Why it sits here", exact: true }),
     ).toBeVisible();
+    await checkReferencePreview(page);
   }
   expect(external).toEqual([]);
 });

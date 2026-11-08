@@ -287,11 +287,17 @@ describe("the candidate antibiotics view", () => {
     await user.click(genPane.getByRole("button", { name: text.poseShow }));
     expect(
       await genPane.findByRole("img", {
-        name: copy.pose.viewerLabel("Generated example 1", "gyrB"),
+        name: copy.pose.viewerLabel(
+          structures.find((s) => s.id === "3G7B_A")?.ligand.name ?? "",
+          "gyrB",
+        ),
       }),
     ).toBeInTheDocument();
     expect(genPane.getByRole("button", { name: copy.pose.controls.surface })).toBeInTheDocument();
     expect(genPane.getByRole("button", { name: copy.pose.controls.overlay })).toBeInTheDocument();
-    expect(genPane.getByText(copy.pose.caveat)).toBeInTheDocument();
+    expect(genPane.getByText(text.posePreviewCaveat)).toBeInTheDocument();
+    expect(genPane.queryByText(copy.pose.score)).not.toBeInTheDocument();
+    await user.click(within(approvedTable()).getByRole("button", { name: /Linezolid/i }));
+    expect(within(readingPane("Linezolid")).queryByRole("img")).not.toBeInTheDocument();
   });
 });

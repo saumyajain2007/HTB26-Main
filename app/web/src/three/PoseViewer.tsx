@@ -8,14 +8,14 @@ import {
   type ReactNode,
 } from "react";
 import { dockFileQuery } from "../api/queries";
-import type { DockFiles } from "../api/types";
+import type { PoseFiles } from "../api/types";
 import { copy } from "../copy/en";
 import styles from "./PoseViewer.module.css";
 import { PoseScene } from "./poseScene";
 import { canUseWebGL } from "./webgl";
 
 interface PoseViewerProps {
-  files: DockFiles;
+  files: PoseFiles;
   /** Accessible name of the 3D view: which drug in which protein. */
   label: string;
 }
