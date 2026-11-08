@@ -97,10 +97,10 @@ def build_liu(sd1: Path, drops: list[dict]) -> list[dict]:
     return sorted(out, key=lambda r: r["inchikey"])
 
 
-def build_mic(chembl_db: Path, drops: list[dict]) -> list[dict]:
-    """One row per molecule from ChEMBL MIC records (see labels.mic_evidence for the rules)."""
+def build_mic(chembl_db: Path, drops: list[dict], taxon: int = datasets.A_BAUMANNII_TAXON) -> list[dict]:
+    """One row per molecule from ChEMBL MIC records for one organism (see labels.mic_evidence for the rules)."""
     per: dict[str, dict] = {}
-    for rec in datasets.read_chembl_mic(chembl_db):
+    for rec in datasets.read_chembl_mic(chembl_db, taxon):
         tag = f"activity {rec['activity_id']}"
         relation = rec["relation"]
         value = float(rec["value"])

@@ -1,0 +1,68 @@
+{
+  "input": 7463,
+  "survivors": 2670,
+  "survival_rate": 0.3578,
+  "entry_mode": "flag",
+  "stages": [
+    {
+      "stage": "validity",
+      "reached": 7463,
+      "rejected": 0,
+      "passed": 7463
+    },
+    {
+      "stage": "heavy_atoms",
+      "reached": 7463,
+      "rejected": 1,
+      "passed": 7462
+    },
+    {
+      "stage": "synthetic_accessibility",
+      "reached": 7462,
+      "rejected": 1,
+      "passed": 7461
+    },
+    {
+      "stage": "structural_alerts",
+      "reached": 7461,
+      "rejected": 4791,
+      "passed": 2670
+    },
+    {
+      "stage": "gram_negative_entry_2d",
+      "reached": 2670,
+      "rejected": 0,
+      "passed": 2670
+    },
+    {
+      "stage": "conformer",
+      "reached": 2670,
+      "rejected": 0,
+      "passed": 2670
+    }
+  ],
+  "cpu_seconds_by_outcome": {
+    "structural_alerts": 14.805,
+    "passed": 330.078,
+    "heavy_atoms": 0.0,
+    "synthetic_accessibility": 0.0
+  },
+  "entry_flagged": 2660,
+  "rejection_reasons": {
+    "structural_alerts: alert: halogenated_ring_1": 398,
+    "structural_alerts: alert: Oxygen-nitrogen_single_bond; nitro_group": 341,
+    "structural_alerts: alert: Perfluorinated_chain": 339,
+    "structural_alerts: alert: alkyl_halide": 291,
+    "structural_alerts: alert: halogenated_ring_2": 282,
+    "structural_alerts: alert: alkyl_halide; phenol_ester": 254,
+    "structural_alerts: alert: 2-halo_pyridine": 224,
+    "structural_alerts: alert: N-C-halo": 163,
+    "structural_alerts: alert: halogenated_ring_1; halogenated_ring_2": 134,
+    "structural_alerts: alert: iodine": 132,
+    "structural_alerts: alert: 2-halo_pyridine; N-C-halo": 110,
+    "structural_alerts: alert: aniline": 69,
+    "structural_alerts: alert: diketo_group": 67,
+    "structural_alerts: alert: halogenated_ring_1; iodine": 59,
+    "structural_alerts: alert: N-C-halo; alkyl_halide": 59
+  }
+}

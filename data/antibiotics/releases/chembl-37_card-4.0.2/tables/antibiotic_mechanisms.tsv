@@ -1,0 +1,4 @@
+chembl_id	mechanism_of_action	target_name
+CHEMBL126	Binds the 50S ribosomal subunit and blocks initiation of protein synthesis.	50S ribosomal subunit
+CHEMBL262777	Binds the D-Ala-D-Ala terminus of peptidoglycan precursors and blocks cell-wall synthesis.	peptidoglycan precursor D-Ala-D-Ala
+CHEMBL819	Binds penicillin-binding proteins and blocks cell-wall cross-linking.	penicillin-binding proteins
