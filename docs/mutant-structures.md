@@ -22,13 +22,15 @@ uv run pytest app/worker/tests/test_targets.py
 | --- | --- | --- | --- | --- |
 | PBP2a (`mecA`) | *S. aureus* | target replacement | **3ZG5**, 2.55 Å, ligand AMV | **not applicable** — see below |
 | DNA gyrase A | *S. aureus* | target alteration | not determined | **not determined** |
-| DNA gyrase B | not chosen | target alteration | not determined | **not determined** |
-| LpxC | not chosen (Gram-negative only) | — | not determined | **not determined** |
+| DNA gyrase B | *S. aureus* | target alteration | **3G7B**, 2.30 Å, ligand B47 (also 3U2K) | **not determined** |
+| LpxC | *P. aeruginosa* structures (not a candidate organism; Gram-negative only) | — | **3P3E**, 1.28 Å, ligand 3P3 (also 2VES) | **not determined** |
 | FabI | not chosen | — | not determined | **not determined** |
 
-**One resolved, four open, nothing invented.** Every row states its position, which is what
-the task requires; four of them state that the question is still open, because asserting a
-PDB id without reading one is the failure this task exists to prevent.
+**Three wild types recorded, two open, nothing invented.** Every row states its position, which is what
+the task requires. The GyrB and LpxC wild types were added with the bacterial structures of
+[targets.md](targets.md) (#20, #21), each with its redocking result; gyrase A and FabI still state that the
+question is open, because asserting a PDB id without reading one is the failure this task exists to prevent.
+No mutant structure is recorded for any target, and PBP2a's is not applicable.
 
 ## Why PBP2a is "not applicable" rather than "none known"
 
@@ -90,19 +92,22 @@ Run 2026-11-07.
 
 ## Gaps, in the order worth closing
 
-1. **No citation or id has been resolved against RCSB yet.** `--verify` does it; this
-   environment's egress proxy refused `data.rcsb.org` paths, so it has not run. Run it
-   once on a normal network before any of this is trusted. 3ZG5's source-organism field in
-   particular was not visible on the page that was read — only "MRSA" in the title.
-2. **Four targets have no structure at all.** Choose the organism for gyrase B, LpxC and
-   FabI from the pathogen set, then pick entries that have a co-crystallised ligand.
+1. **The recorded ids were checked against RCSB on 2026-11-08.** `HTB_CHECK_RCSB=1` passes for all five
+   recorded wild types (3ZG5, 3G7B, 3U2K, 3P3E, 2VES): organism and the named co-crystallised ligand match.
+   3ZG5's source organism, which the first read could not see, is *S. aureus* subsp. *aureus* Mu50. Doing this
+   showed the check itself was weak: it used an entry-level field that omits some ligands (3G7B's B47,
+   3U2K's 087) and was satisfied by a magnesium ion, so it now reads the entities and checks the named
+   ligand. Still unchecked: citations (PMIDs) are not resolved by this code.
+2. **Gyrase A and FabI still have no structure.** GyrB and LpxC now have wild types (see targets.md). For
+   the rest, choose the organism from the pathogen set, then pick entries that have a co-crystallised
+   ligand. LpxC's structures are from *P. aeruginosa*, which is not in the candidate list.
 3. **The gyrase mutant question is open.** Run `--mutations` against a built CARD release
    to get the variants CARD lists for the gyrA determinant, then search RCSB for an entry
    carrying one. If none exists, record `none_known` with where you looked — do not dock
    the wild type in its place.
-4. **No essentiality evidence.** scope.md asks for DEG or literature evidence per target;
-   every row currently has `null`, and a test allows null but forbids an empty string, so
-   it cannot be filled in with a placeholder.
-5. **No redocking control has run**, so nothing here has passed the 2 Å rule yet. Dropping
-   the four inherited entries means WS3's done-when condition currently has **zero** of its
-   three bacterial structures.
+4. **Essentiality evidence is partial.** scope.md asks for DEG or literature evidence per target. GyrB and
+   LpxC now carry literature (not DEG, which was not queried); PBP2a, gyrase A and FabI are still `null`. A
+   test allows null but forbids an empty string, so it cannot be filled in with a placeholder.
+5. **Redocking has now run for four structures, and all four pass the 2 Å rule** ([targets.md](targets.md)), so
+   WS3's count is met. They cover only two targets, the two GyrB entries are one protein and the two LpxC
+   entries another, and the LpxC controls ignore the zinc. None is a mutant or a PBP.

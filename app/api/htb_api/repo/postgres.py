@@ -53,7 +53,7 @@ from ..schemas import (
 )
 from .base import AlreadyExists, DockInputs, DuplicateComputation
 
-SCHEMA_VERSION = "0010"
+SCHEMA_VERSION = "0011"
 """The newest file in `db/migrations/` this code needs applied."""
 
 Conn = Connection[DictRow]

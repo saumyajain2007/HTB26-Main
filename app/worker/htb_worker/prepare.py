@@ -46,8 +46,8 @@ from typing import Any
 
 from .dock import STRUCTURES_DIR, toolchain
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-LISTING = REPO_ROOT / "api" / "htb_api" / "fixtures" / "structures.json"
+APP_ROOT = Path(__file__).resolve().parents[2]
+LISTING = APP_ROOT / "api" / "htb_api" / "fixtures" / "structures.json"
 
 BOX_SIZE = 25.0
 SETTINGS = {"engine": "vina", "exhaustiveness": 8, "seed": 42, "n_poses": 9}

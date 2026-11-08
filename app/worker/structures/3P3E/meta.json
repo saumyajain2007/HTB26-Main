@@ -1,0 +1,59 @@
+{
+  "id": "3P3E_A",
+  "pdb_id": "3P3E",
+  "chain": "A",
+  "uniprot": [
+    "P47205"
+  ],
+  "target_id": "P47205",
+  "symbol": "lpxC",
+  "title": "Crystal Structure of the PSEUDOMONAS AERUGINOSA LpxC/LPC-009 complex",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.28,
+  "ligand": {
+    "comp_id": "3P3",
+    "name": "LPC-009",
+    "candidate_id": "CHEMBL1230182",
+    "residue_number": "501",
+    "heavy_atoms": 27
+  },
+  "box_center": [
+    -25.987,
+    14.968,
+    -5.084
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "C[C@H]([C@@H](C(=O)NO)NC(=O)c1ccc(cc1)C#CC#Cc2ccccc2)O",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 413,
+      "NO3": 25,
+      "NA": 1,
+      "3P3": 1,
+      "ZN": 2
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center -25.987 14.968 -5.084 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/3P3E.pdb",
+    "entry_sha256": "74a0c4eaf336c3812fc66da898646291b6d8dfa9278e88a0db0f33200f075107",
+    "ligand": "https://models.rcsb.org/v1/3P3E/ligand?auth_asym_id=A&label_comp_id=3P3&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/3P3"
+  },
+  "prepared_on": "2026-11-08",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  }
+}
