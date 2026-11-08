@@ -11,32 +11,63 @@ The plan is in [scope.md](scope.md) (what we are building and why) and [tasks.md
 
 # Pipeline
 
-Blue boxes are new work. Grey boxes are reused code already in the repo (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)). Dashed boxes are stretch goals. Details and scope are in [scope.md](scope.md).
+Two lanes share one candidate contract (`AntibioticCandidate`, with `source: approved | generated`). The **evasion ranking** is the app and demo path. The **whole-cell pipeline** (*A. baumannii* only) carries the validated prediction work and the hidden-drug test. The split was decided in issue #82; the order of work and the 10-hour cut line are in [tasks.md](tasks.md) sections 5b and 6.
+
+Blue boxes are new work. Grey boxes are reused code already in the repo (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)). Dashed blue boxes are Tier 2: only if Tier 1 is green. Dashed grey boxes are cut at the 10-hour budget. Issue numbers are in brackets.
 
 ```mermaid
 flowchart TD
-    A([Input: pathogen or resistance genes]) --> B[Resistance profiling<br/>CARD / AMRFinderPlus<br/>genes and mutations to drug classes defeated]
-    B --> C[Target selection<br/>essential, conserved, non-human<br/>bacterial targets]
-    C --> D[Structure retrieval<br/>RCSB PDB and PubChem]
-    B --> E[Candidate pool<br/>approved drugs and combinations<br/>ChEMBL, antibiotic data]
-    D --> F
-    E --> F[Resistance-aware ranking<br/>does the candidate evade the mechanisms present?]
-    F --> G[Evidence review<br/>cited evidence, validated model replies]
-    G --> H[Ranked shortlist with explanations]
-    H --> I([Output: researcher view<br/>resistance map, evidence, 3D pose])
+    A([Input: pathogen or resistance genes]) --> B
 
-    F -.-> J[Docking: wild type and mutant targets]:::stretch
-    J -.-> H
-    E -.-> K[Generate new molecules or peptides<br/>filter by predicted activity and toxicity]:::stretch
-    K -.-> F
+    subgraph L1 [Lane 1: evasion ranking, the app and demo path]
+        direction TB
+        B["Resistance profiling<br/>CARD / AMRFinderPlus<br/>genes and mutations to drug classes defeated"]
+        B --> E["Candidate pool<br/>approved drugs and combinations<br/>ChEMBL, antibiotic data"]
+        B --> C["Target selection and structures<br/>essential bacterial targets, RCSB PDB<br/>redocking controls"]
+        E --> F["Resistance-aware ranking<br/>does the candidate evade the mechanisms present?"]
+        C -.-> M["Docking: wild type vs mutant target (#45)"]:::cut
+        M -.-> F
+        F -.-> R["Resistance-risk score (#44)"]:::cut
+    end
 
-    V[Retrospective validation<br/>hide a known drug, check its rank vs baselines] -.-> F
+    subgraph L2 [Lane 2: whole-cell pipeline, A. baumannii only]
+        direction TB
+        W1["Ingest CO-ADD and ChEMBL whole-cell data<br/>label active at MIC 8 ug/mL or below (#83)"]
+        W1 --> W2["Scaffold and year splits<br/>leakage assertion, crashes on a leak (#84)"]
+        W1 --> LIB["Retrieval library<br/>public screening set, contains abaucin and halicin (#83)"]
+        W2 --> W3["Whole-cell activity ranker<br/>ensemble of five, mean and disagreement (#85)"]
+        W3 --> G1["Candidate generation: SyntheMol<br/>CPU run on a Vultr VM, guided by our own model (#86)"]
+        G1 --> W4
+        LIB --> W4["Filter cascade with rejection log and funnel<br/>validity, size, SA, alerts, entry heuristics, 3D (#87)"]
+        W4 --> W5["Oracle interface with cost ledger (#88)<br/>fidelity 0: RDKit filters<br/>fidelity 1: QuickVina2 docking"]
+        W3 --> W6
+        W5 --> W6["Budgeted scheduler<br/>expected improvement per second vs fixed funnel (#89)"]:::tier2
+        W6 --> W7["Conformal prediction with abstain, and SHAP (#90)"]:::tier2
+        W5 -.-> O2["Boltz-2 affinity (#93) and OpenMM stability (#94)"]:::cut
+    end
+
+    S["Smoke test and Lean 4 certificates<br/>core/verify (#38, #39)"]
+    F --> S
+    W5 --> S
+    S --> H["Ranked shortlist with explanations<br/>approved and generated kept visibly separate"]
+    W7 --> H
+    W5 --> H
+
+    H --> BA["Browser verification agent, top 10 (#95)<br/>PubMed and ClinicalTrials.gov via browser-use<br/>tokens, model and time shown, cited claims only"]
+    H --> J["Evidence review<br/>cited evidence, validated model replies"]
+    BA --> I
+    J --> I([Output: researcher view<br/>resistance map, funnel, evidence, 3D pose])
+
+    V1["Hidden-drug retrieval test (#91, #92)<br/>purge compound and analogues above 0.5 Tanimoto<br/>4 baselines: random, MW, docking, nearest active"] -.->|asserts purge| W2
+    V1 -.->|scores percentile and compute spent| H
+    V2["Retrospective test: profile to known drug (#35 to #37)<br/>cut first at the budget"]:::cut -.-> F
 
     classDef new fill:#dbeafe,stroke:#2563eb,color:#111;
     classDef reused fill:#e5e7eb,stroke:#6b7280,color:#111;
-    classDef stretch fill:#fff,stroke:#6b7280,stroke-dasharray: 5 5,color:#111;
-    class B,C,E,F,V new;
-    class D,G,H reused;
+    classDef tier2 fill:#eff6ff,stroke:#2563eb,stroke-dasharray: 5 5,color:#111;
+    classDef cut fill:#fff,stroke:#6b7280,stroke-dasharray: 5 5,color:#111;
+    class B,C,E,F,W1,W2,W3,G1,W4,W5,LIB,V1,BA new;
+    class S,J,H reused;
 ```
 
 # Sponsor integrations
