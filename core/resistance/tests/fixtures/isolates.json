@@ -1,0 +1,108 @@
+{
+  "_comment": "WS2 isolate fixtures: the cases a microbiologist would recognise, with the drug classes each should defeat. Expectations are written as NAMES, not ARO ids, and as 'must include' / 'must not include' rather than exact sets, because CARD lists more classes for a gene than the few that matter clinically. ARO ids appear only under verified_aro_ids, and only where another file in this repo already confirmed them; nothing here is an id written from memory. See test_isolates.py for how each layer is checked.",
+  "schema_version": "1",
+  "expectation_semantics": {
+    "defeated_classes": "every name here must appear in the profile's defeated_classes",
+    "not_defeated_classes": "none of these may appear; this is what makes a case falsifiable",
+    "mechanisms": "every name here must appear in the profile's mechanisms",
+    "variants": "gene name -> mutation that must be recorded against it",
+    "targets_affected": "names that must appear in affected_targets",
+    "unresolved": "input strings that are expected NOT to resolve"
+  },
+  "isolates": [
+    {
+      "id": "ctx-m-producer",
+      "label": "ESBL-producing Klebsiella pneumoniae (CTX-M-15)",
+      "species": {"name": "Klebsiella pneumoniae", "ncbi_taxid": 573},
+      "input_kind": "gene_list",
+      "genes": ["CTX-M-15", "SHV-1"],
+      "expect": {
+        "defeated_classes": ["cephalosporin", "penicillin beta-lactam"],
+        "not_defeated_classes": ["carbapenem"],
+        "mechanisms": ["antibiotic inactivation"],
+        "variants": {},
+        "targets_affected": [],
+        "unresolved": []
+      },
+      "verified_aro_ids": {},
+      "expectation_basis": "An ESBL hydrolyses cephalosporins and penicillins but not carbapenems, which is why a carbapenem is the usual treatment. core/resistance/tests/test_card_ingest.py already asserts against a real release that CTX-M-15 carries cephalosporin and penicillin beta-lactam and the antibiotic inactivation mechanism."
+    },
+    {
+      "id": "mrsa-meca",
+      "label": "MRSA: Staphylococcus aureus carrying mecA",
+      "species": {"name": "Staphylococcus aureus", "ncbi_taxid": 1280},
+      "input_kind": "gene_list",
+      "genes": ["mecA"],
+      "expect": {
+        "defeated_classes": ["cephalosporin", "penicillin beta-lactam"],
+        "not_defeated_classes": ["glycopeptide antibiotic", "oxazolidinone antibiotic"],
+        "mechanisms": ["antibiotic target replacement"],
+        "variants": {},
+        "targets_affected": [],
+        "unresolved": []
+      },
+      "verified_aro_ids": {
+        "mecA": "ARO:3000617",
+        "antibiotic target replacement": "ARO:0001002",
+        "cephalosporin": "ARO:0000032",
+        "penicillin beta-lactam": "ARO:3000008"
+      },
+      "expectation_basis": "mecA encodes PBP2a, a replacement target with low beta-lactam affinity, so it defeats beta-lactams as a class rather than by hydrolysis. Vancomycin (glycopeptide) and linezolid (oxazolidinone) remain the standard options, so they must not appear. These ARO ids are the ones in tests/fixtures/resistance_profile.json, type-checked in docs/ontology-check.md."
+    },
+    {
+      "id": "mrsa-gyra-s84l",
+      "label": "Staphylococcus aureus gyrA S84L, fluoroquinolone resistant",
+      "species": {"name": "Staphylococcus aureus", "ncbi_taxid": 1280},
+      "input_kind": "gene_list",
+      "genes": ["Staphylococcus aureus gyrA conferring resistance to fluoroquinolones S84L"],
+      "expect": {
+        "defeated_classes": ["fluoroquinolone antibiotic"],
+        "not_defeated_classes": ["cephalosporin"],
+        "mechanisms": ["antibiotic target alteration"],
+        "variants": {"Staphylococcus aureus gyrA conferring resistance to fluoroquinolones": "S84L"},
+        "targets_affected": ["Staphylococcus aureus gyrA conferring resistance to fluoroquinolones"],
+        "unresolved": []
+      },
+      "verified_aro_ids": {
+        "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones": "ARO:3003296",
+        "antibiotic target alteration": "ARO:0001001",
+        "fluoroquinolone antibiotic": "ARO:0000001"
+      },
+      "expectation_basis": "A target-site change in DNA gyrase, so it defeats fluoroquinolones and nothing else. This is the one case that exercises the mutation path end to end. Ids and the S84L variant are from tests/fixtures/resistance_profile.json, type-checked in docs/ontology-check.md. The target name is CARD's determinant name, which is what profiling records."
+    },
+    {
+      "id": "kpc-klebsiella",
+      "label": "Carbapenemase-producing Klebsiella pneumoniae (KPC-2)",
+      "species": {"name": "Klebsiella pneumoniae", "ncbi_taxid": 573},
+      "input_kind": "gene_list",
+      "genes": ["KPC-2", "CTX-M-15"],
+      "expect": {
+        "defeated_classes": ["carbapenem", "cephalosporin", "penicillin beta-lactam"],
+        "not_defeated_classes": [],
+        "mechanisms": ["antibiotic inactivation"],
+        "variants": {},
+        "targets_affected": [],
+        "unresolved": []
+      },
+      "verified_aro_ids": {},
+      "expectation_basis": "KPC-2 is a class A carbapenemase, so unlike the plain ESBL case carbapenem must now appear. Pairing it with CTX-M-15 makes the contrast with ctx-m-producer the thing under test. Classes are expected by name and confirmed against a real release; no ARO id is asserted here because none in this repo confirms KPC-2's."
+    },
+    {
+      "id": "crab-oxa23",
+      "label": "Carbapenem-resistant Acinetobacter baumannii (OXA-23)",
+      "species": {"name": "Acinetobacter baumannii", "ncbi_taxid": 470},
+      "input_kind": "gene_list",
+      "genes": ["OXA-23", "ADC-25"],
+      "expect": {
+        "defeated_classes": ["carbapenem"],
+        "not_defeated_classes": [],
+        "mechanisms": ["antibiotic inactivation"],
+        "variants": {},
+        "targets_affected": [],
+        "unresolved": []
+      },
+      "verified_aro_ids": {},
+      "expectation_basis": "The project's validation species. OXA-23 is the carbapenem-hydrolysing class D oxacillinase that drives carbapenem resistance in A. baumannii, and docs/combinations.md records that neither relebactam nor vaborbactam covers it, while durlobactam does. Only carbapenem is asserted: CARD's full class list for OXA-23 has not been confirmed from this environment, so a narrow expectation is used rather than a guessed one."
+    }
+  ]
+}

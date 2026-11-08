@@ -31,8 +31,14 @@ Exit codes: **0** everything resolved, **1** a profile with unresolved entries l
 These use the contract's own names, so `input.kind` is what the app can switch on.
 
 **`gene_list`.** Names or ARO IDs separated by commas, semicolons or lines; `#` starts a
-comment. An item of the form `gyrA S84L` is read as that determinant carrying that
-mutation, while `mecA gyrA` is two determinants. Names resolve against CARD's ARO name,
+comment. Within one item, a trailing mutation makes it a single determinant and everything
+before the mutation is the name, so `Staphylococcus aureus gyrA conferring resistance to
+fluoroquinolones S84L` is one gene rather than eight — CARD determinant names run to
+several words, as the frozen fixture's own gene name does. Without a trailing mutation, an
+item of several words is read as several determinants, so `mecA gyrA` is two. The gap that
+leaves: a multi-word CARD name with no mutation inside a space-separated item gets split
+into words and reported unresolved; separate those with commas or newlines, which are
+always item boundaries. Names resolve against CARD's ARO name,
 short name, model names and EXACT synonyms, then case-insensitively, then once more with a
 leading `bla` dropped, so `blaCTX-M-15` finds `CTX-M-15`. A match that needed the case or
 prefix fallback is named in the caveats, because it is a guess about spelling.
@@ -91,6 +97,32 @@ weak calls named in the caveats.
 - A determinant with no resistance mechanism in CARD is reported in `unresolved_inputs`
   rather than as a gene row, because the contract requires every gene row to have one.
 - The presets are drafts, as above.
+
+## Isolate fixtures
+
+`tests/fixtures/isolates.json` holds the cases a microbiologist would recognise — a CTX-M
+producer, an MRSA with *mecA*, a KPC-producing *K. pneumoniae*, a carbapenem-resistant
+*A. baumannii* and an *S. aureus* gyrA S84L — each with the classes it must defeat and the
+classes it must **not**. `tests/test_isolates.py` checks them in two layers, which answer
+different questions:
+
+- **Pipeline layer**, always runs. A synthetic release is generated per case and profiled.
+  It proves the machinery: classes aggregate across genes, forbidden classes stay absent,
+  mutations attach to the right determinant, the contract comes out valid. It does not
+  prove the biology, since the release is built from the same expectations it then checks.
+  A decoy determinant carrying each case's forbidden classes is planted so their absence
+  is a result rather than an artefact, and one test deliberately tampers with a profile to
+  show the forbidden-class assertion can fail.
+- **Biology layer**, skipped without data. The same cases against a real CARD release,
+  which is where "checked against expected defeated classes" actually bites. Build one
+  with `python -m htb_resistance build` and they run.
+
+Expectations are names and "must include", not exact sets, because CARD lists more classes
+per gene than the few that matter clinically. ARO ids are asserted only where another file
+in this repo already confirmed them — `tests/fixtures/resistance_profile.json`,
+type-checked in `docs/ontology-check.md`. The *K. pneumoniae* and *A. baumannii* cases
+assert no ids, because nothing here confirms KPC-2's or OXA-23's; the real-release layer is
+what will settle those.
 
 ## Tests
 

@@ -354,6 +354,17 @@ def test_two_bare_names_in_one_item_are_two_determinants(ref):
     assert len(p["genes"]) == 2
 
 
+def test_a_multi_word_card_name_with_a_mutation_is_one_determinant(ref):
+    """CARD determinant names run to several words, as the frozen fixture's own gene name
+    does. Everything before a trailing mutation is the name, not a list of genes."""
+    parsed = parse_gene_text("TESTGYR point model S83L")   # the model name, four words
+    assert [(t.lookup, t.mutation) for t in parsed.tokens] == [("TESTGYR point model", "S83L")]
+    p = build_profile(parsed, ref).contract
+    assert [g["aro_id"] for g in p["genes"]] == ["ARO:9000003"]   # matched on its ARO name
+    assert p["genes"][0]["variants"] == [{"mutation": "S83L",
+                                          "param_type": "single resistance variant"}]
+
+
 def test_an_unknown_name_is_reported_not_dropped(ref):
     profile = build_profile(parse_gene_text("TESTBLA-1 NOTAGENE"), ref)
     p = profile.contract

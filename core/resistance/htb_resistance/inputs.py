@@ -79,13 +79,21 @@ _ITEM_SPLIT = re.compile(r"[,;\n]+")
 
 
 def _split_item(item: str) -> list:
-    """Split one item into (name, mutation) pairs.
+    """Split one item into (raw, name, mutation) triples.
 
-    ``gyrA S84L`` is one determinant with a mutation. ``mecA gyrA`` is two determinants.
+    A trailing mutation makes the item one determinant, and everything before the mutation
+    is the name. That matters because CARD determinant names are often several words:
+    ``Staphylococcus aureus gyrA conferring resistance to fluoroquinolones S84L`` is one
+    gene, not eight. Without a trailing mutation an item of several words is read as
+    several determinants, so ``mecA gyrA`` is two.
+
+    The gap that leaves: a multi-word CARD name with no mutation, given inside a
+    space-separated item, is split into words and reported unresolved. Separate such
+    entries with commas or newlines, which are always item boundaries.
     """
     parts = item.split()
-    if len(parts) == 2 and _MUTATION.match(parts[1]):
-        return [(item, parts[0], parts[1])]
+    if len(parts) >= 2 and _MUTATION.match(parts[-1]):
+        return [(item, " ".join(parts[:-1]), parts[-1])]
     return [(p, p, None) for p in parts]
 
 
