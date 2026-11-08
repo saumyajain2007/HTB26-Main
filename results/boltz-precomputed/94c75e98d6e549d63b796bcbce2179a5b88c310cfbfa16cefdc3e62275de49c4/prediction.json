@@ -1,0 +1,25 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL430",
+  "smiles": "CO/N=C1\\CN(c2nc3c(cc2F)c(=O)c(C(=O)O)cn3C2CC2)CC1CN",
+  "target_name": "Exploratory target fragment: S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+  "protein_sequence_sha256": "b53a4cbd6baa0471b4d082f01ab0694c4e2a2905318cfc360623da40e1bb98f3",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8353492617607117,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "14f94b9a7b0536a68c40c60ee39f59d9dfe214d95c07dc8ea8413e72c5eb588f"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "19a557970f7efc9a6bfc96f4ba06190c823b86be215675eb7270630f9fa02865"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "S. aureus GyrA residues 1-500; missing GyrB, DNA, magnesium and the other gyrase subunit",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}

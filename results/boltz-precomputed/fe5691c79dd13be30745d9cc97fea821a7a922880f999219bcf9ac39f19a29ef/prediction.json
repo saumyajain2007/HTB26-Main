@@ -1,0 +1,24 @@
+{
+  "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+  "candidate_id": "CHEMBL529",
+  "smiles": "CC[C@H]1OC(=O)[C@H](C)[C@@H](O[C@H]2C[C@@](C)(OC)[C@@H](O)[C@H](C)O2)[C@H](C)[C@@H](O[C@@H]2O[C@H](C)C[C@H](N(C)C)[C@H]2O)[C@](C)(O)C[C@@H](C)CN(C)[C@H](C)[C@@H](O)[C@]1(C)O",
+  "target_name": "Exploratory target fragment: E. coli 23S rRNA residues 2050-2110 proxy; different species, isolated fragment, missing remaining exit-tunnel components",
+  "protein_sequence_sha256": "cc2d86b3d5312b79c4ea96db461134f3dbc9ddf4bafd49ac566bccd6da2532dc",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.5217448472976685,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "6a46f5c92d8660030157ad847f401acd975541a5f7879e91cc05137193dedd7c"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "899a256bf9d4fc2d9ebbe6a5b967b611078684f1cc4da25a29ba7d0ef1078237"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "E. coli 23S rRNA residues 2050-2110 proxy; different species, isolated fragment, missing remaining exit-tunnel components",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ]
+}

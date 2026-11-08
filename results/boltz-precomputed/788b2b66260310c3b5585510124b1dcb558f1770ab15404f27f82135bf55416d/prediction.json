@@ -1,0 +1,26 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL3301669",
+  "smiles": "CN[C@H]1C(=O)N[C@@H]2Cc3ccc(cc3)Oc3cc4cc(c3O[C@@H]3O[C@H](C(=O)O)[C@@H](O)[C@H](O)[C@H]3NC(=O)CCCCCCCCC(C)C)Oc3ccc(cc3Cl)[C@@H](O)[C@@H]3NC(=O)[C@H](NC(=O)[C@@H]4NC(=O)[C@@H](NC2=O)c2cc(cc(O)c2Cl)Oc2cc1ccc2O)c1ccc(O)c(c1)-c1c(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@@H]2O)cc(O)cc1[C@@H](C(=O)NCCCN(C)C)NC3=O",
+  "target_name": "Exploratory target fragment: Synthetic Lys-D-Ala-D-Ala peptide proxy; not peptidoglycan or lipid II, no membrane context; free termini and unmodified Lys",
+  "protein_sequence_sha256": "419a29db1df015563bb5cb2dbdeff78f35c2a19cabe8a876e77db60c22f9e69f",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.6195465922355652,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "5475113203a54dafd02318d7aeb41e7e90b74f0048180a210f0a1d247bc9aa22"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "27439522bb8c2b5a8fa6c87e1a3adfa6e290d4a11318ee7dd83617b428ca3d1a"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "Synthetic Lys-D-Ala-D-Ala peptide proxy; not peptidoglycan or lipid II, no membrane context; free termini and unmodified Lys",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Boltz 2.2.1 atom-name compatibility fix: two-letter element atom IDs use hexadecimal canonical indices to fit PDB width; chemistry unchanged.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}

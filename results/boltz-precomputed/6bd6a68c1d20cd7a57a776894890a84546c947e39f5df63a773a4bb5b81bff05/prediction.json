@@ -1,0 +1,24 @@
+{
+  "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+  "candidate_id": "CHEMBL1572",
+  "smiles": "CCN[C@@H]1C[C@H](N)[C@@H](O[C@H]2OC(CN)=CC[C@H]2N)[C@H](O)[C@H]1O[C@H]1OC[C@](C)(O)[C@H](NC)[C@H]1O",
+  "target_name": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+  "protein_sequence_sha256": "9c0315cce0db1e04695a70b2598eb5376ce2740dd08799e79cc8d512d330e0e5",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9046832323074341,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "25be9d2ff952108eaf09975ecc4f19c89a48dc0e877a8d2c2a8162c37ba363f9"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "b83a433847c582afdac85d38f6f72fb40ec71d3a0367d022539fb094c8ee4f67"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ]
+}

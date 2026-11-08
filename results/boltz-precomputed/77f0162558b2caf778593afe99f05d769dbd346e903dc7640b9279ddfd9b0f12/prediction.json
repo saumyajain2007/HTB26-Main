@@ -1,0 +1,25 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL1384",
+  "smiles": "NC[C@H]1O[C@H](O[C@H]2[C@H](O)[C@@H](O[C@H]3O[C@H](CO)[C@@H](O)[C@H](N)[C@H]3O)[C@H](N)C[C@@H]2N)[C@H](O)[C@@H](O)[C@@H]1O",
+  "target_name": "Exploratory target fragment: E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+  "protein_sequence_sha256": "9c0315cce0db1e04695a70b2598eb5376ce2740dd08799e79cc8d512d330e0e5",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8987162709236145,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "88609acf7ee2b476cac51ee8fc224bc2ef724e06ef017a0e629ce15c5ce1e1a7"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "47c2d0719904ad58dc5724b72d1d9bbc8bc7122a7958a0996f362e87285f1026"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "E. coli 16S rRNA residues 1400-1510 proxy; different species, isolated fragment, no full ribosome, ions or proteins",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}

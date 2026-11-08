@@ -66,17 +66,30 @@ def test_boltz_api(tmp_path: Path) -> None:
 
 
 def test_bundled_predictions_match_saved_candidates(tmp_path: Path) -> None:
-    settings = Settings(resistance="saved", boltz_results_dir=tmp_path, fixture_delay_ms=0)
+    # Bulk integrity sweep exceeds the production reader's per-minute request budget.
+    settings = Settings(
+        resistance="saved",
+        boltz_results_dir=tmp_path,
+        fixture_delay_ms=0,
+        requests_per_minute=1000,
+    )
     manifest = json.loads((settings.boltz_precomputed_dir / "manifest.json").read_text())
-    assert manifest["count"] == 48
+    assert manifest["count"] == 84
     assert manifest["reference_count"] == 27
-    assert manifest["exploratory_count"] == 21
+    assert manifest["exploratory_count"] == 57
     with TestClient(create_app(settings)) as client:
+        bundled = {(p["profile_id"], p["candidate_id"]) for p in manifest["predictions"]}
         candidates: dict[str, dict[str, str]] = {}
         for item in manifest["predictions"]:
             profile_id = item["profile_id"]
             if profile_id not in candidates:
                 ranking = client.get(f"/api/resistance/profiles/{profile_id}/candidates").json()
+                top_five = sorted(
+                    (c for c in ranking["candidates"] if c["source"] == "approved"),
+                    key=lambda c: c["rank"],
+                )[:5]
+                assert len(top_five) == 5
+                assert all((profile_id, c["candidate_id"]) in bundled for c in top_five)
                 candidates[profile_id] = {
                     c["candidate_id"]: c["smiles"] for c in ranking["candidates"]
                 }

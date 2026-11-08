@@ -1,0 +1,24 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL680",
+  "smiles": "N[C@@H](C(=O)N[C@@H]1C(=O)N2C(C(=O)O)=C(Cl)CS[C@H]12)c1ccccc1",
+  "target_name": "Exploratory PBP2a proxy (Staphylococcus aureus; UniProt P07944, residues 327-670)",
+  "protein_sequence_sha256": "fcb58d30fafe49f6286a5f5c7200a3e8f3e6c5109b5148ffd8d7802c78551004",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.8896387219429016,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "21b66346325d115c51f8f61e153e0c9fbd979479cb6bffaf42c2671e42165e04"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "edc657dc46e461d8fcc72f083202583fb664df1723c2fde5cac9e83c904bb5e3"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
+    "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
+    "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps."
+  ]
+}

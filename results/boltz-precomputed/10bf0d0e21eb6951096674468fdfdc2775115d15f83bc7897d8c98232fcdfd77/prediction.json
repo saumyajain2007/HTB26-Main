@@ -1,0 +1,25 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL376140",
+  "smiles": "CN(C)c1cc(NC(=O)CNC(C)(C)C)c(O)c2c1C[C@H]1C[C@H]3[C@H](N(C)C)C(O)=C(C(N)=O)C(=O)[C@@]3(O)C(O)=C1C2=O",
+  "target_name": "Exploratory target fragment: E. coli 16S rRNA residues 1000-1100 proxy; different species, isolated fragment, missing remaining binding-site components",
+  "protein_sequence_sha256": "6f8ffc276b1b972eb443fe2f9bbd2747bab02bd75a25e573488e4da8df214383",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.5166049599647522,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "18d41461ee2d372b00450e8317c79b7a9901550d1529ac7408405671293522d9"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "13dffe7ab22d740a2641763d2ba246114ec3a1c88d3baea81cd82f289c9dca68"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Top-five exploratory target fragment; no efficacy or susceptibility claim.",
+    "E. coli 16S rRNA residues 1000-1100 proxy; different species, isolated fragment, missing remaining binding-site components",
+    "Unconstrained fragment folding and placement may not reproduce the native binding pocket; not a full biological target.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}
