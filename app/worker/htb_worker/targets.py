@@ -38,6 +38,7 @@ REGISTRY = STRUCTURES_DIR / "targets.json"
 
 RCSB_ENTRY = "https://data.rcsb.org/rest/v1/core/entry/{pdb_id}"
 RCSB_POLYMER = "https://data.rcsb.org/rest/v1/core/polymer_entity/{pdb_id}/{entity}"
+RCSB_NONPOLYMER = "https://data.rcsb.org/rest/v1/core/nonpolymer_entity/{pdb_id}/{entity}"
 
 STATUSES = {"exists", "none_known", "not_determined", "not_applicable"}
 TARGET_FIELDS = {"id", "name", "organism", "card_determinant", "card_mechanism", "why",
@@ -249,9 +250,23 @@ def resolve(pdb_id: str, timeout: float = 20.0) -> dict:
                 organisms.append(name)
         mutation_count += (polymer.get("entity_poly", {}) or {}).get("rcsb_mutation_count", 0) or 0
 
+    # The entry-level "bound components" field leaves out some co-crystallised ligands (3G7B's B47
+    # and 3U2K's 087 are missing from it), so the components are read from the entities themselves.
+    comp_ids: list = []
+    for entity in (entry.get("rcsb_entry_container_identifiers", {})
+                   .get("non_polymer_entity_ids", []) or []):
+        try:
+            nonpoly = get(RCSB_NONPOLYMER.format(pdb_id=pdb_id, entity=entity))
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError):
+            continue
+        comp = (nonpoly.get("pdbx_entity_nonpoly", {}) or {}).get("comp_id")
+        if comp and comp not in comp_ids:
+            comp_ids.append(comp)
+
     return {
         "title": (entry.get("struct", {}) or {}).get("title", ""),
         "organisms": organisms,
+        "nonpolymer_comp_ids": comp_ids,
         "resolution_angstrom": ((entry.get("rcsb_entry_info", {}) or {})
                                 .get("resolution_combined") or [None])[0],
         "ligand_ids": (entry.get("rcsb_entry_info", {}) or {})
@@ -260,22 +275,42 @@ def resolve(pdb_id: str, timeout: float = 20.0) -> dict:
     }
 
 
+def _also_passing(registry: dict) -> list:
+    """(target id, entry) for the extra passing structures a wild_type slot lists."""
+    return [(t["id"], other) for t in targets(registry)
+            for other in (t.get("wild_type") or {}).get("also_passing", []) or []]
+
+
 def verify(registry: dict) -> list:
     """Check every recorded structure against RCSB. Returns a list of problems."""
     problems = []
-    for target_id, slot, pdb_id in recorded_structures(registry):
+    checks = [(target_id, slot, pdb_id) for target_id, slot, pdb_id in recorded_structures(registry)]
+    checks += [(target_id, "also_passing", other["pdb_id"]) for target_id, other in _also_passing(registry)]
+    for target_id, slot, pdb_id in checks:
         found = resolve(pdb_id)
         if "error" in found:
             problems.append(f"{target_id} {slot} {pdb_id}: {found['error']}")
             continue
-        claimed = (next(t for t in targets(registry) if t["id"] == target_id)[slot])
+        target = next(t for t in targets(registry) if t["id"] == target_id)
+        if slot == "also_passing":
+            claimed = {"ligand_comp_id": next(o["ligand_comp_id"] for o in target["wild_type"]["also_passing"]
+                                              if o["pdb_id"] == pdb_id),
+                       "organism": target["wild_type"].get("organism")}
+            slot = "wild_type"
+        else:
+            claimed = target[slot]
         if slot == "mutant" and found["recorded_mutation_count"] == 0:
             problems.append(f"{target_id} mutant {pdb_id}: RCSB records no mutation for this "
                             f"entry, but the registry calls it a mutant carrying "
                             f"{claimed.get('mutations')}")
-        if slot == "wild_type" and not found["ligand_ids"]:
-            problems.append(f"{target_id} wild_type {pdb_id}: RCSB lists no bound ligand, so "
-                            "the redocking control cannot run")
+        if slot == "wild_type":
+            ligand = claimed.get("ligand_comp_id")
+            if ligand and ligand not in found["nonpolymer_comp_ids"]:
+                problems.append(f"{target_id} wild_type {pdb_id}: the registry names ligand {ligand}, but RCSB "
+                                f"lists these components: {found['nonpolymer_comp_ids']}")
+            elif not ligand and not found["ligand_ids"]:
+                problems.append(f"{target_id} wild_type {pdb_id}: RCSB lists no bound ligand, so "
+                                "the redocking control cannot run")
         organism = claimed.get("organism") or (
             next(t for t in targets(registry) if t["id"] == target_id).get("organism"))
         if organism and found["organisms"] and not any(

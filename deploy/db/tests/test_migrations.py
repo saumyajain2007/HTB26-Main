@@ -309,6 +309,32 @@ def test_one_live_docking_computation_per_cache_key(migrated: str) -> None:
             conn.execute(insert, (key, "queued", None, None))
 
 
+@pytest.mark.parametrize(
+    ("target_id", "accepted"),
+    [
+        ("ENSG00000096968", True),  # human Ensembl gene (JAK2)
+        ("P0A0K8", True),  # UniProt accession (S. aureus GyrB), from 0011
+        ("P47205", True),  # UniProt accession (P. aeruginosa LpxC)
+        ("A0A0H3JPA5", True),  # the 10-character UniProt form
+        ("ENSG1", False),
+        ("p0a0k8", False),
+        ("6WTO_A", False),
+        ("", False),
+    ],
+)
+def test_dock_jobs_accept_a_human_gene_or_a_uniprot_accession(
+    migrated: str, target_id: str, accepted: bool
+) -> None:
+    insert = """insert into dock_jobs (kind, candidate_id, target_id, structure_id, ligand_smiles, settings, cache_key)
+                values ('redock_control', 'CHEMBL1094382', %s, '3G7B_A', 'C', '{}', %s)"""
+    with psycopg.connect(migrated) as conn:
+        if accepted:
+            conn.execute(insert, (target_id, "c" * 64))
+        else:
+            with pytest.raises(errors.CheckViolation):
+                conn.execute(insert, (target_id, "c" * 64))
+
+
 # ---------------------------------------------------------------------------
 # 0003: archive and docking guards, juror progress
 # ---------------------------------------------------------------------------

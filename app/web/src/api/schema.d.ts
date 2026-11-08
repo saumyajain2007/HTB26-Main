@@ -1248,7 +1248,8 @@ export interface components {
       /**
        * Target Id
        * @description The protein it is docked into.
-       * @example ENSG00000162434
+       * @example ENSG00000096968
+       * @example P0A0K8
        */
       target_id: string;
     };
@@ -2545,7 +2546,8 @@ export interface components {
     };
     /**
      * Structure
-     * @description A prepared human protein structure that Candidates can be docked into.
+     * @description A prepared protein structure that Candidates can be docked into: a human protein, or a
+     *     bacterial one (a UniProt accession as `target_id`).
      */
     Structure: {
       box: components["schemas"]["DockingBox"];
@@ -2582,12 +2584,13 @@ export interface components {
       /**
        * Target Id
        * @description The protein this chain is. Never shown as another.
-       * @example ENSG00000162434
+       * @example ENSG00000096968
+       * @example P0A0K8
        */
       target_id: string;
       /**
        * Target Symbol
-       * @description Gene symbol of that protein, e.g. JAK2.
+       * @description Gene symbol of that protein, e.g. JAK2 or gyrB.
        */
       target_symbol: string;
       /**

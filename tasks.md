@@ -104,8 +104,8 @@ Short, blocks everything. Do together, then split.
 ### Lane B: structures and ranking skeleton (WS3, WS4, WS8)
 
 - [ ] Review the four existing PDB entries against the bacterial target list. Keep, replace or drop them. `S`
-- [ ] Choose targets (PBPs, DNA gyrase B, LpxC, FabI), record essentiality evidence, pick PDB entries with a co-crystallised ligand. `M`
-- [ ] Add entries to `app/worker/structures`, run the existing prepare step, run the redocking control (2 Å rule) and record pass or fail honestly. `M`
+- [x] Choose targets (PBPs, DNA gyrase B, LpxC, FabI), record essentiality evidence, pick PDB entries with a co-crystallised ligand. `M` Two targets so far (GyrB, LpxC), recorded in [docs/targets.md](docs/targets.md); DEG not yet checked, no PBP or FabI structure passes.
+- [x] Add entries to `app/worker/structures`, run the existing prepare step, run the redocking control (2 Å rule) and record pass or fail honestly. `M` Four structures pass (two targets), six failed and were dropped; see [docs/targets.md](docs/targets.md). The web UI does not list them yet.
 - [ ] Mutant handling: use a mutant structure only where one exists; otherwise say so. `S`
 - [x] Ranking skeleton against the fixture `ResistanceProfile`: evasion rule (defeated, partly affected, unaffected), features stored separately, simple ordered scoring (evasion first, then evidence), documented weights. `M`
 - [x] Baselines for WS5: random, "class not defeated" only, "activity data only". `S`
