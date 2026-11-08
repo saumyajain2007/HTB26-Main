@@ -3,10 +3,23 @@
   "checkpoint_id": "01M6XA1E8PX6Y7EWB0062SGZ51",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 9,
+  "checkpoints_count": 17,
   "files_touched": [
     "app/api/README.md",
-    "app/api/tests/test_saved_resistance.py"
+    "app/api/tests/test_saved_resistance.py",
+    "app/web/e2e/intro.spec.ts",
+    "app/web/src/app/routes.test.tsx",
+    "app/web/src/app/routes.tsx",
+    "app/web/src/app/routes/IntroPage.module.css",
+    "app/web/src/app/routes/IntroPage.test.tsx",
+    "app/web/src/app/routes/IntroPage.tsx",
+    "app/web/src/copy/en.ts",
+    "app/web/src/intro/MonitorStory.tsx",
+    "app/web/src/intro/content.ts",
+    "app/web/src/steps/ResistanceCandidates.tsx",
+    "app/web/src/three/PoseViewer.tsx",
+    "app/web/src/three/poseScene.ts",
+    "app/web/vite.config.ts"
   ],
   "sessions": [
     {
@@ -29,25 +42,32 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 24,
-    "cache_creation_tokens": 16520,
-    "cache_read_tokens": 4646772,
-    "output_tokens": 11278,
-    "api_call_count": 10
+    "input_tokens": 294,
+    "cache_creation_tokens": 221158,
+    "cache_read_tokens": 24155523,
+    "output_tokens": 109094,
+    "api_call_count": 135
   },
   "redaction": {
-    "replacements": 38,
+    "replacements": 60,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 15,
+      "credential_value": 25,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 23,
+      "key_context": 35,
       "provider_token": 0,
       "shell_stdin": 0
     }

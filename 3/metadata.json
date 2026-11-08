@@ -1,0 +1,55 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6XA1E8PX6Y7EWB0062SGZ51",
+  "session_id": "759ffcdd-d8bf-4374-ab48-8442d5521f90",
+  "strategy": "manual-commit",
+  "created_at": "2026-11-08T10:07:39.232444Z",
+  "branch": "live-resistance-validation-leakage",
+  "checkpoints_count": 8,
+  "save_step_count": 9,
+  "files_touched": [
+    "app/api/README.md",
+    "app/api/tests/test_saved_resistance.py",
+    "app/web/e2e/intro.spec.ts",
+    "app/web/src/app/routes.test.tsx",
+    "app/web/src/app/routes.tsx",
+    "app/web/src/app/routes/IntroPage.module.css",
+    "app/web/src/app/routes/IntroPage.test.tsx",
+    "app/web/src/app/routes/IntroPage.tsx",
+    "app/web/src/copy/en.ts",
+    "app/web/src/intro/MonitorStory.tsx",
+    "app/web/src/intro/content.ts",
+    "app/web/src/steps/ResistanceCandidates.tsx",
+    "app/web/src/three/PoseViewer.tsx",
+    "app/web/src/three/poseScene.ts",
+    "app/web/vite.config.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "13a40f0dd507",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 270,
+    "cache_creation_tokens": 204638,
+    "cache_read_tokens": 19508751,
+    "output_tokens": 97816,
+    "api_call_count": 125
+  },
+  "redaction": {
+    "replacements": 22,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 10,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 12,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 10
+  }
+}
