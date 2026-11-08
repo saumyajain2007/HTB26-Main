@@ -1,7 +1,10 @@
+import { QueryClientProvider } from "@tanstack/react-query";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
+import { createQueryClient } from "../app/queryClient";
 import { copy } from "../copy/en";
+import { structures } from "../test/fixtures";
 import { renderApp } from "../test/render";
 import {
   FIXTURE_NOTE,
@@ -17,13 +20,24 @@ const text = copy.resistance.candidates;
 const mapText = copy.resistance.map;
 const CANDIDATES_PATH = `/resistance/${PROFILE_ID}/candidates`;
 
-function renderCandidates(candidates = antibioticCandidates(), certs = certificates()) {
+function renderCandidates(
+  candidates = antibioticCandidates(),
+  certs = certificates(),
+  structList = structures,
+) {
+  const queryClient = createQueryClient();
+  queryClient.setDefaultOptions({
+    queries: { ...queryClient.getDefaultOptions().queries, retry: false },
+  });
   return render(
-    <ResistanceCandidates
-      profile={resistanceProfile()}
-      candidates={candidates}
-      certificates={certs}
-    />,
+    <QueryClientProvider client={queryClient}>
+      <ResistanceCandidates
+        profile={resistanceProfile()}
+        candidates={candidates}
+        certificates={certs}
+        structures={structList}
+      />
+    </QueryClientProvider>,
   );
 }
 
@@ -217,5 +231,67 @@ describe("the candidate antibiotics view", () => {
     server.resetHandlers();
     await user.click(screen.getByRole("button", { name: copy.retry }));
     expect(await screen.findByRole("table", { name: text.approvedTableLabel })).toBeInTheDocument();
+  });
+
+  it("lists the four bacterial crystal structures (3G7B, 3U2K, 2VES, 3P3E) and opens the 3D pose viewer from a candidate", async () => {
+    const user = userEvent.setup();
+    const data = antibioticCandidates();
+    // Give the generated proposal a bacterial pocket (3G7B, S. aureus gyrB) and docking score.
+    const generatedCandidate = data.candidates.find((c) => c.candidate_id === "GEN-0001");
+    if (generatedCandidate?.generated == null) {
+      throw new Error("No GEN-0001 candidate in fixture");
+    }
+    generatedCandidate.generated = {
+      ...generatedCandidate.generated,
+      pocket_pdb_id: "3G7B",
+    };
+    generatedCandidate.target = {
+      name: "gyrB",
+      gene_aro_ids: [],
+    };
+    generatedCandidate.features.docking = {
+      available: true,
+      value: -8.4,
+      unit: "kcal/mol (Vina, fictional)",
+      evidence_ids: [],
+    };
+
+    renderCandidates(data);
+
+    // Linezolid's target is the 50S ribosomal subunit, so it explains why no ribosome structure
+    // is in the prepared set while offering the four bacterial structures (3G7B, 3U2K, 2VES, 3P3E).
+    const linezolidPane = within(readingPane("Linezolid"));
+    expect(
+      linezolidPane.getByText(text.poseNoTargetStructure("50S ribosomal subunit")),
+    ).toBeInTheDocument();
+    const picker = linezolidPane.getByRole("combobox", { name: text.posePickerLabel });
+    const options = within(picker).getAllByRole("option");
+    expect(options.map((opt) => (opt as HTMLOptionElement).value)).toEqual([
+      "3G7B_A",
+      "3U2K_A",
+      "2VES_A",
+      "3P3E_A",
+    ]);
+
+    // Switch to the generated candidate matched to 3G7B (gyrB, UniProt P0A0K8) and open its 3D pose.
+    await user.click(within(generatedList()).getByRole("button", { name: /Generated example 1/i }));
+    const genPane = within(readingPane("Generated example 1"));
+    expect(
+      genPane.getByText(text.poseMatchedSummary("3G7B", "gyrB", "P0A0K8")),
+    ).toBeInTheDocument();
+    expect(
+      genPane.getByText("Crystal structure 3G7B of gyrB, 2.3 Å resolution"),
+    ).toBeInTheDocument();
+    expect(genPane.getByText("P0A0K8")).toBeInTheDocument();
+
+    await user.click(genPane.getByRole("button", { name: text.poseShow }));
+    expect(
+      await genPane.findByRole("img", {
+        name: copy.pose.viewerLabel("Generated example 1", "gyrB"),
+      }),
+    ).toBeInTheDocument();
+    expect(genPane.getByRole("button", { name: copy.pose.controls.surface })).toBeInTheDocument();
+    expect(genPane.getByRole("button", { name: copy.pose.controls.overlay })).toBeInTheDocument();
+    expect(genPane.getByText(copy.pose.caveat)).toBeInTheDocument();
   });
 });

@@ -1,0 +1,69 @@
+{
+  "input": 1000,
+  "survivors": 501,
+  "survival_rate": 0.501,
+  "entry_mode": "flag",
+  "stages": [
+    {
+      "stage": "validity",
+      "reached": 1000,
+      "rejected": 0,
+      "passed": 1000
+    },
+    {
+      "stage": "heavy_atoms",
+      "reached": 1000,
+      "rejected": 28,
+      "passed": 972
+    },
+    {
+      "stage": "synthetic_accessibility",
+      "reached": 972,
+      "rejected": 9,
+      "passed": 963
+    },
+    {
+      "stage": "structural_alerts",
+      "reached": 963,
+      "rejected": 461,
+      "passed": 502
+    },
+    {
+      "stage": "gram_negative_entry_2d",
+      "reached": 502,
+      "rejected": 0,
+      "passed": 502
+    },
+    {
+      "stage": "conformer",
+      "reached": 502,
+      "rejected": 1,
+      "passed": 501
+    }
+  ],
+  "cpu_seconds_by_outcome": {
+    "passed": 109.654,
+    "structural_alerts": 1.859,
+    "heavy_atoms": 0.009,
+    "synthetic_accessibility": 0.004,
+    "conformer": 91.883
+  },
+  "entry_flagged": 479,
+  "rejection_reasons": {
+    "structural_alerts: alert: Aliphatic_long_chain": 57,
+    "structural_alerts: alert: Oxygen-nitrogen_single_bond; nitro_group": 20,
+    "structural_alerts: alert: aniline": 19,
+    "structural_alerts: alert: isolated_alkene": 18,
+    "structural_alerts: alert: Michael_acceptor_1": 17,
+    "structural_alerts: alert: phosphor": 12,
+    "structural_alerts: alert: imine_1; imine_2": 11,
+    "structural_alerts: alert: cumarine": 9,
+    "structural_alerts: alert: indol_3yl_alk(461)": 9,
+    "structural_alerts: alert: quaternary_nitrogen_2": 9,
+    "structural_alerts: alert: iodine": 8,
+    "structural_alerts: alert: Oxygen-nitrogen_single_bond": 8,
+    "structural_alerts: alert: triple_bond": 8,
+    "structural_alerts: alert: Oxygen-nitrogen_single_bond; imine_1": 7,
+    "structural_alerts: alert: alkyl_halide": 7
+  }
+}

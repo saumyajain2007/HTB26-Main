@@ -1,6 +1,21 @@
-import { useId, useRef, useState, type KeyboardEvent, type ReactElement } from "react";
+import {
+  lazy,
+  Suspense,
+  useId,
+  useRef,
+  useState,
+  type KeyboardEvent,
+  type ReactElement,
+} from "react";
+import type { Structure } from "../api/types";
 import { FigureNote, Panel } from "../app/Figure";
 import { copy } from "../copy/en";
+import {
+  bacterialStructures,
+  dockFilesForStructure,
+  structureForAntibiotic,
+  structuresForAntibiotic,
+} from "../lib/docking";
 import { capitalise, listOf } from "../lib/format";
 import type { AntibioticCandidateResult, Certificate, ResistanceProfile } from "../lib/resistance";
 import {
@@ -12,10 +27,16 @@ import {
 import { releaseLabel, type MapStatus } from "../lib/resistanceMap";
 import styles from "./ResistanceCandidates.module.css";
 
+// 3Dmol.js loads only once a pose is shown.
+const PoseViewer = lazy(() =>
+  import("../three/PoseViewer").then((module) => ({ default: module.PoseViewer })),
+);
+
 export interface ResistanceCandidatesProps {
   profile: ResistanceProfile;
   candidates: AntibioticCandidateResult | undefined;
   certificates?: readonly Certificate[] | undefined;
+  structures?: readonly Structure[] | undefined;
   loading?: boolean | undefined;
   onRetry?: (() => void) | undefined;
 }
@@ -61,6 +82,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
   profile,
   candidates,
   certificates,
+  structures,
   loading = false,
   onRetry,
 }) => {
@@ -252,7 +274,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
             )}
           </div>
 
-          <CandidateReadingPane id={readingId} entry={current} />
+          <CandidateReadingPane id={readingId} entry={current} structures={structures} />
         </div>
 
         <footer className={styles.footBand}>
@@ -267,7 +289,15 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
   );
 };
 
-function CandidateReadingPane({ id, entry }: { id: string; entry: CandidateEntry }) {
+function CandidateReadingPane({
+  id,
+  entry,
+  structures,
+}: {
+  id: string;
+  entry: CandidateEntry;
+  structures: readonly Structure[] | undefined;
+}) {
   return (
     <section id={id} className={styles.reading} aria-label={text.readingLabel(entry.name)}>
       <header className={styles.readingHead}>
@@ -380,6 +410,11 @@ function CandidateReadingPane({ id, entry }: { id: string; entry: CandidateEntry
             </div>
           ))}
         </dl>
+      </div>
+
+      <div className={styles.block}>
+        <h3 className={styles.subhead}>{text.poseTitle}</h3>
+        <CandidatePosePanel key={entry.id} entry={entry} structures={structures} />
       </div>
 
       <div className={styles.block}>
@@ -593,6 +628,142 @@ function SmokeAndCertificatePanel({ entry }: { entry: CandidateEntry }) {
             : text.certificateScopeSmokeOnly}
         </p>
       </div>
+    </div>
+  );
+}
+
+function CandidatePosePanel({
+  entry,
+  structures,
+}: {
+  entry: CandidateEntry;
+  structures: readonly Structure[] | undefined;
+}) {
+  const selectId = useId();
+  const matched = structures !== undefined ? structuresForAntibiotic(entry, structures) : [];
+  const primaryMatch =
+    structures !== undefined ? structureForAntibiotic(entry, structures) : undefined;
+  const bacterial = structures !== undefined ? bacterialStructures(structures) : [];
+
+  const options: Structure[] = [];
+  const seen = new Set<string>();
+  for (const structure of [...matched, ...bacterial]) {
+    if (!seen.has(structure.id)) {
+      seen.add(structure.id);
+      options.push(structure);
+    }
+  }
+
+  const [pickedStructureId, setPickedStructureId] = useState<string | null>(null);
+  const [poseOpen, setPoseOpen] = useState(false);
+
+  const activeStructure =
+    options.find((s) => s.id === pickedStructureId) ?? primaryMatch ?? options[0];
+  const isMatched =
+    activeStructure !== undefined && matched.some((s) => s.id === activeStructure.id);
+  const dockingFeature = entry.features.find((f) => f.key === "docking");
+
+  return (
+    <div className={styles.posePanel}>
+      <p className={styles.rationale}>
+        {primaryMatch !== undefined
+          ? text.poseMatchedSummary(
+              primaryMatch.pdb_id,
+              primaryMatch.target_symbol,
+              primaryMatch.target_id,
+            )
+          : entry.target !== null
+            ? text.poseNoTargetStructure(entry.target.name)
+            : text.poseNoTargetRecorded}
+      </p>
+
+      {activeStructure === undefined ? (
+        <p className={styles.rationale}>{text.poseNoStructures}</p>
+      ) : (
+        <div className={styles.poseCard}>
+          <div className={styles.poseControlsRow}>
+            {options.length > 1 && (
+              <label htmlFor={selectId} className={styles.posePicker}>
+                <span className={styles.posePickerLabel}>{text.posePickerLabel}</span>
+                <select
+                  id={selectId}
+                  className={styles.poseSelect}
+                  value={activeStructure.id}
+                  onChange={(event) => {
+                    setPickedStructureId(event.target.value);
+                  }}
+                >
+                  {options.map((structure) => (
+                    <option key={structure.id} value={structure.id}>
+                      {text.poseStructureOption(
+                        structure.pdb_id,
+                        structure.target_symbol,
+                        structure.resolution,
+                        structure.ligand.comp_id,
+                      )}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            <button
+              type="button"
+              className={styles.poseToggle}
+              aria-expanded={poseOpen}
+              onClick={() => {
+                setPoseOpen((open) => !open);
+              }}
+            >
+              {poseOpen ? text.poseHide : text.poseShow}
+            </button>
+          </div>
+
+          <p className={styles.poseStructureLine}>
+            {copy.pose.structure(
+              activeStructure.pdb_id,
+              activeStructure.target_symbol,
+              activeStructure.resolution,
+            )}
+          </p>
+
+          <dl className={styles.metaList}>
+            <dt>{text.poseTargetAccessionLabel}</dt>
+            <dd className={styles.mono}>{activeStructure.target_id}</dd>
+            <dt>{text.poseCrystalLigandLabel}</dt>
+            <dd>
+              {text.poseCrystalLigandValue(
+                activeStructure.ligand.name,
+                activeStructure.ligand.comp_id,
+              )}
+            </dd>
+            {isMatched &&
+              dockingFeature?.available === true &&
+              dockingFeature.displayValue !== null && (
+                <>
+                  <dt>{copy.pose.score}</dt>
+                  <dd className={styles.mono}>{dockingFeature.displayValue}</dd>
+                </>
+              )}
+          </dl>
+
+          {poseOpen && (
+            <>
+              <div className={styles.poseStage}>
+                <Suspense fallback={<p className={styles.rationale}>{copy.pose.loading}</p>}>
+                  <PoseViewer
+                    files={dockFilesForStructure(activeStructure)}
+                    label={copy.pose.viewerLabel(
+                      isMatched ? entry.name : activeStructure.ligand.name,
+                      activeStructure.target_symbol,
+                    )}
+                  />
+                </Suspense>
+              </div>
+              <p className={styles.rationale}>{copy.pose.caveat}</p>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

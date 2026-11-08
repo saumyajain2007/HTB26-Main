@@ -37,11 +37,20 @@ export default defineConfig({
   ],
   webServer: [
     {
-      command: `uv run uvicorn htb_api.app:app --port ${apiPort}`,
+      command: `../../.venv/bin/uvicorn htb_api.app:app --port ${apiPort}`,
       cwd: "../api",
       url: `${apiOrigin}/api/health`,
       // Slow enough to see each build stage, quick enough for a test.
-      env: { HTB_FIXTURE_DELAY_MS: "300" },
+      env: {
+        HTB_FIXTURE_DELAY_MS: "300",
+        HTB_SOURCE: "fixture",
+        HTB_RESISTANCE: process.env.E2E_RESISTANCE ?? "fixture",
+        HTB_JURY: "fixture",
+        HTB_DOCKING: "fixture",
+        HTB_REPO: "memory",
+        HTB_AFTER_REQUEST_JOBS: "false",
+        HTB_SESSION_COOKIE_SECURE: "false",
+      },
       reuseExistingServer: reuse,
       timeout: 120_000,
     },

@@ -1,5 +1,7 @@
 import { Outlet, useParams } from "react-router";
 import { ApiError } from "../../api/errors";
+import { useStructures } from "../../api/queries";
+import type { Structure } from "../../api/types";
 import { copy, isResistanceStepSlug, type ResistanceStepSlug } from "../../copy/en";
 import {
   useAntibioticCandidates,
@@ -23,6 +25,8 @@ export interface ResistanceStepContext {
   candidates: AntibioticCandidateResult | undefined;
   /** Standalone Lean 4 certificates from `/api/resistance/certificates`, matched by InChIKey. */
   certificates: readonly Certificate[] | undefined;
+  /** Prepared protein structures from `/api/structures`, including bacterial targets. */
+  structures: readonly Structure[] | undefined;
   candidatesLoading: boolean;
   retryCandidates: () => void;
 }
@@ -42,6 +46,7 @@ function ResistanceScreen({ profileId, step }: { profileId: string; step: Resist
   const query = useResistanceProfile(profileId);
   const candidates = useAntibioticCandidates(profileId);
   const certificates = useCertificates();
+  const structures = useStructures();
   const profile = query.data;
   const error = query.error;
 
@@ -70,10 +75,12 @@ function ResistanceScreen({ profileId, step }: { profileId: string; step: Resist
                 profile,
                 candidates: candidates.data,
                 certificates: certificates.data,
+                structures: structures.data,
                 candidatesLoading: candidates.isPending,
                 retryCandidates: () => {
                   void candidates.refetch();
                   void certificates.refetch();
+                  void structures.refetch();
                 },
               } satisfies ResistanceStepContext
             }

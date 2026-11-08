@@ -1,11 +1,24 @@
-import type { Candidate, DockJob, Structure } from "../api/types";
+import type { Candidate, DockFiles, DockJob, Structure } from "../api/types";
 
 /** Which drug can be docked into which prepared structure (plan.md §7). */
 
+const HUMAN_ENSEMBL_ID = /^ENSG[0-9]{11}$/;
+
+/** True when a prepared structure is a bacterial target (UniProt accession) rather than human. */
+export function isBacterialStructure(structure: Structure): boolean {
+  return !HUMAN_ENSEMBL_ID.test(structure.target_id);
+}
+
+/** Prepared bacterial structures in `GET /api/structures` (e.g. 3G7B, 3U2K, 2VES, 3P3E). */
+export function bacterialStructures(structures: readonly Structure[]): Structure[] {
+  return structures.filter(isBacterialStructure);
+}
+
 /**
  * The structure a Candidate is docked into: its own co-crystal structure when there is one, else
- * the first prepared structure of one of its targets. A structure is only ever used for the
- * protein it contains. Undefined when the Candidate can't be docked.
+ * the first prepared structure of one of its targets. Matches both human Ensembl `target_id`s and
+ * bacterial UniProt `target_id`s / gene symbols. A structure is only ever used for the protein it
+ * contains. Undefined when the Candidate can't be docked.
  */
 export function structureFor(
   candidate: Candidate,
@@ -13,11 +26,157 @@ export function structureFor(
 ): Structure | undefined {
   if (!candidate.dockable) return undefined;
   const targets = new Set(candidate.targets.map((target) => target.id));
-  const usable = structures.filter((structure) => targets.has(structure.target_id));
+  const symbols = new Set(candidate.targets.map((target) => target.name.toLowerCase()));
+  const usable = structures.filter(
+    (structure) =>
+      targets.has(structure.target_id) || symbols.has(structure.target_symbol.toLowerCase()),
+  );
   return (
     usable.find((structure) => structure.ligand.candidate_id === candidate.candidate_id) ??
     usable[0]
   );
+}
+
+/** Input shape for matching an antibiotic candidate or reading-pane entry to a structure. */
+export interface AntibioticStructureCandidate {
+  id?: string;
+  candidate_id?: string;
+  target?: {
+    name: string;
+    gene_aro_ids?: readonly string[];
+    geneLabels?: readonly string[];
+  } | null;
+  generated?: {
+    pocket_pdb_id?: string | null;
+    pocketPdbId?: string | null;
+  } | null;
+  evidence?: readonly {
+    id: string;
+    source: string;
+    source_id?: string;
+    statement: string;
+  }[];
+}
+
+const BACTERIAL_TARGET_ALIASES: Readonly<Record<string, readonly string[]>> = {
+  gyrb: ["gyrb", "dna gyrase", "gyrase b", "p0a0k8"],
+  lpxc: ["lpxc", "udp-3-o-acyl-n-acetylglucosamine deacetylase", "p47205"],
+};
+
+function matchesTargetText(structure: Structure, text: string): boolean {
+  const lower = text.trim().toLowerCase();
+  if (lower.length === 0) return false;
+  const targetId = structure.target_id.toLowerCase();
+  const symbol = structure.target_symbol.toLowerCase();
+  if (lower === targetId || lower === symbol || lower.includes(targetId)) {
+    return true;
+  }
+  const aliases = BACTERIAL_TARGET_ALIASES[symbol] ?? [symbol];
+  return aliases.some((alias) => lower === alias || lower.includes(alias));
+}
+
+/**
+ * All prepared structures matching an antibiotic candidate (co-crystal ligand, generated pocket
+ * PDB ID, docking evidence, or bacterial target UniProt ID / symbol), with its own co-crystal or
+ * pocket structure ordered first.
+ */
+export function structuresForAntibiotic(
+  candidate: AntibioticStructureCandidate,
+  structures: readonly Structure[],
+): Structure[] {
+  const candidateId = candidate.candidate_id ?? candidate.id ?? "";
+  const pocket = candidate.generated?.pocket_pdb_id ?? candidate.generated?.pocketPdbId ?? null;
+  const matched: Structure[] = [];
+  const seen = new Set<string>();
+  const push = (structure: Structure) => {
+    if (!seen.has(structure.id)) {
+      seen.add(structure.id);
+      matched.push(structure);
+    }
+  };
+
+  if (pocket !== null) {
+    const upper = pocket.toUpperCase();
+    for (const structure of structures) {
+      if (structure.pdb_id.toUpperCase() === upper || structure.id.toUpperCase() === upper) {
+        push(structure);
+      }
+    }
+  }
+
+  for (const structure of structures) {
+    if (candidateId !== "" && structure.ligand.candidate_id === candidateId) {
+      push(structure);
+    }
+  }
+
+  for (const item of candidate.evidence ?? []) {
+    const sourceId = item.source_id?.toUpperCase();
+    if (sourceId !== undefined) {
+      for (const structure of structures) {
+        if (
+          structure.pdb_id.toUpperCase() === sourceId ||
+          structure.id.toUpperCase() === sourceId
+        ) {
+          push(structure);
+        }
+      }
+    }
+  }
+
+  if (candidate.target !== null && candidate.target !== undefined) {
+    const texts = [
+      candidate.target.name,
+      ...(candidate.target.gene_aro_ids ?? []),
+      ...(candidate.target.geneLabels ?? []),
+    ];
+    for (const structure of structures) {
+      if (texts.some((text) => matchesTargetText(structure, text))) {
+        push(structure);
+      }
+    }
+  }
+
+  return matched;
+}
+
+/** Primary prepared structure for an antibiotic candidate, or undefined when none matches. */
+export function structureForAntibiotic(
+  candidate: AntibioticStructureCandidate,
+  structures: readonly Structure[],
+): Structure | undefined {
+  return structuresForAntibiotic(candidate, structures)[0];
+}
+
+/** Deterministic UUID for serving a prepared structure's crystal pocket and ligand in 3D. */
+export function structurePreviewId(structureId: string): string {
+  const hex = Array.from(structureId)
+    .map((ch) => ch.charCodeAt(0).toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 12)
+    .padEnd(12, "0");
+  return `00000000-0000-4000-8000-${hex}`;
+}
+
+/** Result file URLs for viewing a prepared structure (or its redock control) in `PoseViewer`. */
+export function dockFilesForStructure(structure: Structure): DockFiles {
+  const jobId = structure.control.job_id ?? structurePreviewId(structure.id);
+  const tag = structure.id
+    .toLowerCase()
+    .replace(/[^0-9a-f]/g, "0")
+    .padEnd(8, "0")
+    .slice(0, 8);
+  const file = (name: string, digit: string) => ({
+    url: `/api/files/${jobId}/${name}`,
+    sha256: `${tag}${digit.repeat(56)}`,
+  });
+  return {
+    receptor: file("receptor.pdb", "a"),
+    poses: file("poses.sdf", "b"),
+    crystal_ligand: file("crystal_ligand.sdf", "c"),
+    scores: file("scores.json", "d"),
+    log: file("log.txt", "e"),
+  };
 }
 
 /** A drug that can be docked, with the structure it is docked into. */

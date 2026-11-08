@@ -366,8 +366,12 @@ class ExperimentService:
     def dock_file(self, job_id: UUID, name: str) -> tuple[Path, DockFileName]:
         """Where one of a docking job's result files is stored, and its name. A job that
         reuses another job's result serves that job's files."""
-        job = self.get_dock_job(job_id)
         known = _DOCK_FILES.get(name)
+        if self.repo.get_dock_job(job_id) is None and known is not None:
+            preview = self.docking.result_file(job_id, known)
+            if preview is not None:
+                return preview, known
+        job = self.get_dock_job(job_id)
         if known is None:
             raise NotFound(
                 "Docking jobs have only these files: receptor.pdb, poses.sdf, "

@@ -159,9 +159,33 @@ def structure_for(candidate: Candidate, structures: Sequence[Structure]) -> Stru
     if not candidate.dockable:
         return None
     targets = {target.id for target in candidate.targets}
-    usable = [structure for structure in structures if structure.target_id in targets]
+    symbols = {target.name.lower() for target in candidate.targets}
+    usable = [
+        structure
+        for structure in structures
+        if structure.target_id in targets or structure.target_symbol.lower() in symbols
+    ]
     own = (s for s in usable if s.ligand.candidate_id == candidate.candidate_id)
     return next(own, usable[0] if usable else None)
+
+
+def structure_preview_id(structure_id: str) -> UUID:
+    """Deterministic UUID for serving a prepared structure's crystal pocket and ligand in 3D."""
+    encoded = structure_id.encode("ascii").hex()[:12].ljust(12, "0")
+    return UUID(f"00000000-0000-4000-8000-{encoded}")
+
+
+def _structure_preview_file(
+    structures: Sequence[Structure], structures_dir: Path, job_id: UUID, name: DockFileName
+) -> Path | None:
+    if name not in ("receptor.pdb", "crystal_ligand.sdf", "poses.sdf"):
+        return None
+    structure = next((s for s in structures if structure_preview_id(s.id) == job_id), None)
+    if structure is None:
+        return None
+    disk_name = "crystal_ligand.sdf" if name == "poses.sdf" else name
+    path = structures_dir / structure.pdb_id / disk_name
+    return path if path.is_file() else None
 
 
 def unsupported_reason(
@@ -225,6 +249,7 @@ class FixtureDocking:
         self._structures = [Structure.model_validate(s) for s in listing["structures"]]
         self._data = DockingFixture.model_validate_json((fixtures_dir / "docking.json").read_text())
         self._files_dir = fixtures_dir / "docking_files"
+        self._structures_dir = fixtures_dir.parents[2] / "worker" / "structures"
 
     def structures(self) -> list[Structure]:
         return [structure.model_copy(deep=True) for structure in self._structures]
@@ -291,7 +316,9 @@ class FixtureDocking:
         if name not in FILE_MEDIA_TYPES:  # never build a path from anything else
             return None
         path = self._files_dir / str(job_id) / name
-        return path if path.is_file() else None
+        if path.is_file():
+            return path
+        return _structure_preview_file(self._structures, self._structures_dir, job_id, name)
 
 
 # ---------------------------------------------------------------------------
@@ -462,7 +489,7 @@ class VinaDocking:
         # Docked by another process that shares no disk with this one (serverless).
         content = self._repo.dock_file(job_id, name)
         if content is None:
-            return None
+            return _structure_preview_file(self.structures(), self.structures_dir, job_id, name)
         path.parent.mkdir(parents=True, exist_ok=True)
         temporary = path.with_name(f".{name}.{uuid4().hex}.tmp")
         try:

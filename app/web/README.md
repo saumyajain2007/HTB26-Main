@@ -1,7 +1,8 @@
 # web
 
-The React app: Vite, React 19 and TypeScript (strict). It follows the "Figure" design in
-[`docs/engineering/design.md`](../../docs/engineering/design.md), which is binding.
+The React app: Vite, React 19 and TypeScript (strict). Its Figure layout and design
+tokens live in [`src/app/Figure.tsx`](src/app/Figure.tsx) and
+[`src/styles/tokens.css`](src/styles/tokens.css).
 
 ## Run it
 
@@ -30,15 +31,15 @@ npm run dev        # http://localhost:5173, with /api proxied to FastAPI on 127.
 
 ### The two flows
 
-The app is being turned from drug repurposing for human diseases to antibiotic resistance
-(issue #32). Both flows are in the tree:
+The default app is the antibiotic resistance flow. The earlier human-disease flow
+remains available behind a build flag:
 
 - The **antibiotic resistance flow** is always mounted, at `/resistance` and
   `/resistance/:profileId/:step`, and `/` leads to it.
 - The **COVID-19 disease flow** (`/`, `/explore`, `/e/:experimentId/:step`, `/evaluation`) is
   gated off: it answers only when `VITE_DISEASE_FLOW=1` at build time. It is backed entirely by
-  COVID fixtures and is kept, not deleted, so the offline demo and its tests keep working until
-  the new flow is finished. Set the flag in the environment to walk it:
+  COVID fixtures for the historical demonstration and regression tests. The resistance
+  flow has its own offline demo and tests. Set the flag in the environment to walk it:
   `VITE_DISEASE_FLOW=1 npm run dev`.
 
 `src/app/flags.ts` reads the flag once and `src/app/routes.tsx` is the only place that branches
@@ -46,15 +47,17 @@ on it. The Vitest suite turns it on through `test.env` in `vite.config.ts`, and 
 suite through the preview server's `env` in `playwright.config.ts`, because both suites drive the
 old flow on purpose.
 
-`npm run e2e` needs `uv` (it runs `uv run uvicorn htb_api.app:app` in `../api` with
-`HTB_FIXTURE_DELAY_MS=300`) and Playwright's Chromium (`npx playwright install chromium`).
-Locally it reuses servers already running on ports 8000 and 4173; `E2E_API_PORT` and
-`E2E_WEB_PORT` move them.
+`npm run e2e` needs the prepared root `.venv`, installed frontend dependencies and
+Playwright's Chromium (`npx playwright install chromium`). It starts the real local
+fixture API directly from `.venv` and builds/previews the frontend. Default ports
+are 18001 and 14174; `E2E_API_PORT` and `E2E_WEB_PORT` move them. Server reuse is
+explicit (`E2E_REUSE_SERVER=1`). `E2E_RESISTANCE=saved` selects the saved real-data
+checks. See [offline setup and walkthrough](../../docs/offline-demo.md).
 
 ## Layout
 
-- `src/styles/tokens.css`: every colour, type size and spacing step from `docs/engineering/design.md`, plus
-  a small reset. Components use CSS Modules and read only these custom properties.
+- `src/styles/tokens.css`: shared colour, type and spacing tokens plus a small
+  reset. Components use CSS Modules and read only these custom properties.
 - `src/copy/en.ts`: the copy deck. Every interface sentence lives here. Text that depends on the
   Disease (evidence, objections, model names) comes from the API instead.
 - `src/app/Shell.tsx`: header (product, Disease, step navigation, Back and Next), step title and

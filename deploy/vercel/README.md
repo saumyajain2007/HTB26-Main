@@ -1,7 +1,16 @@
 # Vercel deployment
 
-Live at **https://halflife-bio.vercel.app** (Vercel project `halflife`, also
-`halflife-nine.vercel.app`). Everything runs on Vercel's free Hobby plan.
+This deployment guide records the earlier human-disease deployment at
+**https://halflife-bio.vercel.app** (Vercel project `halflife`, also
+`halflife-nine.vercel.app`). These are existing service identifiers, not the
+current project's name or a verified antibiotic demo URL. The plan and limits
+below describe that deployment as configured at the time.
+
+`HALFLIFE_SCRATCH`, `/tmp/halflife` and the `halflife-dock-<job id>` sandbox prefix
+are retained compatibility identifiers in the deployment code. The sandbox prefix
+is also used to recover running jobs, so changing branding must not rename it
+without a migration. For the current resistance demo use
+[the local offline launcher](../../docs/offline-demo.md).
 
 | Piece | Where it runs |
 |---|---|

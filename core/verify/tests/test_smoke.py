@@ -54,9 +54,9 @@ def test_smoke_cache_by_inchikey_and_smiles():
     assert not _smiles_cache and not _inchikey_cache
 
     r1 = check_molecule(ASPIRIN)
-    assert (ASPIRIN, "oral_druglike", False) in _smiles_cache
+    assert (ASPIRIN, "oral_druglike", False, "") in _smiles_cache
     assert r1.inchikey is not None
-    assert (r1.inchikey, "oral_druglike", False) in _inchikey_cache
+    assert (r1.inchikey, "oral_druglike", False, "") in _inchikey_cache
 
     # Repeated call returns cached object
     r2 = check_molecule(ASPIRIN)
@@ -79,4 +79,17 @@ def test_check_batch():
     assert results[0].valid and results[0].passed
     assert results[1].valid and results[1].passed
     assert not results[2].valid
+
+
+def test_cache_keeps_chemistry_for_each_profile():
+    from htb_verify.smoke import clear_smoke_cache
+
+    clear_smoke_cache()
+    profile = {"genes": [{"name": "blaTEM-1"}]}
+    plain = check_molecule(PENICILLIN_G)
+    scoped = check_molecule(PENICILLIN_G, resistance_profile=profile)
+    assert plain.chemistry is not None and not plain.chemistry.substrate_motifs
+    assert scoped.chemistry is not None and "beta_lactam" in scoped.chemistry.substrate_motifs
+    assert check_molecule(PENICILLIN_G) is plain
+    assert check_molecule(PENICILLIN_G, resistance_profile=profile) is scoped
 

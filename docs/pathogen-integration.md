@@ -67,12 +67,12 @@ the ranking's scientific limitations and [open issues](open-issues.md) for owner
   cites the curated profile evidence. Dropping the supplement fails this test.
 - CARD IDs, rather than class names, remain the join keys. No ranking weights,
   MIC cutoff or interpretation of `unknown` has been changed.
-- The app schema still differs from the ranking output: candidate evidence
-  rejects `kind: drug_class` and `source: htb_resistance`; its evasion-order
-  validator places `unknown` last, while WS4 and `docs/contracts.md` put it
-  between `unaffected` and `partly_affected`. Lane B/C should align those before
-  wiring these saved rankings into the live API. This task does not regenerate
-  Lane C's schemas or claim the app is integrated.
+- The API handoff now accepts `kind: drug_class` and `source: htb_resistance`,
+  and enforces WS4's order (`unaffected`, `unknown`, `partly_affected`, `defeated`).
+  Select `HTB_RESISTANCE=saved` to browse these checksummed outputs through the
+  API and web app. This replays the saved run; it does not rank arbitrary new
+  inputs. The default fixture fallback remains available. See
+  [the offline walkthrough](offline-demo.md).
 - The existing inhibitor, intrinsic-resistance, species-level-MIC and tie-order
   limitations remain open. A real-data run does not resolve those design issues.
 
@@ -94,6 +94,6 @@ tests and shared resistance contract tests. All three generated profiles also
 pass the API's `ResistanceProfile` model. File hashes, contiguous ranks and
 profile evidence references were checked for all 378 candidates. An independent
 full-data repeat produced byte-identical artifacts. JSON output uses explicit LF
-line endings so platform newline conversion does not change the saved hashes. The candidate
-API check reproduces the handoff mismatch above (123 `drug_class` / `htb_resistance`
-evidence entries rejected per pathogen); this is not hidden by relabelling data.
+line endings so platform newline conversion does not change the saved hashes. The original candidate API check exposed 123 `drug_class` / `htb_resistance`
+evidence entries rejected per pathogen. The handoff now preserves those values
+and tests all three full saved rankings through the API.
