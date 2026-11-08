@@ -1,0 +1,63 @@
+{
+  "id": "3G7B_A",
+  "pdb_id": "3G7B",
+  "chain": "A",
+  "uniprot": [
+    "P0A0K8"
+  ],
+  "target_id": "P0A0K8",
+  "symbol": "gyrB",
+  "title": "Staphylococcus aureus Gyrase B co-complex with METHYL ({5-[4-(4-HYDROXYPIPERIDIN-1-YL)-2-PHENYL-1,3-THIAZOL-5-YL]-1H-PYRAZOL-3-YL}METHYL)CARBAMATE inhibitor",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 2.3,
+  "ligand": {
+    "comp_id": "B47",
+    "name": "pyrazolylthiazole inhibitor B47",
+    "candidate_id": "CHEMBL1094382",
+    "residue_number": "1",
+    "heavy_atoms": 29
+  },
+  "box_center": [
+    50.354,
+    -2.964,
+    19.129
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "COC(=O)NCc1cc([nH]n1)c2c(nc(s2)c3ccccc3)N4CCC(CC4)O",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 45,
+      "B47": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [
+      "GLU A26 -> ALA",
+      "LYS A73 -> ALA",
+      "GLU A92 -> ALA",
+      "LYS A93 -> ALA",
+      "GLU A193 -> ALA",
+      "GLU A230 -> ALA"
+    ],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 50.354 -2.964 19.129 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/3G7B.pdb",
+    "entry_sha256": "f5321272c2bea588581958d7feae8c0fcbfaf7872cc56459650df602fd77e23b",
+    "ligand": "https://models.rcsb.org/v1/3G7B/ligand?auth_asym_id=A&label_comp_id=B47&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/B47"
+  },
+  "prepared_on": "2026-11-08",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  }
+}

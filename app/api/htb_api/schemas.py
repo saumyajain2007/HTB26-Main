@@ -44,6 +44,18 @@ TargetId = Annotated[
         examples=["ENSG00000162434"],
     ),
 ]
+StructureTargetId = Annotated[
+    str,
+    Field(
+        pattern=r"^(ENSG[0-9]{11}|[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$",
+        description=(
+            "The protein of a structure: an Ensembl gene ID for a human protein "
+            "(ENSG00000096968, JAK2) or a UniProt accession for a bacterial one "
+            "(P0A0K8, S. aureus GyrB)."
+        ),
+        examples=["ENSG00000096968", "P0A0K8"],
+    ),
+]
 CandidateId = Annotated[
     str,
     Field(
@@ -832,13 +844,16 @@ class StructureControl(Model):
 
 
 class Structure(Model):
-    """A prepared human protein structure that Candidates can be docked into."""
+    """A prepared protein structure that Candidates can be docked into: a human protein, or a
+    bacterial one (a UniProt accession as `target_id`)."""
 
     id: StructureId
     pdb_id: PdbId
     chain: str = Field(description="The chain kept for docking.")
-    target_id: TargetId = Field(description="The protein this chain is. Never shown as another.")
-    target_symbol: str = Field(description="Gene symbol of that protein, e.g. JAK2.")
+    target_id: StructureTargetId = Field(
+        description="The protein this chain is. Never shown as another."
+    )
+    target_symbol: str = Field(description="Gene symbol of that protein, e.g. JAK2 or gyrB.")
     title: str = Field(description="Entry title from RCSB.")
     method: str = Field(description="Experimental method from RCSB, e.g. X-RAY DIFFRACTION.")
     resolution: float = Field(gt=0, description="Resolution in angstroms; lower is sharper.")
@@ -934,7 +949,7 @@ class DockJob(Model):
         description="The Experiment it belongs to; null for controls."
     )
     candidate_id: CandidateId = Field(description="The drug being docked.")
-    target_id: TargetId = Field(description="The protein it is docked into.")
+    target_id: StructureTargetId = Field(description="The protein it is docked into.")
     structure_id: StructureId = Field(description="The prepared structure used.")
     settings: DockSettings
     scores: list[PoseScore] | None = Field(description="Per-pose scores; null until done.")

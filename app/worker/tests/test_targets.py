@@ -117,7 +117,7 @@ def test_every_target_records_what_was_read():
 
 
 def test_no_essentiality_evidence_is_claimed_without_being_recorded():
-    """scope.md asks for DEG or literature evidence; none is recorded yet, so it stays null."""
+    """scope.md asks for DEG or literature evidence. It may be null (not yet looked up) but never an empty string."""
     for target in targets(REGISTRY_DATA):
         assert target["essentiality_evidence"] is None or target["essentiality_evidence"]
 
@@ -128,12 +128,17 @@ def test_every_prepared_structure_has_a_verdict():
     assert unreviewed(REGISTRY_DATA) == []
 
 
+INHERITED = {"6O0K", "6WTN", "6WTO", "7BQU"}
+BACTERIAL = {"3G7B", "3U2K", "2VES", "3P3E"}
+
+
 def test_the_four_inherited_entries_are_human_and_dropped():
     """Read from the committed meta.json, so this is checkable rather than asserted."""
     prepared = prepared_entries()
-    assert set(prepared) == {"6O0K", "6WTN", "6WTO", "7BQU"}
+    assert INHERITED <= set(prepared)
     verdicts = {e["pdb_id"]: e for e in REGISTRY_DATA["reviewed_entries"]}
-    for pdb_id, meta in prepared.items():
+    for pdb_id in INHERITED:
+        meta = prepared[pdb_id]
         entry = verdicts[pdb_id]
         assert entry["verdict"] == "drop", pdb_id
         assert entry["organism"] == "Homo sapiens", pdb_id
@@ -141,6 +146,45 @@ def test_the_four_inherited_entries_are_human_and_dropped():
         assert entry["symbol"] == meta["symbol"], pdb_id
         assert entry["uniprot"] == meta["uniprot"], pdb_id
         assert meta["target_id"].startswith("ENSG"), f"{pdb_id} has a human Ensembl target id"
+
+
+def test_the_prepared_set_is_the_inherited_four_plus_the_kept_bacterial_ones():
+    """Nothing is prepared that the registry has not decided on, and every kept entry is prepared."""
+    prepared = set(prepared_entries())
+    kept = {e["pdb_id"] for e in REGISTRY_DATA["reviewed_entries"] if e["verdict"] == "keep"}
+    assert prepared == INHERITED | kept
+    assert kept == BACTERIAL
+
+
+def test_the_kept_entries_are_bacterial_and_match_their_committed_metadata():
+    prepared = prepared_entries()
+    for entry in REGISTRY_DATA["reviewed_entries"]:
+        if entry["verdict"] != "keep":
+            continue
+        meta = prepared[entry["pdb_id"]]
+        assert not str(meta["target_id"]).startswith("ENSG"), f"{entry['pdb_id']} has a human Ensembl target id"
+        assert entry["organism"] != "Homo sapiens", entry["pdb_id"]
+        assert entry["symbol"] == meta["symbol"], entry["pdb_id"]
+        assert entry["uniprot"] == meta["uniprot"], entry["pdb_id"]
+
+
+def test_every_kept_entry_is_recorded_against_a_target():
+    """A kept structure that no target mentions would be prepared and then never used."""
+    recorded = {pdb_id for _, _, pdb_id in recorded_structures(REGISTRY_DATA)}
+    for target in targets(REGISTRY_DATA):
+        for other in (target["wild_type"] or {}).get("also_passing", []):
+            recorded.add(other["pdb_id"])
+    kept = {e["pdb_id"] for e in REGISTRY_DATA["reviewed_entries"] if e["verdict"] == "keep"}
+    assert kept <= recorded
+
+
+def test_a_recorded_wild_type_with_redocking_numbers_passed_the_two_angstrom_rule():
+    for target in targets(REGISTRY_DATA):
+        slot = target["wild_type"]
+        for result in [slot, *slot.get("also_passing", [])]:
+            rmsd = result.get("redocking", {}).get("top_pose_rmsd_angstrom") or result.get("top_pose_rmsd_angstrom")
+            if rmsd is not None:
+                assert rmsd <= 2.0, f"{target['id']} {result['pdb_id']} is recorded as kept with RMSD {rmsd}"
 
 
 def test_no_inherited_entry_is_offered_as_a_bacterial_target():
@@ -184,6 +228,76 @@ def test_mutations_reads_a_release_and_reports_nothing_for_an_absent_determinant
     assert mutations(tmp_path, "TESTGYR") == ["G79C", "S83L"]
     assert mutations(tmp_path, "TESTGYR") == mutations(tmp_path, "  testgyr  ")
     assert mutations(tmp_path, "not a determinant") == []
+
+
+# ---------- verification logic (offline: RCSB is replaced by a fake) ----------
+
+def _fake_rcsb(monkeypatch, entries):
+    from htb_worker import targets as module
+    monkeypatch.setattr(module, "resolve", lambda pdb_id, timeout=20.0: entries[pdb_id])
+
+
+def _entry(organism="Staphylococcus aureus", comps=("B47",), bound=(), mutations=0):
+    return {"title": "", "organisms": [organism], "nonpolymer_comp_ids": list(comps), "ligand_ids": list(bound),
+            "resolution_angstrom": 2.0, "recorded_mutation_count": mutations}
+
+
+def _registry(slot_extra=None, also=None):
+    wild = {"status": "exists", "pdb_id": "3G7B", "has_cocrystallised_ligand": True, "ligand_comp_id": "B47",
+            "organism": "Staphylococcus aureus", **(slot_extra or {})}
+    if also:
+        wild["also_passing"] = also
+    return {"targets": [{"id": "gyrase-b", "name": "x", "organism": "Staphylococcus aureus", "card_determinant": None,
+                         "card_mechanism": None, "why": "w", "essentiality_evidence": None, "source_check": "s",
+                         "wild_type": wild, "mutant": {"status": "none_known", "pdb_id": None, "mutations": [], "reason": "r"}}]}
+
+
+def test_verify_accepts_a_named_ligand_even_when_the_entry_level_field_omits_it(monkeypatch):
+    # 3G7B and 3U2K: the co-crystallised ligand is a real entity, but the "bound components" field leaves it out.
+    _fake_rcsb(monkeypatch, {"3G7B": _entry(comps=("B47",), bound=())})
+    assert verify(_registry()) == []
+
+
+def test_verify_rejects_a_named_ligand_the_entry_does_not_contain(monkeypatch):
+    # A magnesium ion must not satisfy a claim about an inhibitor, which the old check allowed.
+    _fake_rcsb(monkeypatch, {"3G7B": _entry(comps=("MG",), bound=("MG",))})
+    problems = verify(_registry())
+    assert len(problems) == 1 and "names ligand B47" in problems[0] and "['MG']" in problems[0]
+
+
+def test_verify_still_checks_organism(monkeypatch):
+    _fake_rcsb(monkeypatch, {"3G7B": _entry(organism="Escherichia coli")})
+    assert any("RCSB says" in p for p in verify(_registry()))
+
+
+def test_verify_covers_the_extra_passing_structures(monkeypatch):
+    also = [{"pdb_id": "3U2K", "ligand_comp_id": "087"}]
+    _fake_rcsb(monkeypatch, {"3G7B": _entry(), "3U2K": _entry(comps=("MG",))})
+    problems = verify(_registry(also=also))
+    assert len(problems) == 1 and "3U2K" in problems[0] and "087" in problems[0]
+    _fake_rcsb(monkeypatch, {"3G7B": _entry(), "3U2K": _entry(comps=("087", "MG"))})
+    assert verify(_registry(also=also)) == []
+
+
+def test_verify_reports_an_unreachable_entry_without_stopping(monkeypatch):
+    _fake_rcsb(monkeypatch, {"3G7B": {"error": "unreachable: timed out"}})
+    assert verify(_registry()) == ["gyrase-b wild_type 3G7B: unreachable: timed out"]
+
+
+def test_the_bacterial_structures_say_how_their_construct_differs_from_the_uniprot_sequence():
+    """3ZG5 (PBP2a) is not covered: its construct was not read when it was recorded."""
+    seen = set()
+    for target in targets(REGISTRY_DATA):
+        slot = target["wild_type"]
+        if slot["status"] != "exists":
+            continue
+        for result in [slot, *slot.get("also_passing", [])]:
+            if result["pdb_id"] in BACTERIAL:
+                seen.add(result["pdb_id"])
+                assert result.get("construct_differences"), (
+                    f"{target['id']} {result['pdb_id']}: say how the construct differs from the UniProt "
+                    "sequence, or that it does not")
+    assert seen == BACTERIAL
 
 
 # ---------- RCSB (needs the network) ----------

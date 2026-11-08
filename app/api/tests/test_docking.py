@@ -40,7 +40,7 @@ def test_structures_lists_the_prepared_set(client: TestClient) -> None:
     response = client.get("/api/structures")
     assert response.status_code == 200
     structures = {s["id"]: s for s in response.json()["structures"]}
-    assert list(structures) == ["6WTO_A", "6WTN_A", "6O0K_A", "7BQU_A"]
+    assert list(structures) == ["6WTO_A", "6WTN_A", "6O0K_A", "7BQU_A", "3G7B_A", "3U2K_A", "2VES_A", "3P3E_A"]
     wto = structures["6WTO_A"]
     assert wto["target_symbol"] == "JAK2"
     assert wto["resolution"] == 1.74
