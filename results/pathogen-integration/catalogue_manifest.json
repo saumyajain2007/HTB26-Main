@@ -1,0 +1,120 @@
+{
+  "card": {
+    "manifest_sha256": "03a06b8f3a1c65efcb4c154a48b7f9950130a6c0a4116f2ace371357239f0bb0",
+    "version": "4.0.2"
+  },
+  "chembl": {
+    "archive": {
+      "bytes": 5764252857,
+      "file": "chembl_37_sqlite.tar.gz",
+      "sha256": "33c203740555f96067710cdfc1c3c55d890660e5908ec5cbf5817492c290d281"
+    },
+    "creation_date": "2026-05-01 00:00:00.000000",
+    "database": "chembl_37.db",
+    "database_bytes": 30480314368,
+    "release": "ChEMBL_37"
+  },
+  "kind": "antibiotic_catalogue",
+  "licence": {
+    "card": "CC-BY-4.0 as stated by CARD; commercial use needs McMaster's permission (see THIRD_PARTY_NOTICES.md).",
+    "chembl": "CC-BY-SA-3.0. Attribute ChEMBL release 37; adaptations are share-alike."
+  },
+  "rules": {
+    "atc_level4_to_card": {
+      "J01AA": "ARO:3000050",
+      "J01CA": "ARO:3000008",
+      "J01CE": "ARO:3000008",
+      "J01CF": "ARO:3000008",
+      "J01DH": "ARO:0000020",
+      "J01EB": "ARO:3000282",
+      "J01EC": "ARO:3000282",
+      "J01ED": "ARO:3000282",
+      "J01FA": "ARO:0000000",
+      "J01FG": "ARO:0000026",
+      "J01GA": "ARO:0000016",
+      "J01GB": "ARO:0000016",
+      "J01MA": "ARO:0000001",
+      "J01MB": "ARO:0000001",
+      "J01XE": "ARO:3004116"
+    },
+    "card_class_routes": [
+      "chembl_xref",
+      "name",
+      "atc_level4"
+    ],
+    "include": "parent drugs with an ATC code under J01 on the parent or any salt or form"
+  },
+  "schema": 1,
+  "summary": {
+    "card_atc_level4": 40,
+    "card_chembl_xref": 163,
+    "card_name": 15,
+    "card_unmapped": 9,
+    "drugs": 227,
+    "merged_forms": 9
+  },
+  "tables": {
+    "antibiotic_atc": {
+      "columns": [
+        "chembl_id",
+        "atc_code",
+        "level4",
+        "level4_description",
+        "who_name"
+      ],
+      "rows": 234,
+      "sha256": "f12649cd12b43fdf2d35c09beff3425611530219bf3d9912b484bbce301339d4"
+    },
+    "antibiotic_card": {
+      "columns": [
+        "chembl_id",
+        "match",
+        "term_aro_id",
+        "term_name",
+        "class_aro_id",
+        "class_name"
+      ],
+      "rows": 224,
+      "sha256": "0958564a0dd287be78d0fa497d6fdb3a4d6db63233f4a113b59db4ecd9120f85"
+    },
+    "antibiotic_mechanisms": {
+      "columns": [
+        "chembl_id",
+        "mechanism_of_action",
+        "action_type",
+        "target_chembl_id",
+        "target_name",
+        "target_type",
+        "target_organism"
+      ],
+      "rows": 196,
+      "sha256": "c3fbd2b5018b5725cf6c38e841bfe09f47c330186c144060e3ec806eeb060a63"
+    },
+    "antibiotics": {
+      "columns": [
+        "chembl_id",
+        "name",
+        "molecule_type",
+        "max_phase",
+        "first_approval",
+        "withdrawn",
+        "smiles",
+        "inchikey",
+        "n_indications"
+      ],
+      "rows": 227,
+      "sha256": "79cbbdc7ecc88fe193f3d40f516882308d0cd3e35884117503a7fc8a76c608c1"
+    },
+    "catalogue_log": {
+      "columns": [
+        "chembl_id",
+        "name",
+        "kind",
+        "field",
+        "reason"
+      ],
+      "rows": 94,
+      "sha256": "df94c13cfc912e81339406a3783e72bd5555642802d85995721b65250a26880a"
+    }
+  }
+}

@@ -132,7 +132,7 @@ Short, blocks everything. Do together, then split.
 
 | Task | Lane | Size |
 | --- | --- | --- |
-| Swap fixtures for real profiles from WS2; run the ranking for all three pathogens | A + B | M |
+| [x] Swap fixtures for real profiles from WS2; run the ranking for all three pathogens. Reproducible runner and full CARD/ChEMBL proof: [integration report](docs/pathogen-integration.md) (126 drugs per pathogen, zero unresolved inputs) | A + B | M |
 | Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running. A draft with the activity-floor ablation and a `freeze` command is in [docs/retrospective-protocol.md](docs/retrospective-protocol.md); it needs the cited cases below. What the ranking did on real profiles: [docs/ranking-observations.md](docs/ranking-observations.md) | A | S |
 | Ground-truth table of resistance profile to known effective drug, cited and checked for label errors | A | M |
 | Run the retrospective test: hits@k, MRR, bootstrap CI against baselines; failure analysis including negative results; put the result in `results/` and the README | A | M |

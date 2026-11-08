@@ -4,6 +4,10 @@ Written 2026-11-07 and updated 2026-11-08 after the curated supplement and the `
 
 **Open items from this work, with owners, are in [open-issues.md](open-issues.md).**
 
+The #34 [integration runner and saved proof](pathogen-integration.md) now rebuild
+all three profiles and rankings together. Its full CARD 4.0.2 / ChEMBL 37 run on
+2026-11-08 reproduces the no-floor counts below, with output checksums and logs.
+
 **Status: observations, not results.** There is no ground truth yet, so nothing here says the ranking finds the right drug. These are checks of whether the output makes sense to a reader who knows the biology, and every interpretation is marked as one.
 
 ## How these were produced
