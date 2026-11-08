@@ -483,3 +483,24 @@ def test_mic_gate_keeps_ranks_dense_and_says_so_in_the_result():
     assert "not a clinical breakpoint" in result["ranking"]["note"]
     assert by_name(result)["LINEZOLID"]["features"]["activity"]["available"]   # at or below the limit stays
     assert run(activity=activity, max_median_mic=2)[0]["candidates"][0]["name"] == "LINEZOLID"
+
+
+# ---------- smoke test as gate or penalty (#38) ----------
+
+
+def test_smoke_gate_removes_failing_drugs_instead_of_penalizing():
+    # Vancomycin fails the antibiotic_relaxed property rules
+    normal_result, normal_log = run()
+    assert "VANCOMYCIN" in by_name(normal_result)
+    assert by_name(normal_result)["VANCOMYCIN"]["features"]["safety"]["value"] == "rules_failed"
+    assert normal_log == []
+
+    gated_result, gated_log = run(smoke_gate=True)
+    assert "VANCOMYCIN" not in by_name(gated_result)
+    assert len(gated_result["candidates"]) == len(POOL) - 1
+    assert [c["rank"] for c in gated_result["candidates"]] == list(range(1, len(POOL)))
+    assert gated_result["ranking"]["method"] == "ordered_rule_v0+smoke_gate"
+    assert "gated out rather than ranked with a penalty" in gated_result["ranking"]["note"]
+    assert any(entry["chembl_id"] == "CHEMBL262777" and "failed the antibiotic_relaxed smoke test" in entry["reason"]
+               for entry in gated_log)
+

@@ -78,3 +78,51 @@ def test_batch_isolates_a_failing_molecule():
     assert [c.certified for c in certs] == [False, True, False, True]
     assert {"rule_mw", "rule_hbd", "rule_hba"} <= set(certs[0].failed_rules)
     assert "rule_logp" not in certs[0].failed_rules
+
+
+def test_batch_persists_and_reloads_cache(tmp_path):
+    from htb_verify import clear_certificate_cache, load_certificate_cache, save_certificate_cache
+    from htb_verify.certify import Certificate, _cache
+
+    clear_certificate_cache()
+    c = Certificate(
+        ran=True, certified=True, rule_set="antibiotic_relaxed", failed_rules=(),
+        lean_version="4.35.0", seconds=0.1, detail=None, source="test",
+    )
+    _cache[("TEST_INCHIKEY", "antibiotic_relaxed")] = c
+    cache_file = tmp_path / "certs.json"
+    saved = save_certificate_cache(cache_file)
+    assert saved == 1
+
+    clear_certificate_cache()
+    assert ("TEST_INCHIKEY", "antibiotic_relaxed") not in _cache
+    loaded = load_certificate_cache(cache_file)
+    assert loaded == 1
+    assert _cache[("TEST_INCHIKEY", "antibiotic_relaxed")] == c
+
+
+def test_batch_deduplicates_duplicate_molecules_in_batch(monkeypatch):
+    import importlib
+    module = importlib.import_module("htb_verify.certify")
+    called_with = []
+
+    def fake_subprocess_run(cmd, *args, **kwargs):
+        class Result:
+            returncode = 0
+            stdout = ""
+            stderr = ""
+        return Result()
+
+    monkeypatch.setattr(module, "ensure_built", lambda: True)
+    monkeypatch.setattr(module, "lean_version", lambda: "4.35.0")
+    monkeypatch.setattr(module.subprocess, "run", fake_subprocess_run)
+    module.clear_certificate_cache()
+
+    mol = check_molecule(ASPIRIN, "antibiotic_relaxed")
+    # Batch with 3 copies of the exact same molecule
+    certs = module.certify_batch([mol, mol, mol])
+    assert len(certs) == 3
+    assert all(c.certified for c in certs)
+    # The cache should hold exactly 1 entry for this molecule
+    assert len(module._cache) == 1
+

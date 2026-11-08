@@ -142,7 +142,7 @@ Short, blocks everything. Do together, then split.
 | Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running. A draft with the activity-floor ablation and a `freeze` command is in [docs/retrospective-protocol.md](docs/retrospective-protocol.md); it needs the cited cases below. What the ranking did on real profiles: [docs/ranking-observations.md](docs/ranking-observations.md) | A | S |
 | Ground-truth table of resistance profile to known effective drug, cited and checked for label errors | A | M |
 | Run the retrospective test: hits@k, MRR, bootstrap CI against baselines; failure analysis including negative results; put the result in `results/` and the README | A | M |
-| Wire the smoke test into every candidate, run Lean on survivors only, cache by InChIKey, batch it | B | S |
+| [x] Wire the smoke test into every candidate, run Lean on survivors only, cache by InChIKey, batch it | B | S |
 | [x] Antibiotic-specific 2D accumulation hint, profile-scoped resistance SMARTS and curated toxicity alerts (accuracy: not measured); tests and evidence in [WS8 chemistry evidence](docs/ws8-chemistry-evidence.md). | B | M |
 | Certificate view and per-candidate smoke-test panel in the app | C | M |
 | 3D pose view for docked candidates (reuse the 3Dmol viewer) | C | S |
