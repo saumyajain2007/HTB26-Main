@@ -19,6 +19,8 @@ export interface ResistanceStepContext {
   profile: ResistanceProfile;
   /** The ranked candidates, or undefined while they load or if they could not be loaded. */
   candidates: AntibioticCandidateResult | undefined;
+  candidatesLoading: boolean;
+  retryCandidates: () => void;
 }
 
 /**
@@ -58,7 +60,14 @@ function ResistanceScreen({ profileId, step }: { profileId: string; step: Resist
       ) : (
         <FigureGrid layout="single">
           <Outlet
-            context={{ profile, candidates: candidates.data } satisfies ResistanceStepContext}
+            context={
+              {
+                profile,
+                candidates: candidates.data,
+                candidatesLoading: candidates.isPending,
+                retryCandidates: () => void candidates.refetch(),
+              } satisfies ResistanceStepContext
+            }
           />
         </FigureGrid>
       )}

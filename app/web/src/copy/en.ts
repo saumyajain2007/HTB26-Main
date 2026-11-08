@@ -106,6 +106,12 @@ export const copy = {
       title: "Resistance map",
       intro: "Which resistance mechanisms the genes bring, and which drug classes they defeat.",
     },
+    {
+      slug: "candidates",
+      title: "Candidate antibiotics",
+      intro:
+        "Approved drugs ranked by whether they evade the isolate’s resistance mechanisms, with generated proposals kept apart.",
+    },
   ],
 
   /** The antibiotic resistance flow: reading a profile, and the steps not yet built. */
@@ -132,8 +138,19 @@ export const copy = {
       genesRead: (count: number) =>
         count === 0 ? "No names read" : `${String(count)} ${count === 1 ? "name" : "names"} read`,
       genesRepeated: (names: readonly string[]) => `Repeated, so read once: ${listOf(names)}.`,
-      genesBlocked:
-        "Nothing is sent yet: building a profile from typed names needs the resistance profiling endpoint, which isn’t built (issue #15). CARD’s vocabulary lives on the server, so only the server can say which of these names it knows.",
+      /** Only the server holds CARD’s vocabulary, so it alone can say which names it knows. */
+      genesHelp:
+        "The server looks each name up in CARD. Anything it doesn’t recognise is listed back, " +
+        "not dropped.",
+      genesSubmit: "Build the profile",
+      genesBuilding: "Looking the names up in CARD…",
+      /** The API has no CARD release: nothing was looked up, so say that and not “unknown name”. */
+      genesUnavailable:
+        "This copy of the API has no CARD release, so it can’t look names up. Pick a pathogen " +
+        "above instead.",
+      /** The parser read the input but refused it, with the server’s own reason. */
+      genesRefused: (reason: string) => `That input couldn’t be profiled: ${reason}`,
+      genesFailed: "The profile couldn’t be built. Please try again.",
       profileTitle: "The profile on screen",
       profileResolved: (resolved: number, requested: number) =>
         `${String(resolved)} of ${String(requested)} ${requested === 1 ? "name" : "names"} asked for matched a term in CARD.`,
@@ -243,6 +260,81 @@ export const copy = {
       nothingMapped:
         "No resistance determinant in this isolate resolved to a CARD term, so there is nothing " +
         "to map.",
+    },
+    /**
+     * Step 3: the ranked approved antibiotics and, visibly apart from them, any generated
+     * proposals, with a reading pane for the picked molecule’s explanation, separate features,
+     * property rules, cited evidence, jury status and caveats.
+     */
+    candidates: {
+      figureLabel: "Candidate antibiotics and generated proposals",
+      loading: "Loading the ranked candidates",
+      unavailable: "The ranked candidates couldn’t be loaded. The server isn’t answering.",
+      empty: "No candidates were returned for this resistance profile.",
+      approvedTitle: "Approved antibiotics",
+      approvedTableLabel: "Approved antibiotics in rank order",
+      generatedTitle: "Generated proposals (not ranked)",
+      generatedNote:
+        "Hypotheses from a generative model, kept separate from approved drugs and never ranked with them.",
+      generatedListLabel: "Generated molecule proposals",
+      rankingRule: (method: string, order: string) => `Ranked by ${order} (${method}).`,
+      rankHead: "#",
+      rankHeadLabel: "Rank",
+      drugHead: "Antibiotic",
+      evasionHead: "Standing",
+      activityHead: "Activity",
+      verifyHead: "Property check",
+      notMeasured: "Not measured",
+      noClass: "No CARD drug class",
+      proposalBadge: "Proposal",
+      readingLabel: (name: string) => `Details for ${name}`,
+      approvedKicker: (rank: number) => `Rank #${String(rank)} · Approved antibiotic`,
+      generatedKicker: "Unranked hypothesis · Generated molecule",
+      classLabel: "Drug class",
+      targetLabel: "Target",
+      targetAffectedBy: (genes: string) => `Affected in this isolate by ${genes}`,
+      mechanismLabel: "Mechanism of action",
+      provenanceTitle: "Generator provenance",
+      generatorModel: (model: string, version: string, seed: number) =>
+        `Model ${model} (v${version}), seed ${String(seed)}`,
+      derivedFrom: (parent: string) => `Derived from ${parent}`,
+      pocketUsed: (pdbId: string) => `Pocket structure ${pdbId}`,
+      whyTitle: "Why it sits here",
+      evadedTitle: "Mechanisms with no link in CARD",
+      defeatedByTitle: "Mechanisms linked in CARD",
+      featuresTitle: "Separate features",
+      featuresNote: "Kept separate, never blended into a single score.",
+      featureNames: {
+        activity: "Activity",
+        target_hit: "Target hit",
+        docking: "Docking",
+        safety: "Safety",
+      },
+      featureUnavailable: "Not available",
+      verifyTitle: "Property rules and certificate",
+      ruleSetLabel: (ruleSet: string) => `Rule set: ${ruleSet}`,
+      smokePassed: "Passes all encoded property rules",
+      smokeFailed: (count: number) =>
+        count === 1
+          ? "Fails 1 encoded property rule"
+          : `Fails ${String(count)} encoded property rules`,
+      certificateStatus: {
+        certified: "Lean 4 certificate proved",
+        failed: "Lean 4 proof: rule failed",
+        not_run: "Lean 4 proof not run",
+        unavailable: "Lean 4 unavailable",
+      },
+      leanProvenance: (version: string, seconds: number) =>
+        `Lean ${version} (${String(seconds)} s)`,
+      saScore: (score: number) => `Synthetic accessibility ${String(score)} (1 easy to 10 hard)`,
+      alertsLabel: (alerts: string) => `Structural alerts: ${alerts}`,
+      noAlerts: "No PAINS or Brenk structural alerts",
+      evidenceTitle: "Cited evidence",
+      juryTitle: "Model jury",
+      juryPending:
+        "The model jury has not reviewed this shortlist yet. Rebuilding evidence packets for antibiotic resistance is tracked in issue #33.",
+      caveatsTitle: "Caveats and missing data",
+      missingLabel: "Missing",
     },
   },
 
