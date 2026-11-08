@@ -308,13 +308,13 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 
 ## 14. Open decisions
 
-- [ ] Final pathogen set (suggest three ESKAPE species).
-- [ ] Which retrospective test to run (needs a data check first, WS5).
+- [x] Final pathogen set: *K. pneumoniae*, *A. baumannii*, *S. aureus* (#4). The whole-cell pipeline (tasks.md section 5b) targets *A. baumannii* only (#82).
+- [x] Which retrospective test to run (WS5): hold out whole-cell actives by publication year (#5), keep the profile-to-known-drug retrospective test, and add the hidden-drug retrieval test (#82, #91, #92).
 - [ ] LLM provider for the jury (WS6).
-- [ ] Whether generation is in scope at all, and which model plus compute (WS7).
+- [x] Generation (WS7): in scope, as a separate lane beside the evasion ranking (#82). Use an existing open-source generator rather than building one: SyntheMol (MIT, CPU only), guided by our own whole-cell model, on a plain Vultr VM (#86).
 - [ ] Antibiotic rule set: confirm limits and which extra rules to add (WS8).
-- [.] Wordsmith: in or out.
-- [ ] Team roles and the hackathon time budget, to size the stretch goals.
+- [x] Wordsmith: in (#82). The browser verification agent is #95.
+- [x] Time budget: 10 hours remaining as of 8 November 2026 (#82); the cut line is in tasks.md section 6. Team roles and headcount are still not recorded.
 
 ## 15. Main risks
 

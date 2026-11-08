@@ -74,11 +74,11 @@ Shared files that need a quick heads-up in chat before editing: [app/api/htb_api
 
 Short, blocks everything. Do together, then split.
 
-- [ ] **Decide the pathogen set.** Three ESKAPE species, suggested *K. pneumoniae*, *A. baumannii*, *S. aureus* (rich CARD coverage). `S`, all
-- [ ] **Decide the validation design** (scope WS5 options a, b or c) after a quick data check of what CARD and ChEMBL can support. `S`, Lane A with B
+- [x] **Decide the pathogen set.** Three ESKAPE species, suggested *K. pneumoniae*, *A. baumannii*, *S. aureus* (rich CARD coverage). `S`, all Decided in #4: those three. Decided in #82: the whole-cell pipeline (section 5b) targets *A. baumannii* only.
+- [x] **Decide the validation design** (scope WS5 options a, b or c) after a quick data check of what CARD and ChEMBL can support. `S`, Lane A with B Decided in #5 (hold out whole-cell actives by publication year) and #82 (keep the retrospective test, add the hidden-drug retrieval test).
 - [ ] **Decide the jury provider.** Run one real call each against Gemini and Vultr (and Cortex if keys exist) so the sponsor integrations are proven, not assumed. Pick the three-model panel. `S`, Lane C
-- [ ] **Decide Wordsmith in or out.** Only in if an agentic browsing step is genuinely central, for example an agent that gathers CARD, NCBI and PDB evidence live. `S`, all
-- [ ] **Record time budget and stretch cut line.** Fill the "Cut line" in section 6. `S`, all
+- [x] **Decide Wordsmith in or out.** Only in if an agentic browsing step is genuinely central, for example an agent that gathers CARD, NCBI and PDB evidence live. `S`, all **In**, confirmed in #82. The step is #95 (PubMed and ClinicalTrials.gov for the top candidates); it replaces the stretch issue #48.
+- [x] **Record time budget and stretch cut line.** Fill the "Cut line" in section 6. `S`, all **10 hours remaining** as of 8 November 2026 (answer on #82). Headcount was not given; git history shows three contributors. Cut line in section 6.
 - [x] **Freeze three JSON contracts with fixtures** (put them in `tests/fixtures/` next to the existing ones): `ResistanceProfile` (genes, mechanisms, defeated classes, targets affected, confidence, caveats), `AntibioticCandidate` (class, evasion status and evidence IDs, feature values kept separate, explanation, smoke-test result, certificate status, `source: approved | generated`), `Certificate` (rule set, per-rule pass/fail with margins, Lean `ran` flag). `M`, Lane B drafts, C and A review. Doc: [docs/contracts.md](docs/contracts.md), ids type-checked in [docs/ontology-check.md](docs/ontology-check.md)
 - [x] **Ontology type check** for pathogens, ARO terms and drug names before anything is frozen. `S`, Lane A Recorded in [docs/ontology-check.md](docs/ontology-check.md).
 
@@ -147,15 +147,45 @@ Short, blocks everything. Do together, then split.
 
 ---
 
-## 6. Phase 3: stretch (only after Phase 2 is green)
+## 5b. Whole-cell candidate pipeline (added 8 November 2026, decided in #82)
 
-**Cut line:** decide in Phase 0. Suggested order, stop when time runs out:
+A second lane beside the evasion ranking, not a replacement. The evasion ranking stays the app and demo path; this pipeline is the validated prediction work and carries the HRT proof. It targets *A. baumannii* only. Source: the AMR candidate discovery build spec; its numbers (AUC, coverage, hit rates) are expectations to report against, not targets.
 
-1. Resistance-risk score (how easily the target mutates away). `M`, B
-2. Docking against wild type versus mutant target in the ranking. `M`, B
-3. Generative step with an existing model, labelled and visibly separate from approved drugs. Pick one model, check licence, weights and hardware first. `L`, B with a compute plan from C. Needs the activity predictor (`L`, A)
-4. Agentic evidence-gathering step, only if Wordsmith is in. `L`, C
-5. Structural Lean proofs. `L`, B. Lowest priority
+| Issue | Task | Lane | Size |
+| --- | --- | --- | --- |
+| #83 | Ingest CO-ADD and ChEMBL whole-cell data, and the retrieval library | A | L |
+| #84 | Scaffold splits (plus a publication-year split) and the leakage assertion module | A | M |
+| #85 | Whole-cell activity ranker: Chemprop-style ensemble of five | A | L |
+| #86 | Generation with **SyntheMol** (MIT licence, CPU only, built for *A. baumannii*), guided by our own #85 model | B | M |
+| #87 | Filter cascade with rejection log and funnel | B | M |
+| #88 | Oracle interface and cost ledger (RDKit filters and docking) | B | M |
+| #89 | Budgeted scheduler against a fixed funnel | B | L |
+| #90 | Conformal prediction with abstention, and SHAP | B | M |
+| #91, #92 | Hidden-drug retrieval test: setup, then run and report every attempt | A | L, M |
+| #95 | Browser verification agent (Wordsmith) | C | L |
+
+**Generation (decided in #82, researched 8 November 2026).** Open-source generators exist, so none is built from scratch. SyntheMol (MIT, Swanson et al., *Nature Machine Intelligence* 2024) generates synthesisable molecules by tree search or reinforcement learning over building blocks and reactions, guided by a Chemprop bioactivity model, and its README says it runs on a laptop (16 GB, 8 to 16 CPUs). REINVENT 4 (Apache-2.0) is the alternative. Hosting is therefore a plain x86 Vultr VM (`deploy/vultr/setup.sh`), not a GPU plan. **Leakage rule:** guide SyntheMol with our own #85 model trained on the purged data, never with a pretrained model, or the hidden-drug test is contaminated. Check that the bundled building blocks may be reused before relying on them. Details on #86.
+
+---
+
+## 6. Phase 3 and the 10-hour cut line
+
+**Budget: 10 hours remaining** (answer on #82, 8 November 2026). That is far less than the plan above assumes, so the order below is the cut line: work down the tiers and stop when time runs out. It is a working order, not a team decision; reorder it in #82.
+
+**Tier 1, the proof and the demo.** If one of these slips, the project has no result.
+
+1. #83, #84, #85: data, splits, ranker, in that order (Lane A)
+2. #86, #87: generation and filters, once #85 exists (Lane B)
+3. #88: ledger with fidelities 0 and 1 (Lane B)
+4. #91, #92: the hidden-drug test and its honest write-up (Lane A)
+5. #95: browser agent (Lane C, in parallel; cache one run for the offline demo)
+6. #43 offline demo path, #50 limits statement, #53 demo script, #52 Devpost writeup
+
+**Tier 2, only if Tier 1 is green.** #90 conformal and SHAP, #89 scheduler (the spec's headline claim, so if the team wants it in Tier 1 something above has to leave), #34 real profiles for all three pathogens, #38 and #39 rules, #40 and #41 views.
+
+**Tier 3, out at this budget.** #93 Boltz-2 and #94 OpenMM (the spec's hour-14 abort exceeds the whole budget), #44, #45, #49. The retrospective test (#35, #36, #37) is cut before the hidden-drug test: drop #37 first, then #36, then #35.
+
+Closed as superseded: #46 by #86, #47 by #85, #48 by #95.
 
 Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 
