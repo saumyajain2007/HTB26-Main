@@ -45,10 +45,11 @@ for (const [path, manifest] of Object.entries(manifests)) {
   for (const job of manifest.jobs) {
     if (!job.ok) failures.add(`${job.candidate_id}:${job.structure}`);
     if (!job.ok || job.best === undefined) continue;
-    const url = Object.entries(poseUrls).find(
-      ([file]) => file.endsWith(`/${pathogen}/${job.candidate_id}/${job.structure}/poses.sdf`),
+    const url = Object.entries(poseUrls).find(([file]) =>
+      file.endsWith(`/${pathogen}/${job.candidate_id}/${job.structure}/poses.sdf`),
     )?.[1];
-    if (url !== undefined) poses.set(`${job.candidate_id}:${job.structure}`, { url, score: job.best });
+    if (url !== undefined)
+      poses.set(`${job.candidate_id}:${job.structure}`, { url, score: job.best });
   }
 }
 

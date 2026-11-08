@@ -254,7 +254,9 @@ describe("the candidate antibiotics view", () => {
     // pane says nothing about the missing match and still offers the four bacterial structures
     // (3G7B, 3U2K, 2VES, 3P3E).
     const linezolidPane = within(readingPane("Linezolid"));
-    expect(linezolidPane.queryByText(/No specific prepared structure match/)).not.toBeInTheDocument();
+    expect(
+      linezolidPane.queryByText(/No specific prepared structure match/),
+    ).not.toBeInTheDocument();
     const picker = linezolidPane.getByRole("combobox", { name: text.posePickerLabel });
     const options = within(picker).getAllByRole("option");
     expect(options.map((opt) => (opt as HTMLOptionElement).value)).toEqual([
