@@ -1,1 +1,1 @@
-"""WS5 evaluation: ground truth and the retrospective test."""
+"""WS5 evaluation: ground truth, the frozen protocol and the retrospective test."""
