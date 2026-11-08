@@ -133,7 +133,7 @@ Short, blocks everything. Do together, then split.
 | Task | Lane | Size |
 | --- | --- | --- |
 | Swap fixtures for real profiles from WS2; run the ranking for all three pathogens | A + B | M |
-| Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running | A | S |
+| Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running. A draft with the activity-floor ablation and a `freeze` command is in [docs/retrospective-protocol.md](docs/retrospective-protocol.md); it needs the cited cases below. What the ranking did on real profiles: [docs/ranking-observations.md](docs/ranking-observations.md) | A | S |
 | Ground-truth table of resistance profile to known effective drug, cited and checked for label errors | A | M |
 | Run the retrospective test: hits@k, MRR, bootstrap CI against baselines; failure analysis including negative results; put the result in `results/` and the README | A | M |
 | Wire the smoke test into every candidate, run Lean on survivors only, cache by InChIKey, batch it | B | S |
@@ -194,3 +194,4 @@ Cut scope at C2 if the retrospective result is still missing; the proof matters 
 - **Schema churn** from the pivot. Contracts frozen in Phase 0, only Lane C regenerates API types.
 - **Docking overclaimed.** Keep it a supporting signal, not the headline.
 - **Sponsor clients fail live.** Prove them early (Lane C, Phase 1) so there is time to fix or drop them.
+- **Open items from the ranking and profiling work** (inhibitors in the pool, intrinsic resistance, missing ground truth, unreviewed expectations, unverified citations and more) are listed with owners in [docs/open-issues.md](docs/open-issues.md).
