@@ -139,6 +139,146 @@
         "job_id": null,
         "fixture": false
       }
+    },
+    {
+      "id": "3G7B_A",
+      "pdb_id": "3G7B",
+      "chain": "A",
+      "target_id": "P0A0K8",
+      "target_symbol": "gyrB",
+      "title": "Staphylococcus aureus Gyrase B co-complex with METHYL ({5-[4-(4-HYDROXYPIPERIDIN-1-YL)-2-PHENYL-1,3-THIAZOL-5-YL]-1H-PYRAZOL-3-YL}METHYL)CARBAMATE inhibitor",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 2.3,
+      "ligand": {
+        "comp_id": "B47",
+        "name": "pyrazolylthiazole inhibitor B47",
+        "candidate_id": "CHEMBL1094382"
+      },
+      "box": {
+        "center": [
+          50.354,
+          -2.964,
+          19.129
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    },
+    {
+      "id": "3U2K_A",
+      "pdb_id": "3U2K",
+      "chain": "A",
+      "target_id": "P0A0K8",
+      "target_symbol": "gyrB",
+      "title": "S. aureus GyrB ATPase domain in complex with a small molecule inhibitor",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.64,
+      "ligand": {
+        "comp_id": "087",
+        "name": "pyrrolamide inhibitor 087",
+        "candidate_id": "CHEMBL1923431"
+      },
+      "box": {
+        "center": [
+          0.155,
+          2.433,
+          24.55
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    },
+    {
+      "id": "2VES_A",
+      "pdb_id": "2VES",
+      "chain": "A",
+      "target_id": "P47205",
+      "target_symbol": "lpxC",
+      "title": "Crystal Structure of LpxC from Pseudomonas aeruginosa complexed with the potent BB-78485 inhibitor",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.9,
+      "ligand": {
+        "comp_id": "GVR",
+        "name": "BB-78485",
+        "candidate_id": "CHEMBL261713"
+      },
+      "box": {
+        "center": [
+          57.288,
+          37.663,
+          16.165
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
+    },
+    {
+      "id": "3P3E_A",
+      "pdb_id": "3P3E",
+      "chain": "A",
+      "target_id": "P47205",
+      "target_symbol": "lpxC",
+      "title": "Crystal Structure of the PSEUDOMONAS AERUGINOSA LpxC/LPC-009 complex",
+      "method": "X-RAY DIFFRACTION",
+      "resolution": 1.28,
+      "ligand": {
+        "comp_id": "3P3",
+        "name": "LPC-009",
+        "candidate_id": "CHEMBL1230182"
+      },
+      "box": {
+        "center": [
+          -25.987,
+          14.968,
+          -5.084
+        ],
+        "size": [
+          25.0,
+          25.0,
+          25.0
+        ]
+      },
+      "control": {
+        "kind": "redock",
+        "rmsd": null,
+        "status": "not_measured",
+        "success_threshold": 2.0,
+        "job_id": null,
+        "fixture": false
+      }
     }
   ]
 }

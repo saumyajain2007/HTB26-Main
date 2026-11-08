@@ -1,0 +1,57 @@
+{
+  "id": "2VES_A",
+  "pdb_id": "2VES",
+  "chain": "A",
+  "uniprot": [
+    "P47205"
+  ],
+  "target_id": "P47205",
+  "symbol": "lpxC",
+  "title": "Crystal Structure of LpxC from Pseudomonas aeruginosa complexed with the potent BB-78485 inhibitor",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 1.9,
+  "ligand": {
+    "comp_id": "GVR",
+    "name": "BB-78485",
+    "candidate_id": "CHEMBL261713",
+    "residue_number": "1296",
+    "heavy_atoms": 30
+  },
+  "box_center": [
+    57.288,
+    37.663,
+    16.165
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "c1ccc2cc(ccc2c1)C[C@H](C(=O)NO)NS(=O)(=O)c3ccc4ccccc4c3",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 412,
+      "ZN": 2,
+      "GVR": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 57.288 37.663 16.165 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/2VES.pdb",
+    "entry_sha256": "6f18cd30a7f84b5192f675764948f4529ec33431d6845f2bdf891354b863a3f1",
+    "ligand": "https://models.rcsb.org/v1/2VES/ligand?auth_asym_id=A&label_comp_id=GVR&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/GVR"
+  },
+  "prepared_on": "2026-11-08",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  }
+}
