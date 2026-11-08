@@ -372,6 +372,31 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/resistance/profiles/{profile_id}/jury": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /**
+     * Ask the Model jury to review the antibiotics ranked against a profile
+     * @description The panel never sees our ranking: the packet withholds the rank, the evasion
+     *     status and the explanation, so its verdict is its own reading of the evidence.
+     *
+     *     A ballot that fails our checks is recorded as invalid and a refusal as a refusal;
+     *     neither is filled in. 503 when this API's jury only replays a recorded review, or
+     *     when too few jurors answered for a combined ranking.
+     */
+    post: operations["review_resistance_shortlist"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/structures": {
     parameters: {
       query?: never;
@@ -3531,6 +3556,55 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["UnprocessableResponse"];
+        };
+      };
+    };
+  };
+  review_resistance_shortlist: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        profile_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["JuryRun"];
+        };
+      };
+      /** @description Not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description The request cannot be carried out. */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UnprocessableResponse"];
+        };
+      };
+      /** @description A data source is unavailable. */
+      503: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
         };
       };
     };

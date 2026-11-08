@@ -90,6 +90,7 @@ def test_openapi_covers_every_route() -> None:
         "/api/resistance/profiles",
         "/api/resistance/profiles/{profile_id}",
         "/api/resistance/profiles/{profile_id}/candidates",
+        "/api/resistance/profiles/{profile_id}/jury",
         "/api/resistance/certificates",
     }
     assert set(paths["/api/experiments"]["post"]["responses"]) == {"202", "422", "503"}

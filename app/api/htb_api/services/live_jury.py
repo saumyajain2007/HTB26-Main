@@ -293,7 +293,20 @@ class StreamAJury:
             )
         if not experiment.candidates:
             raise JuryUnavailable("There are no Candidates for the Model jury to review.")
-        packet = jury_packet(experiment)
+        return (yield from self.review_packet(jury_packet(experiment), config, str(experiment.id)))
+
+    def review_packet(self, packet: JSON, config: JuryConfig, audit_id: str) -> JurySteps:
+        """Review an already-built packet.
+
+        The disease flow and the antibiotic flow differ only in how the packet is
+        made, so everything after that — validating it, asking the jurors, the audit
+        record and mapping the answers onto the contract — happens here for both.
+        An invalid or refused ballot is mapped as such and never filled in.
+        """
+        if config.mode != self.mode:
+            raise JuryUnavailable(
+                f"This packet's jury is {config.mode}, but the API runs a {self.mode} jury."
+            )
         try:
             validate_packet(packet)
         except ValueError as exc:
@@ -308,7 +321,7 @@ class StreamAJury:
         }
         result = yield from self._run(packet, settings, dict(config.reasoning_effort))
         if self._audit_dir is not None:
-            write_json(self._audit_dir / str(experiment.id) / "jury_result.json", result)
+            write_json(self._audit_dir / audit_id / "jury_result.json", result)
         mapped = map_jury_result(result, packet)
         if mapped.outcome is None:
             raise JuryUnavailable(
