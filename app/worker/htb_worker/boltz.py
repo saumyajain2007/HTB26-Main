@@ -11,6 +11,7 @@ import subprocess
 import tempfile
 from contextlib import ExitStack
 from pathlib import Path
+from typing import Literal
 from uuid import UUID
 
 from htb_api.schemas import DockFile
@@ -39,6 +40,8 @@ def publish(
     target_name: str,
     sequence: str,
     version: str,
+    prediction_scope: Literal["reference", "exploratory"] = "reference",
+    limitations: list[str] | None = None,
 ) -> Path:
     """Split chains from the SAME predicted complex, retaining their shared coordinates."""
     lines = model.read_text().splitlines()
@@ -76,6 +79,8 @@ def publish(
             target_name=target_name,
             protein_sequence_sha256=hashlib.sha256(sequence.encode()).hexdigest(),
             boltz_version=version,
+            prediction_scope=prediction_scope,
+            limitations=limitations or [],
             confidence_score=score,
             receptor=descriptions["receptor.pdb"],
             ligand=descriptions["ligand.pdb"],
@@ -104,12 +109,20 @@ def main() -> None:
         "--work-dir", type=Path, help="Keep inference inputs, logs and intermediates"
     )
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--exploratory", action="store_true", help="Label an assumed target or construct"
+    )
+    parser.add_argument(
+        "--limitation", action="append", default=[], help="Explain each input assumption"
+    )
     parser.add_argument("--accelerator", choices=("gpu", "cpu"), default="gpu")
     args = parser.parse_args()
     if (args.out.resolve() / prediction_key(args.profile_id, args.candidate_id)).exists():
         parser.error("A prediction already exists; archive it before rerunning inference")
     if args.msa is not None and not args.msa.is_file():
         parser.error("The supplied MSA file does not exist")
+    if args.exploratory and not args.limitation:
+        parser.error("Exploratory predictions need at least one --limitation")
     sequence = protein_sequence(args.sequence)
     version = importlib.metadata.version("boltz")
     with ExitStack() as stack:
@@ -179,6 +192,8 @@ def main() -> None:
             target_name=args.target_name,
             sequence=sequence,
             version=version,
+            prediction_scope="exploratory" if args.exploratory else "reference",
+            limitations=args.limitation,
         )
         shutil.copyfile(source, result / "input.yaml")
         shutil.copyfile(work / "run.json", result / "run.json")

@@ -38,7 +38,11 @@ export function BoltzPanel({
   const result = prediction.data;
   return (
     <div className={styles.poseCard}>
-      <h4 className={styles.subhead}>Boltz-2 predicted complex</h4>
+      <h4 className={styles.subhead}>
+        {result?.prediction_scope === "exploratory"
+          ? "Boltz-2 exploratory complex"
+          : "Boltz-2 predicted complex"}
+      </h4>
       {prediction.isPending && <p>Checking for a Boltz prediction…</p>}
       {prediction.isError && (
         <p role="alert">
@@ -58,6 +62,18 @@ export function BoltzPanel({
       )}
       {result !== undefined && result !== null && (
         <>
+          {result.prediction_scope === "exploratory" && (
+            <div>
+              <p>
+                <strong>Exploratory target assumption</strong>
+              </p>
+              <ul>
+                {(result.limitations ?? []).map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           <p>
             {candidateName} · {result.target_name} · Boltz {result.boltz_version}
           </p>

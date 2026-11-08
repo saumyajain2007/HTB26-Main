@@ -617,6 +617,14 @@ export interface components {
       /** Confidence Score */
       confidence_score: number;
       ligand: components["schemas"]["DockFile"];
+      /** Limitations */
+      limitations?: string[];
+      /**
+       * Prediction Scope
+       * @default reference
+       * @enum {string}
+       */
+      prediction_scope: "reference" | "exploratory";
       /**
        * Profile Id
        * Format: uuid

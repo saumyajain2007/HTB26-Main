@@ -49,6 +49,14 @@ def test_boltz_api(tmp_path: Path) -> None:
         assert client.get(url + "/ligand.pdb").text == pdb
         assert client.get(url + "/prediction.json").status_code == 404
         data = json.loads(manifest.read_text())
+        data["prediction_scope"] = "exploratory"
+        data["limitations"] = ["PBP isoform assumed; covalent chemistry omitted."]
+        manifest.write_text(json.dumps(data))
+        assert client.get(url).json()["prediction_scope"] == "exploratory"
+        data["limitations"] = []
+        manifest.write_text(json.dumps(data))
+        assert client.get(url).status_code == 503
+        data = json.loads(prediction.model_dump_json())
         data["smiles"] = "different molecule"
         manifest.write_text(json.dumps(data))
         assert client.get(url).status_code == 503
@@ -60,7 +68,9 @@ def test_boltz_api(tmp_path: Path) -> None:
 def test_bundled_predictions_match_saved_candidates(tmp_path: Path) -> None:
     settings = Settings(resistance="saved", boltz_results_dir=tmp_path, fixture_delay_ms=0)
     manifest = json.loads((settings.boltz_precomputed_dir / "manifest.json").read_text())
-    assert manifest["count"] == 27
+    assert manifest["count"] == 48
+    assert manifest["reference_count"] == 27
+    assert manifest["exploratory_count"] == 21
     with TestClient(create_app(settings)) as client:
         candidates: dict[str, dict[str, str]] = {}
         for item in manifest["predictions"]:
@@ -76,6 +86,9 @@ def test_bundled_predictions_match_saved_candidates(tmp_path: Path) -> None:
             data = response.json()
             assert data["smiles"] == candidates[profile_id][item["candidate_id"]]
             assert data["confidence_score"] == item["confidence_score"]
+            assert data["prediction_scope"] == item.get("prediction_scope", "reference")
+            if data["prediction_scope"] == "exploratory":
+                assert data["limitations"]
             for field in ("receptor", "ligand"):
                 content = client.get(data[field]["url"])
                 assert content.status_code == 200
