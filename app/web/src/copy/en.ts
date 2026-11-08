@@ -365,7 +365,7 @@ export const copy = {
       },
       /** The table's last column: what was checked and how many limits it met, not a bare "proved". */
       tableProperty: {
-        certified: (total: number) => `All ${String(total)} limits met · Lean 4 proved`,
+        certified: (total: number) => `All ${String(total)} limits met`,
         failed: (over: string) => `Over limit: ${over} · Lean 4 refuted`,
         smokePassed: (total: number) => `All ${String(total)} limits met · Python check only`,
         smokeFailed: (over: string) => `Over limit: ${over} · Python check only`,
