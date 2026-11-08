@@ -431,8 +431,33 @@ export const copy = {
         "Possible hydrogen bonds, not confirmed ones. They describe the docked pose, which is a prediction in a reference pocket.",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
-      juryPending:
-        "The model jury has not reviewed this shortlist yet. Rebuilding evidence packets for antibiotic resistance is tracked in issue #33.",
+      /** Before the panel is asked. Says what makes its verdict worth reading. */
+      juryBlurb:
+        "A panel of models can review this shortlist on the same evidence. It is not shown our " +
+        "ranking, the evasion status or our explanation, so its reading is its own.",
+      juryAsk: "Ask the model jury",
+      juryAsking: "The panel is reviewing the shortlist\u2026",
+      /** This API has no jury that can judge a new shortlist, e.g. the offline fixture path. */
+      juryUnavailable:
+        "No model panel is configured here, so the shortlist can\u2019t be reviewed in this copy " +
+        "of the app.",
+      juryFailed: "The panel couldn\u2019t be asked. The server isn\u2019t answering.",
+      /** After a review: this drug's own votes. */
+      juryVerdictTitle: "What the panel said about this drug",
+      juryNoVote:
+        "No juror whose answers passed our checks placed this drug, so there is nothing to show " +
+        "for it.",
+      juryVote: (model: string, decision: string, place: number) =>
+        `${model} placed it ${String(place)} and would ${decision.toLowerCase()}.`,
+      /** Honest framing, said once under the verdict. */
+      juryAgreement: (value: number) =>
+        `Agreement between jurors: ${value.toFixed(2)} of 1. That is consistency between models, not correctness, and not a chance of success.`,
+      juryNoAgreement:
+        "Fewer than two jurors gave answers that passed our checks, so there is no agreement figure.",
+      juryContested: "Valid jurors disagreed about this drug.",
+      juryJurorsTitle: "Jurors",
+      /** An invalid or absent ballot is recorded, never filled in. */
+      juryJuror: (model: string, status: string) => `${model}: ${status}`,
       caveatsTitle: "Caveats",
     },
   },

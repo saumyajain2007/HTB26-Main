@@ -119,7 +119,7 @@ Only the providers you name need credentials. Example:
 
 ```
 HTB_JURY=providers
-JURY_MODELS='["gemini:gemini-2.5-pro","vultr:<vultr model id>","cortex:claude-sonnet-5"]'
+JURY_MODELS='["gemini:gemini-3-flash-preview","vultr:<vultr model id>","cortex:claude-sonnet-5"]'
 GEMINI_API_KEY=...
 VULTR_INFERENCE_API_KEY=...
 ```

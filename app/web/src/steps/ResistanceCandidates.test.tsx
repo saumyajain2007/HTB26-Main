@@ -13,6 +13,7 @@ import {
   certificates,
   resistanceProfile,
 } from "../test/resistance";
+import type { JuryRun } from "../lib/resistance";
 import { http, networkError, server } from "../test/server";
 import { ResistanceCandidates } from "./ResistanceCandidates";
 
@@ -94,7 +95,7 @@ describe("the candidate antibiotics view", () => {
     expect(
       pane.getByText("Median MIC across records against S. aureus (value fictional)."),
     ).toBeInTheDocument();
-    expect(pane.getByText(text.juryPending)).toBeInTheDocument();
+    expect(pane.getByText(text.juryBlurb)).toBeInTheDocument();
   });
 
   it("shows passed rules, highlighted failing rules with margins, alerts, SA score and Lean 4 certificate details", async () => {
@@ -297,5 +298,93 @@ describe("the candidate antibiotics view", () => {
     // An approved drug with no recorded structure still gets the labelled reference structures.
     await user.click(within(approvedTable()).getByRole("button", { name: /Linezolid/i }));
     expect(within(readingPane("Linezolid")).getByText(text.poseContactsCaveat)).toBeInTheDocument();
+  });
+});
+
+describe("the model jury panel", () => {
+  /** A run with one valid juror, one whose ballot failed our checks, and one that never answered. */
+  function run(): JuryRun {
+    return {
+      status: "done",
+      models: [
+        { id: "gemini:gemini-2.5-pro", display_name: "Gemini 2.5 Pro", family: "gemini" },
+        { id: "vultr:llama", display_name: "Llama", family: "llama" },
+        { id: "cortex:claude", display_name: "Claude", family: "claude" },
+      ],
+      jurors: [
+        {
+          model_id: "gemini:gemini-2.5-pro",
+          status: "valid",
+          attempts: 1,
+          latency_ms: 900,
+          errors: [],
+        },
+        { model_id: "vultr:llama", status: "invalid", attempts: 2, latency_ms: 700, errors: [] },
+        { model_id: "cortex:claude", status: "failed", attempts: 1, latency_ms: null, errors: [] },
+      ],
+      votes: [
+        {
+          model_id: "gemini:gemini-2.5-pro",
+          candidate_id: "CHEMBL126",
+          rank: 1,
+          decision: "investigate",
+          direction: "unknown",
+          rationale: "Not linked to either mechanism.",
+          objection: "No activity data for this isolate.",
+          supporting_evidence_ids: [],
+          contradicting_evidence_ids: [],
+          missing_evidence: [],
+          safety: { status: "unknown", evidence_ids: [] },
+        },
+      ],
+      consensus: { method: "borda", jurors_counted: 1, ranking: [] },
+      agreement: null,
+      contested: [],
+      error: null,
+      created_at: "2026-11-08T00:00:00Z",
+      started_at: "2026-11-08T00:00:01Z",
+      finished_at: "2026-11-08T00:00:09Z",
+    };
+  }
+
+  it("asks the panel and shows what it said about this drug", async () => {
+    const user = userEvent.setup();
+    server.use(
+      http.post("/api/resistance/profiles/{profile_id}/jury", ({ response }) =>
+        response(200).json(run()),
+      ),
+    );
+    renderApp(CANDIDATES_PATH);
+
+    // Before asking, the panel says why its reading is worth having.
+    expect(await screen.findByText(text.juryBlurb)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: text.juryAsk }));
+
+    expect(await screen.findByText(text.juryVerdictTitle)).toBeInTheDocument();
+    expect(
+      screen.getByText(text.juryVote("gemini:gemini-2.5-pro", copy.jury.decisions.investigate, 1)),
+    ).toBeInTheDocument();
+    // One valid ballot, so no agreement figure is claimed.
+    expect(screen.getByText(text.juryNoAgreement)).toBeInTheDocument();
+    // A ballot that failed our checks is recorded as such, and given no vote.
+    expect(
+      screen.getByText(text.juryJuror("vultr:llama", copy.jury.jurorStatus.invalid)),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(text.juryJuror("cortex:claude", copy.jury.jurorStatus.failed)),
+    ).toBeInTheDocument();
+  });
+
+  it("says no panel is configured rather than that the review failed", async () => {
+    const user = userEvent.setup();
+    server.use(
+      http.post("/api/resistance/profiles/{profile_id}/jury", ({ response }) =>
+        response(503).json({ detail: "This API's jury replays a recorded review." }),
+      ),
+    );
+    renderApp(CANDIDATES_PATH);
+
+    await user.click(await screen.findByRole("button", { name: text.juryAsk }));
+    expect(await screen.findByText(text.juryUnavailable)).toBeInTheDocument();
   });
 });

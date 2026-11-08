@@ -28,6 +28,8 @@ import {
   type CandidateEntry,
   type PropertyRuleKey,
 } from "../lib/resistanceCandidates";
+import { ApiError } from "../api/errors";
+import { useShortlistReview, votesFor } from "../lib/resistance";
 import { releaseLabel, type MapStatus } from "../lib/resistanceMap";
 import type { Contact } from "../three/interactions";
 import styles from "./ResistanceCandidates.module.css";
@@ -333,6 +335,76 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
   );
 };
 
+/**
+ * The model panel's reading of this shortlist, and this drug's place in it.
+ *
+ * The panel is asked once for the whole shortlist; the verdict is held per profile, so switching
+ * between drugs keeps it. A juror whose ballot failed our checks is listed as such and never
+ * given a vote, and the agreement figure is labelled as consistency rather than correctness.
+ */
+function JuryPanel({ profileId, candidateId }: { profileId: string; candidateId: string }) {
+  const { run, ask } = useShortlistReview(profileId);
+  const votes = votesFor(run, candidateId);
+
+  if (run === null) {
+    const failure = ask.error;
+    const message =
+      failure === null
+        ? null
+        : failure instanceof ApiError && failure.status === 503
+          ? text.juryUnavailable
+          : text.juryFailed;
+    return (
+      <>
+        <p className={styles.rationale}>{text.juryBlurb}</p>
+        <button
+          type="button"
+          className={styles.juryAsk}
+          disabled={ask.isPending}
+          onClick={() => {
+            ask.mutate();
+          }}
+        >
+          {text.juryAsk}
+        </button>
+        <p className={styles.rationale} role="status">
+          {ask.isPending ? text.juryAsking : (message ?? "")}
+        </p>
+      </>
+    );
+  }
+
+  const contested = run.contested.includes(candidateId);
+  return (
+    <>
+      <h4 className={styles.juryHead}>{text.juryVerdictTitle}</h4>
+      {votes.length === 0 ? (
+        <p className={styles.rationale}>{text.juryNoVote}</p>
+      ) : (
+        <ul className={styles.bulletList}>
+          {votes.map((vote) => (
+            <li key={vote.model_id}>
+              {text.juryVote(vote.model_id, copy.jury.decisions[vote.decision], vote.rank)}
+            </li>
+          ))}
+        </ul>
+      )}
+      {contested && <p className={styles.rationale}>{text.juryContested}</p>}
+      <p className={styles.rationale}>
+        {run.agreement === null ? text.juryNoAgreement : text.juryAgreement(run.agreement)}
+      </p>
+      <h4 className={styles.juryHead}>{text.juryJurorsTitle}</h4>
+      <ul className={styles.bulletList}>
+        {run.jurors.map((juror) => (
+          <li key={juror.model_id}>
+            {text.juryJuror(juror.model_id, copy.jury.jurorStatus[juror.status])}
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 function CandidateReadingPane({
   profileId,
   id,
@@ -495,7 +567,7 @@ function CandidateReadingPane({
 
       <div className={styles.block}>
         <h3 className={styles.subhead}>{text.juryTitle}</h3>
-        <p className={styles.rationale}>{text.juryPending}</p>
+        <JuryPanel profileId={profileId} candidateId={entry.id} />
       </div>
 
       {entry.generated !== null && entry.explanation.caveats.length > 0 && (

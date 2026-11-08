@@ -40,7 +40,7 @@ All four are optional. The app runs on fixtures with none of them. Setup is in t
 
 | Integration | What exists | What is proven |
 | --- | --- | --- |
-| Google Gemini | A juror client, selected with `gemini:` model ids | Unit tests with fakes. The README says the client has not been run against the live service. Do not claim a live Gemini jury. |
+| Google Gemini | A juror client, selected with `gemini:` model ids | **Run live on 8 Nov 2026**: `gemini-3-flash-preview` reviewed the real antibiotic packet and its reply passed every validator ([gemini-live-check.md](gemini-live-check.md)). Claim a live Gemini review; do **not** claim a live three-model jury, which needs three families and has not run. Note `gemini-2.5-pro` is 404 for new keys. |
 | Vultr | An inference juror (`vultr:` model ids) and [deploy/vultr/setup.sh](../deploy/vultr/setup.sh) for a VM | Same as Gemini: fakes only, not tried live. The VM script is in the repo and has not been shown running here. |
 | Tiger Data | Plain Postgres. No Timescale feature is used, so a Tiger Cloud connection string is a normal `DATABASE_URL` | [deploy/db/README.md](../deploy/db/README.md) records that the Tiger Cloud service `htb` already held migration `0001`. This page did not reconnect to that service. |
 | Entire | Install and `entire enable` are written in the README | Not enabled in this checkout. Nothing is committed for it. `tasks.md` still has that step open. Do not claim Entire as a working integration. |

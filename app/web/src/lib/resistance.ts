@@ -23,6 +23,8 @@ export type AntibioticCandidate = components["schemas"]["AntibioticCandidate"];
 export type Certificate = components["schemas"]["Certificate"];
 export type EvasionStatus = components["schemas"]["EvasionStatus"];
 export type ProfileRequest = components["schemas"]["ProfileRequest"];
+export type JuryRun = components["schemas"]["JuryRun"];
+export type JuryVote = components["schemas"]["JuryVote"];
 
 export const resistanceKeys = {
   pathogens: ["resistance", "pathogens"] as const,
@@ -30,6 +32,7 @@ export const resistanceKeys = {
   profile: (profileId: string) => ["resistance", "profiles", profileId] as const,
   candidates: (profileId: string) => ["resistance", "profiles", profileId, "candidates"] as const,
   certificates: ["resistance", "certificates"] as const,
+  jury: (profileId: string) => ["resistance", "profiles", profileId, "jury"] as const,
 };
 
 /**
@@ -141,4 +144,45 @@ export function useBuildProfile() {
       queryClient.setQueryData(resistanceKeys.profile(profile.profile_id), profile);
     },
   });
+}
+
+/**
+ * Ask the Model jury to review the shortlist ranked against a profile, and keep its answer.
+ *
+ * The panel never sees our ranking: the packet withholds the rank, the evasion status and the
+ * explanation, and the candidate labels are ordered by a hash. So its verdict is an independent
+ * reading of the same evidence — and agreement between models is consistency, not correctness.
+ *
+ * The run is held in the query cache under the profile rather than in component state, so it
+ * survives switching between candidates. The API does not store it, so a reload loses it and
+ * asking again costs another live model call; the button is offered once per page for that
+ * reason. A 503 means this API has no jury that can judge a new shortlist, which is a different
+ * thing from the review having failed.
+ */
+export function useShortlistReview(profileId: string) {
+  const queryClient = useQueryClient();
+  const held = useQuery({
+    queryKey: resistanceKeys.jury(profileId),
+    // Never fetched: only the mutation below writes here.
+    queryFn: () => null as JuryRun | null,
+    enabled: false,
+    staleTime: Infinity,
+  });
+  const ask = useMutation({
+    mutationFn: () =>
+      unwrap(
+        api.POST("/api/resistance/profiles/{profile_id}/jury", {
+          params: { path: { profile_id: profileId } },
+        }),
+      ),
+    onSuccess: (run) => {
+      queryClient.setQueryData(resistanceKeys.jury(profileId), run);
+    },
+  });
+  return { run: held.data ?? null, ask };
+}
+
+/** One juror's vote on a candidate, if that juror's ballot passed our checks. */
+export function votesFor(run: JuryRun | null, candidateId: string): JuryVote[] {
+  return (run?.votes ?? []).filter((vote) => vote.candidate_id === candidateId);
 }
