@@ -1,0 +1,17 @@
+Start working on issue #21 and #22
+
+---
+
+#20 and #21 sorry
+
+---
+
+go ahead. note this decision in the md file
+
+---
+
+pull the stuff and check whether the files coincide. if yes, decide whether it is worth implementing anything from my code into that
+
+---
+
+i want it to be added, as entire needs it
