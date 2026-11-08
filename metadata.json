@@ -1,0 +1,53 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6X5479N326AVBEH2XJJ3R7K",
+  "strategy": "manual-commit",
+  "branch": "live-resistance-validation-leakage",
+  "checkpoints_count": 15,
+  "files_touched": [
+    "core/wholecell/htb_wholecell/controls.py",
+    "core/wholecell/tests/test_controls.py",
+    "eval/ci_approaches.py",
+    "eval/ci_augmentation.py",
+    "eval/leakage_audit.py",
+    "results/ci_approaches/augmentation.json",
+    "results/ci_approaches/results.json",
+    "results/ci_approaches/results.md",
+    "results/ci_approaches/summary.md",
+    "results/leakage_audit/report.json",
+    "results/leakage_audit/report.md",
+    "results/leakage_audit/splits_cluster.tsv",
+    "tests/test_ci_augmentation.py",
+    "tests/test_leakage_audit.py"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "redaction": {
+    "replacements": 18,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 15,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
