@@ -22,6 +22,7 @@ from rdkit.Chem import Descriptors, rdMolDescriptors
 from rdkit.Chem.FilterCatalog import FilterCatalog, FilterCatalogParams
 
 from .rules import ORAL_DRUGLIKE, RULE_SETS, Thresholds
+from .antibiotic_hints import ChemistryHints, assess
 
 try:  # The SA scorer ships in RDKit's Contrib directory and is not always present.
     from rdkit.Contrib.SA_Score import sascorer as _sascorer
@@ -86,6 +87,7 @@ class SmokeResult:
     sa_score: float | None = None
     inchikey: str | None = None
     notes: tuple[str, ...] = field(default_factory=tuple)
+    chemistry: ChemistryHints | None = None
 
 
 def describe(mol: Chem.Mol) -> Descriptors_:
@@ -121,6 +123,7 @@ def check_molecule(
     rule_set: str | Thresholds = ORAL_DRUGLIKE,
     *,
     strict_alerts: bool = False,
+    resistance_profile: dict | None = None,
 ) -> SmokeResult:
     """Run the smoke test on one SMILES string."""
     t = RULE_SETS[rule_set] if isinstance(rule_set, str) else rule_set
@@ -151,4 +154,5 @@ def check_molecule(
         smiles=smiles, valid=True, passed=not violations, rule_set=t.name,
         descriptors=d, violations=tuple(violations), alerts=alerts, sa_score=sa,
         inchikey=Chem.MolToInchiKey(mol) or None, notes=tuple(notes),
+        chemistry=assess(mol, resistance_profile),
     )

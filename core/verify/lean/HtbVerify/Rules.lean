@@ -94,4 +94,16 @@ theorem oral_implies_relaxed {d : Desc} (h : d.Passes oralDruglike) :
     d.Passes antibioticRelaxed :=
   passes_relax oral_le_relaxed h
 
+/-- eNTRy-inspired 2D hint: primary amine and at most five rotatable bonds.
+    This does not encode 3D globularity or prove cellular accumulation.
+    Richter et al., Nature (2017), doi:10.1038/nature22308. -/
+def entryMaxRotatableBonds : Nat := 5
+
+def entryHint (primaryAmines rotatableBonds : Nat) : Bool :=
+  decide (0 < primaryAmines ∧ rotatableBonds ≤ entryMaxRotatableBonds)
+
+theorem entryHint_iff (amines rot : Nat) :
+    entryHint amines rot = true ↔ 0 < amines ∧ rot ≤ entryMaxRotatableBonds := by
+  simp [entryHint]
+
 end HtbVerify
