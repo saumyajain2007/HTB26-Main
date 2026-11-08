@@ -58,7 +58,12 @@ export function BoltzPanel({
         </p>
       )}
       {result === null && (
-        <p>No Boltz prediction has been prepared for this molecule and pathogen profile.</p>
+        <>
+          <p>No Boltz prediction has been prepared for this molecule and pathogen profile.</p>
+          <button type="button" className={styles.poseToggle}>
+            Generate prediction
+          </button>
+        </>
       )}
       {result !== undefined && result !== null && (
         <>
