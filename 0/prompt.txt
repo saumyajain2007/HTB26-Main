@@ -1,0 +1,1 @@
+Read the new issues or scope.md, and modify the architecture in mermaid
