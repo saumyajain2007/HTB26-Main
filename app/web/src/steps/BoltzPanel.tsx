@@ -94,7 +94,7 @@ export function BoltzPanel({
               aria-valuenow={result.confidence_score}
               title="Confidence in the predicted structure, not measured affinity or antibiotic activity."
             >
-              <span style={{ width: `${result.confidence_score * 100}%` }} />
+              <span style={{ width: `${String(result.confidence_score * 100)}%` }} />
             </div>
           </div>
           <button
