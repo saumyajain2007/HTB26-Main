@@ -92,9 +92,6 @@ export function BoltzPanel({
             {open ? "Hide Boltz prediction" : "Show Boltz prediction"}
           </button>
           {open && (
-            <p>Illustrative placement animation—not a simulated binding trajectory.</p>
-          )}
-          {open && (
             <div className={styles.poseStage}>
               <Suspense fallback={<p>Loading predicted complex…</p>}>
                 <PoseViewer
