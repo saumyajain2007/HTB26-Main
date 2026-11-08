@@ -1,0 +1,220 @@
+{
+  "_comment": "Fixture for the `activity` block on an AntibioticCandidate. One decided candidate, one abstained, one never scored. Regenerate with `python -m core.ranking.activity.report` helpers; see docs/activity-calibration.md.",
+  "candidates": [
+    {
+      "activity": {
+        "abstain": false,
+        "abstain_reason": null,
+        "attribution_method": "exact",
+        "basis": {
+          "alpha": 0.2,
+          "attribution": {
+            "additivity_error": 1.7763568394002505e-15,
+            "base_value": -1.012175,
+            "method": "exact",
+            "n_background": 30,
+            "n_coalitions": 256,
+            "prediction": -4.13332
+          },
+          "calibration_split": {
+            "groups": {
+              "calibration": 100,
+              "test": 2
+            },
+            "leaked": false,
+            "shared": {},
+            "singleton_group_share": 0.0196,
+            "splits": {
+              "calibration": 300,
+              "test": 2
+            },
+            "ungrouped": []
+          },
+          "members": [
+            0.94,
+            0.91,
+            0.95,
+            0.93,
+            0.92
+          ],
+          "mode": "mondrian",
+          "n_calibration": 300,
+          "qhat_active": 0.27,
+          "qhat_inactive": 0.2611
+        },
+        "confidence": 0.9934,
+        "credibility": 1.0,
+        "prediction_set": [
+          "active"
+        ],
+        "probability": 0.93,
+        "requested_coverage": 0.8,
+        "status": "active",
+        "top_features": [
+          {
+            "contribution": -3.2667,
+            "direction": "decreases",
+            "feature": "clogp",
+            "label": "lipophilicity (clogP)"
+          },
+          {
+            "contribution": -1.0683,
+            "direction": "decreases",
+            "feature": "mw",
+            "label": "molecular weight"
+          },
+          {
+            "contribution": 0.7217,
+            "direction": "increases",
+            "feature": "hba",
+            "label": "hydrogen-bond acceptors"
+          },
+          {
+            "contribution": 0.4265,
+            "direction": "increases",
+            "feature": "tpsa",
+            "label": "polar surface area"
+          },
+          {
+            "contribution": -0.2741,
+            "direction": "decreases",
+            "feature": "hbd",
+            "label": "hydrogen-bond donors"
+          }
+        ]
+      },
+      "certificate_status": "not_run",
+      "evasion": {
+        "status": "unaffected"
+      },
+      "name": "CHEMBL1234",
+      "rank": 1
+    },
+    {
+      "activity": {
+        "abstain": true,
+        "abstain_reason": "ensemble_disagreement",
+        "attribution_method": "exact",
+        "basis": {
+          "abstain_reasons": [
+            {
+              "explanation": "member spread 0.361 exceeds the calibration 0.99 quantile 0.111: the five members do not agree",
+              "reason": "ensemble_disagreement"
+            },
+            {
+              "explanation": "neither label is plausible at alpha=0.2; both conformal p-values are at or below it",
+              "reason": "out_of_distribution"
+            },
+            {
+              "explanation": "credibility 0.007 is below the floor 0.05: unlike anything in the calibration set",
+              "reason": "out_of_distribution"
+            }
+          ],
+          "alpha": 0.2,
+          "attribution": {
+            "additivity_error": 4.440892098500626e-16,
+            "base_value": -1.012175,
+            "method": "exact",
+            "n_background": 30,
+            "n_coalitions": 256,
+            "prediction": -3.510014
+          },
+          "calibration_split": {
+            "groups": {
+              "calibration": 100,
+              "test": 2
+            },
+            "leaked": false,
+            "shared": {},
+            "singleton_group_share": 0.0196,
+            "splits": {
+              "calibration": 300,
+              "test": 2
+            },
+            "ungrouped": []
+          },
+          "explanation": "member spread 0.361 exceeds the calibration 0.99 quantile 0.111: the five members do not agree",
+          "members": [
+            0.08,
+            0.93,
+            0.12,
+            0.88,
+            0.5
+          ],
+          "mode": "mondrian",
+          "n_calibration": 300,
+          "qhat_active": 0.27,
+          "qhat_inactive": 0.2611
+        },
+        "confidence": 0.9934,
+        "credibility": 0.0066,
+        "prediction_set": [],
+        "probability": 0.502,
+        "requested_coverage": 0.8,
+        "status": "abstained",
+        "top_features": [
+          {
+            "contribution": -1.9686,
+            "direction": "decreases",
+            "feature": "clogp",
+            "label": "lipophilicity (clogP)"
+          },
+          {
+            "contribution": 1.6113,
+            "direction": "increases",
+            "feature": "aromatic_rings",
+            "label": "aromatic rings"
+          },
+          {
+            "contribution": -1.0818,
+            "direction": "decreases",
+            "feature": "mw",
+            "label": "molecular weight"
+          },
+          {
+            "contribution": -0.7386,
+            "direction": "decreases",
+            "feature": "hba",
+            "label": "hydrogen-bond acceptors"
+          },
+          {
+            "contribution": -0.4702,
+            "direction": "decreases",
+            "feature": "tpsa",
+            "label": "polar surface area"
+          }
+        ]
+      },
+      "certificate_status": "not_run",
+      "evasion": {
+        "status": "partly_affected"
+      },
+      "name": "CHEMBL5678",
+      "rank": 2
+    },
+    {
+      "activity": {
+        "abstain": null,
+        "abstain_reason": null,
+        "attribution_method": null,
+        "basis": {
+          "not_run_reason": "no calibrated ensemble for release chembl-37_card-4.0.2"
+        },
+        "confidence": null,
+        "credibility": null,
+        "prediction_set": [],
+        "probability": null,
+        "requested_coverage": null,
+        "status": "not_run",
+        "top_features": []
+      },
+      "certificate_status": "not_run",
+      "evasion": {
+        "status": "unknown"
+      },
+      "name": "CHEMBL9999",
+      "rank": 3
+    }
+  ],
+  "contract_version": "1"
+}

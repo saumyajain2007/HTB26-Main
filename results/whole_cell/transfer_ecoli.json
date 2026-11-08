@@ -1,0 +1,103 @@
+{
+  "organism": "Escherichia coli",
+  "taxon": 562,
+  "trained_on": "A. baumannii liu_train (scaffold ensemble)",
+  "label_rule": "median MIC <= 8 ug/mL (the A. baumannii rule, not organism-specific)",
+  "molecules": 42652,
+  "actives": 10212,
+  "sample": 2000,
+  "sample_actives": 450,
+  "sample_with_train_neighbour_gt_0.5": 350,
+  "all_sampled": {
+    "n": 2000,
+    "actives": 450,
+    "ensemble": {
+      "n": 2000,
+      "actives": 450,
+      "baseline_prevalence": 0.225,
+      "roc_auc": {
+        "value": 0.6402,
+        "ci95": [
+          0.605,
+          0.6706
+        ]
+      },
+      "pr_auc": {
+        "value": 0.4683,
+        "ci95": [
+          0.4269,
+          0.5117
+        ]
+      },
+      "enrichment_top_1pct": 3.56,
+      "enrichment_top_5pct": 3.64
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 2000,
+      "actives": 450,
+      "baseline_prevalence": 0.225,
+      "roc_auc": {
+        "value": 0.6618,
+        "ci95": [
+          0.6298,
+          0.6923
+        ]
+      },
+      "pr_auc": {
+        "value": 0.4203,
+        "ci95": [
+          0.3814,
+          0.464
+        ]
+      },
+      "enrichment_top_1pct": 2.67,
+      "enrichment_top_5pct": 2.58
+    }
+  },
+  "no_close_training_analogue": {
+    "n": 1650,
+    "actives": 311,
+    "ensemble": {
+      "n": 1650,
+      "actives": 311,
+      "baseline_prevalence": 0.18848,
+      "roc_auc": {
+        "value": 0.5675,
+        "ci95": [
+          0.5288,
+          0.6031
+        ]
+      },
+      "pr_auc": {
+        "value": 0.3266,
+        "ci95": [
+          0.2838,
+          0.3699
+        ]
+      },
+      "enrichment_top_1pct": 4.97,
+      "enrichment_top_5pct": 2.72
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 1650,
+      "actives": 311,
+      "baseline_prevalence": 0.18848,
+      "roc_auc": {
+        "value": 0.5817,
+        "ci95": [
+          0.5405,
+          0.6183
+        ]
+      },
+      "pr_auc": {
+        "value": 0.3183,
+        "ci95": [
+          0.2745,
+          0.3669
+        ]
+      },
+      "enrichment_top_1pct": 3.65,
+      "enrichment_top_5pct": 3.04
+    }
+  }
+}

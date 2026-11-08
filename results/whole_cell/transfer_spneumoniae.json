@@ -1,0 +1,103 @@
+{
+  "organism": "Streptococcus pneumoniae",
+  "taxon": 1313,
+  "trained_on": "A. baumannii liu_train (scaffold ensemble)",
+  "label_rule": "median MIC <= 8 ug/mL (the A. baumannii rule, not organism-specific)",
+  "molecules": 9782,
+  "actives": 6426,
+  "sample": 2000,
+  "sample_actives": 1314,
+  "sample_with_train_neighbour_gt_0.5": 741,
+  "all_sampled": {
+    "n": 2000,
+    "actives": 1314,
+    "ensemble": {
+      "n": 2000,
+      "actives": 1314,
+      "baseline_prevalence": 0.657,
+      "roc_auc": {
+        "value": 0.6412,
+        "ci95": [
+          0.6169,
+          0.6638
+        ]
+      },
+      "pr_auc": {
+        "value": 0.7735,
+        "ci95": [
+          0.7529,
+          0.7935
+        ]
+      },
+      "enrichment_top_1pct": 1.07,
+      "enrichment_top_5pct": 1.26
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 2000,
+      "actives": 1314,
+      "baseline_prevalence": 0.657,
+      "roc_auc": {
+        "value": 0.6159,
+        "ci95": [
+          0.5934,
+          0.6414
+        ]
+      },
+      "pr_auc": {
+        "value": 0.7464,
+        "ci95": [
+          0.7248,
+          0.7694
+        ]
+      },
+      "enrichment_top_1pct": 1.14,
+      "enrichment_top_5pct": 1.17
+    }
+  },
+  "no_close_training_analogue": {
+    "n": 1259,
+    "actives": 734,
+    "ensemble": {
+      "n": 1259,
+      "actives": 734,
+      "baseline_prevalence": 0.583,
+      "roc_auc": {
+        "value": 0.6035,
+        "ci95": [
+          0.5725,
+          0.6338
+        ]
+      },
+      "pr_auc": {
+        "value": 0.7068,
+        "ci95": [
+          0.6793,
+          0.7333
+        ]
+      },
+      "enrichment_top_1pct": 1.45,
+      "enrichment_top_5pct": 1.55
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 1259,
+      "actives": 734,
+      "baseline_prevalence": 0.583,
+      "roc_auc": {
+        "value": 0.5529,
+        "ci95": [
+          0.5199,
+          0.5847
+        ]
+      },
+      "pr_auc": {
+        "value": 0.6687,
+        "ci95": [
+          0.6397,
+          0.6972
+        ]
+      },
+      "enrichment_top_1pct": 1.32,
+      "enrichment_top_5pct": 1.47
+    }
+  }
+}
