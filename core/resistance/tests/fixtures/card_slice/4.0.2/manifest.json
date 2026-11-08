@@ -2,23 +2,24 @@
   "card_data_version": "4.0.2",
   "excerpt": {
     "determinants": {
-      "ARO:3000149": "FosA",
-      "ARO:3000178": "tet(K)",
-      "ARO:3000251": "msrA",
-      "ARO:3000617": "mecA",
-      "ARO:3000621": "PC1 beta-lactamase (blaZ)",
-      "ARO:3000775": "adeB",
-      "ARO:3000781": "adeJ",
-      "ARO:3001059": "SHV-1",
-      "ARO:3001396": "OXA-1",
-      "ARO:3001418": "OXA-23",
-      "ARO:3001612": "OXA-51",
-      "ARO:3001878": "CTX-M-15",
-      "ARO:3002312": "KPC-2",
-      "ARO:3003296": "Staphylococcus aureus gyrA conferring resistance to fluoroquinolones",
-      "ARO:3003868": "ADC-25",
-      "ARO:3003922": "oqxA",
-      "ARO:3003923": "oqxB"
+      "ARO:3000149": "ARO:3000149",
+      "ARO:3000178": "ARO:3000178",
+      "ARO:3000251": "ARO:3000251",
+      "ARO:3000617": "ARO:3000617",
+      "ARO:3000621": "ARO:3000621",
+      "ARO:3000775": "ARO:3000775",
+      "ARO:3000781": "ARO:3000781",
+      "ARO:3001059": "ARO:3001059",
+      "ARO:3001209": "ARO:3001209",
+      "ARO:3001396": "ARO:3001396",
+      "ARO:3001418": "ARO:3001418",
+      "ARO:3001612": "ARO:3001612",
+      "ARO:3001878": "ARO:3001878",
+      "ARO:3002312": "ARO:3002312",
+      "ARO:3003296": "ARO:3003296",
+      "ARO:3003868": "ARO:3003868",
+      "ARO:3003922": "ARO:3003922",
+      "ARO:3003923": "ARO:3003923"
     },
     "extra_terms": [
       "ARO:0000000",
@@ -67,8 +68,8 @@
         "relation",
         "object"
       ],
-      "rows": 109,
-      "sha256": "3af08bf2b18031e738934897cc1329af671959b3d9b294018023b5981d02a068"
+      "rows": 110,
+      "sha256": "56fb5f38ea2b87e16922403cf3ee5b5973e67db71084241b68a34ca2142229c1"
     },
     "aro_synonyms": {
       "columns": [
@@ -76,8 +77,8 @@
         "synonym",
         "scope"
       ],
-      "rows": 25,
-      "sha256": "0ada21c80fcc1e2cd23f799e6e64bea1161b8ead474bd3cc72be6f6bb135b1cd"
+      "rows": 26,
+      "sha256": "1b53fb39a92322867680e9d2f711621018ec128f1c7e009cb2bd32180f919772"
     },
     "aro_terms": {
       "columns": [
@@ -88,8 +89,8 @@
         "short_name",
         "is_obsolete"
       ],
-      "rows": 83,
-      "sha256": "16f95a69208c77abbb4c67955840d459b958428f2df4e4e4d7daaecacddf55fc"
+      "rows": 84,
+      "sha256": "7280b6944831d6e6de8937078d34684f892a142b0c975aa2c5b7a91fa442f3be"
     },
     "aro_xrefs": {
       "columns": [
@@ -107,8 +108,8 @@
         "category_aro_accession",
         "category_class"
       ],
-      "rows": 83,
-      "sha256": "4dd234fc560e9b9d6c8015de61f7f74e4f18db73e85b666defb63259283de270"
+      "rows": 86,
+      "sha256": "a2cfe3e31793a26a791304c7731bae4999a8e1e2580d9d2b471f3d09c796779b"
     },
     "model_sequences": {
       "columns": [
@@ -119,8 +120,8 @@
         "taxon_id",
         "taxon_name"
       ],
-      "rows": 17,
-      "sha256": "ca2ae1fa0ebed8a0c58f199c48966f7c5fdc8e73866d4ee926d448c65bc6f415"
+      "rows": 18,
+      "sha256": "7d4bed3de24baf49e2d77948d8c69d0105d0842dcd0040438bab81d90f1c8d4f"
     },
     "model_variants": {
       "columns": [
@@ -141,8 +142,8 @@
         "model_type",
         "short_name"
       ],
-      "rows": 17,
-      "sha256": "2ff97d5424e2cc2230201b21e15611b9d729f5e58a29d9a4f8d9552dd8f097be"
+      "rows": 18,
+      "sha256": "6d8baa5296fdb6c0e566f5002f67025eb395167dbdc48b590345f1b5f54e960c"
     }
   }
 }

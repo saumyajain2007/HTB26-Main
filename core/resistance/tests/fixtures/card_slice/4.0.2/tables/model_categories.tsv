@@ -78,6 +78,9 @@ model_id	aro_accession	category_aro_accession	category_class
 726	ARO:3000621	ARO:0001004	Resistance Mechanism
 726	ARO:3000621	ARO:3000008	Drug Class
 726	ARO:3000621	ARO:3004197	AMR Gene Family
+810	ARO:3001209	ARO:0001002	Resistance Mechanism
+810	ARO:3001209	ARO:3000008	Drug Class
+810	ARO:3001209	ARO:3009312	AMR Gene Family
 866	ARO:3000775	ARO:0000042	Drug Class
 866	ARO:3000775	ARO:0010000	Resistance Mechanism
 866	ARO:3000775	ARO:0010004	AMR Gene Family

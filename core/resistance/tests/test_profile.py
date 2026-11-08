@@ -162,7 +162,8 @@ def release(tmp_path_factory) -> Path:
 
 @pytest.fixture(scope="session")
 def ref(release) -> Reference:
-    return Reference.from_release(release)
+    # The synthetic release has no mecA, so the curated supplement (which names real CARD models) cannot apply.
+    return Reference.from_release(release, supplement=None)
 
 
 # ----------------------------------------------------------------- the frozen contract
@@ -200,7 +201,7 @@ def check_contract(profile):
         assert re.fullmatch(PROFILE_EVIDENCE, e["id"]), e["id"]
         assert re.fullmatch(ARO, e["aro_id"]), e["aro_id"]
         assert e["release"] in p["releases"]
-        assert e["statement"] and e["source"] == "card"
+        assert e["statement"] and e["source"] in ("card", "curated")
 
     # genes: unique, mechanism-bearing, evidence-citing, ARO-typed
     gene_ids = {g["aro_id"] for g in p["genes"]}
@@ -596,19 +597,19 @@ def _run(capsys, argv):
 
 
 def test_exit_codes_are_resolved_partial_error(capsys, release):
-    base = ["--release-dir", str(release)]
+    base = ["--release-dir", str(release), "--no-supplement"]
     assert _run(capsys, base + ["genes", "TESTBLA-1"])[0] == 0
     assert _run(capsys, base + ["genes", "TESTBLA-1, NOPE"])[0] == 1
     assert _run(capsys, base + ["genes", "NOPE"])[0] == 2
 
 
 def test_an_error_names_the_unknown_entry_on_stderr(capsys, release):
-    code, out = _run(capsys, ["--release-dir", str(release), "genes", "NOPE"])
+    code, out = _run(capsys, ["--release-dir", str(release), "--no-supplement", "genes", "NOPE"])
     assert code == 2 and "NOPE" in out.err
 
 
 def test_json_output_is_the_contract(capsys, release):
-    code, out = _run(capsys, ["--release-dir", str(release), "--json", "genes", "TESTBLA-1"])
+    code, out = _run(capsys, ["--release-dir", str(release), "--no-supplement", "--json", "genes", "TESTBLA-1"])
     data = json.loads(out.out)
     assert code == 0
     assert set(data) == set(TOP_LEVEL)
@@ -617,7 +618,7 @@ def test_json_output_is_the_contract(capsys, release):
 
 
 def test_all_three_input_types_run_from_the_command_line(capsys, release, tmp_path):
-    base = ["--release-dir", str(release)]
+    base = ["--release-dir", str(release), "--no-supplement"]
     hits = tmp_path / "hits.txt"
     hits.write_text("TESTBLA-1\n# comment\nTESTMEC-1\n", encoding="utf-8")
     assert _run(capsys, base + ["genes", "--file", str(hits)])[0] == 0
@@ -627,7 +628,7 @@ def test_all_three_input_types_run_from_the_command_line(capsys, release, tmp_pa
 
 
 def test_the_summary_shows_provenance_the_contract_does_not_carry(capsys, release):
-    _, out = _run(capsys, ["--release-dir", str(release), "genes", "blaTESTBLA-1"])
+    _, out = _run(capsys, ["--release-dir", str(release), "--no-supplement", "genes", "blaTESTBLA-1"])
     assert "bla_prefix_stripped" in out.out
     assert "requested as 'blaTESTBLA-1'" in out.out
 
@@ -646,7 +647,7 @@ def test_the_module_entry_point_still_belongs_to_the_card_ingest(release):
 
 def test_the_profile_cli_runs_as_a_module(release):
     done = subprocess.run([sys.executable, "-m", "htb_resistance.cli",
-                           "--release-dir", str(release), "genes", "TESTBLA-1"],
+                           "--release-dir", str(release), "--no-supplement", "genes", "TESTBLA-1"],
                           cwd=PKG, capture_output=True, text=True, check=False)
     assert done.returncode == 0, done.stderr
     assert "card-9.9.9" in done.stdout

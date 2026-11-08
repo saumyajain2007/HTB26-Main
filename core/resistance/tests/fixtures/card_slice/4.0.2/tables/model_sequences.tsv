@@ -15,4 +15,5 @@ model_id	sequence_id	protein_accession	dna_accession	taxon_id	taxon_name
 450	8229	CAC83905.2	AJ309734.2	470	Acinetobacter baumannii
 630	1	AAX14802.1	AY769962.1	470	Acinetobacter baumannii
 726	4586	ABX30738.1	CP000732.1	450394	Staphylococcus aureus subsp. aureus USA300_TCH959
+810	11366	WP_000725529.1	NG_047955.1	1280	Staphylococcus aureus
 866	4257	AAL14440.1	AF370885.1	470	Acinetobacter baumannii

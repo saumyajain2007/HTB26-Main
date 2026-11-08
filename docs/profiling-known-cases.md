@@ -1,12 +1,12 @@
 # Known-case tests for resistance profiles (issue #17)
 
-A profile should report the drug classes a microbiologist expects for a known case, and not report ones that make no sense. These tests check that, for six cases, in CI, with no CARD download.
+A profile should report the drug classes a microbiologist expects for a known case, and not report ones that make no sense. These tests check that, for seven cases, in CI, with no CARD download.
 
 | Piece | Where |
 |---|---|
 | Cases and expectations, with the basis for each | [known_cases.json](../core/resistance/tests/fixtures/known_cases.json) |
-| A cut of real CARD 4.0.2 records | [card_slice/4.0.2](../core/resistance/tests/fixtures/card_slice/4.0.2) (17 determinants, 381 rows, 64 KB) |
-| Tests | [test_known_cases.py](../core/resistance/tests/test_known_cases.py), [test_slice.py](../core/resistance/tests/test_slice.py) |
+| A cut of real CARD 4.0.2 records | [card_slice/4.0.2](../core/resistance/tests/fixtures/card_slice/4.0.2) (18 determinants, 389 rows, 64 KB) |
+| Tests | [test_known_cases.py](../core/resistance/tests/test_known_cases.py), [test_supplement.py](../core/resistance/tests/test_supplement.py), [test_slice.py](../core/resistance/tests/test_slice.py) |
 | Slice builder | [slice.py](../core/resistance/htb_resistance/slice.py) |
 
 ## The cases
@@ -14,9 +14,10 @@ A profile should report the drug classes a microbiologist expects for a known ca
 | Case | Input | Must be defeated | Must not be defeated |
 |---|---|---|---|
 | `ctx-m-15-producer` | CTX-M-15 | cephalosporin, penicillin | carbapenem, fluoroquinolone, aminoglycoside, tetracycline, glycopeptide |
-| `mrsa-meca` | mecA, *S. aureus* | penicillin, cephalosporin | glycopeptide, oxazolidinone, fluoroquinolone, aminoglycoside |
-| `mrsa-meca-gyra-s84l` | mecA and *S. aureus* gyrA S84L | the two above, fluoroquinolone | glycopeptide, oxazolidinone, aminoglycoside |
-| `staphylococcus-aureus-preset` | shipped preset | penicillin, cephalosporin, tetracycline, macrolide, streptogramin | glycopeptide, oxazolidinone, fluoroquinolone, aminoglycoside |
+| `mrsa-meca` | mecA, *S. aureus* | penicillin, cephalosporin, carbapenem (curated) | glycopeptide, oxazolidinone, fluoroquinolone, aminoglycoside |
+| `mrsa-mecc` | mecC, *S. aureus* | penicillin, cephalosporin (curated), carbapenem (curated) | as for mecA |
+| `mrsa-meca-gyra-s84l` | mecA and *S. aureus* gyrA S84L | the three above, fluoroquinolone | glycopeptide, oxazolidinone, aminoglycoside |
+| `staphylococcus-aureus-preset` | shipped preset | penicillin, cephalosporin, carbapenem (curated), tetracycline, macrolide, streptogramin | glycopeptide, oxazolidinone, fluoroquinolone, aminoglycoside |
 | `klebsiella-pneumoniae-preset` | shipped preset | carbapenem, cephalosporin, penicillin, monobactam, fluoroquinolone, phosphonic acid | glycopeptide, oxazolidinone, aminoglycoside |
 | `acinetobacter-baumannii-preset` | shipped preset | carbapenem, cephalosporin, penicillin, fluoroquinolone, tetracycline, glycylcycline | glycopeptide, oxazolidinone |
 
@@ -33,14 +34,18 @@ The expected sets are **minimal on purpose**. A CARD update that adds a class mu
 
 ## Known gaps
 
-Each is a strict xfail: the build passes today, and fails on the day the cause is fixed, so that the entry moves into `expect` and the gap does not outlive its cause.
+None today. Two were found while writing these tests and have been fixed:
 
-1. **mecA carbapenem (three cases).** CARD's download does not link carbapenem to mecA, the curated supplement adds it (Gajdacs 2019, PMID 31052511), and the profile builder has not applied the supplement since #67. This is the regression noted in [ranking-observations.md](ranking-observations.md). Lane A.
-2. **`blaZ` in the *S. aureus* preset.** The preset names `blaZ`, which is neither a CARD name nor a synonym. CARD's term is `PC1 beta-lactamase (blaZ)` (ARO:3000621). Lane A.
+1. **mecA carbapenem.** CARD's download does not link carbapenem to mecA, and the curated supplement adds it (Gajdacs 2019, PMID 31052511). The profile builder stopped applying the supplement when #67 rewrote it. It does again: `Reference.from_release` loads and validates `supplement.json`, and `build_profile` adds the classes with their own `curated` evidence item (see [test_supplement.py](../core/resistance/tests/test_supplement.py)). The ranking changed visibly: for the MRSA preset, doripenem went from rank 1 ("unaffected") to rank 53 ("partly affected").
+2. **`blaZ` in the *S. aureus* preset.** The preset named `blaZ`, which is neither a CARD name nor a synonym. It now uses CARD's `ARO:3000621` (PC1 beta-lactamase, blaZ).
+
+The machinery for recording a gap is kept: put it in a case's `known_gaps` with a reason and who owns it, and it becomes a strict xfail, which fails the build the day the cause is fixed so the entry cannot go stale.
+
+A supplement that no longer fits the CARD release (a model or class that has gone, an uncited entry) **stops the load** with a message naming the entry, instead of being skipped. That is deliberate, and it means a CARD upgrade can fail the API at startup until `supplement.json` is reviewed.
 
 ## Why a slice, and how it stays honest
 
-CI has no CARD download (about 140 MB, gitignored), so a test of the real classes would be skipped there. That is how both gaps above went unnoticed. The slice is CARD's own rows for the 17 determinants, plus the ontology terms they and the asserted classes need, written as a checksummed release that the normal loader accepts unchanged.
+CI has no CARD download (about 140 MB, gitignored), so a test of the real classes would be skipped there. That is how both gaps above went unnoticed. The slice is CARD's own rows for the 18 determinants, plus the ontology terms they and the asserted classes need, written as a checksummed release that the normal loader accepts unchanged.
 
 - A test checks that every id and name in the fixture is a real category of the right kind in the slice (the errata lesson).
 - When the full release is present, a test checks that the slice gives **identical profiles** to the full release, and that rebuilding the slice from the full release reproduces every table **byte for byte**. So the slice cannot drift from CARD unnoticed.

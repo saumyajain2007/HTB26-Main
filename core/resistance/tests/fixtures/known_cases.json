@@ -74,6 +74,10 @@
           {
             "aro_id": "ARO:0000032",
             "name": "cephalosporin"
+          },
+          {
+            "aro_id": "ARO:0000020",
+            "name": "carbapenem"
           }
         ],
         "absent_classes": [
@@ -102,15 +106,60 @@
         ],
         "unresolved": []
       },
-      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype.",
-      "known_gaps": [
-        {
-          "aro_id": "ARO:0000020",
-          "name": "carbapenem",
-          "reason": "CARD's download does not link carbapenem to mecA. The curated supplement adds it (Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511) but the profile builder no longer applies the supplement since #67.",
-          "tracked": "Lane A: restore the supplement in the profile builder; this entry then starts passing and must be moved to defeated_classes."
-        }
-      ]
+      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype. Carbapenem (and, for mecC, cephalosporin) is not in CARD's August 2026 download but is on CARD's website and in the curated supplement, which cites Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511 (abstract: MRSA with an altered PBP2a/c is resistant to all penicillins, cephalosporins and carbapenems).",
+      "known_gaps": []
+    },
+    {
+      "case_id": "mrsa-mecc",
+      "description": "MRSA carrying mecC, the divergent PBP2a homologue, in Staphylococcus aureus.",
+      "input": {
+        "kind": "gene_list",
+        "text": "mecC",
+        "species": "Staphylococcus aureus"
+      },
+      "expect": {
+        "defeated_classes": [
+          {
+            "aro_id": "ARO:3000008",
+            "name": "penicillin beta-lactam"
+          },
+          {
+            "aro_id": "ARO:0000032",
+            "name": "cephalosporin"
+          },
+          {
+            "aro_id": "ARO:0000020",
+            "name": "carbapenem"
+          }
+        ],
+        "absent_classes": [
+          {
+            "aro_id": "ARO:3000081",
+            "name": "glycopeptide antibiotic"
+          },
+          {
+            "aro_id": "ARO:3000079",
+            "name": "oxazolidinone antibiotic"
+          },
+          {
+            "aro_id": "ARO:0000001",
+            "name": "fluoroquinolone antibiotic"
+          },
+          {
+            "aro_id": "ARO:0000016",
+            "name": "aminoglycoside antibiotic"
+          }
+        ],
+        "mechanisms": [
+          {
+            "aro_id": "ARO:0001002",
+            "name": "antibiotic target replacement"
+          }
+        ],
+        "unresolved": []
+      },
+      "basis": "CARD's download links mecC only to penicillin beta-lactam, while its website lists penicillin, cephalosporin and carbapenem (docs/card-spot-check.md). Cephalosporin and carbapenem come from the curated supplement, citing Gajdacs 2019 (PMID 31052511). Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype.",
+      "known_gaps": []
     },
     {
       "case_id": "mrsa-meca-gyra-s84l",
@@ -129,6 +178,10 @@
           {
             "aro_id": "ARO:0000032",
             "name": "cephalosporin"
+          },
+          {
+            "aro_id": "ARO:0000020",
+            "name": "carbapenem"
           },
           {
             "aro_id": "ARO:0000001",
@@ -167,15 +220,8 @@
         ],
         "unresolved": []
       },
-      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. S84L is among the gyrA changes CARD lists for the S. aureus model. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype.",
-      "known_gaps": [
-        {
-          "aro_id": "ARO:0000020",
-          "name": "carbapenem",
-          "reason": "CARD's download does not link carbapenem to mecA. The curated supplement adds it (Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511) but the profile builder no longer applies the supplement since #67.",
-          "tracked": "Lane A: restore the supplement in the profile builder; this entry then starts passing and must be moved to defeated_classes."
-        }
-      ]
+      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. S84L is among the gyrA changes CARD lists for the S. aureus model. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype. Carbapenem (and, for mecC, cephalosporin) is not in CARD's August 2026 download but is on CARD's website and in the curated supplement, which cites Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511 (abstract: MRSA with an altered PBP2a/c is resistant to all penicillins, cephalosporins and carbapenems).",
+      "known_gaps": []
     },
     {
       "case_id": "staphylococcus-aureus-preset",
@@ -193,6 +239,10 @@
           {
             "aro_id": "ARO:0000032",
             "name": "cephalosporin"
+          },
+          {
+            "aro_id": "ARO:0000020",
+            "name": "carbapenem"
           },
           {
             "aro_id": "ARO:3000050",
@@ -241,21 +291,8 @@
         ],
         "unresolved": []
       },
-      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. tet(K) is a tetracycline efflux pump; msrA protects the ribosome against macrolides and streptogramin B. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype.",
-      "known_gaps": [
-        {
-          "aro_id": "ARO:0000020",
-          "name": "carbapenem",
-          "reason": "CARD's download does not link carbapenem to mecA. The curated supplement adds it (Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511) but the profile builder no longer applies the supplement since #67.",
-          "tracked": "Lane A: restore the supplement in the profile builder; this entry then starts passing and must be moved to defeated_classes."
-        },
-        {
-          "aro_id": null,
-          "name": "blaZ resolves",
-          "reason": "The preset lists the name 'blaZ', which is neither a CARD name nor a synonym (CARD's term is 'PC1 beta-lactamase (blaZ)', ARO:3000621, synonym 'PC1_blaZ'), so it is reported as unresolved.",
-          "tracked": "Lane A: use the ARO id in presets.json; the 'unresolved' expectation then passes."
-        }
-      ]
+      "basis": "Each gene's classes and mechanisms were compared with its page at card.mcmaster.ca on 2026-11-07 (docs/card-spot-check.md): they match, except mecA, whose page also lists carbapenem and monobactam. tet(K) is a tetracycline efflux pump; msrA protects the ribosome against macrolides and streptogramin B. Absent: no link on the gene's CARD page, and not part of the gene's known resistance phenotype. Carbapenem (and, for mecC, cephalosporin) is not in CARD's August 2026 download but is on CARD's website and in the curated supplement, which cites Gajdacs 2019, Antibiotics 8(2):52, PMID 31052511 (abstract: MRSA with an altered PBP2a/c is resistant to all penicillins, cephalosporins and carbapenems).",
+      "known_gaps": []
     },
     {
       "case_id": "klebsiella-pneumoniae-preset",
