@@ -98,3 +98,19 @@ def test_write_batch_records_provenance_and_table_checksum(tmp_path):
     prov = json.loads((tmp_path / "out" / "provenance.json").read_text())
     assert prov["rows"] == 2 and prov["synthemol"] == "1.0.4" and len(prov["table_sha256"]) == 64
     assert (tmp_path / "out" / "generated.tsv").read_text().splitlines()[0].split("\t")[:4] == ["id", "inchikey", "smiles", "source"]
+
+
+def test_finalize_batch_writes_every_artifact_and_counts_add_up(release, tmp_path):
+    csvp = tmp_path / "molecules.csv"
+    _molecules(csvp, [CAFFEINE, "NCCc1ccccc1", "OCC", "CCO", ANALOGUE, "FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F"])
+    out = tmp_path / "batch"
+    summary = generate.finalize_batch(release, csvp, out, held_out_names=["RS-102895"], batch="t", seed=1, jobs=1)
+    assert summary["import_counts"] == {"raw": 6, "invalid": 0, "duplicate": 1, "leak_removed": 1, "kept": 4}
+    for name in ("generated.tsv", "provenance.json", "cascade/survivors.tsv", "cascade/rejections.tsv",
+                 "cascade/funnel.json", "cascade/funnel.svg"):
+        assert (out / name).exists(), name
+    prov = json.loads((out / "provenance.json").read_text())
+    assert prov["held_out"] == ["RS-102895"] and prov["rows"] == 4 and prov["guide_rows_purged_as_analogues"] == 1
+    funnel = json.loads((out / "cascade" / "funnel.json").read_text())
+    assert funnel["input"] == 4 and funnel["survivors"] + len((out / "cascade" / "rejections.tsv").read_text().splitlines()[1:]) == 4
+    assert summary["molecules_with_6_or_more_fluorines"] == 1
