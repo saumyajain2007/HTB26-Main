@@ -5,3 +5,7 @@
 # CARD release tables are checksummed byte-for-byte in manifest.json; git must not convert them.
 *.tsv -text
 core/resistance/tests/fixtures/card_slice/**/manifest.json -text
+results/boltz-precomputed/*/*.pdb linguist-generated=true whitespace=-blank-at-eol
+results/boltz-precomputed/*/*.fasta linguist-generated=true
+results/boltz-precomputed/*/*.json linguist-generated=true
+results/boltz-precomputed/manifest.json linguist-generated=true

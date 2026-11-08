@@ -9,6 +9,7 @@ import {
 } from "3dmol";
 import { Box3, Matrix4, Quaternion, Vector3 } from "three";
 import { tokenColor } from "./plate";
+import { placementFrames } from "./placement";
 
 /**
  * A binding pose drawn with 3Dmol.js in the figure's print style (docs/engineering/design.md, "Binding
@@ -40,6 +41,7 @@ export interface PoseFiles {
   receptor: string;
   /** poses.sdf: the poses, best first. */
   poses: string;
+  posesFormat?: "sdf" | "pdb";
   /** crystal_ligand.sdf: the co-crystal ligand in its crystal position. */
   crystal: string;
 }
@@ -181,6 +183,9 @@ export class PoseScene {
   private surface: Promise<number> | null = null;
   private overlay: GLModel | null = null;
   private spinFrame = 0;
+  private placementFrame = 0;
+  private placementGeneration = 0;
+  private placementStart: number | null = null;
   private disposed = false;
 
   /**
@@ -234,7 +239,7 @@ export class PoseScene {
     };
 
     this.receptor = viewer.addModel(files.receptor, "pdb");
-    this.ligand = viewer.addModel(firstMolecule(files.poses), "sdf");
+    this.ligand = viewer.addModel(firstMolecule(files.poses), files.posesFormat ?? "sdf");
     const drug = this.ligand.selectedAtoms({});
     const pocketAtoms = this.receptor.selectedAtoms({ predicate: near(drug, POCKET_ANGSTROM) });
     const residue = (atom: AtomSpec) => `${atom.chain ?? ""}:${String(atom.resi)}`;
@@ -263,7 +268,10 @@ export class PoseScene {
     // Only for the depth range kept in view and its fog, which it sets from the whole protein.
     viewer.zoomTo({ model: this.ligand });
     // The crystal position is framed too, so its overlay never falls outside the view.
-    const parsed = Parsers.sdf?.(firstMolecule(files.crystal), {}) as AtomSpec[][] | undefined;
+    const parsed =
+      files.posesFormat === "pdb"
+        ? undefined
+        : (Parsers.sdf?.(firstMolecule(files.crystal), {}) as AtomSpec[][] | undefined);
     const crystal = parsed?.[0] ?? [];
     this.drugPoints = drug.map(toPoint);
     this.surroundings = [...this.receptor.selectedAtoms(this.pocket), ...crystal].map(toPoint);
@@ -341,11 +349,58 @@ export class PoseScene {
     this.spinFrame = requestAnimationFrame(turn);
   }
 
+  /** Play a labeled illustration, preserving the original predicted coordinates in frame zero. */
+  playPlacement(done: () => void): void {
+    this.stopPlacement();
+    if (this.disposed) {
+      done();
+      return;
+    }
+    if (this.placementStart === null) {
+      this.placementStart = Number(this.ligand.getNumFrames());
+      for (const atoms of placementFrames(
+        this.ligand.selectedAtoms({}),
+        this.receptor.selectedAtoms({}),
+      )) {
+        this.ligand.addFrame(atoms);
+      }
+    }
+    const first = this.placementStart;
+    const generation = this.placementGeneration;
+    const started = performance.now();
+    const tick = (now: number) => {
+      if (this.disposed || generation !== this.placementGeneration) return;
+      const t = Math.min(1, (now - started) / 3000);
+      void this.ligand.setFrame(first + Math.round(t * 60)).then(() => {
+        if (this.disposed || generation !== this.placementGeneration) return;
+        this.viewer.render();
+        if (t < 1) this.placementFrame = requestAnimationFrame(tick);
+        else {
+          this.stopPlacement();
+          done();
+        }
+      });
+    };
+    this.placementFrame = requestAnimationFrame(tick);
+  }
+
+  stopPlacement(): void {
+    this.placementGeneration++;
+    cancelAnimationFrame(this.placementFrame);
+    this.placementFrame = 0;
+    if (this.placementStart !== null && !this.disposed) {
+      void this.ligand.setFrame(0).then(() => {
+        if (!this.disposed) this.viewer.render();
+      });
+    }
+  }
+
   /**
    * Back to the opening view: the drug in the middle, its pocket around it clear of the controls,
    * framed anew for the view's current shape.
    */
   reset(): void {
+    this.stopPlacement();
     const height = Math.max(1, this.holder.clientHeight);
     const aspect = this.holder.clientWidth / height || 1;
     const inset = this.covered() / height;
@@ -365,6 +420,7 @@ export class PoseScene {
 
   dispose(): void {
     if (this.disposed) return;
+    this.stopPlacement();
     this.disposed = true;
     this.setSpin(false);
     const internals = this.viewer as unknown as ViewerInternals;

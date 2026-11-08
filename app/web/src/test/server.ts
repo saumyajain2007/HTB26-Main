@@ -70,6 +70,10 @@ export function serveExperiment(...responses: Experiment[]): void {
 export const handlers = [
   // The antibiotic resistance flow's five routes, from `./resistance`.
   ...resistanceHandlers,
+  http.get(
+    "/api/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz",
+    ({ response }) => response(200).json(null),
+  ),
 
   http.get("/api/diseases/common", ({ response }) =>
     response(200).json({ items: [{ id: covidExperiment().disease.id, name: "COVID-19" }] }),

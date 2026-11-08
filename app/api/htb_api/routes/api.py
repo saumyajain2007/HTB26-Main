@@ -31,6 +31,7 @@ from ..schemas import (
     ResistanceProfile,
     StructureList,
 )
+from ..services.boltz import BoltzPrediction, load_prediction, prediction_directory
 from ..services.docking import FILE_MEDIA_TYPES
 from ..services.molecules import MoleculesUnavailable
 from ..services.resistance import ProfilingRefused, ProfilingUnavailable
@@ -391,3 +392,67 @@ def list_certificates(resistance: ResistanceDep) -> CertificateList:
     """A certificate confirms the encoded property rules hold. It does not show a
     molecule is safe, selective or active."""
     return resistance.certificates()
+
+
+# Boltz predictions are prepared by the worker CLI, never computed during a request.
+def _boltz_prediction(
+    profile_id: UUID, candidate_id: str, components: ComponentsDep
+) -> BoltzPrediction | None:
+    ranking = components.resistance.candidates(profile_id)
+    candidate = (
+        next((c for c in ranking.candidates if c.candidate_id == candidate_id), None)
+        if ranking is not None
+        else None
+    )
+    if candidate is None:
+        raise NotFound("No such candidate in this resistance profile.")
+    try:
+        prediction = load_prediction(
+            components.settings.boltz_results_dir,
+            profile_id,
+            candidate_id,
+            fallback=components.settings.boltz_precomputed_dir,
+        )
+    except (ValueError, OSError) as exc:
+        raise Unavailable("The saved Boltz prediction is invalid or incomplete.") from exc
+    if prediction is None:
+        return None
+    if prediction.smiles != candidate.smiles:
+        raise Unavailable("The saved Boltz prediction uses a different molecule.")
+    return prediction
+
+
+@router.get(
+    "/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz",
+    tags=["resistance"],
+    responses=responses(404, 503),
+)
+def get_boltz_prediction(
+    profile_id: UUID, candidate_id: str, components: ComponentsDep
+) -> BoltzPrediction | None:
+    return _boltz_prediction(profile_id, candidate_id, components)
+
+
+@router.get(
+    "/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz/{name}",
+    tags=["resistance"],
+    response_class=FileResponse,
+    responses={
+        200: {"content": {"chemical/x-pdb": {"schema": {"type": "string"}}}},
+        **responses(404, 503),
+    },
+)
+def get_boltz_file(
+    profile_id: UUID, candidate_id: str, name: str, components: ComponentsDep
+) -> FileResponse:
+    if name not in ("receptor.pdb", "ligand.pdb"):
+        raise NotFound("No such Boltz coordinate file.")
+    if _boltz_prediction(profile_id, candidate_id, components) is None:
+        raise NotFound("No Boltz prediction has been prepared for this candidate.")
+    directory = prediction_directory(
+        components.settings.boltz_results_dir,
+        profile_id,
+        candidate_id,
+        fallback=components.settings.boltz_precomputed_dir,
+    )
+    return FileResponse(directory / name, media_type="chemical/x-pdb")

@@ -53,6 +53,9 @@ class Settings(BaseSettings):
             "exists, else the evidence ranking."
         ),
     )
+    boltz_results_dir: Path = REPO_ROOT / "results" / "boltz"
+    boltz_precomputed_dir: Path = REPO_ROOT / "results" / "boltz-precomputed"
+
     resistance: Literal["fixture", "saved"] = "fixture"
     resistance_results_dir: Path = REPO_ROOT / "results" / "pathogen-integration"
 
@@ -208,6 +211,10 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def _resolve_data_dir(self) -> Settings:
+        if not self.boltz_precomputed_dir.is_absolute():
+            self.boltz_precomputed_dir = REPO_ROOT / self.boltz_precomputed_dir
+        if not self.boltz_results_dir.is_absolute():
+            self.boltz_results_dir = REPO_ROOT / self.boltz_results_dir
         if not self.resistance_results_dir.is_absolute():
             self.resistance_results_dir = REPO_ROOT / self.resistance_results_dir
         if not self.data_dir.is_absolute():
