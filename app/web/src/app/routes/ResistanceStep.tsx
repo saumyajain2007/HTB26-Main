@@ -10,7 +10,7 @@ import type { ResistanceStepContext } from "./ResistanceLayout";
 /** One resistance step's own panels, placed into the layout's figure grid. */
 export function ResistanceStep() {
   const { step } = useParams();
-  const { profile, candidates, candidatesLoading, retryCandidates } =
+  const { profile, candidates, certificates, candidatesLoading, retryCandidates } =
     useOutletContext<ResistanceStepContext>();
   const navigate = useNavigate();
   const openProfile = useCallback(
@@ -31,6 +31,7 @@ export function ResistanceStep() {
         <ResistanceCandidates
           profile={profile}
           candidates={candidates}
+          certificates={certificates}
           loading={candidatesLoading}
           onRetry={retryCandidates}
         />

@@ -2,14 +2,20 @@ import { useId, useRef, useState, type KeyboardEvent, type ReactElement } from "
 import { FigureNote, Panel } from "../app/Figure";
 import { copy } from "../copy/en";
 import { capitalise, listOf } from "../lib/format";
-import type { AntibioticCandidateResult, ResistanceProfile } from "../lib/resistance";
-import { splitCandidates, type CandidateEntry } from "../lib/resistanceCandidates";
+import type { AntibioticCandidateResult, Certificate, ResistanceProfile } from "../lib/resistance";
+import {
+  PROPERTY_RULE_KEYS,
+  splitCandidates,
+  type CandidateEntry,
+  type PropertyRuleKey,
+} from "../lib/resistanceCandidates";
 import { releaseLabel, type MapStatus } from "../lib/resistanceMap";
 import styles from "./ResistanceCandidates.module.css";
 
 export interface ResistanceCandidatesProps {
   profile: ResistanceProfile;
   candidates: AntibioticCandidateResult | undefined;
+  certificates?: readonly Certificate[] | undefined;
   loading?: boolean | undefined;
   onRetry?: (() => void) | undefined;
 }
@@ -17,8 +23,27 @@ export interface ResistanceCandidatesProps {
 const text = copy.resistance.candidates;
 const mapText = copy.resistance.map;
 
+function isPropertyRuleKey(value: string): value is PropertyRuleKey {
+  return (PROPERTY_RULE_KEYS as readonly string[]).includes(value);
+}
+
+function formatRuleQuantity(rule: PropertyRuleKey, value: number): string {
+  const unit = text.ruleUnits[rule];
+  return unit !== "" ? `${String(value)} ${unit}` : String(value);
+}
+
 function Mark({ status }: { status: MapStatus }) {
   return <span className={styles.mark} data-status={status} aria-hidden="true" />;
+}
+
+function RuleMark({ passed }: { passed: boolean | undefined }) {
+  return (
+    <span
+      className={styles.ruleMark}
+      data-passed={passed === undefined ? undefined : String(passed)}
+      aria-hidden="true"
+    />
+  );
 }
 
 function mechanismPhrase(cardTerm: string): string {
@@ -27,14 +52,15 @@ function mechanismPhrase(cardTerm: string): string {
 }
 
 /**
- * Step 3 of the resistance flow (issue #31): approved antibiotics in rank order, generated
+ * Step 3 of the resistance flow (issues #31 and #40): approved antibiotics in rank order, generated
  * molecule proposals kept visibly apart from them, and a reading pane with the picked molecule's
- * explanation, separate features, property rules and certificate status, cited evidence, model
- * jury status and caveats.
+ * explanation, separate features, per-candidate smoke-test panel and Lean 4 certificate view,
+ * cited evidence, model jury status and caveats.
  */
 export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactElement = ({
   profile,
   candidates,
+  certificates,
   loading = false,
   onRetry,
 }) => {
@@ -59,7 +85,7 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
     );
   }
 
-  const { approved, generated } = splitCandidates(profile, candidates);
+  const { approved, generated } = splitCandidates(profile, candidates, certificates);
   const allEntries = [...approved, ...generated];
   const [first] = allEntries;
   if (first === undefined) {
@@ -358,33 +384,7 @@ function CandidateReadingPane({ id, entry }: { id: string; entry: CandidateEntry
 
       <div className={styles.block}>
         <h3 className={styles.subhead}>{text.verifyTitle}</h3>
-        <ul className={styles.bulletList}>
-          <li>
-            {entry.smokeTest.passed
-              ? text.smokePassed
-              : text.smokeFailed(entry.smokeTest.violations.length)}{" "}
-            ({text.ruleSetLabel(entry.smokeTest.rule_set)})
-          </li>
-          {entry.smokeTest.violations.map((violation) => (
-            <li key={violation.rule}>
-              Rule <b>{violation.rule}</b>: {String(violation.value)} (limit{" "}
-              {String(violation.limit)}, +{String(violation.margin)})
-            </li>
-          ))}
-          <li>
-            {text.certificateStatus[entry.certificateStatus]}
-            {entry.certificate?.ran === true &&
-              entry.certificate.lean_version !== null &&
-              entry.certificate.seconds !== null &&
-              ` · ${text.leanProvenance(entry.certificate.lean_version, entry.certificate.seconds)}`}
-          </li>
-          <li>
-            {entry.smokeTest.alerts.length > 0
-              ? text.alertsLabel(listOf(entry.smokeTest.alerts))
-              : text.noAlerts}
-          </li>
-          {entry.smokeTest.sa_score !== null && <li>{text.saScore(entry.smokeTest.sa_score)}</li>}
-        </ul>
+        <SmokeAndCertificatePanel entry={entry} />
       </div>
 
       {entry.evidence.length > 0 && (
@@ -427,5 +427,172 @@ function CandidateReadingPane({ id, entry }: { id: string; entry: CandidateEntry
         </div>
       )}
     </section>
+  );
+}
+
+function SmokeAndCertificatePanel({ entry }: { entry: CandidateEntry }) {
+  const ruleSetDescription = text.ruleSetDescriptions[entry.smokeTest.rule_set];
+  const certMarkPassed =
+    entry.certificateStatus === "certified"
+      ? true
+      : entry.certificateStatus === "failed"
+        ? false
+        : undefined;
+  const inchikey = entry.certificate?.inchikey ?? entry.inchikey;
+  const failedRules = entry.certificate?.failed_rules ?? [];
+
+  return (
+    <div className={styles.verifyPanel}>
+      <div className={styles.smokeSummary}>
+        <p className={styles.standing}>
+          <RuleMark passed={entry.smokeTest.valid ? entry.smokeTest.passed : false} />
+          <span>
+            <b>
+              {!entry.smokeTest.valid
+                ? text.smokeInvalid
+                : entry.smokeTest.passed
+                  ? text.smokePassed
+                  : text.smokeFailed(entry.failedRuleCount)}
+            </b>{" "}
+            ({text.ruleSetLabel(entry.smokeTest.rule_set)}
+            {entry.propertyRules.length > 0
+              ? ` · ${text.ruleCounts(entry.passedRuleCount, entry.propertyRules.length)}`
+              : ""}
+            )
+          </span>
+        </p>
+        {ruleSetDescription !== undefined && (
+          <p className={styles.rationale}>{ruleSetDescription}</p>
+        )}
+      </div>
+
+      {entry.propertyRules.length > 0 && (
+        <div className={styles.scroll}>
+          <table className={styles.ruleTable} aria-label={text.rulesTableLabel(entry.name)}>
+            <thead>
+              <tr>
+                <th scope="col">{text.ruleHead}</th>
+                <th scope="col">{text.valueHead}</th>
+                <th scope="col">{text.limitHead}</th>
+                <th scope="col">{text.marginHead}</th>
+                <th scope="col">{text.statusHead}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {entry.propertyRules.map((rule) => (
+                <tr
+                  key={rule.rule}
+                  className={styles.ruleRow}
+                  data-rule={rule.rule}
+                  data-passed={String(rule.passed)}
+                >
+                  <th scope="row" className={styles.ruleNameCell}>
+                    <span className={styles.ruleLabel}>{text.ruleNames[rule.rule]}</span>
+                    <span className={styles.ruleCode}>{rule.rule}</span>
+                  </th>
+                  <td className={styles.ruleNumCell}>
+                    {formatRuleQuantity(rule.rule, rule.value)}
+                  </td>
+                  <td className={styles.ruleNumCell}>
+                    ≤ {formatRuleQuantity(rule.rule, rule.limit)}
+                  </td>
+                  <td className={styles.ruleMarginCell} data-passed={String(rule.passed)}>
+                    {rule.signedMargin}
+                  </td>
+                  <td className={styles.ruleStatusCell}>
+                    <span className={styles.ruleStatus} data-passed={String(rule.passed)}>
+                      <RuleMark passed={rule.passed} />
+                      {rule.passed
+                        ? rule.leanChecked
+                          ? text.ruleConfirmed
+                          : text.rulePassed
+                        : text.ruleFailed}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      <ul className={styles.bulletList}>
+        <li>
+          {entry.smokeTest.alerts.length > 0 ? (
+            <>
+              {text.alertsLabel(listOf(entry.smokeTest.alerts))} —{" "}
+              <span className={styles.rationale}>
+                {entry.smokeTest.strict_alerts ? text.alertsStrictNote : text.alertsWarningNote}
+              </span>
+            </>
+          ) : (
+            text.noAlerts
+          )}
+        </li>
+        {entry.smokeTest.sa_score !== null && (
+          <li>
+            {text.saScore(entry.smokeTest.sa_score)}
+            {entry.saExceedsSoftLimit &&
+              entry.saSoftLimit !== null &&
+              ` — ${text.saAboveCeiling(entry.saSoftLimit)}`}
+          </li>
+        )}
+        {entry.smokeTest.descriptors !== null && (
+          <li>{text.heavyAtoms(entry.smokeTest.descriptors.heavy_atoms)}</li>
+        )}
+      </ul>
+
+      <div className={styles.certificateCard} data-status={entry.certificateStatus}>
+        <p className={styles.standing}>
+          <RuleMark passed={certMarkPassed} />
+          <span>
+            <b>{text.certificateStatus[entry.certificateStatus]}</b>
+            {entry.certificate?.ran === true &&
+              entry.certificate.lean_version !== null &&
+              entry.certificate.seconds !== null &&
+              ` · ${text.leanProvenance(entry.certificate.lean_version, entry.certificate.seconds)}`}
+          </span>
+        </p>
+        <dl className={styles.metaList}>
+          <dt>{text.leanRanLabel}</dt>
+          <dd>
+            {entry.certificate?.ran === true
+              ? entry.certificate.certified
+                ? text.leanRanCertified(entry.propertyRules.length)
+                : text.leanRanFailed(listOf(failedRules))
+              : text.leanNotRun}
+          </dd>
+          {inchikey !== "" && (
+            <>
+              <dt>{text.inchikeyLabel}</dt>
+              <dd className={styles.mono}>{inchikey}</dd>
+            </>
+          )}
+          {failedRules.length > 0 && (
+            <>
+              <dt>{text.leanFailedRulesLabel}</dt>
+              <dd>
+                {listOf(
+                  failedRules.map((rule) =>
+                    isPropertyRuleKey(rule) ? `${text.ruleNames[rule]} (${rule})` : rule,
+                  ),
+                )}
+              </dd>
+            </>
+          )}
+          {entry.certificate?.detail !== null && entry.certificate?.detail !== undefined && (
+            <>
+              <dt>{text.leanDetailLabel}</dt>
+              <dd className={styles.certDetail}>{entry.certificate.detail}</dd>
+            </>
+          )}
+        </dl>
+        <p className={styles.rationale}>
+          {entry.certificate?.ran === true
+            ? text.certificateScopeConfirmed
+            : text.certificateScopeSmokeOnly}
+        </p>
+      </div>
+    </div>
   );
 }
