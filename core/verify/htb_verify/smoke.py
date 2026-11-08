@@ -15,7 +15,8 @@ selective or active.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
+from typing import Sequence
 
 from rdkit import Chem
 from rdkit.Chem import Descriptors, rdMolDescriptors
@@ -29,6 +30,14 @@ except Exception:  # pragma: no cover - depends on the RDKit build
     _sascorer = None
 
 _catalog: FilterCatalog | None = None
+_inchikey_cache: dict[tuple[str, str, bool], "SmokeResult"] = {}
+_smiles_cache: dict[tuple[str, str, bool], "SmokeResult"] = {}
+
+
+def clear_smoke_cache() -> None:
+    """Clear the in-memory smoke-test caches (keyed by InChIKey and by SMILES)."""
+    _inchikey_cache.clear()
+    _smiles_cache.clear()
 
 
 def _alert_catalog() -> FilterCatalog:
@@ -122,14 +131,33 @@ def check_molecule(
     *,
     strict_alerts: bool = False,
 ) -> SmokeResult:
-    """Run the smoke test on one SMILES string."""
+    """Run the smoke test on one SMILES string, caching valid molecules by InChIKey."""
     t = RULE_SETS[rule_set] if isinstance(rule_set, str) else rule_set
+    smiles_key = (smiles, t.name, strict_alerts)
+    if (cached := _smiles_cache.get(smiles_key)) is not None:
+        return cached
+
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
-        return SmokeResult(
+        invalid = SmokeResult(
             smiles=smiles, valid=False, passed=False, rule_set=t.name,
             notes=("SMILES could not be parsed",),
         )
+        _smiles_cache[smiles_key] = invalid
+        return invalid
+
+    inchikey = None
+    try:
+        inchikey = Chem.MolToInchiKey(mol) or None
+    except Exception:
+        pass
+
+    if inchikey is not None:
+        ik_key = (inchikey, t.name, strict_alerts)
+        if (cached_ik := _inchikey_cache.get(ik_key)) is not None:
+            out = cached_ik if cached_ik.smiles == smiles else replace(cached_ik, smiles=smiles)
+            _smiles_cache[smiles_key] = out
+            return out
 
     d = describe(mol)
     violations = _property_violations(d, t)
@@ -147,8 +175,22 @@ def check_molecule(
     else:
         notes.append("SA score unavailable in this RDKit build")
 
-    return SmokeResult(
+    result = SmokeResult(
         smiles=smiles, valid=True, passed=not violations, rule_set=t.name,
         descriptors=d, violations=tuple(violations), alerts=alerts, sa_score=sa,
-        inchikey=Chem.MolToInchiKey(mol) or None, notes=tuple(notes),
+        inchikey=inchikey, notes=tuple(notes),
     )
+    _smiles_cache[smiles_key] = result
+    if inchikey is not None:
+        _inchikey_cache[(inchikey, t.name, strict_alerts)] = result
+    return result
+
+
+def check_batch(
+    smiles_list: Sequence[str],
+    rule_set: str | Thresholds = ORAL_DRUGLIKE,
+    *,
+    strict_alerts: bool = False,
+) -> list[SmokeResult]:
+    """Run the smoke test on a sequence of SMILES strings, reusing the InChIKey cache."""
+    return [check_molecule(s, rule_set, strict_alerts=strict_alerts) for s in smiles_list]

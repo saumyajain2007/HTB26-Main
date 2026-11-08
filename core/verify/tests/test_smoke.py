@@ -45,3 +45,38 @@ def test_alerts_warn_by_default_and_fail_when_strict():
     assert check_molecule(RHODANINE).alerts
     strict = check_molecule(RHODANINE, strict_alerts=True)
     assert not strict.passed and any(v.rule == "alert" for v in strict.violations)
+
+
+def test_smoke_cache_by_inchikey_and_smiles():
+    from htb_verify.smoke import _inchikey_cache, _smiles_cache, clear_smoke_cache
+
+    clear_smoke_cache()
+    assert not _smiles_cache and not _inchikey_cache
+
+    r1 = check_molecule(ASPIRIN)
+    assert (ASPIRIN, "oral_druglike", False) in _smiles_cache
+    assert r1.inchikey is not None
+    assert (r1.inchikey, "oral_druglike", False) in _inchikey_cache
+
+    # Repeated call returns cached object
+    r2 = check_molecule(ASPIRIN)
+    assert r2 is r1
+
+    # Same molecule with different atom ordering/SMILES representation (same inchi key)
+    aspirin_alt = "O=C(O)c1ccccc1OC(=O)C"
+    r3 = check_molecule(aspirin_alt)
+    assert r3.inchikey == r1.inchikey
+    assert r3.descriptors == r1.descriptors
+    assert r3.smiles == aspirin_alt
+
+
+def test_check_batch():
+    from htb_verify.smoke import check_batch, clear_smoke_cache
+
+    clear_smoke_cache()
+    results = check_batch([ASPIRIN, PENICILLIN_G, "not-a-smiles"])
+    assert len(results) == 3
+    assert results[0].valid and results[0].passed
+    assert results[1].valid and results[1].passed
+    assert not results[2].valid
+
