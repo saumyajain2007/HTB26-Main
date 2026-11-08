@@ -24,7 +24,7 @@ import hashlib
 import re
 import uuid
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Callable, Mapping, Sequence
 
 from .evasion import EVASION_ORDER, Drug, DrugLinks, assess_evasion, mechanisms_evaded
@@ -239,6 +239,7 @@ def rank_candidates(
     activity: Mapping[str, Activity] | None = None,
     certifier: Callable[[Sequence], Sequence] | None = None,
     max_median_mic: float | None = None,
+    smoke_gate: bool = False,
 ) -> tuple[dict, list[dict]]:
     """Rank `drugs` under `profile`. Returns (result, log); the log lists drugs that could not be ranked
     and any case where Lean and the Python smoke test disagree.
@@ -247,6 +248,11 @@ def rank_candidates(
     drugs that passed the smoke test and returns one Certificate each. Lean runs on survivors only,
     so a drug that failed the smoke test stays `not_run` and its failing rules are in `smoke_test`.
     Certificates never change the rank.
+
+    `smoke_gate` (off by default) controls whether failing the property rules is a gate or a visible
+    penalty. By default (`smoke_gate=False`), every valid molecule is kept and failing the smoke test
+    is a visible penalty (`safety="rules_failed"`, ranked below passing drugs in the same tier). With
+    `smoke_gate=True`, drugs that fail the smoke test are left out of the ranking and logged.
 
     `max_median_mic` (mg/L) is an optional gate, off by default. Evasion comes first in the order, so
     a drug that CARD does not link to the profile can outrank drugs that probably work even if it has
@@ -257,6 +263,7 @@ def rank_candidates(
     """
     activity = activity or {}
     log, built, raw = [], [], {}
+    smoke_cache: dict[str, object] = {}
     for drug in drugs:
         measured = activity.get(drug.chembl_id)
         if max_median_mic is not None and measured is not None and measured.value > max_median_mic:
@@ -264,9 +271,20 @@ def rank_candidates(
                         "reason": f"median MIC {measured.value:g} mg/L is above the {max_median_mic:g} mg/L "
                                   "gate, so it is left out of the ranking"})
             continue
-        result = smoke(drug.smiles)
+        cache_key = drug.smiles
+        if cache_key in smoke_cache:
+            result = smoke_cache[cache_key]
+        else:
+            result = smoke(drug.smiles)
+            smoke_cache[cache_key] = result
         if not result.valid:
             log.append({"chembl_id": drug.chembl_id, "name": drug.name, "reason": "SMILES could not be parsed"})
+            continue
+        if smoke_gate and not result.passed:
+            failed_rules = ", ".join(v.rule for v in result.violations)
+            log.append({"chembl_id": drug.chembl_id, "name": drug.name,
+                        "reason": f"failed the {result.rule_set} smoke test ({failed_rules}), "
+                                  "so it is left out of the ranking"})
             continue
         raw[drug.chembl_id] = result
         built.append((drug, _candidate(profile, drug, links, _smoke_block(result), activity.get(drug.chembl_id),
@@ -280,14 +298,37 @@ def rank_candidates(
 
     if certifier is not None:
         survivors = [(d, c) for d, c in built if c["smoke_test"]["passed"]]
-        for (drug, c), cert in zip(survivors, certifier([raw[d.chembl_id] for d, _ in survivors])):
-            c["certificate_status"], c["certificate"] = _certificate(
-                {**c["smoke_test"], "inchikey": drug.inchikey}, cert)
-            if c["certificate_status"] == "failed":
-                log.append({"chembl_id": drug.chembl_id, "name": drug.name,
-                            "reason": f"Lean and the Python smoke test disagree: Lean failed {cert.failed_rules}"})
+        if survivors:
+            unique_smokes = []
+            unique_keys: list[str] = []
+            seen_keys: set[str] = set()
+            for d, _ in survivors:
+                k = d.inchikey or d.smiles
+                if k not in seen_keys:
+                    seen_keys.add(k)
+                    unique_keys.append(k)
+                    unique_smokes.append(raw[d.chembl_id])
+            cert_by_key = dict(zip(unique_keys, certifier(unique_smokes)))
+            for drug, c in survivors:
+                cert = cert_by_key[drug.inchikey or drug.smiles]
+                c["certificate_status"], c["certificate"] = _certificate(
+                    {**c["smoke_test"], "inchikey": drug.inchikey}, cert)
+                if c["certificate_status"] == "failed":
+                    log.append({"chembl_id": drug.chembl_id, "name": drug.name,
+                                "reason": f"Lean and the Python smoke test disagree: Lean failed {cert.failed_rules}"})
 
     releases = list(dict.fromkeys([*profile["releases"], catalogue_release]))
+    method = METHOD
+    if max_median_mic is not None:
+        method += f"+mic_gate_{max_median_mic:g}"
+    if smoke_gate:
+        method += "+smoke_gate"
+    note = "Ordered rule, no blended score. Ties are broken alphabetically for reproducibility only."
+    if max_median_mic is not None:
+        note += (f" Drugs with a measured median MIC above {max_median_mic:g} mg/L were left out; the "
+                 "limit is a working assumption, not a clinical breakpoint.")
+    if smoke_gate:
+        note += f" Drugs failing the {RULE_SET} smoke test were gated out rather than ranked with a penalty."
     key = "|".join([profile["profile_id"], METHOD, *releases, *(c["candidate_id"] for _, c in built)])
     result_id = uuid.UUID(bytes=hashlib.sha256(key.encode()).digest()[:16], version=4)
     return {
@@ -297,11 +338,9 @@ def rank_candidates(
         "pathogen": profile["input"].get("species"),
         "releases": releases,
         "ranking": {
-            "method": METHOD + (f"+mic_gate_{max_median_mic:g}" if max_median_mic is not None else ""),
+            "method": method,
             "order": ORDER, "weights": None,
-            "note": "Ordered rule, no blended score. Ties are broken alphabetically for reproducibility only."
-                    + (f" Drugs with a measured median MIC above {max_median_mic:g} mg/L were left out; the "
-                       "limit is a working assumption, not a clinical breakpoint." if max_median_mic is not None else ""),
+            "note": note,
         },
         "candidates": [c for _, c in built],
     }, log

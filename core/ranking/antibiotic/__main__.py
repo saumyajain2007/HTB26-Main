@@ -32,6 +32,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--lean", action="store_true", help="run Lean 4 certificates on drugs that pass the smoke test")
     ap.add_argument("--max-mic", type=float, metavar="MG_L", help="leave out drugs whose measured median MIC "
                     "against the pathogen exceeds this (off by default; a working assumption, not a breakpoint)")
+    ap.add_argument("--smoke-gate", action="store_true", help="leave out drugs that fail the smoke test instead "
+                    "of ranking them with a visible penalty")
     ap.add_argument("--out", type=Path, help="write the result here (default: print a summary)")
     args = ap.parse_args(argv)
 
@@ -49,7 +51,7 @@ def main(argv: list[str] | None = None) -> int:
     result, unranked = rank_candidates(
         profile, drugs, DrugLinks.from_card(args.card), catalogue_release=catalogue_release(args.catalogue),
         activity=activity, certifier=certify_batch if args.lean else None,
-        max_median_mic=args.max_mic)
+        max_median_mic=args.max_mic, smoke_gate=args.smoke_gate)
     if args.out:
         args.out.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     counts: dict[str, int] = {}
