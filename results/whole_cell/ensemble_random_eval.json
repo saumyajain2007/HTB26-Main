@@ -1,0 +1,174 @@
+{
+  "split": "random",
+  "release": "liu2023_hub20200324_chembl-37",
+  "chemprop_version": "2.2.4",
+  "n_members": 5,
+  "tuned": false,
+  "training_seconds_total": 330.9,
+  "test_to_train_nearest_neighbour": {
+    "n": 1524,
+    "median_nearest": 0.6515,
+    "fraction_above_threshold": 0.647,
+    "threshold": 0.5
+  },
+  "ensemble_mean": {
+    "n": 1524,
+    "actives": 21,
+    "baseline_prevalence": 0.01378,
+    "roc_auc": {
+      "value": 0.9199,
+      "ci95": [
+        0.8478,
+        0.9769
+      ]
+    },
+    "pr_auc": {
+      "value": 0.3338,
+      "ci95": [
+        0.1868,
+        0.5773
+      ]
+    },
+    "enrichment_top_1pct": 33.87,
+    "enrichment_top_5pct": 13.37
+  },
+  "members": [
+    {
+      "n": 1524,
+      "actives": 21,
+      "baseline_prevalence": 0.01378,
+      "roc_auc": {
+        "value": 0.9201,
+        "ci95": [
+          0.8428,
+          0.9792
+        ]
+      },
+      "pr_auc": {
+        "value": 0.3696,
+        "ci95": [
+          0.1951,
+          0.5921
+        ]
+      },
+      "enrichment_top_1pct": 38.7,
+      "enrichment_top_5pct": 12.41,
+      "member": 0
+    },
+    {
+      "n": 1524,
+      "actives": 21,
+      "baseline_prevalence": 0.01378,
+      "roc_auc": {
+        "value": 0.9191,
+        "ci95": [
+          0.8526,
+          0.9738
+        ]
+      },
+      "pr_auc": {
+        "value": 0.3366,
+        "ci95": [
+          0.1843,
+          0.5843
+        ]
+      },
+      "enrichment_top_1pct": 33.87,
+      "enrichment_top_5pct": 12.41,
+      "member": 1
+    },
+    {
+      "n": 1524,
+      "actives": 21,
+      "baseline_prevalence": 0.01378,
+      "roc_auc": {
+        "value": 0.9191,
+        "ci95": [
+          0.8453,
+          0.9735
+        ]
+      },
+      "pr_auc": {
+        "value": 0.3298,
+        "ci95": [
+          0.1774,
+          0.5479
+        ]
+      },
+      "enrichment_top_1pct": 38.7,
+      "enrichment_top_5pct": 14.32,
+      "member": 2
+    },
+    {
+      "n": 1524,
+      "actives": 21,
+      "baseline_prevalence": 0.01378,
+      "roc_auc": {
+        "value": 0.8978,
+        "ci95": [
+          0.8107,
+          0.9659
+        ]
+      },
+      "pr_auc": {
+        "value": 0.384,
+        "ci95": [
+          0.1966,
+          0.5965
+        ]
+      },
+      "enrichment_top_1pct": 33.87,
+      "enrichment_top_5pct": 11.46,
+      "member": 3
+    },
+    {
+      "n": 1524,
+      "actives": 21,
+      "baseline_prevalence": 0.01378,
+      "roc_auc": {
+        "value": 0.9038,
+        "ci95": [
+          0.8222,
+          0.9671
+        ]
+      },
+      "pr_auc": {
+        "value": 0.2637,
+        "ci95": [
+          0.1374,
+          0.481
+        ]
+      },
+      "enrichment_top_1pct": 29.03,
+      "enrichment_top_5pct": 12.41,
+      "member": 4
+    }
+  ],
+  "nearest_active_tanimoto_baseline": {
+    "n": 1524,
+    "actives": 21,
+    "baseline_prevalence": 0.01378,
+    "roc_auc": {
+      "value": 0.9135,
+      "ci95": [
+        0.8253,
+        0.9772
+      ]
+    },
+    "pr_auc": {
+      "value": 0.3491,
+      "ci95": [
+        0.2016,
+        0.5727
+      ]
+    },
+    "enrichment_top_1pct": 33.87,
+    "enrichment_top_5pct": 15.28
+  },
+  "disagreement_std": {
+    "actives_median": 0.0481,
+    "inactives_median": 0.031
+  },
+  "calibration_rows": 763,
+  "calibration_actives": 11
+}
