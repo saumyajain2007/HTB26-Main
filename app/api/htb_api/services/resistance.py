@@ -192,3 +192,82 @@ class CardResistance(FixtureResistance):
             raise ProfilingRefused(f"This input could not be profiled: {exc}") from exc
         # Validated on the way out, so a contract break shows here and not in the browser.
         return ResistanceProfile.model_validate(profile.to_dict())
+
+
+class SavedResistance(CardResistance):
+    """Replay the checksummed #34 outputs without source downloads or recomputation.
+
+    Explicitly selected: invalid/missing saved data fails startup instead of silently
+    falling back to made-up rankings. Typed-input profiling keeps the CARD seam.
+    """
+
+    def __init__(self, fixtures_dir: Path, data_dir: Path, results_dir: Path) -> None:
+        import hashlib
+        import json
+
+        super().__init__(fixtures_dir, data_dir)
+        summary = json.loads((results_dir / "summary.json").read_bytes())
+
+        def read(name: str) -> bytes:
+            content = (results_dir / name).read_bytes()
+            if hashlib.sha256(content).hexdigest() != summary["outputs"][name]:
+                raise ValueError(f"Saved resistance checksum mismatch: {name}")
+            return content
+
+        self._profiles: dict[UUID, ResistanceProfile] = {}
+        self._rankings: dict[UUID, AntibioticCandidateResult] = {}
+        for stem in ("staphylococcus-aureus", "klebsiella-pneumoniae", "acinetobacter-baumannii"):
+            profile = ResistanceProfile.model_validate_json(read(f"{stem}.profile.json"))
+            ranking = AntibioticCandidateResult.model_validate_json(read(f"{stem}.ranking.json"))
+            if (
+                ranking.profile_id != profile.profile_id
+                or ranking.pathogen != profile.input.species
+            ):
+                raise ValueError(f"Saved profile/ranking mismatch: {stem}")
+            evidence = {item.id for item in profile.evidence}
+            if any(
+                not set(candidate.evasion.profile_evidence_ids) <= evidence
+                for candidate in ranking.candidates
+            ):
+                raise ValueError(f"Saved ranking cites missing profile evidence: {stem}")
+            profile = profile.model_copy(
+                update={
+                    "caveats": [
+                        *profile.caveats,
+                        "Saved CARD/ChEMBL integration run, not a fresh ranking. "
+                        "Efficacy is unvalidated; Lean was not run.",
+                    ]
+                }
+            )
+            self._profiles[profile.profile_id] = profile
+            self._rankings[profile.profile_id] = ranking
+
+    def presets(self) -> list[PathogenPreset]:
+        return [
+            PathogenPreset(
+                id=preset_id,
+                label=label,
+                pathogen=profile.input.species,
+                profile_id=profile.profile_id,
+                note=(
+                    "Saved CARD/ChEMBL ranking of a draft preset, not a measured isolate. "
+                    "Integration evidence only; efficacy is unvalidated. Lean was not run."
+                ),
+            )
+            for preset_id, label, _, taxid in PRESETS
+            for profile in self._profiles.values()
+            if profile.input.species.ncbi_taxid == taxid
+        ]
+
+    def profiles(self) -> list[ResistanceProfile]:
+        return list(self._profiles.values())
+
+    def profile(self, profile_id: UUID) -> ResistanceProfile | None:
+        return self._profiles.get(profile_id)
+
+    def candidates(self, profile_id: UUID) -> AntibioticCandidateResult | None:
+        return self._rankings.get(profile_id)
+
+    def certificates(self) -> CertificateList:
+        # Never attach a fixture proof to a real result merely because InChIKeys match.
+        return CertificateList(contract_version="1", certificates=[])

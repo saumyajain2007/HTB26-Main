@@ -692,9 +692,10 @@ export interface components {
     };
     /** @enum {string} */
     CandidateEvidenceKind:
-      "activity" | "target_hit" | "docking" | "safety" | "smoke_test" | "approval";
+      "activity" | "target_hit" | "docking" | "safety" | "smoke_test" | "approval" | "drug_class";
     /** @enum {string} */
-    CandidateEvidenceSource: "chembl" | "card" | "pdb" | "htb_verify" | "htb_docking";
+    CandidateEvidenceSource:
+      "chembl" | "card" | "pdb" | "htb_verify" | "htb_docking" | "htb_resistance";
     /**
      * CandidateExplanation
      * @description Why the candidate sits where it does, and what is not known.
@@ -1273,7 +1274,8 @@ export interface components {
       /**
        * Target Id
        * @description The protein it is docked into.
-       * @example ENSG00000162434
+       * @example ENSG00000096968
+       * @example P0A0K8
        */
       target_id: string;
     };
@@ -1806,7 +1808,7 @@ export interface components {
        * @description Tries per juror before its review counts as invalid.
        */
       max_attempts: number;
-      /** @description fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex. */
+      /** @description fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex. providers: real models through Gemini, Vultr Inference and Snowflake Cortex, each model ID prefixed with its provider. */
       mode: components["schemas"]["JuryMode"];
       /**
        * Models
@@ -1837,7 +1839,7 @@ export interface components {
       temperature: number;
     };
     /** @enum {string} */
-    JuryMode: "fixture" | "mock" | "cortex";
+    JuryMode: "fixture" | "mock" | "cortex" | "providers";
     /** JuryModel */
     JuryModel: {
       /**
@@ -2570,7 +2572,8 @@ export interface components {
     };
     /**
      * Structure
-     * @description A prepared human protein structure that Candidates can be docked into.
+     * @description A prepared protein structure that Candidates can be docked into: a human protein, or a
+     *     bacterial one (a UniProt accession as `target_id`).
      */
     Structure: {
       box: components["schemas"]["DockingBox"];
@@ -2607,12 +2610,13 @@ export interface components {
       /**
        * Target Id
        * @description The protein this chain is. Never shown as another.
-       * @example ENSG00000162434
+       * @example ENSG00000096968
+       * @example P0A0K8
        */
       target_id: string;
       /**
        * Target Symbol
-       * @description Gene symbol of that protein, e.g. JAK2.
+       * @description Gene symbol of that protein, e.g. JAK2 or gyrB.
        */
       target_symbol: string;
       /**

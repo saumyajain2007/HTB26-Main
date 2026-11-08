@@ -1,6 +1,6 @@
 # Scope: Antibiotic Resistance, In-Silico Candidate Discovery
 
-Working scope for Hack The Burgh 2026. It builds on the idea in [README.md](README.md): pick a disease target (antibiotic-resistant bacteria), the sponsor tracks worth aiming at, and a detailed task breakdown.
+Working scope for Hack The Burgh 2026. It builds on the idea in [README.md](README.md): choose resistance profiles and bacterial targets, the sponsor tracks worth aiming at, and a detailed task breakdown.
 
 Sizes are rough single-person estimates: **S** under 2 h, **M** 2–6 h, **L** 6–12 h. Treat them as relative, not promises.
 
@@ -61,7 +61,7 @@ Given a resistant bacterium, profile *why* it is resistant, then rank approved d
 
 ## 8. Validation plan
 
-Matches the third point in the README ("test on past diseases"):
+The retrospective resistance-profile design is:
 
 - Hide a drug (or class) approved after a cutoff year, or a known effective combination for a pathogen.
 - Check whether the method ranks it near the top, compared with a random baseline and a simple baseline (for example ranking by known resistance only).
@@ -71,13 +71,13 @@ Details are in WS5.
 
 ## 9. Track fit
 
-Prizes and challenge names are read from the sponsor slide. Judging criteria still need confirming with the sponsors.
+Prizes and challenge names are read from the sponsor slide. What the project can claim against those names, and the fact that the sponsors have not confirmed a scoring rubric, is in [docs/sponsor-mapping.md](docs/sponsor-mapping.md).
 
 | Sponsor | Challenge | Fit | Why |
 | --- | --- | --- | --- |
-| **HRT** | Best Use of Data for Predictions & Decision Making | **Strong. Primary.** | A ranking and decision tool built on data. The retrospective test, confidence intervals and a resistance-forecasting view all speak to "predictions and decision making". |
-| **G-Research** | Make the invisible visible | **Good. Secondary.** | Resistance mechanisms, protein networks and binding poses are invisible to non-experts. A visual layer (resistance map, network paths, 3D pose, constraint certificates) fits the brief. |
-| **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **Possible, risky.** | An agent could browse CARD, NCBI and PDB to gather evidence. It only counts if the browser use is central and complex. Decide early. |
+| **HRT** | Best Use of Data for Predictions & Decision Making | **Primary, unproven as a prediction.** | The ranking is a decision aid over CARD and ChEMBL. There is no retrospective result and no confidence interval yet. See [docs/sponsor-mapping.md](docs/sponsor-mapping.md). |
+| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map and explanations support fixtures and saved real rankings. Certificate details are shown where recorded; Lean was not run for the real saved bundle. The bacterial candidate 3D view awaits PR #99 (#41). |
+| **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **In, not built.** | #7 is in. The browser agent is #95 and does not exist yet, so the project cannot claim this track. |
 | **JetBrains** | Help the Developer | Poor | Not a developer tool. |
 | **Instalily** | Coding agent that adapts to its user | Poor | Different problem. |
 | **Bank of Scotland** | Smart Cost of Living | Poor | No natural link. |
@@ -86,19 +86,32 @@ Prizes and challenge names are read from the sponsor slide. Judging criteria sti
 ### Recommendation
 
 - **Aim for HRT first, G-Research second.** One build serves both: a ranking engine plus a visual explanation layer.
-- Treat Wordsmith as an optional add-on, only if an agentic data-gathering step is needed anyway.
+- Wordsmith is in (#7). Do not describe the project as a browser agent until #95 exists.
 - Ignore the other four.
 
 ## 10. Current status
 
-Done:
+As of 8 November 2026:
 
-- Earlier project code imported as the `htb` packages; tree26 scripts imported with declaration (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
-- `uv` workspace installed, 564 core and 338 API tests passing, web app running.
-- Local Postgres, migrations and the amd64 Vina docking worker running; a real docking job ran end to end.
-- `core/verify/`: Python smoke test and Lean 4 certificate layer built and tested (see WS8).
+- CARD profiling, the ChEMBL antibiotic catalogue and evasion ranking are built.
+  Real saved profiles and 126 ranked drugs per pathogen are committed for the
+  three chosen draft presets; see [integration proof](docs/pathogen-integration.md).
+- The default app is the resistance flow. It supports a labelled MRSA fixture
+  fallback and an explicit saved-data mode for all three pathogens; both work
+  offline. Typed-gene profiles require a prepared CARD release and do not yet
+  drive fresh rankings in the app.
+- Python smoke checks and Lean certificate support exist. The real saved run
+  did not request Lean; its certificates are `not_run`.
+- Bacterial target/redocking work is recorded in [targets](docs/targets.md).
+  The candidate 3D view is awaiting merge in PR #99.
+- Antibiotic ground truth and protocol tooling are committed. Freeze the
+  protocol on the evaluation machine before scoring; #37 has no published result.
+- The separate whole-cell data/leakage work is in PR #101; the discovery pipeline
+  and browser verification (#95) are planned, not validated products.
 
-Still on fixtures: the app only knows COVID-19 sample data. Nothing antibiotic-specific exists yet.
+Sections 5–8 preserve the original MVP proposal. The later #82 decision adds the
+whole-cell lane and its cut line in [tasks.md](tasks.md) sections 5b and 6. Earlier
+human-disease experiments and test counts are historical, not antibiotic evidence.
 
 ## 11. Workstreams
 
@@ -269,7 +282,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 | Limits statement | One page: what the tool does, does not claim, and known weaknesses. | S |
 | Devpost writeup | Hook, problem, what it does, how it was built, challenges, results with intervals, what is next. Use the format of the two reference writeups. | M |
 | Demo script | A two to three minute path, with a fallback recording. | M |
-| Sponsor mapping | State plainly how the project meets HRT and G-Research. | S |
+| Sponsor mapping | State plainly how the project meets HRT and G-Research. Written in [docs/sponsor-mapping.md](docs/sponsor-mapping.md). | S |
 | Notices | Keep [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) current for any new reused code, and data licences (CARD, ChEMBL). | S |
 | Rename leftovers | Package and brand names are now `htb`; clean up any stray references. | S |
 
@@ -308,13 +321,13 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 
 ## 14. Open decisions
 
-- [ ] Final pathogen set (suggest three ESKAPE species).
-- [ ] Which retrospective test to run (needs a data check first, WS5).
+- [x] Final pathogen set: *K. pneumoniae*, *A. baumannii*, *S. aureus* (#4). The whole-cell pipeline (tasks.md section 5b) targets *A. baumannii* only (#82).
+- [x] Which retrospective test to run (WS5): hold out whole-cell actives by publication year (#5), keep the profile-to-known-drug retrospective test, and add the hidden-drug retrieval test (#82, #91, #92).
 - [ ] LLM provider for the jury (WS6).
-- [ ] Whether generation is in scope at all, and which model plus compute (WS7).
+- [x] Generation (WS7): in scope, as a separate lane beside the evasion ranking (#82). Use an existing open-source generator rather than building one: SyntheMol (MIT, CPU only), guided by our own whole-cell model, on a plain Vultr VM (#86).
 - [ ] Antibiotic rule set: confirm limits and which extra rules to add (WS8).
-- [.] Wordsmith: in or out.
-- [ ] Team roles and the hackathon time budget, to size the stretch goals.
+- [x] Wordsmith: in (#82). The browser verification agent is #95.
+- [x] Time budget: 10 hours remaining as of 8 November 2026 (#82); the cut line is in tasks.md section 6. Team roles and headcount are still not recorded.
 
 ## 15. Main risks
 

@@ -1,0 +1,1265 @@
+{
+  "activity": [
+    {
+      "assays": 3,
+      "censored": 0,
+      "chembl_id": "CHEMBL1013",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 101,
+      "censored": 80,
+      "chembl_id": "CHEMBL1082",
+      "documents": 27,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 101
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1109",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 5,
+      "censored": 3,
+      "chembl_id": "CHEMBL1136",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 5
+    },
+    {
+      "assays": 2,
+      "censored": 1,
+      "chembl_id": "CHEMBL1146",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 2,
+      "censored": 0,
+      "chembl_id": "CHEMBL1167",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1200359",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 3,
+      "censored": 3,
+      "chembl_id": "CHEMBL1200558",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201046",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201116",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 6,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201195",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 6
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201204",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201224",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1201270",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL1208",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 3,
+      "censored": 1,
+      "chembl_id": "CHEMBL1214",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1220",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1237072",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1257051",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 43,
+      "censored": 38,
+      "chembl_id": "CHEMBL126",
+      "documents": 26,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 43
+    },
+    {
+      "assays": 495,
+      "censored": 120,
+      "chembl_id": "CHEMBL127",
+      "documents": 94,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 495
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL1296",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 301,
+      "censored": 49,
+      "chembl_id": "CHEMBL1359",
+      "documents": 34,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 301
+    },
+    {
+      "assays": 4,
+      "censored": 2,
+      "chembl_id": "CHEMBL137",
+      "documents": 4,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 28,
+      "censored": 6,
+      "chembl_id": "CHEMBL1384",
+      "documents": 25,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 29
+    },
+    {
+      "assays": 10,
+      "censored": 2,
+      "chembl_id": "CHEMBL1433",
+      "documents": 7,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 10
+    },
+    {
+      "assays": 13,
+      "censored": 1,
+      "chembl_id": "CHEMBL1434",
+      "documents": 5,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 13
+    },
+    {
+      "assays": 7,
+      "censored": 2,
+      "chembl_id": "CHEMBL1435",
+      "documents": 6,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 11,
+      "censored": 6,
+      "chembl_id": "CHEMBL1436",
+      "documents": 9,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 11
+    },
+    {
+      "assays": 75,
+      "censored": 8,
+      "chembl_id": "CHEMBL1440",
+      "documents": 34,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 75
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL1443",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL1447",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 64,
+      "censored": 59,
+      "chembl_id": "CHEMBL1449",
+      "documents": 11,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 64
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1449676",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL1517",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1525826",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL1537",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 3,
+      "censored": 1,
+      "chembl_id": "CHEMBL1541",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 9,
+      "censored": 3,
+      "chembl_id": "CHEMBL1572",
+      "documents": 6,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 10
+    },
+    {
+      "assays": 196,
+      "censored": 119,
+      "chembl_id": "CHEMBL158",
+      "documents": 42,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 196
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1583",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1591",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1596",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1599",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1601",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1604",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 6,
+      "censored": 6,
+      "chembl_id": "CHEMBL1605",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 6
+    },
+    {
+      "assays": 76,
+      "censored": 40,
+      "chembl_id": "CHEMBL161",
+      "documents": 23,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 76
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1628385",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1644",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 7,
+      "censored": 0,
+      "chembl_id": "CHEMBL1650559",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1650818",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1652606",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 5,
+      "censored": 4,
+      "chembl_id": "CHEMBL1672",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 5
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL1688530",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 2,
+      "censored": 0,
+      "chembl_id": "CHEMBL1689772",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 7,
+      "censored": 1,
+      "chembl_id": "CHEMBL1727",
+      "documents": 6,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 325,
+      "censored": 116,
+      "chembl_id": "CHEMBL1730",
+      "documents": 58,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 325
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL1731",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 91,
+      "censored": 36,
+      "chembl_id": "CHEMBL174",
+      "documents": 69,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 91
+    },
+    {
+      "assays": 18,
+      "censored": 5,
+      "chembl_id": "CHEMBL1741",
+      "documents": 8,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 18
+    },
+    {
+      "assays": 70,
+      "censored": 21,
+      "chembl_id": "CHEMBL1747",
+      "documents": 29,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 70
+    },
+    {
+      "assays": 5,
+      "censored": 2,
+      "chembl_id": "CHEMBL1753",
+      "documents": 5,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 5
+    },
+    {
+      "assays": 2,
+      "censored": 1,
+      "chembl_id": "CHEMBL1757",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 158,
+      "censored": 47,
+      "chembl_id": "CHEMBL177",
+      "documents": 47,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 159
+    },
+    {
+      "assays": 263,
+      "censored": 86,
+      "chembl_id": "CHEMBL186",
+      "documents": 46,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 263
+    },
+    {
+      "assays": 4,
+      "censored": 0,
+      "chembl_id": "CHEMBL1951095",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 2,
+      "censored": 0,
+      "chembl_id": "CHEMBL21",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 1,
+      "kept": 2
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL2103929",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL2105637",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 5,
+      "censored": 0,
+      "chembl_id": "CHEMBL215303",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 5
+    },
+    {
+      "assays": 25,
+      "censored": 7,
+      "chembl_id": "CHEMBL22",
+      "documents": 18,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 28
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL2364632",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL249837",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 80,
+      "censored": 60,
+      "chembl_id": "CHEMBL262777",
+      "documents": 62,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 80
+    },
+    {
+      "assays": 1,
+      "censored": 0,
+      "chembl_id": "CHEMBL276568",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 27,
+      "censored": 9,
+      "chembl_id": "CHEMBL29",
+      "documents": 21,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 27
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL3182343",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 63,
+      "censored": 4,
+      "chembl_id": "CHEMBL32",
+      "documents": 23,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 63
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL3291398",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 264,
+      "censored": 54,
+      "chembl_id": "CHEMBL33",
+      "documents": 86,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 266
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL3301669",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 56,
+      "censored": 3,
+      "chembl_id": "CHEMBL372795",
+      "documents": 53,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 1,
+      "kept": 56
+    },
+    {
+      "assays": 2,
+      "censored": 1,
+      "chembl_id": "CHEMBL374975",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 143,
+      "censored": 0,
+      "chembl_id": "CHEMBL376140",
+      "documents": 30,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 143
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL387675",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 14,
+      "censored": 1,
+      "chembl_id": "CHEMBL3989974",
+      "documents": 4,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 14
+    },
+    {
+      "assays": 36,
+      "censored": 3,
+      "chembl_id": "CHEMBL4",
+      "documents": 27,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 36
+    },
+    {
+      "assays": 2,
+      "censored": 1,
+      "chembl_id": "CHEMBL403",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 26,
+      "censored": 16,
+      "chembl_id": "CHEMBL404",
+      "documents": 5,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 26
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL404520",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 24,
+      "censored": 0,
+      "chembl_id": "CHEMBL430",
+      "documents": 9,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 24
+    },
+    {
+      "assays": 2,
+      "censored": 0,
+      "chembl_id": "CHEMBL439",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 1,
+      "kept": 2
+    },
+    {
+      "assays": 23,
+      "censored": 14,
+      "chembl_id": "CHEMBL443",
+      "documents": 10,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 23
+    },
+    {
+      "assays": 419,
+      "censored": 128,
+      "chembl_id": "CHEMBL44354",
+      "documents": 67,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 419
+    },
+    {
+      "assays": 4,
+      "censored": 1,
+      "chembl_id": "CHEMBL453",
+      "documents": 4,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 7,
+      "censored": 3,
+      "chembl_id": "CHEMBL474579",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 64,
+      "censored": 21,
+      "chembl_id": "CHEMBL491571",
+      "documents": 8,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 64
+    },
+    {
+      "assays": 85,
+      "censored": 31,
+      "chembl_id": "CHEMBL5",
+      "documents": 16,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 85
+    },
+    {
+      "assays": 14,
+      "censored": 3,
+      "chembl_id": "CHEMBL501122",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 14
+    },
+    {
+      "assays": 5,
+      "censored": 2,
+      "chembl_id": "CHEMBL507674",
+      "documents": 4,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 5
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL507870",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 3,
+      "censored": 1,
+      "chembl_id": "CHEMBL528",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 19,
+      "censored": 3,
+      "chembl_id": "CHEMBL529",
+      "documents": 11,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 19
+    },
+    {
+      "assays": 2,
+      "censored": 0,
+      "chembl_id": "CHEMBL530",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 2
+    },
+    {
+      "assays": 32,
+      "censored": 8,
+      "chembl_id": "CHEMBL532",
+      "documents": 21,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 32
+    },
+    {
+      "assays": 9,
+      "censored": 0,
+      "chembl_id": "CHEMBL561",
+      "documents": 8,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 9
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL564085",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 9,
+      "censored": 2,
+      "chembl_id": "CHEMBL572",
+      "documents": 8,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 9
+    },
+    {
+      "assays": 7,
+      "censored": 4,
+      "chembl_id": "CHEMBL575",
+      "documents": 7,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 3,
+      "censored": 3,
+      "chembl_id": "CHEMBL615",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 3
+    },
+    {
+      "assays": 43,
+      "censored": 22,
+      "chembl_id": "CHEMBL617",
+      "documents": 23,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 43
+    },
+    {
+      "assays": 4,
+      "censored": 0,
+      "chembl_id": "CHEMBL65794",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 13,
+      "censored": 2,
+      "chembl_id": "CHEMBL680",
+      "documents": 7,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 13
+    },
+    {
+      "assays": 0,
+      "censored": 0,
+      "chembl_id": "CHEMBL700",
+      "documents": 0,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 0
+    },
+    {
+      "assays": 190,
+      "censored": 128,
+      "chembl_id": "CHEMBL702",
+      "documents": 41,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 190
+    },
+    {
+      "assays": 4,
+      "censored": 2,
+      "chembl_id": "CHEMBL74632",
+      "documents": 2,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 629,
+      "censored": 142,
+      "chembl_id": "CHEMBL8",
+      "documents": 316,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 2,
+      "kept": 631
+    },
+    {
+      "assays": 7,
+      "censored": 7,
+      "chembl_id": "CHEMBL819",
+      "documents": 3,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 7,
+      "censored": 0,
+      "chembl_id": "CHEMBL826",
+      "documents": 7,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 7
+    },
+    {
+      "assays": 38,
+      "censored": 15,
+      "chembl_id": "CHEMBL850",
+      "documents": 5,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 38
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL891",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 1,
+      "censored": 1,
+      "chembl_id": "CHEMBL893",
+      "documents": 1,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 1
+    },
+    {
+      "assays": 153,
+      "censored": 16,
+      "chembl_id": "CHEMBL9",
+      "documents": 99,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 1,
+      "kept": 153
+    },
+    {
+      "assays": 4,
+      "censored": 0,
+      "chembl_id": "CHEMBL927",
+      "documents": 4,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 4
+    },
+    {
+      "assays": 184,
+      "censored": 52,
+      "chembl_id": "CHEMBL996",
+      "documents": 32,
+      "dropped_mass": 0,
+      "dropped_relation": 0,
+      "dropped_unit": 0,
+      "kept": 185
+    }
+  ],
+  "ranking": []
+}

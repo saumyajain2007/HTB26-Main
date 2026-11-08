@@ -67,3 +67,13 @@ Rules the tests enforce: a candidate is `defeated` exactly when its drug class i
 `margin` is `value - limit`. Positive means the limit was exceeded, matching `Violation.margin`. A rule passes when `margin <= 0`. The limits must equal `htb_verify.rules`, and a test fails if they drift.
 
 A certificate confirms that the encoded property rules hold. It does not show a molecule is safe, selective or active. The `antibiotic_relaxed` limits are calibrated on the approved antibiotics (95th percentile, floored at the oral limits; see [antibiotic-limits.md](antibiotic-limits.md)), so a failure flags an outlier, such as vancomycin in the fixture, not an unsafe drug.
+
+### Saved ranking evidence (#34 handoff)
+
+Candidate evidence also accepts `kind: drug_class` for a catalogue-to-CARD class
+assignment and `source: htb_resistance` for the local resistance pipeline. These
+values preserve the saved run's provenance rather than relabelling it as external
+evidence. The API enforces the documented order: `unaffected`, `unknown`,
+`partly_affected`, `defeated`. Existing fixture files remain compatible. The
+committed `results/pathogen-integration/` profiles and rankings are real-data
+examples exercised by the API integration tests.

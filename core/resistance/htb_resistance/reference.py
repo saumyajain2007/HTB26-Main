@@ -27,8 +27,10 @@ from collections import defaultdict
 from dataclasses import dataclass, replace
 from pathlib import Path
 
-from .card import read_table, verify_release
+from .card import CardError, read_table, verify_release
 from .typecheck import Ontology, check_term
+
+SUPPLEMENT_PATH = Path(__file__).with_name("supplement.json")
 
 CLASS_DRUG = "Drug Class"
 CLASS_MECHANISM = "Resistance Mechanism"
@@ -63,6 +65,16 @@ class Variant:
 
 
 @dataclass(frozen=True)
+class Curated:
+    """A drug class added from the curated supplement, which CARD's release does not link to the gene."""
+
+    id: str
+    drug_class: Term
+    reason: str
+    citations: tuple             # tuple[dict], each with a PubMed id
+
+
+@dataclass(frozen=True)
 class Entry:
     """One resistance determinant, as the reference holds it."""
 
@@ -76,6 +88,7 @@ class Entry:
     gene_families: tuple          # tuple[Term]
     variants: tuple               # tuple[Variant], CARD's known resistance mutations
     names: tuple                  # every string this entry can be looked up by
+    curated: tuple = ()           # tuple[Curated]: classes the supplement adds, none CARD already has
 
 
 @dataclass(frozen=True)
@@ -88,8 +101,9 @@ class Resolution:
 
 
 class Reference:
-    def __init__(self, entries, release: str, problems=()):
+    def __init__(self, entries, release: str, problems=(), supplement_release: str | None = None):
         self.release = release               # contract form, e.g. "card-4.0.2"
+        self.supplement_release = supplement_release   # e.g. "curated_supplement-1"; None when not applied
         self.entries = {e.aro: e for e in entries}
         self.problems = tuple(problems)      # terms dropped because they were mistyped
         self._exact = defaultdict(set)
@@ -102,8 +116,12 @@ class Reference:
     # -------------------------------------------------------------------- loading
 
     @classmethod
-    def from_release(cls, release_dir) -> "Reference":
+    def from_release(cls, release_dir, supplement: Path | str | None = SUPPLEMENT_PATH) -> "Reference":
         """Load a release directory written by ``build``.
+
+        `supplement` is the curated file of drug classes that CARD's download omits but that a
+        cited source supports (supplement.json); None turns it off. A stale or uncited entry stops
+        the load. It is never skipped.
 
         A release whose tables no longer match its manifest is refused, so a profile is
         never built from data that has drifted from what was recorded.
@@ -185,7 +203,11 @@ class Reference:
                     *sorted(synonyms.get(acc, ())),
                 ])),
             ))
-        return cls(entries, release=release, problems=mistyped)
+        supplement_release = None
+        if supplement:
+            data, entries = _apply_supplement(Path(supplement), entries, onto, terms, version)
+            supplement_release = data["release"] if any(e.curated for e in entries) else None
+        return cls(entries, release=release, problems=mistyped, supplement_release=supplement_release)
 
     # -------------------------------------------------------------------- resolution
 
@@ -228,6 +250,37 @@ class Reference:
                 return replace(found, how="bla_prefix_stripped")
         return Resolution(
             "unknown", reason="no CARD term or synonym matches this name")
+
+
+def _apply_supplement(path: Path, entries: list, onto: Ontology, terms: dict, version: str) -> tuple[dict, list]:
+    """Check the curated supplement against this CARD release and attach its additions to entries.
+
+    Each addition needs a reason and a citation with a PubMed id, must name determinants that exist
+    in the release, and must name a real Drug Class term under its true name. A class CARD already
+    links to a gene is skipped for that gene, so an entry CARD later catches up with does nothing.
+    """
+    data = json.loads(path.read_text(encoding="utf-8"))
+    by_aro = {e.aro: e for e in entries}
+    added: dict[str, list] = defaultdict(list)
+    for add in data["additions"]:
+        where = f"supplement {add.get('id', '?')}"
+        cites = add.get("citations") or []
+        if not cites or not all(str(c.get("pmid", "")).isdigit() and c.get("citation") for c in cites):
+            raise CardError(f"{where}: every added class needs at least one citation with a PubMed id")
+        if not add.get("reason"):
+            raise CardError(f"{where}: no reason given")
+        cls = add["drug_class"]
+        problem = check_term(onto, cls["aro_id"], "drug_class")
+        if problem or terms[cls["aro_id"]]["name"] != cls["name"]:
+            raise CardError(f"{where}: {cls['aro_id']} is not the Drug Class {cls['name']!r} in release {version}"
+                            + (f" ({problem})" if problem else ""))
+        for model in add["models"]:
+            entry = by_aro.get(model)
+            if entry is None:
+                raise CardError(f"{where}: {model} is not a CARD determinant in release {version}")
+            if cls["aro_id"] not in {t.aro_id for t in entry.drug_classes}:
+                added[model].append(Curated(add["id"], Term(cls["aro_id"], cls["name"]), add["reason"], tuple(cites)))
+    return data, [replace(e, curated=tuple(added[e.aro])) if e.aro in added else e for e in entries]
 
 
 def latest_release(data_dir) -> Path:

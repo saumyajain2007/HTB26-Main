@@ -44,6 +44,18 @@ TargetId = Annotated[
         examples=["ENSG00000162434"],
     ),
 ]
+StructureTargetId = Annotated[
+    str,
+    Field(
+        pattern=r"^(ENSG[0-9]{11}|[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$",
+        description=(
+            "The protein of a structure: an Ensembl gene ID for a human protein "
+            "(ENSG00000096968, JAK2) or a UniProt accession for a bacterial one "
+            "(P0A0K8, S. aureus GyrB)."
+        ),
+        examples=["ENSG00000096968", "P0A0K8"],
+    ),
+]
 CandidateId = Annotated[
     str,
     Field(
@@ -100,7 +112,7 @@ ExperimentStatus = TypeAliasType(
 BuildStage = TypeAliasType("BuildStage", Literal["targets", "ranking", "evidence", "saving"])
 RankingMethod = TypeAliasType("RankingMethod", Literal["network", "evidence_only"])
 ShortlistMethod = TypeAliasType("ShortlistMethod", Literal["physical_rwr", "zscore"])
-JuryMode = TypeAliasType("JuryMode", Literal["fixture", "mock", "cortex"])
+JuryMode = TypeAliasType("JuryMode", Literal["fixture", "mock", "cortex", "providers"])
 CandidateStatus = TypeAliasType(
     "CandidateStatus", Literal["scored", "distance_only", "not_scorable"]
 )
@@ -333,7 +345,8 @@ class JuryConfig(Model):
         description=(
             "fixture: a recorded review with made-up votes. mock: a practice review; no model "
             "is called and every vote is a placeholder with no scientific meaning. cortex: "
-            "real models through Snowflake Cortex."
+            "real models through Snowflake Cortex. providers: real models through Gemini, Vultr "
+            "Inference and Snowflake Cortex, each model ID prefixed with its provider."
         )
     )
     models: list[JuryModel] = Field(
@@ -832,13 +845,16 @@ class StructureControl(Model):
 
 
 class Structure(Model):
-    """A prepared human protein structure that Candidates can be docked into."""
+    """A prepared protein structure that Candidates can be docked into: a human protein, or a
+    bacterial one (a UniProt accession as `target_id`)."""
 
     id: StructureId
     pdb_id: PdbId
     chain: str = Field(description="The chain kept for docking.")
-    target_id: TargetId = Field(description="The protein this chain is. Never shown as another.")
-    target_symbol: str = Field(description="Gene symbol of that protein, e.g. JAK2.")
+    target_id: StructureTargetId = Field(
+        description="The protein this chain is. Never shown as another."
+    )
+    target_symbol: str = Field(description="Gene symbol of that protein, e.g. JAK2 or gyrB.")
     title: str = Field(description="Entry title from RCSB.")
     method: str = Field(description="Experimental method from RCSB, e.g. X-RAY DIFFRACTION.")
     resolution: float = Field(gt=0, description="Resolution in angstroms; lower is sharper.")
@@ -934,7 +950,7 @@ class DockJob(Model):
         description="The Experiment it belongs to; null for controls."
     )
     candidate_id: CandidateId = Field(description="The drug being docked.")
-    target_id: TargetId = Field(description="The protein it is docked into.")
+    target_id: StructureTargetId = Field(description="The protein it is docked into.")
     structure_id: StructureId = Field(description="The prepared structure used.")
     settings: DockSettings
     scores: list[PoseScore] | None = Field(description="Per-pose scores; null until done.")
@@ -1284,10 +1300,11 @@ RankingFeature = TypeAliasType(
 ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card", "curated"])
 CandidateEvidenceKind = TypeAliasType(
     "CandidateEvidenceKind",
-    Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval"],
+    Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval", "drug_class"],
 )
 CandidateEvidenceSource = TypeAliasType(
-    "CandidateEvidenceSource", Literal["chembl", "card", "pdb", "htb_verify", "htb_docking"]
+    "CandidateEvidenceSource",
+    Literal["chembl", "card", "pdb", "htb_verify", "htb_docking", "htb_resistance"],
 )
 
 PROPERTY_RULES: tuple[PropertyRule, ...] = ("mw", "logp", "hbd", "hba", "rot_bonds", "psa")
@@ -1845,7 +1862,7 @@ class AntibioticCandidateResult(Model):
         ranks = sorted(c.rank for c in self.candidates if c.rank is not None)
         if ranks != list(range(1, len(ranks) + 1)):
             raise ValueError("ranks must run 1..n over the approved candidates")
-        order = {"unaffected": 0, "partly_affected": 1, "defeated": 2, "unknown": 3}
+        order = {"unaffected": 0, "unknown": 1, "partly_affected": 2, "defeated": 3}
         ranked = sorted(
             (c for c in self.candidates if c.rank is not None), key=lambda c: c.rank or 0
         )

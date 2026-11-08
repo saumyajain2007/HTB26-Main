@@ -29,9 +29,9 @@ from .services.live import LiveSource
 from .services.live_jury import StreamAJury
 from .services.molecules import FixtureMolecules, MoleculeSource, PubChemMolecules
 from .services.ranking import EvidenceRanking, NetworkRanking, RankingBackend
-from .services.resistance import CardResistance, ResistanceSource
+from .services.resistance import CardResistance, ResistanceSource, SavedResistance
 from .services.source import ExperimentSource, FixtureSource
-from .settings import Settings, SnowflakeSettings
+from .settings import ProviderJurySettings, Settings, SnowflakeSettings
 
 log = logging.getLogger(__name__)
 
@@ -85,7 +85,12 @@ def build_components(
         docking=docking,
         evaluation=evaluation or FixtureEvaluation(fixtures),
         molecules=molecules or open_molecules(settings),
-        resistance=resistance or CardResistance(fixtures, settings.data_dir),
+        resistance=resistance
+        or (
+            SavedResistance(fixtures, settings.data_dir, settings.resistance_results_dir)
+            if settings.resistance == "saved"
+            else CardResistance(fixtures, settings.data_dir)
+        ),
         runner=runner,
         jobs=jobs,
     )
@@ -152,21 +157,31 @@ def open_ranking(settings: Settings) -> RankingBackend:
 
 
 def open_jury(settings: Settings, repo: Repo | None = None) -> JuryBackend:
-    """The Model jury the settings name. Cortex refuses to start without its settings."""
+    """The Model jury the settings name. Cortex and providers refuse to start without theirs."""
     if settings.jury == "fixture":
         return FixtureJury(settings.fixtures_dir)
     audit_dir = settings.data_dir / "experiments"
     if settings.jury == "mock":
         return StreamAJury("mock", audit_dir=audit_dir)
-    snowflake = SnowflakeSettings()
-    snowflake.require_complete()
 
     def before_call() -> None:
         if repo is None:
-            raise RuntimeError("Cortex requires a shared quota store")
+            raise RuntimeError("A paid jury requires a shared quota store")
         repo.consume_quota("cortex:minute", settings.cortex_calls_per_minute, 60)
         repo.consume_quota("cortex:day", settings.cortex_calls_per_day, 86400)
 
+    if settings.jury == "providers":
+        providers = ProviderJurySettings()
+        providers.require_complete()
+        return StreamAJury(
+            "providers",
+            models=providers.jury_models,
+            reasoning_effort=providers.jury_reasoning_effort,
+            audit_dir=audit_dir,
+            before_call=before_call,
+        )
+    snowflake = SnowflakeSettings()
+    snowflake.require_complete()
     return StreamAJury(
         "cortex",
         models=snowflake.models,

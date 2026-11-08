@@ -230,7 +230,7 @@ def test_jury_fixture_rejects_votes_from_invalid_jurors() -> None:
 def test_structures_parse_and_controls_are_marked() -> None:
     listing = StructureList.model_validate_json((FIXTURES_DIR / "structures.json").read_text())
     ids = [s.id for s in listing.structures]
-    assert ids == ["6WTO_A", "6WTN_A", "6O0K_A", "7BQU_A"]
+    assert ids == ["6WTO_A", "6WTN_A", "6O0K_A", "7BQU_A", "3G7B_A", "3U2K_A", "2VES_A", "3P3E_A"]
     for structure in listing.structures:
         control = structure.control
         assert control.success_threshold == REDOCK_SUCCESS_ANGSTROM

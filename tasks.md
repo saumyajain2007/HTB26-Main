@@ -6,17 +6,19 @@ Sizes: **S** under 2 h, **M** 2–6 h, **L** 6–12 h (single person, relative).
 
 ## 0. Review summary
 
-**State of the repo.** Strong infrastructure, no antibiotic product yet.
+**State of the repo (8 November 2026).** The antibiotic app can replay real
+rankings for all three draft presets offline; efficacy remains unvalidated.
 
 | Area | State |
 | --- | --- |
-| API, Postgres, jobs, docking worker, 3D viewer, deploy scripts | Built and tested (scope.md reports 564 core and 338 API tests) |
-| Jury (multi-provider incl. Gemini, Vultr, Cortex), reply validators | Built. Gemini and Vultr clients only tested with fakes, never against the live services |
-| Evaluation harness (frozen protocol, bootstrap CIs, errata habit) | Built, but only for the human-disease network method |
-| `core/verify` (RDKit smoke test + Lean 4 certificates) | Built. `antibiotic_relaxed` limits calibrated on the approved set (descriptive, not a safety claim) |
-| Structures | 4 PDB entries in `app/worker/structures` (6O0K, 6WTN, 6WTO, 7BQU). They have not been checked against the bacterial target list in WS3 |
-| Resistance data, profiling, evasion ranking, retrospective test | **Not started.** `core/resistance/`, `core/generate/` and `eval/` do not exist |
-| App flow | Still 100% COVID-19 fixtures. The API schemas (`Disease*`, `RankingSettings`, `CandidateRwr`, `CandidateNetwork`) and the web steps are built around a human disease and a STRING network |
+| API, Postgres, jobs, docking worker, deploy scripts | Built; operational details live in the component READMEs |
+| Jury and reply validators | Multi-provider support built; live sponsor integrations still need proof (#27) |
+| Evaluation | Cited antibiotic ground truth and protocol tooling exist; freeze before scoring, then publish #37. Earlier human-disease results are separate |
+| `core/verify` | Python smoke tests and Lean 4 support built; saved real rankings have `not_run` certificates |
+| Bacterial structures | Four structures for GyrB/LpxC pass redocking; see [targets](docs/targets.md). Candidate 3D UI is in PR #99 |
+| Resistance profiling and evasion ranking | Built and integrated for all three pathogens; committed outputs contain 126 ranked drugs each |
+| App flow | Resistance flow is the default. Fixture MRSA and real saved-data modes both have offline browser checks; typed genes do not compute a new shortlist |
+| Whole-cell discovery | #83/#84 implementation is in PR #101; ensemble, generation and downstream evaluation remain planned |
 
 **Things the plan must respect**
 
@@ -27,12 +29,14 @@ Sizes: **S** under 2 h, **M** 2–6 h, **L** 6–12 h (single person, relative).
 5. **Honest claims only.** "Predicted to evade known mechanisms" and "passes the encoded rules" are the strongest allowed statements. The property limits describe approved antibiotics, not safety, and the unverified live sponsor clients must be labelled as such until fixed.
 6. **Lesson from the errata:** check ontology type before freezing any case list (a trait was mistaken for a disease). Do the equivalent for antibiotics, drug classes and ARO terms.
 
-**Gaps in the existing plan to close**
+**Decisions and remaining gaps**
 
-- No time budget or team size is recorded, so stretch goals cannot be sized yet (scope.md open decision). Git history shows three contributors; this file assumes three lanes.
-- The pathogen set, the validation design and the jury provider are all undecided and block the critical path.
-- The Wordsmith track (agentic browser use) is undecided. It would need a real browsing step; do not bolt it on at the end.
-- The README "Pipeline" diagram and "Tasks" list still describe the open question. Update once the open decisions are settled.
+- #4 chose the three ESKAPE species; #5 and #82 record the evaluation designs.
+- #82 chose the separate *A. baumannii* discovery lane and Wordsmith browser work
+  (#95), with a 10-hour budget recorded at that time. See sections 5b and 6.
+- The live jury panel and sponsor integrations still need verification.
+- Data integration is not efficacy validation: #37 and the hidden-drug results
+  (#92) remain outstanding. Do not transfer metrics from the older experiments.
 
 ---
 
@@ -45,7 +49,9 @@ Decisions (P0) ─► Contracts + fixtures (P0) ─┬─► WS1 data ─► WS2
 WS8 calibration and WS6 packets join after WS4. WS7 generation only after the MVP works end to end.
 ```
 
-The longest chain is **WS1 → WS2 → WS4 → WS5**. Anything that delays CARD ingest delays everything, so that is task one for the data lane.
+The original WS1 → WS2 → WS4 integration is built. Its remaining proof is WS5.
+For the whole-cell lane, the active dependency order is #83 → #84 → #85, followed
+by generation, filters, ledger and hidden-drug evaluation (section 5b).
 
 ---
 
@@ -74,11 +80,11 @@ Shared files that need a quick heads-up in chat before editing: [app/api/htb_api
 
 Short, blocks everything. Do together, then split.
 
-- [ ] **Decide the pathogen set.** Three ESKAPE species, suggested *K. pneumoniae*, *A. baumannii*, *S. aureus* (rich CARD coverage). `S`, all
-- [ ] **Decide the validation design** (scope WS5 options a, b or c) after a quick data check of what CARD and ChEMBL can support. `S`, Lane A with B
+- [x] **Decide the pathogen set.** Three ESKAPE species, suggested *K. pneumoniae*, *A. baumannii*, *S. aureus* (rich CARD coverage). `S`, all Decided in #4: those three. Decided in #82: the whole-cell pipeline (section 5b) targets *A. baumannii* only.
+- [x] **Decide the validation design** (scope WS5 options a, b or c) after a quick data check of what CARD and ChEMBL can support. `S`, Lane A with B Decided in #5 (hold out whole-cell actives by publication year) and #82 (keep the retrospective test, add the hidden-drug retrieval test).
 - [ ] **Decide the jury provider.** Run one real call each against Gemini and Vultr (and Cortex if keys exist) so the sponsor integrations are proven, not assumed. Pick the three-model panel. `S`, Lane C
-- [ ] **Decide Wordsmith in or out.** Only in if an agentic browsing step is genuinely central, for example an agent that gathers CARD, NCBI and PDB evidence live. `S`, all
-- [ ] **Record time budget and stretch cut line.** Fill the "Cut line" in section 6. `S`, all
+- [x] **Decide Wordsmith in or out.** Only in if an agentic browsing step is genuinely central, for example an agent that gathers CARD, NCBI and PDB evidence live. `S`, all **In**, confirmed in #82. The step is #95 (PubMed and ClinicalTrials.gov for the top candidates); it replaces the stretch issue #48.
+- [x] **Record time budget and stretch cut line.** Fill the "Cut line" in section 6. `S`, all **10 hours remaining** as of 8 November 2026 (answer on #82). Headcount was not given; git history shows three contributors. Cut line in section 6.
 - [x] **Freeze three JSON contracts with fixtures** (put them in `tests/fixtures/` next to the existing ones): `ResistanceProfile` (genes, mechanisms, defeated classes, targets affected, confidence, caveats), `AntibioticCandidate` (class, evasion status and evidence IDs, feature values kept separate, explanation, smoke-test result, certificate status, `source: approved | generated`), `Certificate` (rule set, per-rule pass/fail with margins, Lean `ran` flag). `M`, Lane B drafts, C and A review. Doc: [docs/contracts.md](docs/contracts.md), ids type-checked in [docs/ontology-check.md](docs/ontology-check.md)
 - [x] **Ontology type check** for pathogens, ARO terms and drug names before anything is frozen. `S`, Lane A Recorded in [docs/ontology-check.md](docs/ontology-check.md).
 
@@ -96,7 +102,7 @@ Short, blocks everything. Do together, then split.
 - [ ] Curated combinations table, every row cited (for example beta-lactam plus inhibitor). `M`
 - [ ] Input handling: gene names or ARO IDs, species presets, optional AMRFinderPlus output; report unknown names rather than dropping them. `M`
 - [x] Gene-to-class and mutation mapping to a `ResistanceProfile`, with CARD evidence IDs and the affected target recorded for WS3. `M`
-- [ ] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M`
+- [x] Fixtures and tests: CTX-M producer, MRSA with *mecA*, one per pathogen, checked against expected defeated classes. `M` Two known gaps are strict xfails; see [docs/profiling-known-cases.md](docs/profiling-known-cases.md). The expectations still need a microbiologist's review
 - [x] Spot check ten genes against CARD's web pages. Recorded in [docs/card-spot-check.md](docs/card-spot-check.md). `S`
 
 **Done when:** profiling each pathogen's typical resistant isolate yields class lists a microbiologist would recognise.
@@ -104,8 +110,8 @@ Short, blocks everything. Do together, then split.
 ### Lane B: structures and ranking skeleton (WS3, WS4, WS8)
 
 - [ ] Review the four existing PDB entries against the bacterial target list. Keep, replace or drop them. `S`
-- [ ] Choose targets (PBPs, DNA gyrase B, LpxC, FabI), record essentiality evidence, pick PDB entries with a co-crystallised ligand. `M`
-- [ ] Add entries to `app/worker/structures`, run the existing prepare step, run the redocking control (2 Å rule) and record pass or fail honestly. `M`
+- [x] Choose targets (PBPs, DNA gyrase B, LpxC, FabI), record essentiality evidence, pick PDB entries with a co-crystallised ligand. `M` Two targets so far (GyrB, LpxC), recorded in [docs/targets.md](docs/targets.md); DEG not yet checked, no PBP or FabI structure passes.
+- [x] Add entries to `app/worker/structures`, run the existing prepare step, run the redocking control (2 Å rule) and record pass or fail honestly. `M` Four structures pass (two targets), six failed and were dropped; see [docs/targets.md](docs/targets.md). The web UI does not list them yet.
 - [ ] Mutant handling: use a mutant structure only where one exists; otherwise say so. `S`
 - [x] Ranking skeleton against the fixture `ResistanceProfile`: evasion rule (defeated, partly affected, unaffected), features stored separately, simple ordered scoring (evasion first, then evidence), documented weights. `M`
 - [x] Baselines for WS5: random, "class not defeated" only, "activity data only". `S`
@@ -121,7 +127,7 @@ Short, blocks everything. Do together, then split.
 - [ ] Input screen: pick a pathogen or paste resistance genes. `M`
 - [ ] Resistance map: mechanisms present against drug classes defeated, colour for evaded, partly affected, defeated. This is the main G-Research visual. `L`
 - [x] Candidate view: ranked list, explanation, evidence, jury output, caveats. `L`
-- [ ] Hide the COVID disease flow behind a flag rather than deleting it, so existing tests and the offline demo keep working until the new flow is complete. `M`
+- [x] Gate the older disease flow behind `VITE_DISEASE_FLOW=1`; the resistance flow is the default and has its own offline browser checks. `M`
 - [x] Rebuild evidence packets for resistance (mechanisms present, supporting and contradicting findings, safety, missing evidence); keep the existing validators and refusal handling. `M`
 
 **Done when:** the new flow runs end to end in the browser on fixtures.
@@ -132,12 +138,12 @@ Short, blocks everything. Do together, then split.
 
 | Task | Lane | Size |
 | --- | --- | --- |
-| Swap fixtures for real profiles from WS2; run the ranking for all three pathogens | A + B | M |
-| Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running | A | S |
+| [x] Swap fixtures for real profiles from WS2; run the ranking for all three pathogens. Reproducible runner and full CARD/ChEMBL proof: [integration report](docs/pathogen-integration.md) (126 drugs per pathogen, zero unresolved inputs) | A + B | M |
+| Freeze the validation protocol (inputs, metrics, rules) with checksums **before** running. A draft with the activity-floor ablation and a `freeze` command is in [docs/retrospective-protocol.md](docs/retrospective-protocol.md); it needs the cited cases below. What the ranking did on real profiles: [docs/ranking-observations.md](docs/ranking-observations.md) | A | S |
 | Ground-truth table of resistance profile to known effective drug, cited and checked for label errors | A | M |
 | Run the retrospective test: hits@k, MRR, bootstrap CI against baselines; failure analysis including negative results; put the result in `results/` and the README | A | M |
 | Wire the smoke test into every candidate, run Lean on survivors only, cache by InChIKey, batch it | B | S |
-| Antibiotic-specific rules (Gram-negative accumulation hint, resistance-substrate SMARTS, each cited) and a toxicity step beyond PAINS/Brenk with stated accuracy | B | M |
+| [x] Antibiotic-specific 2D accumulation hint, profile-scoped resistance SMARTS and curated toxicity alerts (accuracy: not measured); tests and evidence in [WS8 chemistry evidence](docs/ws8-chemistry-evidence.md). | B | M |
 | Certificate view and per-candidate smoke-test panel in the app | C | M |
 | 3D pose view for docked candidates (reuse the 3Dmol viewer) | C | S |
 | Jury runs on the shortlist; invalid replies recorded, never filled in | C | S |
@@ -147,15 +153,45 @@ Short, blocks everything. Do together, then split.
 
 ---
 
-## 6. Phase 3: stretch (only after Phase 2 is green)
+## 5b. Whole-cell candidate pipeline (added 8 November 2026, decided in #82)
 
-**Cut line:** decide in Phase 0. Suggested order, stop when time runs out:
+A second lane beside the evasion ranking, not a replacement. The evasion ranking stays the app and demo path; this pipeline is intended to supply the prediction evaluation and HRT proof; results are not available yet. It targets *A. baumannii* only. Source: the AMR candidate discovery build spec; its numbers (AUC, coverage, hit rates) are expectations to report against, not targets.
 
-1. Resistance-risk score (how easily the target mutates away). `M`, B
-2. Docking against wild type versus mutant target in the ranking. `M`, B
-3. Generative step with an existing model, labelled and visibly separate from approved drugs. Pick one model, check licence, weights and hardware first. `L`, B with a compute plan from C. Needs the activity predictor (`L`, A)
-4. Agentic evidence-gathering step, only if Wordsmith is in. `L`, C
-5. Structural Lean proofs. `L`, B. Lowest priority
+| Issue | Task | Lane | Size |
+| --- | --- | --- | --- |
+| #83 | Ingest CO-ADD and ChEMBL whole-cell data, and the retrieval library | A | L |
+| #84 | Scaffold splits (plus a publication-year split) and the leakage assertion module | A | M |
+| #85 | Whole-cell activity ranker: Chemprop-style ensemble of five | A | L |
+| #86 | Generation with **SyntheMol** (MIT licence, CPU only, built for *A. baumannii*), guided by our own #85 model | B | M |
+| #87 | Filter cascade with rejection log and funnel | B | M |
+| #88 | Oracle interface and cost ledger (RDKit filters and docking) | B | M |
+| #89 | Budgeted scheduler against a fixed funnel | B | L |
+| #90 | Conformal prediction with abstention, and SHAP | B | M |
+| #91, #92 | Hidden-drug retrieval test: setup, then run and report every attempt | A | L, M |
+| #95 | Browser verification agent (Wordsmith) | C | L |
+
+**Generation (decided in #82, researched 8 November 2026).** Open-source generators exist, so none is built from scratch. SyntheMol (MIT, Swanson et al., *Nature Machine Intelligence* 2024) generates synthesisable molecules by tree search or reinforcement learning over building blocks and reactions, guided by a Chemprop bioactivity model, and its README says it runs on a laptop (16 GB, 8 to 16 CPUs). REINVENT 4 (Apache-2.0) is the alternative. Hosting is therefore a plain x86 Vultr VM (`deploy/vultr/setup.sh`), not a GPU plan. **Leakage rule:** guide SyntheMol with our own #85 model trained on the purged data, never with a pretrained model, or the hidden-drug test is contaminated. Check that the bundled building blocks may be reused before relying on them. Details on #86.
+
+---
+
+## 6. Phase 3 and the 10-hour cut line
+
+**Budget: 10 hours remaining** (answer on #82, 8 November 2026). That is far less than the plan above assumes, so the order below is the cut line: work down the tiers and stop when time runs out. It is a working order, not a team decision; reorder it in #82.
+
+**Tier 1, the proof and the demo.** If one of these slips, the project has no result.
+
+1. #83, #84, #85: data, splits, ranker, in that order (Lane A)
+2. #86, #87: generation and filters, once #85 exists (Lane B)
+3. #88: ledger with fidelities 0 and 1 (Lane B)
+4. #91, #92: the hidden-drug test and its honest write-up (Lane A)
+5. #95: browser agent (Lane C, in parallel; cache one run for the offline demo)
+6. #43 offline demo path, #50 limits statement, #53 demo script, #52 Devpost writeup
+
+**Tier 2, only if Tier 1 is green.** #90 conformal and SHAP, #89 scheduler (the spec's headline claim, so if the team wants it in Tier 1 something above has to leave), #34 real profiles for all three pathogens, #38 and #39 rules, #40 and #41 views.
+
+**Tier 3, out at this budget.** #93 Boltz-2 and #94 OpenMM (the spec's hour-14 abort exceeds the whole budget), #44, #45, #49. The retrospective test (#35, #36, #37) is cut before the hidden-drug test: drop #37 first, then #36, then #35.
+
+Closed as superseded: #46 by #86, #47 by #85, #48 by #95.
 
 Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 
@@ -167,8 +203,8 @@ Nothing in Phase 3 should start before the HRT proof (WS5) is published.
 - [ ] Record a fallback demo video as soon as the offline path works, then re-record at the end. `S`, C
 - [ ] Devpost writeup following the two reference writeups, results with intervals. `M`, C with A for numbers
 - [ ] Two to three minute demo script. `M`, all
-- [ ] Sponsor mapping: how the project meets HRT (prediction and decision), G-Research (making the invisible visible), plus the integrations used (Gemini, Vultr, Tiger Data, Entire). Confirm judging criteria with the sponsors. `S`, C
-- [ ] Update [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for new reused code and data licences (CARD, ChEMBL). `S`, whoever adds the source
+- [x] Sponsor mapping: how the project meets HRT (prediction and decision), G-Research (making the invisible visible), plus the integrations used (Gemini, Vultr, Tiger Data, Entire). Confirm judging criteria with the sponsors. `S`, C. Written in [docs/sponsor-mapping.md](docs/sponsor-mapping.md). The public site has no scored rubric, and the sponsors have not confirmed one.
+- [x] Update [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for new reused code and data licences (CARD, ChEMBL). `S`, whoever adds the source. CARD, ChEMBL, the PDB entries, the disease-pipeline sources, and the scientific toolchain are listed there.
 - [x] Clean stray legacy-name references; refresh the README pipeline diagram and "Tasks" section. `S`, C
 - [ ] Enable Entire in the repo if it is being claimed as a sponsor integration (`entire enable`). `S`
 
@@ -194,3 +230,4 @@ Cut scope at C2 if the retrospective result is still missing; the proof matters 
 - **Schema churn** from the pivot. Contracts frozen in Phase 0, only Lane C regenerates API types.
 - **Docking overclaimed.** Keep it a supporting signal, not the headline.
 - **Sponsor clients fail live.** Prove them early (Lane C, Phase 1) so there is time to fix or drop them.
+- **Open items from the ranking and profiling work** (inhibitors in the pool, intrinsic resistance, missing ground truth, unreviewed expectations, unverified citations and more) are listed with owners in [docs/open-issues.md](docs/open-issues.md).

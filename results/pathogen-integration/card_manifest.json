@@ -1,0 +1,131 @@
+{
+  "card_data_timestamp": "2026-08-11T13:01:48+00:00",
+  "card_data_version": "4.0.2",
+  "integrity": {
+    "category_links_without_ontology_term": [],
+    "models_without_categories": [],
+    "models_without_ontology_term": [],
+    "non_mutation_parameters_skipped": {
+      "efflux pump components": 22,
+      "gene order": 14
+    }
+  },
+  "licence": {
+    "caveat": "The CARD-Download-README.txt inside the data archive adds that use by any commercial organisation needs written permission from McMaster University. Treat the data as non-commercial and attribute CARD.",
+    "citation": "Alcock et al. 2023. CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. Nucleic Acids Research 51, D690-D699. https://pubmed.ncbi.nlm.nih.gov/36263822/",
+    "name": "CC-BY-4.0 (as stated on card.mcmaster.ca/download and in the ontology README)",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "ontology_date": "11:08:2026 08:59",
+  "schema": 1,
+  "sources": {
+    "data": {
+      "bytes": 4366637,
+      "fetched_at": "2026-11-08T02:12:29+00:00",
+      "file": "card-data.tar.bz2",
+      "sha256": "94b89501fc26daafbe65e4151c17a8b007dc1272c4f8201737e44e44cdd4c065",
+      "url": "https://card.mcmaster.ca/latest/data"
+    },
+    "ontology": {
+      "bytes": 1159321,
+      "fetched_at": "2026-11-08T02:12:29+00:00",
+      "file": "card-ontology.tar.bz2",
+      "sha256": "b6c48b73d80dbe58eb9aefec9bf133b1c552a3993d363fd104aa161d45b294e2",
+      "url": "https://card.mcmaster.ca/latest/ontology"
+    }
+  },
+  "tables": {
+    "aro_categories": {
+      "columns": [
+        "category_class",
+        "aro_accession",
+        "name"
+      ],
+      "rows": 685,
+      "sha256": "9fcb580d385c0d37c0b20587bdffd3dcfc8d47dd39c9fe514471023a07958cad"
+    },
+    "aro_relations": {
+      "columns": [
+        "subject",
+        "relation",
+        "object"
+      ],
+      "rows": 15974,
+      "sha256": "42386b481e570be57daf878d876c2438466796dba168ac3e16973b064cd37a92"
+    },
+    "aro_synonyms": {
+      "columns": [
+        "aro_accession",
+        "synonym",
+        "scope"
+      ],
+      "rows": 8092,
+      "sha256": "37b352b4bcdca9470736ca5d92642c6188cffd2562c3da36558eda5f33a85e6d"
+    },
+    "aro_terms": {
+      "columns": [
+        "aro_accession",
+        "cvterm_id",
+        "name",
+        "description",
+        "short_name",
+        "is_obsolete"
+      ],
+      "rows": 9051,
+      "sha256": "fb8da7a808a2aa5072e11e046cc383107e7862da396d80d17f77b7891faafe78"
+    },
+    "aro_xrefs": {
+      "columns": [
+        "aro_accession",
+        "db",
+        "xref_id"
+      ],
+      "rows": 2195,
+      "sha256": "c5a89d8008374cf26d96ca45671f63123d1025075f21335ecde30479a0149843"
+    },
+    "model_categories": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "category_aro_accession",
+        "category_class"
+      ],
+      "rows": 26861,
+      "sha256": "8be05169371366a0298429ed7627c62538e8ab4c385345c20f2e401b2184c92f"
+    },
+    "model_sequences": {
+      "columns": [
+        "model_id",
+        "sequence_id",
+        "protein_accession",
+        "dna_accession",
+        "taxon_id",
+        "taxon_name"
+      ],
+      "rows": 6415,
+      "sha256": "3fd76e8feea1d3e1a3445f1910c3690b78769a1d891f5e20e6568b0347cb67f1"
+    },
+    "model_variants": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "param_type",
+        "mutation",
+        "source"
+      ],
+      "rows": 3285,
+      "sha256": "39bf6f1f42f87dbf89a2f2dfd4318855676d7917c6efe35df17ce1530ba6f410"
+    },
+    "models": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "name",
+        "model_type",
+        "short_name"
+      ],
+      "rows": 6451,
+      "sha256": "4a30b0232a75b44c468339e59d8d9aad34921a8e9289df53a5aa6e78acfef5bd"
+    }
+  }
+}

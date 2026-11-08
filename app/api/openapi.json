@@ -573,7 +573,8 @@
           "docking",
           "safety",
           "smoke_test",
-          "approval"
+          "approval",
+          "drug_class"
         ],
         "type": "string"
       },
@@ -583,7 +584,8 @@
           "card",
           "pdb",
           "htb_verify",
-          "htb_docking"
+          "htb_docking",
+          "htb_resistance"
         ],
         "type": "string"
       },
@@ -1713,9 +1715,10 @@
           "target_id": {
             "description": "The protein it is docked into.",
             "examples": [
-              "ENSG00000162434"
+              "ENSG00000096968",
+              "P0A0K8"
             ],
-            "pattern": "^ENSG[0-9]{11}$",
+            "pattern": "^(ENSG[0-9]{11}|[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$",
             "title": "Target Id",
             "type": "string"
           }
@@ -2806,7 +2809,7 @@
           },
           "mode": {
             "$ref": "#/components/schemas/JuryMode",
-            "description": "fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex."
+            "description": "fixture: a recorded review with made-up votes. mock: a practice review; no model is called and every vote is a placeholder with no scientific meaning. cortex: real models through Snowflake Cortex. providers: real models through Gemini, Vultr Inference and Snowflake Cortex, each model ID prefixed with its provider."
           },
           "models": {
             "description": "The jurors, each a different model family.",
@@ -2857,7 +2860,8 @@
         "enum": [
           "fixture",
           "mock",
-          "cortex"
+          "cortex",
+          "providers"
         ],
         "type": "string"
       },
@@ -4317,7 +4321,7 @@
       },
       "Structure": {
         "additionalProperties": false,
-        "description": "A prepared human protein structure that Candidates can be docked into.",
+        "description": "A prepared protein structure that Candidates can be docked into: a human protein, or a\nbacterial one (a UniProt accession as `target_id`).",
         "properties": {
           "box": {
             "$ref": "#/components/schemas/DockingBox"
@@ -4366,14 +4370,15 @@
           "target_id": {
             "description": "The protein this chain is. Never shown as another.",
             "examples": [
-              "ENSG00000162434"
+              "ENSG00000096968",
+              "P0A0K8"
             ],
-            "pattern": "^ENSG[0-9]{11}$",
+            "pattern": "^(ENSG[0-9]{11}|[OPQ][0-9][A-Z0-9]{3}[0-9]|[A-NR-Z][0-9]([A-Z][A-Z0-9]{2}[0-9]){1,2})$",
             "title": "Target Id",
             "type": "string"
           },
           "target_symbol": {
-            "description": "Gene symbol of that protein, e.g. JAK2.",
+            "description": "Gene symbol of that protein, e.g. JAK2 or gyrB.",
             "title": "Target Symbol",
             "type": "string"
           },

@@ -1,0 +1,387 @@
+{
+  "affected_targets": [],
+  "caveats": [
+    "A gene in CARD can confer resistance. It does not show the gene is expressed in this isolate, and AMRFinderPlus documents the same limit.",
+    "Drug classes are CARD's vocabulary, not ATC.",
+    "Placeholder list for the carbapenem-resistant lineage used as the validation species. Replace with a CARD-derived, cited profile.",
+    "The preset is 'draft_unverified': its gene list is not a cited typical profile yet, so treat this profile as a draft."
+  ],
+  "confidence": {
+    "basis": "Genes come from the 'draft_unverified' species preset for Acinetobacter baumannii, not from this isolate. No genome was examined.",
+    "level": "low"
+  },
+  "contract_version": "1",
+  "defeated_classes": [
+    {
+      "aro_id": "ARO:0000000",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "macrolide antibiotic"
+    },
+    {
+      "aro_id": "ARO:0000001",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "fluoroquinolone antibiotic"
+    },
+    {
+      "aro_id": "ARO:0000004",
+      "evidence_ids": [
+        "P2"
+      ],
+      "gene_aro_ids": [
+        "ARO:3001612"
+      ],
+      "name": "monobactam"
+    },
+    {
+      "aro_id": "ARO:0000017",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "lincosamide antibiotic"
+    },
+    {
+      "aro_id": "ARO:0000020",
+      "evidence_ids": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3001418",
+        "ARO:3001612",
+        "ARO:3000781"
+      ],
+      "name": "carbapenem"
+    },
+    {
+      "aro_id": "ARO:0000032",
+      "evidence_ids": [
+        "P3",
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3003868",
+        "ARO:3000781"
+      ],
+      "name": "cephalosporin"
+    },
+    {
+      "aro_id": "ARO:0000042",
+      "evidence_ids": [
+        "P4"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000775"
+      ],
+      "name": "glycylcycline"
+    },
+    {
+      "aro_id": "ARO:3000008",
+      "evidence_ids": [
+        "P1",
+        "P2",
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3001418",
+        "ARO:3001612",
+        "ARO:3000781"
+      ],
+      "name": "penicillin beta-lactam"
+    },
+    {
+      "aro_id": "ARO:3000050",
+      "evidence_ids": [
+        "P4",
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000775",
+        "ARO:3000781"
+      ],
+      "name": "tetracycline antibiotic"
+    },
+    {
+      "aro_id": "ARO:3000157",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "rifamycin antibiotic"
+    },
+    {
+      "aro_id": "ARO:3000171",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "diaminopyrimidine antibiotic"
+    },
+    {
+      "aro_id": "ARO:3000387",
+      "evidence_ids": [
+        "P5"
+      ],
+      "gene_aro_ids": [
+        "ARO:3000781"
+      ],
+      "name": "phenicol antibiotic"
+    }
+  ],
+  "evidence": [
+    {
+      "aro_id": "ARO:3001418",
+      "id": "P1",
+      "release": "card-4.0.2",
+      "source": "card",
+      "statement": "CARD release card-4.0.2 links OXA-23 (ARO:3001418) to carbapenem, penicillin beta-lactam and to antibiotic inactivation."
+    },
+    {
+      "aro_id": "ARO:3001612",
+      "id": "P2",
+      "release": "card-4.0.2",
+      "source": "card",
+      "statement": "CARD release card-4.0.2 links OXA-51 (ARO:3001612) to carbapenem, monobactam, penicillin beta-lactam and to antibiotic inactivation."
+    },
+    {
+      "aro_id": "ARO:3003868",
+      "id": "P3",
+      "release": "card-4.0.2",
+      "source": "card",
+      "statement": "CARD release card-4.0.2 links ADC-25 (ARO:3003868) to cephalosporin and to antibiotic inactivation."
+    },
+    {
+      "aro_id": "ARO:3000775",
+      "id": "P4",
+      "release": "card-4.0.2",
+      "source": "card",
+      "statement": "CARD release card-4.0.2 links adeB (ARO:3000775) to glycylcycline, tetracycline antibiotic and to antibiotic efflux."
+    },
+    {
+      "aro_id": "ARO:3000781",
+      "id": "P5",
+      "release": "card-4.0.2",
+      "source": "card",
+      "statement": "CARD release card-4.0.2 links adeJ (ARO:3000781) to carbapenem, cephalosporin, diaminopyrimidine antibiotic, fluoroquinolone antibiotic, lincosamide antibiotic, macrolide antibiotic, penicillin beta-lactam, phenicol antibiotic, rifamycin antibiotic, tetracycline antibiotic and to antibiotic efflux."
+    }
+  ],
+  "genes": [
+    {
+      "affected_target": null,
+      "aro_id": "ARO:3001418",
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000020",
+          "name": "carbapenem"
+        },
+        {
+          "aro_id": "ARO:3000008",
+          "name": "penicillin beta-lactam"
+        }
+      ],
+      "evidence_ids": [
+        "P1"
+      ],
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0001004",
+          "name": "antibiotic inactivation"
+        }
+      ],
+      "model_type": "protein homolog model",
+      "name": "OXA-23",
+      "variants": []
+    },
+    {
+      "affected_target": null,
+      "aro_id": "ARO:3001612",
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000020",
+          "name": "carbapenem"
+        },
+        {
+          "aro_id": "ARO:0000004",
+          "name": "monobactam"
+        },
+        {
+          "aro_id": "ARO:3000008",
+          "name": "penicillin beta-lactam"
+        }
+      ],
+      "evidence_ids": [
+        "P2"
+      ],
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0001004",
+          "name": "antibiotic inactivation"
+        }
+      ],
+      "model_type": "protein homolog model",
+      "name": "OXA-51",
+      "variants": []
+    },
+    {
+      "affected_target": null,
+      "aro_id": "ARO:3003868",
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000032",
+          "name": "cephalosporin"
+        }
+      ],
+      "evidence_ids": [
+        "P3"
+      ],
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0001004",
+          "name": "antibiotic inactivation"
+        }
+      ],
+      "model_type": "protein homolog model",
+      "name": "ADC-25",
+      "variants": []
+    },
+    {
+      "affected_target": null,
+      "aro_id": "ARO:3000775",
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000042",
+          "name": "glycylcycline"
+        },
+        {
+          "aro_id": "ARO:3000050",
+          "name": "tetracycline antibiotic"
+        }
+      ],
+      "evidence_ids": [
+        "P4"
+      ],
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0010000",
+          "name": "antibiotic efflux"
+        }
+      ],
+      "model_type": "protein homolog model",
+      "name": "adeB",
+      "variants": []
+    },
+    {
+      "affected_target": null,
+      "aro_id": "ARO:3000781",
+      "defeated_classes": [
+        {
+          "aro_id": "ARO:0000020",
+          "name": "carbapenem"
+        },
+        {
+          "aro_id": "ARO:0000032",
+          "name": "cephalosporin"
+        },
+        {
+          "aro_id": "ARO:3000171",
+          "name": "diaminopyrimidine antibiotic"
+        },
+        {
+          "aro_id": "ARO:0000001",
+          "name": "fluoroquinolone antibiotic"
+        },
+        {
+          "aro_id": "ARO:0000017",
+          "name": "lincosamide antibiotic"
+        },
+        {
+          "aro_id": "ARO:0000000",
+          "name": "macrolide antibiotic"
+        },
+        {
+          "aro_id": "ARO:3000008",
+          "name": "penicillin beta-lactam"
+        },
+        {
+          "aro_id": "ARO:3000387",
+          "name": "phenicol antibiotic"
+        },
+        {
+          "aro_id": "ARO:3000157",
+          "name": "rifamycin antibiotic"
+        },
+        {
+          "aro_id": "ARO:3000050",
+          "name": "tetracycline antibiotic"
+        }
+      ],
+      "evidence_ids": [
+        "P5"
+      ],
+      "mechanisms": [
+        {
+          "aro_id": "ARO:0010000",
+          "name": "antibiotic efflux"
+        }
+      ],
+      "model_type": "protein homolog model",
+      "name": "adeJ",
+      "variants": []
+    }
+  ],
+  "input": {
+    "kind": "species_preset",
+    "requested": [
+      "OXA-23",
+      "OXA-51",
+      "ADC-25",
+      "adeB",
+      "adeJ"
+    ],
+    "species": {
+      "name": "Acinetobacter baumannii",
+      "ncbi_taxid": 470
+    }
+  },
+  "mechanisms": [
+    {
+      "aro_id": "ARO:0001004",
+      "gene_aro_ids": [
+        "ARO:3001418",
+        "ARO:3001612",
+        "ARO:3003868"
+      ],
+      "name": "antibiotic inactivation"
+    },
+    {
+      "aro_id": "ARO:0010000",
+      "gene_aro_ids": [
+        "ARO:3000775",
+        "ARO:3000781"
+      ],
+      "name": "antibiotic efflux"
+    }
+  ],
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "releases": [
+    "card-4.0.2"
+  ],
+  "unresolved_inputs": []
+}

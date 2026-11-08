@@ -68,13 +68,13 @@ class Profile:
         return json.dumps(self.contract, indent=2)
 
 
-def _profile_id(release: str, kind: str, requested) -> str:
+def _profile_id(release: str, kind: str, requested, supplement: str | None = None) -> str:
     """A UUID that is stable for the same inputs against the same release.
 
     uuid5 of the inputs, with the version and variant bits set to those of a version 4
     UUID so it satisfies the contract while staying reproducible across runs.
     """
-    seed = "htb26:resistance-profile:" + "\u001f".join([release, kind, *requested])
+    seed = "htb26:resistance-profile:" + "\u001f".join([release, supplement or "", kind, *requested])
     raw = bytearray(uuid.uuid5(uuid.NAMESPACE_URL, seed).bytes)
     raw[6] = (raw[6] & 0x0F) | 0x40
     raw[8] = (raw[8] & 0x3F) | 0x80
@@ -124,8 +124,26 @@ def _affected_target(entry: Entry) -> dict | None:
     return {"name": entry.short_name or entry.name, "pdb_ids": []}
 
 
-def _rollup(calls, rows, key) -> list:
-    """Group a per-gene term list into a roll-up carrying the genes behind each term."""
+def _join(items: list) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def _curated_statement(entry: Entry, supplement_release: str, card_release: str) -> str:
+    added = [c.drug_class.name for c in entry.curated]
+    cites = "; ".join(f"{c['citation']} (PMID {c['pmid']})"
+                      for cur in entry.curated for c in cur.citations)
+    reasons = " ".join(dict.fromkeys(cur.reason for cur in entry.curated))
+    return (f"Curated supplement, not in {card_release.replace('card-', 'CARD ')}: {entry.name} also defeats the "
+            f"{_join(added)} drug {'class' if len(added) == 1 else 'classes'}. {reasons} Sources: {cites}")
+
+
+def _rollup(calls, rows, key, evidence=None) -> list:
+    """Group a per-gene term list into a roll-up carrying the genes behind each term.
+
+    `evidence` maps (gene, term) to the evidence ids behind that link, so a class the curated
+    supplement added cites the supplement's item and a class CARD holds cites CARD's. Without it
+    every term cites the gene's CARD item.
+    """
     out: dict[str, dict] = {}
     for call, row in zip(calls, rows):
         for term in row[key]:
@@ -133,8 +151,9 @@ def _rollup(calls, rows, key) -> list:
                                                    "gene_aro_ids": [], "evidence_ids": []})
             if row["aro_id"] not in item["gene_aro_ids"]:
                 item["gene_aro_ids"].append(row["aro_id"])
-            if call.evidence_id not in item["evidence_ids"]:
-                item["evidence_ids"].append(call.evidence_id)
+            for ev in (evidence or {}).get((row["aro_id"], term["aro_id"]), [call.evidence_id]):
+                if ev not in item["evidence_ids"]:
+                    item["evidence_ids"].append(ev)
     return [out[k] for k in sorted(out)]
 
 
@@ -206,6 +225,29 @@ def build_profile(parsed: Parsed, reference: Reference, strict: bool = False) ->
                  "statement": _statement(reference.entries[c.aro_id], release, c.mutation)}
                 for c in calls]
 
+    # Classes from the curated supplement come after CARD's own, each gene with one extra evidence
+    # item (source "curated") so they can always be told apart from CARD's links.
+    class_evidence: dict[tuple[str, str], list[str]] = {}
+    for call, row in zip(calls, rows):
+        for term in row["defeated_classes"]:
+            class_evidence[(row["aro_id"], term["aro_id"])] = [call.evidence_id]
+    curated_genes = 0
+    for call, row in zip(calls, rows):
+        entry = reference.entries[call.aro_id]
+        if not entry.curated:
+            continue
+        curated_genes += 1
+        curated_id = f"P{len(evidence) + 1}"
+        evidence.append({"id": curated_id, "source": "curated", "release": reference.supplement_release,
+                         "aro_id": call.aro_id,
+                         "statement": _curated_statement(entry, reference.supplement_release, release)})
+        row["evidence_ids"].append(curated_id)
+        row["defeated_classes"] = sorted(row["defeated_classes"] + [c.drug_class.as_dict() for c in entry.curated],
+                                         key=lambda t: t["name"])
+        for c in entry.curated:
+            class_evidence[(call.aro_id, c.drug_class.aro_id)] = [curated_id]
+    releases = [release] + ([reference.supplement_release] if curated_genes else [])
+
     targets: dict[str, dict] = {}
     for row in rows:
         target = row["affected_target"]
@@ -220,30 +262,33 @@ def build_profile(parsed: Parsed, reference: Reference, strict: bool = False) ->
 
     contract = {
         "contract_version": CONTRACT_VERSION,
-        "profile_id": _profile_id(release, parsed.kind, parsed.requested),
+        "profile_id": _profile_id(release, parsed.kind, parsed.requested, reference.supplement_release),
         "input": {
             "kind": parsed.kind,
             "species": parsed.species.as_dict() if parsed.species else None,
             "requested": list(parsed.requested),
         },
         "unresolved_inputs": unresolved,
-        "releases": [release],
+        "releases": releases,
         "genes": rows,
         "mechanisms": mechanisms,
-        "defeated_classes": _rollup(calls, rows, "defeated_classes"),
+        "defeated_classes": _rollup(calls, rows, "defeated_classes", class_evidence),
         "affected_targets": [targets[k] for k in sorted(targets)],
         "evidence": evidence,
         "confidence": _confidence(parsed, calls),
-        "caveats": _caveats(parsed, reference, calls, rows, unresolved, nameless),
+        "caveats": _caveats(parsed, reference, calls, rows, unresolved, nameless, bool(curated_genes)),
     }
     return Profile(contract=contract, calls=calls,
                    status="ok" if not unresolved else "partial")
 
 
 def _caveats(parsed: Parsed, reference: Reference, calls, rows, unresolved,
-             nameless: int = 0) -> list:
+             nameless: int = 0, curated: bool = False) -> list:
     caveats = [PRESENCE_CAVEAT, VOCABULARY_CAVEAT]
     caveats.extend(parsed.notes)
+    if curated:
+        caveats.append("Some defeated classes come from a curated supplement, not from CARD's download. Each is "
+                       "marked in the evidence (source: curated) with its citations.")
     if nameless:
         caveats.append(f"{nameless} input row(s) carried no gene symbol and were skipped.")
     if parsed.kind == SPECIES_PRESET:

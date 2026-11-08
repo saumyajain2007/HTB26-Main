@@ -26,7 +26,7 @@
       "ncbi_taxid": 1280,
       "aliases": ["S. aureus", "saureus", "MRSA", "staphylococcus"],
       "note": "Placeholder list for MRSA. Gram-positive, so the outer-membrane permeability assumptions behind the Gram-negative targets do not apply. Replace with a CARD-derived, cited profile.",
-      "genes": ["mecA", "blaZ", "tet(K)", "msr(A)"]
+      "genes": ["mecA", "ARO:3000621", "tet(K)", "msr(A)"]
     }
   }
 }

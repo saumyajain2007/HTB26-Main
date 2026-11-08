@@ -71,11 +71,11 @@ def test_every_structure_starts_with_a_queued_control_and_nothing_measured(
     stack: Stack,
 ) -> None:
     components = stack()
-    assert [job.status for job in controls(components)] == ["queued"] * 4
+    assert [job.status for job in controls(components)] == ["queued"] * 8
     assert all(job.fixture is False for job in controls(components))
     assert {s.control.status for s in components.docking.structures()} == {"not_measured"}
     stack()  # a second process seeds the same rows
-    assert len(controls(components)) == 4
+    assert len(controls(components)) == 8
 
 
 def test_the_claim_skips_a_row_another_worker_holds(stack: Stack, pg_database: str) -> None:
@@ -96,7 +96,7 @@ def test_the_claim_skips_a_row_another_worker_holds(stack: Stack, pg_database: s
 
 def test_concurrent_claims_never_share_a_job(stack: Stack) -> None:
     components = stack()
-    workers = [docking_worker(components) for _ in range(4)]
+    workers = [docking_worker(components) for _ in range(8)]
     claimed: list[UUID] = []
     barrier = threading.Barrier(len(workers))
     lock = threading.Lock()
@@ -113,7 +113,7 @@ def test_concurrent_claims_never_share_a_job(stack: Stack) -> None:
         thread.start()
     for thread in threads:
         thread.join(10)
-    assert len(set(claimed)) == 4
+    assert len(set(claimed)) == 8
     assert docking_worker(components).claim() is None, "every queued job is taken"
 
 
