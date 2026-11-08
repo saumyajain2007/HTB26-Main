@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 378" width="760" height="378" font-family="system-ui, sans-serif" font-size="13">
+<text x="10" y="24" font-size="16" font-weight="600">Filter cascade: generated batch run1</text>
+<text x="10" y="44" fill="#555">2,670 of 7,463 survive (35.8%)</text>
+<text x="10" y="82">input</text>
+<rect x="210" y="62" width="420.0" height="26" rx="3" fill="#3b7dd8"/>
+<text x="638.0" y="80">7,463</text>
+<text x="10" y="126">validity</text>
+<rect x="210" y="106" width="420.0" height="26" rx="3" fill="#3b7dd8"/>
+<text x="638.0" y="124">7,463</text>
+<text x="10" y="170">heavy atoms</text>
+<rect x="210" y="150" width="419.9" height="26" rx="3" fill="#3b7dd8"/>
+<text x="637.9" y="168">7,462  (-1)</text>
+<text x="10" y="214">synthetic accessibility</text>
+<rect x="210" y="194" width="419.9" height="26" rx="3" fill="#3b7dd8"/>
+<text x="637.9" y="212">7,461  (-1)</text>
+<text x="10" y="258">structural alerts</text>
+<rect x="210" y="238" width="150.3" height="26" rx="3" fill="#3b7dd8"/>
+<text x="368.3" y="256">2,670  (-4,791)</text>
+<text x="10" y="302">gram negative entry 2d</text>
+<rect x="210" y="282" width="150.3" height="26" rx="3" fill="#3b7dd8"/>
+<text x="368.3" y="300">2,670</text>
+<text x="10" y="346">conformer</text>
+<rect x="210" y="326" width="150.3" height="26" rx="3" fill="#3b7dd8"/>
+<text x="368.3" y="344">2,670</text>
+</svg>

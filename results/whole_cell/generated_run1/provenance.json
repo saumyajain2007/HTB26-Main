@@ -1,0 +1,59 @@
+{
+  "batch": "run1",
+  "guide": {
+    "building_block_scoring_seconds": 88.2,
+    "building_blocks_file_sha256": "c0d6174ac84e3d7987257915b5c62f2761e0ba9660c9cfec773d84e353537b51",
+    "epochs": 30,
+    "extra_features": "none",
+    "guide_checkpoints": [
+      {
+        "file": "guide_model/fold_0/model_0/model.pt",
+        "sha256": "f23732c448c2b4ef462eda14187739913c4297af2fb75acf6fac9b2bf72065d6"
+      }
+    ],
+    "guide_csv_sha256": "46268d77a97ccc25ecb6a808bc74ea1d8567b7a31768cf25596df28e0f029bf9",
+    "guide_train_seconds": 14.6,
+    "seed": 0,
+    "versions": {
+      "chemprop": "1.5.2",
+      "rdkit": "2026.09.1",
+      "synthemol": "unknown",
+      "torch": "2.15.0"
+    }
+  },
+  "guide_rows_purged_as_analogues": 0,
+  "guide_training_rows": 5334,
+  "held_out": [
+    "RS-102895",
+    "SU3327"
+  ],
+  "rng_seed": 0,
+  "rows": 7463,
+  "search": {
+    "n_rollout": 5000,
+    "rng_seed": 0,
+    "search_seconds": 2370.2,
+    "synthemol": "1.0.4"
+  },
+  "summary": {
+    "cascade_input": 7463,
+    "cascade_survival_rate": 0.3578,
+    "cascade_survivors": 2670,
+    "guide_score_min_median_max": [
+      0.7918357253074646,
+      0.9331966042518616,
+      0.9986891150474548
+    ],
+    "import_counts": {
+      "duplicate": 0,
+      "invalid": 0,
+      "kept": 7463,
+      "leak_removed": 0,
+      "raw": 7463
+    },
+    "molecules_with_6_or_more_fluorines": 2516,
+    "novelty_median_max_sim_train": 0.25
+  },
+  "table_sha256": "d4df61f4ce1142e829d86f72a33c13e6f93c8c47cce13416b004236afc5aaf46",
+  "written": "2026-11-08T04:09:50+00:00"
+}
