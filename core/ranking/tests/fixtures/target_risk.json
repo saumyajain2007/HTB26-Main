@@ -1,0 +1,165 @@
+{
+  "_comment": "Fixture for the per-target escape-risk band. Four cases: a well-studied protein target, a multi-copy rRNA target that is downgraded for recessiveness, a target whose only documented escape route is replacement, and a target with no documented mutations at all (unknown, never low). See docs/resistance-risk.md.",
+  "rule_version": "1",
+  "targets": [
+    {
+      "band": "moderate",
+      "band_before_adjustment": "moderate",
+      "caveats": [
+        {
+          "code": "literature_bias",
+          "message": "the count reflects how much this target has been studied as well as how readily it mutates; CARD does not separate the two"
+        },
+        {
+          "code": "fitness_cost_unknown",
+          "message": "no fitness cost is accounted for: a mutation that confers resistance and cripples the organism is counted the same as one that does not"
+        }
+      ],
+      "copy_number": 1,
+      "cross_class_breadth": 1,
+      "drug_classes": [
+        "fluoroquinolone"
+      ],
+      "escape_routes": 5,
+      "evidence_depth": 5,
+      "hotspot_concentration": 0.3333,
+      "mechanisms_counted": {
+        "antibiotic target alteration": 9
+      },
+      "name": "gyrA",
+      "non_mutational_routes": [],
+      "ordinal": true,
+      "positions": [
+        67,
+        81,
+        83,
+        87,
+        119
+      ],
+      "rule_version": "1",
+      "substitutions": 9,
+      "target_aro_id": "ARO:3000676"
+    },
+    {
+      "band": "low",
+      "band_before_adjustment": "moderate",
+      "caveats": [
+        {
+          "code": "literature_bias",
+          "message": "the count reflects how much this target has been studied as well as how readily it mutates; CARD does not separate the two"
+        },
+        {
+          "code": "fitness_cost_unknown",
+          "message": "no fitness cost is accounted for: a mutation that confers resistance and cripples the organism is counted the same as one that does not"
+        },
+        {
+          "code": "multi_copy_recessive",
+          "message": "the target has 7 copies, so a single resistance SNP is recessive: wild-type copies still make drug-sensitive product. Band downgraded from moderate to low"
+        },
+        {
+          "code": "single_source",
+          "message": "all counted mutations trace to 1 source(s), so the count is one group's observations rather than a consensus"
+        },
+        {
+          "code": "cross_class_breadth",
+          "message": "the documented mutations span 3 drug classes, so escape here costs more than one option"
+        }
+      ],
+      "copy_number": 7,
+      "cross_class_breadth": 3,
+      "drug_classes": [
+        "lincosamide",
+        "macrolide",
+        "streptogramin"
+      ],
+      "escape_routes": 4,
+      "evidence_depth": 1,
+      "hotspot_concentration": 0.25,
+      "mechanisms_counted": {
+        "antibiotic target alteration": 4
+      },
+      "name": "23S rRNA",
+      "non_mutational_routes": [],
+      "ordinal": true,
+      "positions": [
+        2057,
+        2058,
+        2059,
+        2611
+      ],
+      "rule_version": "1",
+      "substitutions": 4,
+      "target_aro_id": "ARO:3004297"
+    },
+    {
+      "band": "unknown",
+      "band_before_adjustment": "unknown",
+      "caveats": [
+        {
+          "code": "literature_bias",
+          "message": "the count reflects how much this target has been studied as well as how readily it mutates; CARD does not separate the two"
+        },
+        {
+          "code": "fitness_cost_unknown",
+          "message": "no fitness cost is accounted for: a mutation that confers resistance and cripples the organism is counted the same as one that does not"
+        },
+        {
+          "code": "absence_is_not_robustness",
+          "message": "no documented resistance mutations, which is an absence of publications rather than evidence of robustness; this is reported as unknown and never as low risk"
+        },
+        {
+          "code": "non_mutational_route_present",
+          "message": "escape is also documented without mutating this target (antibiotic target replacement); those routes are listed separately and are not counted toward the band, because acquiring or overproducing a protein is not the target mutating"
+        }
+      ],
+      "copy_number": 1,
+      "cross_class_breadth": 0,
+      "drug_classes": [],
+      "escape_routes": 0,
+      "evidence_depth": 0,
+      "hotspot_concentration": 0.0,
+      "mechanisms_counted": {},
+      "name": "PBP2",
+      "non_mutational_routes": [
+        "antibiotic target replacement"
+      ],
+      "ordinal": true,
+      "positions": [],
+      "rule_version": "1",
+      "substitutions": 0,
+      "target_aro_id": "ARO:3000805"
+    },
+    {
+      "band": "unknown",
+      "band_before_adjustment": "unknown",
+      "caveats": [
+        {
+          "code": "literature_bias",
+          "message": "the count reflects how much this target has been studied as well as how readily it mutates; CARD does not separate the two"
+        },
+        {
+          "code": "fitness_cost_unknown",
+          "message": "no fitness cost is accounted for: a mutation that confers resistance and cripples the organism is counted the same as one that does not"
+        },
+        {
+          "code": "absence_is_not_robustness",
+          "message": "no documented resistance mutations, which is an absence of publications rather than evidence of robustness; this is reported as unknown and never as low risk"
+        }
+      ],
+      "copy_number": null,
+      "cross_class_breadth": 0,
+      "drug_classes": [],
+      "escape_routes": 0,
+      "evidence_depth": 0,
+      "hotspot_concentration": 0.0,
+      "mechanisms_counted": {},
+      "name": "undocumented target",
+      "non_mutational_routes": [],
+      "ordinal": true,
+      "positions": [],
+      "rule_version": "1",
+      "substitutions": 0,
+      "target_aro_id": "ARO:0000000"
+    }
+  ]
+}
