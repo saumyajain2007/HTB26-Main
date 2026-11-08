@@ -2,9 +2,11 @@ import type { ReactNode } from "react";
 import { Link } from "react-router";
 import { copy } from "../copy/en";
 import { BrandMark } from "./BrandMark";
+import { AccountLink } from "../auth/AccountLink";
 import styles from "./PageFrame.module.css";
 
 interface PageFrameProps {
+  showAccount?: boolean;
   /** What the header shows after the product name, in reading order. */
   header?: ReactNode;
   /** What the footer shows at its right, e.g. a step's Back and Next; no footer without it. */
@@ -18,7 +20,13 @@ interface PageFrameProps {
  * The frame of every screen: a header that starts with the product name, the main area, and an
  * optional footer. Rendering them here is what keeps each to exactly once.
  */
-export function PageFrame({ header, footer, flow = "fit", children }: PageFrameProps) {
+export function PageFrame({
+  header,
+  footer,
+  flow = "fit",
+  showAccount = true,
+  children,
+}: PageFrameProps) {
   return (
     <div className={styles.page} data-flow={flow}>
       <header className={styles.header}>
@@ -27,6 +35,7 @@ export function PageFrame({ header, footer, flow = "fit", children }: PageFrameP
           {copy.product}
         </Link>
         {header}
+        {showAccount && <AccountLink />}
       </header>
       <main className={styles.main}>{children}</main>
       {footer !== undefined && <footer className={styles.footer}>{footer}</footer>}
