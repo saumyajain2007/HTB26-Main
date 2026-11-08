@@ -59,7 +59,7 @@ def scaffold_split(scaffolds: list[str], labels: list[int], seed: int = SPLIT_SE
     rng = random.Random(seed)
     items = sorted(groups.items(), key=lambda kv: kv[0])
     rng.shuffle(items)
-    biggest = max(target_n["test"], 1)
+    biggest = max(target_n.get("test", min(target_n.values())), 1)
     big = [g for g in items if len(g[1]) > biggest / 2]
     rest = [g for g in items if len(g[1]) <= biggest / 2]
     rest.sort(key=lambda g: 0 if any(labels[i] for i in g[1]) else 1)  # stable: active-bearing groups first
@@ -90,13 +90,16 @@ def random_split(labels: list[int], seed: int = SPLIT_SEED,
     rng = random.Random(seed)
     assign = [""] * len(labels)
     names = list(fractions)
+    total = sum(fractions.values())
     for cls in (0, 1):
         idx = [i for i, y in enumerate(labels) if y == cls]
         rng.shuffle(idx)
-        cut1 = round(fractions[names[0]] * len(idx))
-        cut2 = cut1 + round(fractions[names[1]] * len(idx))
+        cuts, running = [], 0.0
+        for name in names[:-1]:
+            running += fractions[name] / total
+            cuts.append(round(running * len(idx)))
         for pos, i in enumerate(idx):
-            assign[i] = names[0] if pos < cut1 else names[1] if pos < cut2 else names[2]
+            assign[i] = names[sum(pos >= c for c in cuts)]
     return assign
 
 
