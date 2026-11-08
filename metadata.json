@@ -1,0 +1,59 @@
+{
+  "cli_version": "0.13.1",
+  "checkpoint_id": "01M6X5NCCCP6AS7S6GABKPWAWV",
+  "strategy": "manual-commit",
+  "branch": "live-resistance-validation-leakage",
+  "checkpoints_count": 5,
+  "files_touched": [
+    "app/web/e2e/saved-resistance.spec.ts",
+    "app/web/src/app/Figure.module.css",
+    "app/web/src/app/PageFrame.module.css",
+    "app/web/src/app/Shell.module.css",
+    "app/web/src/app/Shell.tsx",
+    "app/web/src/copy/en.ts",
+    "app/web/src/lib/resistanceCandidates.test.ts",
+    "app/web/src/lib/resistanceCandidates.ts",
+    "app/web/src/steps/PoseStep.tsx",
+    "app/web/src/steps/ResistanceCandidates.module.css",
+    "app/web/src/steps/ResistanceCandidates.test.tsx",
+    "app/web/src/steps/ResistanceCandidates.tsx",
+    "app/web/src/steps/ResistanceMap.module.css",
+    "app/web/src/steps/steps-5-8.test.tsx",
+    "app/web/src/styles/tokens.css",
+    "app/web/src/test/setup.ts",
+    "app/web/src/three/PoseViewer.module.css",
+    "app/web/src/three/PoseViewer.test.tsx",
+    "app/web/src/three/PoseViewer.tsx",
+    "app/web/src/three/poseScene.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "redaction": {
+    "replacements": 4,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 0,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 4,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
