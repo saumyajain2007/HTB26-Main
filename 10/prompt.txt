@@ -1,0 +1,15 @@
+where is the website running on localhost?
+
+---
+
+<pasted_content id="09fa">
+Caveats and missing data
+Evasion here means no known link in CARD. It is not a measured result.
+The MIC is a species-level median across papers, not specific to this isolate, and raw MICs are not comparable between drugs without clinical breakpoints.
+The property limits mark where 95% of approved antibiotics sit, so a failure flags an outlier, not an unsafe or inactive drug, and passing says nothing about safety.
+Structural alerts are recorded but do not change the rank; reactive groups are normal in antibiotics.
+Missing: No target-hit evidence.
+Missing: No docking result.
+</pasted_content id="09fa">
+
+I dont think this is essential to mention in the website
