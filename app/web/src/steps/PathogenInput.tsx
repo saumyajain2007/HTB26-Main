@@ -43,7 +43,6 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
   const presetsTitleId = useId();
   const genesFieldId = useId();
   const genesHintId = useId();
-  const genesHelpId = useId();
   const genesStatusId = useId();
   const profileTitleId = useId();
   const noteId = useId();
@@ -142,11 +141,29 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
             value={typed}
             rows={5}
             spellCheck={false}
-            aria-describedby={`${genesHintId} ${genesHelpId}`}
+            aria-describedby={genesHintId}
             onChange={(event) => {
               setTyped(event.target.value);
             }}
           />
+          {/* Shapes of a name, not suggestions: the server alone says which ones CARD knows. */}
+          <div className={styles.examples}>
+            <span className={styles.examplesLabel}>{pathogen.genesExamplesLabel}</span>
+            {pathogen.genesExamples.map((example) => (
+              <button
+                key={example}
+                type="button"
+                className={styles.example}
+                onClick={() => {
+                  setTyped((current) =>
+                    current.trim() === "" ? example : `${current.trimEnd()}\n${example}`,
+                  );
+                }}
+              >
+                {example}
+              </button>
+            ))}
+          </div>
           {typed.trim() !== "" && (
             <div className={styles.parsed}>
               <p className={styles.count}>{pathogen.genesRead(parsed.entries.length)}</p>
@@ -162,9 +179,6 @@ export function PathogenInput({ profile, onProfile }: PathogenInputProps) {
               )}
             </div>
           )}
-          <p id={genesHelpId} className={styles.hint}>
-            {pathogen.genesHelp}
-          </p>
           <button
             type="button"
             className={styles.submit}

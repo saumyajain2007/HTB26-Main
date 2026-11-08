@@ -27,8 +27,14 @@ PENICILLIN, FLUOROQUINOLONE, OXAZOLIDINONE, GLYCOPEPTIDE = "ARO:3000008", "ARO:0
 METHICILLIN_TERM, CIPRO_TERM, CIPRO_TERM_2 = "ARO:3000620", "ARO:0000036", "ARO:9999999"
 
 
+def _test_inchikey(chembl_id: str) -> str:
+    """A well-formed, distinct key per drug, so batch deduplication cannot merge different molecules."""
+    letters = "".join(chr(65 + int(ch)) for ch in chembl_id if ch.isdigit()).ljust(14, "X")[:14]
+    return f"{letters}-{'Y' * 10}-Z"
+
+
 def drug(name, chembl_id, smiles, class_aro_id=None, class_name=None, terms=(), route="chembl_xref") -> Drug:
-    return Drug(chembl_id=chembl_id, name=name, smiles=smiles, inchikey="X" * 14 + "-" + "Y" * 10 + "-Z",
+    return Drug(chembl_id=chembl_id, name=name, smiles=smiles, inchikey=_test_inchikey(chembl_id),
                 class_aro_id=class_aro_id, class_name=class_name, term_aro_ids=tuple(terms),
                 class_route=route if class_aro_id else None, mechanism="test mechanism", target="test target",
                 max_phase=4, first_approval=1980)
@@ -405,17 +411,26 @@ def fake_certifier(ran=True, certified=True, failed=()):
     return certifier
 
 
-def test_certificates_go_to_survivors_only_and_never_change_the_rank():
+def agreeing_certifier(smokes):
+    """A stand-in for Lean that agrees with the Python smoke test."""
+    from htb_verify.certify import Certificate
+
+    return [Certificate(True, s.passed, s.rule_set,
+                        failed_rules=() if s.passed else tuple(f"rule_{v.rule}" for v in s.violations if v.rule != "alert"),
+                        lean_version="4.35.0", seconds=0.1) for s in smokes]
+
+
+def test_certificates_cover_every_valid_molecule_and_never_change_the_rank():
     plain, _ = run()
-    result, log = run(certifier=fake_certifier())
+    result, log = run(certifier=agreeing_certifier)
     assert log == []
     for c in result["candidates"]:
-        if c["smoke_test"]["passed"]:
-            assert c["certificate_status"] == "certified" and c["certificate"]["certified"]
-        else:
-            assert c["certificate_status"] == "not_run" and c["certificate"] is None
+        passed = c["smoke_test"]["passed"]
+        assert c["certificate_status"] == ("certified" if passed else "failed")
+        assert c["certificate"]["certified"] is passed
+        assert (c["certificate"]["failed_rules"] == []) is passed
     assert [c["candidate_id"] for c in result["candidates"]] == [c["candidate_id"] for c in plain["candidates"]]
-    assert any(c["certificate"] for c in result["candidates"])
+    assert {c["certificate_status"] for c in result["candidates"]} == {"certified", "failed"}
 
 
 def test_certificate_block_has_the_contract_shape_and_the_python_limits():
@@ -449,7 +464,7 @@ def test_a_lean_failure_on_a_smoke_survivor_is_logged_as_a_disagreement():
     assert len(log) == 1 and "disagree" in log[0]["reason"]
 
 
-def test_real_lean_certifies_survivors_and_agrees_with_python():
+def test_real_lean_certifies_every_molecule_and_agrees_with_python():
     from htb_verify import certify_batch
     from htb_verify.certify import ensure_built
     if not ensure_built():
@@ -457,7 +472,9 @@ def test_real_lean_certifies_survivors_and_agrees_with_python():
     result, log = run(certifier=certify_batch)
     assert log == []
     states = {c["name"]: c["certificate_status"] for c in result["candidates"]}
-    assert states["LINEZOLID"] == "certified" and states["VANCOMYCIN"] == "not_run"
+    assert states["LINEZOLID"] == "certified" and states["VANCOMYCIN"] == "failed"
+    vancomycin = by_name(result)["VANCOMYCIN"]["certificate"]
+    assert vancomycin["ran"] and not vancomycin["certified"] and "mw" in vancomycin["failed_rules"]
 
 
 # ---------- optional MIC gate ----------

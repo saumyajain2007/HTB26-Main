@@ -1,0 +1,6332 @@
+{
+  "decisions": {
+    "1_rule_carries_signal": {
+      "balanced_accuracy_lower_bound": 0.6155,
+      "holds": true
+    },
+    "2_adds_beyond_drug": {
+      "holds": false,
+      "lower_bound": -0.1078
+    },
+    "3_bridge_improves": {
+      "holds": true,
+      "lower_bound": 0.0252
+    }
+  },
+  "gene_calls": {
+    "A": {
+      "calls": 56028,
+      "empty_profile": 84,
+      "isolates": 5067,
+      "resolved": 36521,
+      "unresolved": 19507
+    },
+    "A-intact": {
+      "calls": 52397,
+      "empty_profile": 234,
+      "isolates": 5067,
+      "resolved": 34639,
+      "unresolved": 21213
+    },
+    "B": {
+      "calls": 56028,
+      "empty_profile": 38,
+      "isolates": 5067,
+      "resolved": 46535,
+      "unresolved": 9493
+    },
+    "B-intact": {
+      "calls": 52397,
+      "empty_profile": 64,
+      "isolates": 5067,
+      "resolved": 44602,
+      "unresolved": 11390
+    }
+  },
+  "isolate_exclusions": {
+    "acinetobacter: drugs with conflicting calls dropped": 500,
+    "acinetobacter: duplicate biosample": 1,
+    "klebsiella: drugs with conflicting calls dropped": 2,
+    "klebsiella: duplicate biosample": 2,
+    "staphylococcus: drugs with conflicting calls dropped": 0,
+    "staphylococcus: duplicate biosample": 7
+  },
+  "isolates": {
+    "acinetobacter": 1142,
+    "klebsiella": 2403,
+    "staphylococcus": 1522
+  },
+  "pair_accounting": {
+    "not scored: combination product; the catalogue holds single agents only": 8326,
+    "not scored: drug has no CARD class (unknown)": 3,
+    "not scored: not in the ChEMBL 37 / CARD 4.0.2 catalogue": 3618,
+    "not scored: veterinary agent, not in the catalogue": 1166,
+    "phenotype DD": 47,
+    "phenotype I": 2307,
+    "phenotype ND": 4230,
+    "phenotype NS": 83,
+    "scored pairs": 46429
+  },
+  "per_drug": {
+    "A|class": [
+      {
+        "drug": "AMIKACIN",
+        "enough": true,
+        "n_resistant": 482,
+        "n_susceptible": 507,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.008
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 648,
+        "n_susceptible": 1,
+        "sensitivity": 0.995,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 4,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "AZTREONAM",
+        "enough": false,
+        "n_resistant": 636,
+        "n_susceptible": 0,
+        "sensitivity": 0.381,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": false,
+        "n_resistant": 643,
+        "n_susceptible": 1,
+        "sensitivity": 0.956,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": true,
+        "n_resistant": 213,
+        "n_susceptible": 110,
+        "sensitivity": 0.911,
+        "species": "acinetobacter",
+        "specificity": 0.127
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": true,
+        "n_resistant": 600,
+        "n_susceptible": 28,
+        "sensitivity": 0.963,
+        "species": "acinetobacter",
+        "specificity": 0.036
+      },
+      {
+        "drug": "CEFOTETAN",
+        "enough": false,
+        "n_resistant": 100,
+        "n_susceptible": 1,
+        "sensitivity": 0.95,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": false,
+        "n_resistant": 466,
+        "n_susceptible": 0,
+        "sensitivity": 0.957,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 0.25
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": true,
+        "n_resistant": 686,
+        "n_susceptible": 188,
+        "sensitivity": 0.956,
+        "species": "acinetobacter",
+        "specificity": 0.133
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": true,
+        "n_resistant": 702,
+        "n_susceptible": 67,
+        "sensitivity": 0.937,
+        "species": "acinetobacter",
+        "specificity": 0.194
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEPHALOTHIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 0,
+        "sensitivity": 0.75,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 903,
+        "n_susceptible": 186,
+        "sensitivity": 0.003,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CLARITHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "DORIPENEM",
+        "enough": true,
+        "n_resistant": 155,
+        "n_susceptible": 195,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.015
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": false,
+        "n_resistant": 7,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 535,
+        "n_susceptible": 163,
+        "sensitivity": 0.002,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": true,
+        "n_resistant": 387,
+        "n_susceptible": 315,
+        "sensitivity": 0.982,
+        "species": "acinetobacter",
+        "specificity": 0.032
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 112,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.625
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": true,
+        "n_resistant": 57,
+        "n_susceptible": 25,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": false,
+        "n_resistant": 643,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "SULFISOXAZOLE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 248,
+        "sensitivity": 0.949,
+        "species": "acinetobacter",
+        "specificity": 0.847
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 317,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": 0.931
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": true,
+        "n_resistant": 396,
+        "n_susceptible": 281,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.007
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "AMIKACIN",
+        "enough": true,
+        "n_resistant": 274,
+        "n_susceptible": 802,
+        "sensitivity": 0.982,
+        "species": "klebsiella",
+        "specificity": 0.204
+      },
+      {
+        "drug": "AMOXICILLIN",
+        "enough": false,
+        "n_resistant": 102,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 981,
+        "n_susceptible": 14,
+        "sensitivity": 0.988,
+        "species": "klebsiella",
+        "specificity": 0.071
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 1,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "AZTREONAM",
+        "enough": true,
+        "n_resistant": 528,
+        "n_susceptible": 76,
+        "sensitivity": 0.828,
+        "species": "klebsiella",
+        "specificity": 0.882
+      },
+      {
+        "drug": "CARBENICILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": true,
+        "n_resistant": 502,
+        "n_susceptible": 55,
+        "sensitivity": 0.996,
+        "species": "klebsiella",
+        "specificity": 0.091
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": true,
+        "n_resistant": 762,
+        "n_susceptible": 309,
+        "sensitivity": 0.999,
+        "species": "klebsiella",
+        "specificity": 0.036
+      },
+      {
+        "drug": "CEFIDEROCOL",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 7,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOPERAZONE",
+        "enough": false,
+        "n_resistant": 240,
+        "n_susceptible": 12,
+        "sensitivity": 0.992,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": true,
+        "n_resistant": 585,
+        "n_susceptible": 328,
+        "sensitivity": 0.998,
+        "species": "klebsiella",
+        "specificity": 0.021
+      },
+      {
+        "drug": "CEFOTETAN",
+        "enough": false,
+        "n_resistant": 17,
+        "n_susceptible": 87,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.046
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 342,
+        "sensitivity": 0.996,
+        "species": "klebsiella",
+        "specificity": 0.023
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": true,
+        "n_resistant": 64,
+        "n_susceptible": 37,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.108
+      },
+      {
+        "drug": "CEFTAROLINE FOSAMIL",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 4,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": true,
+        "n_resistant": 1102,
+        "n_susceptible": 740,
+        "sensitivity": 0.997,
+        "species": "klebsiella",
+        "specificity": 0.012
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": true,
+        "n_resistant": 1031,
+        "n_susceptible": 423,
+        "sensitivity": 0.996,
+        "species": "klebsiella",
+        "specificity": 0.012
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": true,
+        "n_resistant": 85,
+        "n_susceptible": 33,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.121
+      },
+      {
+        "drug": "CEPHALEXIN ANHYDROUS",
+        "enough": false,
+        "n_resistant": 249,
+        "n_susceptible": 10,
+        "sensitivity": 0.992,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEPHALOTHIN",
+        "enough": true,
+        "n_resistant": 319,
+        "n_susceptible": 51,
+        "sensitivity": 0.994,
+        "species": "klebsiella",
+        "specificity": 0.098
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 925,
+        "n_susceptible": 292,
+        "sensitivity": 0.978,
+        "species": "klebsiella",
+        "specificity": 0.14
+      },
+      {
+        "drug": "CLARITHROMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "CLINDAMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 3,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 9,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 0.889
+      },
+      {
+        "drug": "DELAFLOXACIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "DORIPENEM",
+        "enough": true,
+        "n_resistant": 295,
+        "n_susceptible": 67,
+        "sensitivity": 0.953,
+        "species": "klebsiella",
+        "specificity": 0.821
+      },
+      {
+        "drug": "DOXYCYCLINE ANHYDROUS",
+        "enough": true,
+        "n_resistant": 21,
+        "n_susceptible": 31,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.032
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": true,
+        "n_resistant": 653,
+        "n_susceptible": 477,
+        "sensitivity": 0.919,
+        "species": "klebsiella",
+        "specificity": 0.983
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": false,
+        "n_resistant": 13,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 15,
+        "n_susceptible": 24,
+        "sensitivity": 0.933,
+        "species": "klebsiella",
+        "specificity": 0.042
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 479,
+        "n_susceptible": 253,
+        "sensitivity": 0.977,
+        "species": "klebsiella",
+        "specificity": 0.123
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 14,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": true,
+        "n_resistant": 686,
+        "n_susceptible": 529,
+        "sensitivity": 0.933,
+        "species": "klebsiella",
+        "specificity": 0.892
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": true,
+        "n_resistant": 38,
+        "n_susceptible": 74,
+        "sensitivity": 0.947,
+        "species": "klebsiella",
+        "specificity": 0.027
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": true,
+        "n_resistant": 44,
+        "n_susceptible": 60,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.067
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": true,
+        "n_resistant": 49,
+        "n_susceptible": 70,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.071
+      },
+      {
+        "drug": "NETILMICIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 5,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.2
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": true,
+        "n_resistant": 220,
+        "n_susceptible": 67,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.194
+      },
+      {
+        "drug": "NORFLOXACIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "OMADACYCLINE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 2,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "OXACILLIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "PIPERACILLIN",
+        "enough": false,
+        "n_resistant": 44,
+        "n_susceptible": 5,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "PLAZOMICIN",
+        "enough": false,
+        "n_resistant": 10,
+        "n_susceptible": 6,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "SULFAMETHOXAZOLE",
+        "enough": false,
+        "n_resistant": 10,
+        "n_susceptible": 3,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.667
+      },
+      {
+        "drug": "SULFISOXAZOLE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 322,
+        "n_susceptible": 244,
+        "sensitivity": 0.966,
+        "species": "klebsiella",
+        "specificity": 0.127
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": true,
+        "n_resistant": 24,
+        "n_susceptible": 447,
+        "sensitivity": 0.792,
+        "species": "klebsiella",
+        "specificity": 0.116
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 288,
+        "sensitivity": 0.989,
+        "species": "klebsiella",
+        "specificity": 0.635
+      },
+      {
+        "drug": "TRIMETHOPRIM",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 9,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 0.667
+      },
+      {
+        "drug": "AMIKACIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 12,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "AMOXICILLIN",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 0,
+        "sensitivity": 0.6,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 7,
+        "n_susceptible": 0,
+        "sensitivity": 0.714,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 3,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.667
+      },
+      {
+        "drug": "CARBENICILLIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 2,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 9,
+        "sensitivity": 0.75,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 2,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": true,
+        "n_resistant": 226,
+        "n_susceptible": 256,
+        "sensitivity": 0.96,
+        "species": "staphylococcus",
+        "specificity": 0.973
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEFTAROLINE FOSAMIL",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 270,
+        "sensitivity": 0.846,
+        "species": "staphylococcus",
+        "specificity": 0.6
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 2,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 10,
+        "sensitivity": 0.8,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEPHALEXIN ANHYDROUS",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 40,
+        "n_susceptible": 722,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CLINDAMYCIN",
+        "enough": true,
+        "n_resistant": 408,
+        "n_susceptible": 873,
+        "sensitivity": 0.015,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": true,
+        "n_resistant": 31,
+        "n_susceptible": 642,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "DELAFLOXACIN",
+        "enough": false,
+        "n_resistant": 11,
+        "n_susceptible": 8,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "DICLOXACILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "DOXYCYCLINE ANHYDROUS",
+        "enough": true,
+        "n_resistant": 28,
+        "n_susceptible": 92,
+        "sensitivity": 0.536,
+        "species": "staphylococcus",
+        "specificity": 0.783
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": true,
+        "n_resistant": 558,
+        "n_susceptible": 731,
+        "sensitivity": 0.324,
+        "species": "staphylococcus",
+        "specificity": 0.995
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "FUSIDIC ACID",
+        "enough": false,
+        "n_resistant": 12,
+        "n_susceptible": 261,
+        "sensitivity": 0.75,
+        "species": "staphylococcus",
+        "specificity": 0.992
+      },
+      {
+        "drug": "KANAMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 178,
+        "n_susceptible": 544,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": true,
+        "n_resistant": 34,
+        "n_susceptible": 906,
+        "sensitivity": 0.147,
+        "species": "staphylococcus",
+        "specificity": 0.999
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 12,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.917
+      },
+      {
+        "drug": "METRONIDAZOLE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 431,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.942
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 149,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "NAFCILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 267,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "OFLOXACIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "OXACILLIN",
+        "enough": true,
+        "n_resistant": 423,
+        "n_susceptible": 882,
+        "sensitivity": 0.988,
+        "species": "staphylococcus",
+        "specificity": 0.221
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": true,
+        "n_resistant": 426,
+        "n_susceptible": 51,
+        "sensitivity": 0.883,
+        "species": "staphylococcus",
+        "specificity": 0.765
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TEDIZOLID",
+        "enough": false,
+        "n_resistant": 21,
+        "n_susceptible": 2,
+        "sensitivity": 0.095,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 87,
+        "n_susceptible": 675,
+        "sensitivity": 0.805,
+        "species": "staphylococcus",
+        "specificity": 0.948
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 154,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.955
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 4,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.75
+      },
+      {
+        "drug": "TRIMETHOPRIM",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 6,
+        "sensitivity": 0.5,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 1011,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      }
+    ],
+    "B|class": [
+      {
+        "drug": "AMIKACIN",
+        "enough": true,
+        "n_resistant": 482,
+        "n_susceptible": 507,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.008
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 648,
+        "n_susceptible": 1,
+        "sensitivity": 0.995,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 4,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "AZTREONAM",
+        "enough": false,
+        "n_resistant": 636,
+        "n_susceptible": 0,
+        "sensitivity": 0.381,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": false,
+        "n_resistant": 643,
+        "n_susceptible": 1,
+        "sensitivity": 0.956,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": true,
+        "n_resistant": 213,
+        "n_susceptible": 110,
+        "sensitivity": 0.911,
+        "species": "acinetobacter",
+        "specificity": 0.127
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": true,
+        "n_resistant": 600,
+        "n_susceptible": 28,
+        "sensitivity": 0.963,
+        "species": "acinetobacter",
+        "specificity": 0.036
+      },
+      {
+        "drug": "CEFOTETAN",
+        "enough": false,
+        "n_resistant": 100,
+        "n_susceptible": 1,
+        "sensitivity": 0.95,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": false,
+        "n_resistant": 466,
+        "n_susceptible": 0,
+        "sensitivity": 0.957,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 0.25
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": true,
+        "n_resistant": 686,
+        "n_susceptible": 188,
+        "sensitivity": 0.956,
+        "species": "acinetobacter",
+        "specificity": 0.133
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": true,
+        "n_resistant": 702,
+        "n_susceptible": 67,
+        "sensitivity": 0.937,
+        "species": "acinetobacter",
+        "specificity": 0.194
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CEPHALOTHIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 0,
+        "sensitivity": 0.75,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 903,
+        "n_susceptible": 186,
+        "sensitivity": 0.996,
+        "species": "acinetobacter",
+        "specificity": 0.984
+      },
+      {
+        "drug": "CLARITHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "DORIPENEM",
+        "enough": true,
+        "n_resistant": 155,
+        "n_susceptible": 195,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.015
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": false,
+        "n_resistant": 7,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 535,
+        "n_susceptible": 163,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.785
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": true,
+        "n_resistant": 387,
+        "n_susceptible": 315,
+        "sensitivity": 0.982,
+        "species": "acinetobacter",
+        "specificity": 0.032
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 112,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.625
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": true,
+        "n_resistant": 57,
+        "n_susceptible": 25,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.72
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": false,
+        "n_resistant": 643,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 0.0
+      },
+      {
+        "drug": "SULFISOXAZOLE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 4,
+        "sensitivity": null,
+        "species": "acinetobacter",
+        "specificity": 1.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 248,
+        "sensitivity": 0.949,
+        "species": "acinetobacter",
+        "specificity": 0.847
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 317,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": 0.931
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": true,
+        "n_resistant": 396,
+        "n_susceptible": 281,
+        "sensitivity": 1.0,
+        "species": "acinetobacter",
+        "specificity": 0.007
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "acinetobacter",
+        "specificity": null
+      },
+      {
+        "drug": "AMIKACIN",
+        "enough": true,
+        "n_resistant": 274,
+        "n_susceptible": 802,
+        "sensitivity": 0.982,
+        "species": "klebsiella",
+        "specificity": 0.197
+      },
+      {
+        "drug": "AMOXICILLIN",
+        "enough": false,
+        "n_resistant": 102,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 981,
+        "n_susceptible": 14,
+        "sensitivity": 0.993,
+        "species": "klebsiella",
+        "specificity": 0.071
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 1,
+        "sensitivity": 0.167,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "AZTREONAM",
+        "enough": true,
+        "n_resistant": 528,
+        "n_susceptible": 76,
+        "sensitivity": 0.936,
+        "species": "klebsiella",
+        "specificity": 0.724
+      },
+      {
+        "drug": "CARBENICILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": true,
+        "n_resistant": 502,
+        "n_susceptible": 55,
+        "sensitivity": 0.998,
+        "species": "klebsiella",
+        "specificity": 0.073
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": true,
+        "n_resistant": 762,
+        "n_susceptible": 309,
+        "sensitivity": 0.999,
+        "species": "klebsiella",
+        "specificity": 0.026
+      },
+      {
+        "drug": "CEFIDEROCOL",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 7,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOPERAZONE",
+        "enough": false,
+        "n_resistant": 240,
+        "n_susceptible": 12,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": true,
+        "n_resistant": 585,
+        "n_susceptible": 328,
+        "sensitivity": 0.998,
+        "species": "klebsiella",
+        "specificity": 0.018
+      },
+      {
+        "drug": "CEFOTETAN",
+        "enough": false,
+        "n_resistant": 17,
+        "n_susceptible": 87,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.046
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 342,
+        "sensitivity": 0.998,
+        "species": "klebsiella",
+        "specificity": 0.012
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": true,
+        "n_resistant": 64,
+        "n_susceptible": 37,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.108
+      },
+      {
+        "drug": "CEFTAROLINE FOSAMIL",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 4,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": true,
+        "n_resistant": 1102,
+        "n_susceptible": 740,
+        "sensitivity": 0.999,
+        "species": "klebsiella",
+        "specificity": 0.008
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": true,
+        "n_resistant": 1031,
+        "n_susceptible": 423,
+        "sensitivity": 0.999,
+        "species": "klebsiella",
+        "specificity": 0.009
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": true,
+        "n_resistant": 85,
+        "n_susceptible": 33,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.121
+      },
+      {
+        "drug": "CEPHALEXIN ANHYDROUS",
+        "enough": false,
+        "n_resistant": 249,
+        "n_susceptible": 10,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CEPHALOTHIN",
+        "enough": true,
+        "n_resistant": 319,
+        "n_susceptible": 51,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.078
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 925,
+        "n_susceptible": 292,
+        "sensitivity": 0.997,
+        "species": "klebsiella",
+        "specificity": 0.137
+      },
+      {
+        "drug": "CLARITHROMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "CLINDAMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 3,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 9,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 0.889
+      },
+      {
+        "drug": "DELAFLOXACIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "DORIPENEM",
+        "enough": true,
+        "n_resistant": 295,
+        "n_susceptible": 67,
+        "sensitivity": 0.99,
+        "species": "klebsiella",
+        "specificity": 0.612
+      },
+      {
+        "drug": "DOXYCYCLINE ANHYDROUS",
+        "enough": true,
+        "n_resistant": 21,
+        "n_susceptible": 31,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.032
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": true,
+        "n_resistant": 653,
+        "n_susceptible": 477,
+        "sensitivity": 0.98,
+        "species": "klebsiella",
+        "specificity": 0.881
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": false,
+        "n_resistant": 13,
+        "n_susceptible": 0,
+        "sensitivity": 0.077,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 15,
+        "n_susceptible": 24,
+        "sensitivity": 0.933,
+        "species": "klebsiella",
+        "specificity": 0.042
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 479,
+        "n_susceptible": 253,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.123
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 14,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 1.0
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": true,
+        "n_resistant": 686,
+        "n_susceptible": 529,
+        "sensitivity": 0.985,
+        "species": "klebsiella",
+        "specificity": 0.779
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": true,
+        "n_resistant": 38,
+        "n_susceptible": 74,
+        "sensitivity": 0.947,
+        "species": "klebsiella",
+        "specificity": 0.027
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": true,
+        "n_resistant": 44,
+        "n_susceptible": 60,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.067
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": true,
+        "n_resistant": 49,
+        "n_susceptible": 70,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.071
+      },
+      {
+        "drug": "NETILMICIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 5,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.2
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": true,
+        "n_resistant": 220,
+        "n_susceptible": 67,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.194
+      },
+      {
+        "drug": "NORFLOXACIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "OMADACYCLINE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 2,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "OXACILLIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": null
+      },
+      {
+        "drug": "PIPERACILLIN",
+        "enough": false,
+        "n_resistant": 44,
+        "n_susceptible": 5,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "PLAZOMICIN",
+        "enough": false,
+        "n_resistant": 10,
+        "n_susceptible": 6,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 1,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "SULFAMETHOXAZOLE",
+        "enough": false,
+        "n_resistant": 10,
+        "n_susceptible": 3,
+        "sensitivity": 0.9,
+        "species": "klebsiella",
+        "specificity": 0.667
+      },
+      {
+        "drug": "SULFISOXAZOLE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 322,
+        "n_susceptible": 244,
+        "sensitivity": 0.975,
+        "species": "klebsiella",
+        "specificity": 0.123
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": true,
+        "n_resistant": 24,
+        "n_susceptible": 447,
+        "sensitivity": 0.833,
+        "species": "klebsiella",
+        "specificity": 0.105
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": true,
+        "n_resistant": 547,
+        "n_susceptible": 288,
+        "sensitivity": 0.991,
+        "species": "klebsiella",
+        "specificity": 0.625
+      },
+      {
+        "drug": "TRIMETHOPRIM",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 3,
+        "sensitivity": 1.0,
+        "species": "klebsiella",
+        "specificity": 0.0
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": false,
+        "n_resistant": 6,
+        "n_susceptible": 9,
+        "sensitivity": 0.0,
+        "species": "klebsiella",
+        "specificity": 0.667
+      },
+      {
+        "drug": "AMIKACIN",
+        "enough": false,
+        "n_resistant": 3,
+        "n_susceptible": 12,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.417
+      },
+      {
+        "drug": "AMOXICILLIN",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 0,
+        "sensitivity": 0.6,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "AMPICILLIN",
+        "enough": false,
+        "n_resistant": 7,
+        "n_susceptible": 0,
+        "sensitivity": 0.714,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "AZITHROMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 3,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.667
+      },
+      {
+        "drug": "CARBENICILLIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 2,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFAZOLIN",
+        "enough": false,
+        "n_resistant": 4,
+        "n_susceptible": 9,
+        "sensitivity": 0.75,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CEFEPIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 2,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFOTAXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEFOXITIN",
+        "enough": true,
+        "n_resistant": 226,
+        "n_susceptible": 256,
+        "sensitivity": 0.96,
+        "species": "staphylococcus",
+        "specificity": 0.973
+      },
+      {
+        "drug": "CEFPODOXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEFTAROLINE FOSAMIL",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 270,
+        "sensitivity": 0.846,
+        "species": "staphylococcus",
+        "specificity": 0.6
+      },
+      {
+        "drug": "CEFTAZIDIME",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 2,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.5
+      },
+      {
+        "drug": "CEFTRIAXONE",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 10,
+        "sensitivity": 0.8,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "CEFUROXIME",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "CEPHALEXIN ANHYDROUS",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "CIPROFLOXACIN",
+        "enough": true,
+        "n_resistant": 40,
+        "n_susceptible": 722,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.983
+      },
+      {
+        "drug": "CLINDAMYCIN",
+        "enough": true,
+        "n_resistant": 408,
+        "n_susceptible": 873,
+        "sensitivity": 0.936,
+        "species": "staphylococcus",
+        "specificity": 0.982
+      },
+      {
+        "drug": "DAPTOMYCIN",
+        "enough": true,
+        "n_resistant": 31,
+        "n_susceptible": 642,
+        "sensitivity": 0.129,
+        "species": "staphylococcus",
+        "specificity": 0.995
+      },
+      {
+        "drug": "DELAFLOXACIN",
+        "enough": false,
+        "n_resistant": 11,
+        "n_susceptible": 8,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.25
+      },
+      {
+        "drug": "DICLOXACILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "DOXYCYCLINE ANHYDROUS",
+        "enough": true,
+        "n_resistant": 28,
+        "n_susceptible": 92,
+        "sensitivity": 0.536,
+        "species": "staphylococcus",
+        "specificity": 0.783
+      },
+      {
+        "drug": "ERTAPENEM",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "ERYTHROMYCIN",
+        "enough": true,
+        "n_resistant": 558,
+        "n_susceptible": 731,
+        "sensitivity": 0.952,
+        "species": "staphylococcus",
+        "specificity": 0.982
+      },
+      {
+        "drug": "FOSFOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "FUSIDIC ACID",
+        "enough": false,
+        "n_resistant": 12,
+        "n_susceptible": 261,
+        "sensitivity": 0.833,
+        "species": "staphylococcus",
+        "specificity": 0.992
+      },
+      {
+        "drug": "KANAMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "LEVOFLOXACIN ANHYDROUS",
+        "enough": true,
+        "n_resistant": 178,
+        "n_susceptible": 544,
+        "sensitivity": 0.989,
+        "species": "staphylococcus",
+        "specificity": 0.976
+      },
+      {
+        "drug": "LINEZOLID",
+        "enough": true,
+        "n_resistant": 34,
+        "n_susceptible": 906,
+        "sensitivity": 0.176,
+        "species": "staphylococcus",
+        "specificity": 0.998
+      },
+      {
+        "drug": "MEROPENEM",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 12,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.917
+      },
+      {
+        "drug": "METRONIDAZOLE",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "MINOCYCLINE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 431,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.942
+      },
+      {
+        "drug": "MOXIFLOXACIN",
+        "enough": false,
+        "n_resistant": 5,
+        "n_susceptible": 149,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "NAFCILLIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "NALIDIXIC ACID",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 0,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": null
+      },
+      {
+        "drug": "NITROFURANTOIN",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 267,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "OFLOXACIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "OXACILLIN",
+        "enough": true,
+        "n_resistant": 423,
+        "n_susceptible": 882,
+        "sensitivity": 0.988,
+        "species": "staphylococcus",
+        "specificity": 0.221
+      },
+      {
+        "drug": "PENICILLIN G",
+        "enough": true,
+        "n_resistant": 426,
+        "n_susceptible": 51,
+        "sensitivity": 0.883,
+        "species": "staphylococcus",
+        "specificity": 0.765
+      },
+      {
+        "drug": "STREPTOMYCIN",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 1,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TEDIZOLID",
+        "enough": false,
+        "n_resistant": 21,
+        "n_susceptible": 2,
+        "sensitivity": 0.143,
+        "species": "staphylococcus",
+        "specificity": 0.0
+      },
+      {
+        "drug": "TETRACYCLINE",
+        "enough": true,
+        "n_resistant": 87,
+        "n_susceptible": 675,
+        "sensitivity": 0.805,
+        "species": "staphylococcus",
+        "specificity": 0.948
+      },
+      {
+        "drug": "TIGECYCLINE",
+        "enough": false,
+        "n_resistant": 0,
+        "n_susceptible": 154,
+        "sensitivity": null,
+        "species": "staphylococcus",
+        "specificity": 0.955
+      },
+      {
+        "drug": "TOBRAMYCIN",
+        "enough": false,
+        "n_resistant": 1,
+        "n_susceptible": 4,
+        "sensitivity": 1.0,
+        "species": "staphylococcus",
+        "specificity": 0.75
+      },
+      {
+        "drug": "TRIMETHOPRIM",
+        "enough": false,
+        "n_resistant": 2,
+        "n_susceptible": 6,
+        "sensitivity": 0.5,
+        "species": "staphylococcus",
+        "specificity": 1.0
+      },
+      {
+        "drug": "VANCOMYCIN",
+        "enough": true,
+        "n_resistant": 26,
+        "n_susceptible": 1011,
+        "sensitivity": 0.0,
+        "species": "staphylococcus",
+        "specificity": 0.998
+      }
+    ]
+  },
+  "protocol_enforced": true,
+  "resamples": 2000,
+  "run_at": "2026-11-08T06:56:01+00:00",
+  "schema": 1,
+  "scopes": {
+    "catalogue": {
+      "differences": {
+        "acinetobacter": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.1668,
+              -0.0077
+            ],
+            "value": -0.1259
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.0598,
+              0.1055
+            ],
+            "value": 0.07
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.1059,
+              0.0892
+            ],
+            "value": -0.0559
+          }
+        },
+        "klebsiella": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.042,
+              0.0587
+            ],
+            "value": 0.01
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              -0.0084,
+              0.0025
+            ],
+            "value": -0.0039
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.0454,
+              0.0561
+            ],
+            "value": 0.006
+          }
+        },
+        "pooled": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.103,
+              0.0191
+            ],
+            "value": -0.0481
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.0243,
+              0.0693
+            ],
+            "value": 0.0467
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.0501,
+              0.0754
+            ],
+            "value": -0.0015
+          }
+        },
+        "staphylococcus": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              0.0534,
+              0.1682
+            ],
+            "value": 0.1169
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.1263,
+              0.2427
+            ],
+            "value": 0.1848
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              0.2036,
+              0.3878
+            ],
+            "value": 0.3017
+          }
+        }
+      },
+      "strata": {
+        "acinetobacter": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5279,
+                0.6722
+              ],
+              "value": 0.5777
+            },
+            "cells": {
+              "fn": 2815,
+              "fp": 1947,
+              "tn": 1561,
+              "tp": 6909
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2952,
+                0.7882
+              ],
+              "value": 0.6433
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5959,
+                0.8296
+              ],
+              "value": 0.7801
+            },
+            "sensitivity": {
+              "ci95": [
+                0.6824,
+                0.7713
+              ],
+              "value": 0.7105
+            },
+            "specificity": {
+              "ci95": [
+                0.3549,
+                0.5759
+              ],
+              "value": 0.445
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6127,
+                0.6495
+              ],
+              "value": 0.6259
+            },
+            "cells": {
+              "fn": 7139,
+              "fp": 49,
+              "tn": 3459,
+              "tp": 2585
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4127,
+                0.7693
+              ],
+              "value": 0.6736
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9476,
+                0.9859
+              ],
+              "value": 0.9814
+            },
+            "sensitivity": {
+              "ci95": [
+                0.2421,
+                0.3129
+              ],
+              "value": 0.2658
+            },
+            "specificity": {
+              "ci95": [
+                0.971,
+                0.9933
+              ],
+              "value": 0.986
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5279,
+                0.6706
+              ],
+              "value": 0.5772
+            },
+            "cells": {
+              "fn": 2814,
+              "fp": 1951,
+              "tn": 1557,
+              "tp": 6910
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2962,
+                0.7882
+              ],
+              "value": 0.6438
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5954,
+                0.8296
+              ],
+              "value": 0.7798
+            },
+            "sensitivity": {
+              "ci95": [
+                0.683,
+                0.7715
+              ],
+              "value": 0.7106
+            },
+            "specificity": {
+              "ci95": [
+                0.3549,
+                0.5726
+              ],
+              "value": 0.4438
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6137,
+                0.6515
+              ],
+              "value": 0.6263
+            },
+            "cells": {
+              "fn": 7132,
+              "fp": 49,
+              "tn": 3459,
+              "tp": 2592
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4115,
+                0.7693
+              ],
+              "value": 0.6734
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9481,
+                0.9859
+              ],
+              "value": 0.9814
+            },
+            "sensitivity": {
+              "ci95": [
+                0.2445,
+                0.3171
+              ],
+              "value": 0.2666
+            },
+            "specificity": {
+              "ci95": [
+                0.971,
+                0.9933
+              ],
+              "value": 0.986
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5886,
+                0.7572
+              ],
+              "value": 0.6478
+            },
+            "cells": {
+              "fn": 1328,
+              "fp": 1992,
+              "tn": 1516,
+              "tp": 8396
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0935,
+                0.6723
+              ],
+              "value": 0.4669
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.651,
+                0.8503
+              ],
+              "value": 0.8082
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8437,
+                0.9469
+              ],
+              "value": 0.8634
+            },
+            "specificity": {
+              "ci95": [
+                0.3318,
+                0.5749
+              ],
+              "value": 0.4322
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6807,
+                0.7535
+              ],
+              "value": 0.696
+            },
+            "cells": {
+              "fn": 5651,
+              "fp": 94,
+              "tn": 3414,
+              "tp": 4073
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3386,
+                0.7329
+              ],
+              "value": 0.6234
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9643,
+                0.9844
+              ],
+              "value": 0.9774
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3995,
+                0.5276
+              ],
+              "value": 0.4189
+            },
+            "specificity": {
+              "ci95": [
+                0.9569,
+                0.9921
+              ],
+              "value": 0.9732
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5887,
+                0.7556
+              ],
+              "value": 0.6473
+            },
+            "cells": {
+              "fn": 1327,
+              "fp": 1996,
+              "tn": 1512,
+              "tp": 8397
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.093,
+                0.6723
+              ],
+              "value": 0.4674
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6503,
+                0.8503
+              ],
+              "value": 0.8079
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8437,
+                0.9472
+              ],
+              "value": 0.8635
+            },
+            "specificity": {
+              "ci95": [
+                0.3318,
+                0.5713
+              ],
+              "value": 0.431
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6809,
+                0.7556
+              ],
+              "value": 0.6964
+            },
+            "cells": {
+              "fn": 5644,
+              "fp": 94,
+              "tn": 3414,
+              "tp": 4080
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3371,
+                0.7328
+              ],
+              "value": 0.6231
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9645,
+                0.9845
+              ],
+              "value": 0.9775
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3999,
+                0.532
+              ],
+              "value": 0.4196
+            },
+            "specificity": {
+              "ci95": [
+                0.9569,
+                0.9921
+              ],
+              "value": 0.9732
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5989,
+                0.7415
+              ],
+              "value": 0.7031
+            },
+            "cells": {
+              "fn": 748,
+              "fp": 1813,
+              "tn": 1695,
+              "tp": 8976
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2554,
+                0.4597
+              ],
+              "value": 0.3062
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5982,
+                0.8838
+              ],
+              "value": 0.832
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7517,
+                0.9576
+              ],
+              "value": 0.9231
+            },
+            "specificity": {
+              "ci95": [
+                0.3356,
+                0.6721
+              ],
+              "value": 0.4832
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 9724,
+              "fp": 0,
+              "tn": 3508,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4888,
+                0.8157
+              ],
+              "value": 0.7349
+            },
+            "n_pairs": 13232,
+            "n_resistant": 9724,
+            "n_susceptible": 3508,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "klebsiella": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5848,
+                0.6559
+              ],
+              "value": 0.6233
+            },
+            "cells": {
+              "fn": 549,
+              "fp": 5268,
+              "tn": 2146,
+              "tp": 12258
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1233,
+                0.3112
+              ],
+              "value": 0.2037
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6033,
+                0.7716
+              ],
+              "value": 0.6994
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9457,
+                0.9682
+              ],
+              "value": 0.9571
+            },
+            "specificity": {
+              "ci95": [
+                0.2111,
+                0.3539
+              ],
+              "value": 0.2895
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6429,
+                0.7094
+              ],
+              "value": 0.6748
+            },
+            "cells": {
+              "fn": 7109,
+              "fp": 707,
+              "tn": 6707,
+              "tp": 5698
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3904,
+                0.6189
+              ],
+              "value": 0.5145
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8567,
+                0.9181
+              ],
+              "value": 0.8896
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3759,
+                0.5209
+              ],
+              "value": 0.4449
+            },
+            "specificity": {
+              "ci95": [
+                0.8725,
+                0.9385
+              ],
+              "value": 0.9046
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5834,
+                0.6544
+              ],
+              "value": 0.6223
+            },
+            "cells": {
+              "fn": 542,
+              "fp": 5287,
+              "tn": 2127,
+              "tp": 12265
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1226,
+                0.3109
+              ],
+              "value": 0.2031
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6028,
+                0.7709
+              ],
+              "value": 0.6988
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9464,
+                0.9685
+              ],
+              "value": 0.9577
+            },
+            "specificity": {
+              "ci95": [
+                0.2081,
+                0.3513
+              ],
+              "value": 0.2869
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.642,
+                0.7088
+              ],
+              "value": 0.6742
+            },
+            "cells": {
+              "fn": 7093,
+              "fp": 725,
+              "tn": 6689,
+              "tp": 5714
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3902,
+                0.6191
+              ],
+              "value": 0.5147
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8543,
+                0.9153
+              ],
+              "value": 0.8874
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3767,
+                0.5226
+              ],
+              "value": 0.4462
+            },
+            "specificity": {
+              "ci95": [
+                0.8703,
+                0.9359
+              ],
+              "value": 0.9022
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5846,
+                0.6514
+              ],
+              "value": 0.6194
+            },
+            "cells": {
+              "fn": 351,
+              "fp": 5441,
+              "tn": 1973,
+              "tp": 12456
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.078,
+                0.253
+              ],
+              "value": 0.151
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6006,
+                0.7669
+              ],
+              "value": 0.696
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9624,
+                0.9831
+              ],
+              "value": 0.9726
+            },
+            "specificity": {
+              "ci95": [
+                0.1928,
+                0.3285
+              ],
+              "value": 0.2661
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.7322,
+                0.7671
+              ],
+              "value": 0.7467
+            },
+            "cells": {
+              "fn": 4839,
+              "fp": 954,
+              "tn": 6460,
+              "tp": 7968
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3201,
+                0.5292
+              ],
+              "value": 0.4283
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8583,
+                0.92
+              ],
+              "value": 0.8931
+            },
+            "sensitivity": {
+              "ci95": [
+                0.5889,
+                0.6672
+              ],
+              "value": 0.6222
+            },
+            "specificity": {
+              "ci95": [
+                0.8407,
+                0.9048
+              ],
+              "value": 0.8713
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5824,
+                0.6504
+              ],
+              "value": 0.6183
+            },
+            "cells": {
+              "fn": 344,
+              "fp": 5460,
+              "tn": 1954,
+              "tp": 12463
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0776,
+                0.2521
+              ],
+              "value": 0.1497
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6005,
+                0.7663
+              ],
+              "value": 0.6954
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9632,
+                0.9834
+              ],
+              "value": 0.9731
+            },
+            "specificity": {
+              "ci95": [
+                0.1897,
+                0.326
+              ],
+              "value": 0.2636
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.7313,
+                0.7666
+              ],
+              "value": 0.7462
+            },
+            "cells": {
+              "fn": 4823,
+              "fp": 972,
+              "tn": 6442,
+              "tp": 7984
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3202,
+                0.5296
+              ],
+              "value": 0.4281
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8561,
+                0.9177
+              ],
+              "value": 0.8915
+            },
+            "sensitivity": {
+              "ci95": [
+                0.5899,
+                0.6684
+              ],
+              "value": 0.6234
+            },
+            "specificity": {
+              "ci95": [
+                0.8386,
+                0.9022
+              ],
+              "value": 0.8689
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5791,
+                0.6474
+              ],
+              "value": 0.6123
+            },
+            "cells": {
+              "fn": 654,
+              "fp": 5370,
+              "tn": 2044,
+              "tp": 12153
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1839,
+                0.2999
+              ],
+              "value": 0.2424
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5799,
+                0.7829
+              ],
+              "value": 0.6935
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9215,
+                0.9668
+              ],
+              "value": 0.9489
+            },
+            "specificity": {
+              "ci95": [
+                0.2147,
+                0.3473
+              ],
+              "value": 0.2757
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 12807,
+              "fp": 0,
+              "tn": 7414,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.5304,
+                0.7141
+              ],
+              "value": 0.6334
+            },
+            "n_pairs": 20221,
+            "n_resistant": 12807,
+            "n_susceptible": 7414,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "pooled": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6308,
+                0.7777
+              ],
+              "value": 0.7149
+            },
+            "cells": {
+              "fn": 4742,
+              "fp": 8097,
+              "tn": 13080,
+              "tp": 20510
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1377,
+                0.4613
+              ],
+              "value": 0.2661
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6289,
+                0.7724
+              ],
+              "value": 0.717
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7444,
+                0.889
+              ],
+              "value": 0.8122
+            },
+            "specificity": {
+              "ci95": [
+                0.4513,
+                0.7425
+              ],
+              "value": 0.6177
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.627,
+                0.6794
+              ],
+              "value": 0.6487
+            },
+            "cells": {
+              "fn": 16673,
+              "fp": 896,
+              "tn": 20281,
+              "tp": 8579
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2974,
+                0.5881
+              ],
+              "value": 0.4512
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8611,
+                0.9402
+              ],
+              "value": 0.9054
+            },
+            "sensitivity": {
+              "ci95": [
+                0.2855,
+                0.4163
+              ],
+              "value": 0.3397
+            },
+            "specificity": {
+              "ci95": [
+                0.9298,
+                0.9767
+              ],
+              "value": 0.9577
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6279,
+                0.7715
+              ],
+              "value": 0.7086
+            },
+            "cells": {
+              "fn": 4664,
+              "fp": 8429,
+              "tn": 12748,
+              "tp": 20588
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1346,
+                0.4647
+              ],
+              "value": 0.2679
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6185,
+                0.7664
+              ],
+              "value": 0.7095
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7477,
+                0.8932
+              ],
+              "value": 0.8153
+            },
+            "specificity": {
+              "ci95": [
+                0.4438,
+                0.7204
+              ],
+              "value": 0.602
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6266,
+                0.6795
+              ],
+              "value": 0.6487
+            },
+            "cells": {
+              "fn": 16647,
+              "fp": 920,
+              "tn": 20257,
+              "tp": 8605
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2972,
+                0.5882
+              ],
+              "value": 0.4511
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8586,
+                0.9383
+              ],
+              "value": 0.9034
+            },
+            "sensitivity": {
+              "ci95": [
+                0.2862,
+                0.4178
+              ],
+              "value": 0.3408
+            },
+            "specificity": {
+              "ci95": [
+                0.9283,
+                0.9759
+              ],
+              "value": 0.9566
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6728,
+                0.8341
+              ],
+              "value": 0.7614
+            },
+            "cells": {
+              "fn": 2038,
+              "fp": 8395,
+              "tn": 12782,
+              "tp": 23214
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0455,
+                0.303
+              ],
+              "value": 0.1375
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6542,
+                0.7877
+              ],
+              "value": 0.7344
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8812,
+                0.9634
+              ],
+              "value": 0.9193
+            },
+            "specificity": {
+              "ci95": [
+                0.4348,
+                0.7318
+              ],
+              "value": 0.6036
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.706,
+                0.7721
+              ],
+              "value": 0.7354
+            },
+            "cells": {
+              "fn": 11864,
+              "fp": 1256,
+              "tn": 19921,
+              "tp": 13388
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2225,
+                0.5207
+              ],
+              "value": 0.3733
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8769,
+                0.9406
+              ],
+              "value": 0.9142
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4667,
+                0.611
+              ],
+              "value": 0.5302
+            },
+            "specificity": {
+              "ci95": [
+                0.9074,
+                0.964
+              ],
+              "value": 0.9407
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6692,
+                0.8267
+              ],
+              "value": 0.7553
+            },
+            "cells": {
+              "fn": 1952,
+              "fp": 8727,
+              "tn": 12450,
+              "tp": 23300
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0406,
+                0.3038
+              ],
+              "value": 0.1355
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6445,
+                0.7818
+              ],
+              "value": 0.7275
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8842,
+                0.966
+              ],
+              "value": 0.9227
+            },
+            "specificity": {
+              "ci95": [
+                0.4259,
+                0.7103
+              ],
+              "value": 0.5879
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.7059,
+                0.7728
+              ],
+              "value": 0.7356
+            },
+            "cells": {
+              "fn": 11829,
+              "fp": 1280,
+              "tn": 19897,
+              "tp": 13423
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.222,
+                0.5205
+              ],
+              "value": 0.3728
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8755,
+                0.9396
+              ],
+              "value": 0.9129
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4678,
+                0.613
+              ],
+              "value": 0.5316
+            },
+            "specificity": {
+              "ci95": [
+                0.906,
+                0.963
+              ],
+              "value": 0.9396
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6777,
+                0.8058
+              ],
+              "value": 0.7568
+            },
+            "cells": {
+              "fn": 3646,
+              "fp": 7244,
+              "tn": 13933,
+              "tp": 21606
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1525,
+                0.2991
+              ],
+              "value": 0.2074
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6302,
+                0.8233
+              ],
+              "value": 0.7489
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7335,
+                0.9116
+              ],
+              "value": 0.8556
+            },
+            "specificity": {
+              "ci95": [
+                0.485,
+                0.7938
+              ],
+              "value": 0.6579
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 25252,
+              "fp": 0,
+              "tn": 21177,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3886,
+                0.6671
+              ],
+              "value": 0.5439
+            },
+            "n_pairs": 46429,
+            "n_resistant": 25252,
+            "n_susceptible": 21177,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "staphylococcus": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6649,
+                0.7318
+              ],
+              "value": 0.7038
+            },
+            "cells": {
+              "fn": 1378,
+              "fp": 882,
+              "tn": 9373,
+              "tp": 1343
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0956,
+                0.2332
+              ],
+              "value": 0.1282
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5024,
+                0.6984
+              ],
+              "value": 0.6036
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4217,
+                0.5752
+              ],
+              "value": 0.4936
+            },
+            "specificity": {
+              "ci95": [
+                0.847,
+                0.9366
+              ],
+              "value": 0.914
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5241,
+                0.572
+              ],
+              "value": 0.5476
+            },
+            "cells": {
+              "fn": 2425,
+              "fp": 140,
+              "tn": 10115,
+              "tp": 296
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1455,
+                0.3293
+              ],
+              "value": 0.1934
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.4947,
+                0.8148
+              ],
+              "value": 0.6789
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0623,
+                0.1655
+              ],
+              "value": 0.1088
+            },
+            "specificity": {
+              "ci95": [
+                0.958,
+                0.9942
+              ],
+              "value": 0.9863
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6572,
+                0.7383
+              ],
+              "value": 0.7016
+            },
+            "cells": {
+              "fn": 1308,
+              "fp": 1191,
+              "tn": 9064,
+              "tp": 1413
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0878,
+                0.2372
+              ],
+              "value": 0.1261
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.4532,
+                0.6391
+              ],
+              "value": 0.5426
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4405,
+                0.6059
+              ],
+              "value": 0.5193
+            },
+            "specificity": {
+              "ci95": [
+                0.8185,
+                0.9034
+              ],
+              "value": 0.8839
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5243,
+                0.5724
+              ],
+              "value": 0.5478
+            },
+            "cells": {
+              "fn": 2422,
+              "fp": 146,
+              "tn": 10109,
+              "tp": 299
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1453,
+                0.3291
+              ],
+              "value": 0.1933
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.4878,
+                0.8078
+              ],
+              "value": 0.6719
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0632,
+                0.1674
+              ],
+              "value": 0.1099
+            },
+            "specificity": {
+              "ci95": [
+                0.956,
+                0.9939
+              ],
+              "value": 0.9858
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.8275,
+                0.934
+              ],
+              "value": 0.8871
+            },
+            "cells": {
+              "fn": 359,
+              "fp": 962,
+              "tn": 9293,
+              "tp": 2362
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0114,
+                0.0988
+              ],
+              "value": 0.0372
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.641,
+                0.7775
+              ],
+              "value": 0.7106
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7657,
+                0.9601
+              ],
+              "value": 0.8681
+            },
+            "specificity": {
+              "ci95": [
+                0.8344,
+                0.928
+              ],
+              "value": 0.9062
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6774,
+                0.7946
+              ],
+              "value": 0.7374
+            },
+            "cells": {
+              "fn": 1374,
+              "fp": 208,
+              "tn": 10047,
+              "tp": 1347
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0777,
+                0.2384
+              ],
+              "value": 0.1203
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.7926,
+                0.9051
+              ],
+              "value": 0.8662
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3822,
+                0.6103
+              ],
+              "value": 0.495
+            },
+            "specificity": {
+              "ci95": [
+                0.9495,
+                0.9886
+              ],
+              "value": 0.9797
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.8273,
+                0.9216
+              ],
+              "value": 0.8864
+            },
+            "cells": {
+              "fn": 281,
+              "fp": 1271,
+              "tn": 8984,
+              "tp": 2440
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0084,
+                0.0949
+              ],
+              "value": 0.0303
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6006,
+                0.7234
+              ],
+              "value": 0.6575
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8064,
+                0.9713
+              ],
+              "value": 0.8967
+            },
+            "specificity": {
+              "ci95": [
+                0.8057,
+                0.897
+              ],
+              "value": 0.8761
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6781,
+                0.7968
+              ],
+              "value": 0.7393
+            },
+            "cells": {
+              "fn": 1362,
+              "fp": 214,
+              "tn": 10041,
+              "tp": 1359
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0774,
+                0.2359
+              ],
+              "value": 0.1194
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.7882,
+                0.9046
+              ],
+              "value": 0.864
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3848,
+                0.6156
+              ],
+              "value": 0.4994
+            },
+            "specificity": {
+              "ci95": [
+                0.9479,
+                0.9884
+              ],
+              "value": 0.9791
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.53,
+                0.6638
+              ],
+              "value": 0.5847
+            },
+            "cells": {
+              "fn": 2244,
+              "fp": 61,
+              "tn": 10194,
+              "tp": 477
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1148,
+                0.3222
+              ],
+              "value": 0.1804
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8443,
+                0.9664
+              ],
+              "value": 0.8866
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0627,
+                0.336
+              ],
+              "value": 0.1753
+            },
+            "specificity": {
+              "ci95": [
+                0.9878,
+                0.9991
+              ],
+              "value": 0.9941
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 2721,
+              "fp": 0,
+              "tn": 10255,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1552,
+                0.3541
+              ],
+              "value": 0.2097
+            },
+            "n_pairs": 12976,
+            "n_resistant": 2721,
+            "n_susceptible": 10255,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        }
+      }
+    },
+    "pool": {
+      "differences": {
+        "acinetobacter": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.1822,
+              0.0102
+            ],
+            "value": -0.1385
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.0643,
+              0.1238
+            ],
+            "value": 0.0758
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.116,
+              0.1259
+            ],
+            "value": -0.0627
+          }
+        },
+        "klebsiella": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.0531,
+              0.0612
+            ],
+            "value": 0.0094
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              -0.0112,
+              0.0028
+            ],
+            "value": -0.0047
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.0567,
+              0.056
+            ],
+            "value": 0.0046
+          }
+        },
+        "pooled": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              -0.1078,
+              0.023
+            ],
+            "value": -0.0489
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.0252,
+              0.073
+            ],
+            "value": 0.0494
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              -0.0523,
+              0.0806
+            ],
+            "value": 0.0005
+          }
+        },
+        "staphylococcus": {
+          "A-class minus drug_prior": {
+            "ci95": [
+              0.0489,
+              0.1813
+            ],
+            "value": 0.1205
+          },
+          "B-class minus A-class": {
+            "ci95": [
+              0.13,
+              0.2404
+            ],
+            "value": 0.1839
+          },
+          "B-class minus drug_prior": {
+            "ci95": [
+              0.2039,
+              0.392
+            ],
+            "value": 0.3044
+          }
+        }
+      },
+      "strata": {
+        "acinetobacter": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5067,
+                0.6014
+              ],
+              "value": 0.5321
+            },
+            "cells": {
+              "fn": 2750,
+              "fp": 1729,
+              "tn": 1036,
+              "tp": 6106
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4209,
+                0.8147
+              ],
+              "value": 0.7264
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5903,
+                0.8279
+              ],
+              "value": 0.7793
+            },
+            "sensitivity": {
+              "ci95": [
+                0.6597,
+                0.7627
+              ],
+              "value": 0.6895
+            },
+            "specificity": {
+              "ci95": [
+                0.3294,
+                0.4516
+              ],
+              "value": 0.3747
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5727,
+                0.6168
+              ],
+              "value": 0.596
+            },
+            "cells": {
+              "fn": 7015,
+              "fp": 44,
+              "tn": 2721,
+              "tp": 1841
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4885,
+                0.7906
+              ],
+              "value": 0.7205
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.926,
+                0.9826
+              ],
+              "value": 0.9767
+            },
+            "sensitivity": {
+              "ci95": [
+                0.1705,
+                0.2528
+              ],
+              "value": 0.2079
+            },
+            "specificity": {
+              "ci95": [
+                0.9552,
+                0.9912
+              ],
+              "value": 0.9841
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5068,
+                0.6
+              ],
+              "value": 0.5318
+            },
+            "cells": {
+              "fn": 2749,
+              "fp": 1731,
+              "tn": 1034,
+              "tp": 6107
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4216,
+                0.8147
+              ],
+              "value": 0.7267
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5907,
+                0.8279
+              ],
+              "value": 0.7792
+            },
+            "sensitivity": {
+              "ci95": [
+                0.6605,
+                0.7631
+              ],
+              "value": 0.6896
+            },
+            "specificity": {
+              "ci95": [
+                0.3294,
+                0.4491
+              ],
+              "value": 0.374
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5734,
+                0.6185
+              ],
+              "value": 0.5962
+            },
+            "cells": {
+              "fn": 7011,
+              "fp": 44,
+              "tn": 2721,
+              "tp": 1845
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4881,
+                0.7906
+              ],
+              "value": 0.7204
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9266,
+                0.9826
+              ],
+              "value": 0.9767
+            },
+            "sensitivity": {
+              "ci95": [
+                0.1716,
+                0.2566
+              ],
+              "value": 0.2083
+            },
+            "specificity": {
+              "ci95": [
+                0.9552,
+                0.9912
+              ],
+              "value": 0.9841
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5768,
+                0.7033
+              ],
+              "value": 0.6079
+            },
+            "cells": {
+              "fn": 1263,
+              "fp": 1774,
+              "tn": 991,
+              "tp": 7593
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0946,
+                0.7009
+              ],
+              "value": 0.5603
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6545,
+                0.852
+              ],
+              "value": 0.8106
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8336,
+                0.9703
+              ],
+              "value": 0.8574
+            },
+            "specificity": {
+              "ci95": [
+                0.3087,
+                0.4503
+              ],
+              "value": 0.3584
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.658,
+                0.7395
+              ],
+              "value": 0.6719
+            },
+            "cells": {
+              "fn": 5527,
+              "fp": 89,
+              "tn": 2676,
+              "tp": 3329
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4046,
+                0.7542
+              ],
+              "value": 0.6738
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9585,
+                0.9829
+              ],
+              "value": 0.974
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3544,
+                0.5064
+              ],
+              "value": 0.3759
+            },
+            "specificity": {
+              "ci95": [
+                0.9486,
+                0.9892
+              ],
+              "value": 0.9678
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5768,
+                0.702
+              ],
+              "value": 0.6076
+            },
+            "cells": {
+              "fn": 1262,
+              "fp": 1776,
+              "tn": 989,
+              "tp": 7594
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0936,
+                0.7009
+              ],
+              "value": 0.5606
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6542,
+                0.852
+              ],
+              "value": 0.8105
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8336,
+                0.9706
+              ],
+              "value": 0.8575
+            },
+            "specificity": {
+              "ci95": [
+                0.3087,
+                0.4475
+              ],
+              "value": 0.3577
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6582,
+                0.7403
+              ],
+              "value": 0.6721
+            },
+            "cells": {
+              "fn": 5523,
+              "fp": 89,
+              "tn": 2676,
+              "tp": 3333
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4039,
+                0.7542
+              ],
+              "value": 0.6736
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.9586,
+                0.9829
+              ],
+              "value": 0.974
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3547,
+                0.5099
+              ],
+              "value": 0.3764
+            },
+            "specificity": {
+              "ci95": [
+                0.9486,
+                0.9892
+              ],
+              "value": 0.9678
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5276,
+                0.7101
+              ],
+              "value": 0.6703
+            },
+            "cells": {
+              "fn": 670,
+              "fp": 1614,
+              "tn": 1151,
+              "tp": 8186
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3068,
+                0.6339
+              ],
+              "value": 0.3679
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5907,
+                0.8856
+              ],
+              "value": 0.8353
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7461,
+                0.9562
+              ],
+              "value": 0.9243
+            },
+            "specificity": {
+              "ci95": [
+                0.1864,
+                0.5792
+              ],
+              "value": 0.4163
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 8856,
+              "fp": 0,
+              "tn": 2765,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.5444,
+                0.8235
+              ],
+              "value": 0.7621
+            },
+            "n_pairs": 11621,
+            "n_resistant": 8856,
+            "n_susceptible": 2765,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "klebsiella": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5679,
+                0.6567
+              ],
+              "value": 0.6189
+            },
+            "cells": {
+              "fn": 354,
+              "fp": 4630,
+              "tn": 1692,
+              "tp": 11485
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1128,
+                0.2949
+              ],
+              "value": 0.173
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.603,
+                0.7997
+              ],
+              "value": 0.7127
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9578,
+                0.9771
+              ],
+              "value": 0.9701
+            },
+            "specificity": {
+              "ci95": [
+                0.1669,
+                0.3442
+              ],
+              "value": 0.2676
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6296,
+                0.7005
+              ],
+              "value": 0.6642
+            },
+            "cells": {
+              "fn": 6716,
+              "fp": 659,
+              "tn": 5663,
+              "tp": 5123
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4041,
+                0.6682
+              ],
+              "value": 0.5425
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8508,
+                0.9168
+              ],
+              "value": 0.886
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3607,
+                0.5091
+              ],
+              "value": 0.4327
+            },
+            "specificity": {
+              "ci95": [
+                0.8546,
+                0.9359
+              ],
+              "value": 0.8958
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5676,
+                0.656
+              ],
+              "value": 0.6187
+            },
+            "cells": {
+              "fn": 353,
+              "fp": 4633,
+              "tn": 1689,
+              "tp": 11486
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1129,
+                0.2955
+              ],
+              "value": 0.1729
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6029,
+                0.7997
+              ],
+              "value": 0.7126
+            },
+            "sensitivity": {
+              "ci95": [
+                0.958,
+                0.9772
+              ],
+              "value": 0.9702
+            },
+            "specificity": {
+              "ci95": [
+                0.1662,
+                0.3435
+              ],
+              "value": 0.2672
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6294,
+                0.7008
+              ],
+              "value": 0.6642
+            },
+            "cells": {
+              "fn": 6714,
+              "fp": 660,
+              "tn": 5662,
+              "tp": 5125
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.404,
+                0.6683
+              ],
+              "value": 0.5425
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8507,
+                0.9167
+              ],
+              "value": 0.8859
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3608,
+                0.5092
+              ],
+              "value": 0.4329
+            },
+            "specificity": {
+              "ci95": [
+                0.8543,
+                0.9359
+              ],
+              "value": 0.8956
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5667,
+                0.6498
+              ],
+              "value": 0.6141
+            },
+            "cells": {
+              "fn": 157,
+              "fp": 4795,
+              "tn": 1527,
+              "tp": 11682
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0569,
+                0.1614
+              ],
+              "value": 0.0932
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6013,
+                0.7941
+              ],
+              "value": 0.709
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9806,
+                0.9913
+              ],
+              "value": 0.9867
+            },
+            "specificity": {
+              "ci95": [
+                0.1472,
+                0.3138
+              ],
+              "value": 0.2415
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.7199,
+                0.7625
+              ],
+              "value": 0.7405
+            },
+            "cells": {
+              "fn": 4447,
+              "fp": 906,
+              "tn": 5416,
+              "tp": 7392
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3307,
+                0.5767
+              ],
+              "value": 0.4509
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8538,
+                0.9194
+              ],
+              "value": 0.8908
+            },
+            "sensitivity": {
+              "ci95": [
+                0.5886,
+                0.6655
+              ],
+              "value": 0.6244
+            },
+            "specificity": {
+              "ci95": [
+                0.8129,
+                0.8982
+              ],
+              "value": 0.8567
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5664,
+                0.6496
+              ],
+              "value": 0.6139
+            },
+            "cells": {
+              "fn": 156,
+              "fp": 4798,
+              "tn": 1524,
+              "tp": 11683
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0568,
+                0.1601
+              ],
+              "value": 0.0929
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.601,
+                0.794
+              ],
+              "value": 0.7089
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9806,
+                0.9914
+              ],
+              "value": 0.9868
+            },
+            "specificity": {
+              "ci95": [
+                0.1464,
+                0.3132
+              ],
+              "value": 0.2411
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.7197,
+                0.7628
+              ],
+              "value": 0.7405
+            },
+            "cells": {
+              "fn": 4445,
+              "fp": 907,
+              "tn": 5415,
+              "tp": 7394
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3305,
+                0.5767
+              ],
+              "value": 0.4508
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8538,
+                0.9193
+              ],
+              "value": 0.8907
+            },
+            "sensitivity": {
+              "ci95": [
+                0.5888,
+                0.6657
+              ],
+              "value": 0.6245
+            },
+            "specificity": {
+              "ci95": [
+                0.8127,
+                0.8982
+              ],
+              "value": 0.8565
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5735,
+                0.649
+              ],
+              "value": 0.6093
+            },
+            "cells": {
+              "fn": 502,
+              "fp": 4672,
+              "tn": 1650,
+              "tp": 11337
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1665,
+                0.3069
+              ],
+              "value": 0.2333
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.584,
+                0.8067
+              ],
+              "value": 0.7082
+            },
+            "sensitivity": {
+              "ci95": [
+                0.9312,
+                0.9729
+              ],
+              "value": 0.9576
+            },
+            "specificity": {
+              "ci95": [
+                0.1937,
+                0.3368
+              ],
+              "value": 0.261
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 11839,
+              "fp": 0,
+              "tn": 6322,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.5364,
+                0.7483
+              ],
+              "value": 0.6519
+            },
+            "n_pairs": 18161,
+            "n_resistant": 11839,
+            "n_susceptible": 6322,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "pooled": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6194,
+                0.784
+              ],
+              "value": 0.7119
+            },
+            "cells": {
+              "fn": 4404,
+              "fp": 6997,
+              "tn": 11085,
+              "tp": 18868
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1424,
+                0.4922
+              ],
+              "value": 0.2843
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6395,
+                0.7904
+              ],
+              "value": 0.7295
+            },
+            "sensitivity": {
+              "ci95": [
+                0.734,
+                0.9
+              ],
+              "value": 0.8108
+            },
+            "specificity": {
+              "ci95": [
+                0.434,
+                0.7453
+              ],
+              "value": 0.613
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6068,
+                0.668
+              ],
+              "value": 0.6327
+            },
+            "cells": {
+              "fn": 16012,
+              "fp": 843,
+              "tn": 17239,
+              "tp": 7260
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3182,
+                0.6216
+              ],
+              "value": 0.4815
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8514,
+                0.9314
+              ],
+              "value": 0.896
+            },
+            "sensitivity": {
+              "ci95": [
+                0.2486,
+                0.4008
+              ],
+              "value": 0.312
+            },
+            "specificity": {
+              "ci95": [
+                0.9209,
+                0.9746
+              ],
+              "value": 0.9534
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6155,
+                0.7772
+              ],
+              "value": 0.7053
+            },
+            "cells": {
+              "fn": 4333,
+              "fp": 7290,
+              "tn": 10792,
+              "tp": 18939
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1391,
+                0.4956
+              ],
+              "value": 0.2865
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6285,
+                0.7846
+              ],
+              "value": 0.7221
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7368,
+                0.9027
+              ],
+              "value": 0.8138
+            },
+            "specificity": {
+              "ci95": [
+                0.4289,
+                0.7217
+              ],
+              "value": 0.5968
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6066,
+                0.6682
+              ],
+              "value": 0.6327
+            },
+            "cells": {
+              "fn": 16003,
+              "fp": 850,
+              "tn": 17232,
+              "tp": 7269
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.3182,
+                0.6217
+              ],
+              "value": 0.4815
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8504,
+                0.9307
+              ],
+              "value": 0.8953
+            },
+            "sensitivity": {
+              "ci95": [
+                0.249,
+                0.4011
+              ],
+              "value": 0.3123
+            },
+            "specificity": {
+              "ci95": [
+                0.9203,
+                0.9743
+              ],
+              "value": 0.953
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6645,
+                0.8408
+              ],
+              "value": 0.7611
+            },
+            "cells": {
+              "fn": 1763,
+              "fp": 7271,
+              "tn": 10811,
+              "tp": 21509
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0361,
+                0.325
+              ],
+              "value": 0.1402
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6637,
+                0.8046
+              ],
+              "value": 0.7474
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8775,
+                0.9763
+              ],
+              "value": 0.9242
+            },
+            "specificity": {
+              "ci95": [
+                0.4136,
+                0.7353
+              ],
+              "value": 0.5979
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6891,
+                0.7674
+              ],
+              "value": 0.7243
+            },
+            "cells": {
+              "fn": 11309,
+              "fp": 1183,
+              "tn": 16899,
+              "tp": 11963
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.237,
+                0.5521
+              ],
+              "value": 0.4009
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8722,
+                0.9365
+              ],
+              "value": 0.91
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4379,
+                0.6069
+              ],
+              "value": 0.5141
+            },
+            "specificity": {
+              "ci95": [
+                0.8955,
+                0.9605
+              ],
+              "value": 0.9346
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6606,
+                0.8326
+              ],
+              "value": 0.7547
+            },
+            "cells": {
+              "fn": 1683,
+              "fp": 7564,
+              "tn": 10518,
+              "tp": 21589
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0325,
+                0.3244
+              ],
+              "value": 0.1379
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6545,
+                0.7977
+              ],
+              "value": 0.7405
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8805,
+                0.9787
+              ],
+              "value": 0.9277
+            },
+            "specificity": {
+              "ci95": [
+                0.4094,
+                0.7127
+              ],
+              "value": 0.5817
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6892,
+                0.7684
+              ],
+              "value": 0.7245
+            },
+            "cells": {
+              "fn": 11291,
+              "fp": 1190,
+              "tn": 16892,
+              "tp": 11981
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.2366,
+                0.5522
+              ],
+              "value": 0.4006
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.872,
+                0.9361
+              ],
+              "value": 0.9096
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4385,
+                0.6081
+              ],
+              "value": 0.5148
+            },
+            "specificity": {
+              "ci95": [
+                0.8949,
+                0.9603
+              ],
+              "value": 0.9342
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6702,
+                0.8061
+              ],
+              "value": 0.7542
+            },
+            "cells": {
+              "fn": 3272,
+              "fp": 6347,
+              "tn": 11735,
+              "tp": 20000
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1601,
+                0.3224
+              ],
+              "value": 0.218
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6368,
+                0.8335
+              ],
+              "value": 0.7591
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7377,
+                0.9142
+              ],
+              "value": 0.8594
+            },
+            "specificity": {
+              "ci95": [
+                0.4621,
+                0.7896
+              ],
+              "value": 0.649
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 23272,
+              "fp": 0,
+              "tn": 18082,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.4054,
+                0.685
+              ],
+              "value": 0.5628
+            },
+            "n_pairs": 41354,
+            "n_resistant": 23272,
+            "n_susceptible": 18082,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        },
+        "staphylococcus": {
+          "A-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6709,
+                0.7464
+              ],
+              "value": 0.7123
+            },
+            "cells": {
+              "fn": 1300,
+              "fp": 638,
+              "tn": 8357,
+              "tp": 1277
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1027,
+                0.2447
+              ],
+              "value": 0.1346
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5681,
+                0.7645
+              ],
+              "value": 0.6668
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4179,
+                0.5724
+              ],
+              "value": 0.4955
+            },
+            "specificity": {
+              "ci95": [
+                0.8842,
+                0.9445
+              ],
+              "value": 0.9291
+            }
+          },
+          "A-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5253,
+                0.5739
+              ],
+              "value": 0.5496
+            },
+            "cells": {
+              "fn": 2281,
+              "fp": 140,
+              "tn": 8855,
+              "tp": 296
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1568,
+                0.3472
+              ],
+              "value": 0.2048
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.4947,
+                0.8148
+              ],
+              "value": 0.6789
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0678,
+                0.1715
+              ],
+              "value": 0.1149
+            },
+            "specificity": {
+              "ci95": [
+                0.953,
+                0.9933
+              ],
+              "value": 0.9844
+            }
+          },
+          "A|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6642,
+                0.7484
+              ],
+              "value": 0.7097
+            },
+            "cells": {
+              "fn": 1231,
+              "fp": 926,
+              "tn": 8069,
+              "tp": 1346
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0945,
+                0.2466
+              ],
+              "value": 0.1324
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.5027,
+                0.7045
+              ],
+              "value": 0.5924
+            },
+            "sensitivity": {
+              "ci95": [
+                0.4369,
+                0.6039
+              ],
+              "value": 0.5223
+            },
+            "specificity": {
+              "ci95": [
+                0.8546,
+                0.9121
+              ],
+              "value": 0.8971
+            }
+          },
+          "A|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5255,
+                0.574
+              ],
+              "value": 0.5499
+            },
+            "cells": {
+              "fn": 2278,
+              "fp": 146,
+              "tn": 8849,
+              "tp": 299
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1567,
+                0.3477
+              ],
+              "value": 0.2047
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.4878,
+                0.8078
+              ],
+              "value": 0.6719
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0688,
+                0.1731
+              ],
+              "value": 0.116
+            },
+            "specificity": {
+              "ci95": [
+                0.9509,
+                0.993
+              ],
+              "value": 0.9838
+            }
+          },
+          "B-intact|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.8367,
+                0.942
+              ],
+              "value": 0.8944
+            },
+            "cells": {
+              "fn": 343,
+              "fp": 702,
+              "tn": 8293,
+              "tp": 2234
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0111,
+                0.106
+              ],
+              "value": 0.0397
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6983,
+                0.8197
+              ],
+              "value": 0.7609
+            },
+            "sensitivity": {
+              "ci95": [
+                0.7641,
+                0.9601
+              ],
+              "value": 0.8669
+            },
+            "specificity": {
+              "ci95": [
+                0.8723,
+                0.9373
+              ],
+              "value": 0.922
+            }
+          },
+          "B-intact|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.6728,
+                0.7904
+              ],
+              "value": 0.7305
+            },
+            "cells": {
+              "fn": 1335,
+              "fp": 188,
+              "tn": 8807,
+              "tp": 1242
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0848,
+                0.255
+              ],
+              "value": 0.1316
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.7882,
+                0.9127
+              ],
+              "value": 0.8685
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3722,
+                0.6017
+              ],
+              "value": 0.482
+            },
+            "specificity": {
+              "ci95": [
+                0.9438,
+                0.9888
+              ],
+              "value": 0.9791
+            }
+          },
+          "B|class": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.8373,
+                0.9296
+              ],
+              "value": 0.8936
+            },
+            "cells": {
+              "fn": 265,
+              "fp": 990,
+              "tn": 8005,
+              "tp": 2312
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0083,
+                0.1015
+              ],
+              "value": 0.032
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.6483,
+                0.7738
+              ],
+              "value": 0.7002
+            },
+            "sensitivity": {
+              "ci95": [
+                0.8053,
+                0.9723
+              ],
+              "value": 0.8972
+            },
+            "specificity": {
+              "ci95": [
+                0.8403,
+                0.9066
+              ],
+              "value": 0.8899
+            }
+          },
+          "B|strict": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.673,
+                0.7929
+              ],
+              "value": 0.7325
+            },
+            "cells": {
+              "fn": 1323,
+              "fp": 194,
+              "tn": 8801,
+              "tp": 1254
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.0846,
+                0.2532
+              ],
+              "value": 0.1307
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.7838,
+                0.9126
+              ],
+              "value": 0.866
+            },
+            "sensitivity": {
+              "ci95": [
+                0.3738,
+                0.6075
+              ],
+              "value": 0.4866
+            },
+            "specificity": {
+              "ci95": [
+                0.9419,
+                0.9884
+              ],
+              "value": 0.9784
+            }
+          },
+          "drug_prior": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.532,
+                0.6703
+              ],
+              "value": 0.5892
+            },
+            "cells": {
+              "fn": 2100,
+              "fp": 61,
+              "tn": 8934,
+              "tp": 477
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.124,
+                0.3388
+              ],
+              "value": 0.1903
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": [
+                0.8443,
+                0.9664
+              ],
+              "value": 0.8866
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0668,
+                0.3511
+              ],
+              "value": 0.1851
+            },
+            "specificity": {
+              "ci95": [
+                0.9856,
+                0.999
+              ],
+              "value": 0.9932
+            }
+          },
+          "never_ruled_out": {
+            "balanced_accuracy": {
+              "ci95": [
+                0.5,
+                0.5
+              ],
+              "value": 0.5
+            },
+            "cells": {
+              "fn": 2577,
+              "fp": 0,
+              "tn": 8995,
+              "tp": 0
+            },
+            "false_reassurance": {
+              "ci95": [
+                0.1683,
+                0.3725
+              ],
+              "value": 0.2227
+            },
+            "n_pairs": 11572,
+            "n_resistant": 2577,
+            "n_susceptible": 8995,
+            "ppv_ruled_out": {
+              "ci95": null,
+              "value": null
+            },
+            "sensitivity": {
+              "ci95": [
+                0.0,
+                0.0
+              ],
+              "value": 0.0
+            },
+            "specificity": {
+              "ci95": [
+                1.0,
+                1.0
+              ],
+              "value": 1.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "seed": 20261108,
+  "software": {
+    "git_head": "081218dbc88c107bf43971f735371e1be674d1bd (working tree was not clean)",
+    "numpy": "2.4.6",
+    "python": "3.12.13"
+  }
+}

@@ -180,8 +180,15 @@ class Session:
 
     # ---------------------------------------------------------------- actions
 
-    def open(self, url: str, *, note: str = "") -> str:
-        """Navigate and return the page's visible text. Records the page in record mode."""
+    def open(self, url: str, *, note: str = "", ready_js: str | None = None,
+             ready_ms: int = 15000) -> str:
+        """Navigate and return the page's visible text. Records the page in record mode.
+
+        ``ready_js`` is for pages that draw their content with JavaScript after load
+        (ClinicalTrials.gov). It is a JS expression the page must make truthy, such as "a result
+        card exists or the page says there are none". Timing out is not an error: an empty
+        result is a recorded outcome, and the text read is whatever the page had by then.
+        """
         if not host_allowed(url):
             self.log.add("blocked", url=url, note="host is not on the allowlist")
             raise SessionError(f"{url} is not on the allowlist {ALLOWED}")
@@ -193,6 +200,11 @@ class Session:
                          note=type(exc).__name__)
             raise SessionError(f"could not open {url}: {type(exc).__name__}") from exc
         status = response.status if response is not None else 0
+        if ready_js:
+            try:
+                self._page.wait_for_function(ready_js, timeout=ready_ms)
+            except Exception:
+                note = (note + "; " if note else "") + "page never reported ready"
         text = self._page.inner_text("body")
         if self.mode == RECORD:
             self.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -203,6 +215,25 @@ class Session:
         self.log.add("open", url=url, seconds=round(time.monotonic() - started, 3),
                      note=note or f"HTTP {status}, {len(text)} chars")
         return text
+
+    def cards(self, selector: str, *, link: str = "a") -> list:
+        """Each element matching ``selector`` on the current page: its text and its first link.
+
+        A link off the allowlist is dropped to None, so a card cannot point the reader (or a
+        later step) at another host.
+        """
+        found = self._page.eval_on_selector_all(
+            selector,
+            """(els, link) => els.map(e => {
+                const a = e.querySelector(link);
+                return {text: e.innerText, href: a ? a.href : null};
+            })""",
+            link,
+        )
+        for card in found:
+            if card["href"] and not host_allowed(card["href"]):
+                card["href"] = None
+        return found
 
     def set_page(self, html: str, *, note: str = "fixture") -> str:
         """Load HTML directly. For tests and for checking the agent against a planted page."""

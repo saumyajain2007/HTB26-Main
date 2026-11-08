@@ -75,12 +75,22 @@ export function Unavailable({ message, onRetry }: { message: string; onRetry: ()
   );
 }
 
+/**
+ * The wait for a screen's data: the sentence for readers and screen readers, and a few pale rows
+ * for everyone else, so the page does not jump when the figure arrives. The rows carry no meaning.
+ */
 export function Loading({ message }: { message: string }) {
   return (
     <div className={styles.status}>
       <p className={styles.detail} role="status">
         {message}
       </p>
+      <div className={styles.skeleton} aria-hidden="true">
+        <span className={styles.bar} />
+        <span className={styles.bar} />
+        <span className={styles.bar} />
+        <span className={styles.bar} />
+      </div>
     </div>
   );
 }

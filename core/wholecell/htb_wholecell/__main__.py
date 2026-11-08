@@ -1,4 +1,4 @@
-"""``python -m htb_wholecell build|verify``"""
+"""``python -m htb_wholecell build|species|train|evaluate|verify|filter|ledger``"""
 
 from __future__ import annotations
 
@@ -30,6 +30,18 @@ def main(argv: list[str] | None = None) -> int:
     f.add_argument("--limit", type=int, default=None, help="only the first N rows (for a quick look)")
     g = sub.add_parser("ledger", help="summarise an oracle cost ledger and verify its hash chain")
     g.add_argument("path", type=Path)
+    sp = sub.add_parser("species", help="build a release of one organism's ChEMBL MIC table and splits")
+    sp.add_argument("--taxon", type=int, required=True, help="NCBI taxon id, e.g. 1280 or 573")
+    sp.add_argument("--organism", required=True, help="the organism's name, for the manifest")
+    sp.add_argument("--chembl-db", type=Path, default=DEFAULT_CHEMBL)
+    sp.add_argument("--out", type=Path, default=DEFAULT_ROOT)
+    t = sub.add_parser("train", help="train a Chemprop ensemble on a release's table (needs the model extra)")
+    t.add_argument("release", type=Path)
+    t.add_argument("run", type=Path, help="where to write the ensemble")
+    t.add_argument("--table", default="liu_train")
+    t.add_argument("--split", choices=("scaffold", "random"), default="scaffold")
+    t.add_argument("--members", type=int, default=5)
+    t.add_argument("--epochs", type=int, default=None)
     e = sub.add_parser("evaluate", help="evaluate a trained ensemble (needs the model extra)")
     e.add_argument("release", type=Path)
     e.add_argument("run", type=Path)
@@ -39,6 +51,18 @@ def main(argv: list[str] | None = None) -> int:
         stats = json.loads((release / "manifest.json").read_text())["statistics"]
         print(f"built {release}")
         print(json.dumps(stats, indent=2))
+        return 0
+    if args.cmd == "species":
+        from .build import build_species_release
+        release = build_species_release(args.chembl_db, args.taxon, args.organism, args.out)
+        stats = json.loads((release / "manifest.json").read_text())["statistics"]
+        print(f"built {release}")
+        print(json.dumps({k: v for k, v in stats.items() if k.startswith("mic_")}, indent=2))
+        return 0
+    if args.cmd == "train":
+        from .model import train_ensemble
+        record = train_ensemble(args.release, args.run, args.split, args.members, args.epochs, args.table)
+        print(json.dumps(record, indent=2))
         return 0
     if args.cmd == "filter":
         from . import filters

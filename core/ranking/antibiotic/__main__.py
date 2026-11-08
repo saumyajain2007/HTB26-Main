@@ -29,7 +29,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--catalogue", type=Path, default=CATALOGUE, help="built antibiotic catalogue directory")
     ap.add_argument("--chembl", type=Path, default=CHEMBL, help="extracted ChEMBL SQLite database (activity data)")
     ap.add_argument("--no-activity", action="store_true", help="skip the ChEMBL MIC lookup")
-    ap.add_argument("--lean", action="store_true", help="run Lean 4 certificates on drugs that pass the smoke test")
+    ap.add_argument("--lean", action="store_true", help="run Lean 4 certificates on every valid drug (failing drugs get the named failing rules)")
     ap.add_argument("--max-mic", type=float, metavar="MG_L", help="leave out drugs whose measured median MIC "
                     "against the pathogen exceeds this (off by default; a working assumption, not a breakpoint)")
     ap.add_argument("--smoke-gate", action="store_true", help="leave out drugs that fail the smoke test instead "

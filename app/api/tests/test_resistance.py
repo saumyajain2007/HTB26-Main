@@ -25,6 +25,7 @@ from htb_api.schemas import (
 )
 from htb_api.services.resistance import (
     PRESETS,
+    CardResistance,
     FixtureResistance,
     ProfilingRefused,
     ProfilingUnavailable,
@@ -239,7 +240,11 @@ def test_fixture_source_cannot_profile(source: FixtureResistance) -> None:
         source.build(ProfileRequest(kind="gene_list", genes="mecA"))
 
 
-def test_profiling_without_a_card_release_is_a_503(client: TestClient) -> None:
+def test_profiling_without_a_card_release_is_a_503(
+    make_client: Callable[..., TestClient], tmp_path: Path
+) -> None:
+    # An empty data directory, so the answer does not depend on a CARD release built here.
+    client = make_client(resistance=CardResistance(FIXTURES_DIR, tmp_path))
     response = client.post(
         "/api/resistance/profiles", json={"kind": "gene_list", "genes": "mecA, gyrA S84L"}
     )

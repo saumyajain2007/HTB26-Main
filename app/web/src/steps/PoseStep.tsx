@@ -5,6 +5,7 @@ import type { Candidate, DockJob, Experiment, Structure } from "../api/types";
 import { DrugPicker } from "../app/DrugPicker";
 import { FigureNote, Panel } from "../app/Figure";
 import { copy, stepCopy } from "../copy/en";
+import { BINDING_SCORE_THRESHOLD, bindingVerdict } from "../lib/bindingVerdict";
 import { bestScore, defaultDockingChoice, dockingPairs, jobFor } from "../lib/docking";
 import { drugName, signed } from "../lib/format";
 import styles from "./PoseStep.module.css";
@@ -104,6 +105,15 @@ function PairView({ experiment, candidate, structure, picker }: PairViewProps) {
   const savedJob = saved.data?.status === "done" ? saved.data : undefined;
   const result = job?.status === "done" ? job : savedJob;
   const name = drugName(candidate.name);
+  const score = result === undefined ? null : bestScore(result);
+  const outcome = bindingVerdict(score);
+  const verdict =
+    result !== undefined && score !== null && outcome !== null
+      ? {
+          outcome,
+          basis: copy.pose.verdict.basis(score, BINDING_SCORE_THRESHOLD, result.fixture),
+        }
+      : null;
 
   let body: ReactNode;
   if (result !== undefined) {
@@ -123,6 +133,7 @@ function PairView({ experiment, candidate, structure, picker }: PairViewProps) {
             <PoseViewer
               files={result.files}
               label={copy.pose.viewerLabel(name, structure.target_symbol)}
+              verdict={verdict}
             />
           </Suspense>
         )}

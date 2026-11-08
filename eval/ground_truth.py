@@ -199,7 +199,11 @@ def score(table: dict, row_id: str, ranked_names: list) -> dict:
         "hit_at_1": best_good == 1,
         "hit_at_3": best_good is not None and best_good <= 3,
         "reciprocal_rank": 0.0 if best_good is None else round(1 / best_good, 4),
-        "inverted": best_bad is not None and (best_good is None or best_bad < best_good),
+        # Inversion needs an effective drug to be outranked. When none is in the ranking the
+        # row cannot be hit or missed, and calling that an inversion would blame the method
+        # for a gap in the candidate pool.
+        "hit_eligible": best_good is not None,
+        "inverted": best_good is not None and best_bad is not None and best_bad < best_good,
         "note": ("no drug from either list appears in the ranking, so this row says nothing "
                  "about it" if best_good is None and best_bad is None else ""),
     }

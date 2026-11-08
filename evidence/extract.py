@@ -100,13 +100,14 @@ def new_nonce() -> str:
     return secrets.token_hex(8)
 
 
-def build_prompt(candidate: str, page_text: str, url: str, source: str, nonce: str) -> str:
+def build_prompt(candidate: str, page_text: str, url: str, source: str, nonce: str,
+                 questions: tuple = QUESTIONS) -> str:
     """The prompt. Page content sits inside a delimited block and is named as data."""
     return "\n".join([
         "You read one search-results or record page and report only what it says.",
         "",
         "Rules:",
-        f"- Answer only these questions: {', '.join(QUESTIONS)}.",
+        f"- Answer only these questions: {', '.join(questions)}.",
         "- Every answer needs a quote copied exactly from the page. No quote, no claim.",
         f'- If the page does not answer a question, answer "{NO_RECORD}" with no quote.',
         "- Never use outside knowledge. Report the page, not what you know about the drug.",
@@ -125,7 +126,7 @@ def build_prompt(candidate: str, page_text: str, url: str, source: str, nonce: s
     ])
 
 
-def parse_reply(reply: str) -> list:
+def parse_reply(reply: str, questions: tuple = QUESTIONS) -> list:
     """Strict JSON to a list of proposed claim dicts, with unknown fields discarded."""
     text = (reply or "").strip()
     if text.startswith("```"):
@@ -142,8 +143,8 @@ def parse_reply(reply: str) -> list:
         if not isinstance(item, dict):
             raise ExtractionError("a claim is not an object")
         kept = {k: item.get(k) for k in CLAIM_FIELDS}
-        if kept["question"] not in QUESTIONS:
-            raise ExtractionError(f"question {kept['question']!r} is not one of {QUESTIONS}")
+        if kept["question"] not in questions:
+            raise ExtractionError(f"question {kept['question']!r} is not one of {questions}")
         if not isinstance(kept["answer"], str) or not kept["answer"].strip():
             raise ExtractionError(f"{kept['question']}: answer is empty")
         if kept["quote"] is not None and not isinstance(kept["quote"], str):
@@ -187,7 +188,8 @@ def accept(proposed: list, *, candidate: str, page_text: str, url: str, source: 
     return accepted, rejected
 
 
-def fill_unanswered(accepted: list, *, candidate: str, url: str, source: str) -> list:
+def fill_unanswered(accepted: list, *, candidate: str, url: str, source: str,
+                    questions: tuple = QUESTIONS) -> list:
     """Record `no record found` for any question the page did not answer.
 
     The point is that the output has a row for every question, so a missing answer is an
@@ -196,5 +198,5 @@ def fill_unanswered(accepted: list, *, candidate: str, url: str, source: str) ->
     answered = {c.question for c in accepted}
     return list(accepted) + [
         Claim(candidate, question, NO_RECORD, url, source, None)
-        for question in QUESTIONS if question not in answered
+        for question in questions if question not in answered
     ]

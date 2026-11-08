@@ -67,19 +67,34 @@ def pool_of(result: dict) -> set:
 
 
 def rows_for(table: dict, result: dict) -> list:
-    """Ground-truth rows whose pathogen matches this result's, in table order."""
+    """Ground-truth rows this result is evidence for, in table order.
+
+    A result built for one row (``eval.build_row_results``) names it in ``ground_truth_row``
+    and is scored against that row only, because the ranking was made from that row's own
+    genes. A result with no such key is a whole-species ranking and is scored against every
+    row of that species, which is only meaningful when the row's genes are the preset's.
+    """
     species = (result.get("pathogen") or {}).get("name")
-    return [r for r in gt_rows(table) if species and r["pathogen"]["name"] == species]
+    wanted = result.get("ground_truth_row")
+    return [r for r in gt_rows(table)
+            if species and r["pathogen"]["name"] == species
+            and (wanted is None or r["id"] == wanted)]
 
 
 def scorability(row: dict, pool: set) -> dict:
-    """Whether a row can be scored against this pool, and what is missing if not."""
+    """Whether a row can be scored against this pool, and what is missing if not.
+
+    ``scorable`` means some drug from either list is in the pool. ``hit_eligible`` is
+    stricter: an effective drug is in the pool, so the ranking could get the row right.
+    Only hit-eligible rows enter the headline; the rest are reported as demotion rows.
+    """
     effective = {d["name"].lower() for d in row["effective_drugs"]}
     ineffective = {d["name"].lower() for d in row["ineffective_drugs"]}
     present = (effective | ineffective) & pool
     return {
         "row": row["id"],
         "scorable": bool(present),
+        "hit_eligible": bool(effective & pool),
         "in_pool": sorted(present),
         "effective_missing": sorted(effective - pool),
         "ineffective_missing": sorted(ineffective - pool),
@@ -134,7 +149,7 @@ def run(results: list, table=None, root: Path = ROOT, *, enforce_protocol: bool 
 
     partly = {r["id"] for r in gt_rows(table) if r["verification"] == "partly_verified"}
     arms: dict[str, list] = {"method": []}
-    coverage, failures, excluded = [], [], []
+    coverage, failures, excluded, demotion = [], [], [], []
     visited: set = set()
 
     for result in results:
@@ -157,6 +172,24 @@ def run(results: list, table=None, root: Path = ROOT, *, enforce_protocol: bool 
             if not state["scorable"]:
                 continue
             outcome = score(table, row["id"], candidate_names(result))
+            if not state["hit_eligible"]:
+                # No effective drug is in the pool, so hit@k and inversion are undefined.
+                # What can still be said: how far down the drugs the profile defeats landed.
+                demotion.append({
+                    "row": row["id"],
+                    "pathogen": row["pathogen"]["name"],
+                    "partly_verified": row["id"] in partly,
+                    "pool_size": len(pool),
+                    "ineffective_in_pool": state["in_pool"],
+                    "first_ineffective_rank": outcome["first_ineffective_rank"],
+                    "baseline_first_ineffective_rank": {
+                        name: score(table, row["id"], order)["first_ineffective_rank"]
+                        for name, order in orders.items()},
+                    "note": "no effective drug is in the pool, so this row is outside the "
+                            "headline; a higher rank number means the defeated drug was "
+                            "demoted further",
+                })
+                continue
             if row["id"] in partly:
                 excluded.append({"row": row["id"],
                                  "reason": "partly_verified in the frozen ground truth; "
@@ -213,6 +246,7 @@ def run(results: list, table=None, root: Path = ROOT, *, enforce_protocol: bool 
         "per_row": {name: per_row for name, per_row in arms.items()},
         "coverage": coverage,
         "excluded": excluded,
+        "demotion_rows": demotion,
         "failures": failures,
         "verdict": verdict(summary, scorable),
     }
@@ -302,6 +336,17 @@ def as_markdown(record: dict) -> str:
             missing = ", ".join(c.get("effective_missing", [])[:4]) or "-"
             lines.append(f"- **{c.get('row', '?')}**: {c.get('reason', '')}. "
                          f"Not in pool: {missing}.")
+    if record.get("demotion_rows"):
+        lines += ["", "## Rows with no effective drug in the pool", "",
+                  "hit@k and inversion are undefined here. Reported instead: the rank of the "
+                  "best-placed drug the profile defeats, out of the pool, beside the "
+                  "baselines. A higher number is better.", ""]
+        for d in record["demotion_rows"]:
+            base = ", ".join(f"{k} {v}" for k, v in
+                             d["baseline_first_ineffective_rank"].items())
+            lines.append(f"- **{d['row']}**: method rank {d['first_ineffective_rank']} of "
+                         f"{d['pool_size']} ({base}). In pool: "
+                         f"{', '.join(d['ineffective_in_pool'])}.")
     if record["excluded"]:
         lines += ["", "## Excluded from the headline", ""]
         for e in record["excluded"]:

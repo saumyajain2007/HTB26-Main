@@ -1,0 +1,125 @@
+{
+  "fixture": false,
+  "structure": {
+    "pdb_id": "3U2K",
+    "chain": "A",
+    "id": "3U2K_A"
+  },
+  "smiles": "C[C@H]1NCc2cc(-c3ccc4c(=O)c(C(=O)O)cn(C5CC5)c4c3OC(F)F)ccc21",
+  "settings": {
+    "engine": "vina",
+    "scoring_function": "vina",
+    "exhaustiveness": 8,
+    "seed": 42,
+    "n_poses": 9,
+    "box_center": [
+      0.155,
+      2.433,
+      24.55
+    ],
+    "box_size": [
+      25.0,
+      25.0,
+      25.0
+    ]
+  },
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  },
+  "scores": [
+    {
+      "pose": 1,
+      "score": -8.099,
+      "inter": -10.702,
+      "intra": -0.996
+    },
+    {
+      "pose": 2,
+      "score": -7.844,
+      "inter": -10.241,
+      "intra": -1.122
+    },
+    {
+      "pose": 3,
+      "score": -7.566,
+      "inter": -9.807,
+      "intra": -1.188
+    },
+    {
+      "pose": 4,
+      "score": -7.165,
+      "inter": -9.128,
+      "intra": -1.337
+    },
+    {
+      "pose": 5,
+      "score": -7.099,
+      "inter": -9.372,
+      "intra": -1.006
+    },
+    {
+      "pose": 6,
+      "score": -6.837,
+      "inter": -9.041,
+      "intra": -0.991
+    },
+    {
+      "pose": 7,
+      "score": -6.423,
+      "inter": -9.126,
+      "intra": -0.358
+    },
+    {
+      "pose": 8,
+      "score": -6.278,
+      "inter": -8.001,
+      "intra": -1.291
+    },
+    {
+      "pose": 9,
+      "score": -6.226,
+      "inter": -8.195,
+      "intra": -1.029
+    }
+  ],
+  "note": "Vina scores are rough, unitless estimates of fit, best first. They are not measured binding affinities.",
+  "timing": {
+    "prepare_s": 0.18,
+    "dock_s": 6.36,
+    "total_s": 8.41
+  },
+  "posebusters_top_pose": {
+    "ran": true,
+    "config": "dock",
+    "passed": true,
+    "checks": {
+      "mol_pred_loaded": true,
+      "mol_cond_loaded": true,
+      "sanitization": true,
+      "inchi_convertible": true,
+      "all_atoms_connected": true,
+      "no_radicals": true,
+      "bond_lengths": true,
+      "bond_angles": true,
+      "internal_steric_clash": true,
+      "aromatic_ring_flatness": true,
+      "non-aromatic_ring_non-flatness": true,
+      "double_bond_flatness": true,
+      "internal_energy": true,
+      "protein-ligand_maximum_distance": true,
+      "minimum_distance_to_protein": true,
+      "minimum_distance_to_organic_cofactors": true,
+      "minimum_distance_to_inorganic_cofactors": true,
+      "minimum_distance_to_waters": true,
+      "volume_overlap_with_protein": true,
+      "volume_overlap_with_organic_cofactors": true,
+      "volume_overlap_with_inorganic_cofactors": true,
+      "volume_overlap_with_waters": true
+    }
+  }
+}
