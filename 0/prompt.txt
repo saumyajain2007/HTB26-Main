@@ -1,0 +1,170 @@
+<pasted_content id="c039">
+BUILD SPEC: AMR Candidate Discovery Pipeline — HackTheBurgh 2026
+Objective
+
+Build a system that, given a drug-resistant bacterial pathogen, generates novel small-molecule candidates, scores them through a hierarchy of increasingly expensive simulations under a compute budget, ranks them with calibrated confidence, and proves it works by rediscovering a known published antibiotic that was hidden from the system.
+
+Target pathogen: Acinetobacter baumannii (WHO critical priority).
+Validation compound: abaucin (Wong et al., Nature 2023) and/or halicin (Stokes et al., Cell 2020).
+
+STAGE 1 — Data ingestion
+
+Do: Download CO-ADD bulk screening data (co-add.org) — ~300k compounds with whole-cell growth-inhibition measurements against an ESKAPE panel. Supplement with ChEMBL A. baumannii bioactivity records. Download a public screening library (ZINC subset or the Drug Repurposing Hub) as the retrieval pool. Label active at MIC ≤ 8 µg/mL; record the publication year of every record.
+
+Achieves: Supervised labels on whole-cell activity — whether a compound actually kills bacteria, not merely whether it binds. This is the correct target variable and the one the published successes used.
+
+Expect: 0.3–2% actives. Severe class imbalance — use stratified splits and class weighting, and never report plain accuracy.
+
+STAGE 2 — Split discipline and leakage assertions
+
+Do: Group every molecule by Murcko scaffold. Split by group, never randomly. Build a leakage-assertion module that, before any evaluation, crashes the pipeline if the held-out compound or any analogue above 0.5 Tanimoto appears in the training set, the calibration set, the generator’s seed fragments, or the nearest-neighbour baseline’s reference set.
+
+Achieves: The integrity guarantee the whole project rests on. Random splits put near-identical analogues in both train and test, inflating AUC to ~0.9 and rendering every downstream number meaningless.
+
+Report both random-split and scaffold-split scores. The drop (expect ~0.88 → ~0.74) is itself a finding.
+
+STAGE 3 — Primary ranker (the reliable core)
+
+Do: Train a Chemprop-style directed message-passing GNN on the whole-cell labels, with RDKit descriptors as additional features. Ensemble of 5 for uncertainty via disagreement. Default hyperparameters — do not tune.
+
+Achieves: Your main predictive signal, with direct published precedent: halicin and abaucin were both discovered this way, by the Collins lab at MIT, without any docking or structural modelling.
+
+Expect: scaffold-split AUC 0.74 (range 0.65–0.82), under 15 minutes training on CPU. Low risk — this is the dependable backbone.
+
+STAGE 4 — Candidate generation
+
+Do: Fragment known actives via RDKit BRICS, recombine, and mutate with CReM (fragment replacements drawn from observed real chemistry). Target 50,000 candidates. Do not use an LLM to generate molecules — they produce invalid structures at high rates.
+
+Achieves: A large, valid, novel candidate pool for near-zero cost and no GPU. Validity ≈ 100% by construction.
+
+Note for the narrative: MolGenBench (Nature Communications, 2026) found de novo generative models achieve hit rates below 0.13%. Generation is not the bottleneck — selection is. This is the thesis of the project and you have a peer-reviewed citation for it.
+
+STAGE 5 — Filter cascade
+
+Do: In order, cheapest first — chemical validity; ≤50 heavy atoms (required for downstream affinity model reliability); synthetic accessibility ≤ 6; no PAINS/structural alerts; Gram-negative entry heuristics (primary amine present, ≤5 rotatable bonds, low globularity — Hergenrother’s accumulation rules); 3D conformer embeddable. Log every rejection with its reason.
+
+Achieves: Removes nonsense before spending compute on it, and the rejection log becomes the funnel visualisation — a funnel with reasons attached is instantly legible to a non-specialist.
+
+Expect: 60–75% survival.
+
+STAGE 6 — Oracle hierarchy with cost ledger
+
+Do: Wrap every scoring method behind one interface that records the measured wall-clock cost of each call to an append-only ledger.
+
+Fidelity	Oracle	Cost	Quality
+0	RDKit filters	~1 ms	gate only
+1	QuickVina2 docking	2–4 s/core	weak (EF1% 2–6×)
+2	Boltz-2 affinity (MIT licence, open weights)	30–120 s on A100	strong, optional
+3	OpenMM MD stability	~10 min	top 5 only
+
+Achieves: Turns a fixed script into a cost-aware decision problem, and produces the ledger that underwrites every economic claim you make at the end.
+
+Boltz-2 warnings: affinity degrades above ~50 heavy atoms; no protein–protein support; version 2.1 is closed-source, so use the MIT-licensed Boltz-2. Cache the protein MSA once. Budget 100–300 calls total, not thousands. Hard abort at hour 14 if it isn’t working.
+
+STAGE 7 — Budgeted scheduler (the headline contribution)
+
+Do: Instead of a fixed funnel (top 10% advance per stage), implement expected-improvement-per-second acquisition over (candidate, fidelity) pairs. Candidates you’re confident are bad get dropped cheaply; genuinely uncertain ones get escalated.
+
+Achieves: Your quantified, discipline-neutral result. Run scheduler vs. fixed funnel under an identical wall-clock budget, count known actives recovered, plot actives-found against compute-spent.
+
+Expect: 1.3–2.0× advantage. Below 1.2× is within noise — say so rather than claiming a win.
+
+STAGE 8 — Calibration and explanation
+
+Do: Conformal prediction over the ensemble, giving calibrated probabilities with an explicit abstain option for out-of-distribution candidates. SHAP attribution per candidate. Measure empirical coverage against nominal on the scaffold-split test set.
+
+Achieves: Output becomes a decision, not a score: “active with 80% confidence, driven by these three features.” For a recommendation that costs thousands of pounds to act on, calibrated abstention is the most decision-relevant output possible.
+
+Expect: you request 80% coverage and get ~65% under scaffold shift. Report the shortfall — it’s a quantified measurement of what distribution shift costs, and reporting it demonstrates you understand what the guarantee does and doesn’t buy.
+
+STAGE 9 — Hidden-drug validation (the proof)
+
+Critical design point: this is a retrieval test, not a generation test. You will not regenerate abaucin from fragments — probability ≈ 0. Do not design the demo that way.
+
+Do:
+
+Purge abaucin and all analogues > 0.5 Tanimoto from training, calibration, generator seeds, and baseline reference set. Assert it.
+Build the ranking pool: your generated candidates plus a public library containing abaucin.
+Rank the entire pool cold. Report abaucin’s percentile and the compute spent reaching it.
+Repeat for 3–5 compounds.
+
+Four mandatory baselines: random, molecular weight, docking score alone, Tanimoto-to-nearest-known-active.
+
+Expect: top 1–10% with ~60% probability; top 1% with ~30%. Of 3–5 attempts, expect 1–2 strong, 1–2 mediocre, possibly 1 failure. Report all of them — five attempts with varying success is credible; one cherry-picked result is not.
+
+Plan for this: there is a 35–45% chance the Tanimoto baseline matches or beats your full pipeline on at least one benchmark. This is a known, documented embarrassment in the virtual-screening field, not a failure of your execution. If it happens, present it as a finding with an explanation of the underlying benchmark bias.
+
+STAGE 10 — Browser verification agent
+
+Do: Use browser-use (Playwright underneath) to drive a real browser over PubMed and ClinicalTrials.gov for your top 10 candidates. Extract: has this scaffold been tested, what was the outcome, why did it fail, with citations. Display tokens consumed, model used, and elapsed time per step on screen.
+
+Achieves: Two things. It satisfies the Wordsmith track, which judges explicitly on those three metrics and requires genuine browser use rather than API calls. And — see the demo section — it becomes the independent verification step of your speed run, which makes it integral rather than bolted on.
+</pasted_content id="c039">
+
+https://claude.ai/share/56f1c2c4-0867-4258-be97-f79f361876f1
+
+
+Read the following, and see whether there are issues that correspond to the same? If not, please add them to the system
+
+---
+
+what should I start working on rn
+
+---
+
+start with 1
+
+---
+
+B seems like the best option
+
+---
+
+start on 82
+
+---
+
+where do I add the vultr api key
+
+---
+
+Rebase that branch to main if possible, and merge into main, and close that branc
+
+---
+
+<task-notification>
+<task-id>bg9qcb90j</task-id>
+<tool-use-id>toolu_01XFYboutMKTJEc2bjFns5Di</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-tomato-Developer-GitHub-HTB26-Main/c75775ad-f8dc-4d46-9c27-f0a39ed8b31c/tasks/bg9qcb90j.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for PR #3 CI to finish" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+now where do I add my vultr token
+
+---
+
+what is the next task we can work on
+
+---
+
+what are the questions again?
+
+---
+
+1. beside
+2. Yeah sure
+3. Yes
+4. Research where there are open source models that already do generation. If yes, then it is as simple as deploying them on vultr
+5. Wordsmith task is being done
+6. 10 hours (fuck it we ball)
+
+---
+
+Go ahead
+
+---
+
+Merge now, and start on the 83-85 pipeline
