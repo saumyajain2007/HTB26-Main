@@ -1,0 +1,26 @@
+{
+  "pool_size": 5501,
+  "removed_as_already_screened": 1104,
+  "ranks": {
+    "Random forest (Morgan)": {
+      "abaucin (RS-102895)": 1114,
+      "halicin (SU3327)": 1661
+    },
+    "Nearest-active Tanimoto": {
+      "abaucin (RS-102895)": 959,
+      "halicin (SU3327)": 5086
+    },
+    "Molecular weight, heaviest first": {
+      "abaucin (RS-102895)": 2554,
+      "halicin (SU3327)": 4580
+    },
+    "Molecular weight, lightest first": {
+      "abaucin (RS-102895)": 2948,
+      "halicin (SU3327)": 922
+    },
+    "Chemprop ensemble (#85)": {
+      "abaucin (RS-102895)": 1335,
+      "halicin (SU3327)": 871
+    }
+  }
+}
