@@ -14,6 +14,10 @@ Two workstreams share the candidate contract: resistance-aware evasion ranking f
 the app, and a planned whole-cell discovery pipeline for *A. baumannii*. Generated
 proposals will be kept separate from approved drugs.
 
+## Limits
+
+[docs/limits.md](docs/limits.md) is the one page to read before the demo: what the tool does, what it does not claim, and where it is weak, each weakness naming the file or issue that would close it. The short version is that it proposes which approved antibiotics are **not known to be defeated** by an isolate's resistance mechanisms and shows its working — it does not predict that a drug will cure anything, and a computational hit is not a working antibiotic.
+
 ## Current state
 
 | Area | Available now | Remaining work |
