@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6X540RR86QWV2Y2XMV0P984",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 21,
+  "checkpoints_count": 24,
   "files_touched": [
     "app/api/htb_api/app.py",
     "app/api/htb_api/services/resistance.py",
@@ -38,25 +38,32 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 526,
-    "cache_creation_tokens": 520496,
-    "cache_read_tokens": 56006020,
-    "output_tokens": 260169,
-    "api_call_count": 245
+    "input_tokens": 548,
+    "cache_creation_tokens": 542161,
+    "cache_read_tokens": 61538786,
+    "output_tokens": 274348,
+    "api_call_count": 254
   },
   "redaction": {
-    "replacements": 23,
+    "replacements": 56,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 3,
+      "credential_value": 5,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 20,
+      "key_context": 51,
       "provider_token": 0,
       "shell_stdin": 0
     }
