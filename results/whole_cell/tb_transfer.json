@@ -1,0 +1,101 @@
+{
+  "organism": "Mycobacterium tuberculosis (taxon 1773)",
+  "trained_on": "A. baumannii liu_train (scaffold ensemble)",
+  "label_rule": "median MIC <= 8 ug/mL (the A. baumannii rule, not a TB-specific cut)",
+  "tb_molecules": 23045,
+  "sample": 3000,
+  "sample_actives": 637,
+  "sample_with_train_neighbour_gt_0.5": 249,
+  "all_sampled": {
+    "n": 3000,
+    "actives": 637,
+    "ensemble": {
+      "n": 3000,
+      "actives": 637,
+      "baseline_prevalence": 0.21233,
+      "roc_auc": {
+        "value": 0.4949,
+        "ci95": [
+          0.4707,
+          0.5216
+        ]
+      },
+      "pr_auc": {
+        "value": 0.2189,
+        "ci95": [
+          0.2035,
+          0.2401
+        ]
+      },
+      "enrichment_top_1pct": 1.88,
+      "enrichment_top_5pct": 0.97
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 3000,
+      "actives": 637,
+      "baseline_prevalence": 0.21233,
+      "roc_auc": {
+        "value": 0.4787,
+        "ci95": [
+          0.454,
+          0.506
+        ]
+      },
+      "pr_auc": {
+        "value": 0.2129,
+        "ci95": [
+          0.1973,
+          0.2328
+        ]
+      },
+      "enrichment_top_1pct": 1.41,
+      "enrichment_top_5pct": 1.16
+    }
+  },
+  "no_close_training_analogue": {
+    "n": 2751,
+    "actives": 593,
+    "ensemble": {
+      "n": 2751,
+      "actives": 593,
+      "baseline_prevalence": 0.21556,
+      "roc_auc": {
+        "value": 0.4867,
+        "ci95": [
+          0.4614,
+          0.5119
+        ]
+      },
+      "pr_auc": {
+        "value": 0.2079,
+        "ci95": [
+          0.195,
+          0.2235
+        ]
+      },
+      "enrichment_top_1pct": 0.66,
+      "enrichment_top_5pct": 0.84
+    },
+    "nearest_baumannii_active_baseline": {
+      "n": 2751,
+      "actives": 593,
+      "baseline_prevalence": 0.21556,
+      "roc_auc": {
+        "value": 0.4785,
+        "ci95": [
+          0.4538,
+          0.5027
+        ]
+      },
+      "pr_auc": {
+        "value": 0.2122,
+        "ci95": [
+          0.1974,
+          0.2309
+        ]
+      },
+      "enrichment_top_1pct": 1.66,
+      "enrichment_top_5pct": 0.97
+    }
+  }
+}
