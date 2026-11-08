@@ -244,3 +244,40 @@ def test_helpers():
     assert candidate_names(MRSA)[0] == "VANCOMYCIN"
     assert {r["id"] for r in rows_for(GT, MRSA)} == {"mrsa-meca-bacteraemia",
                                                       "mrsa-meca-pneumonia"}
+
+
+# ---------- per-row results and demotion rows ----------
+
+def row_result(row_id, species, taxid, names_with_status):
+    return dict(result(species, taxid, names_with_status), ground_truth_row=row_id)
+
+
+def test_a_row_result_is_scored_against_its_own_row_only():
+    mine = row_result("mrsa-meca-pneumonia", "Staphylococcus aureus", 1280,
+                      [("VANCOMYCIN", "unaffected")])
+    assert [r["id"] for r in rows_for(GT, mine)] == ["mrsa-meca-pneumonia"]
+
+
+def test_a_row_with_no_effective_drug_in_the_pool_is_a_demotion_row_not_a_failure(frozen):
+    crab = row_result("crab-oxa23-invasive", "Acinetobacter baumannii", 470,
+                      [("AMIKACIN", "unaffected"), ("MEROPENEM", "defeated")])
+    record = run([crab], table=GT, root=frozen)
+    assert record["rows_scorable"] == 0                      # headline n counts hit-eligible rows
+    assert record["summary"]["method"]["inverted_rate"] is None
+    assert not record["failures"]
+    [d] = record["demotion_rows"]
+    assert d["row"] == "crab-oxa23-invasive"
+    assert d["first_ineffective_rank"] == 2 and d["pool_size"] == 2
+    assert set(d["baseline_first_ineffective_rank"]) == {"random", "alphabetical", "evasion_only"}
+    assert "Rows with no effective drug in the pool" in as_markdown(record)
+
+
+def test_a_headline_row_and_a_demotion_row_do_not_mix(frozen):
+    mrsa = row_result("mrsa-meca-pneumonia", "Staphylococcus aureus", 1280,
+                      [("VANCOMYCIN", "unaffected"), ("OXACILLIN", "partly_affected")])
+    crab = row_result("crab-oxa23-invasive", "Acinetobacter baumannii", 470,
+                      [("MEROPENEM", "defeated")])
+    record = run([mrsa, crab], table=GT, root=frozen)
+    assert record["summary"]["method"]["n"] == 1
+    assert record["summary"]["method"]["hit_at_1"] == 1.0
+    assert len(record["demotion_rows"]) == 1

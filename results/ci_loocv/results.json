@@ -1,0 +1,258 @@
+{
+  "approaches": {
+    "logreg_morgan": {
+      "logo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.601,
+          "mcc": 0.203,
+          "precision": 0.436,
+          "sensitivity": 0.436,
+          "specificity": 0.767
+        },
+        "enrichment_top_5pct": 1.37,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.1173,
+            0.5018
+          ],
+          "value": 0.3881,
+          "width": 0.3845
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.3547,
+            0.7083
+          ],
+          "value": 0.6271,
+          "width": 0.3536
+        }
+      },
+      "loo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.843,
+          "mcc": 0.686,
+          "precision": 0.778,
+          "sensitivity": 0.778,
+          "specificity": 0.908
+        },
+        "enrichment_top_5pct": 3.25,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.6463,
+            0.8829
+          ],
+          "value": 0.849,
+          "width": 0.2366
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.9096,
+            0.9626
+          ],
+          "value": 0.9353,
+          "width": 0.053
+        }
+      },
+      "scope": "sample of 400"
+    },
+    "nearest_active": {
+      "logo": {
+        "actives": 3843,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.525,
+          "mcc": 0.05,
+          "precision": 0.329,
+          "sensitivity": 0.329,
+          "specificity": 0.721
+        },
+        "enrichment_top_5pct": 1.24,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.1371,
+            0.4703
+          ],
+          "value": 0.3176,
+          "width": 0.3332
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.4635,
+            0.5639
+          ],
+          "value": 0.5339,
+          "width": 0.1004
+        }
+      },
+      "loo": {
+        "actives": 3843,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.815,
+          "mcc": 0.631,
+          "precision": 0.739,
+          "sensitivity": 0.739,
+          "specificity": 0.892
+        },
+        "enrichment_top_5pct": 2.64,
+        "n": 13096,
+        "pr_auc": {
+          "ci95": [
+            0.5143,
+            0.8251
+          ],
+          "value": 0.6992,
+          "width": 0.3108
+        },
+        "prevalence": 0.2934,
+        "roc_auc": {
+          "ci95": [
+            0.8907,
+            0.9342
+          ],
+          "value": 0.9118,
+          "width": 0.0435
+        }
+      },
+      "scope": "all development compounds"
+    },
+    "nearest_active_sample": {
+      "logo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.487,
+          "mcc": -0.027,
+          "precision": 0.274,
+          "sensitivity": 0.274,
+          "specificity": 0.7
+        },
+        "enrichment_top_5pct": 1.2,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.1216,
+            0.4107
+          ],
+          "value": 0.2952,
+          "width": 0.2891
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.4529,
+            0.6067
+          ],
+          "value": 0.5122,
+          "width": 0.1538
+        }
+      },
+      "loo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.819,
+          "mcc": 0.638,
+          "precision": 0.744,
+          "sensitivity": 0.744,
+          "specificity": 0.894
+        },
+        "enrichment_top_5pct": 2.91,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.543,
+            0.8394
+          ],
+          "value": 0.7465,
+          "width": 0.2964
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.8962,
+            0.9564
+          ],
+          "value": 0.9232,
+          "width": 0.0602
+        }
+      },
+      "scope": "sample of 400"
+    },
+    "rf_descriptors": {
+      "logo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.668,
+          "mcc": 0.336,
+          "precision": 0.53,
+          "sensitivity": 0.53,
+          "specificity": 0.806
+        },
+        "enrichment_top_5pct": 2.74,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.2315,
+            0.6901
+          ],
+          "value": 0.5537,
+          "width": 0.4586
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.5463,
+            0.7998
+          ],
+          "value": 0.7375,
+          "width": 0.2535
+        }
+      },
+      "loo": {
+        "actives": 117,
+        "at_prevalence_cutoff": {
+          "balanced_accuracy": 0.897,
+          "mcc": 0.795,
+          "precision": 0.855,
+          "sensitivity": 0.855,
+          "specificity": 0.94
+        },
+        "enrichment_top_5pct": 3.42,
+        "n": 400,
+        "pr_auc": {
+          "ci95": [
+            0.7497,
+            0.945
+          ],
+          "value": 0.917,
+          "width": 0.1953
+        },
+        "prevalence": 0.2925,
+        "roc_auc": {
+          "ci95": [
+            0.9236,
+            0.9736
+          ],
+          "value": 0.9588,
+          "width": 0.05
+        }
+      },
+      "scope": "sample of 400"
+    }
+  },
+  "approaches_note": "sample is stratified to the development prevalence; nearest_active on the same sample is reported as nearest_active_sample for a like-for-like comparison",
+  "n_dev": 13096,
+  "n_sample": 400,
+  "sample": {
+    "actives": 117,
+    "groups": 151,
+    "n": 400
+  },
+  "schema": 1,
+  "seed": 20261108
+}

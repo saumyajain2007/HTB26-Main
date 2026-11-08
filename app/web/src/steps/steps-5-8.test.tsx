@@ -622,10 +622,11 @@ describe("Step 7, Binding pose", () => {
     expect(view.querySelectorAll("canvas")).toHaveLength(1);
     expect(document.querySelectorAll("canvas").length).toBeLessThanOrEqual(3);
 
-    // Four controls above the view: the surface starts on, spin too (motion isn't reduced).
+    // Four controls above the view: the surface and the interactions start on; the view starts still.
     expect(control(copy.pose.controls.surface)).toHaveAttribute("aria-pressed", "true");
     expect(control(copy.pose.controls.overlay)).toHaveAttribute("aria-pressed", "false");
-    expect(control(copy.pose.controls.spin)).toHaveAttribute("aria-pressed", "true");
+    expect(control(copy.pose.controls.interactions)).toHaveAttribute("aria-pressed", "true");
+    expect(control(copy.pose.controls.spin)).toHaveAttribute("aria-pressed", "false");
     expect(control(copy.pose.controls.reset)).toBeEnabled();
     await waitFor(() => {
       expect(view).toHaveAttribute("data-surface", "on");
@@ -644,7 +645,7 @@ describe("Step 7, Binding pose", () => {
     expect(control(copy.pose.controls.overlay)).toHaveAttribute("aria-pressed", "true");
     expect(screen.getAllByText(copy.pose.controls.overlay)).toHaveLength(1);
     await user.click(control(copy.pose.controls.spin));
-    expect(control(copy.pose.controls.spin)).toHaveAttribute("aria-pressed", "false");
+    expect(control(copy.pose.controls.spin)).toHaveAttribute("aria-pressed", "true");
     await user.click(control(copy.pose.controls.reset));
   });
 

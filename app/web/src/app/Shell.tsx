@@ -30,6 +30,8 @@ interface StepShellProps {
   nextPath: string | undefined;
   /** What the flow is about (a Disease, a pathogen), shown once in the header. */
   subject?: string | undefined;
+  /** `document`: the page grows with its content and the window scrolls. Default: fit the window. */
+  flow?: "fit" | "document";
   children: ReactNode;
 }
 
@@ -50,6 +52,7 @@ function StepShell({
   previousPath,
   nextPath,
   subject,
+  flow,
   children,
 }: StepShellProps) {
   const navigate = useNavigate();
@@ -75,6 +78,7 @@ function StepShell({
 
   return (
     <PageFrame
+      flow={flow}
       header={
         <>
           {subject !== undefined && (
@@ -109,6 +113,7 @@ function StepShell({
       }
       footer={
         <div className={styles.actions}>
+          <span className={styles.keysHint}>{copy.stepKeysHint}</span>
           <button
             type="button"
             className={styles.button}
@@ -199,6 +204,9 @@ export function ResistanceShell({ step, profileId, pathogen, children }: Resista
       previousPath={previous && resistanceStepPath(profileId, previous)}
       nextPath={next && resistanceStepPath(profileId, next)}
       subject={pathogen}
+      // These steps are read down the page, so the window scrolls and nothing is boxed in a
+      // scroll area; Back and Next follow the content.
+      flow="document"
     >
       {children}
     </StepShell>

@@ -74,6 +74,10 @@ vi.mock("3dmol", () => {
     removeSurface = (id: number) => {
       this.surfaces.delete(id);
     };
+    addCylinder = () => ({});
+    addLabel = () => ({});
+    removeShape = noop;
+    removeLabel = noop;
     getCanvas = () => this.canvas;
     getRenderer = () => ({ getContext: () => this.canvas.getContext("webgl2") });
     getView = () => [0, 0, 0, 0, 0, 0, 0, 1];

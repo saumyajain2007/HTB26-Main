@@ -126,7 +126,7 @@ export function MonitorStory({ chapter }: { chapter: number }) {
       <g className={styles.question} data-current={chapter === 3}>
         <rect x="1146" y="316" width="472" height="161" fill="#0a213d" />
         <text x="1150" y="339" className={styles.sectionLabel}>
-          Could an existing medicine help?
+          Could an existing antibiotic still work?
         </text>
         <path
           d="M1230 383h83m-7-6 7 6-7 6m98-6h83m-7-6 7 6-7 6"
@@ -148,16 +148,16 @@ export function MonitorStory({ chapter }: { chapter: number }) {
           <path d="M1515 361h21l12 12v32h-33Zm21 0v12h12m-25 10h17m-17 10h12" />
         </g>
         <text x="1192" y="430" textAnchor="middle" className={styles.stageLabel}>
-          Existing medicine
+          Approved antibiotic
         </text>
         <text x="1361" y="430" textAnchor="middle" className={styles.stageLabel}>
-          Disease biology
+          Resistance mechanism
         </text>
         <text x="1531" y="430" textAnchor="middle" className={styles.stageLabel}>
-          Candidate new use
+          Not known defeated
         </text>
         <text x="1150" y="459" className={styles.monitorNote}>
-          Connect known drug targets with disease-linked proteins
+          Match each drug class against the mechanisms that defeat it
         </text>
       </g>
     </g>

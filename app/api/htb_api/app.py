@@ -29,7 +29,12 @@ from .services.live import LiveSource
 from .services.live_jury import StreamAJury
 from .services.molecules import FixtureMolecules, MoleculeSource, PubChemMolecules
 from .services.ranking import EvidenceRanking, NetworkRanking, RankingBackend
-from .services.resistance import CardResistance, ResistanceSource, SavedResistance
+from .services.resistance import (
+    CardResistance,
+    LiveResistance,
+    ResistanceSource,
+    SavedResistance,
+)
 from .services.source import ExperimentSource, FixtureSource
 from .settings import ProviderJurySettings, Settings, SnowflakeSettings
 
@@ -85,15 +90,26 @@ def build_components(
         docking=docking,
         evaluation=evaluation or FixtureEvaluation(fixtures),
         molecules=molecules or open_molecules(settings),
-        resistance=resistance
-        or (
-            SavedResistance(fixtures, settings.data_dir, settings.resistance_results_dir)
-            if settings.resistance == "saved"
-            else CardResistance(fixtures, settings.data_dir)
-        ),
+        resistance=resistance or open_resistance(settings),
         runner=runner,
         jobs=jobs,
     )
+
+
+def open_resistance(settings: Settings) -> ResistanceSource:
+    """The resistance source the settings name (see `Settings.resistance`)."""
+    fixtures = settings.fixtures_dir
+    if settings.resistance == "saved":
+        return SavedResistance(fixtures, settings.data_dir, settings.resistance_results_dir)
+    if settings.resistance == "live":
+        return LiveResistance(
+            fixtures,
+            settings.data_dir,
+            settings.resistance_catalogue_dir,
+            settings.resistance_chembl_db,
+            settings.data_dir / "lean-certificates.json" if settings.resistance_lean else None,
+        )
+    return CardResistance(fixtures, settings.data_dir)
 
 
 def open_docking(

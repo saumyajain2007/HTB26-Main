@@ -6,14 +6,13 @@
  * `ResistanceMap.module.css` so every standing reads in greyscale too.
  */
 
+/* The page scrolls, not the sheet: it is as tall as what it holds. */
 .sheet {
-  composes: scroll-fade from global;
   display: flex;
-  flex: 1;
+  flex: none;
   flex-direction: column;
   gap: var(--space-32);
-  min-height: 0;
-  overflow-y: auto;
+  padding-bottom: var(--space-32);
 }
 
 .split {
@@ -24,7 +23,10 @@
   align-items: start;
 }
 
+/* The list stays in view while the reading pane beside it is read. */
 .leftColumn {
+  position: sticky;
+  top: var(--space-16);
   display: flex;
   flex-direction: column;
   gap: var(--space-32);
@@ -67,6 +69,19 @@
 
 .scroll {
   overflow-x: auto;
+  /* The global reset hides every scroll bar; a table cut at its edge needs one to say so. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-grey-2) transparent;
+}
+
+.scroll::-webkit-scrollbar {
+  display: block;
+  height: var(--space-8);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: var(--space-4);
+  background: var(--color-grey-2);
 }
 
 .table {
@@ -622,4 +637,52 @@
     border-left: 0;
     border-top: 1px solid var(--color-rule);
   }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.contactsTitle {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-16);
+  font-size: var(--text-body-sm);
+  font-variant-numeric: tabular-nums;
+  list-style: disc;
+}
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.filterButton {
+  height: var(--control-height);
+  padding: 0 var(--space-12);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  transition: background var(--duration-quick) var(--ease-settle);
+}
+
+.filterButton:hover {
+  background: var(--color-hover);
+}
+
+.filterButton[aria-pressed="true"] {
+  border-color: var(--color-ink);
 }

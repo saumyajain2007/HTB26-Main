@@ -56,8 +56,36 @@ class Settings(BaseSettings):
     boltz_results_dir: Path = REPO_ROOT / "results" / "boltz"
     boltz_precomputed_dir: Path = REPO_ROOT / "results" / "boltz-precomputed"
 
-    resistance: Literal["fixture", "saved"] = "fixture"
+    resistance: Literal["fixture", "saved", "live"] = Field(
+        default="fixture",
+        description=(
+            "Where resistance profiles and rankings come from. fixture: the frozen contract "
+            "fixtures. saved: the checksummed #34 bundle. live: profile typed input against the "
+            "CARD release in data_dir and rank the approved antibiotics in "
+            "resistance_catalogue_dir on request."
+        ),
+    )
     resistance_results_dir: Path = REPO_ROOT / "results" / "pathogen-integration"
+    resistance_catalogue_dir: Path = Field(
+        default=REPO_ROOT / "data" / "antibiotics" / "releases" / "chembl-37_card-4.0.2",
+        description="The built antibiotic catalogue the live ranking draws its pool from.",
+    )
+    resistance_lean: bool = Field(
+        default=True,
+        description=(
+            "Run Lean 4 over each molecule's property rules in live mode. Needs Lean installed "
+            "(elan); results are cached in data_dir/lean-certificates.json. Off leaves every "
+            "candidate `not_run`."
+        ),
+    )
+    resistance_chembl_db: Path | None = Field(
+        default=REPO_ROOT / "data" / "chembl_extract" / "chembl_37" / "chembl_37_sqlite" / "chembl_37.db",
+        description=(
+            "The extracted ChEMBL SQLite database. The live ranking adds median MICs against the "
+            "profile's species when the file exists; when it does not, activity is reported as "
+            "unavailable."
+        ),
+    )
 
     data_dir: Path = Field(
         default=Path("data"),
@@ -217,6 +245,10 @@ class Settings(BaseSettings):
             self.boltz_results_dir = REPO_ROOT / self.boltz_results_dir
         if not self.resistance_results_dir.is_absolute():
             self.resistance_results_dir = REPO_ROOT / self.resistance_results_dir
+        if not self.resistance_catalogue_dir.is_absolute():
+            self.resistance_catalogue_dir = REPO_ROOT / self.resistance_catalogue_dir
+        if self.resistance_chembl_db is not None and not self.resistance_chembl_db.is_absolute():
+            self.resistance_chembl_db = REPO_ROOT / self.resistance_chembl_db
         if not self.data_dir.is_absolute():
             self.data_dir = REPO_ROOT / self.data_dir
         if self.network_dir == Path():
