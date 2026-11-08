@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6XA1JATYD4DMFMWT3WN47NQ",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 32,
+  "checkpoints_count": 35,
   "files_touched": [
     "core/ranking/antibiotic/__main__.py",
     "core/ranking/antibiotic/rank.py",
@@ -90,6 +90,13 @@
       "compact_transcript": "/7/transcript.jsonl",
       "content_hash": "/7/content_hash.txt",
       "prompt": "/7/prompt.txt"
+    },
+    {
+      "metadata": "/8/metadata.json",
+      "transcript": "/8/full.jsonl",
+      "compact_transcript": "/8/transcript.jsonl",
+      "content_hash": "/8/content_hash.txt",
+      "prompt": "/8/prompt.txt"
     }
   ],
   "token_usage": {
@@ -100,7 +107,7 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 105,
+    "replacements": 107,
     "layers": {
       "betterleaks": 2,
       "connection_string": 0,
@@ -108,7 +115,7 @@
       "credential_value": 27,
       "credentialed_uri": 2,
       "entropy": 2,
-      "key_context": 74,
+      "key_context": 76,
       "provider_token": 0,
       "shell_stdin": 0
     }
