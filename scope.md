@@ -1,6 +1,6 @@
 # Scope: Antibiotic Resistance, In-Silico Candidate Discovery
 
-Working scope for Hack The Burgh 2026. It builds on the idea in [README.md](README.md): pick a disease target (antibiotic-resistant bacteria), the sponsor tracks worth aiming at, and a detailed task breakdown.
+Working scope for Hack The Burgh 2026. It builds on the idea in [README.md](README.md): choose resistance profiles and bacterial targets, the sponsor tracks worth aiming at, and a detailed task breakdown.
 
 Sizes are rough single-person estimates: **S** under 2 h, **M** 2–6 h, **L** 6–12 h. Treat them as relative, not promises.
 
@@ -61,7 +61,7 @@ Given a resistant bacterium, profile *why* it is resistant, then rank approved d
 
 ## 8. Validation plan
 
-Matches the third point in the README ("test on past diseases"):
+The retrospective resistance-profile design is:
 
 - Hide a drug (or class) approved after a cutoff year, or a known effective combination for a pathogen.
 - Check whether the method ranks it near the top, compared with a random baseline and a simple baseline (for example ranking by known resistance only).
@@ -76,7 +76,7 @@ Prizes and challenge names are read from the sponsor slide. What the project can
 | Sponsor | Challenge | Fit | Why |
 | --- | --- | --- | --- |
 | **HRT** | Best Use of Data for Predictions & Decision Making | **Primary, unproven as a prediction.** | The ranking is a decision aid over CARD and ChEMBL. There is no retrospective result and no confidence interval yet. See [docs/sponsor-mapping.md](docs/sponsor-mapping.md). |
-| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map, explanations and certificate panel are on screen, on fixtures. Bacterial poses are computed and not shown (#41). |
+| **G-Research** | Make the invisible visible | **Secondary.** | The resistance map and explanations support fixtures and saved real rankings. Certificate details are shown where recorded; Lean was not run for the real saved bundle. The bacterial candidate 3D view awaits PR #99 (#41). |
 | **Wordsmith** | Most complicated end-to-end agentic AI browser-use workflow | **In, not built.** | #7 is in. The browser agent is #95 and does not exist yet, so the project cannot claim this track. |
 | **JetBrains** | Help the Developer | Poor | Not a developer tool. |
 | **Instalily** | Coding agent that adapts to its user | Poor | Different problem. |
@@ -91,14 +91,27 @@ Prizes and challenge names are read from the sponsor slide. What the project can
 
 ## 10. Current status
 
-Done:
+As of 8 November 2026:
 
-- Earlier project code imported as the `htb` packages; tree26 scripts imported with declaration (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)).
-- `uv` workspace installed, 564 core and 338 API tests passing, web app running.
-- Local Postgres, migrations and the amd64 Vina docking worker running; a real docking job ran end to end.
-- `core/verify/`: Python smoke test and Lean 4 certificate layer built and tested (see WS8).
+- CARD profiling, the ChEMBL antibiotic catalogue and evasion ranking are built.
+  Real saved profiles and 126 ranked drugs per pathogen are committed for the
+  three chosen draft presets; see [integration proof](docs/pathogen-integration.md).
+- The default app is the resistance flow. It supports a labelled MRSA fixture
+  fallback and an explicit saved-data mode for all three pathogens; both work
+  offline. Typed-gene profiles require a prepared CARD release and do not yet
+  drive fresh rankings in the app.
+- Python smoke checks and Lean certificate support exist. The real saved run
+  did not request Lean; its certificates are `not_run`.
+- Bacterial target/redocking work is recorded in [targets](docs/targets.md).
+  The candidate 3D view is awaiting merge in PR #99.
+- Antibiotic ground truth and protocol tooling are committed. Freeze the
+  protocol on the evaluation machine before scoring; #37 has no published result.
+- The separate whole-cell data/leakage work is in PR #101; the discovery pipeline
+  and browser verification (#95) are planned, not validated products.
 
-Still on fixtures: the app only knows COVID-19 sample data. Nothing antibiotic-specific exists yet.
+Sections 5–8 preserve the original MVP proposal. The later #82 decision adds the
+whole-cell lane and its cut line in [tasks.md](tasks.md) sections 5b and 6. Earlier
+human-disease experiments and test counts are historical, not antibiotic evidence.
 
 ## 11. Workstreams
 

@@ -1,80 +1,103 @@
 # HTB26-Main
-The official repository for Hack The Burgh 2026
 
-# Idea
-Bacteria are evolving resistance faster than new antibiotics are approved. Given a resistant bacterium, we profile *why* it is resistant (resistance genes and mutations, via CARD), then rank approved drugs, combinations and (stretch) newly generated molecules that are predicted to evade those mechanisms. Each candidate is smoke-tested against property and toxicity rules (with Lean 4 certificates) and comes with the evidence behind it. Everything is in silico: no wet-lab, human or organism testing.
+Antibiotic resistance profiling and in-silico candidate prioritisation for Hack The Burgh 2026.
 
-We check the ranking retrospectively: hide a drug known to work against a resistance profile and see where the method ranks it against simple baselines.
+## What it does
 
-# Tasks
-The plan is in [scope.md](scope.md) (what we are building and why) and [tasks.md](tasks.md) (who does what, by phase). Both record the decisions made so far, including the target disease and the in-silico guardrails.
+Given resistance genes or a pathogen preset, map the determinants to CARD mechanisms
+and affected drug classes, then prioritise approved antibiotics with an explanation
+and cited evidence. The three chosen pathogens are *Staphylococcus aureus*,
+*Klebsiella pneumoniae* and *Acinetobacter baumannii*. All work is computational;
+a ranked candidate is not evidence of clinical efficacy or a dosing recommendation.
 
-# Pipeline
+Two workstreams share the candidate contract: resistance-aware evasion ranking for
+the app, and a planned whole-cell discovery pipeline for *A. baumannii*. Generated
+proposals will be kept separate from approved drugs.
 
-Two lanes share one candidate contract (`AntibioticCandidate`, with `source: approved | generated`). The **evasion ranking** is the app and demo path. The **whole-cell pipeline** (*A. baumannii* only) carries the validated prediction work and the hidden-drug test. The split was decided in issue #82; the order of work and the 10-hour cut line are in [tasks.md](tasks.md) sections 5b and 6.
+## Current state
 
-Blue boxes are new work. Grey boxes are reused code already in the repo (see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)). Dashed blue boxes are Tier 2: only if Tier 1 is green. Dashed grey boxes are cut at the 10-hour budget. Issue numbers are in brackets.
+| Area | Available now | Remaining work |
+| --- | --- | --- |
+| Resistance data and ranking | CARD-derived profiles and 126 ranked approved drugs per pathogen, with ChEMBL activity evidence, saved in [the integration bundle](docs/pathogen-integration.md) | Preset gene lists are drafts, not measured isolates; typed genes need a prepared CARD release and do not trigger a new ranking in the app |
+| Researcher app | Resistance map, explained shortlist, property checks and recorded certificate details; [offline fixture and saved-data modes](docs/offline-demo.md) | Browser evidence verification (#95); 3D candidate view is in PR #99 |
+| Property checks | RDKit smoke tests and Lean 4 certificate support | Lean was not run for the saved real rankings; property limits are descriptive, not a safety or activity test |
+| Retrospective evaluation | [Cited ground truth](docs/ground-truth.md) and [protocol preparation](results/ws5_retrospective/protocol.md) | Freeze on the evaluation machine before scoring, then run and publish results (#37); no antibiotic validation metrics are available |
+| Whole-cell discovery | Data and leakage-control implementation is in PR #101 (#83/#84) | Activity ensemble, generation, filters, cost ledger and hidden-drug evaluation; see the plan below |
+
+The older human-disease network ranking and its results remain as reusable
+infrastructure and historical experiments. They do not validate the antibiotic
+ranking. The disease UI is disabled unless `VITE_DISEASE_FLOW=1` at build time.
+
+## Run the offline demo
+
+Prepare dependencies and build once while online, then launch:
+
+```sh
+./deploy/offline-demo.sh
+```
+
+This opens the saved MRSA fixture path. Scores, MICs and ranks are visibly labelled
+as made up; recorded property checks and Lean results are identified separately.
+To browse the real saved rankings for all three draft presets instead:
+
+```sh
+OFFLINE_RESISTANCE=saved ./deploy/offline-demo.sh
+```
+
+Both modes run without external services at runtime. Saved mode replays the #34
+run; it does not compute fresh rankings. See [setup and walkthrough](docs/offline-demo.md)
+for preparation, limitations and browser verification commands.
+
+## Tasks and decisions
+
+[scope.md](scope.md) describes the rationale and workstreams; [tasks.md](tasks.md)
+tracks implementation and the cut line recorded on 8 November 2026. The chosen
+pathogens, the separate *A. baumannii* whole-cell lane, SyntheMol generation and
+Wordsmith browser verification were recorded in decisions #4, #5 and #82.
+
+The next work is to publish an honest evaluation, finish the whole-cell pipeline
+in dependency order, and add cited browser verification. The intended whole-cell
+sequence is data (#83) → leakage controls (#84) → activity ensemble (#85) →
+generation/filtering (#86/#87) → measured oracle costs (#88) → hidden-drug tests
+(#91/#92). The scheduler (#89) and calibration/SHAP (#90) are Tier 2. Wild-type
+versus mutant docking (#45), resistance-risk scoring (#44), advanced oracles
+(#93/#94) and graph proofs (#49) are beyond the recorded 10-hour cut line.
+
+## Pipeline
+
+Solid arrows show the available saved-data demo path. Dashed arrows show planned
+connections and work; the discovery lane is not yet an end-to-end implementation.
 
 ```mermaid
 flowchart TD
-    A([Input: pathogen or resistance genes]) --> B
+    P["Three draft pathogen presets"] --> C["Saved CARD resistance profiles"]
+    C --> R["Evasion ranking<br/>126 approved drugs per pathogen<br/>ChEMBL activity evidence"]
+    R --> S["Recorded Python smoke checks<br/>Lean status: not run in this bundle"]
+    S --> U["Offline researcher view<br/>resistance map, shortlist, explanations and caveats"]
+    G["Typed resistance genes<br/>requires a prepared local CARD release"] --> CP["Computed resistance profile"]
+    CP -.-> R
+    F["MRSA fixture fallback<br/>made-up ranks and MICs, labelled on screen<br/>recorded property and Lean results"] --> U
 
-    subgraph L1 [Lane 1: evasion ranking, the app and demo path]
-        direction TB
-        B["Resistance profiling<br/>CARD / AMRFinderPlus<br/>genes and mutations to drug classes defeated"]
-        B --> E["Candidate pool<br/>approved drugs and combinations<br/>ChEMBL, antibiotic data"]
-        B --> C["Target selection and structures<br/>essential bacterial targets, RCSB PDB<br/>redocking controls"]
-        E --> F["Resistance-aware ranking<br/>does the candidate evade the mechanisms present?"]
-        C -.-> M["Docking: wild type vs mutant target (#45)"]:::cut
-        M -.-> F
-        F -.-> R["Resistance-risk score (#44)"]:::cut
+    subgraph W [Planned whole-cell discovery: A. baumannii]
+        D["Labelled data and retrieval library (#83)"] -.-> L["Scaffold/year splits and leakage assertion (#84)"]
+        L -.-> M["Activity ensemble (#85)"]
+        M -.-> N["SyntheMol candidates (#86)"]
+        N -.-> Q["Filter cascade (#87)"]
+        Q -.-> O["Oracle interface and measured cost ledger (#88)"]
+        O -.-> V["Hidden-drug evaluation and baselines (#91/#92)"]
+        O -.-> A["Tier 2: scheduler and calibrated explanations (#89/#90)"]
     end
-
-    subgraph L2 [Lane 2: whole-cell pipeline, A. baumannii only]
-        direction TB
-        W1["Ingest CO-ADD and ChEMBL whole-cell data<br/>label active at MIC 8 ug/mL or below (#83)"]
-        W1 --> W2["Scaffold and year splits<br/>leakage assertion, crashes on a leak (#84)"]
-        W1 --> LIB["Retrieval library<br/>public screening set, contains abaucin and halicin (#83)"]
-        W2 --> W3["Whole-cell activity ranker<br/>ensemble of five, mean and disagreement (#85)"]
-        W3 --> G1["Candidate generation: SyntheMol<br/>CPU run on a Vultr VM, guided by our own model (#86)"]
-        G1 --> W4
-        LIB --> W4["Filter cascade with rejection log and funnel<br/>validity, size, SA, alerts, entry heuristics, 3D (#87)"]
-        W4 --> W5["Oracle interface with cost ledger (#88)<br/>fidelity 0: RDKit filters<br/>fidelity 1: QuickVina2 docking"]
-        W3 --> W6
-        W5 --> W6["Budgeted scheduler<br/>expected improvement per second vs fixed funnel (#89)"]:::tier2
-        W6 --> W7["Conformal prediction with abstain, and SHAP (#90)"]:::tier2
-        W5 -.-> O2["Boltz-2 affinity (#93) and OpenMM stability (#94)"]:::cut
-    end
-
-    S["Smoke test and Lean 4 certificates<br/>core/verify (#38, #39)"]
-    F --> S
-    W5 --> S
-    S --> H["Ranked shortlist with explanations<br/>approved and generated kept visibly separate"]
-    W7 --> H
-    W5 --> H
-
-    H --> BA["Browser verification agent, top 10 (#95)<br/>PubMed and ClinicalTrials.gov via browser-use<br/>tokens, model and time shown, cited claims only"]
-    H --> J["Evidence review<br/>cited evidence, validated model replies"]
-    BA --> I
-    J --> I([Output: researcher view<br/>resistance map, funnel, evidence, 3D pose])
-
-    V1["Hidden-drug retrieval test (#91, #92)<br/>purge compound and analogues above 0.5 Tanimoto<br/>4 baselines: random, MW, docking, nearest active"] -.->|asserts purge| W2
-    V1 -.->|scores percentile and compute spent| H
-    V2["Retrospective test: profile to known drug (#35 to #37)<br/>cut first at the budget"]:::cut -.-> F
-
-    classDef new fill:#dbeafe,stroke:#2563eb,color:#111;
-    classDef reused fill:#e5e7eb,stroke:#6b7280,color:#111;
-    classDef tier2 fill:#eff6ff,stroke:#2563eb,stroke-dasharray: 5 5,color:#111;
-    classDef cut fill:#fff,stroke:#6b7280,stroke-dasharray: 5 5,color:#111;
-    class B,C,E,F,W1,W2,W3,G1,W4,W5,LIB,V1,BA new;
-    class S,J,H reused;
+    V -.-> U
+    A -.-> U
+    U -.-> B["Browser verification with citations and cached replay (#95)"]
+    T["Ground truth and pre-run protocol (#35/#36)"] -.-> E["Retrospective results with intervals (#37)"]
+    E -.-> R
 ```
 
-# Offline demo
+The dashed link from computed profiles to ranking is pending app integration.
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) records reused code and data sources.
 
-Prepare once, then run `./deploy/offline-demo.sh` for the saved MRSA input-to-shortlist flow without network access or credentials. See [the setup and walkthrough](docs/offline-demo.md). Scores, MICs and ranks remain visibly labelled fixtures. Use `OFFLINE_RESISTANCE=saved ./deploy/offline-demo.sh` to browse the real saved #34 rankings for all three draft pathogen presets instead (efficacy unvalidated; Lean not run).
-
-# Sponsor integrations
+## Sponsor integrations
 
 All optional; the app runs on fixtures without any of them. Which of these are actually proven, and how the project meets the HRT and G-Research tracks, is in [docs/sponsor-mapping.md](docs/sponsor-mapping.md).
 

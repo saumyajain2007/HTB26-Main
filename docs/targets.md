@@ -79,7 +79,12 @@ What changed, and why each is the smallest change that works:
 
 ChEMBL parent IDs of the co-crystal ligands: B47 CHEMBL1094382, 087 CHEMBL1923431, GVR CHEMBL261713, 3P3 CHEMBL1230182 (looked up by InChIKey, 8 November 2026).
 
-**What "appear in the app" means today.** The structures are in `GET /api/structures` (fixture and Vina modes) and the docking worker queues a redock control for each. The web app does not show them yet: it finds a structure only through a Candidate's human targets (`structureFor` in `web/src/lib/docking.ts`), and the app flow is still the COVID-19 one. Bacterial candidates will use them once the app moves to resistance profiles. Until then, no screen lists a bacterial structure.
+**What "appear in the app" means today.** The structures are in `GET /api/structures`
+(fixture and Vina modes), and the docking worker queues a redock control for each.
+The resistance flow is now the default app and can display saved real rankings.
+The candidate 3D view and bacterial structure matching are in PR #99; until that
+lands, the resistance shortlist does not offer these bacterial structures. A
+prepared crystal structure is not a docked candidate pose.
 
 **Test status after the change.** API 362 passed, worker 36, web 165, migrations 34 passed. Three failures remain and are on clean `main` too: two resistance fixture comparisons (`test_resistance.py`) and `test_candidates_cannot_be_dropped_out_from_under_votes_or_docking`.
 
