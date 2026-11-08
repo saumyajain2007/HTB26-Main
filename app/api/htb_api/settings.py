@@ -53,6 +53,9 @@ class Settings(BaseSettings):
             "exists, else the evidence ranking."
         ),
     )
+    resistance: Literal["fixture", "saved"] = "fixture"
+    resistance_results_dir: Path = REPO_ROOT / "results" / "pathogen-integration"
+
     data_dir: Path = Field(
         default=Path("data"),
         description=(
@@ -205,6 +208,8 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def _resolve_data_dir(self) -> Settings:
+        if not self.resistance_results_dir.is_absolute():
+            self.resistance_results_dir = REPO_ROOT / self.resistance_results_dir
         if not self.data_dir.is_absolute():
             self.data_dir = REPO_ROOT / self.data_dir
         if self.network_dir == Path():

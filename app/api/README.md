@@ -353,3 +353,12 @@ Findings while checking:
 - 7BQU's ligand is (S)-thalidomide (`CHEMBL426123`), a different parent from
   thalidomide (`CHEMBL468`). 6O0K's chain is a BCL2 construct that RCSB also
   maps to BCL-XL (`Q07817`).
+
+## Saved antibiotic rankings
+
+Set `HTB_RESISTANCE=saved` to serve the checked #34 profiles and real rankings for
+all three pathogens, with no source downloads. `HTB_RESISTANCE_RESULTS_DIR` defaults
+to the repository's `results/pathogen-integration`. The default `fixture` setting
+retains the saved MRSA demonstration. Missing/corrupt bundles fail startup. Saved
+rankings are integration evidence, not efficacy validation; Lean was not run.
+See [the offline walkthrough](../../docs/offline-demo.md).

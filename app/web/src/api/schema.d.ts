@@ -692,9 +692,10 @@ export interface components {
     };
     /** @enum {string} */
     CandidateEvidenceKind:
-      "activity" | "target_hit" | "docking" | "safety" | "smoke_test" | "approval";
+      "activity" | "target_hit" | "docking" | "safety" | "smoke_test" | "approval" | "drug_class";
     /** @enum {string} */
-    CandidateEvidenceSource: "chembl" | "card" | "pdb" | "htb_verify" | "htb_docking";
+    CandidateEvidenceSource:
+      "chembl" | "card" | "pdb" | "htb_verify" | "htb_docking" | "htb_resistance";
     /**
      * CandidateExplanation
      * @description Why the candidate sits where it does, and what is not known.

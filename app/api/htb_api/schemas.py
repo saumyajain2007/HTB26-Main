@@ -1300,10 +1300,11 @@ RankingFeature = TypeAliasType(
 ResistanceEvidenceSource = TypeAliasType("ResistanceEvidenceSource", Literal["card", "curated"])
 CandidateEvidenceKind = TypeAliasType(
     "CandidateEvidenceKind",
-    Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval"],
+    Literal["activity", "target_hit", "docking", "safety", "smoke_test", "approval", "drug_class"],
 )
 CandidateEvidenceSource = TypeAliasType(
-    "CandidateEvidenceSource", Literal["chembl", "card", "pdb", "htb_verify", "htb_docking"]
+    "CandidateEvidenceSource",
+    Literal["chembl", "card", "pdb", "htb_verify", "htb_docking", "htb_resistance"],
 )
 
 PROPERTY_RULES: tuple[PropertyRule, ...] = ("mw", "logp", "hbd", "hba", "rot_bonds", "psa")
@@ -1861,7 +1862,7 @@ class AntibioticCandidateResult(Model):
         ranks = sorted(c.rank for c in self.candidates if c.rank is not None)
         if ranks != list(range(1, len(ranks) + 1)):
             raise ValueError("ranks must run 1..n over the approved candidates")
-        order = {"unaffected": 0, "partly_affected": 1, "defeated": 2, "unknown": 3}
+        order = {"unaffected": 0, "unknown": 1, "partly_affected": 2, "defeated": 3}
         ranked = sorted(
             (c for c in self.candidates if c.rank is not None), key=lambda c: c.rank or 0
         )
