@@ -1,0 +1,17 @@
+{
+  "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+  "candidate_id": "CHEMBL1200359",
+  "smiles": "COc1cnc(NS(=O)(=O)c2ccc(N)cc2)nc1",
+  "target_name": "Dihydropteroate synthase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6TEJ6; reference protein, not isolate-specific)",
+  "protein_sequence_sha256": "7e51ae7bd2c36003cf0c9887568c88d3fd54c354ee94fc69391d8d74ec366833",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.827322781085968,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "892e4609e02da0b8d82455f94655da37cf053fde8181ce5db69c4726d74bb932"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "b123f0cc3d6b389fad6fcac0f17fe947151647d0a61a3755ae304df52529aff3"
+  }
+}

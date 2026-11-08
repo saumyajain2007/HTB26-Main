@@ -1,4 +1,4 @@
-import { useQueries } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import {
   useEffect,
   useLayoutEffect,
@@ -18,6 +18,7 @@ interface PoseViewerProps {
   files: PoseFiles;
   /** Accessible name of the 3D view: which drug in which protein. */
   label: string;
+  predicted?: boolean;
 }
 
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
@@ -64,17 +65,14 @@ function Toggle({ pressed, onToggle, swatch, children }: ToggleProps) {
  * framed clear of the bar. On phones the bar sits above the view instead. Spin starts on unless
  * the reader asks for reduced motion. The viewer and its WebGL context are released on unmount.
  */
-export function PoseViewer({ files, label }: PoseViewerProps) {
-  const [receptor, poses, crystal] = useQueries({
-    queries: [
-      dockFileQuery(files.receptor),
-      dockFileQuery(files.poses),
-      dockFileQuery(files.crystal_ligand),
-    ],
-  });
+export function PoseViewer({ files, label, predicted = false }: PoseViewerProps) {
+  const receptor = useQuery(dockFileQuery(files.receptor));
+  const poses = useQuery(dockFileQuery(files.poses));
+  const crystal = useQuery({ ...dockFileQuery(files.crystal_ligand), enabled: !predicted });
   const reduced = useReducedMotion();
   const [surface, setSurface] = useState(true);
   const [overlay, setOverlay] = useState(false);
+  const [placement, setPlacement] = useState<"idle" | "playing" | "complete">("idle");
   // No choice yet: spin unless motion is reduced. A click is the reader's own choice.
   const [spinChoice, setSpinChoice] = useState<boolean | null>(null);
   const spin = spinChoice ?? !reduced;
@@ -87,8 +85,14 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
   const webgl = canUseWebGL();
 
   const texts =
-    receptor.data !== undefined && poses.data !== undefined && crystal.data !== undefined
-      ? { receptor: receptor.data, poses: poses.data, crystal: crystal.data }
+    receptor.data !== undefined &&
+    poses.data !== undefined &&
+    (predicted || crystal.data !== undefined)
+      ? {
+          receptor: receptor.data,
+          poses: poses.data,
+          crystal: predicted ? "" : (crystal.data ?? ""),
+        }
       : null;
   const receptorText = texts?.receptor;
   const posesText = texts?.poses;
@@ -102,7 +106,12 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
     const scene = PoseScene.create(
       host,
       styles.layer ?? "",
-      { receptor: receptorText, poses: posesText, crystal: crystalText },
+      {
+        receptor: receptorText,
+        poses: posesText,
+        crystal: crystalText,
+        posesFormat: predicted ? "pdb" : "sdf",
+      },
       () => coveredBy(toolbarRef.current, host),
     );
     if (scene === null) return;
@@ -112,13 +121,30 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
     showSurface(host, scene, controls.surface);
     scene.setOverlay(controls.overlay);
     scene.setSpin(controls.spin);
+    // Each Show action mounts a fresh viewer. Start only after the scene is ready.
+    const autoplayFrame = predicted
+      ? requestAnimationFrame(() => {
+          if (sceneRef.current !== scene) return;
+          if (reduced) {
+            setPlacement("idle");
+            return;
+          }
+          setSpinChoice(false);
+          scene.setSpin(false);
+          setPlacement("playing");
+          scene.playPlacement(() => {
+            setPlacement("complete");
+          });
+        })
+      : 0;
     return () => {
+      cancelAnimationFrame(autoplayFrame);
       scene.dispose();
       sceneRef.current = null;
       delete host.dataset.ready;
       delete host.dataset.surface;
     };
-  }, [webgl, receptorText, posesText, crystalText]);
+  }, [webgl, receptorText, posesText, crystalText, predicted, reduced]);
 
   useEffect(() => {
     controlsRef.current.surface = surface;
@@ -137,7 +163,9 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
     sceneRef.current?.setSpin(spin);
   }, [spin]);
 
-  const failed = [receptor, poses, crystal].filter((query) => query.isError);
+  const failed = [receptor, poses, ...(!predicted ? [crystal] : [])].filter(
+    (query) => query.isError,
+  );
   let note: ReactNode = null;
   if (!webgl) {
     note = copy.network.unavailable;
@@ -171,15 +199,17 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
         >
           {copy.pose.controls.surface}
         </Toggle>
-        <Toggle
-          pressed={overlay}
-          swatch="overlay"
-          onToggle={() => {
-            setOverlay(!overlay);
-          }}
-        >
-          {copy.pose.controls.overlay}
-        </Toggle>
+        {!predicted && (
+          <Toggle
+            pressed={overlay}
+            swatch="overlay"
+            onToggle={() => {
+              setOverlay(!overlay);
+            }}
+          >
+            {copy.pose.controls.overlay}
+          </Toggle>
+        )}
         <Toggle
           pressed={spin}
           onToggle={() => {
@@ -188,11 +218,35 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
         >
           {copy.pose.controls.spin}
         </Toggle>
+        {predicted && (
+          <button
+            type="button"
+            className={styles.reset}
+            disabled={reduced || texts === null || !webgl}
+            onClick={() => {
+              const scene = sceneRef.current;
+              if (scene === null) return;
+              if (placement === "playing") {
+                scene.stopPlacement();
+                setPlacement("idle");
+              } else {
+                setSpinChoice(false);
+                setPlacement("playing");
+                scene.playPlacement(() => {
+                  setPlacement("complete");
+                });
+              }
+            }}
+          >
+            {placement === "playing" ? "Stop placement" : "Animate placement"}
+          </button>
+        )}
         <button
           type="button"
           className={styles.reset}
           onClick={() => {
             sceneRef.current?.reset();
+            setPlacement("idle");
           }}
         >
           {copy.pose.controls.reset}
@@ -209,7 +263,13 @@ export function PoseViewer({ files, label }: PoseViewerProps) {
         </ul>
       </div>
       <div className={styles.stage}>
-        <div ref={hostRef} className={styles.plate} role="img" aria-label={label} />
+        <div
+          ref={hostRef}
+          className={styles.plate}
+          role="img"
+          aria-label={label}
+          data-placement={predicted ? placement : undefined}
+        />
         {note !== null && <p className={styles.note}>{note}</p>}
       </div>
     </div>

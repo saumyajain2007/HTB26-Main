@@ -40,6 +40,7 @@ CODE = {
     "core/pipeline": "core/pipeline",
     "core/jury": "core/jury",
     "core/ranking": "core/ranking",
+    "results/boltz-precomputed": "results/boltz-precomputed",
     "deploy/db/migrate.py": "deploy/db/migrate.py",
     "deploy/db/migrations": "deploy/db/migrations",
 }

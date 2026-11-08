@@ -1,0 +1,17 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL439",
+  "smiles": "Nc1ccc(S(=O)(=O)Nc2ncccn2)cc1",
+  "target_name": "Dihydropteroate synthase (Staphylococcus aureus; UniProt O05701; reference protein, not isolate-specific)",
+  "protein_sequence_sha256": "77fe94c643252bc820e3056979ac8e03ce34770df4cfc006917e8f9dc2915a7a",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9273964166641235,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "8b60415896f458e5928e0b85e2bfc7b15219b2bba1fe5c15fc91bda81ddc81eb"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "6f1b1b6d554c05c022954d4dd65515424b701da1d9fbf46359c1d17a60ba41a0"
+  }
+}

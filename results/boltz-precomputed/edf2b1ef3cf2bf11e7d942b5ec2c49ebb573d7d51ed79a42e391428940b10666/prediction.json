@@ -1,0 +1,17 @@
+{
+  "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+  "candidate_id": "CHEMBL22",
+  "smiles": "COc1cc(Cc2cnc(N)nc2N)cc(OC)c1OC",
+  "target_name": "Dihydrofolate reductase (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T4I4; reference protein, not isolate-specific)",
+  "protein_sequence_sha256": "24b40fc25e2222522aeffb5146d5ae897d737a6026cdfa960ea872f619146e01",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9493004083633423,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "40e32e6ce593119921f8003fd4720d22da80a6152b41adde9ee060abfdeeabe1"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "d641b6bdc88f9e9c0e47013d7bb208041151a0f6a2e63cd7f5c1d7909377ba2d"
+  }
+}

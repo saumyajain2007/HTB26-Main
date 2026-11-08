@@ -333,6 +333,62 @@
         "title": "AroTerm",
         "type": "object"
       },
+      "BoltzPrediction": {
+        "additionalProperties": false,
+        "properties": {
+          "boltz_version": {
+            "title": "Boltz Version",
+            "type": "string"
+          },
+          "candidate_id": {
+            "title": "Candidate Id",
+            "type": "string"
+          },
+          "confidence_score": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence Score",
+            "type": "number"
+          },
+          "ligand": {
+            "$ref": "#/components/schemas/DockFile"
+          },
+          "profile_id": {
+            "format": "uuid",
+            "title": "Profile Id",
+            "type": "string"
+          },
+          "protein_sequence_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Protein Sequence Sha256",
+            "type": "string"
+          },
+          "receptor": {
+            "$ref": "#/components/schemas/DockFile"
+          },
+          "smiles": {
+            "title": "Smiles",
+            "type": "string"
+          },
+          "target_name": {
+            "title": "Target Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "profile_id",
+          "candidate_id",
+          "smiles",
+          "target_name",
+          "protein_sequence_sha256",
+          "boltz_version",
+          "confidence_score",
+          "receptor",
+          "ligand"
+        ],
+        "title": "BoltzPrediction",
+        "type": "object"
+      },
       "BuildStage": {
         "enum": [
           "targets",
@@ -2692,6 +2748,19 @@
         "title": "GeneratedProvenance",
         "type": "object"
       },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
       "Health": {
         "additionalProperties": false,
         "properties": {
@@ -4599,6 +4668,46 @@
         ],
         "type": "string"
       },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      },
       "ValidationIssue": {
         "additionalProperties": true,
         "description": "One problem with the request, as FastAPI reports it.",
@@ -5737,6 +5846,167 @@
           }
         },
         "summary": "Get the antibiotics ranked against a profile, with evasion and verification",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz": {
+      "get": {
+        "operationId": "get_boltz_prediction",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profile_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Profile Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "candidate_id",
+            "required": true,
+            "schema": {
+              "title": "Candidate Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/BoltzPrediction"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Get Boltz Prediction"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not found."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "A data source is unavailable."
+          }
+        },
+        "summary": "Get Boltz Prediction",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
+    "/api/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz/{name}": {
+      "get": {
+        "operationId": "get_boltz_file",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profile_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Profile Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "candidate_id",
+            "required": true,
+            "schema": {
+              "title": "Candidate Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "title": "Name",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "chemical/x-pdb": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not found."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "A data source is unavailable."
+          }
+        },
+        "summary": "Get Boltz File",
         "tags": [
           "resistance"
         ]
