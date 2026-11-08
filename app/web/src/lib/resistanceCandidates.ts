@@ -101,6 +101,7 @@ export interface CandidateFeatureRow {
 /** A cited evidence statement (either `P#` from the profile or `E#` from the candidate). */
 export interface CitedStatement {
   id: string;
+  source_id?: string;
   source: string;
   release: string;
   statement: string;
@@ -304,6 +305,7 @@ function buildEntry(
 
   const fromCandidate: CitedStatement[] = candidate.evidence.map((item) => ({
     id: item.id,
+    source_id: item.source_id,
     source: item.source,
     release: releaseLabel(item.release),
     statement: item.statement,

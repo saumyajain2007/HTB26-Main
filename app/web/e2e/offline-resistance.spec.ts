@@ -1,4 +1,5 @@
 import { expect, test } from "./console";
+import { checkReferencePreview } from "./reference-preview";
 
 // Real local API and built assets; no MSW, route fulfilment or remote resources.
 test("offline MRSA preset reaches an explained shortlist and certificates", async ({
@@ -36,5 +37,6 @@ test("offline MRSA preset reaches an explained shortlist and certificates", asyn
   await expect(page.getByText(/Lean 4 refuted failing rule theorems/)).toBeVisible();
   await page.reload();
   await expect(page.getByRole("heading", { name: "Why it sits here", exact: true })).toBeVisible();
+  await checkReferencePreview(page);
   expect(external, "the complete demo must use only local resources").toEqual([]);
 });
