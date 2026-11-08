@@ -38,6 +38,7 @@ TARGET_CAVEAT = ("Affected target names are CARD's own determinant names, not cu
 _TARGET_MECHANISMS = ("target alteration", "target replacement", "target protection")
 
 _HIGH_METHODS = ("ALLELE", "EXACT", "POINT")
+_BRIDGED = ("normalised_name", "species_variant_model", "homolog_species_model")
 
 
 @dataclass
@@ -157,7 +158,10 @@ def _rollup(calls, rows, key, evidence=None) -> list:
     return [out[k] for k in sorted(out)]
 
 
-def build_profile(parsed: Parsed, reference: Reference, strict: bool = False) -> Profile:
+def build_profile(parsed: Parsed, reference: Reference, strict: bool = False,
+                  resolver=None) -> Profile:
+    """Build the profile. ``resolver(token) -> Resolution`` replaces plain CARD name matching
+    (see ``bridge.Bridge.resolver_for``); left out, behaviour is exactly as before."""
     release = reference.release
     # unresolved_inputs is about names the caller supplied, and every text in it has to be
     # in input.requested. A row with no name at all is counted in the caveats instead.
@@ -168,7 +172,7 @@ def build_profile(parsed: Parsed, reference: Reference, strict: bool = False) ->
     seen_aro: dict[str, str] = {}
 
     for token in parsed.tokens:
-        res = reference.resolve(token.lookup)
+        res = reference.resolve(token.lookup) if resolver is None else resolver(token)
         if res.status != "resolved":
             reason = res.reason
             if res.candidates:
@@ -305,6 +309,13 @@ def _caveats(parsed: Parsed, reference: Reference, calls, rows, unresolved,
     if loose:
         caveats.append(f"{', '.join(loose)} matched only after case folding or dropping a leading "
                        "'bla', which is a guess about spelling rather than CARD data.")
+    bridged = [f"{c.requested_as} ({c.match})" for c in calls
+               if c.match.split(":", 1)[0] in _BRIDGED]
+    if bridged:
+        caveats.append(f"{', '.join(bridged)} was matched by a bridging rule (normalised spelling or "
+                       "a species variant model), not by CARD's own name; a homolog_species_model "
+                       "match borrows the model of a related species. These are rule-based matches, "
+                       "not curated.")
     unlisted = [f"{c.mutation} in {c.short_name}" for c in calls if not c.mutation_in_card]
     if unlisted:
         caveats.append(f"{', '.join(unlisted)} is not among CARD's known resistance variants for "
