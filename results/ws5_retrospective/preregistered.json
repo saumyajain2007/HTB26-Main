@@ -1,0 +1,53 @@
+{
+  "amendments": [],
+  "declaration": {
+    "baselines": {
+      "alphabetical": "the pool in name order, which is the ranking's own tie-break and so the floor any ordering must beat",
+      "evasion_only": "the ordered rule with the activity and safety keys removed",
+      "random": "shuffle the pool under the declared seed"
+    },
+    "experiment": "ws5_retrospective",
+    "metrics": {
+      "inverted_rate": "the share of rows where a drug on the ineffective list outranks every drug on the effective list. A wrong answer, not a near miss, and it is reported even when the hit rates look acceptable.",
+      "primary": "hit_at_1",
+      "reported": [
+        "hit_at_1",
+        "hit_at_3",
+        "mean_reciprocal_rank",
+        "inverted_rate"
+      ]
+    },
+    "preconditions": [
+      "The candidate pool contains at least one effective and one ineffective drug for at least one ground-truth row, or nothing can be scored.",
+      "The profiles are built from the pinned CARD release, not from a synthetic fixture."
+    ],
+    "question": "For a resistance profile, does the ranking put drugs that are known to work above drugs the profile defeats?",
+    "rules": [
+      "Rows marked partly_verified in the ground truth are excluded from the primary metric and reported separately. Which rows those are is fixed by the frozen ground truth.",
+      "No row may be added, removed or re-labelled after the freeze. A row whose citation turns out to be wrong is recorded as an erratum and the result is reported with and without it, never silently dropped.",
+      "A row is scorable only when at least one of its effective or ineffective drugs is in the candidate pool. Unscorable rows are counted and named, not skipped quietly.",
+      "Every baseline is run on the same pool and the same rows as the method.",
+      "The metric set above is complete. A metric not listed here may be reported as an observation but never as the headline.",
+      "Every attempt is reported, including runs that failed or were abandoned.",
+      "A negative result stands. If the method does not beat the alphabetical baseline, that is the finding."
+    ],
+    "seed": 20261108,
+    "uncertainty": {
+      "interval": 0.95,
+      "method": "bootstrap over ground-truth rows",
+      "note": "With 6 rows the interval will be very wide. That is the honest result for this sample size and is not to be narrowed by adding rows after seeing it.",
+      "resamples": 2000
+    }
+  },
+  "declaration_sha256": "6caa861b32ec8209dea670c792c84309b6ed00eaa10ab18878849f84b1915835",
+  "frozen_at": "2026-11-08T05:56:39.830114+00:00",
+  "git_commit": "f6e20f32dd630cae90a64ccbace454302b950ace",
+  "inputs_sha256": {
+    "core/ranking/antibiotic/protocol_v1.json": "4b2b223e538e4770ceb1e74d2053f67bc20a297a5f000f38552a8070e2ab0bb2",
+    "core/resistance/htb_resistance/data/presets.json": "e4e9454a4df291bf046032e7d1ae05b25dc30274facdfbd7e214e049239fbbaa",
+    "core/resistance/tests/fixtures/card_slice/4.0.2/manifest.json": "53274770e8de946baf7b9b077bc7bcd521ed20caa3b56291f7993715de6da5c3",
+    "data/antibiotics/releases/chembl-37_card-4.0.2/manifest.json": "27ba88eb8e70b69bc863fa26a0676f85fe08754be6b55b56caab1b67b9842fea",
+    "eval/ground_truth.json": "1541375a4d2bc5af3316ced037eddc55a7552ff753c6df2a23617ca927b7b910"
+  },
+  "protocol_sha256": "fd9a4171bbb6ec91f1e3b7b780c92c5111ea14bd139a677ee31e4574a11ed030"
+}
