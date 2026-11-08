@@ -24,7 +24,7 @@ def download_verified(url: str, target: Path, digest: str) -> None:
     request = urllib.request.Request(
         url, headers={**HEADERS, "Accept": "application/octet-stream"}
     )
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             checksum = hashlib.sha256()
             with (
@@ -39,7 +39,7 @@ def download_verified(url: str, target: Path, digest: str) -> None:
             partial.replace(target)
             return
         except (OSError, urllib.error.URLError):
-            if attempt == 2:
+            if attempt == 4:
                 raise
             time.sleep(2**attempt)
         finally:
