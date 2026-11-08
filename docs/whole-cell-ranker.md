@@ -51,3 +51,22 @@ Setup: ChEMBL 37 MICs against *M. tuberculosis* (taxon 1773) built with the same
 | Nearest-active baseline, all 3,000 | 0.479 (0.454 to 0.506) | 0.213 |
 
 Chance, for both. Caveats: the 8 ug/mL cut is the *A. baumannii* rule, not a TB-specific one; the literature MIC data is skewed toward published actives; one sample and one seed. The result should not be read as the model failing at its own task, only as it having nothing to say about an organism with a very different cell envelope.
+
+## Transfer to three more organisms (8 November 2026)
+
+The same test as for tuberculosis, on ChEMBL 37 MICs for *E. coli* (taxon 562), *K. pneumoniae* (573) and *S. pneumoniae* (1313): a seeded sample of 2,000 molecules per organism, scored by the *A. baumannii* scaffold ensemble and by the nearest-*A. baumannii*-active baseline, with the same 8 ug/mL rule. "Without close analogues" removes molecules above 0.5 Tanimoto to any training molecule, which is the fairer number. Raw: [results/whole_cell/](../results/whole_cell/) (`transfer_*.json`). Pneumonia is a disease, not an organism, so this tests the two species named *pneumoniae*.
+
+| Organism | Molecules (active) | ROC-AUC, all 2,000 (95% CI) | ROC-AUC, without close analogues (95% CI) | Baseline, without close analogues |
+|---|---|---|---|---|
+| *E. coli* | 42,652 (23.9%) | 0.640 (0.605 to 0.671) | **0.568** (0.529 to 0.603), n=1,650 | 0.582 |
+| *K. pneumoniae* | 16,362 (29.3%) | 0.717 (0.689 to 0.746) | **0.648** (0.610 to 0.682), n=1,555 | 0.620 |
+| *S. pneumoniae* | 9,782 (65.7%) | 0.641 (0.617 to 0.664) | **0.604** (0.573 to 0.634), n=1,259 | 0.553 |
+| *M. tuberculosis* (earlier) | 23,045 (22.0%) | 0.495 (0.471 to 0.522) | 0.487 (0.461 to 0.512) | 0.479 |
+
+How to read it:
+
+- **Weak transfer, not a result to build a claim on.** The best case, *K. pneumoniae*, is 0.65 once close analogues are removed. Removing them lowers every organism's score, so part of the headline number is similarity to molecules the model was trained on.
+- ***E. coli*: no better than the baseline.** The baseline matches or beats the ensemble both with and without close analogues. Without them, 0.568 is barely above chance.
+- ***K. pneumoniae* and *S. pneumoniae*: slightly ahead of the baseline** once analogues are removed (0.648 against 0.620; 0.604 against 0.553), but the intervals overlap for *K. pneumoniae*. I had expected *S. pneumoniae*, a Gram-positive, to behave like tuberculosis. It did not; I do not have an explanation.
+- **The labels are not comparable across organisms.** The 8 ug/mL cut is the *A. baumannii* rule. The literature MIC data is dominated by published analogue series, which is why 65.7% of *S. pneumoniae* molecules count as active; a high active rate makes AUC easy to move and hard to interpret.
+- One sample and one seed per organism.
