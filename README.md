@@ -72,7 +72,7 @@ flowchart TD
 
 # Sponsor integrations
 
-All optional; the app runs on fixtures without any of them.
+All optional; the app runs on fixtures without any of them. Which of these are actually proven, and how the project meets the HRT and G-Research tracks, is in [docs/sponsor-mapping.md](docs/sponsor-mapping.md).
 
 | Integration | Use | Setup |
 |---|---|---|
