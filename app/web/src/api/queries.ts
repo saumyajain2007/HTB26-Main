@@ -8,7 +8,7 @@ import {
 import { useDebouncedValue } from "../lib/useDebouncedValue";
 import { api, apiUrl } from "./client";
 import { ApiError, fetchText, unwrap } from "./errors";
-import type { Conformer, DockFile, Experiment, ExperimentStatus, JuryRun } from "./types";
+import type { Conformer, CoordinateFile, Experiment, ExperimentStatus, JuryRun } from "./types";
 
 /** How long typing must pause before the disease search asks the API. */
 export const SEARCH_DEBOUNCE_MS = 250;
@@ -31,7 +31,7 @@ export const queryKeys = {
   structures: ["structures"] as const,
   evaluation: ["evaluation"] as const,
   dockJob: (id: string) => ["dock", id] as const,
-  dockFile: (url: string, sha256: string) => ["dock-files", url, sha256] as const,
+  dockFile: (url: string, sha256?: string) => ["dock-files", url, sha256] as const,
 };
 
 /**
@@ -303,7 +303,7 @@ export function useDockJob(id: string | null) {
 }
 
 /** A docking result file as text. Its checksum is in the key, so a file never changes under it. */
-export function dockFileQuery(file: DockFile) {
+export function dockFileQuery(file: CoordinateFile) {
   return queryOptions({
     queryKey: queryKeys.dockFile(file.url, file.sha256),
     queryFn: ({ signal }) => fetchText(apiUrl(file.url), signal),

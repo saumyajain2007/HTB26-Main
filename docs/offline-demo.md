@@ -43,7 +43,10 @@ Restarting resets in-memory state.
    separate features, property rules, certificate details and cited evidence.
 4. Select **VANCOMYCIN** to show a property-rule failure and its explanation.
    A failure is a descriptive outlier flag, not a safety verdict.
-5. Show the fixture notice and caveats. Refresh the page to demonstrate that the
+5. Open **Show reference structure** to inspect the named co-crystal ligand in a
+   prepared bacterial protein. Switch the prepared structure to explore another
+   reference. This is not a computed pose of the selected candidate.
+6. Show the fixture notice and caveats. Refresh the page to demonstrate that the
    saved profile and shortlist can be reopened directly.
 
 Citations are recorded statements and source metadata available locally; following
@@ -63,7 +66,9 @@ npm run e2e -- offline-resistance.spec.ts
 
 The test uses the real local API and built frontend, blocks and fails on any
 nonlocal browser request, and checks preset input, map, explained candidates,
-property/certificate panels, evidence, fixture labelling and page reload. It never
+property/certificate panels, evidence, fixture labelling and page reload. It also
+opens the reference viewer, waits for a rendered WebGL canvas, switches structures
+and closes the viewer after a direct-route reload. It never
 substitutes mocked API responses. The API uses the installed virtual environment
 directly, with explicit fixture settings. To check the entire machine's network
 independence, also rehearse the launcher after disconnecting Wi-Fi/Ethernet.

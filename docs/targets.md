@@ -82,9 +82,10 @@ ChEMBL parent IDs of the co-crystal ligands: B47 CHEMBL1094382, 087 CHEMBL192343
 **What "appear in the app" means today.** The structures are in `GET /api/structures`
 (fixture and Vina modes), and the docking worker queues a redock control for each.
 The resistance flow is now the default app and can display saved real rankings.
-The candidate 3D view and bacterial structure matching are in PR #99; until that
-lands, the resistance shortlist does not offer these bacterial structures. A
-prepared crystal structure is not a docked candidate pose.
+PR #99 added a reference crystal viewer to the resistance shortlist. It shows
+the named co-crystal ligand, with specific target/pocket/PDB matches kept distinct
+from the rest of the reference set. Generic DNA gyrase labels do not establish a
+GyrB match; a prepared crystal structure is not a docked candidate pose.
 
 **Test status after the change.** API 362 passed, worker 36, web 165, migrations 34 passed. Three failures remain and are on clean `main` too: two resistance fixture comparisons (`test_resistance.py`) and `test_candidates_cannot_be_dropped_out_from_under_votes_or_docking`.
 
