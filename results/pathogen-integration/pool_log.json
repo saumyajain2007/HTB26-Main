@@ -1,0 +1,507 @@
+[
+  {
+    "chembl_id": "CHEMBL108821",
+    "name": "SITAFLOXACIN ANHYDROUS",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1091024",
+    "name": "MIOCAMYCIN",
+    "reason": "not approved (ChEMBL max_phase -1)"
+  },
+  {
+    "chembl_id": "CHEMBL1095284",
+    "name": "CEFATRIZINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1191",
+    "name": "SULFAMETHIZOLE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL1213456",
+    "name": "NEMONOXACIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1214185",
+    "name": "ROXITHROMYCIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1232510",
+    "name": "SOLITHROMYCIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1236282",
+    "name": "THIAMPHENICOL",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1237046",
+    "name": "ROLITETRACYCLINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1256734",
+    "name": "SULBENICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1276310",
+    "name": "TEMOCILLIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1276342",
+    "name": "CEFMINOX",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1276663",
+    "name": "CEFOZOPRAN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL130",
+    "name": "CHLORAMPHENICOL",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL1318150",
+    "name": "ASPOXICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL134561",
+    "name": "ICLAPRIM",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1454910",
+    "name": "NITROXOLINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL1476605",
+    "name": "CLOFOCTOL",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL15413",
+    "name": "FLOMOXEF",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL1609",
+    "name": "MANDELIC ACID",
+    "reason": "not approved (ChEMBL max_phase -1)"
+  },
+  {
+    "chembl_id": "CHEMBL1614637",
+    "name": "PHENETHICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1614658",
+    "name": "CARUMONAM",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1619785",
+    "name": "TALAMPICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1697763",
+    "name": "NIFURTOINOL",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1697829",
+    "name": "CEFTEZOLE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1743",
+    "name": "CEFDITOREN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL176",
+    "name": "BEKANAMYCIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL190561",
+    "name": "LEVONADIFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1908324",
+    "name": "METAMPICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1908350",
+    "name": "ROKITAMYCIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL1908372",
+    "name": "CEFBUPERAZONE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2103764",
+    "name": "CEFETAMET",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2104266",
+    "name": "EPICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2104519",
+    "name": "XIBORNOL",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2104921",
+    "name": "SULFAMAZONE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2105399",
+    "name": "SULFAMOXOLE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2105499",
+    "name": "SULFAPERIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2105612",
+    "name": "PROPICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2105907",
+    "name": "AZIDOCILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2105953",
+    "name": "CEFTERAM",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2106071",
+    "name": "CLOMOCYCLINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2106403",
+    "name": "FLURITHROMYCIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2106548",
+    "name": "CLOMETOCILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2106988",
+    "name": "PENAMECILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2107486",
+    "name": "TEBIPENEM PIVOXIL",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL2107489",
+    "name": "SULFATHIOUREA",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2107636",
+    "name": "CEFAZEDONE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL2110602",
+    "name": "CEPHACETRILE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL221572",
+    "name": "RIBOSTAMYCIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL221886",
+    "name": "SISOMICIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL222645",
+    "name": "FLOXACILLIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL224436",
+    "name": "JOSAMYCIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL2303613",
+    "name": "CEFODIZIME",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL240163",
+    "name": "PAZUFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL267648",
+    "name": "PEFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL268869",
+    "name": "SULFAMETHOXYPYRIDAZINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL272080",
+    "name": "ISEPAMICIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL273348",
+    "name": "TOSUFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL277100",
+    "name": "TEMAFLOXACIN",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL285347",
+    "name": "BIAPENEM",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL291157",
+    "name": "ROSOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL295619",
+    "name": "RUFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL30116",
+    "name": "PIPEMIDIC ACID",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL31",
+    "name": "GATIFLOXACIN",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL311350",
+    "name": "PIROMIDIC ACID",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL3137691",
+    "name": "QUINUPRISTIN/DALFOPRISTIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL316157",
+    "name": "CEPHALORIDINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL3186538",
+    "name": "CEFROXADINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL31891",
+    "name": "BRODIMOPRIM",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL3317856",
+    "name": "GEPOTIDACIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL3351077",
+    "name": "CEFSULODIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL370252",
+    "name": "FLUMEQUINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL3707254",
+    "name": "FURAZIDIN",
+    "reason": "not approved (ChEMBL max_phase -1)"
+  },
+  {
+    "chembl_id": "CHEMBL3833378",
+    "name": "PENIMEPICYCLINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL3989751",
+    "name": "NEOMYCIN",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL416755",
+    "name": "OXOLINIC ACID",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL422648",
+    "name": "PRULIFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL426926",
+    "name": "ARBEKACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL428",
+    "name": "TROVAFLOXACIN",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL4297166",
+    "name": "TEICOPLANIN",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL437",
+    "name": "SULFATHIAZOLE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL438",
+    "name": "SULFAMERAZINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL444963",
+    "name": "MIDECAMYCIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL446",
+    "name": "SULFAMETHAZINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL485696",
+    "name": "SULFISOMIDINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL485940",
+    "name": "SULFAMETOMIDINE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL506110",
+    "name": "SULTAMICILLIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL5314344",
+    "name": "MIKAMYCIN",
+    "reason": "no structure in ChEMBL, so no smoke test is possible"
+  },
+  {
+    "chembl_id": "CHEMBL5314354",
+    "name": "POLYMYXIN B",
+    "reason": "no structure in ChEMBL, so no smoke test is possible"
+  },
+  {
+    "chembl_id": "CHEMBL556262",
+    "name": "FAROPENEM",
+    "reason": "not approved (ChEMBL max_phase 3)"
+  },
+  {
+    "chembl_id": "CHEMBL560976",
+    "name": "DIBEKACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL582912",
+    "name": "CEFCAPENE",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL583",
+    "name": "GREPAFLOXACIN",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL606258",
+    "name": "OLEANDOMYCIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL6067481",
+    "name": "COLISTIN",
+    "reason": "no structure in ChEMBL, so no smoke test is possible"
+  },
+  {
+    "chembl_id": "CHEMBL6067485",
+    "name": "GENTAMICIN",
+    "reason": "no structure in ChEMBL, so no smoke test is possible"
+  },
+  {
+    "chembl_id": "CHEMBL6067982",
+    "name": "STREPTODUOCIN",
+    "reason": "not approved (ChEMBL max_phase -1)"
+  },
+  {
+    "chembl_id": "CHEMBL6068006",
+    "name": "LASCUFLOXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  },
+  {
+    "chembl_id": "CHEMBL6195749",
+    "name": "SPIRAMYCIN",
+    "reason": "no structure in ChEMBL, so no smoke test is possible"
+  },
+  {
+    "chembl_id": "CHEMBL62193",
+    "name": "SULFADIMETHOXINE",
+    "reason": "withdrawn from the market"
+  },
+  {
+    "chembl_id": "CHEMBL6273",
+    "name": "FLEROXACIN",
+    "reason": "not approved (ChEMBL max_phase 2)"
+  }
+]
