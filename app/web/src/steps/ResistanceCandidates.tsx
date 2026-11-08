@@ -173,7 +173,6 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
               </h2>
               <p className={styles.ruleNote}>
                 {text.rankingRule(candidates.ranking.method, orderLabels)}
-                {candidates.ranking.note !== null ? ` ${candidates.ranking.note}` : ""}
               </p>
               {filterable && (
                 <div className={styles.filter} role="group" aria-label={text.filterLabel}>
@@ -434,7 +433,6 @@ function CandidateReadingPane({
 
       <div className={styles.block}>
         <h3 className={styles.subhead}>{text.featuresTitle}</h3>
-        <p className={styles.rationale}>{text.featuresNote}</p>
         <dl className={styles.featureGrid}>
           {entry.features.map((feature) => (
             <div key={feature.key} style={{ display: "contents" }}>
@@ -686,11 +684,6 @@ function SmokeAndCertificatePanel({ entry }: { entry: CandidateEntry }) {
             </>
           )}
         </dl>
-        <p className={styles.rationale}>
-          {entry.certificate?.ran === true
-            ? text.certificateScopeConfirmed
-            : text.certificateScopeSmokeOnly}
-        </p>
       </div>
     </div>
   );

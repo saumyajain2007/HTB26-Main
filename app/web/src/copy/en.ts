@@ -111,8 +111,7 @@ export const copy = {
     {
       slug: "candidates",
       title: "Candidate antibiotics",
-      intro:
-        "Approved drugs ranked by whether they evade the isolate’s resistance mechanisms, with generated proposals kept apart.",
+      intro: "Approved drugs ranked by whether they evade the isolate’s resistance mechanisms.",
     },
   ],
 
@@ -310,7 +309,6 @@ export const copy = {
       evadedTitle: "Mechanisms with no link in CARD",
       defeatedByTitle: "Mechanisms linked in CARD",
       featuresTitle: "Separate features",
-      featuresNote: "Kept separate, never blended into a single score.",
       featureNames: {
         activity: "Activity",
         target_hit: "Target hit",
@@ -390,10 +388,6 @@ export const copy = {
       inchikeyLabel: "InChIKey",
       leanFailedRulesLabel: "Failed rules",
       leanDetailLabel: "Prover detail",
-      certificateScopeConfirmed:
-        "Property rules are checked by a Python smoke test, and the same rules are machine-checked in Lean 4, including proofs that the rule set is monotone and that the antibiotic limits are looser than the oral ones. A certificate confirms the encoded limits hold; it does not show a molecule is safe, selective or active.",
-      certificateScopeSmokeOnly:
-        "Property rules were checked by the Python smoke test only; Lean 4 did not run for this molecule. Passing the encoded limits does not show a molecule is safe, selective or active.",
       saScore: (score: number) => `Synthetic accessibility ${String(score)} (1 easy to 10 hard)`,
       saAboveCeiling: (ceiling: number) =>
         `above soft ceiling ${String(ceiling)} (reported, not a failure)`,
@@ -422,7 +416,7 @@ export const copy = {
         `${residue} (${proteinAtom}) to drug atom ${ligandAtom}, ${angstrom} Å`,
       poseContactsNone: "No polar contacts within 3.5 Å in this structure.",
       poseContactsCaveat:
-        "Distances only, not angles, so these are possible hydrogen bonds, not confirmed ones. They describe the crystal’s own drug, not the selected candidate.",
+        "Possible hydrogen bonds, not confirmed ones. They describe the crystal’s own drug, not the selected candidate.",
       posePreviewCaveat:
         "This preview shows the named co-crystal ligand in its reference protein, not a computed pose of the selected candidate. A related target or generation pocket does not establish binding or antibiotic activity.",
       dockedLine: (drug: string, pdbId: string, score: string) =>
@@ -434,7 +428,7 @@ export const copy = {
       dockedContactsLead: (drug: string) =>
         `Where ${drug}, as docked, sits within 3.5 Å of the protein.`,
       dockedContactsCaveat:
-        "Distances only, not angles, so these are possible hydrogen bonds, not confirmed ones. They describe the docked pose, which is a prediction in a reference pocket.",
+        "Possible hydrogen bonds, not confirmed ones. They describe the docked pose, which is a prediction in a reference pocket.",
       evidenceTitle: "Cited evidence",
       juryTitle: "Model jury",
       juryPending:
