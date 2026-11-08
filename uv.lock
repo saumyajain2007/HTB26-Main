@@ -14,6 +14,7 @@ members = [
     "htb-ranking",
     "htb-resistance",
     "htb-verify",
+    "htb-wholecell",
     "htb-worker",
 ]
 
@@ -478,6 +479,17 @@ source = { editable = "core/resistance" }
 name = "htb-verify"
 version = "0.1.0"
 source = { editable = "core/verify" }
+dependencies = [
+    { name = "rdkit" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "rdkit", specifier = "==2026.9.1" }]
+
+[[package]]
+name = "htb-wholecell"
+version = "0.1.0"
+source = { editable = "core/wholecell" }
 dependencies = [
     { name = "rdkit" },
 ]
