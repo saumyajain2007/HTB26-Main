@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "chembl": {
+    "release": "ChEMBL_37"
+  },
+  "card": {
+    "release": "card-4.0.2"
+  },
+  "excerpt": true,
+  "provenance": "Excerpt, not a built catalogue. The three approved drugs in tests/fixtures/antibiotic_candidates.json, whose ChEMBL ids, structures, InChIKeys, CARD drug classes and antibiotic terms were verified against ChEMBL 37 and CARD 4.0.2 in docs/ontology-check.md. Built because data/ is gitignored and the real catalogue needs a 30 GB ChEMBL extract. Rebuild the real one with the catalogue builder.",
+  "tables": {
+    "antibiotics": {
+      "rows": 3
+    },
+    "antibiotic_card": {
+      "rows": 3
+    },
+    "antibiotic_mechanisms": {
+      "rows": 3
+    }
+  }
+}
