@@ -51,7 +51,9 @@ from ..stream_a import (
     cortex_model,
     jury_settings,
     mock_model,
+    provider_model,
     run_jury,
+    split_model_id,
     validate_packet,
     write_json,
 )
@@ -66,7 +68,7 @@ from .jury import (
 
 log = logging.getLogger(__name__)
 
-LiveJuryMode = Literal["mock", "cortex"]
+LiveJuryMode = Literal["mock", "cortex", "providers"]
 
 # Known Cortex model families, by model ID prefix, with how to show the name.
 _FAMILIES: list[tuple[str, str]] = [
@@ -85,8 +87,16 @@ _FAMILIES: list[tuple[str, str]] = [
 _UPPER = {"gpt", "glm", "ai"}
 
 
+_PROVIDER_FAMILIES = {"gemini": "Google"}
+
+
 def model_family(model_id: str) -> str:
-    """The company behind a Cortex model ID, or the ID itself when unknown."""
+    """The company behind a model ID, or the ID itself when unknown. A provider prefix
+    (`gemini:`, `vultr:`, `cortex:`) is read first: Gemini is Google; a Vultr or Cortex
+    model is named by its own ID."""
+    if ":" in model_id:
+        provider, name = split_model_id(model_id)
+        return _PROVIDER_FAMILIES.get(provider) or model_family(name)
     lowered = model_id.lower()
     return next((family for prefix, family in _FAMILIES if lowered.startswith(prefix)), model_id)
 
@@ -94,7 +104,10 @@ def model_family(model_id: str) -> str:
 def display_name(model_id: str) -> str:
     """A readable name for a Cortex model ID: claude-sonnet-5 is Claude Sonnet 5,
     claude-opus-5-5 is Claude Opus 5.5 (Cortex writes version dots as hyphens),
-    openai-gpt-5.4 is GPT-5.4, glm-5.3 is GLM-5.3, kimi-k3 is Kimi K3."""
+    openai-gpt-5.4 is GPT-5.4, glm-5.3 is GLM-5.3, kimi-k3 is Kimi K3. A provider prefix
+    is dropped: gemini:gemini-2.5-pro is Gemini 2.5 Pro."""
+    if ":" in model_id:
+        model_id = split_model_id(model_id)[1]
     name = model_id.removeprefix("openai-")
     words: list[str] = []
     for word in name.split("-"):
@@ -266,7 +279,7 @@ class StreamAJury:
             effort: dict[str, str] = {}
         else:
             if not models:
-                raise ValueError("A Cortex jury needs its three model IDs (SNOWFLAKE_MODELS)")
+                raise ValueError("A live jury needs its three model IDs")
             self._models = [
                 JuryModel(id=m, display_name=display_name(m), family=model_family(m))
                 for m in models
@@ -342,11 +355,16 @@ class StreamAJury:
         def run() -> None:
             client: ModelCall | None = None
             try:
-                client = mock_model if self.mode == "mock" else cortex_model(effort)
+                if self.mode == "mock":
+                    client = mock_model
+                elif self.mode == "providers":
+                    client = provider_model(effort)
+                else:
+                    client = cortex_model(effort)
                 inner = client
 
                 def call(model: str, prompt: str, temperature: float) -> object:
-                    if self.mode == "cortex" and self._before_call is not None:
+                    if self.mode != "mock" and self._before_call is not None:
                         self._before_call()
                     if model not in started:
                         started.add(model)

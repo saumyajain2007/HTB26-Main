@@ -38,3 +38,48 @@ flowchart TD
     class B,C,E,F,V new;
     class D,G,H reused;
 ```
+
+# Sponsor integrations
+
+All optional; the app runs on fixtures without any of them.
+
+| Integration | Use | Setup |
+|---|---|---|
+| Google Gemini | A juror in the Model jury | `HTB_JURY=providers`, `GEMINI_API_KEY`, and a `gemini:<model>` entry in `JURY_MODELS` |
+| Vultr | Serverless Inference as a juror, and a VM to host the app | [deploy/vultr/](deploy/vultr/README.md) |
+| Tiger Data | Postgres for experiments, jobs and docking results | Set `DATABASE_URL`, then `uv run deploy/db/migrate.py` |
+| Entire | Version control for AI-written changes | Below |
+
+**Model jury across providers.** `HTB_JURY=providers` runs three jurors from three
+families, each model ID prefixed with its provider (`gemini:`, `vultr:` or `cortex:`),
+so one jury can mix Gemini, a Vultr-hosted model and a Snowflake Cortex model.
+Only the providers you name need credentials. Example:
+
+```
+HTB_JURY=providers
+JURY_MODELS='["gemini:gemini-2.5-pro","vultr:<vultr model id>","cortex:claude-sonnet-5"]'
+GEMINI_API_KEY=...
+VULTR_INFERENCE_API_KEY=...
+```
+
+Replies from every provider go through the same validation, so a model that returns
+a malformed review is marked invalid, not trusted. The Gemini and Vultr clients have
+unit tests with fakes, and have not been run against the live services yet.
+Paid calls share the existing `HTB_CORTEX_CALLS_PER_MINUTE` and `_PER_DAY` budget.
+
+**Tiger Data.** The app uses plain Postgres (no extensions), so a Tiger Cloud service
+works as is: create a service, copy its connection string into `DATABASE_URL`, set
+`HTB_REPO=postgres`, and migrate. Nothing here uses Timescale features yet.
+
+**Entire.** Entire records AI coding sessions alongside your commits. It is a CLI,
+not a dependency of the app. Install it, then enable it inside this repository:
+
+```
+brew install --cask entireio/tap/entire     # note --cask; or: curl -fsSL https://entire.com/install.sh | bash
+entire enable                               # pick your agents; installs agent and git hooks
+entire status
+```
+
+Session data goes to a separate `entire/checkpoints/v1` branch; `entire doctor` helps
+if something is stuck. Details: [github.com/entireio/cli](https://github.com/entireio/cli).
+Nothing is committed for it on this branch.
