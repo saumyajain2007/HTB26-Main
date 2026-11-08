@@ -1,0 +1,297 @@
+{
+  "_comment": "WS5 ground truth: resistance profile -> drug that is known to work, for the retrospective test. Every row cites a source that was read, and every row carries a label_error check: the drugs that must NOT come out on top, and why. That second list is the point. The earlier project's ERRATA records a label error found late; here a wrong 'correct answer' is caught by naming the traps up front rather than by trusting the table.",
+  "schema_version": "1",
+  "how_to_use": "These are the relevant drugs for a profile, not a ranking. A ranking is right if it puts the effective drugs above the ineffective ones; it is wrong, not merely unlucky, if it puts an ineffective_drug on top. Nothing here is a clinical recommendation: the rows summarise guidance for a species and mechanism, not for a patient.",
+  "verification": {
+    "verified": "the recommendation was read in the cited source",
+    "partly_verified": "the agents and their enzyme coverage were read, but the cited guidance's own preference for this syndrome was not reached in the source text",
+    "not_verified": "not read; do not rely on it"
+  },
+  "sources": {
+    "idsa2026": {
+      "type": "doi",
+      "id": "10.1093/cid/ciag481",
+      "citation": "Tamma PD, Bonomo RA, Heil EL, Justo JA, Satlin MJ, Mathers AJ. IDSA 2026 Guidance on the Treatment of Antimicrobial Resistant Gram-Negative Infections. Clinical Infectious Diseases.",
+      "read_from": "https://www.idsociety.org/practice-guideline/amr-guidance/",
+      "note": "Read 2026-11-08. The page's own version labelling is inconsistent (it lists Version 4.0 from August 2024, links a 5.0 folder, and titles itself the 2026 guidance), so the DOI is the stable reference. The page text available stopped partway through the CRE section, which is why the KPC row is partly_verified."
+    },
+    "idsa_mrsa_2011": {
+      "type": "citation",
+      "id": "Am Fam Physician 2011;84(4):455-463",
+      "citation": "Lambert M. IDSA guidelines on the treatment of MRSA infections in adults and children. Am Fam Physician. 2011;84(4):455-463.",
+      "read_from": "https://www.aafp.org/pubs/afp/issues/2011/0815/p455.html",
+      "note": "A summary of the IDSA MRSA guideline (Liu et al., Clin Infect Dis 2011), read 2026-11-08. The summary was read, not the primary guideline; the primary should replace it. The MRSA guideline is from 2011 and is the oldest source here."
+    },
+    "cercenado2025": {
+      "type": "doi",
+      "id": "10.37201/req/s01.03.2025",
+      "pmid": "41159226",
+      "citation": "Cercenado E, Candel FJ. Classification and applicability of new beta-lactamase inhibitors. Rev Esp Quimioter. 2025 Oct 24;38(Suppl 1):21-26.",
+      "read_from": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12584905/",
+      "note": "Full text read 2026-11-08. Used only for which enzymes each inhibitor does and does not cover, which is what the ineffective_drugs lists rest on."
+    },
+    "fda_xacduro_2023": {
+      "type": "fda_press",
+      "id": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-treatment-pneumonia-caused-certain-difficult-treat-bacteria",
+      "citation": "FDA press announcement. FDA approves new treatment for pneumonia caused by certain difficult-to-treat bacteria. 23 May 2023.",
+      "read_from": "https://www.fda.gov/news-events/press-announcements/fda-approves-new-treatment-pneumonia-caused-certain-difficult-treat-bacteria",
+      "note": "Read 2026-11-08. Xacduro (sulbactam-durlobactam), approved for HABP/VABP caused by the Acinetobacter baumannii-calcoaceticus complex."
+    }
+  },
+  "rows": [
+    {
+      "id": "mrsa-meca-bacteraemia",
+      "pathogen": {
+        "name": "Staphylococcus aureus",
+        "ncbi_taxid": 1280
+      },
+      "profile_genes": [
+        "mecA"
+      ],
+      "syndrome": "bacteraemia",
+      "effective_drugs": [
+        {
+          "name": "vancomycin",
+          "chembl_id": "CHEMBL262777",
+          "basis": "recommended for MRSA bacteraemia"
+        },
+        {
+          "name": "daptomycin",
+          "chembl_id": null,
+          "basis": "recommended for MRSA bacteraemia at 6 mg/kg IV daily"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "oxacillin",
+          "chembl_id": "CHEMBL819",
+          "reason": "mecA encodes PBP2a, a replacement target with low beta-lactam affinity, so beta-lactams are defeated as a class. A ranking that puts oxacillin first for a mecA profile is wrong."
+        },
+        {
+          "name": "cefazolin",
+          "chembl_id": null,
+          "reason": "Same reason: a cephalosporin against a target-replacement mechanism."
+        }
+      ],
+      "label_error_check": "The trap here is daptomycin. It is correct for bacteraemia and WRONG for pneumonia, because pulmonary surfactant inactivates it. A ground truth that lists daptomycin for MRSA without naming the syndrome would score a pneumonia ranking incorrectly. That is why every row carries a syndrome.",
+      "source": "idsa_mrsa_2011",
+      "verification": "verified"
+    },
+    {
+      "id": "mrsa-meca-pneumonia",
+      "pathogen": {
+        "name": "Staphylococcus aureus",
+        "ncbi_taxid": 1280
+      },
+      "profile_genes": [
+        "mecA"
+      ],
+      "syndrome": "pneumonia",
+      "effective_drugs": [
+        {
+          "name": "vancomycin",
+          "chembl_id": "CHEMBL262777",
+          "basis": "IV vancomycin is an option for MRSA pneumonia"
+        },
+        {
+          "name": "linezolid",
+          "chembl_id": "CHEMBL126",
+          "basis": "linezolid is an option for MRSA pneumonia"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "daptomycin",
+          "chembl_id": null,
+          "reason": "Not recommended for pneumonia: it is inactivated by pulmonary surfactant. It is recommended for bacteraemia, which is the label error this pair of rows exists to catch."
+        },
+        {
+          "name": "oxacillin",
+          "chembl_id": "CHEMBL819",
+          "reason": "Defeated by mecA, as above."
+        }
+      ],
+      "label_error_check": "Same drug, same organism, opposite verdict depending on syndrome. Checked by holding the mrsa-meca-bacteraemia and mrsa-meca-pneumonia rows side by side: daptomycin is effective in one and ineffective in the other, and a test asserts that disagreement is deliberate rather than a contradiction.",
+      "source": "idsa_mrsa_2011",
+      "verification": "verified"
+    },
+    {
+      "id": "esbl-ctx-m-non-urinary",
+      "pathogen": {
+        "name": "Klebsiella pneumoniae",
+        "ncbi_taxid": 573
+      },
+      "profile_genes": [
+        "CTX-M-15"
+      ],
+      "syndrome": "infection outside the urinary tract",
+      "effective_drugs": [
+        {
+          "name": "meropenem",
+          "chembl_id": null,
+          "basis": "preferred; favoured for critically ill patients"
+        },
+        {
+          "name": "imipenem",
+          "chembl_id": null,
+          "basis": "preferred; favoured for critically ill patients"
+        },
+        {
+          "name": "ertapenem",
+          "chembl_id": null,
+          "basis": "preferred"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "ceftriaxone",
+          "chembl_id": null,
+          "reason": "An ESBL hydrolyses extended-spectrum cephalosporins, which is what makes the profile an ESBL profile."
+        },
+        {
+          "name": "ceftazidime-avibactam",
+          "chembl_id": null,
+          "reason": "Not wrong pharmacologically, but the guidance says aztreonam-avibactam, ceftazidime-avibactam, meropenem-vaborbactam and imipenem-relebactam should be preferentially reserved for carbapenem-resistant organisms. A ranking that puts it above a carbapenem for a plain ESBL is making a stewardship error, not a chemistry one."
+        }
+      ],
+      "label_error_check": "Two traps. First, a carbapenem is the preferred answer, so a ranking that reaches for a newer beta-lactamase-inhibitor combination looks better than it is. Second, piperacillin-tazobactam is deliberately absent from both lists: it is neither recommended nor safely called ineffective here, and inventing a verdict for it would be the label error. It belongs in the open questions, not the ground truth.",
+      "source": "idsa2026",
+      "verification": "verified"
+    },
+    {
+      "id": "crab-oxa23-invasive",
+      "pathogen": {
+        "name": "Acinetobacter baumannii",
+        "ncbi_taxid": 470
+      },
+      "profile_genes": [
+        "OXA-23"
+      ],
+      "syndrome": "invasive infection",
+      "effective_drugs": [
+        {
+          "name": "sulbactam-durlobactam",
+          "chembl_id": null,
+          "basis": "the stated priority for invasive CRAB infections, given with a carbapenem; FDA approved 2023-05-23 for HABP/VABP from the A. baumannii-calcoaceticus complex"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "meropenem",
+          "chembl_id": null,
+          "reason": "OXA-23 is a carbapenem-hydrolysing class D oxacillinase; a carbapenem alone is what the profile defeats. It is given WITH sulbactam-durlobactam, not instead of it."
+        },
+        {
+          "name": "imipenem-relebactam",
+          "chembl_id": null,
+          "reason": "Relebactam does not inhibit the acquired class D enzymes of A. baumannii (OXA-23, OXA-24/40, OXA-58)."
+        },
+        {
+          "name": "meropenem-vaborbactam",
+          "chembl_id": null,
+          "reason": "Vaborbactam does not inhibit class D, and has very limited activity against A. baumannii."
+        }
+      ],
+      "label_error_check": "The trap is that meropenem appears in the recommendation as a partner drug while being defeated on its own. A ground truth that read 'sulbactam-durlobactam plus a carbapenem' and recorded meropenem as effective would reward a ranking that puts a bare carbapenem first. The two inhibitor combinations are listed as ineffective on enzyme coverage read in Cercenado, not inferred from the class.",
+      "source": "idsa2026",
+      "secondary_sources": [
+        "cercenado2025",
+        "fda_xacduro_2023"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "ndm-enterobacterales",
+      "pathogen": {
+        "name": "Klebsiella pneumoniae",
+        "ncbi_taxid": 573
+      },
+      "profile_genes": [
+        "NDM-1"
+      ],
+      "syndrome": "infection outside the urinary tract",
+      "effective_drugs": [
+        {
+          "name": "aztreonam-avibactam",
+          "chembl_id": null,
+          "basis": "a slight preference is stated for NDM-producing Enterobacterales; ceftazidime-avibactam plus aztreonam is also described as reasonable"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "meropenem",
+          "chembl_id": null,
+          "reason": "NDM-1 is a metallo-beta-lactamase, so it hydrolyses carbapenems: a bare carbapenem is what this profile defeats. Omitted from an earlier draft of this row; a test that requires every carbapenemase profile to name a bare carbapenem caught it."
+        },
+        {
+          "name": "ceftazidime-avibactam",
+          "chembl_id": null,
+          "reason": "Alone it does not cover class B metallo-beta-lactamases. It works here only combined with aztreonam, which is a different intervention from the single drug."
+        },
+        {
+          "name": "meropenem-vaborbactam",
+          "chembl_id": null,
+          "reason": "Vaborbactam does not inhibit metallo-beta-lactamases."
+        },
+        {
+          "name": "imipenem-relebactam",
+          "chembl_id": null,
+          "reason": "Relebactam does not inhibit metallo-beta-lactamases."
+        }
+      ],
+      "label_error_check": "The label error this row guards against is treating 'ceftazidime-avibactam plus aztreonam' as a vote for ceftazidime-avibactam. The single drug is on the ineffective list and the combination is not in the candidate pool at all, so this row must not be scored against a pool that contains only single agents. A test asserts the combination is absent from effective_drugs for that reason.",
+      "source": "idsa2026",
+      "secondary_sources": [
+        "cercenado2025"
+      ],
+      "verification": "verified"
+    },
+    {
+      "id": "kpc-cre-non-urinary",
+      "pathogen": {
+        "name": "Klebsiella pneumoniae",
+        "ncbi_taxid": 573
+      },
+      "profile_genes": [
+        "KPC-2"
+      ],
+      "syndrome": "infection outside the urinary tract",
+      "effective_drugs": [
+        {
+          "name": "meropenem-vaborbactam",
+          "chembl_id": null,
+          "basis": "vaborbactam inhibits class A carbapenemases, mainly KPC; the guidance reserves this agent for carbapenem-resistant organisms"
+        },
+        {
+          "name": "ceftazidime-avibactam",
+          "chembl_id": null,
+          "basis": "avibactam inhibits class A including KPC; reserved for carbapenem-resistant organisms"
+        }
+      ],
+      "ineffective_drugs": [
+        {
+          "name": "meropenem",
+          "chembl_id": null,
+          "reason": "KPC-2 is a carbapenemase; the carbapenem is what the profile defeats."
+        },
+        {
+          "name": "ceftolozane-tazobactam",
+          "chembl_id": null,
+          "reason": "Tazobactam does not inhibit class A carbapenemases, so KPC defeats it."
+        }
+      ],
+      "label_error_check": "This row is the weakest in the table and is marked partly_verified for that reason. The agents and their KPC coverage were read in Cercenado, and the guidance's statement that these agents are reserved for carbapenem-resistant organisms was read; its own ranked preference for KPC bloodstream infection was NOT reached in the page text. Do not treat the order of the two effective drugs as a finding, and read the guidance at the DOI before using this row in a scored result.",
+      "source": "cercenado2025",
+      "secondary_sources": [
+        "idsa2026"
+      ],
+      "verification": "partly_verified"
+    }
+  ],
+  "open_questions": [
+    "Piperacillin-tazobactam for ESBL bloodstream infection is left out of the ESBL row entirely. It is a well-known contested case and giving it a verdict without reading the trial evidence would be the exact label error this table is meant to avoid.",
+    "The MRSA rows rest on a 2011 guideline read through a secondary summary. Replace with the primary IDSA MRSA guideline, and check whether newer agents (ceftaroline, for instance) change the lists.",
+    "Only vancomycin, linezolid and oxacillin have ChEMBL ids, because those are the three the repo has already verified against ChEMBL 37. Every other drug has chembl_id null rather than a guessed id, so rows cannot be joined to the candidate pool by id until the catalogue covers them.",
+    "No row has been scored against an actual ranking yet. Until the candidate pool contains these drugs, this table is a specification, not a result."
+  ]
+}
