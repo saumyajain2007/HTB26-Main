@@ -5739,6 +5739,70 @@
         ]
       }
     },
+    "/api/resistance/profiles/{profile_id}/jury": {
+      "post": {
+        "description": "The panel never sees our ranking: the packet withholds the rank, the evasion\nstatus and the explanation, so its verdict is its own reading of the evidence.\n\nA ballot that fails our checks is recorded as invalid and a refusal as a refusal;\nneither is filled in. 503 when this API's jury only replays a recorded review, or\nwhen too few jurors answered for a combined ranking.",
+        "operationId": "review_resistance_shortlist",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "profile_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Profile Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JuryRun"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not found."
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnprocessableResponse"
+                }
+              }
+            },
+            "description": "The request cannot be carried out."
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "A data source is unavailable."
+          }
+        },
+        "summary": "Ask the Model jury to review the antibiotics ranked against a profile",
+        "tags": [
+          "resistance"
+        ]
+      }
+    },
     "/api/structures": {
       "get": {
         "operationId": "list_structures",

@@ -8,6 +8,7 @@ a contract change cannot land on one side only.
 
 from __future__ import annotations
 
+import json
 from collections.abc import Callable
 from pathlib import Path
 from uuid import UUID, uuid4
@@ -309,3 +310,86 @@ def test_input_that_cannot_be_profiled_is_a_422(make_client: Callable[..., TestC
     )
     assert response.status_code == 422
     assert response.json()["detail"] == "no preset for Escherichia coli"
+
+
+# Running the jury on the shortlist (#42) ------------------------------------
+#
+# The panel must never see our ranking, and a ballot that fails our checks must be
+# recorded rather than filled in. The mock jury runs the whole path with no model
+# call, so these are real runs of the plumbing.
+
+
+def test_the_fixture_jury_cannot_judge_a_new_shortlist(client: TestClient) -> None:
+    """It replays a recorded disease review, so it says so instead of inventing one."""
+    profile_id = client.get("/api/resistance/profiles").json()["items"][0]["profile_id"]
+    response = client.post(f"/api/resistance/profiles/{profile_id}/jury")
+    assert response.status_code == 503
+    assert "HTB_JURY=mock" in response.json()["detail"]
+
+
+def test_an_unknown_profile_cannot_be_reviewed(client: TestClient) -> None:
+    missing = uuid4()
+    response = client.post(f"/api/resistance/profiles/{missing}/jury")
+    assert response.status_code == 404
+    assert str(missing) in response.json()["detail"]
+
+
+def test_the_mock_panel_reviews_the_shortlist_without_seeing_the_ranking(
+    make_client: Callable[..., TestClient], source: FixtureResistance
+) -> None:
+    from htb_api.services.live_jury import StreamAJury
+
+    sent: list[dict[str, object]] = []
+    jury = StreamAJury("mock")
+    original = jury.review_packet
+
+    def spy(packet: dict[str, object], config: object, audit_id: str) -> object:
+        sent.append(packet)
+        return original(packet, config, audit_id)  # type: ignore[arg-type]
+
+    jury.review_packet = spy  # type: ignore[method-assign]
+    client = make_client(jury=jury)
+    profile_id = source.profiles()[0].profile_id
+    response = client.post(f"/api/resistance/profiles/{profile_id}/jury")
+    assert response.status_code == 200, response.text
+    body = response.json()
+
+    assert body["status"] == "done"
+    # Every configured model is listed, in order, whatever each one answered.
+    assert [j["model_id"] for j in body["jurors"]] == [m["id"] for m in body["models"]]
+    assert body["consensus"] is not None
+    # Votes only ever come from jurors whose ballots passed our checks.
+    valid = {j["model_id"] for j in body["jurors"] if j["status"] == "valid"}
+    assert {v["model_id"] for v in body["votes"]} <= valid
+    for juror in body["jurors"]:
+        if juror["status"] != "valid":
+            # An invalid or failed juror is recorded with a reason, never a vote.
+            assert juror["invalid_reasons"] or juror["failure"] or juror["status"] == "pending"
+
+    # The packet the panel actually saw withheld our ranking.
+    assert len(sent) == 1
+    text = json.dumps(sent[0])
+    for leaked in ("rank", "evasion", "defeated_by", "explanation"):
+        assert leaked not in text, f"the packet leaked {leaked}"
+
+
+def test_a_shortlist_with_nothing_approved_is_a_422(
+    make_client: Callable[..., TestClient], source: FixtureResistance
+) -> None:
+    """A generated molecule is a hypothesis, so a ranking of only those is unreviewable."""
+    from htb_api.services.live_jury import StreamAJury
+
+    result = source.candidates(source.profiles()[0].profile_id)
+    assert result is not None
+    generated_only = result.model_copy(
+        update={"candidates": [c for c in result.candidates if c.source == "generated"]}
+    )
+
+    class OnlyGenerated(FixtureResistance):
+        def candidates(self, profile_id: UUID) -> AntibioticCandidateResult | None:
+            return generated_only
+
+    client = make_client(jury=StreamAJury("mock"), resistance=OnlyGenerated(FIXTURES_DIR))
+    response = client.post(f"/api/resistance/profiles/{source.profiles()[0].profile_id}/jury")
+    assert response.status_code == 422
+    assert "cannot be reviewed" in response.json()["detail"]
