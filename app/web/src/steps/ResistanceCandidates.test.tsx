@@ -7,6 +7,7 @@ import {
   FIXTURE_NOTE,
   PROFILE_ID,
   antibioticCandidates,
+  certificates,
   resistanceProfile,
 } from "../test/resistance";
 import { http, networkError, server } from "../test/server";
@@ -16,8 +17,14 @@ const text = copy.resistance.candidates;
 const mapText = copy.resistance.map;
 const CANDIDATES_PATH = `/resistance/${PROFILE_ID}/candidates`;
 
-function renderCandidates(candidates = antibioticCandidates()) {
-  return render(<ResistanceCandidates profile={resistanceProfile()} candidates={candidates} />);
+function renderCandidates(candidates = antibioticCandidates(), certs = certificates()) {
+  return render(
+    <ResistanceCandidates
+      profile={resistanceProfile()}
+      candidates={candidates}
+      certificates={certs}
+    />,
+  );
 }
 
 function approvedTable() {
@@ -30,6 +37,10 @@ function generatedList() {
 
 function readingPane(name: string) {
   return screen.getByRole("region", { name: text.readingLabel(name) });
+}
+
+function rulesTable(name: string) {
+  return screen.getByRole("table", { name: text.rulesTableLabel(name) });
 }
 
 describe("the candidate antibiotics view", () => {
@@ -75,6 +86,49 @@ describe("the candidate antibiotics view", () => {
     ).toBeInTheDocument();
   });
 
+  it("shows passed rules, highlighted failing rules with margins, alerts, SA score and Lean 4 certificate details", async () => {
+    const user = userEvent.setup();
+    renderCandidates();
+
+    // Linezolid: all 6 rules passed and confirmed in Lean 4, with alerts warning and SA score.
+    const linezolidPane = within(readingPane("Linezolid"));
+    const linezolidRules = within(rulesTable("Linezolid")).getAllByRole("row").slice(1);
+    expect(linezolidRules).toHaveLength(6);
+    expect(linezolidRules.every((row) => row.getAttribute("data-passed") === "true")).toBe(true);
+    expect(within(rulesTable("Linezolid")).getAllByText(text.ruleConfirmed)).toHaveLength(6);
+    expect(linezolidPane.getByText("-512.86")).toBeInTheDocument();
+    expect(linezolidPane.getByText("-268.89")).toBeInTheDocument();
+    expect(linezolidPane.getByText(/anil_di_alk_A\(478\)/)).toBeInTheDocument();
+    expect(linezolidPane.getByText(text.alertsWarningNote)).toBeInTheDocument();
+    expect(linezolidPane.getByText(text.saScore(2.76))).toBeInTheDocument();
+    expect(linezolidPane.getByText(text.heavyAtoms(24))).toBeInTheDocument();
+    expect(linezolidPane.getByText("TYZROVQLWOKYKF-ZDUSSCGKSA-N")).toBeInTheDocument();
+    expect(linezolidPane.getByText(text.leanRanCertified(6))).toBeInTheDocument();
+    expect(linezolidPane.getByText(text.certificateScopeConfirmed)).toBeInTheDocument();
+
+    // Vancomycin: 4 failing rules highlighted (data-passed="false") alongside 2 passed rules.
+    await user.click(within(approvedTable()).getByRole("button", { name: /Vancomycin/i }));
+    const vancoPane = within(readingPane("Vancomycin"));
+    const vancoRules = within(rulesTable("Vancomycin")).getAllByRole("row").slice(1);
+    const failedRows = vancoRules.filter((row) => row.getAttribute("data-passed") === "false");
+    const passedRows = vancoRules.filter((row) => row.getAttribute("data-passed") === "true");
+    expect(failedRows.map((row) => row.getAttribute("data-rule"))).toEqual([
+      "mw",
+      "hbd",
+      "hba",
+      "psa",
+    ]);
+    expect(passedRows.map((row) => row.getAttribute("data-rule"))).toEqual(["logp", "rot_bonds"]);
+    expect(vancoPane.getByText("+597.43")).toBeInTheDocument();
+    expect(vancoPane.getByText("+190.49")).toBeInTheDocument();
+    expect(vancoPane.getByText("-4.89")).toBeInTheDocument();
+    expect(vancoPane.getByText(text.noAlerts)).toBeInTheDocument();
+    expect(
+      vancoPane.getByText(`${text.saScore(8.21)} — ${text.saAboveCeiling(6.5)}`),
+    ).toBeInTheDocument();
+    expect(vancoPane.getByText(/Tactic `decide` proved that the proposition/)).toBeInTheDocument();
+  });
+
   it("switches to another approved drug when picked, showing rule failures and defeated determinants", async () => {
     const user = userEvent.setup();
     renderCandidates();
@@ -100,7 +154,7 @@ describe("the candidate antibiotics view", () => {
     ).toBeInTheDocument();
   });
 
-  it("inspects a generated proposal with its generator provenance and unranked kicker", async () => {
+  it("inspects a generated proposal with its generator provenance, passed smoke-test rules and unrun Lean status", async () => {
     const user = userEvent.setup();
     renderCandidates();
 
@@ -112,6 +166,17 @@ describe("the candidate antibiotics view", () => {
     expect(
       pane.getByText("Generated molecules are hypotheses only. This one is a fictional example."),
     ).toBeInTheDocument();
+
+    // All 6 rules pass in the Python smoke test, and the certificate card clearly says Lean did not run.
+    const genRules = within(rulesTable("Generated example 1")).getAllByRole("row").slice(1);
+    expect(genRules).toHaveLength(6);
+    expect(genRules.every((row) => row.getAttribute("data-passed") === "true")).toBe(true);
+    expect(within(rulesTable("Generated example 1")).getAllByText(text.rulePassed)).toHaveLength(6);
+    expect(pane.getByText(text.leanNotRun)).toBeInTheDocument();
+    expect(
+      pane.getByText("Lean is not installed or the HtbVerify library did not build"),
+    ).toBeInTheDocument();
+    expect(pane.getByText(text.certificateScopeSmokeOnly)).toBeInTheDocument();
   });
 
   it("moves between candidates with ArrowDown and ArrowUp without leaving the step", async () => {
