@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6X5NCCCP6AS7S6GABKPWAWV",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 11,
+  "checkpoints_count": 19,
   "files_touched": [
     "app/web/e2e/saved-resistance.spec.ts",
     "app/web/src/app/ExperimentStatus.module.css",
@@ -29,6 +29,8 @@
     "app/web/src/three/PoseViewer.module.css",
     "app/web/src/three/PoseViewer.test.tsx",
     "app/web/src/three/PoseViewer.tsx",
+    "app/web/src/three/interactions.test.ts",
+    "app/web/src/three/interactions.ts",
     "app/web/src/three/poseScene.ts"
   ],
   "sessions": [
@@ -66,25 +68,32 @@
       "compact_transcript": "/4/transcript.jsonl",
       "content_hash": "/4/content_hash.txt",
       "prompt": "/4/prompt.txt"
+    },
+    {
+      "metadata": "/5/metadata.json",
+      "transcript": "/5/full.jsonl",
+      "compact_transcript": "/5/transcript.jsonl",
+      "content_hash": "/5/content_hash.txt",
+      "prompt": "/5/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 86,
-    "cache_creation_tokens": 141270,
-    "cache_read_tokens": 4736519,
-    "output_tokens": 34869,
-    "api_call_count": 40
+    "input_tokens": 398,
+    "cache_creation_tokens": 408911,
+    "cache_read_tokens": 28332128,
+    "output_tokens": 132420,
+    "api_call_count": 189
   },
   "redaction": {
-    "replacements": 41,
+    "replacements": 50,
     "layers": {
-      "betterleaks": 0,
+      "betterleaks": 2,
       "connection_string": 0,
       "credential_key": 0,
       "credential_value": 16,
-      "credentialed_uri": 0,
-      "entropy": 0,
-      "key_context": 25,
+      "credentialed_uri": 2,
+      "entropy": 2,
+      "key_context": 30,
       "provider_token": 0,
       "shell_stdin": 0
     }
