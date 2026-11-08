@@ -1,6 +1,7 @@
 """Exercise the public HTTP boundary with independent browser cookie jars."""
 
 import threading
+import time
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
@@ -14,11 +15,12 @@ from fastapi import FastAPI
 from fastapi.testclient import TestClient
 from psycopg import OperationalError
 
+from htb_api import limits
 from htb_api.app import build_components, create_app
 from htb_api.errors import TooManyRequests
 from htb_api.jobs import ThreadRunner
 from htb_api.jobs_pg import PostgresWorker
-from htb_api.repo import DockInputs, Repo
+from htb_api.repo import DockInputs, Repo, postgres
 from htb_api.repo.postgres import PostgresRepo
 from htb_api.schemas import DockFileName
 from htb_api.services.docking import FixtureDocking, cache_key
@@ -71,8 +73,27 @@ def test_rejects_cross_site_writes(client: TestClient) -> None:
     assert response.status_code == 403
 
 
+@pytest.fixture
+def frozen_clock(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Pin the clock both quota stores read, so a burst cannot straddle a bucket.
+
+    Both `limits.RequestLimits` and `PostgresRepo.consume_quota` count against a
+    fixed wall-clock bucket, `(now // seconds + 1) * seconds`, rather than a sliding
+    window. That is a deliberate, cheap design, and it means a request on the far
+    side of a whole minute starts a fresh count. A test that spends two requests of
+    a two-per-minute budget and expects the third to be refused therefore passes or
+    fails on where the suite happens to sit in the minute: CI saw exactly that, with
+    the burst crossing 03:12:00 and the third request answered 200.
+
+    Freezing the clock removes the boundary without changing the limiter.
+    """
+    frozen = float((int(time.time()) // 60) * 60 + 1)
+    for module in (limits, postgres):
+        monkeypatch.setattr(module.time, "time", lambda: frozen)
+
+
 def test_request_limits_survive_cookie_rotation_and_ignore_forwarded_headers(
-    settings: Settings, make_client: Callable[..., TestClient]
+    settings: Settings, make_client: Callable[..., TestClient], frozen_clock: None
 ) -> None:
     settings.requests_per_minute = 2
     client = make_client()
