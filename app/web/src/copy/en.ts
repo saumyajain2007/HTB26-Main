@@ -444,7 +444,6 @@ export const copy = {
     solution:
       "HTB26 profiles why a bacterium is resistant, then ranks drugs predicted to evade those mechanisms, with the evidence behind each pick.",
     start: "Start exploring",
-    limit: "Research hypotheses, not proven treatments.",
     method: [
       {
         title: "Pick a pathogen",
