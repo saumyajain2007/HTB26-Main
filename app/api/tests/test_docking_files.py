@@ -22,7 +22,7 @@ from fastapi.testclient import TestClient
 
 from htb_api.repo import Repo
 from htb_api.schemas import DOCK_FILE_NAMES, PoseScore, Structure
-from htb_api.services.docking import FixtureDocking
+from htb_api.services.docking import FixtureDocking, structure_preview_id
 from htb_api.settings import FIXTURES_DIR
 
 FILES_DIR = FIXTURES_DIR / "docking_files" / CONTROL_JOB
@@ -139,6 +139,16 @@ def test_scores_and_log_say_they_are_fixtures(client: TestClient) -> None:
     assert scores["scores"] == control["scores"]
     log = (FILES_DIR / "log.txt").read_text()
     assert log.startswith("Fixture result. No docking program was run.")
+
+
+@pytest.mark.parametrize("structure_id", ["3G7B_A", "3U2K_A", "2VES_A", "3P3E_A"])
+def test_bacterial_structures_resolve_preview_files(structure_id: str) -> None:
+    docking = FixtureDocking(FIXTURES_DIR)
+    preview_id = structure_preview_id(structure_id)
+    for name in ("receptor.pdb", "crystal_ligand.sdf", "poses.sdf"):
+        path = docking.result_file(preview_id, name)  # type: ignore[arg-type]
+        assert path is not None, (structure_id, name)
+        assert path.is_file(), (structure_id, name)
 
 
 # The route ----------------------------------------------------------------------

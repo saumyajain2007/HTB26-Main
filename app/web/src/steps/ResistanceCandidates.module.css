@@ -473,6 +473,83 @@
   word-break: break-word;
 }
 
+/* 3D binding pose and target structures panel (issue #41) */
+.posePanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.poseCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+}
+
+.poseControlsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.posePicker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: var(--text-label-sm);
+  color: var(--color-grey-1);
+}
+
+.posePickerLabel {
+  font-weight: var(--weight-medium);
+}
+
+.poseSelect {
+  height: var(--control-height);
+  padding: 0 var(--space-8);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  color: var(--color-ink);
+}
+
+.poseToggle {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.poseToggle:hover {
+  background: var(--color-hover);
+}
+
+.poseStructureLine {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.poseStage {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+}
+
 .cite {
   margin-right: var(--space-8);
   font-size: var(--text-label-sm);
