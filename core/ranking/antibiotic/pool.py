@@ -33,8 +33,13 @@ def catalogue_release(release_dir: Path | str) -> str:
     return name.lower().replace("_", "-")
 
 
-def load_pool(release_dir: Path | str) -> tuple[list[Drug], list[dict]]:
-    """Return (approved drugs, exclusion log). Both are deterministic for a given release."""
+def load_pool(release_dir: Path | str, approved_only: bool = True) -> tuple[list[Drug], list[dict]]:
+    """Return (approved drugs, exclusion log). Both are deterministic for a given release.
+
+    ``approved_only=False`` keeps every catalogue drug (investigational, withdrawn, or without
+    a structure) so the evasion rule can be checked against drugs the ranking does not offer,
+    such as colistin. The ranking itself always uses the default.
+    """
     tables = Path(release_dir) / "tables"
     cards: dict[str, list[dict]] = defaultdict(list)
     for r in _read(tables / "antibiotic_card.tsv"):
@@ -46,7 +51,9 @@ def load_pool(release_dir: Path | str) -> tuple[list[Drug], list[dict]]:
     drugs, log = [], []
     for r in _read(tables / "antibiotics.tsv"):
         reason = None
-        if _int(r["max_phase"]) != APPROVED_PHASE:
+        if not approved_only:
+            pass
+        elif _int(r["max_phase"]) != APPROVED_PHASE:
             reason = f"not approved (ChEMBL max_phase {r['max_phase']})"
         elif r["withdrawn"] == "1":
             reason = "withdrawn from the market"
@@ -71,6 +78,6 @@ def load_pool(release_dir: Path | str) -> tuple[list[Drug], list[dict]]:
             class_route=chosen["match"] if chosen else None,
             mechanism="; ".join(dict.fromkeys(m["mechanism_of_action"] for m in mech)) or None,
             target="; ".join(dict.fromkeys(m["target_name"] for m in mech)) or None,
-            max_phase=APPROVED_PHASE, first_approval=_int(r["first_approval"]),
+            max_phase=_int(r["max_phase"]) or 0, first_approval=_int(r["first_approval"]),
         ))
     return drugs, log
