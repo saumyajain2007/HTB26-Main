@@ -1,6 +1,6 @@
 import unittest
 from dataclasses import replace
-from docking_support import DockingObservation, supporting_signal
+from eval.docking_support import DockingObservation, supporting_signal
 
 H = 'a' * 64
 
