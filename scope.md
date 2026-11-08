@@ -241,6 +241,7 @@ Dependencies in brief: WS1 feeds WS2, WS3 and WS4. WS4 needs WS2. WS5 needs WS4.
 - `htb_verify/smoke.py`: descriptors, all violated rules with margins, PAINS and Brenk alerts, SA score. Alerts are warnings by default (a beta-lactam must not be rejected), `strict_alerts` makes them failures.
 - `htb_verify/rules.py`: two rule sets, `oral_druglike` (Lipinski and Veber) and `antibiotic_relaxed` (limits calibrated on approved antibiotics, see [docs/antibiotic-limits.md](docs/antibiotic-limits.md)).
 - `lean/`: a Lake project with the rule definitions and four general theorems, built with Lean 4.35.
+- `lean/HtbVerify/Molecule.lean`, `Substructure.lean`, `Examples.lean` (#49, stretch): a Lean port of the useful part of the earlier Rocq `Valency.v`. Molecule graphs, an upper-bound valence check with formal charge, a proved handshake lemma, a proof that fragments of a valid molecule stay valid, and a checked substructure-embedding certificate (benzylpenicillin contains a beta-lactam ring). Not yet wired into `certify.py`, so the pipeline does not call it. See [docs/lean-structural-proofs.md](docs/lean-structural-proofs.md).
 - `htb_verify/certify.py`: writes a per-molecule Lean file, runs it, names the failing rule, caches by InChIKey, and reports `ran=False` (never "certified") if Lean is unavailable.
 - Tests check that Python and Lean thresholds match, and that Python and Lean agree on pass or fail.
 - CLI: `uv run python -m htb_verify "<SMILES>" --rules antibiotic_relaxed --lean`.
