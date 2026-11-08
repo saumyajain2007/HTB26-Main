@@ -70,6 +70,10 @@ flowchart TD
     class S,J,H reused;
 ```
 
+# Offline demo
+
+Prepare once, then run `./deploy/offline-demo.sh` for the saved MRSA input-to-shortlist flow without network access or credentials. See [the setup and walkthrough](docs/offline-demo.md). Scores, MICs and ranks remain visibly labelled fixtures. Use `OFFLINE_RESISTANCE=saved ./deploy/offline-demo.sh` to browse the real saved #34 rankings for all three draft pathogen presets instead (efficacy unvalidated; Lean not run).
+
 # Sponsor integrations
 
 All optional; the app runs on fixtures without any of them.
