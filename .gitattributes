@@ -1,3 +1,7 @@
 # Published hashes cover exact repository bytes, including intentional CRLF CSVs.
 # Disable checkout/check-in newline conversion rather than rewriting sealed records.
 /results/** -text
+
+# CARD release tables are checksummed byte-for-byte in manifest.json; git must not convert them.
+*.tsv -text
+core/resistance/tests/fixtures/card_slice/**/manifest.json -text
