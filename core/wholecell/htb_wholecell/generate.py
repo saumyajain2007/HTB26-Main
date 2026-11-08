@@ -6,8 +6,8 @@ reactions with a Monte Carlo tree search, guided by a bioactivity model. It pins
 checkpoints. It runs in its own virtual environment (``deploy/synthemol/setup.sh``), and this module
 only prepares its inputs, calls it as a subprocess, and checks and records what comes back.
 
-The guide model is therefore a Chemprop 1.x model trained by the same recipe on the same training
-rows (scaffold-split train rows of ``liu_train``, hidden compounds and analogues purged). It is not
+The guide model is therefore a plain Chemprop 1.x model (no descriptor features, which SyntheMol cannot
+supply at search time) trained on the same training rows (scaffold-split train rows of ``liu_train``, hidden compounds and analogues purged). It is not
 the #85 model, and its quality was not separately evaluated beyond SyntheMol's own validation split.
 
 Leakage: every set that touches the generator is checked against the held-out compounds before any
@@ -26,6 +26,8 @@ import subprocess
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+
+from rdkit import DataStructs
 
 from . import leakage
 from .build import read_table, sha256_file
@@ -95,14 +97,17 @@ def _python_json(py: Path, code: str):
 def prepare_guide(env_dir: Path, work: Path, guide_csv: Path, *, seed: int, epochs: int = 30) -> dict:
     """Train the Chemprop 1.x guide model and score every building block with it. The two slow steps; cached.
 
-    Scoring the 139,493 building blocks costs about 18 minutes on one CPU (Chemprop's RDKit descriptor
-    features run at roughly 130 molecules a second), so it is done once per guide model and reused by
-    every search. A cache is valid only if ``guide.json`` records the same training-file checksum, seed and epochs.
+    The guide is a plain Chemprop graph model with **no extra descriptor features**, because SyntheMol's
+    search scores each molecule it builds without computing any, so a model trained on RDKit descriptors
+    fails at search time (``features_batch`` is None). That is SyntheMol's own documented recipe, and it
+    differs from the #85 ensemble, which does use descriptors. Scoring the building blocks is done once per
+    guide model and reused by every search. A cache is valid only if ``guide.json`` records the same
+    training-file checksum, seed, epochs and feature setting.
     """
     env_dir, work = Path(env_dir), Path(work)
     py = env_dir / "bin" / "python"
     model_dir, scored, record_path = work / "guide_model", work / "building_blocks_scored.csv", work / "guide.json"
-    want = {"guide_csv_sha256": sha256_file(guide_csv), "seed": seed, "epochs": epochs}
+    want = {"guide_csv_sha256": sha256_file(guide_csv), "seed": seed, "epochs": epochs, "extra_features": "none"}
     if record_path.exists() and scored.exists():
         have = json.loads(record_path.read_text())
         if all(have.get(k) == v for k, v in want.items()):
@@ -110,7 +115,6 @@ def prepare_guide(env_dir: Path, work: Path, guide_csv: Path, *, seed: int, epoc
     work.mkdir(parents=True, exist_ok=True)
     t_train = _run([str(env_dir / "bin" / "chemprop_train"), "--data_path", str(guide_csv),
                     "--dataset_type", "classification", "--smiles_columns", "smiles", "--target_columns", "label",
-                    "--features_generator", "rdkit_2d_normalized", "--no_features_scaling",
                     "--split_type", "scaffold_balanced", "--split_sizes", "0.9", "0.1", "0.0",
                     "--class_balance", "--epochs", str(epochs), "--seed", str(seed),
                     "--save_dir", str(model_dir), "--quiet"])
@@ -119,8 +123,7 @@ def prepare_guide(env_dir: Path, work: Path, guide_csv: Path, *, seed: int, epoc
         raise RuntimeError(f"Chemprop wrote no checkpoint under {model_dir}")
     blocks = _python_json(py, "import json, synthemol; print(json.dumps(str(synthemol.constants.BUILDING_BLOCKS_PATH)))")
     t_blocks = _run([str(env_dir / "bin" / "chemprop_predict"), "--test_path", blocks, "--smiles_columns", "smiles",
-                     "--checkpoint_dir", str(model_dir), "--preds_path", str(scored),
-                     "--features_generator", "rdkit_2d_normalized", "--no_features_scaling"])
+                     "--checkpoint_dir", str(model_dir), "--preds_path", str(scored)])
     versions = _python_json(py, "import json, chemprop, synthemol, rdkit, torch; print(json.dumps({'chemprop': chemprop.__version__, "
                                 "'synthemol': getattr(synthemol, '__version__', 'unknown'), 'rdkit': rdkit.__version__, 'torch': torch.__version__}))")
     record = {**want, "guide_train_seconds": t_train, "building_block_scoring_seconds": t_blocks, "versions": versions,
@@ -167,12 +170,15 @@ def import_generated(molecules_csv: Path, *, held_out: dict[str, str], train_row
             for k, v in seen.items()]
     cand, leaked = leakage.purge(cand, held_out)
     counts["leak_removed"] = len(leaked)
-    train_all = [r["smiles"] for r in train_rows]
-    train_act = [r["smiles"] for r in train_rows if r["label"] == "1"]
+    # Fingerprint the training molecules once, not once per candidate: with thousands of candidates the
+    # difference is hours.
+    train_fps = [leakage.fingerprint(r["smiles"]) for r in train_rows]
+    active_fps = [fp for fp, r in zip(train_fps, train_rows) if r["label"] == "1"]
     rows = []
     for i, c in enumerate(sorted(cand, key=lambda r: r["inchikey"])):
-        near_all = leakage.nearest_neighbour_report([c["smiles"]], train_all)["median_nearest"]
-        near_act = leakage.nearest_neighbour_report([c["smiles"]], train_act)["median_nearest"]
+        fp = leakage.fingerprint(c["smiles"])
+        near_all = round(max(DataStructs.BulkTanimotoSimilarity(fp, train_fps), default=0.0), 4)
+        near_act = round(max(DataStructs.BulkTanimotoSimilarity(fp, active_fps), default=0.0), 4)
         rows.append({"id": f"gen-{batch}-{i:06d}", **c, "source": "generated", "max_sim_train": near_all,
                      "max_sim_train_actives": near_act, "rng_seed": seed, "batch": batch})
     counts["kept"] = len(rows)
@@ -189,3 +195,46 @@ def write_batch(out_dir: Path, rows: list[dict], provenance: dict) -> None:
     provenance = {**provenance, "table_sha256": sha256_file(out_dir / "generated.tsv"), "rows": len(rows),
                   "written": datetime.now(timezone.utc).isoformat(timespec="seconds")}
     (out_dir / "provenance.json").write_text(json.dumps(provenance, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def finalize_batch(release_dir: Path, molecules_csv: Path, out_dir: Path, *, held_out_names: list[str], batch: str,
+                   seed: int, guide_record: dict | None = None, search_record: dict | None = None,
+                   jobs: int = 0) -> dict:
+    """Turn one SyntheMol output file into a labelled batch: import, filter cascade, provenance.
+
+    Writes to ``out_dir``: ``generated.tsv`` (every valid, deduplicated, non-leaking molecule),
+    ``provenance.json``, and ``cascade/`` with the survivors, the rejection log and the funnel. The cascade
+    runs on generated molecules only, never on library compounds (see docs/filter-cascade.md).
+    """
+    from . import filters
+
+    release_dir, out_dir = Path(release_dir), Path(out_dir)
+    held = held_out_smiles(release_dir, held_out_names)
+    train, purged = training_rows(release_dir, held)
+    rows, counts = import_generated(molecules_csv, held_out=held, train_rows=train, batch=batch, seed=seed)
+    keep, rej, stats = filters.run_cascade([{"id": r["id"], "smiles": r["smiles"]} for r in rows], jobs=jobs)
+    kept_ids = {k["id"] for k in keep}
+    fluorines = sorted(r["smiles"].count("F") for r in rows)
+    scores = sorted(float(r["synthemol_score"]) for r in rows if r["synthemol_score"] != "")
+    summary = {
+        "import_counts": counts, "cascade_survivors": stats["survivors"], "cascade_input": stats["input"],
+        "cascade_survival_rate": stats["survival_rate"],
+        "molecules_with_6_or_more_fluorines": sum(n >= 6 for n in fluorines),
+        "guide_score_min_median_max": [scores[0], scores[len(scores) // 2], scores[-1]] if scores else None,
+        "novelty_median_max_sim_train": sorted(r["max_sim_train"] for r in rows)[len(rows) // 2] if rows else None,
+    }
+    write_batch(out_dir, rows, {"batch": batch, "rng_seed": seed, "held_out": held_out_names,
+                                "guide_training_rows": len(train), "guide_rows_purged_as_analogues": len(purged),
+                                "guide": guide_record or {}, "search": search_record or {}, "summary": summary})
+    cdir = out_dir / "cascade"
+    cdir.mkdir(exist_ok=True)
+
+    def dump(path: Path, items: list[dict], cols: list[str]) -> None:
+        path.write_text("\n".join(["\t".join(cols)] + ["\t".join(str(i.get(c, "")) for c in cols) for i in items]) + "\n",
+                        encoding="utf-8")
+
+    dump(cdir / "survivors.tsv", [r for r in rows if r["id"] in kept_ids], GENERATED_COLUMNS)
+    dump(cdir / "rejections.tsv", rej, ["id", "smiles", "stage", "reason"])
+    (cdir / "funnel.json").write_text(json.dumps(stats, indent=2) + "\n", encoding="utf-8")
+    (cdir / "funnel.svg").write_text(filters.funnel_svg(stats, f"Filter cascade: generated batch {batch}"), encoding="utf-8")
+    return summary
