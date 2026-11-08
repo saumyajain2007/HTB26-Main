@@ -1,0 +1,149 @@
+{
+  "card_data_version": "4.0.2",
+  "excerpt": {
+    "determinants": {
+      "ARO:3000149": "ARO:3000149",
+      "ARO:3000178": "ARO:3000178",
+      "ARO:3000251": "ARO:3000251",
+      "ARO:3000617": "ARO:3000617",
+      "ARO:3000621": "ARO:3000621",
+      "ARO:3000775": "ARO:3000775",
+      "ARO:3000781": "ARO:3000781",
+      "ARO:3001059": "ARO:3001059",
+      "ARO:3001209": "ARO:3001209",
+      "ARO:3001396": "ARO:3001396",
+      "ARO:3001418": "ARO:3001418",
+      "ARO:3001612": "ARO:3001612",
+      "ARO:3001878": "ARO:3001878",
+      "ARO:3002312": "ARO:3002312",
+      "ARO:3003296": "ARO:3003296",
+      "ARO:3003868": "ARO:3003868",
+      "ARO:3003922": "ARO:3003922",
+      "ARO:3003923": "ARO:3003923"
+    },
+    "extra_terms": [
+      "ARO:0000000",
+      "ARO:0000001",
+      "ARO:0000004",
+      "ARO:0000016",
+      "ARO:0000020",
+      "ARO:0000026",
+      "ARO:0000032",
+      "ARO:0000042",
+      "ARO:0001001",
+      "ARO:0001002",
+      "ARO:0001003",
+      "ARO:0001004",
+      "ARO:0010000",
+      "ARO:3000008",
+      "ARO:3000050",
+      "ARO:3000079",
+      "ARO:3000081",
+      "ARO:3007149"
+    ],
+    "note": "A cut of CARD's own rows for the listed determinants, for tests. Not a complete release.",
+    "of_manifest_sha256": "19b4d158ff51efa7078115949adb3583c1d2b579861883c570ed63e48ae53fc6",
+    "of_release": "4.0.2"
+  },
+  "licence": {
+    "caveat": "The CARD-Download-README.txt inside the data archive adds that use by any commercial organisation needs written permission from McMaster University. Treat the data as non-commercial and attribute CARD.",
+    "citation": "Alcock et al. 2023. CARD 2023: expanded curation, support for machine learning, and resistome prediction at the Comprehensive Antibiotic Resistance Database. Nucleic Acids Research 51, D690-D699. https://pubmed.ncbi.nlm.nih.gov/36263822/",
+    "name": "CC-BY-4.0 (as stated on card.mcmaster.ca/download and in the ontology README)",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "schema": 1,
+  "tables": {
+    "aro_categories": {
+      "columns": [
+        "category_class",
+        "aro_accession",
+        "name"
+      ],
+      "rows": 40,
+      "sha256": "d7122d7ff5f3cf14231ba7c9486f6e4e7101bd177af44eae9e5687e82fa36edd"
+    },
+    "aro_relations": {
+      "columns": [
+        "subject",
+        "relation",
+        "object"
+      ],
+      "rows": 110,
+      "sha256": "56fb5f38ea2b87e16922403cf3ee5b5973e67db71084241b68a34ca2142229c1"
+    },
+    "aro_synonyms": {
+      "columns": [
+        "aro_accession",
+        "synonym",
+        "scope"
+      ],
+      "rows": 26,
+      "sha256": "1b53fb39a92322867680e9d2f711621018ec128f1c7e009cb2bd32180f919772"
+    },
+    "aro_terms": {
+      "columns": [
+        "aro_accession",
+        "cvterm_id",
+        "name",
+        "description",
+        "short_name",
+        "is_obsolete"
+      ],
+      "rows": 84,
+      "sha256": "7280b6944831d6e6de8937078d34684f892a142b0c975aa2c5b7a91fa442f3be"
+    },
+    "aro_xrefs": {
+      "columns": [
+        "aro_accession",
+        "db",
+        "xref_id"
+      ],
+      "rows": 3,
+      "sha256": "0b6234bfd820ae504348543475c21b3189dbdf4b8643bace125b40a511c17720"
+    },
+    "model_categories": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "category_aro_accession",
+        "category_class"
+      ],
+      "rows": 86,
+      "sha256": "a2cfe3e31793a26a791304c7731bae4999a8e1e2580d9d2b471f3d09c796779b"
+    },
+    "model_sequences": {
+      "columns": [
+        "model_id",
+        "sequence_id",
+        "protein_accession",
+        "dna_accession",
+        "taxon_id",
+        "taxon_name"
+      ],
+      "rows": 18,
+      "sha256": "7d4bed3de24baf49e2d77948d8c69d0105d0842dcd0040438bab81d90f1c8d4f"
+    },
+    "model_variants": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "param_type",
+        "mutation",
+        "source"
+      ],
+      "rows": 4,
+      "sha256": "7b4a2a20e8629ae96677fe336b2cdd4e6f396a8b6e470764203a3b810b361030"
+    },
+    "models": {
+      "columns": [
+        "model_id",
+        "aro_accession",
+        "name",
+        "model_type",
+        "short_name"
+      ],
+      "rows": 18,
+      "sha256": "6d8baa5296fdb6c0e566f5002f67025eb395167dbdc48b590345f1b5f54e960c"
+    }
+  }
+}

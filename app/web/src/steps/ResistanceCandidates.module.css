@@ -1,0 +1,406 @@
+/*
+ * Step 3 of the resistance flow: approved antibiotics in rank order, generated proposals visibly
+ * apart below them, and the reading pane for the picked molecule beside them.
+ *
+ * Uses only tokens from `src/styles/tokens.css`, and keeps the same shape-first status marks as
+ * `ResistanceMap.module.css` so every standing reads in greyscale too.
+ */
+
+.sheet {
+  composes: scroll-fade from global;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-32);
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.split {
+  display: grid;
+  flex: none;
+  grid-template-columns: minmax(0, 6.5fr) minmax(0, 5.5fr);
+  gap: var(--space-32) var(--space-48);
+  align-items: start;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  min-width: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.generatedSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  border: 1px dashed var(--color-grey-2);
+  background: var(--color-wash);
+}
+
+.sectionTitle {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.subhead {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.ruleNote {
+  max-width: var(--measure);
+  font-size: var(--text-label);
+  line-height: var(--leading-body);
+  color: var(--color-grey-1);
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: var(--space-12) var(--space-16) var(--space-12) 0;
+  vertical-align: top;
+}
+
+.table thead th {
+  padding-top: 0;
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-ink);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.rankHead,
+.rankCell {
+  width: var(--space-40);
+  padding-left: var(--space-12);
+}
+
+.rankCell {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  color: var(--color-grey-1);
+}
+
+.row {
+  position: relative;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.row:hover,
+.row[data-selected] {
+  background: var(--color-hover);
+}
+
+.row[data-selected] .rankCell {
+  box-shadow: inset 3px 0 0 var(--color-ink);
+  color: var(--color-ink);
+}
+
+.drugCell {
+  font-weight: var(--weight-regular);
+}
+
+.pick {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+}
+
+.pick::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.pick:focus-visible {
+  outline: none;
+}
+
+.pick:focus-visible::after {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+.drugName {
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+
+.drugClass {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.standing {
+  display: inline-flex;
+  gap: var(--space-8);
+  align-items: center;
+  font-size: var(--text-body-sm);
+  color: var(--color-ink);
+}
+
+.metaCell {
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+/* Shape + colour marks matching ResistanceMap.module.css */
+.mark {
+  flex: none;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-paper);
+}
+
+.mark[data-status="ruled_out"] {
+  background: var(--color-disease);
+}
+
+.mark[data-status="partly_affected"] {
+  background: linear-gradient(135deg, var(--color-contested) 0 50%, var(--color-paper) 50% 100%);
+}
+
+.mark[data-status="no_known_link"] {
+  border: 2px solid var(--color-route);
+  border-radius: 50%;
+}
+
+.mark[data-status="unknown"] {
+  border: 1px dotted var(--color-grey-2);
+}
+
+/* Generated proposals list */
+.generatedList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.generatedItem {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8) var(--space-16);
+  align-items: baseline;
+  justify-content: space-between;
+  padding: var(--space-12);
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper);
+}
+
+.generatedItem:hover,
+.generatedItem[data-selected] {
+  background: var(--color-hover);
+}
+
+.generatedItem[data-selected] {
+  box-shadow: inset 3px 0 0 var(--color-ink);
+}
+
+.proposalBadge {
+  display: inline-block;
+  padding: 2px var(--space-8);
+  border: 1px dashed var(--color-grey-1);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-1);
+}
+
+/* Reading pane */
+.reading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  padding-left: var(--space-32);
+  border-left: 1px solid var(--color-rule);
+}
+
+.readingHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-bottom: var(--space-16);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.kicker {
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-grey-1);
+}
+
+.readingTitle {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+}
+
+.metaList {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-4) var(--space-16);
+  font-size: var(--text-body-sm);
+}
+
+.metaList dt {
+  font-weight: var(--weight-medium);
+  color: var(--color-grey-1);
+}
+
+.metaList dd {
+  color: var(--color-ink);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.summary {
+  max-width: var(--measure);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}
+
+.rationale {
+  max-width: var(--measure);
+  font-size: var(--text-body-sm);
+  color: var(--color-grey-1);
+}
+
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  font-size: var(--text-body-sm);
+  color: var(--color-ink);
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--space-8) var(--space-16);
+  font-size: var(--text-body-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.featureName {
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+}
+
+.featureValue {
+  color: var(--color-ink);
+}
+
+.featureMissing {
+  font-style: italic;
+  color: var(--color-grey-2);
+}
+
+.cite {
+  margin-right: var(--space-8);
+  font-size: var(--text-label-sm);
+  font-weight: var(--weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-ink);
+}
+
+.evidenceList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.evidenceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--text-body-sm);
+}
+
+.evidenceMeta {
+  font-size: var(--text-label-sm);
+  color: var(--color-grey-2);
+}
+
+.footBand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-rule);
+  font-size: var(--text-label);
+  color: var(--color-grey-1);
+}
+
+.retry {
+  display: inline-flex;
+  align-items: center;
+  height: var(--control-height);
+  padding: 0 var(--space-16);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+}
+
+.retry:hover {
+  background: var(--color-hover);
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading {
+    padding-left: 0;
+    padding-top: var(--space-24);
+    border-left: 0;
+    border-top: 1px solid var(--color-rule);
+  }
+}

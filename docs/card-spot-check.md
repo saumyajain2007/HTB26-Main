@@ -56,8 +56,12 @@ A small curated supplement, [supplement.json](../core/resistance/htb_resistance/
 - **The comparison above is unchanged**, because it compares CARD's download with its website, not our profiles.
 - If a later CARD release adds these classes, the supplement skips any class CARD already has, and a test reports it so the entry can be removed.
 
+## Added for #17
+
+The profile tests of #17 (see [profiling-known-cases.md](profiling-known-cases.md)) assert expected classes for 17 genes. Seven of them had not been checked above, so on 2026-11-07 I ran the same comparison for them: **tet(K), msrA, OXA-1, oqxB, FosA, ADC-25 and adeJ. All seven match the website on family, drug classes and mechanisms.** With these, every gene in those tests has been compared with its CARD page, which is 35 genes in all (31 match, the same four PBP2-like genes differ).
+
 ## Limits
 
 - Names only. Drug-level links and the page's Classification tree were not compared.
-- 28 of 6,451 models. The ten were chosen to cover each mechanism group, so a problem confined to a family I did not test would not show up.
+- 35 of 6,451 models. The ten were chosen to cover each mechanism group, so a problem confined to a family I did not test would not show up.
 - The website is a live page. A later CARD release or site change can shift the result. The network test records the four differences above and fails if a new one appears or one of these disappears.
