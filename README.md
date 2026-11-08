@@ -1,149 +1,69 @@
 # NovaBiotech
 
-Antibiotic resistance profiling and in-silico candidate prioritisation for Hack The Burgh 2026.
+**Resistance-aware antibiotic prioritisation: which approved drugs are still worth trying against a resistant bacterium, and why.**
 
-## What it does
+Built for Hack The Burgh 2026.
 
-Given resistance genes or a pathogen preset, map the determinants to CARD mechanisms
-and affected drug classes, then prioritise approved antibiotics with an explanation
-and cited evidence. The three chosen pathogens are *Staphylococcus aureus*,
-*Klebsiella pneumoniae* and *Acinetobacter baumannii*. All work is computational;
-a ranked candidate is not evidence of clinical efficacy or a dosing recommendation.
+## The problem
 
-Two workstreams share the candidate contract: resistance-aware evasion ranking for
-the app, and a planned whole-cell discovery pipeline for *A. baumannii*. Generated
-proposals will be kept separate from approved drugs.
+Antibiotic resistance is a slow-moving pandemic, and the drugs we rely on are running out faster than they are being replaced.
 
-## Limits
+- Bacterial antimicrobial resistance (AMR) was directly responsible for an estimated **1.14 million deaths in 2021** and associated with **4.71 million**. The Lancet's Global Burden of Disease forecast puts the toll at **39 million direct deaths between 2025 and 2050** ([Lancet GRAM study, via Oxford Population Health](https://www.ndm.ox.ac.uk/news/antibiotic-resistance-could-cause-39-million-deaths-between-now-and-2050)).
+- The WHO's 2024 priority list places carbapenem-resistant *Acinetobacter baumannii* and carbapenem-resistant Enterobacterales, which includes *Klebsiella pneumoniae*, in its **critical** tier ([WHO Bacterial Priority Pathogens List 2024](https://www.news-medical.net/news/20240520/WHO-updates-Bacterial-Priority-Pathogens-List-to-combat-antimicrobial-resistance.aspx)).
+- The pipeline is thin and shrinking. WHO counts **90 antibacterials in clinical development, down from 97 in 2023**, and only **15** are considered innovative. Just 17 new agents against priority pathogens have been approved since 2017, and only two are a genuinely new chemical class ([WHO, 2025](https://www.who.int/news/item/02-10-2025-who-releases-new-reports-on-new-tests-and-treatments-in-development-for-bacterial-infections)).
 
-[docs/limits.md](docs/limits.md) is the one page to read before the demo: what the tool does, what it does not claim, and where it is weak, each weakness naming the file or issue that would close it. The short version is that it proposes which approved antibiotics are **not known to be defeated** by an isolate's resistance mechanisms and shows its working — it does not predict that a drug will cure anything, and a computational hit is not a working antibiotic.
+New antibiotics take a decade or more to reach patients. In the meantime, clinicians and researchers need a faster way to ask a narrower question: **given what this isolate is resistant to, which drugs we already have are least likely to be defeated?**
 
-## Current state
+## What we built
 
-| Area | Available now | Remaining work |
-| --- | --- | --- |
-| Resistance data and ranking | CARD-derived profiles and 126 ranked approved drugs per pathogen, with ChEMBL activity evidence, saved in [the integration bundle](docs/pathogen-integration.md) | Preset gene lists are drafts, not measured isolates; typed genes need a prepared CARD release and do not trigger a new ranking in the app |
-| Researcher app | Resistance map, explained shortlist, reference crystal previews, property checks and recorded certificate details; [offline fixture and saved-data modes](docs/offline-demo.md) | Browser evidence verification (#95); candidate docking is not connected to these reference previews |
-| Property checks | RDKit smoke tests and Lean 4 certificate support | Lean was not run for the saved real rankings; property limits are descriptive, not a safety or activity test |
-| Retrospective evaluation | [Cited ground truth](docs/ground-truth.md), [protocol preparation](results/ws5_retrospective/protocol.md), and a [pre-registered comparison of the evasion rule with measured susceptibility](results/ws5_phenotype_validation/results.md) on 5,067 isolates | The ranking's ordering is still unscored (#37). The rule beats chance but not a drug-and-species baseline for *K. pneumoniae* and *A. baumannii*; see [limits](docs/limits.md) |
-| Whole-cell discovery | Data and leakage-control implementation is in PR #101 (#83/#84) | Activity ensemble, generation, filters, cost ledger and hidden-drug evaluation; see the plan below |
+A researcher-facing tool that takes a pathogen, or a set of resistance genes, and:
 
-The older human-disease network ranking and its results remain as reusable
-infrastructure and historical experiments. They do not validate the antibiotic
-ranking. The disease UI is disabled unless `VITE_DISEASE_FLOW=1` at build time.
+1. **Maps resistance.** Resistance determinants are linked to their mechanisms and the drug classes they affect, using the CARD database.
+2. **Ranks approved antibiotics.** Each candidate is scored on whether the isolate's mechanisms are known to defeat it, so the shortlist favours drugs that evade the resistance in play.
+3. **Shows its working.** Every ranking comes with a plain-language explanation, cited activity evidence and recorded property checks, so a researcher can audit the reasoning rather than trust a black box.
 
-## Run the offline demo
+We focus on three high-burden pathogens: *Staphylococcus aureus*, *Klebsiella pneumoniae* and *Acinetobacter baumannii*.
 
-Prepare dependencies and build once while online, then launch:
+A second, discovery-oriented track extends the same framework towards whole-cell screening for novel *A. baumannii* candidates, with generated molecules kept strictly separate from approved drugs.
 
-```sh
-./deploy/offline-demo.sh
-```
+## Why it is credible
 
-This opens the saved MRSA fixture path. Scores, MICs and ranks are visibly labelled
-as made up; recorded property checks and Lean results are identified separately.
-To browse the real saved rankings for all three draft presets instead:
-
-```sh
-OFFLINE_RESISTANCE=saved ./deploy/offline-demo.sh
-```
-
-Both modes run without external services at runtime. Saved mode replays the #34
-run; it does not compute fresh rankings. See [setup and walkthrough](docs/offline-demo.md)
-for preparation, limitations and browser verification commands.
-
-## Tasks and decisions
-
-[scope.md](scope.md) describes the rationale and workstreams; [tasks.md](tasks.md)
-tracks implementation and the cut line recorded on 8 November 2026. The chosen
-pathogens, the separate *A. baumannii* whole-cell lane, SyntheMol generation and
-Wordsmith browser verification were recorded in decisions #4, #5 and #82.
-
-The next work is to publish an honest evaluation, finish the whole-cell pipeline
-in dependency order, and add cited browser verification. The intended whole-cell
-sequence is data (#83) → leakage controls (#84) → activity ensemble (#85) →
-generation/filtering (#86/#87) → measured oracle costs (#88) → hidden-drug tests
-(#91/#92). The scheduler (#89) and calibration/SHAP (#90) are Tier 2. Wild-type
-versus mutant docking (#45), resistance-risk scoring (#44), advanced oracles
-(#93/#94) and graph proofs (#49) are beyond the recorded 10-hour cut line.
+- **Honest by design.** The tool proposes which drugs are *not known to be defeated*. It does not claim that a drug will cure anything, and nothing here is clinical or dosing advice.
+- **Validated against real data.** The ranking rule was pre-registered and tested against measured susceptibility results from over 5,000 isolates. It beats chance overall, and we report plainly where it does not beat a simple drug-and-species baseline.
+- **Reproducible and offline-capable.** The demo runs from saved data with no external services, and clearly labels anything illustrative.
 
 ## Pipeline
 
-Solid arrows show the available saved-data demo path. Dashed arrows show planned
-connections and work; the discovery lane is not yet an end-to-end implementation.
+Solid arrows show the working demo path; dashed arrows show planned extensions.
 
 ```mermaid
 flowchart TD
-    P["Three draft pathogen presets"] --> C["Saved CARD resistance profiles"]
-    C --> R["Evasion ranking<br/>126 approved drugs per pathogen<br/>ChEMBL activity evidence"]
-    R --> S["Recorded Python smoke checks<br/>Lean status: not run in this bundle"]
-    S --> U["Offline researcher view<br/>resistance map, shortlist, explanations and caveats"]
-    G["Typed resistance genes<br/>requires a prepared local CARD release"] --> CP["Computed resistance profile"]
+    P["Pathogen presets"] --> C["Saved CARD resistance profiles"]
+    C --> R["Evasion ranking<br/>approved drugs per pathogen<br/>activity evidence"]
+    R --> S["Recorded property checks"]
+    S --> U["Researcher view<br/>resistance map, shortlist, explanations and caveats"]
+    G["Typed resistance genes"] --> CP["Computed resistance profile"]
     CP -.-> R
-    F["MRSA fixture fallback<br/>made-up ranks and MICs, labelled on screen<br/>recorded property and Lean results"] --> U
+    F["Illustrative MRSA fixture<br/>labelled on screen"] --> U
 
     subgraph W [Planned whole-cell discovery: A. baumannii]
-        D["Labelled data and retrieval library (#83)"] -.-> L["Scaffold/year splits and leakage assertion (#84)"]
-        L -.-> M["Activity ensemble (#85)"]
-        M -.-> N["SyntheMol candidates (#86)"]
-        N -.-> Q["Filter cascade (#87)"]
-        Q -.-> O["Oracle interface and measured cost ledger (#88)"]
-        O -.-> V["Hidden-drug evaluation and baselines (#91/#92)"]
-        O -.-> A["Tier 2: scheduler and calibrated explanations (#89/#90)"]
+        D["Labelled data and retrieval library"] -.-> L["Leakage-controlled splits"]
+        L -.-> M["Activity ensemble"]
+        M -.-> N["Candidate generation"]
+        N -.-> Q["Filter cascade"]
+        Q -.-> O["Oracle interface and cost ledger"]
+        O -.-> V["Hidden-drug evaluation and baselines"]
+        O -.-> A["Scheduler and calibrated explanations"]
     end
     V -.-> U
     A -.-> U
-    U -.-> B["Browser verification with citations and cached replay (#95)"]
-    T["Ground truth and pre-run protocol (#35/#36)"] -.-> E["Retrospective results with intervals (#37)"]
+    U -.-> B["Cited browser verification"]
+    T["Ground truth and pre-run protocol"] -.-> E["Retrospective results with intervals"]
     E -.-> R
 ```
 
-The dashed link from computed profiles to ranking is pending app integration.
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) records reused code and data sources.
+## Impact
 
-## Sponsor integrations
+Resistance data is abundant; the bottleneck is turning it into a decision a researcher can act on and defend. By making the reasoning transparent and the limits explicit, this tool helps teams narrow a large drug space to a short, evidenced list, and points the way towards finding the next generation of antibiotics.
 
-All optional; the app runs on fixtures without any of them. Which of these are actually proven, and how the project meets the HRT and G-Research tracks, is in [docs/sponsor-mapping.md](docs/sponsor-mapping.md).
-
-| Integration | Use | Setup |
-|---|---|---|
-| Google Gemini | A juror in the Model jury | `HTB_JURY=providers`, `GEMINI_API_KEY`, and a `gemini:<model>` entry in `JURY_MODELS` |
-| Vultr | Serverless Inference as a juror, and a VM to host the app | [deploy/vultr/](deploy/vultr/README.md) |
-| Tiger Data | Postgres for experiments, jobs and docking results | Set `DATABASE_URL`, then `uv run deploy/db/migrate.py` |
-| Entire | Version control for AI-written changes | Below |
-
-**Model jury across providers.** `HTB_JURY=providers` runs three jurors from three
-families, each model ID prefixed with its provider (`gemini:`, `vultr:` or `cortex:`),
-so one jury can mix Gemini, a Vultr-hosted model and a Snowflake Cortex model.
-Only the providers you name need credentials. Example:
-
-```
-HTB_JURY=providers
-JURY_MODELS='["gemini:gemini-2.5-pro","vultr:<vultr model id>","cortex:claude-sonnet-5"]'
-GEMINI_API_KEY=...
-VULTR_INFERENCE_API_KEY=...
-```
-
-Replies from every provider go through the same validation, so a model that returns
-a malformed review is marked invalid, not trusted. The Gemini and Vultr clients have
-unit tests with fakes, and have not been run against the live services yet.
-Paid calls share the existing `HTB_CORTEX_CALLS_PER_MINUTE` and `_PER_DAY` budget.
-
-**Tiger Data.** The app uses plain Postgres (no extensions), so a Tiger Cloud service
-works as is: create a service, copy its connection string into `DATABASE_URL`, set
-`HTB_REPO=postgres`, and migrate. Nothing here uses Timescale features yet.
-
-**Entire.** Entire records AI coding sessions alongside your commits. It is a CLI,
-not a dependency of the app. Install it, then enable it inside this repository:
-
-```
-brew install --cask entireio/tap/entire     # note --cask; or: curl -fsSL https://entire.com/install.sh | bash
-entire enable                               # pick your agents; installs agent and git hooks
-entire status
-```
-
-Session data goes to a separate `entire/checkpoints/v1` branch; `entire doctor` helps
-if something is stuck. Details: [github.com/entireio/cli](https://github.com/entireio/cli).
-Nothing is committed for it on this branch.
-
-For candidate-specific predicted 3D complexes, see the [Boltz-2 setup and visualization guide](docs/boltz.md).
+See [docs/limits.md](docs/limits.md) for a full account of what the tool does and does not claim, and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for data sources and reused code.
