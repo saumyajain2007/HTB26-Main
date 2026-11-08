@@ -1,0 +1,5 @@
+Is there any agentic workflow that can be added to this existing architectuer
+
+---
+
+3 to the pipeline with the rag that already exists
