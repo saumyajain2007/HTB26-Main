@@ -174,6 +174,15 @@ def test_verify_detects_changes(built, tmp_path):
     assert verify_catalogue(release, root) == ["antibiotics: checksum differs from manifest"]
 
 
+def test_verify_reports_excerpt_without_treating_it_as_a_built_release(tmp_path):
+    (tmp_path / "manifest.json").write_text(json.dumps({
+        "excerpt": True, "tables": {"antibiotics": {"rows": 3}}
+    }))
+    assert verify_catalogue(tmp_path) == [
+        "catalogue is a fixture excerpt, not a built full release"
+    ]
+
+
 def test_verify_notices_a_rebuilt_card_release(built):
     card, release = built
     (card / "manifest.json").write_text(json.dumps({"card_data_version": "9.9.9", "changed": True}))
@@ -190,15 +199,17 @@ def test_the_atc_map_only_names_real_drug_classes():
 
 # ----------------------------------------------------------------------------- real data
 
-def real_release():
+def real_release(*, require_full=False):
     found = sorted((DEFAULT_OUT / "releases").glob("*/manifest.json")) if (DEFAULT_OUT / "releases").is_dir() else []
+    if require_full:
+        found = [p for p in found if json.loads(p.read_text()).get("excerpt") is not True]
     if not found:
-        pytest.skip("no catalogue built (uv run python -m htb_resistance catalogue)")
+        pytest.skip("no full catalogue built (the committed excerpt is fixture data)")
     return found[-1].parent
 
 
 def test_real_catalogue_verifies_and_every_gap_is_explained():
-    release = real_release()
+    release = real_release(require_full=True)
     assert verify_catalogue(release) == []
     gaps = {(r["chembl_id"], r["field"]) for r in table(release, "catalogue_log") if r["kind"] == "gap"}
     mapped = {r["chembl_id"] for r in table(release, "antibiotic_card") if r["class_aro_id"]}

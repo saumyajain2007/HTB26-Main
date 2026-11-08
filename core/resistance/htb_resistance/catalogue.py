@@ -296,6 +296,8 @@ def verify_catalogue(release_dir: Path | str, card_root: Path | str = DEFAULT_DI
         manifest = json.loads((release_dir / "manifest.json").read_text())
     except (OSError, ValueError) as exc:
         return [f"manifest.json unreadable: {exc}"]
+    if manifest.get("excerpt") is True:
+        return ["catalogue is a fixture excerpt, not a built full release"]
     problems = []
     for name in TABLES:
         info = manifest.get("tables", {}).get(name)
