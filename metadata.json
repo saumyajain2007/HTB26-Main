@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6XA1JATYD4DMFMWT3WN47NQ",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 9,
+  "checkpoints_count": 17,
   "files_touched": [
     "core/ranking/antibiotic/__main__.py",
     "core/ranking/antibiotic/rank.py",
@@ -17,6 +17,10 @@
     "eval/ground_truth.py",
     "eval/protocol.py",
     "eval/retrospective.py",
+    "evidence/extract.py",
+    "evidence/session.py",
+    "results/ci_loocv/results.json",
+    "results/ci_loocv/results.md",
     "results/pathogen-integration/acinetobacter-baumannii.ranking.json",
     "results/pathogen-integration/card_manifest.json",
     "results/pathogen-integration/catalogue_manifest.json",
@@ -48,6 +52,13 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
@@ -58,15 +69,15 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 38,
+    "replacements": 60,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 15,
+      "credential_value": 25,
       "credentialed_uri": 0,
       "entropy": 0,
-      "key_context": 23,
+      "key_context": 35,
       "provider_token": 0,
       "shell_stdin": 0
     }
