@@ -3,7 +3,7 @@
   "checkpoint_id": "01M6X5NCCCP6AS7S6GABKPWAWV",
   "strategy": "manual-commit",
   "branch": "live-resistance-validation-leakage",
-  "checkpoints_count": 25,
+  "checkpoints_count": 36,
   "files_touched": [
     "app/web/e2e/saved-resistance.spec.ts",
     "app/web/src/app/ExperimentStatus.module.css",
@@ -13,6 +13,8 @@
     "app/web/src/app/Shell.module.css",
     "app/web/src/app/Shell.tsx",
     "app/web/src/copy/en.ts",
+    "app/web/src/lib/bindingVerdict.test.ts",
+    "app/web/src/lib/bindingVerdict.ts",
     "app/web/src/lib/resistanceCandidates.test.ts",
     "app/web/src/lib/resistanceCandidates.ts",
     "app/web/src/steps/PathogenInput.module.css",
@@ -29,6 +31,8 @@
     "app/web/src/three/PoseViewer.module.css",
     "app/web/src/three/PoseViewer.test.tsx",
     "app/web/src/three/PoseViewer.tsx",
+    "app/web/src/three/dockAnimation.test.ts",
+    "app/web/src/three/dockAnimation.ts",
     "app/web/src/three/interactions.test.ts",
     "app/web/src/three/interactions.ts",
     "app/web/src/three/poseScene.ts"
@@ -89,6 +93,13 @@
       "compact_transcript": "/7/transcript.jsonl",
       "content_hash": "/7/content_hash.txt",
       "prompt": "/7/prompt.txt"
+    },
+    {
+      "metadata": "/8/metadata.json",
+      "transcript": "/8/full.jsonl",
+      "compact_transcript": "/8/transcript.jsonl",
+      "content_hash": "/8/content_hash.txt",
+      "prompt": "/8/prompt.txt"
     }
   ],
   "token_usage": {
@@ -99,7 +110,7 @@
     "api_call_count": 189
   },
   "redaction": {
-    "replacements": 85,
+    "replacements": 91,
     "layers": {
       "betterleaks": 2,
       "connection_string": 0,
@@ -107,7 +118,7 @@
       "credential_value": 18,
       "credentialed_uri": 2,
       "entropy": 2,
-      "key_context": 63,
+      "key_context": 69,
       "provider_token": 0,
       "shell_stdin": 0
     }
