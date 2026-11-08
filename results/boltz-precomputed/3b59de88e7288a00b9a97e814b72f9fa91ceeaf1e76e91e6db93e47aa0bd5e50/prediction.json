@@ -1,0 +1,17 @@
+{
+  "profile_id": "434b687b-1254-43b4-8581-3ea836f1709b",
+  "candidate_id": "CHEMBL22",
+  "smiles": "COc1cc(Cc2cnc(N)nc2N)cc(OC)c1OC",
+  "target_name": "S. aureus wild-type DHFR (folA, UniProt P0A017; reference sequence)",
+  "protein_sequence_sha256": "5c2a06de001314da7c1ce55c46b7a0dd3d90fb08f2f575296cb93d118c4cf0e7",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9842845797538757,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "0b092edd4b7d3830561afb7c2ca574e5056d095a8ff5f9e0e439e554d5810d08"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "36cf7d139320b8bbfa794be9284bda32344be0751c5d46d600c32fdf2a07ae58"
+  }
+}

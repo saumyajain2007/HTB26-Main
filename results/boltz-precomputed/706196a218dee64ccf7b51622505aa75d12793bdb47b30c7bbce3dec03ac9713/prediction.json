@@ -1,0 +1,17 @@
+{
+  "profile_id": "b64550e6-fb12-4b13-a2b6-e4f6f535b6a6",
+  "candidate_id": "CHEMBL700",
+  "smiles": "Nc1ccc(S(=O)(=O)Nc2ccccn2)cc1",
+  "target_name": "Dihydropteroate synthase (Acinetobacter baumannii (strain ATCC 19606 / DSM 30007 / JCM 6841 / CCUG 19606 / CIP 70.34 / NBRC 109757 / NCIMB 12457 / NCTC 12156 / 81); UniProt A0ABX6CIQ9; reference protein, not isolate-specific)",
+  "protein_sequence_sha256": "da1a666fa629f73afac4f7cca08c31392df75845f7ee1bd857ab9294d3dbdcf9",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.9188149571418762,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "de04c336a46f53ae335aa29bf4063b32a063437abc23fb83b742bd41cd36196d"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "ecf412b0fe69aea4c38d39448fa61ea54a65bc86c03503b430b9121b80ea2e0f"
+  }
+}

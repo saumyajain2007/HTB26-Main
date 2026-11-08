@@ -1,0 +1,25 @@
+{
+  "profile_id": "0a92ad8a-cc58-4421-9409-1608cd72dec3",
+  "candidate_id": "CHEMBL528",
+  "smiles": "CO/N=C(\\C(=O)N[C@@H]1C(=O)N2C(C(=O)O)=CCS[C@H]12)c1csc(N)n1",
+  "target_name": "Exploratory PBP2/MrdA proxy (Klebsiella pneumoniae subsp. pneumoniae (strain ATCC 700721 / MGH 78578); UniProt A6T696, residues 280-633)",
+  "protein_sequence_sha256": "e9e1d3a61e5b83128a6f5c47f6549381c80619cc8132038f27fec11e3001c9ad",
+  "boltz_version": "2.2.1",
+  "confidence_score": 0.30246391892433167,
+  "receptor": {
+    "url": "/pending",
+    "sha256": "dc71dbc027c0ca25993f6bb7de30eee58c62ee9e03b0e325501818751012b519"
+  },
+  "ligand": {
+    "url": "/pending",
+    "sha256": "f2c22a40cc3b60303e3383068f6f9d5771086b3aed55f89a13029159b737311b"
+  },
+  "prediction_scope": "exploratory",
+  "limitations": [
+    "Exploratory isoform assumption: the recorded target does not establish this specific PBP as the relevant binding protein.",
+    "C-terminal construct only; omitted receptor regions and allosteric effects are not modeled.",
+    "Noncovalent prediction: beta-lactam acyl-enzyme chemistry and prodrug metabolism are not modeled.",
+    "Fast exploratory preset: MSA cap 256, two recycling steps and 100 sampling steps.",
+    "Coordinate QC: inferred stereochemistry differs from the input molecule."
+  ]
+}

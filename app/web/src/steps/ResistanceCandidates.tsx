@@ -8,6 +8,7 @@ import {
   type ReactElement,
 } from "react";
 import type { Structure } from "../api/types";
+import { BoltzPanel } from "./BoltzPanel";
 import { FigureNote, Panel } from "../app/Figure";
 import { copy } from "../copy/en";
 import {
@@ -313,7 +314,12 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
             )}
           </div>
 
-          <CandidateReadingPane id={readingId} entry={current} structures={structures} />
+          <CandidateReadingPane
+            id={readingId}
+            entry={current}
+            structures={structures}
+            profileId={profile.profile_id}
+          />
         </div>
 
         <footer className={styles.footBand}>
@@ -329,11 +335,13 @@ export const ResistanceCandidates: (props: ResistanceCandidatesProps) => ReactEl
 };
 
 function CandidateReadingPane({
+  profileId,
   id,
   entry,
   structures,
 }: {
   id: string;
+  profileId: string;
   entry: CandidateEntry;
   structures: readonly Structure[] | undefined;
 }) {
@@ -453,6 +461,13 @@ function CandidateReadingPane({
 
       <div className={styles.block}>
         <h3 className={styles.subhead}>{text.poseTitle}</h3>
+        <BoltzPanel
+          key={`boltz-${entry.id}`}
+          profileId={profileId}
+          candidateId={entry.id}
+          candidateName={entry.name}
+        />
+        <h4 className={styles.subhead}>Reference crystal structures</h4>
         <CandidatePosePanel key={entry.id} entry={entry} structures={structures} />
       </div>
 

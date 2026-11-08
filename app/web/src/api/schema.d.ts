@@ -372,6 +372,40 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Boltz Prediction */
+    get: operations["get_boltz_prediction"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/resistance/profiles/{profile_id}/candidates/{candidate_id}/boltz/{name}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** Get Boltz File */
+    get: operations["get_boltz_file"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/resistance/profiles/{profile_id}/jury": {
     parameters: {
       query?: never;
@@ -573,6 +607,36 @@ export interface components {
        * @description The term's name in CARD's vocabulary.
        */
       name: string;
+    };
+    /** BoltzPrediction */
+    BoltzPrediction: {
+      /** Boltz Version */
+      boltz_version: string;
+      /** Candidate Id */
+      candidate_id: string;
+      /** Confidence Score */
+      confidence_score: number;
+      ligand: components["schemas"]["DockFile"];
+      /** Limitations */
+      limitations?: string[];
+      /**
+       * Prediction Scope
+       * @default reference
+       * @enum {string}
+       */
+      prediction_scope: "reference" | "exploratory";
+      /**
+       * Profile Id
+       * Format: uuid
+       */
+      profile_id: string;
+      /** Protein Sequence Sha256 */
+      protein_sequence_sha256: string;
+      receptor: components["schemas"]["DockFile"];
+      /** Smiles */
+      smiles: string;
+      /** Target Name */
+      target_name: string;
     };
     /** @enum {string} */
     BuildStage: "targets" | "ranking" | "evidence" | "saving";
@@ -1742,6 +1806,11 @@ export interface components {
        */
       seed: number;
     };
+    /** HTTPValidationError */
+    HTTPValidationError: {
+      /** Detail */
+      detail?: components["schemas"]["ValidationError"][];
+    };
     /** Health */
     Health: {
       /**
@@ -2720,6 +2789,19 @@ export interface components {
     /** @enum {string} */
     UnscorableReason:
       "no_retained_disease_targets" | "no_retained_drug_targets" | "network_unavailable";
+    /** ValidationError */
+    ValidationError: {
+      /** Context */
+      ctx?: Record<string, never>;
+      /** Input */
+      input?: unknown;
+      /** Location */
+      loc: (string | number)[];
+      /** Message */
+      msg: string;
+      /** Error Type */
+      type: string;
+    };
     /**
      * ValidationIssue
      * @description One problem with the request, as FastAPI reports it.
@@ -3560,6 +3642,107 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["UnprocessableResponse"];
+        };
+      };
+    };
+  };
+  get_boltz_prediction: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        profile_id: string;
+        candidate_id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["BoltzPrediction"] | null;
+        };
+      };
+      /** @description Not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+      /** @description A data source is unavailable. */
+      503: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+    };
+  };
+  get_boltz_file: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        profile_id: string;
+        candidate_id: string;
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful Response */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "chemical/x-pdb": string;
+        };
+      };
+      /** @description Not found. */
+      404: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
+        };
+      };
+      /** @description Validation Error */
+      422: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["HTTPValidationError"];
+        };
+      };
+      /** @description A data source is unavailable. */
+      503: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorResponse"];
         };
       };
     };

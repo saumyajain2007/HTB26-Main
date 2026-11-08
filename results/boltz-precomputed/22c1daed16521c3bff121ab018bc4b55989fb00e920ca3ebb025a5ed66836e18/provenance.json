@@ -1,0 +1,12 @@
+{
+  "source": "https://rest.uniprot.org/uniprotkb/A0ABX6CIQ9.json",
+  "uniprot_status": "UniProtKB unreviewed (TrEMBL)",
+  "seed": 42,
+  "max_msa_seqs": 512,
+  "msa_sha256": "6433cb50253454b3f86b7c851e6a188e483063c0c056607729cc2fd1a5b716c0",
+  "execution": "Local RTX 5070 Laptop GPU; cached alignment; one sample",
+  "scope": "Species reference protein, not an isolate-specific resistance model",
+  "citation": "https://github.com/jwohlwend/boltz",
+  "boltz_version": "2.2.1",
+  "protein_sequence_sha256": "da1a666fa629f73afac4f7cca08c31392df75845f7ee1bd857ab9294d3dbdcf9"
+}
