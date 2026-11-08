@@ -194,3 +194,4 @@ Cut scope at C2 if the retrospective result is still missing; the proof matters 
 - **Schema churn** from the pivot. Contracts frozen in Phase 0, only Lane C regenerates API types.
 - **Docking overclaimed.** Keep it a supporting signal, not the headline.
 - **Sponsor clients fail live.** Prove them early (Lane C, Phase 1) so there is time to fix or drop them.
+- **Open items from the ranking and profiling work** (inhibitors in the pool, intrinsic resistance, missing ground truth, unreviewed expectations, unverified citations and more) are listed with owners in [docs/open-issues.md](docs/open-issues.md).

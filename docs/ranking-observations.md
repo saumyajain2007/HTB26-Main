@@ -2,6 +2,8 @@
 
 Written 2026-11-07 and updated 2026-11-08 after the curated supplement and the `blaZ` preset were fixed (#76; see finding 1). Written for the team (Lanes A, B and C) and for whoever writes up the limits. It records what the antibiotic ranking did when it was first run on real profiles instead of the contract fixture, what that says about the design, and what is still unknown.
 
+**Open items from this work, with owners, are in [open-issues.md](open-issues.md).**
+
 **Status: observations, not results.** There is no ground truth yet, so nothing here says the ranking finds the right drug. These are checks of whether the output makes sense to a reader who knows the biology, and every interpretation is marked as one.
 
 ## How these were produced
