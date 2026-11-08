@@ -1,4 +1,6 @@
 import { type RouteObject } from "react-router";
+import { AccountPage } from "../auth/AccountPage";
+import { LoginPage } from "../auth/LoginPage";
 import { diseaseFlowEnabled } from "./flags";
 import { EvaluationPage } from "./routes/EvaluationPage";
 import { ExperimentLayout } from "./routes/ExperimentLayout";
@@ -48,6 +50,8 @@ export function createRoutes(diseaseFlow: boolean): RouteObject[] {
     {
       errorElement: <RouteErrorPage />,
       children: [
+        { path: "login", element: <LoginPage /> },
+        { path: "account", element: <AccountPage /> },
         {
           // `/` is the introduction whether or not the disease flow is on: the problem, the
           // approach, the three pathogens, and the way into the resistance flow.
