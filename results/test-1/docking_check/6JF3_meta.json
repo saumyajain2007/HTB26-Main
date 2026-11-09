@@ -1,0 +1,65 @@
+{
+  "id": "6JF3_A",
+  "pdb_id": "6JF3",
+  "chain": "A",
+  "uniprot": [
+    "A0A098SKQ8"
+  ],
+  "target_id": "A0A098SKQ8",
+  "symbol": "def",
+  "title": "Actinonin bound crystal structure of class I type b peptide deformylase from Acinetobacter baumannii",
+  "method": "X-RAY DIFFRACTION",
+  "resolution": 2.01,
+  "ligand": {
+    "comp_id": "BB2",
+    "name": "actinonin",
+    "candidate_id": "CHEMBL_NOT_LOOKED_UP",
+    "residue_number": "202",
+    "heavy_atoms": 27
+  },
+  "box_center": [
+    0.73,
+    -3.972,
+    -0.964
+  ],
+  "box_size": [
+    25.0,
+    25.0,
+    25.0
+  ],
+  "control_smiles": "CCCCC[C@H](CC(=O)NO)C(=O)N[C@@H](C(C)C)C(=O)N1CCC[C@H]1CO",
+  "receptor": {
+    "removed_residues": {
+      "HOH": 11,
+      "BB2": 1,
+      "ZN": 1
+    },
+    "modified_to_parent": [],
+    "truncated_side_chains": [
+      "LYS A9 -> ALA",
+      "ARG A10 -> ALA",
+      "MET A96 -> ALA",
+      "LEU A98 -> ALA",
+      "MET A130 -> ALA",
+      "THR A133 -> ALA",
+      "ARG A141 -> ALA"
+    ],
+    "incomplete_backbone_removed": [],
+    "meeko": "mk_prepare_receptor.py --read_pdb clean.pdb --write_pdbqt receptor.pdbqt --write_pdb receptor.pdb --box_center 0.730 -3.972 -0.964 --box_size 25 25 25"
+  },
+  "sources": {
+    "entry": "https://files.rcsb.org/download/6JF3.pdb",
+    "entry_sha256": "fe56ddfe1c3e63ed7bc296ebc248ff015916c849fe89bcaa6260581cc7c18d64",
+    "ligand": "https://models.rcsb.org/v1/6JF3/ligand?auth_asym_id=A&label_comp_id=BB2&encoding=sdf",
+    "control_smiles": "https://data.rcsb.org/rest/v1/core/chemcomp/BB2"
+  },
+  "prepared_on": "2026-11-08",
+  "toolchain": {
+    "vina": "1.2.7",
+    "meeko": "0.8.0",
+    "rdkit": "2026.09.1",
+    "gemmi": "0.7.5",
+    "python": "3.11.18",
+    "posebusters": "0.6.5"
+  }
+}

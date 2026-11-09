@@ -1,0 +1,353 @@
+[
+ {
+  "name": "actinonin (6JF3)",
+  "group": "known PDF ligand",
+  "smiles": "CCCCC[C@H](CC(=O)NO)C(=O)N[C@@H](C(C)C)C(=O)N1CCC[C@H]1CO",
+  "heavy_atoms": 27,
+  "best_vina_score": -7.548,
+  "seconds": 20.8,
+  "error": null
+ },
+ {
+  "name": "N-hydroxyurea fragment (6JF8)",
+  "group": "known PDF ligand",
+  "smiles": "c1ccc(cc1)C[C@@H](C(=O)O)NC(=O)NO",
+  "heavy_atoms": 16,
+  "best_vina_score": -7.162,
+  "seconds": 4.6,
+  "error": null
+ },
+ {
+  "name": "K1U (6JF4)",
+  "group": "known PDF ligand",
+  "smiles": "c1ccc(cc1)C[C@H](CC(=O)O)C(=O)SCC(=O)c2ccccc2",
+  "heavy_atoms": 24,
+  "best_vina_score": -7.537,
+  "seconds": 10.6,
+  "error": null
+ },
+ {
+  "name": "K2U (6JF5)",
+  "group": "known PDF ligand",
+  "smiles": "c1ccc(cc1)C[C@H](CC(=O)O)[C@H](O)SCc2ccccc2",
+  "heavy_atoms": 22,
+  "best_vina_score": -7.297,
+  "seconds": 10.5,
+  "error": null
+ },
+ {
+  "name": "K3U (6JF7)",
+  "group": "known PDF ligand",
+  "smiles": "c1ccc(cc1)C[C@H](CC(F)(F)F)C(=O)SCC(=O)c2ccccc2",
+  "heavy_atoms": 25,
+  "best_vina_score": -7.139,
+  "seconds": 9.6,
+  "error": null
+ },
+ {
+  "name": "abaucin",
+  "group": "hidden compound",
+  "smiles": "O=C1Nc2ccccc2C2(CCN(CCc3ccc(C(F)(F)F)cc3)CC2)O1",
+  "heavy_atoms": 28,
+  "best_vina_score": -8.34,
+  "seconds": 8.2,
+  "error": null
+ },
+ {
+  "name": "halicin",
+  "group": "hidden compound",
+  "smiles": "Nc1nnc(Sc2ncc([N+](=O)[O-])s2)s1",
+  "heavy_atoms": 15,
+  "best_vina_score": -5.211,
+  "seconds": 3.8,
+  "error": null
+ },
+ {
+  "name": "delafloxacin",
+  "group": "hidden compound",
+  "smiles": "Nc1nc(-n2cc(C(=O)O)c(=O)c3cc(F)c(N4CC(O)C4)c(Cl)c32)c(F)cc1F",
+  "heavy_atoms": 30,
+  "best_vina_score": -7.865,
+  "seconds": 9.8,
+  "error": null
+ },
+ {
+  "name": "epothilone-B",
+  "group": "hidden compound",
+  "smiles": "C/C(=C\\c1csc(C)n1)[C@@H]1C[C@@H]2O[C@]2(C)CCC[C@H](C)[C@H](O)[C@@H](C)C(=O)C(C)(C)[C@@H](O)CC(=O)O1",
+  "heavy_atoms": 35,
+  "best_vina_score": -4.658,
+  "seconds": 57.8,
+  "error": null
+ },
+ {
+  "name": "ACDPP",
+  "group": "random library decoy",
+  "smiles": "CN(C)c1nc(N)c(C(=O)Nc2cccnc2)nc1Cl",
+  "heavy_atoms": 20,
+  "best_vina_score": -6.26,
+  "seconds": 5.3,
+  "error": null
+ },
+ {
+  "name": "1-naphthyl-PP1",
+  "group": "random library decoy",
+  "smiles": "CC(C)(C)n1nc(-c2cccc3ccccc23)c2c(N)ncnc21",
+  "heavy_atoms": 24,
+  "best_vina_score": -7.582,
+  "seconds": 5.4,
+  "error": null
+ },
+ {
+  "name": "N-[2-(piperidinylamino)ethyl]-",
+  "group": "random library decoy",
+  "smiles": "O=C(NCCN1CCCCC1)c1ccc(I)cc1",
+  "heavy_atoms": 18,
+  "best_vina_score": -6.282,
+  "seconds": 4.3,
+  "error": null
+ },
+ {
+  "name": "fostemsavir",
+  "group": "random library decoy",
+  "smiles": "COc1cnc(-n2cnc(C)n2)c2c1c(C(=O)C(=O)N1CCN(C(=O)c3ccccc3)CC1)cn2COP(=O)(O)O",
+  "heavy_atoms": 41,
+  "best_vina_score": -7.985,
+  "seconds": 27.9,
+  "error": null
+ },
+ {
+  "name": "thioperamide",
+  "group": "random library decoy",
+  "smiles": "S=C(NC1CCCCC1)N1CCC([C@H]2C=NC=N2)CC1",
+  "heavy_atoms": 20,
+  "best_vina_score": -6.262,
+  "seconds": 4.5,
+  "error": null
+ },
+ {
+  "name": "menatetrenone",
+  "group": "random library decoy",
+  "smiles": "CC(C)=CCC/C(C)=C/CC/C(C)=C/CC/C(C)=C/CC1=C(C)C(=O)c2ccccc2C1=O",
+  "heavy_atoms": 33,
+  "best_vina_score": -7.221,
+  "seconds": 26.7,
+  "error": null
+ },
+ {
+  "name": "GDC-0994",
+  "group": "random library decoy",
+  "smiles": "Cn1nccc1Nc1nccc(-c2ccn([C@@H](CO)c3ccc(Cl)c(F)c3)c(=O)c2)n1",
+  "heavy_atoms": 31,
+  "best_vina_score": -7.581,
+  "seconds": 12.9,
+  "error": null
+ },
+ {
+  "name": "SB-742457",
+  "group": "random library decoy",
+  "smiles": "O=S(=O)(c1ccccc1)c1cnc2c(N3CCNCC3)cccc2c1",
+  "heavy_atoms": 25,
+  "best_vina_score": -8.452,
+  "seconds": 8.2,
+  "error": null
+ },
+ {
+  "name": "AT-1015",
+  "group": "random library decoy",
+  "smiles": "O=CN1CCC(C(=O)NCCN2CCC(=C3c4ccccc4C=Cc4ccccc43)CC2)CC1",
+  "heavy_atoms": 34,
+  "best_vina_score": -8.712,
+  "seconds": 13.3,
+  "error": null
+ },
+ {
+  "name": "benfluralin",
+  "group": "random library decoy",
+  "smiles": "CCCCN(CC)c1c([N+](=O)[O-])cc(C(F)(F)F)cc1[N+](=O)[O-]",
+  "heavy_atoms": 23,
+  "best_vina_score": -6.865,
+  "seconds": 8.1,
+  "error": null
+ },
+ {
+  "name": "citarinostat",
+  "group": "random library decoy",
+  "smiles": "O=C(CCCCCCNC(=O)c1cnc(N(c2ccccc2)c2ccccc2Cl)nc1)NO",
+  "heavy_atoms": 33,
+  "best_vina_score": -7.707,
+  "seconds": 21.6,
+  "error": null
+ },
+ {
+  "name": "reboxetine",
+  "group": "random library decoy",
+  "smiles": "CCOc1ccccc1O[C@H](c1ccccc1)[C@H]1CNCCO1",
+  "heavy_atoms": 23,
+  "best_vina_score": -7.249,
+  "seconds": 6.8,
+  "error": null
+ },
+ {
+  "name": "AR-42",
+  "group": "random library decoy",
+  "smiles": "CC(C)[C@H](C(=O)Nc1ccc(C(=O)NO)cc1)c1ccccc1",
+  "heavy_atoms": 23,
+  "best_vina_score": -7.246,
+  "seconds": 6.6,
+  "error": null
+ },
+ {
+  "name": "CID-2745687",
+  "group": "random library decoy",
+  "smiles": "COC(=O)c1cnn(-c2ccc(F)cc2F)c1/C=N/NC(=S)NC(C)(C)C",
+  "heavy_atoms": 27,
+  "best_vina_score": -7.105,
+  "seconds": 9.2,
+  "error": null
+ },
+ {
+  "name": "SB-225002",
+  "group": "random library decoy",
+  "smiles": "O=C(Nc1ccc([N+](=O)[O-])cc1O)Nc1ccccc1Br",
+  "heavy_atoms": 21,
+  "best_vina_score": -6.763,
+  "seconds": 5.4,
+  "error": null
+ },
+ {
+  "name": "L-778123",
+  "group": "random library decoy",
+  "smiles": "N#Cc1ccc(Cn2cncc2CN2CCN(c3cccc(Cl)c3)C(=O)C2)cc1",
+  "heavy_atoms": 29,
+  "best_vina_score": -7.299,
+  "seconds": 10.0,
+  "error": null
+ },
+ {
+  "name": "ACTB-1003",
+  "group": "random library decoy",
+  "smiles": "COCc1c(-c2ccc(NC(=O)Nc3cc(C(F)(F)F)ccc3F)c(F)c2)c2c(N)ncnn2c1CN1CCOCC1",
+  "heavy_atoms": 42,
+  "best_vina_score": -7.587,
+  "seconds": 27.2,
+  "error": null
+ },
+ {
+  "name": "cenerimod",
+  "group": "random library decoy",
+  "smiles": "CCc1cc(-c2noc(-c3cc(OC)nc(C4CCCC4)c3)n2)cc(C)c1OC[C@@H](O)CO",
+  "heavy_atoms": 33,
+  "best_vina_score": -7.406,
+  "seconds": 25.5,
+  "error": null
+ },
+ {
+  "name": "setiptiline",
+  "group": "random library decoy",
+  "smiles": "CN1CCC2=C(C1)c1ccccc1Cc1ccccc12",
+  "heavy_atoms": 20,
+  "best_vina_score": -7.71,
+  "seconds": 4.0,
+  "error": null
+ },
+ {
+  "name": "2-(chloromethyl)-5,6,7,8-tetra",
+  "group": "random library decoy",
+  "smiles": "O=C1NC(=CCl)Nc2sc3c(c21)CCCC3",
+  "heavy_atoms": 16,
+  "best_vina_score": -6.679,
+  "seconds": 5.2,
+  "error": null
+ },
+ {
+  "name": "AZD7545",
+  "group": "random library decoy",
+  "smiles": "CN(C)C(=O)c1ccc(S(=O)(=O)c2ccc(NC(=O)[C@@](C)(O)C(F)(F)F)c(Cl)c2)cc1",
+  "heavy_atoms": 31,
+  "best_vina_score": -7.681,
+  "seconds": 27.0,
+  "error": null
+ },
+ {
+  "name": "CCT018159",
+  "group": "random library decoy",
+  "smiles": "CCc1cc(-c2n[nH]c(C)c2-c2ccc3c(c2)OCCO3)c(O)cc1O",
+  "heavy_atoms": 26,
+  "best_vina_score": -7.909,
+  "seconds": 17.7,
+  "error": null
+ },
+ {
+  "name": "UNC0631",
+  "group": "random library decoy",
+  "smiles": "COc1cc2c(NC3CCN(CC4CCCCC4)CC3)nc(N3CCCN(C(C)C)CC3)nc2cc1OCCCN1CCCCC1",
+  "heavy_atoms": 46,
+  "best_vina_score": -6.136,
+  "seconds": 181.6,
+  "error": null
+ },
+ {
+  "name": "L-152804",
+  "group": "random library decoy",
+  "smiles": "CC1(C)CC(=O)C([C@@H]2C3=C(CC(C)(C)CC3=O)Oc3ccccc32)C(=O)C1",
+  "heavy_atoms": 27,
+  "best_vina_score": -8.71,
+  "seconds": 8.4,
+  "error": null
+ },
+ {
+  "name": "zolantidine",
+  "group": "random library decoy",
+  "smiles": "c1cc(CN2CCCCC2)cc(OCCCNc2nc3ccccc3s2)c1",
+  "heavy_atoms": 27,
+  "best_vina_score": -7.045,
+  "seconds": 21.4,
+  "error": null
+ },
+ {
+  "name": "ceftizoxim",
+  "group": "random library decoy",
+  "smiles": "CO/N=C(\\C(=O)N[C@@H]1C(=O)N2C(C(=O)O)=CCS[C@H]12)c1csc(N)n1",
+  "heavy_atoms": 25,
+  "best_vina_score": -6.735,
+  "seconds": 17.4,
+  "error": null
+ },
+ {
+  "name": "AT-7519",
+  "group": "random library decoy",
+  "smiles": "O=C(NC1CCNCC1)c1[nH]ncc1NC(=O)c1c(Cl)cccc1Cl",
+  "heavy_atoms": 25,
+  "best_vina_score": -7.276,
+  "seconds": 11.2,
+  "error": null
+ },
+ {
+  "name": "temocapril",
+  "group": "random library decoy",
+  "smiles": "CCOC(=O)[C@H](CCc1ccccc1)N[C@H]1CS[C@H](c2cccs2)CN(CC(=O)O)C1=O",
+  "heavy_atoms": 32,
+  "best_vina_score": -5.974,
+  "seconds": 101.5,
+  "error": null
+ },
+ {
+  "name": "acitretin",
+  "group": "random library decoy",
+  "smiles": "COc1cc(C)c(/C=C/C(C)=C/C=C/C(C)=C/C(=O)O)c(C)c1C",
+  "heavy_atoms": 24,
+  "best_vina_score": -6.307,
+  "seconds": 12.6,
+  "error": null
+ },
+ {
+  "name": "terbutaline",
+  "group": "random library decoy",
+  "smiles": "CC(C)(C)NC[C@@H](O)c1cc(O)cc(O)c1",
+  "heavy_atoms": 16,
+  "best_vina_score": -6.181,
+  "seconds": 8.7,
+  "error": null
+ }
+]

@@ -1,0 +1,149 @@
+{
+  "RF on Morgan counts": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.7718,
+      "ci95": [
+        0.6614,
+        0.8751
+      ]
+    },
+    "pr_auc": {
+      "value": 0.2157,
+      "ci95": [
+        0.0621,
+        0.3977
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 7.65
+  },
+  "RF on RDKit descriptors": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.7115,
+      "ci95": [
+        0.5975,
+        0.8278
+      ]
+    },
+    "pr_auc": {
+      "value": 0.2106,
+      "ci95": [
+        0.0617,
+        0.3992
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 5.74
+  },
+  "RF on both": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.6667,
+      "ci95": [
+        0.537,
+        0.7936
+      ]
+    },
+    "pr_auc": {
+      "value": 0.2027,
+      "ci95": [
+        0.0554,
+        0.3887
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 7.65
+  },
+  "Chemprop ensemble (#85)": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.7019,
+      "ci95": [
+        0.5745,
+        0.8147
+      ]
+    },
+    "pr_auc": {
+      "value": 0.1179,
+      "ci95": [
+        0.0313,
+        0.296
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 3.82
+  },
+  "Nearest-active Tanimoto": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.6068,
+      "ci95": [
+        0.4532,
+        0.7497
+      ]
+    },
+    "pr_auc": {
+      "value": 0.1863,
+      "ci95": [
+        0.0404,
+        0.3658
+      ]
+    },
+    "enrichment_top_1pct": 24.22,
+    "enrichment_top_5pct": 5.74
+  },
+  "Rank-average: Chemprop + RF on Morgan": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.7569,
+      "ci95": [
+        0.6586,
+        0.8456
+      ]
+    },
+    "pr_auc": {
+      "value": 0.1779,
+      "ci95": [
+        0.0408,
+        0.3436
+      ]
+    },
+    "enrichment_top_1pct": 19.38,
+    "enrichment_top_5pct": 4.78
+  },
+  "Molecular weight": {
+    "n": 1526,
+    "actives": 21,
+    "baseline_prevalence": 0.01376,
+    "roc_auc": {
+      "value": 0.3495,
+      "ci95": [
+        0.2389,
+        0.4757
+      ]
+    },
+    "pr_auc": {
+      "value": 0.03,
+      "ci95": [
+        0.0088,
+        0.1228
+      ]
+    },
+    "enrichment_top_1pct": 9.69,
+    "enrichment_top_5pct": 1.91
+  }
+}

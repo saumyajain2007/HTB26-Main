@@ -1,0 +1,233 @@
+{
+  "docking_score_alone": "not run (see protocol)",
+  "hidden_compounds": {
+    "eligible": [
+      "RS-102895",
+      "SU3327",
+      "delafloxacin",
+      "epothilone-B"
+    ],
+    "excluded": [
+      {
+        "chembl_mic_ug_ml": "8",
+        "chembl_year": "2022",
+        "inchikey": "YDQWDHRMZQUTBA-UHFFFAOYSA-N",
+        "name": "aloe-emodin",
+        "reason": "calibration 0.6216; calibration 0.6452; generator_seeds 0.5143",
+        "selected_by": "selection rule",
+        "smiles": "O=C1c2cccc(O)c2C(=O)c2c(O)cc(CO)cc21"
+      },
+      {
+        "chembl_mic_ug_ml": "0.015",
+        "chembl_year": "2009",
+        "inchikey": "QFFGVLORLPOAEC-SNVBAGLBSA-N",
+        "name": "besifloxacin",
+        "reason": "training 0.875; training 0.5278; generator_seeds 0.875; generator_seeds 0.5278; generator_seeds 0.5246; baseline_reference 0.875; baseline_reference 0.5278",
+        "selected_by": "selection rule",
+        "smiles": "N[C@@H]1CCCCN(c2c(F)cc3c(=O)c(C(=O)O)cn(C4CC4)c3c2Cl)C1"
+      },
+      {
+        "chembl_mic_ug_ml": "2",
+        "chembl_year": "2010",
+        "inchikey": "GCFBRXLSHGKWDP-XCGNWRKASA-N",
+        "name": "cefoperazone",
+        "reason": "training 1.0; training 0.625; training 0.5851; calibration 0.6842; generator_seeds 1.0; generator_seeds 0.625; generator_seeds 0.5851; baseline_reference 1.0",
+        "selected_by": "selection rule",
+        "smiles": "CCN1CCN(C(=O)N[C@@H](C(=O)N[C@@H]2C(=O)N3C(C(=O)O)=C(CSc4nnnn4C)CS[C@H]23)c2ccc(O)cc2)C(=O)C1=O"
+      }
+    ]
+  },
+  "ledger_chain_problems": [],
+  "ledger_summary": {
+    "chemprop_ensemble": {
+      "cache_hits": 0,
+      "calls": 1,
+      "failures": 0,
+      "fidelity": 1,
+      "seconds": 633.413
+    },
+    "molecular_weight": {
+      "cache_hits": 0,
+      "calls": 1,
+      "failures": 0,
+      "fidelity": 0,
+      "seconds": 0.768
+    },
+    "nearest_known_active_tanimoto": {
+      "cache_hits": 0,
+      "calls": 1,
+      "failures": 0,
+      "fidelity": 0,
+      "seconds": 1.24
+    },
+    "random_forest_morgan": {
+      "cache_hits": 0,
+      "calls": 1,
+      "failures": 0,
+      "fidelity": 0,
+      "seconds": 3.662
+    }
+  },
+  "molecular_weight_direction": {
+    "ranked": "heaviest first",
+    "training_roc_auc": 0.5811
+  },
+  "per_compound": {
+    "RS-102895": {
+      "chembl_mic_ug_ml": "2",
+      "chembl_year": "2024",
+      "percentile": {
+        "chemprop_ensemble": 42.54,
+        "molecular_weight": 50.61,
+        "nearest_known_active_tanimoto": 14.55,
+        "primary_pipeline": 32.97,
+        "random_forest_morgan": 31.22
+      },
+      "ranks": {
+        "chemprop_ensemble": 3476,
+        "molecular_weight": 4135,
+        "nearest_known_active_tanimoto": 1189,
+        "primary_pipeline": 2694,
+        "random_forest_morgan": 2551
+      },
+      "selected_by": "named by the spec + selection rule"
+    },
+    "SU3327": {
+      "chembl_mic_ug_ml": null,
+      "chembl_year": null,
+      "percentile": {
+        "chemprop_ensemble": 32.27,
+        "molecular_weight": 88.51,
+        "nearest_known_active_tanimoto": 92.58,
+        "primary_pipeline": 33.56,
+        "random_forest_morgan": 43.32
+      },
+      "ranks": {
+        "chemprop_ensemble": 2637,
+        "molecular_weight": 7232,
+        "nearest_known_active_tanimoto": 7565,
+        "primary_pipeline": 2742,
+        "random_forest_morgan": 3540
+      },
+      "selected_by": "named by the spec"
+    },
+    "delafloxacin": {
+      "chembl_mic_ug_ml": "8",
+      "chembl_year": "2020",
+      "percentile": {
+        "chemprop_ensemble": 0.59,
+        "molecular_weight": 30.88,
+        "nearest_known_active_tanimoto": 1.32,
+        "primary_pipeline": 0.32,
+        "random_forest_morgan": 0.28
+      },
+      "ranks": {
+        "chemprop_ensemble": 48,
+        "molecular_weight": 2523,
+        "nearest_known_active_tanimoto": 108,
+        "primary_pipeline": 26,
+        "random_forest_morgan": 23
+      },
+      "selected_by": "selection rule"
+    },
+    "epothilone-B": {
+      "chembl_mic_ug_ml": "0.26",
+      "chembl_year": "2023",
+      "percentile": {
+        "chemprop_ensemble": 29.74,
+        "molecular_weight": 14.29,
+        "nearest_known_active_tanimoto": 54.02,
+        "primary_pipeline": 13.84,
+        "random_forest_morgan": 9.64
+      },
+      "ranks": {
+        "chemprop_ensemble": 2430,
+        "molecular_weight": 1168,
+        "nearest_known_active_tanimoto": 4414,
+        "primary_pipeline": 1131,
+        "random_forest_morgan": 788
+      },
+      "selected_by": "selection rule"
+    }
+  },
+  "pool": {
+    "generated": 2670,
+    "generated_removed_as_hidden_analogues": 0,
+    "library": 5501,
+    "library_removed_as_already_screened": 1104,
+    "size": 8171
+  },
+  "primary_pipeline_vs_nearest_active": {
+    "RS-102895": {
+      "nearest_active_rank": 1189,
+      "primary_pipeline_rank": 2694
+    },
+    "SU3327": {
+      "nearest_active_rank": 7565,
+      "primary_pipeline_rank": 2742
+    },
+    "delafloxacin": {
+      "nearest_active_rank": 108,
+      "primary_pipeline_rank": 26
+    },
+    "epothilone-B": {
+      "nearest_active_rank": 4414,
+      "primary_pipeline_rank": 1131
+    }
+  },
+  "protocol_sha256": "72eb68c815d1e971d8a26b1c2fa96e880f0b71c174b50514da51b3836dca175a",
+  "random_baseline_expected": {
+    "median_percentile": 50.0,
+    "top_10pct_chance": 0.1,
+    "top_1pct_chance": 0.01,
+    "top_20pct_chance": 0.2,
+    "top_5pct_chance": 0.05
+  },
+  "summary": {
+    "chemprop_ensemble": {
+      "hits": {
+        "top_10pct": 1,
+        "top_1pct": 1,
+        "top_20pct": 1,
+        "top_5pct": 1
+      },
+      "median_percentile": 31.01
+    },
+    "molecular_weight": {
+      "hits": {
+        "top_10pct": 0,
+        "top_1pct": 0,
+        "top_20pct": 1,
+        "top_5pct": 0
+      },
+      "median_percentile": 40.74
+    },
+    "nearest_known_active_tanimoto": {
+      "hits": {
+        "top_10pct": 1,
+        "top_1pct": 0,
+        "top_20pct": 2,
+        "top_5pct": 1
+      },
+      "median_percentile": 34.29
+    },
+    "primary_pipeline": {
+      "hits": {
+        "top_10pct": 1,
+        "top_1pct": 1,
+        "top_20pct": 2,
+        "top_5pct": 1
+      },
+      "median_percentile": 23.41
+    },
+    "random_forest_morgan": {
+      "hits": {
+        "top_10pct": 2,
+        "top_1pct": 1,
+        "top_20pct": 2,
+        "top_5pct": 1
+      },
+      "median_percentile": 20.43
+    }
+  }
+}
